@@ -1,0 +1,9 @@
+xcodeproj ‘PonApp/PonApp.xcodeproj'
+platform :ios, ‘8.0’
+
+target 'PonApp' do
+ 	use_frameworks!
+ 	pod 'MBProgressHUD', '~> 0.8'
+	pod 'GoogleMaps'
+    pod 'Alamofire', '~> 3.4'
+end
