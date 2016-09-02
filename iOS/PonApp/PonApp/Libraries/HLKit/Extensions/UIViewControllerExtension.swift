@@ -32,6 +32,13 @@ extension UIViewController {
         return self.init(nibName: _nibName, bundle: bundle)
     }
     
+    class func instanceFromStoryBoard() -> UIViewController! {
+        let fullClassName = NSStringFromClass(self)
+        let storyboardId = fullClassName.componentsSeparatedByString(".").last
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier(storyboardId!)
+        return vc
+    }
     /*
      *** Instance Methods ***
      */

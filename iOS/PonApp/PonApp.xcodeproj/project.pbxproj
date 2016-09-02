@@ -34,6 +34,12 @@
 		4A6FD4D51D79C9DE000D4F85 /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4BB1D79C9DE000D4F85 /* DefaultsKeysExtension.swift */; };
 		4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4BC1D79C9DE000D4F85 /* SwiftyUserDefaults.swift */; };
 		4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4D81D79CA08000D4F85 /* LoggingPrint.swift */; };
+		4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37061D79D5F400C99476 /* AppDelegate.swift */; };
+		4ADE370F1D79D5F400C99476 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37091D79D5F400C99476 /* BaseNavigationController.swift */; };
+		4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE370A1D79D5F400C99476 /* BaseTabBarController.swift */; };
+		4ADE37111D79D5F400C99476 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE370B1D79D5F400C99476 /* BaseViewController.swift */; };
+		4ADE37121D79D5F400C99476 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE370D1D79D5F400C99476 /* SplashViewController.swift */; };
+		4ADE37151D79D6C900C99476 /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37141D79D6C900C99476 /* GlobalConstant.swift */; };
 		FA2F20191D780D5800608061 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FDF1D780D5800608061 /* LocationManager.swift */; };
 		FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FE01D780D5800608061 /* MapTasks.swift */; };
 		FA2F201B1D780D5800608061 /* Chunk Five Ex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FE51D780D5800608061 /* Chunk Five Ex.ttf */; };
@@ -49,8 +55,6 @@
 		FA2F20251D780D5800608061 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF01D780D5800608061 /* SourceSansPro-Regular.ttf */; };
 		FA2F20261D780D5800608061 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */; };
 		FA2F20271D780D5800608061 /* SourceSansPro-SemiboldIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */; };
-		FA2F20321D780D5800608061 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F200B1D780D5800608061 /* ViewController.swift */; };
-		FA33FCEC1D77BFDA0048EF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */; };
 		FA33FCF11D77BFDA0048EF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */; };
 		FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */; };
 		FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */; };
@@ -92,6 +96,12 @@
 		4A6FD4BB1D79C9DE000D4F85 /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
 		4A6FD4BC1D79C9DE000D4F85 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		4A6FD4D81D79CA08000D4F85 /* LoggingPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
+		4ADE37061D79D5F400C99476 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4ADE37091D79D5F400C99476 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		4ADE370A1D79D5F400C99476 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		4ADE370B1D79D5F400C99476 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4ADE370D1D79D5F400C99476 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		4ADE37141D79D6C900C99476 /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2F1FCE1D780D5800608061 /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
@@ -110,9 +120,7 @@
 		FA2F1FF01D780D5800608061 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.ttf"; sourceTree = "<group>"; };
-		FA2F200B1D780D5800608061 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA33FCF01D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA33FCF51D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -266,6 +274,49 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4ADE37051D79D5F400C99476 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE37061D79D5F400C99476 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4ADE37071D79D5F400C99476 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE37081D79D5F400C99476 /* Base */,
+				4ADE370C1D79D5F400C99476 /* UI */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4ADE37081D79D5F400C99476 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE37091D79D5F400C99476 /* BaseNavigationController.swift */,
+				4ADE370A1D79D5F400C99476 /* BaseTabBarController.swift */,
+				4ADE370B1D79D5F400C99476 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4ADE370C1D79D5F400C99476 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE370D1D79D5F400C99476 /* SplashViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4ADE37131D79D6C900C99476 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				4ADE37141D79D6C900C99476 /* GlobalConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		BB499B3834AC676546D06A4C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,14 +402,6 @@
 			path = "Source Sans Pro";
 			sourceTree = "<group>";
 		};
-		FA2F200A1D780D5800608061 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F200B1D780D5800608061 /* ViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		FA33FCDF1D77BFDA0048EF73 = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +423,9 @@
 		FA33FCEA1D77BFDA0048EF73 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				4ADE37131D79D6C900C99476 /* Constant */,
+				4ADE37051D79D5F400C99476 /* App */,
+				4ADE37071D79D5F400C99476 /* ViewController */,
 				4A6FD48E1D79C9DE000D4F85 /* Helper */,
 				4A6FD4921D79C9DE000D4F85 /* Libraries */,
 				4A6FD4A71D79C9DE000D4F85 /* Vendor */,
@@ -387,8 +433,6 @@
 				FA2F1FD81D780D5800608061 /* Manager */,
 				FA2F1FE11D780D5800608061 /* Model */,
 				FA2F1FE21D780D5800608061 /* Resources */,
-				FA2F200A1D780D5800608061 /* ViewController */,
-				FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */,
 				FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */,
 				FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */,
 				FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */,
@@ -539,28 +583,32 @@
 				4A6FD4D01D79C9DE000D4F85 /* Haversine.m in Sources */,
 				4A6FD4C71D79C9DE000D4F85 /* StringExtension.swift in Sources */,
 				4A6FD4C61D79C9DE000D4F85 /* NSDateExtension.swift in Sources */,
+				4ADE37111D79D5F400C99476 /* BaseViewController.swift in Sources */,
 				4A6FD4D21D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
+				4ADE370F1D79D5F400C99476 /* BaseNavigationController.swift in Sources */,
 				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
 				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
 				4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */,
 				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
 				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
 				4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */,
+				4ADE37151D79D6C900C99476 /* GlobalConstant.swift in Sources */,
 				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
-				FA2F20321D780D5800608061 /* ViewController.swift in Sources */,
+				4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */,
+				4ADE37121D79D5F400C99476 /* SplashViewController.swift in Sources */,
 				4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */,
 				4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */,
 				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
 				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
+				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
 				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
 				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
 				4A6FD4D51D79C9DE000D4F85 /* DefaultsKeysExtension.swift in Sources */,
 				4A6FD4C81D79C9DE000D4F85 /* TypeConversionHelper.swift in Sources */,
 				4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
 				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
-				FA33FCEC1D77BFDA0048EF73 /* AppDelegate.swift in Sources */,
 				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,6 +724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PonApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,6 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PonApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
