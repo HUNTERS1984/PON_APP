@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class Location{
+class Location {
     
     class func geocodeAddressString(address:String, completion:(placemark:CLPlacemark?, error:NSError?)->Void){
         let geocoder = CLGeocoder()

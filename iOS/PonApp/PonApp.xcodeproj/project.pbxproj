@@ -8,14 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */; };
-		FA2F200C1D780D5800608061 /* ChunkFiveUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD01D780D5800608061 /* ChunkFiveUIFont.swift */; };
-		FA2F200D1D780D5800608061 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD11D780D5800608061 /* ColorHelper.swift */; };
-		FA2F200E1D780D5800608061 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD21D780D5800608061 /* DateHelper.swift */; };
-		FA2F200F1D780D5800608061 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD31D780D5800608061 /* DictionaryHelper.swift */; };
-		FA2F20101D780D5800608061 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD41D780D5800608061 /* Location.swift */; };
-		FA2F20111D780D5800608061 /* SourceSansProUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD51D780D5800608061 /* SourceSansProUIFont.swift */; };
-		FA2F20121D780D5800608061 /* TypeConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD61D780D5800608061 /* TypeConversionHelper.swift */; };
-		FA2F20131D780D5800608061 /* UIImageResizeAndCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FD71D780D5800608061 /* UIImageResizeAndCrop.swift */; };
+		4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */; };
+		4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4901D79C9DE000D4F85 /* Location.swift */; };
+		4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */; };
+		4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4961D79C9DE000D4F85 /* HLKSharedResources.swift */; };
+		4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4981D79C9DE000D4F85 /* HLKAlertView.swift */; };
+		4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4991D79C9DE000D4F85 /* HLKDropDownTextField.swift */; };
+		4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD49A1D79C9DE000D4F85 /* HLKLinearScrollView.swift */; };
+		4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD49B1D79C9DE000D4F85 /* HLKTextField.swift */; };
+		4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD49D1D79C9DE000D4F85 /* MKMapViewExtension.swift */; };
+		4A6FD4C61D79C9DE000D4F85 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD49E1D79C9DE000D4F85 /* NSDateExtension.swift */; };
+		4A6FD4C71D79C9DE000D4F85 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD49F1D79C9DE000D4F85 /* StringExtension.swift */; };
+		4A6FD4C81D79C9DE000D4F85 /* TypeConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4A01D79C9DE000D4F85 /* TypeConversionHelper.swift */; };
+		4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4A11D79C9DE000D4F85 /* UIColorExtension.swift */; };
+		4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4A21D79C9DE000D4F85 /* UIImageExtension.swift */; };
+		4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4A31D79C9DE000D4F85 /* UIViewControllerExtension.swift */; };
+		4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */; };
+		4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4AA1D79C9DE000D4F85 /* Encryption.m */; };
+		4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4AC1D79C9DE000D4F85 /* MF_Base64Additions.m */; };
+		4A6FD4D01D79C9DE000D4F85 /* Haversine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4AF1D79C9DE000D4F85 /* Haversine.m */; };
+		4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4B31D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m */; };
+		4A6FD4D21D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4B51D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m */; };
+		4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4B71D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m */; };
+		4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4B91D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m */; };
+		4A6FD4D51D79C9DE000D4F85 /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4BB1D79C9DE000D4F85 /* DefaultsKeysExtension.swift */; };
+		4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4BC1D79C9DE000D4F85 /* SwiftyUserDefaults.swift */; };
+		4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4D81D79CA08000D4F85 /* LoggingPrint.swift */; };
 		FA2F20191D780D5800608061 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FDF1D780D5800608061 /* LocationManager.swift */; };
 		FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FE01D780D5800608061 /* MapTasks.swift */; };
 		FA2F201B1D780D5800608061 /* Chunk Five Ex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FE51D780D5800608061 /* Chunk Five Ex.ttf */; };
@@ -31,16 +49,6 @@
 		FA2F20251D780D5800608061 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF01D780D5800608061 /* SourceSansPro-Regular.ttf */; };
 		FA2F20261D780D5800608061 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */; };
 		FA2F20271D780D5800608061 /* SourceSansPro-SemiboldIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */; };
-		FA2F20281D780D5800608061 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FF61D780D5800608061 /* Encryption.m */; };
-		FA2F20291D780D5800608061 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FF81D780D5800608061 /* MF_Base64Additions.m */; };
-		FA2F202A1D780D5800608061 /* Haversine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FFB1D780D5800608061 /* Haversine.m */; };
-		FA2F202B1D780D5800608061 /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FFC1D780D5800608061 /* LoggingPrint.swift */; };
-		FA2F202C1D780D5800608061 /* SPGooglePlacesAutocompletePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20001D780D5800608061 /* SPGooglePlacesAutocompletePlace.m */; };
-		FA2F202D1D780D5800608061 /* SPGooglePlacesAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20021D780D5800608061 /* SPGooglePlacesAutocompleteQuery.m */; };
-		FA2F202E1D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20041D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.m */; };
-		FA2F202F1D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20061D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.m */; };
-		FA2F20301D780D5800608061 /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20081D780D5800608061 /* DefaultsKeysExtension.swift */; };
-		FA2F20311D780D5800608061 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F20091D780D5800608061 /* SwiftyUserDefaults.swift */; };
 		FA2F20321D780D5800608061 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F200B1D780D5800608061 /* ViewController.swift */; };
 		FA33FCEC1D77BFDA0048EF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */; };
 		FA33FCF11D77BFDA0048EF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */; };
@@ -50,17 +58,43 @@
 
 /* Begin PBXFileReference section */
 		38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.release.xcconfig"; sourceTree = "<group>"; };
+		4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunkFiveUIFont.swift; sourceTree = "<group>"; };
+		4A6FD4901D79C9DE000D4F85 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSansProUIFont.swift; sourceTree = "<group>"; };
+		4A6FD4961D79C9DE000D4F85 /* HLKSharedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKSharedResources.swift; sourceTree = "<group>"; };
+		4A6FD4981D79C9DE000D4F85 /* HLKAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKAlertView.swift; sourceTree = "<group>"; };
+		4A6FD4991D79C9DE000D4F85 /* HLKDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKDropDownTextField.swift; sourceTree = "<group>"; };
+		4A6FD49A1D79C9DE000D4F85 /* HLKLinearScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKLinearScrollView.swift; sourceTree = "<group>"; };
+		4A6FD49B1D79C9DE000D4F85 /* HLKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKTextField.swift; sourceTree = "<group>"; };
+		4A6FD49D1D79C9DE000D4F85 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		4A6FD49E1D79C9DE000D4F85 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		4A6FD49F1D79C9DE000D4F85 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		4A6FD4A01D79C9DE000D4F85 /* TypeConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeConversionHelper.swift; sourceTree = "<group>"; };
+		4A6FD4A11D79C9DE000D4F85 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4A6FD4A21D79C9DE000D4F85 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4A6FD4A31D79C9DE000D4F85 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		4A6FD4A91D79C9DE000D4F85 /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
+		4A6FD4AA1D79C9DE000D4F85 /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
+		4A6FD4AB1D79C9DE000D4F85 /* MF_Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MF_Base64Additions.h; sourceTree = "<group>"; };
+		4A6FD4AC1D79C9DE000D4F85 /* MF_Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MF_Base64Additions.m; sourceTree = "<group>"; };
+		4A6FD4AE1D79C9DE000D4F85 /* Haversine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haversine.h; sourceTree = "<group>"; };
+		4A6FD4AF1D79C9DE000D4F85 /* Haversine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haversine.m; sourceTree = "<group>"; };
+		4A6FD4B11D79C9DE000D4F85 /* SPGooglePlacesAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocomplete.h; sourceTree = "<group>"; };
+		4A6FD4B21D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompletePlace.h; sourceTree = "<group>"; };
+		4A6FD4B31D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompletePlace.m; sourceTree = "<group>"; };
+		4A6FD4B41D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompleteQuery.h; sourceTree = "<group>"; };
+		4A6FD4B51D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompleteQuery.m; sourceTree = "<group>"; };
+		4A6FD4B61D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompleteUtilities.h; sourceTree = "<group>"; };
+		4A6FD4B71D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompleteUtilities.m; sourceTree = "<group>"; };
+		4A6FD4B81D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesPlaceDetailQuery.h; sourceTree = "<group>"; };
+		4A6FD4B91D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesPlaceDetailQuery.m; sourceTree = "<group>"; };
+		4A6FD4BB1D79C9DE000D4F85 /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
+		4A6FD4BC1D79C9DE000D4F85 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
+		4A6FD4D81D79CA08000D4F85 /* LoggingPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2F1FCE1D780D5800608061 /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
-		FA2F1FD01D780D5800608061 /* ChunkFiveUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunkFiveUIFont.swift; sourceTree = "<group>"; };
-		FA2F1FD11D780D5800608061 /* ColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
-		FA2F1FD21D780D5800608061 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		FA2F1FD31D780D5800608061 /* DictionaryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
-		FA2F1FD41D780D5800608061 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		FA2F1FD51D780D5800608061 /* SourceSansProUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSansProUIFont.swift; sourceTree = "<group>"; };
-		FA2F1FD61D780D5800608061 /* TypeConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeConversionHelper.swift; sourceTree = "<group>"; };
-		FA2F1FD71D780D5800608061 /* UIImageResizeAndCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageResizeAndCrop.swift; sourceTree = "<group>"; };
 		FA2F1FDF1D780D5800608061 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FA2F1FE01D780D5800608061 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		FA2F1FE51D780D5800608061 /* Chunk Five Ex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chunk Five Ex.ttf"; sourceTree = "<group>"; };
@@ -76,24 +110,6 @@
 		FA2F1FF01D780D5800608061 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.ttf"; sourceTree = "<group>"; };
-		FA2F1FF51D780D5800608061 /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
-		FA2F1FF61D780D5800608061 /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
-		FA2F1FF71D780D5800608061 /* MF_Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MF_Base64Additions.h; sourceTree = "<group>"; };
-		FA2F1FF81D780D5800608061 /* MF_Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MF_Base64Additions.m; sourceTree = "<group>"; };
-		FA2F1FFA1D780D5800608061 /* Haversine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haversine.h; sourceTree = "<group>"; };
-		FA2F1FFB1D780D5800608061 /* Haversine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haversine.m; sourceTree = "<group>"; };
-		FA2F1FFC1D780D5800608061 /* LoggingPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
-		FA2F1FFE1D780D5800608061 /* SPGooglePlacesAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocomplete.h; sourceTree = "<group>"; };
-		FA2F1FFF1D780D5800608061 /* SPGooglePlacesAutocompletePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompletePlace.h; sourceTree = "<group>"; };
-		FA2F20001D780D5800608061 /* SPGooglePlacesAutocompletePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompletePlace.m; sourceTree = "<group>"; };
-		FA2F20011D780D5800608061 /* SPGooglePlacesAutocompleteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompleteQuery.h; sourceTree = "<group>"; };
-		FA2F20021D780D5800608061 /* SPGooglePlacesAutocompleteQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompleteQuery.m; sourceTree = "<group>"; };
-		FA2F20031D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompleteUtilities.h; sourceTree = "<group>"; };
-		FA2F20041D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompleteUtilities.m; sourceTree = "<group>"; };
-		FA2F20051D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesPlaceDetailQuery.h; sourceTree = "<group>"; };
-		FA2F20061D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesPlaceDetailQuery.m; sourceTree = "<group>"; };
-		FA2F20081D780D5800608061 /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
-		FA2F20091D780D5800608061 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		FA2F200B1D780D5800608061 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +131,141 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A6FD48E1D79C9DE000D4F85 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */,
+				4A6FD4901D79C9DE000D4F85 /* Location.swift */,
+				4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4A6FD4921D79C9DE000D4F85 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4931D79C9DE000D4F85 /* HLKit */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		4A6FD4931D79C9DE000D4F85 /* HLKit */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4D71D79CA08000D4F85 /* Helpers */,
+				4A6FD4941D79C9DE000D4F85 /* Customs */,
+				4A6FD49C1D79C9DE000D4F85 /* Extensions */,
+			);
+			path = HLKit;
+			sourceTree = "<group>";
+		};
+		4A6FD4941D79C9DE000D4F85 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4951D79C9DE000D4F85 /* Foundation */,
+				4A6FD4971D79C9DE000D4F85 /* UI */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+		4A6FD4951D79C9DE000D4F85 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4961D79C9DE000D4F85 /* HLKSharedResources.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4A6FD4971D79C9DE000D4F85 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4981D79C9DE000D4F85 /* HLKAlertView.swift */,
+				4A6FD4991D79C9DE000D4F85 /* HLKDropDownTextField.swift */,
+				4A6FD49A1D79C9DE000D4F85 /* HLKLinearScrollView.swift */,
+				4A6FD49B1D79C9DE000D4F85 /* HLKTextField.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4A6FD49C1D79C9DE000D4F85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD49D1D79C9DE000D4F85 /* MKMapViewExtension.swift */,
+				4A6FD49E1D79C9DE000D4F85 /* NSDateExtension.swift */,
+				4A6FD49F1D79C9DE000D4F85 /* StringExtension.swift */,
+				4A6FD4A01D79C9DE000D4F85 /* TypeConversionHelper.swift */,
+				4A6FD4A11D79C9DE000D4F85 /* UIColorExtension.swift */,
+				4A6FD4A21D79C9DE000D4F85 /* UIImageExtension.swift */,
+				4A6FD4A31D79C9DE000D4F85 /* UIViewControllerExtension.swift */,
+				4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4A6FD4A71D79C9DE000D4F85 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4A81D79C9DE000D4F85 /* Encryption */,
+				4A6FD4AD1D79C9DE000D4F85 /* Haversine */,
+				4A6FD4B01D79C9DE000D4F85 /* SPGooglePlacesAutocomplete */,
+				4A6FD4BA1D79C9DE000D4F85 /* SwiftyUserDefaults */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4A6FD4A81D79C9DE000D4F85 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4A91D79C9DE000D4F85 /* Encryption.h */,
+				4A6FD4AA1D79C9DE000D4F85 /* Encryption.m */,
+				4A6FD4AB1D79C9DE000D4F85 /* MF_Base64Additions.h */,
+				4A6FD4AC1D79C9DE000D4F85 /* MF_Base64Additions.m */,
+			);
+			path = Encryption;
+			sourceTree = "<group>";
+		};
+		4A6FD4AD1D79C9DE000D4F85 /* Haversine */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4AE1D79C9DE000D4F85 /* Haversine.h */,
+				4A6FD4AF1D79C9DE000D4F85 /* Haversine.m */,
+			);
+			path = Haversine;
+			sourceTree = "<group>";
+		};
+		4A6FD4B01D79C9DE000D4F85 /* SPGooglePlacesAutocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4B11D79C9DE000D4F85 /* SPGooglePlacesAutocomplete.h */,
+				4A6FD4B21D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.h */,
+				4A6FD4B31D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m */,
+				4A6FD4B41D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.h */,
+				4A6FD4B51D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m */,
+				4A6FD4B61D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.h */,
+				4A6FD4B71D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m */,
+				4A6FD4B81D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.h */,
+				4A6FD4B91D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m */,
+			);
+			path = SPGooglePlacesAutocomplete;
+			sourceTree = "<group>";
+		};
+		4A6FD4BA1D79C9DE000D4F85 /* SwiftyUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4BB1D79C9DE000D4F85 /* DefaultsKeysExtension.swift */,
+				4A6FD4BC1D79C9DE000D4F85 /* SwiftyUserDefaults.swift */,
+			);
+			path = SwiftyUserDefaults;
+			sourceTree = "<group>";
+		};
+		4A6FD4D71D79CA08000D4F85 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD4D81D79CA08000D4F85 /* LoggingPrint.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BB499B3834AC676546D06A4C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,21 +289,6 @@
 				FA2F1FCE1D780D5800608061 /* ObjC-Header.h */,
 			);
 			path = Header;
-			sourceTree = "<group>";
-		};
-		FA2F1FCF1D780D5800608061 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F1FD01D780D5800608061 /* ChunkFiveUIFont.swift */,
-				FA2F1FD11D780D5800608061 /* ColorHelper.swift */,
-				FA2F1FD21D780D5800608061 /* DateHelper.swift */,
-				FA2F1FD31D780D5800608061 /* DictionaryHelper.swift */,
-				FA2F1FD41D780D5800608061 /* Location.swift */,
-				FA2F1FD51D780D5800608061 /* SourceSansProUIFont.swift */,
-				FA2F1FD61D780D5800608061 /* TypeConversionHelper.swift */,
-				FA2F1FD71D780D5800608061 /* UIImageResizeAndCrop.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		FA2F1FD81D780D5800608061 /* Manager */ = {
@@ -215,63 +351,6 @@
 			path = "Source Sans Pro";
 			sourceTree = "<group>";
 		};
-		FA2F1FF31D780D5800608061 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F1FF41D780D5800608061 /* Encryption */,
-				FA2F1FF91D780D5800608061 /* Haversine */,
-				FA2F1FFC1D780D5800608061 /* LoggingPrint.swift */,
-				FA2F1FFD1D780D5800608061 /* SPGooglePlacesAutocomplete */,
-				FA2F20071D780D5800608061 /* SwiftyUserDefaults */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		FA2F1FF41D780D5800608061 /* Encryption */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F1FF51D780D5800608061 /* Encryption.h */,
-				FA2F1FF61D780D5800608061 /* Encryption.m */,
-				FA2F1FF71D780D5800608061 /* MF_Base64Additions.h */,
-				FA2F1FF81D780D5800608061 /* MF_Base64Additions.m */,
-			);
-			path = Encryption;
-			sourceTree = "<group>";
-		};
-		FA2F1FF91D780D5800608061 /* Haversine */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F1FFA1D780D5800608061 /* Haversine.h */,
-				FA2F1FFB1D780D5800608061 /* Haversine.m */,
-			);
-			path = Haversine;
-			sourceTree = "<group>";
-		};
-		FA2F1FFD1D780D5800608061 /* SPGooglePlacesAutocomplete */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F1FFE1D780D5800608061 /* SPGooglePlacesAutocomplete.h */,
-				FA2F1FFF1D780D5800608061 /* SPGooglePlacesAutocompletePlace.h */,
-				FA2F20001D780D5800608061 /* SPGooglePlacesAutocompletePlace.m */,
-				FA2F20011D780D5800608061 /* SPGooglePlacesAutocompleteQuery.h */,
-				FA2F20021D780D5800608061 /* SPGooglePlacesAutocompleteQuery.m */,
-				FA2F20031D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.h */,
-				FA2F20041D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.m */,
-				FA2F20051D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.h */,
-				FA2F20061D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.m */,
-			);
-			path = SPGooglePlacesAutocomplete;
-			sourceTree = "<group>";
-		};
-		FA2F20071D780D5800608061 /* SwiftyUserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				FA2F20081D780D5800608061 /* DefaultsKeysExtension.swift */,
-				FA2F20091D780D5800608061 /* SwiftyUserDefaults.swift */,
-			);
-			path = SwiftyUserDefaults;
-			sourceTree = "<group>";
-		};
 		FA2F200A1D780D5800608061 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,12 +380,13 @@
 		FA33FCEA1D77BFDA0048EF73 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A6FD48E1D79C9DE000D4F85 /* Helper */,
+				4A6FD4921D79C9DE000D4F85 /* Libraries */,
+				4A6FD4A71D79C9DE000D4F85 /* Vendor */,
 				FA2F1FCD1D780D5800608061 /* Header */,
-				FA2F1FCF1D780D5800608061 /* Helper */,
 				FA2F1FD81D780D5800608061 /* Manager */,
 				FA2F1FE11D780D5800608061 /* Model */,
 				FA2F1FE21D780D5800608061 /* Resources */,
-				FA2F1FF31D780D5800608061 /* Vendor */,
 				FA2F200A1D780D5800608061 /* ViewController */,
 				FA33FCEB1D77BFDA0048EF73 /* AppDelegate.swift */,
 				FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */,
@@ -452,28 +532,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA2F200C1D780D5800608061 /* ChunkFiveUIFont.swift in Sources */,
-				FA2F200F1D780D5800608061 /* DictionaryHelper.swift in Sources */,
-				FA2F202C1D780D5800608061 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */,
 				FA2F20191D780D5800608061 /* LocationManager.swift in Sources */,
-				FA2F202D1D780D5800608061 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
-				FA2F200E1D780D5800608061 /* DateHelper.swift in Sources */,
-				FA2F202A1D780D5800608061 /* Haversine.m in Sources */,
-				FA2F20131D780D5800608061 /* UIImageResizeAndCrop.swift in Sources */,
-				FA2F200D1D780D5800608061 /* ColorHelper.swift in Sources */,
-				FA2F202B1D780D5800608061 /* LoggingPrint.swift in Sources */,
-				FA2F20101D780D5800608061 /* Location.swift in Sources */,
-				FA2F20121D780D5800608061 /* TypeConversionHelper.swift in Sources */,
+				4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */,
-				FA2F202F1D780D5800608061 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
-				FA2F20301D780D5800608061 /* DefaultsKeysExtension.swift in Sources */,
-				FA2F202E1D780D5800608061 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
+				4A6FD4D01D79C9DE000D4F85 /* Haversine.m in Sources */,
+				4A6FD4C71D79C9DE000D4F85 /* StringExtension.swift in Sources */,
+				4A6FD4C61D79C9DE000D4F85 /* NSDateExtension.swift in Sources */,
+				4A6FD4D21D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
+				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
+				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
+				4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */,
+				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
+				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */,
+				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
 				FA2F20321D780D5800608061 /* ViewController.swift in Sources */,
+				4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */,
+				4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */,
+				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
+				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
+				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
+				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
+				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
+				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
+				4A6FD4D51D79C9DE000D4F85 /* DefaultsKeysExtension.swift in Sources */,
+				4A6FD4C81D79C9DE000D4F85 /* TypeConversionHelper.swift in Sources */,
+				4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
+				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
 				FA33FCEC1D77BFDA0048EF73 /* AppDelegate.swift in Sources */,
-				FA2F20311D780D5800608061 /* SwiftyUserDefaults.swift in Sources */,
-				FA2F20281D780D5800608061 /* Encryption.m in Sources */,
-				FA2F20111D780D5800608061 /* SourceSansProUIFont.swift in Sources */,
-				FA2F20291D780D5800608061 /* MF_Base64Additions.m in Sources */,
+				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

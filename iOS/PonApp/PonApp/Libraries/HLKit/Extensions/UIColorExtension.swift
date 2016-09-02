@@ -1,18 +1,19 @@
 //
-//  ColorHelper.swift
-//  CouponFinder
+//  UIColorExtension.swift
+//  PonApp
 //
-//  Created by HaoLe on 12/8/15.
-//  Copyright © 2015 HaoLe. All rights reserved.
+//  Created by OSXVN on 9/2/16.
+//  Copyright © 2016 HaoLe. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 /**
-MissingHashMarkAsPrefix:   "Invalid RGB string, missing '#' as prefix"
-UnableToScanHexValue:      "Scan hex error"
-MismatchedHexStringLength: "Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8"
-*/
+ MissingHashMarkAsPrefix:   "Invalid RGB string, missing '#' as prefix"
+ UnableToScanHexValue:      "Scan hex error"
+ MismatchedHexStringLength: "Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8"
+ */
 public enum UIColorInputError : ErrorType {
     case MissingHashMarkAsPrefix,
     UnableToScanHexValue,
@@ -21,12 +22,12 @@ public enum UIColorInputError : ErrorType {
 
 extension UIColor {
     /**
-    The shorthand three-digit hexadecimal representation of color.
-    #RGB defines to the color #RRGGBB.
-    
-    - parameter hex3: Three-digit hexadecimal value.
-    - parameter alpha: 0.0 - 1.0. The default is 1.0.
-    */
+     The shorthand three-digit hexadecimal representation of color.
+     #RGB defines to the color #RRGGBB.
+     
+     - parameter hex3: Three-digit hexadecimal value.
+     - parameter alpha: 0.0 - 1.0. The default is 1.0.
+     */
     public convenience init(hex3: UInt16, alpha: CGFloat = 1) {
         let divisor = CGFloat(15)
         let red     = CGFloat((hex3 & 0xF00) >> 8) / divisor
@@ -36,11 +37,11 @@ extension UIColor {
     }
     
     /**
-    The shorthand four-digit hexadecimal representation of color with alpha.
-    #RGBA defines to the color #RRGGBBAA.
-    
-    - parameter hex4: Four-digit hexadecimal value.
-    */
+     The shorthand four-digit hexadecimal representation of color with alpha.
+     #RGBA defines to the color #RRGGBBAA.
+     
+     - parameter hex4: Four-digit hexadecimal value.
+     */
     public convenience init(hex4: UInt16) {
         let divisor = CGFloat(15)
         let red     = CGFloat((hex4 & 0xF000) >> 12) / divisor
@@ -51,10 +52,10 @@ extension UIColor {
     }
     
     /**
-    The six-digit hexadecimal representation of color of the form #RRGGBB.
-    
-    - parameter hex6: Six-digit hexadecimal value.
-    */
+     The six-digit hexadecimal representation of color of the form #RRGGBB.
+     
+     - parameter hex6: Six-digit hexadecimal value.
+     */
     public convenience init(hex6: UInt32, alpha: CGFloat = 1) {
         let divisor = CGFloat(255)
         let red     = CGFloat((hex6 & 0xFF0000) >> 16) / divisor
@@ -64,10 +65,10 @@ extension UIColor {
     }
     
     /**
-    The six-digit hexadecimal representation of color with alpha of the form #RRGGBBAA.
-    
-    - parameter hex8: Eight-digit hexadecimal value.
-    */
+     The six-digit hexadecimal representation of color with alpha of the form #RRGGBBAA.
+     
+     - parameter hex8: Eight-digit hexadecimal value.
+     */
     public convenience init(hex8: UInt32) {
         let divisor = CGFloat(255)
         let red     = CGFloat((hex8 & 0xFF000000) >> 24) / divisor
@@ -78,10 +79,10 @@ extension UIColor {
     }
     
     /**
-    The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, throws error.
-    
-    - parameter rgba: String value.
-    */
+     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, throws error.
+     
+     - parameter rgba: String value.
+     */
     public convenience init(rgba_throws rgba: String) throws {
         guard rgba.hasPrefix("#") else {
             throw UIColorInputError.MissingHashMarkAsPrefix
@@ -113,10 +114,10 @@ extension UIColor {
     }
     
     /**
-    The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, fails to default color.
-    
-    - parameter rgba: String value.
-    */
+     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, fails to default color.
+     
+     - parameter rgba: String value.
+     */
     public convenience init(rgba: String, defaultColor: UIColor = UIColor.clearColor()) {
         guard let color = try? UIColor(rgba_throws: rgba) else {
             self.init(CGColor: defaultColor.CGColor)
@@ -126,9 +127,9 @@ extension UIColor {
     }
     
     /**
-    Hex string of a UIColor instance.
-    - parameter rgba: Whether the alpha should be included.
-    */
+     Hex string of a UIColor instance.
+     - parameter rgba: Whether the alpha should be included.
+     */
     public func hexString(includeAlpha: Bool) -> String {
         var r: CGFloat = 0
         var g: CGFloat = 0
