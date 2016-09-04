@@ -1,11 +1,12 @@
 //
-//  UIImageResizeAndCrop.swift
-//  SpaOwnerIOS
+//  UIImageExtension.swift
+//  PonApp
 //
-//  Created by HaoLe on 7/4/16.
+//  Created by OSXVN on 9/2/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 extension UIImage {
