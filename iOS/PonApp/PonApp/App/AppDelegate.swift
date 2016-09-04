@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
-        let vc = SplashViewController.instanceFromStoryBoard()
+        let vc = MainViewController.instanceFromStoryBoard()
         self.window?.rootViewController = vc
         
     }
