@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#18C0D4</color>
+    <color name="colorPrimaryDark">#18C0D4</color>
     <color name="colorAccent">#FF4081</color>
     <color name="pink">#FF849F</color>
     <color name="grey">#888E90</color>
     <color name="black">#000000</color>
+    <color name="dark_grey">#DDE3E5</color>
+    <color name="light_grey">#F8F8FA</color>
+    <color name="light_blue">#E2F6F8</color>
+    <color name="light_grey_background_icon">#F8F9FA</color>
+    <color name="light_grey_stroke_icon">#EEF1F3</color>
+    <color name="light_blue_background_icon">#E3F7F9</color>
+    <color name="light_blue_stroke_icon">#D7E6E9</color>
+    <color name="shop_subscribe_unselect">#EDFAFC</color>
+    <color name="shop_subscribe_select">#18C0D4</color>
+    <color name="white">#FFFFFF</color>
 </resources>

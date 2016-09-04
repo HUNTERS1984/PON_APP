@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hunters1984.pon.fragments.NewestCouponFragment">
+    tools:context="com.hunters1984.pon.fragments.PopularShopSubscribeFragment">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_view_coupons">
+        android:id="@+id/recycler_view_shop_subscribe">
 
     </android.support.v7.widget.RecyclerView>
 

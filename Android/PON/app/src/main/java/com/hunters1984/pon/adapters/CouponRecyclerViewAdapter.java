@@ -19,11 +19,11 @@ import java.util.List;
 public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecyclerViewAdapter.CouponRecyclerViewHolders> {
 
     private List<CouponModel> mListCoupons;
-    private Context context;
+    private Context mContext;
 
     public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons) {
         this.mListCoupons = lstCoupons;
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override

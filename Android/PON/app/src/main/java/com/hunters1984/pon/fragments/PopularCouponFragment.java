@@ -1,7 +1,5 @@
 package com.hunters1984.pon.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,10 +10,6 @@ import android.view.ViewGroup;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
-import com.hunters1984.pon.models.CouponModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +19,7 @@ import java.util.List;
  * Use the {@link PopularCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PopularCouponFragment extends Fragment{
+public class PopularCouponFragment extends BaseFragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,8 +30,6 @@ public class PopularCouponFragment extends Fragment{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
-    private List<CouponModel> mListCoupons;
 
     public PopularCouponFragment() {
         // Required empty public constructor
@@ -68,7 +60,6 @@ public class PopularCouponFragment extends Fragment{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        initData();
     }
 
     @Override
@@ -83,55 +74,5 @@ public class PopularCouponFragment extends Fragment{
         CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(view.getContext(), mListCoupons);
         rv.setAdapter(adapter);
         return view;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    private void initData()
-    {
-        mListCoupons = new ArrayList<>();
-        for(int i=0; i<5; i++) {
-            CouponModel coupon = new CouponModel();
-            coupon.setmTitle("Title");
-            coupon.setmDescription("Description");
-            coupon.setmExpireDate("Expire : 2016.2.7");
-            coupon.setmIsFavourite((i%2==0?true:false));
-            mListCoupons.add(coupon);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }
