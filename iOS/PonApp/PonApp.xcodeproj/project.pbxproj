@@ -42,7 +42,6 @@
 		4ADE37151D79D6C900C99476 /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37141D79D6C900C99476 /* GlobalConstant.swift */; };
 		4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37161D79D94800C99476 /* MainViewController.swift */; };
 		4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37181D79DBE800C99476 /* AccountViewController.swift */; };
-		4ADE371B1D79DBFB00C99476 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE371A1D79DBFB00C99476 /* EditProfileViewController.swift */; };
 		4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE371C1D79DC1600C99476 /* FavoriteViewController.swift */; };
 		FA2F20191D780D5800608061 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FDF1D780D5800608061 /* LocationManager.swift */; };
 		FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FE01D780D5800608061 /* MapTasks.swift */; };
@@ -59,9 +58,23 @@
 		FA2F20251D780D5800608061 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF01D780D5800608061 /* SourceSansPro-Regular.ttf */; };
 		FA2F20261D780D5800608061 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */; };
 		FA2F20271D780D5800608061 /* SourceSansPro-SemiboldIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */; };
-		FA33FCF11D77BFDA0048EF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */; };
 		FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */; };
 		FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */; };
+		FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */; };
+		FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50F1D7D033200CF10D8 /* Account.storyboard */; };
+		FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */; };
+		FA51B51A1D7D0CB800CF10D8 /* PonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5191D7D0CB800CF10D8 /* PonButton.swift */; };
+		FA51B51D1D7D125B00CF10D8 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */; };
+		FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */; };
+		FA51B52C1D7D63C200CF10D8 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B52B1D7D63C200CF10D8 /* CAPSPageMenu.swift */; };
+		FA51B5301D7D670700CF10D8 /* HomePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B52F1D7D670700CF10D8 /* HomePopularViewController.swift */; };
+		FA51B5321D7D672600CF10D8 /* HomeNearByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5311D7D672600CF10D8 /* HomeNearByViewController.swift */; };
+		FA51B5391D7D716B00CF10D8 /* HomeUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5381D7D716B00CF10D8 /* HomeUsedViewController.swift */; };
+		FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B53A1D7D717B00CF10D8 /* HomeNewestViewController.swift */; };
+		FA51B5471D7D7CEA00CF10D8 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */; };
+		FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */; };
+		FA51B54B1D7D846400CF10D8 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */; };
+		FA51B54D1D7D868200CF10D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54C1D7D868200CF10D8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +121,6 @@
 		4ADE37141D79D6C900C99476 /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		4ADE37161D79D94800C99476 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4ADE37181D79DBE800C99476 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		4ADE371A1D79DBFB00C99476 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4ADE371C1D79DC1600C99476 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,10 +141,24 @@
 		FA2F1FF11D780D5800608061 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		FA2F1FF21D780D5800608061 /* SourceSansPro-SemiboldIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.ttf"; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA33FCF01D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA33FCF51D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA33FCF71D77BFDA0048EF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA51B50F1D7D033200CF10D8 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		FA51B5191D7D0CB800CF10D8 /* PonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonButton.swift; sourceTree = "<group>"; };
+		FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA51B52B1D7D63C200CF10D8 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		FA51B52F1D7D670700CF10D8 /* HomePopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePopularViewController.swift; sourceTree = "<group>"; };
+		FA51B5311D7D672600CF10D8 /* HomeNearByViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNearByViewController.swift; sourceTree = "<group>"; };
+		FA51B5381D7D716B00CF10D8 /* HomeUsedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeUsedViewController.swift; sourceTree = "<group>"; };
+		FA51B53A1D7D717B00CF10D8 /* HomeNewestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNewestViewController.swift; sourceTree = "<group>"; };
+		FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
+		FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
+		FA51B54C1D7D868200CF10D8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +247,7 @@
 		4A6FD4A71D79C9DE000D4F85 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FA51B52A1D7D63C200CF10D8 /* CAPSPageMenu */,
 				4A6FD4A81D79C9DE000D4F85 /* Encryption */,
 				4A6FD4AD1D79C9DE000D4F85 /* Haversine */,
 				4A6FD4B01D79C9DE000D4F85 /* SPGooglePlacesAutocomplete */,
@@ -315,8 +342,14 @@
 				4ADE370D1D79D5F400C99476 /* SplashViewController.swift */,
 				4ADE37161D79D94800C99476 /* MainViewController.swift */,
 				4ADE37181D79DBE800C99476 /* AccountViewController.swift */,
-				4ADE371A1D79DBFB00C99476 /* EditProfileViewController.swift */,
 				4ADE371C1D79DC1600C99476 /* FavoriteViewController.swift */,
+				FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */,
+				FA51B52F1D7D670700CF10D8 /* HomePopularViewController.swift */,
+				FA51B5311D7D672600CF10D8 /* HomeNearByViewController.swift */,
+				FA51B5381D7D716B00CF10D8 /* HomeUsedViewController.swift */,
+				FA51B53A1D7D717B00CF10D8 /* HomeNewestViewController.swift */,
+				FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */,
+				FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -435,6 +468,7 @@
 		FA33FCEA1D77BFDA0048EF73 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA51B50C1D7D02EC00CF10D8 /* StoryBoard */,
 				4ADE37131D79D6C900C99476 /* Constant */,
 				4ADE37051D79D5F400C99476 /* App */,
 				4ADE37071D79D5F400C99476 /* ViewController */,
@@ -445,12 +479,65 @@
 				FA2F1FD81D780D5800608061 /* Manager */,
 				FA2F1FE11D780D5800608061 /* Model */,
 				FA2F1FE21D780D5800608061 /* Resources */,
-				FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */,
+				FA51B5171D7D0C9600CF10D8 /* View */,
 				FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */,
 				FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */,
 				FA33FCF71D77BFDA0048EF73 /* Info.plist */,
 			);
 			path = PonApp;
+			sourceTree = "<group>";
+		};
+		FA51B50C1D7D02EC00CF10D8 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */,
+				FA51B50F1D7D033200CF10D8 /* Account.storyboard */,
+				FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		FA51B5171D7D0C9600CF10D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B5271D7D572500CF10D8 /* Cell */,
+				FA51B51B1D7D123E00CF10D8 /* View */,
+				FA51B5181D7D0CA200CF10D8 /* Button */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA51B5181D7D0CA200CF10D8 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B5191D7D0CB800CF10D8 /* PonButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		FA51B51B1D7D123E00CF10D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */,
+				FA51B54C1D7D868200CF10D8 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA51B5271D7D572500CF10D8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA51B52A1D7D63C200CF10D8 /* CAPSPageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FA51B52B1D7D63C200CF10D8 /* CAPSPageMenu.swift */,
+			);
+			path = CAPSPageMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +575,7 @@
 				TargetAttributes = {
 					FA33FCE71D77BFDA0048EF73 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = D26XEPCZ8Q;
 					};
 				};
 			};
@@ -520,15 +608,17 @@
 				FA2F20251D780D5800608061 /* SourceSansPro-Regular.ttf in Resources */,
 				FA2F20231D780D5800608061 /* SourceSansPro-Light.ttf in Resources */,
 				FA2F20211D780D5800608061 /* SourceSansPro-ExtraLightIt.ttf in Resources */,
+				FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */,
 				FA2F20201D780D5800608061 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				FA2F201D1D780D5800608061 /* SourceSansPro-BlackIt.ttf in Resources */,
 				FA2F20271D780D5800608061 /* SourceSansPro-SemiboldIt.ttf in Resources */,
+				FA51B5471D7D7CEA00CF10D8 /* MainMenu.storyboard in Resources */,
 				FA2F20221D780D5800608061 /* SourceSansPro-It.ttf in Resources */,
 				FA2F201C1D780D5800608061 /* SourceSansPro-Black.ttf in Resources */,
 				FA2F201E1D780D5800608061 /* SourceSansPro-Bold.ttf in Resources */,
 				FA2F20241D780D5800608061 /* SourceSansPro-LightIt.ttf in Resources */,
+				FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */,
 				FA2F201F1D780D5800608061 /* SourceSansPro-BoldIt.ttf in Resources */,
-				FA33FCF11D77BFDA0048EF73 /* Main.storyboard in Resources */,
 				FA2F20261D780D5800608061 /* SourceSansPro-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,36 +678,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */,
 				4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */,
+				FA51B52C1D7D63C200CF10D8 /* CAPSPageMenu.swift in Sources */,
 				FA2F20191D780D5800608061 /* LocationManager.swift in Sources */,
 				4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
+				FA51B5301D7D670700CF10D8 /* HomePopularViewController.swift in Sources */,
 				FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */,
 				4A6FD4D01D79C9DE000D4F85 /* Haversine.m in Sources */,
 				4A6FD4C71D79C9DE000D4F85 /* StringExtension.swift in Sources */,
 				4A6FD4C61D79C9DE000D4F85 /* NSDateExtension.swift in Sources */,
 				4ADE37111D79D5F400C99476 /* BaseViewController.swift in Sources */,
 				4A6FD4D21D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
+				FA51B54B1D7D846400CF10D8 /* HomeMapViewController.swift in Sources */,
 				4ADE370F1D79D5F400C99476 /* BaseNavigationController.swift in Sources */,
+				FA51B54D1D7D868200CF10D8 /* MapView.swift in Sources */,
 				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
+				FA51B5321D7D672600CF10D8 /* HomeNearByViewController.swift in Sources */,
 				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
 				4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */,
 				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
 				4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */,
+				FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */,
 				4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */,
 				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				FA51B51D1D7D125B00CF10D8 /* TabbarView.swift in Sources */,
 				4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */,
+				FA51B51A1D7D0CB800CF10D8 /* PonButton.swift in Sources */,
 				4ADE37151D79D6C900C99476 /* GlobalConstant.swift in Sources */,
 				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
+				FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */,
 				4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */,
 				4ADE37121D79D5F400C99476 /* SplashViewController.swift in Sources */,
 				4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */,
 				4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */,
 				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
+				FA51B5391D7D716B00CF10D8 /* HomeUsedViewController.swift in Sources */,
 				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
 				4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */,
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
-				4ADE371B1D79DBFB00C99476 /* EditProfileViewController.swift in Sources */,
+				FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */,
 				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
 				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
 				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
@@ -632,14 +733,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA33FCEF1D77BFDA0048EF73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA33FCF01D77BFDA0048EF73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -739,10 +832,11 @@
 			baseConfigurationReference = 551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonApp;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.mecorp.monggiangho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
@@ -753,10 +847,11 @@
 			baseConfigurationReference = 38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonApp;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.mecorp.monggiangho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};

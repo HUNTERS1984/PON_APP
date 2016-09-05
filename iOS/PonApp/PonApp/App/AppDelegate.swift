@@ -14,10 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupApplicationData()
-//        self.setUpApplicationTheme()
+        self.setUpApplicationTheme()
         self.setupStartViewController()
         return true
     }
@@ -32,37 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure Application status bar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         // Configure Navigation Bar
-        UINavigationBar.appearance().tintColor = UIColor(hex: DefaultGreenColor)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = UIColor(hex: 0x18c0d4)
         let navTitleTextAttributes = [
-            NSFontAttributeName: UIFont.SourceSansProRegular(16),
-            NSForegroundColorAttributeName:  UIColor(hex: DefaultTextColor)
+            NSForegroundColorAttributeName:  UIColor.whiteColor()
         ]
         UINavigationBar.appearance().titleTextAttributes = navTitleTextAttributes
-        
-        
-        let tabNormalTitleTextAttributes = [
-            NSFontAttributeName: UIFont.SourceSansProRegular(12),
-            NSForegroundColorAttributeName:  UIColor(hex: DefaultGreenColor)
-        ]
-        
-        let tabSelectedTitleTextAttributes = [
-            NSFontAttributeName: UIFont.SourceSansProRegular(12),
-            NSForegroundColorAttributeName:  UIColor(hex: DefaultTextColor)
-        ]
-        
-        UITabBarItem.appearance().setTitleTextAttributes(tabNormalTitleTextAttributes, forState: UIControlState.Normal)
-        UITabBarItem.appearance().setTitleTextAttributes(tabSelectedTitleTextAttributes, forState: UIControlState.Selected)
-        UITabBar.appearance().tintColor = UIColor(hex: DefaultGreenColor)
-        UITabBar.appearance().barTintColor = UIColor(hex: DefaultGreenColor)
     }
     
     func setupStartViewController() {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
-        let vc = MainViewController.instanceFromStoryBoard()
+        let vc = SplashViewController.instanceFromStoryBoard("Main")
         self.window?.rootViewController = vc
-        
     }
 
     func applicationWillResignActive(application: UIApplication) {
