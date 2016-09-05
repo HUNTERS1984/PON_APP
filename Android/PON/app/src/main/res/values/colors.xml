@@ -16,4 +16,6 @@
     <color name="shop_subscribe_unselect">#EDFAFC</color>
     <color name="shop_subscribe_select">#18C0D4</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="tab_text_unselect">#CFF4F2</color>
 </resources>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
@@ -41,6 +42,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         holder.mCouponExpireDate.setText(mListCoupons.get(position).getmExpireDate());
         holder.mCouponPhoto.setImageResource(R.drawable.coupon_example);
         holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).ismIsFavourite()?R.drawable.favourite:R.drawable.non_favourite);
+        holder.mView.setTag(position);
     }
 
     @Override
@@ -55,20 +57,30 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         public TextView mCouponExpireDate;
         public ImageView mCouponPhoto;
         public ImageView mCouponIsFavourite;
+        public LinearLayout mLinearLoginRequired;
+        public View mView;
 
         public CouponRecyclerViewHolders(View itemView) {
             super(itemView);
+            mView = itemView;
             itemView.setOnClickListener(this);
             mCouponTitle = (TextView)itemView.findViewById(R.id.tv_coupon_title);
             mCouponDescription = (TextView) itemView.findViewById(R.id.tv_coupon_description);
             mCouponExpireDate = (TextView) itemView.findViewById(R.id.tv_coupon_expire_date);
             mCouponPhoto = (ImageView) itemView.findViewById(R.id.iv_coupon_photo);
             mCouponIsFavourite = (ImageView) itemView.findViewById(R.id.iv_coupon_favourite);
+            mLinearLoginRequired = (LinearLayout) itemView.findViewById(R.id.ln_login_required);
         }
 
         @Override
         public void onClick(View view) {
-
+            int pos = Integer.parseInt(view.getTag().toString());
+            boolean isLoginRequired = mListCoupons.get(pos).ismIsLoginRequired();
+            if(isLoginRequired) {
+                mLinearLoginRequired.setVisibility(View.VISIBLE);
+            } else {
+                mLinearLoginRequired.setVisibility(View.GONE);
+            }
         }
     }
 }

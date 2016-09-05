@@ -2,14 +2,15 @@ package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
+import com.hunters1984.pon.fragments.BaseFragment.OnLoadDataListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +20,7 @@ import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
  * Use the {@link NewestCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewestCouponFragment extends BaseFragment {
+public class NewestCouponFragment extends BaseFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,31 +61,29 @@ public class NewestCouponFragment extends BaseFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mDataListener = this;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onLoadData() {
+        for(int i=0;i <3; i++) {
+            View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_shops_of_category_layout, null, false);
+            RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
+            TextView tvCatName = (TextView)vCatCoupons.findViewById(R.id.tv_shop_category_name);
+            if(i==0) {
+                tvCatName.setText("Restaurant");
+            } else if(i==1) {
+                tvCatName.setText("Clothes");
+            } else {
+                tvCatName.setText("Music");
+            }
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            rvCoupons.setLayoutManager(layoutManager);
+            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
+            rvCoupons.setAdapter(adapter);
+            mLnShopCatCoupons.addView(vCatCoupons);
 
-        View view = inflater.inflate(R.layout.fragment_newest_coupon, container, false);
-        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_coupons);
-        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
-
-        CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(view.getContext(), mListCoupons);
-        rv.setAdapter(adapter);
-
-        return view;
+        }
     }
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
 }

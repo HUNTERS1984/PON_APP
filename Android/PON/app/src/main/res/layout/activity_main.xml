@@ -1,102 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.hunters1984.pon.activities.MainActivity"
-    android:orientation="vertical">
+    tools:context="com.hunters1984.pon.activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability="beforeDescendants"
-        android:focusableInTouchMode="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1">
-            <ImageView android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ico_add"
-                    android:layout_weight="1"
-                    android:scaleType="fitXY"
-                    android:id="@+id/iv_follow_shop"/>
-        </FrameLayout>
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_marginLeft="@dimen/layout_margin_left"
+            android:layout_marginRight="@dimen/layout_margin_right"
+            android:layout_marginTop="5dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
             android:gravity="center_vertical"
-            android:padding="5dp"
-            android:background="@xml/background_rectangle_white">
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ico_search"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp" />
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/layout_margin_right"
+                android:layout_weight="1">
+                <ImageView android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:src="@drawable/ico_add"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:id="@+id/iv_follow_shop"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:background="@xml/background_rectangle_white">
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ico_search"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textbox_search_height"
+                    android:id="@+id/tv_search"
+                    android:background="@android:color/transparent"
+                    android:textSize="@dimen/font_size_textbox_search"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:layout_weight="1">
+                <ImageView android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ico_location"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_shop_location"/>
+            </FrameLayout>
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1">
-            <ImageView android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="right"
-                android:src="@drawable/ico_location"
-                android:scaleType="fitXY"
-                android:id="@+id/iv_shop_location"/>
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/ico_navigation"
-            android:scaleType="fitXY"/>
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Navigation"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/layout_margin_left"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="@dimen/layout_margin_right"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ico_navigation"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:textSize="20sp"
+                android:text="Navigation"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_test"
+            android:elevation="3dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/white"
+            style="@style/CustomTabLayout"
+
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/tab_layout"/>
+
     </LinearLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_test"
-        android:elevation="6dp"
-        android:minHeight="?attr/actionBarSize"
-        style="@style/CustomTabLayout"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/white">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/non_favourite"
+                android:scaleType="fitXY"/>
 
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/tab_layout"/>
-
-</LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/non_favourite"
+                android:scaleType="fitXY"/>
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/non_favourite"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+</RelativeLayout>

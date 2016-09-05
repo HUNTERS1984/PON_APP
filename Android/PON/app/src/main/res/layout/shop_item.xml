@@ -24,8 +24,8 @@
         android:text="Shop A"
         android:id="@+id/tv_shop_name"/>
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="@dimen/icon_size_more_detail"
+        android:layout_height="@dimen/icon_size_more_detail"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
@@ -37,8 +37,9 @@
         android:gravity="center"
         android:layout_toLeftOf="@id/iv_detail"
         android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="@dimen/layout_margin_right"
         android:background="@xml/circle_blue"
         android:text="24"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/tv_num_of_shop_subscribe"/>
 </RelativeLayout>

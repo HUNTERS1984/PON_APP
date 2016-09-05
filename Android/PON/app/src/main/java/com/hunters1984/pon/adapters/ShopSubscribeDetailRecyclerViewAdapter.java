@@ -40,13 +40,13 @@ public class ShopSubscribeDetailRecyclerViewAdapter extends RecyclerView.Adapter
     public void onBindViewHolder(ShopSubscribeDetailRecyclerViewHolders holder, int position) {
         boolean isShopSubscribe = mListShops.get(position).ismIsShopSubscribe();
         if(isShopSubscribe){
-            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_select_shop);
+            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
             holder.mDesShopSelectStatus.setText("Select");
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.white));
             holder.mIconShopSelectStatus.setImageResource(R.drawable.tick);
 
         } else {
-            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_unselect_shop);
+            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_non_highlight);
             holder.mDesShopSelectStatus.setText("Unselect");
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.shop_subscribe_select));
             holder.mIconShopSelectStatus.setImageResource(R.drawable.ico_add);

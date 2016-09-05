@@ -3,4 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_margin">15dp</dimen>
+    <dimen name="icon_size">30dp</dimen>
+    <dimen name="textbox_search_height">40dp</dimen>
+    <dimen name="layout_margin_left">10dp</dimen>
+    <dimen name="layout_margin_right">10dp</dimen>
+    <dimen name="icon_size_more_detail">20dp</dimen>
+
+    <dimen name="font_size_textbox_search">20sp</dimen>
+    <dimen name="title_font_size">23sp</dimen>
+    <dimen name="item_font_size">20sp</dimen>
+
 </resources>

@@ -9,6 +9,7 @@ public class CouponModel {
     private String mDescription;
     private String mExpireDate;
     private boolean mIsFavourite;
+    private boolean mIsLoginRequired;
 
     public boolean ismIsFavourite() {
         return mIsFavourite;
@@ -48,5 +49,13 @@ public class CouponModel {
 
     public void setmExpireDate(String mExpireDate) {
         this.mExpireDate = mExpireDate;
+    }
+
+    public boolean ismIsLoginRequired() {
+        return mIsLoginRequired;
+    }
+
+    public void setmIsLoginRequired(boolean mIsLoginRequired) {
+        this.mIsLoginRequired = mIsLoginRequired;
     }
 }

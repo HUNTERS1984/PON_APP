@@ -4,14 +4,16 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
 import com.hunters1984.pon.models.ShopModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +35,8 @@ public class BaseShopSubscribeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    protected OnLoadDataListener mDataListener;
 
     protected List<ShopModel> mListShops;
 
@@ -66,14 +70,26 @@ public class BaseShopSubscribeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        initData();
+
+//        initData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_base_shop_subscribe, container, false);
+
+        if(mDataListener != null) {
+            mDataListener.onLoadData();
+        }
+
+        View view = inflater.inflate(R.layout.fragment_shop_subscribe_coupon, container, false);
+        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
+        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+
+        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
+        rv.setAdapter(adapter);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -112,14 +128,18 @@ public class BaseShopSubscribeFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    protected void initData()
-    {
-        mListShops = new ArrayList<>();
-
-        for(int i=0; i<8;i++){
-            ShopModel shop =new ShopModel();
-            shop.setmIsShopSubscribe(false);
-            mListShops.add(shop);
-        }
+    public interface OnLoadDataListener {
+        void onLoadData();
     }
+
+//    protected void initData()
+//    {
+//        mListShops = new ArrayList<>();
+//
+//        for(int i=0; i<8;i++){
+//            ShopModel shop =new ShopModel();
+//            shop.setmIsShopSubscribe(false);
+//            mListShops.add(shop);
+//        }
+//    }
 }

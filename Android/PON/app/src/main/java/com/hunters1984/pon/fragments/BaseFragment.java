@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.models.CouponModel;
@@ -34,7 +35,11 @@ public class BaseFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    protected OnLoadDataListener mDataListener;
+
     protected List<CouponModel> mListCoupons;
+
+    protected LinearLayout mLnShopCatCoupons;
 
     public BaseFragment() {
         // Required empty public constructor
@@ -72,8 +77,13 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_base, container, false);
+        View mainView = inflater.inflate(R.layout.fragment_category_top_coupon, container, false);
+        mLnShopCatCoupons = (LinearLayout) mainView.findViewById(R.id.ln_list_shop_category_coupon);
+
+        if(mDataListener != null) {
+            mDataListener.onLoadData();
+        }
+        return mainView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -112,6 +122,10 @@ public class BaseFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    public interface OnLoadDataListener {
+        void onLoadData();
+    }
+
     protected void initData()
     {
         mListCoupons = new ArrayList<>();
@@ -121,6 +135,7 @@ public class BaseFragment extends Fragment {
             coupon.setmDescription("Description");
             coupon.setmExpireDate("Expire : 2016.2.7");
             coupon.setmIsFavourite((i%2==0?true:false));
+            coupon.setmIsLoginRequired((i%2==0?true:false));
             mListCoupons.add(coupon);
         }
     }

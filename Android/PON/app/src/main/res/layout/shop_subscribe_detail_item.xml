@@ -24,7 +24,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_rectangle_select_shop"
+            android:background="@drawable/background_rectangle_highlight"
             android:id="@+id/rl_back_ground_shop_select_status">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -35,8 +35,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
                     android:src="@drawable/ico_add"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_shop_select_status"/>

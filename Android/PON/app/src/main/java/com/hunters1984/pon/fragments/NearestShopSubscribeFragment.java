@@ -2,14 +2,10 @@ package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.hunters1984.pon.R;
-import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
+import com.hunters1984.pon.models.ShopModel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +15,7 @@ import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
  * Use the {@link NearestShopSubscribeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NearestShopSubscribeFragment extends BaseShopSubscribeFragment {
+public class NearestShopSubscribeFragment extends BaseShopSubscribeFragment implements BaseShopSubscribeFragment.OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,18 +54,30 @@ public class NearestShopSubscribeFragment extends BaseShopSubscribeFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mDataListener = this;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_nearest_shop_subscribe, container, false);
-        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
-        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.fragment_nearest_shop_subscribe, container, false);
+//        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
+//        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+//
+//        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
+//        rv.setAdapter(adapter);
+//        return view;
+//    }
 
-        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
-        rv.setAdapter(adapter);
-        return view;
+    @Override
+    public void onLoadData() {
+        mListShops = new ArrayList<>();
+
+        for(int i=0; i<2;i++){
+            ShopModel shop =new ShopModel();
+            shop.setmIsShopSubscribe(false);
+            mListShops.add(shop);
+        }
     }
 
 }

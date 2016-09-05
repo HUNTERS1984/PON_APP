@@ -1,16 +1,12 @@
 package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.hunters1984.pon.R;
-import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
+import com.hunters1984.pon.models.ShopModel;
 
-public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment {
+import java.util.ArrayList;
+
+public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment implements BaseShopSubscribeFragment.OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,17 +47,29 @@ public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        mDataListener = this;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_popular_shop_subscribe, container, false);
-        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
-        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+    public void onLoadData() {
+        mListShops = new ArrayList<>();
 
-        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
-        rv.setAdapter(adapter);
-        return view;
+        for(int i=0; i<8;i++){
+            ShopModel shop =new ShopModel();
+            shop.setmIsShopSubscribe(false);
+            mListShops.add(shop);
+        }
     }
+
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.fragment_shop_subscribe_coupon, container, false);
+//        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
+//        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+//
+//        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
+//        rv.setAdapter(adapter);
+//        return view;
+//    }
 }

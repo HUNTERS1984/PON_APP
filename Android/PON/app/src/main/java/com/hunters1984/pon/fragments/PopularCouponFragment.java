@@ -2,11 +2,11 @@ package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
@@ -19,7 +19,7 @@ import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
  * Use the {@link PopularCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PopularCouponFragment extends BaseFragment{
+public class PopularCouponFragment extends BaseFragment implements BaseFragment.OnLoadDataListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,19 +60,30 @@ public class PopularCouponFragment extends BaseFragment{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mDataListener = this;
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_popular_coupon, container, false);
+    public void onLoadData() {
+        for(int i=0;i <3; i++) {
+            View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_shops_of_category_layout, null, false);
+            RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
+            TextView tvCatName = (TextView)vCatCoupons.findViewById(R.id.tv_shop_category_name);
+            if(i==0) {
+                tvCatName.setText("Restaurant");
+            } else if(i==1) {
+                tvCatName.setText("Clothes");
+            } else {
+                tvCatName.setText("Music");
+            }
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            rvCoupons.setLayoutManager(layoutManager);
+            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
+            rvCoupons.setAdapter(adapter);
+            mLnShopCatCoupons.addView(vCatCoupons);
 
-        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_coupons);
-        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
-
-        CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(view.getContext(), mListCoupons);
-        rv.setAdapter(adapter);
-        return view;
+        }
     }
 }

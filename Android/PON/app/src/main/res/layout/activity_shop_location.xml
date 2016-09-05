@@ -11,10 +11,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/layout_margin_left"
+        android:paddingRight="@dimen/layout_margin_right"
         android:background="@color/colorPrimary">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:src="@drawable/ico_search"
             android:scaleType="fitXY"
             android:layout_margin="10dp"
@@ -22,7 +24,7 @@
             android:id="@+id/iv_search"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/textbox_search_height"
             android:layout_toLeftOf="@+id/tv_search"
             android:layout_toRightOf="@id/iv_search"
             android:background="@android:color/transparent"
@@ -30,8 +32,8 @@
             android:layout_centerVertical="true"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:textSize="17sp"
-            android:hint="search shop"/>
+            android:textSize="@dimen/font_size_textbox_search"
+            android:hint="Search Shop"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +43,7 @@
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:id="@id/tv_search"/>
     </RelativeLayout>
     
@@ -56,7 +58,7 @@
             android:layout_height="50dp"
             android:padding="10dp"
             android:background="@xml/circle_stroke_light_blue"
-            android:src="@drawable/ico_search"
+            android:src="@drawable/ico_navigation"
             android:scaleType="fitXY"
             android:id="@+id/iv_navigation"/>
 
@@ -66,12 +68,12 @@
             android:layout_toLeftOf="@+id/iv_detail"
             android:layout_toRightOf="@id/iv_navigation"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/layout_margin_left"
             android:text="Text Navigation"/>
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/icon_size_more_detail"
+            android:layout_height="@dimen/icon_size_more_detail"
             android:src="@drawable/ico_detail"
             android:scaleType="fitXY"
             android:layout_alignParentRight="true"

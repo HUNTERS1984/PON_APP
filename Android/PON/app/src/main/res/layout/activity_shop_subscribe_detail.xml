@@ -12,8 +12,8 @@
         android:padding="10dp"
         android:background="@color/colorPrimary">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:src="@drawable/ico_back"
             android:scaleType="fitXY"
             android:layout_centerVertical="true"/>
@@ -23,11 +23,12 @@
             android:layout_height="wrap_content"
             android:text="Shop Subscribe Detail"
             android:textColor="@color/white"
+            android:textSize="@dimen/title_font_size"
             android:layout_centerInParent="true"/>
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:src="@drawable/ico_search"
             android:scaleType="fitXY"
             android:layout_centerVertical="true"
@@ -39,8 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_test"
-        android:elevation="6dp"
+        android:elevation="3dp"
         android:minHeight="?attr/actionBarSize"
+        android:background="@color/white"
         style="@style/CustomTabLayout"
 
         />
