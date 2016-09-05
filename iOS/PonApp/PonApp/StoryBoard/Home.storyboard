@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Home Popular View Controller-->
+        <scene sceneID="YI2-cK-Ykz">
+            <objects>
+                <viewController storyboardIdentifier="HomePopularViewController" id="raR-9q-jxc" customClass="HomePopularViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="llF-lo-nZh"/>
+                        <viewControllerLayoutGuide type="bottom" id="5NY-Md-IHe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6yd-SH-RKb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QRG-lT-TpA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QRG-lT-TpA" firstAttribute="leading" secondItem="6yd-SH-RKb" secondAttribute="leading" id="A96-Q6-VnI"/>
+                            <constraint firstItem="5NY-Md-IHe" firstAttribute="top" secondItem="QRG-lT-TpA" secondAttribute="bottom" id="DvF-ZT-9Ht"/>
+                            <constraint firstItem="QRG-lT-TpA" firstAttribute="top" secondItem="6yd-SH-RKb" secondAttribute="top" id="p4W-MZ-TYZ"/>
+                            <constraint firstAttribute="trailing" secondItem="QRG-lT-TpA" secondAttribute="trailing" id="rGH-tU-L6G"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PP0-1W-AKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="98.5" y="312.5"/>
+        </scene>
+        <!--Home Near By View Controller-->
+        <scene sceneID="xWc-Uj-Hf5">
+            <objects>
+                <viewController storyboardIdentifier="HomeNearByViewController" id="bAY-ZO-nqc" customClass="HomeNearByViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FEM-5a-JZS"/>
+                        <viewControllerLayoutGuide type="bottom" id="mDg-jX-GDj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KXk-jH-TAs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJk-y5-IpO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cJk-y5-IpO" firstAttribute="top" secondItem="KXk-jH-TAs" secondAttribute="top" id="ZhA-uk-0rk"/>
+                            <constraint firstItem="cJk-y5-IpO" firstAttribute="leading" secondItem="KXk-jH-TAs" secondAttribute="leading" id="pHM-4n-5Qt"/>
+                            <constraint firstItem="mDg-jX-GDj" firstAttribute="top" secondItem="cJk-y5-IpO" secondAttribute="bottom" id="rdI-qi-Mbf"/>
+                            <constraint firstAttribute="trailing" secondItem="cJk-y5-IpO" secondAttribute="trailing" id="uJN-MF-7AJ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6l-9y-0hv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508.5" y="312.5"/>
+        </scene>
+    </scenes>
+</document>
