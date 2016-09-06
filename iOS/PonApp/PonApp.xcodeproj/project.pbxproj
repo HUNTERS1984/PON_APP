@@ -81,6 +81,9 @@
 		FAFC2E7C1D7E76D10067B18E /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */; };
 		FAFC2E7F1D7E7BA30067B18E /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */; };
 		FAFC2E811D7E80EA0067B18E /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */; };
+		FAFC2E831D7E9EB00067B18E /* CouponBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E821D7E9EB00067B18E /* CouponBannerView.swift */; };
+		FAFC2E8A1D7EAFA80067B18E /* BottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E891D7EAFA80067B18E /* BottomBorderView.swift */; };
+		FAFC2E8C1D7EBEDE0067B18E /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E8B1D7EBEDE0067B18E /* UINavigationControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +174,9 @@
 		FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
 		FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
 		FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		FAFC2E821D7E9EB00067B18E /* CouponBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponBannerView.swift; sourceTree = "<group>"; };
+		FAFC2E891D7EAFA80067B18E /* BottomBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderView.swift; sourceTree = "<group>"; };
+		FAFC2E8B1D7EBEDE0067B18E /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +258,7 @@
 				4A6FD4A21D79C9DE000D4F85 /* UIImageExtension.swift */,
 				4A6FD4A31D79C9DE000D4F85 /* UIViewControllerExtension.swift */,
 				4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */,
+				FAFC2E8B1D7EBEDE0067B18E /* UINavigationControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +545,8 @@
 				FAFC2E781D7E76BC0067B18E /* DesignableView.swift */,
 				FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */,
 				FA51B54C1D7D868200CF10D8 /* MapView.swift */,
+				FAFC2E821D7E9EB00067B18E /* CouponBannerView.swift */,
+				FAFC2E891D7EAFA80067B18E /* BottomBorderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -731,6 +740,8 @@
 				4ADE37151D79D6C900C99476 /* GlobalConstant.swift in Sources */,
 				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
 				FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */,
+				FAFC2E8A1D7EAFA80067B18E /* BottomBorderView.swift in Sources */,
+				FAFC2E8C1D7EBEDE0067B18E /* UINavigationControllerExtension.swift in Sources */,
 				4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */,
 				4ADE37121D79D5F400C99476 /* SplashViewController.swift in Sources */,
 				4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */,
@@ -751,6 +762,7 @@
 				4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
 				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
 				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
+				FAFC2E831D7E9EB00067B18E /* CouponBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
