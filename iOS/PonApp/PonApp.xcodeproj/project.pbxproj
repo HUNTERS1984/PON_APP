@@ -75,6 +75,10 @@
 		FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */; };
 		FA51B54B1D7D846400CF10D8 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */; };
 		FA51B54D1D7D868200CF10D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54C1D7D868200CF10D8 /* MapView.swift */; };
+		FAFC2E761D7E76B20067B18E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E751D7E76B20067B18E /* DesignableButton.swift */; };
+		FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */; };
+		FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E781D7E76BC0067B18E /* DesignableView.swift */; };
+		FAFC2E7C1D7E76D10067B18E /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +163,10 @@
 		FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		FA51B54C1D7D868200CF10D8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FAFC2E751D7E76B20067B18E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		FAFC2E781D7E76BC0067B18E /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +347,7 @@
 		4ADE370C1D79D5F400C99476 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */,
 				4ADE370D1D79D5F400C99476 /* SplashViewController.swift */,
 				4ADE37161D79D94800C99476 /* MainViewController.swift */,
 				4ADE37181D79DBE800C99476 /* AccountViewController.swift */,
@@ -510,6 +519,7 @@
 		FA51B5181D7D0CA200CF10D8 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC2E751D7E76B20067B18E /* DesignableButton.swift */,
 				FA51B5191D7D0CB800CF10D8 /* PonButton.swift */,
 			);
 			path = Button;
@@ -518,6 +528,8 @@
 		FA51B51B1D7D123E00CF10D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */,
+				FAFC2E781D7E76BC0067B18E /* DesignableView.swift */,
 				FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */,
 				FA51B54C1D7D868200CF10D8 /* MapView.swift */,
 			);
@@ -691,8 +703,11 @@
 				4ADE37111D79D5F400C99476 /* BaseViewController.swift in Sources */,
 				4A6FD4D21D79C9DE000D4F85 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
 				FA51B54B1D7D846400CF10D8 /* HomeMapViewController.swift in Sources */,
+				FAFC2E761D7E76B20067B18E /* DesignableButton.swift in Sources */,
 				4ADE370F1D79D5F400C99476 /* BaseNavigationController.swift in Sources */,
 				FA51B54D1D7D868200CF10D8 /* MapView.swift in Sources */,
+				FAFC2E7C1D7E76D10067B18E /* HomeMenuViewController.swift in Sources */,
+				FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */,
 				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
 				FA51B5321D7D672600CF10D8 /* HomeNearByViewController.swift in Sources */,
 				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
@@ -720,6 +735,7 @@
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
 				FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */,
 				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
+				FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */,
 				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
 				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
 				4A6FD4D51D79C9DE000D4F85 /* DefaultsKeysExtension.swift in Sources */,

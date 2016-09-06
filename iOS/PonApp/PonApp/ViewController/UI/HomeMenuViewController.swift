@@ -1,14 +1,14 @@
 //
-//  HomeSearchViewController.swift
+//  HomeMenuViewController.swift
 //  PonApp
 //
-//  Created by HaoLe on 9/5/16.
+//  Created by HaoLe on 9/6/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
 import UIKit
 
-class HomeSearchViewController: BaseViewController {
+class HomeMenuViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,25 +17,10 @@ class HomeSearchViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
 
 }
 
-//MARK: - IBAction
-extension HomeSearchViewController {
-    
-    @IBAction func locationButtonPressed(sender: AnyObject) {
-        let vc = HomeMapViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-}
-
-extension HomeSearchViewController: UITableViewDataSource {
+extension HomeMenuViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
@@ -52,7 +37,7 @@ extension HomeSearchViewController: UITableViewDataSource {
     
 }
 
-extension HomeSearchViewController: UITableViewDelegate {
+extension HomeMenuViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

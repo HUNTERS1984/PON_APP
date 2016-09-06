@@ -10,26 +10,58 @@ import UIKit
 
 class HomeMapViewController: BaseViewController {
 
+    @IBOutlet weak var offerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuButton: DesignableButton!
+    @IBOutlet weak var hideOfferButton: DesignableButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.offerViewBottomConstraint.constant -= 172
+        self.hideOfferButton.hidden = true
+        self.menuButton.hidden = false
     }
-    */
 
+}
+
+//MARK: - IBAction
+extension HomeMapViewController {
+    
+    @IBAction func currentLocationButtonPressed(sender: AnyObject) {
+        self.showOfferView()
+    }
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func hideOfferButtonPressed(sender: AnyObject) {
+        self.hideOfferView()
+    }
+    
+}
+
+//MARK: - Private Methods
+extension HomeMapViewController {
+    
+    private func showOfferView() {
+        self.offerViewBottomConstraint.constant += 172
+        self.hideOfferButton.hidden = false
+        self.menuButton.hidden = true
+    }
+    
+    private func hideOfferView() {
+        self.offerViewBottomConstraint.constant -= 172
+        self.hideOfferButton.hidden = true
+        self.menuButton.hidden = false
+    }
+    
 }
