@@ -10,4 +10,6 @@ import UIKit
 
 class CouponCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var couponContentView: DesignableView!
+    @IBOutlet weak var confirmView: DesignableView!
 }

@@ -71,11 +71,6 @@ extension FavoriteViewController: UICollectionViewDataSource {
 extension FavoriteViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        let alert = UIAlertController(title: "didSelectItemAtIndexPath:", message: "Indexpath = \(indexPath)", preferredStyle: .Alert)
-//        let alertAction = UIAlertAction(title: "Dismiss", style: .Destructive, handler: nil)
-//        alert.addAction(alertAction)
-//        self.presentViewController(alert, animated: true, completion: nil)
-        
         let vc = CouponViewController.instanceFromStoryBoard("Coupon")
         self.navigationController?.pushViewController(vc, animated: true)
     }

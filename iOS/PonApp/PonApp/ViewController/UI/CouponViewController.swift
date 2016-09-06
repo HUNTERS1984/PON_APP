@@ -92,6 +92,7 @@ extension CouponViewController {
     
 }
 
+//MARK: UIScrollViewDelegate
 extension CouponViewController: UIScrollViewDelegate {
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
