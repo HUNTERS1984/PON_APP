@@ -79,6 +79,8 @@
 		FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */; };
 		FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E781D7E76BC0067B18E /* DesignableView.swift */; };
 		FAFC2E7C1D7E76D10067B18E /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */; };
+		FAFC2E7F1D7E7BA30067B18E /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */; };
+		FAFC2E811D7E80EA0067B18E /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +169,8 @@
 		FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		FAFC2E781D7E76BC0067B18E /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuViewController.swift; sourceTree = "<group>"; };
+		FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
+		FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +363,7 @@
 				FA51B53A1D7D717B00CF10D8 /* HomeNewestViewController.swift */,
 				FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */,
 				FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */,
+				FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */,
 				FA51B50F1D7D033200CF10D8 /* Account.storyboard */,
 				FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */,
+				FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 				FA2F20231D780D5800608061 /* SourceSansPro-Light.ttf in Resources */,
 				FA2F20211D780D5800608061 /* SourceSansPro-ExtraLightIt.ttf in Resources */,
 				FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */,
+				FAFC2E7F1D7E7BA30067B18E /* Coupon.storyboard in Resources */,
 				FA2F20201D780D5800608061 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				FA2F201D1D780D5800608061 /* SourceSansPro-BlackIt.ttf in Resources */,
 				FA2F20271D780D5800608061 /* SourceSansPro-SemiboldIt.ttf in Resources */,
@@ -692,6 +699,7 @@
 			files = (
 				FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */,
 				4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */,
+				FAFC2E811D7E80EA0067B18E /* CouponViewController.swift in Sources */,
 				FA51B52C1D7D63C200CF10D8 /* CAPSPageMenu.swift in Sources */,
 				FA2F20191D780D5800608061 /* LocationManager.swift in Sources */,
 				4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
