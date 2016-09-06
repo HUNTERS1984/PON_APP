@@ -53,7 +53,7 @@
 		4A9B143C1D7F0BE5005AC362 /* tabbar_favorite_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B14281D7F0BE5005AC362 /* tabbar_favorite_selected@2x.png */; };
 		4A9B143D1D7F0BE5005AC362 /* tabbar_profile_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B14291D7F0BE5005AC362 /* tabbar_profile_normal@2x.png */; };
 		4A9B143E1D7F0BE5005AC362 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B142A1D7F0BE5005AC362 /* tabbar_profile_selected@2x.png */; };
-		4A9B143F1D7F0BE5005AC362 /* ui_account_01_01_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B142B1D7F0BE5005AC362 /* ui_account_01_01_03.png */; };
+		4A9B14411D7F10C6005AC362 /* tabbar_pon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B14401D7F10C6005AC362 /* tabbar_pon@2x.png */; };
 		4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37061D79D5F400C99476 /* AppDelegate.swift */; };
 		4ADE370F1D79D5F400C99476 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37091D79D5F400C99476 /* BaseNavigationController.swift */; };
 		4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE370A1D79D5F400C99476 /* BaseTabBarController.swift */; };
@@ -161,7 +161,7 @@
 		4A9B14281D7F0BE5005AC362 /* tabbar_favorite_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_favorite_selected@2x.png"; sourceTree = "<group>"; };
 		4A9B14291D7F0BE5005AC362 /* tabbar_profile_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_normal@2x.png"; sourceTree = "<group>"; };
 		4A9B142A1D7F0BE5005AC362 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
-		4A9B142B1D7F0BE5005AC362 /* ui_account_01_01_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui_account_01_01_03.png; sourceTree = "<group>"; };
+		4A9B14401D7F10C6005AC362 /* tabbar_pon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_pon@2x.png"; sourceTree = "<group>"; };
 		4ADE37061D79D5F400C99476 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ADE37091D79D5F400C99476 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4ADE370A1D79D5F400C99476 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -371,6 +371,7 @@
 		4A9B14171D7F0BE5005AC362 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A9B14401D7F10C6005AC362 /* tabbar_pon@2x.png */,
 				4A9B14181D7F0BE5005AC362 /* account_list@2x.png */,
 				4A9B14191D7F0BE5005AC362 /* account_store@2x.png */,
 				4A9B141A1D7F0BE5005AC362 /* account_time@2x.png */,
@@ -390,7 +391,6 @@
 				4A9B14281D7F0BE5005AC362 /* tabbar_favorite_selected@2x.png */,
 				4A9B14291D7F0BE5005AC362 /* tabbar_profile_normal@2x.png */,
 				4A9B142A1D7F0BE5005AC362 /* tabbar_profile_selected@2x.png */,
-				4A9B142B1D7F0BE5005AC362 /* ui_account_01_01_03.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -703,6 +703,7 @@
 				FA2F201B1D780D5800608061 /* Chunk Five Ex.ttf in Resources */,
 				FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */,
 				FA2F20251D780D5800608061 /* SourceSansPro-Regular.ttf in Resources */,
+				4A9B14411D7F10C6005AC362 /* tabbar_pon@2x.png in Resources */,
 				FA2F20231D780D5800608061 /* SourceSansPro-Light.ttf in Resources */,
 				4A9B143D1D7F0BE5005AC362 /* tabbar_profile_normal@2x.png in Resources */,
 				4A9B14391D7F0BE5005AC362 /* nav_close@2x.png in Resources */,
@@ -729,7 +730,6 @@
 				4A9B143B1D7F0BE5005AC362 /* tabbar_favorite_normal@2x.png in Resources */,
 				FA2F20241D780D5800608061 /* SourceSansPro-LightIt.ttf in Resources */,
 				4A9B142C1D7F0BE5005AC362 /* account_list@2x.png in Resources */,
-				4A9B143F1D7F0BE5005AC362 /* ui_account_01_01_03.png in Resources */,
 				FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */,
 				4A9B143C1D7F0BE5005AC362 /* tabbar_favorite_selected@2x.png in Resources */,
 				4A9B14311D7F0BE5005AC362 /* avatar_placeholder@2x.png in Resources */,
