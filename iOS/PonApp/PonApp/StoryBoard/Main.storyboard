@@ -155,9 +155,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-xk-jAR" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXM-d5-fcW" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXM-d5-fcW" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="157" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Fdd-7c-sqk"/>
                                             <constraint firstAttribute="height" constant="60" id="NxU-E1-RVz"/>
@@ -166,9 +165,8 @@
                                             <action selector="homeButtonPressed:" destination="7bT-QU-r6E" eventType="touchUpInside" id="jRg-O1-Tfh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-uh-CUO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-uh-CUO">
                                         <rect key="frame" x="30" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6Sj-C1-oBg"/>
                                             <constraint firstAttribute="width" constant="50" id="jbi-Gi-SKr"/>
@@ -177,9 +175,8 @@
                                             <action selector="favoriteButtonPressed:" destination="7bT-QU-r6E" eventType="touchUpInside" id="0aK-RP-KVC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-QO-7jA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-QO-7jA">
                                         <rect key="frame" x="295" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="rEF-bH-jb2"/>
                                             <constraint firstAttribute="height" constant="50" id="tTs-ME-UDl"/>
@@ -222,6 +219,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="scrollMenuView" destination="XAa-fQ-CFM" id="OQP-QI-kg7"/>
+                        <outlet property="tabAccountButton" destination="W7H-QO-7jA" id="H9R-WI-z7Z"/>
+                        <outlet property="tabFavoriteButton" destination="Lh1-uh-CUO" id="PAa-VO-xND"/>
+                        <outlet property="tabPonButton" destination="jXM-d5-fcW" id="X5B-Fd-afZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="va2-gV-YcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,9 +284,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92d-Ef-Xel" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-FN-Vjh" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-FN-Vjh" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="157" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Nno-Qn-YPT"/>
                                             <constraint firstAttribute="height" constant="60" id="eSA-m5-WaU"/>
@@ -295,9 +294,8 @@
                                             <action selector="homeButtonPressed:" destination="x8s-Mi-LH4" eventType="touchUpInside" id="aL8-O7-QR8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-oy-qay">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-oy-qay">
                                         <rect key="frame" x="30" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="umS-u1-sZP"/>
                                             <constraint firstAttribute="width" constant="50" id="uo7-D5-4uX"/>
@@ -306,9 +304,8 @@
                                             <action selector="favoriteButtonPressed:" destination="x8s-Mi-LH4" eventType="touchUpInside" id="gAT-wp-fFR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-QC-gJy">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-QC-gJy">
                                         <rect key="frame" x="295" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="O94-4N-Y97"/>
                                             <constraint firstAttribute="width" constant="50" id="OY0-ff-g5f"/>
@@ -434,6 +431,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="recentTableView" destination="n63-JL-axY" id="r8o-zg-Mnh"/>
+                        <outlet property="tabAccountButton" destination="7hh-QC-gJy" id="wpq-hp-ncw"/>
+                        <outlet property="tabFavoriteButton" destination="7Ya-oy-qay" id="6lQ-MH-Jlz"/>
+                        <outlet property="tabPonButton" destination="kIc-FN-Vjh" id="iJB-6z-04F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34g-sp-BEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -455,9 +455,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3f-ja-CvS" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyf-UM-GZo" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyf-UM-GZo" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="157" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="PNJ-GG-x6Z"/>
                                             <constraint firstAttribute="width" constant="60" id="jFz-Su-P7a"/>
@@ -466,9 +465,8 @@
                                             <action selector="homeButtonPressed:" destination="4MO-YO-dxJ" eventType="touchUpInside" id="7cl-E4-Dd8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGB-Wh-tjP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGB-Wh-tjP">
                                         <rect key="frame" x="30" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="e1y-Dt-fAj"/>
                                             <constraint firstAttribute="width" constant="50" id="huE-gJ-p3D"/>
@@ -477,9 +475,8 @@
                                             <action selector="favoriteButtonPressed:" destination="4MO-YO-dxJ" eventType="touchUpInside" id="bzx-kf-Rsc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVK-Mt-i5k">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVK-Mt-i5k">
                                         <rect key="frame" x="295" y="10" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.2949084052" green="0.65964439659999996" blue="0.82737068970000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="OHO-Wy-T4a"/>
                                             <constraint firstAttribute="height" constant="50" id="d3j-JH-1Kl"/>
@@ -708,6 +705,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tabAccountButton" destination="qVK-Mt-i5k" id="whv-gP-TBn"/>
+                        <outlet property="tabFavoriteButton" destination="dGB-Wh-tjP" id="76a-Kt-w0b"/>
+                        <outlet property="tabPonButton" destination="Nyf-UM-GZo" id="cJf-qt-hHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHQ-zb-fuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

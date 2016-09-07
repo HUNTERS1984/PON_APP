@@ -10,6 +10,10 @@ import UIKit
 
 class FavoriteViewController: BaseViewController {
 
+    @IBOutlet weak var tabFavoriteButton: UIButton!
+    @IBOutlet weak var tabPonButton: UIButton!
+    @IBOutlet weak var tabAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,6 +25,13 @@ class FavoriteViewController: BaseViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), forState: .Normal)
+        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
+        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
     }
     
 }

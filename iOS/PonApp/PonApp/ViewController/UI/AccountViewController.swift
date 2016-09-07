@@ -12,6 +12,10 @@ class AccountViewController: BaseViewController {
 
     @IBOutlet weak var recentTableView: UITableView!
     
+    @IBOutlet weak var tabFavoriteButton: UIButton!
+    @IBOutlet weak var tabPonButton: UIButton!
+    @IBOutlet weak var tabAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,6 +27,13 @@ class AccountViewController: BaseViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
+        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
+        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_selected"), forState: .Normal)
     }
     
 }

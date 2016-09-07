@@ -18,6 +18,10 @@ class SplashViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+    }
+    
 }
 
 //MARK: - IBAction
