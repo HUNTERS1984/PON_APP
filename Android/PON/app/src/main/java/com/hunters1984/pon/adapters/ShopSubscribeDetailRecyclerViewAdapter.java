@@ -43,13 +43,13 @@ public class ShopSubscribeDetailRecyclerViewAdapter extends RecyclerView.Adapter
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
             holder.mDesShopSelectStatus.setText("Select");
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.white));
-            holder.mIconShopSelectStatus.setImageResource(R.drawable.tick);
+            holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_tick);
 
         } else {
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_non_highlight);
             holder.mDesShopSelectStatus.setText("Unselect");
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.shop_subscribe_select));
-            holder.mIconShopSelectStatus.setImageResource(R.drawable.ico_add);
+            holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_add_follow_shop);
         }
         holder.mView.setTag(position);
     }

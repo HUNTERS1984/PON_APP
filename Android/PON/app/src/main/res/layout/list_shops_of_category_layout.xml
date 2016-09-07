@@ -13,11 +13,11 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_centerVertical="true"
-            android:src="@drawable/ico_location"
+            android:src="@drawable/ic_location"
             android:scaleType="fitXY"
             android:id="@+id/iv_shop_category_icon"/>
 
-        <TextView
+        <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -28,7 +28,7 @@
             android:text="Drink"
             android:id="@+id/tv_shop_category_name"/>
 
-        <TextView
+        <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

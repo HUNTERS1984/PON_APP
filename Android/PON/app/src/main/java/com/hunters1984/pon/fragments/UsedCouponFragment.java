@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
+import com.hunters1984.pon.interfaces.OnLoadDataListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +20,7 @@ import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
  * Use the {@link UsedCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UsedCouponFragment extends BaseFragment implements BaseFragment.OnLoadDataListener {
+public class UsedCouponFragment extends BaseFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

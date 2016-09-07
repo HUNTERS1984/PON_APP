@@ -10,8 +10,8 @@
     android:layout_marginBottom="16dp">
 
     <FrameLayout
-        android:layout_width="240dp"
-        android:layout_height="240dp">
+        android:layout_width="170dp"
+        android:layout_height="210dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,7 +23,7 @@
                 <ImageView
                     android:id="@+id/iv_coupon_photo"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="120dp"
                     android:src="@drawable/coupon_example"
                     android:scaleType="fitXY" />
                 <ImageView
@@ -31,7 +31,7 @@
                     android:layout_height="@dimen/icon_size"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
-                    android:src="@drawable/non_favourite"
+                    android:src="@drawable/ic_non_favourite"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_coupon_favourite"/>
             </RelativeLayout>
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/layout_margin_left"
                 android:orientation="vertical">
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:id="@+id/tv_coupon_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:textColor="@color/black"
                     android:text="Coupon Title"/>
 
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:id="@+id/tv_coupon_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                     android:textColor="@color/grey"
                     android:text="Coupon Description"/>
 
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:id="@+id/tv_coupon_expire_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,20 +83,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="Title"
                     android:textSize="20sp"
                     android:textColor="@color/colorPrimary"/>
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description require login"
                     android:textSize="20sp"
                     android:textColor="@color/colorPrimary"/>
-                <TextView
+                <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description require login "

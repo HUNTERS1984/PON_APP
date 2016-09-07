@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.CouponModel;
 
 import java.util.ArrayList;
@@ -122,9 +123,9 @@ public class BaseFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public interface OnLoadDataListener {
-        void onLoadData();
-    }
+//    public interface OnLoadDataListener {
+//        void onLoadData();
+//    }
 
     protected void initData()
     {

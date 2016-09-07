@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.activities.ShopCouponFilterActivity;
 import com.hunters1984.pon.activities.ShopSubscribeDetailActivity;
 import com.hunters1984.pon.models.ShopModel;
 
@@ -41,7 +42,7 @@ public class ListShopRecyclerViewAdapter extends RecyclerView.Adapter<ListShopRe
     @Override
     public void onBindViewHolder(ListShopRecyclerViewHolders holder, int position) {
         holder.mShopName.setText(mListShops.get(position).getmShopName());
-        holder.mShopLogo.setImageResource(R.drawable.ico_location);
+        holder.mShopLogo.setImageResource(R.drawable.ic_location);
         if(mIsShopLocation) {
             holder.mNumberOfShopSubscribe.setVisibility(View.GONE);
         } else {
@@ -71,8 +72,13 @@ public class ListShopRecyclerViewAdapter extends RecyclerView.Adapter<ListShopRe
 
         @Override
         public void onClick(View view) {
-            Intent iShopsubscribeDetail = new Intent(mContext, ShopSubscribeDetailActivity.class);
-            mContext.startActivity(iShopsubscribeDetail);
+            if (mIsShopLocation) {
+                Intent iShopCouponsFilter = new Intent(mContext, ShopCouponFilterActivity.class);
+                mContext.startActivity(iShopCouponsFilter);
+            } else {
+                Intent iShopsubscribeDetail = new Intent(mContext, ShopSubscribeDetailActivity.class);
+                mContext.startActivity(iShopsubscribeDetail);
+            }
         }
     }
 }

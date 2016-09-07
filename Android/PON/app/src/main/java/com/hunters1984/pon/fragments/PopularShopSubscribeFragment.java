@@ -2,11 +2,12 @@ package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
 
+import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.ShopModel;
 
 import java.util.ArrayList;
 
-public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment implements BaseShopSubscribeFragment.OnLoadDataListener {
+public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

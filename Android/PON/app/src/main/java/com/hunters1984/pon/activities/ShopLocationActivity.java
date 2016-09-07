@@ -1,10 +1,13 @@
 package com.hunters1984.pon.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.DividerItemDecoration;
@@ -32,6 +35,15 @@ public class ShopLocationActivity extends Activity {
         rv.setItemAnimator(new DefaultItemAnimator());
         ListShopRecyclerViewAdapter adapter = new ListShopRecyclerViewAdapter(this, mListShops, true);
         rv.setAdapter(adapter);
+
+        RelativeLayout rlShopLocation = (RelativeLayout)findViewById(R.id.rl_shop_location);
+        rlShopLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iShopLocation = new Intent(ShopLocationActivity.this, MapShopCouponActivity.class);
+                startActivity(iShopLocation);
+            }
+        });
 
     }
 

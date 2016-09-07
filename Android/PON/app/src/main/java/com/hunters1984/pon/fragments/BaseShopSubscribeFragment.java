@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
+import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.ShopModel;
 
 import java.util.List;
@@ -128,9 +129,9 @@ public class BaseShopSubscribeFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public interface OnLoadDataListener {
-        void onLoadData();
-    }
+//    public interface OnLoadDataListener {
+//        void onLoadData();
+//    }
 
 //    protected void initData()
 //    {

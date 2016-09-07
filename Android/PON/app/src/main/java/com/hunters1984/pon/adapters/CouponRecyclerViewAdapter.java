@@ -41,7 +41,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         holder.mCouponDescription.setText(mListCoupons.get(position).getmDescription());
         holder.mCouponExpireDate.setText(mListCoupons.get(position).getmExpireDate());
         holder.mCouponPhoto.setImageResource(R.drawable.coupon_example);
-        holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).ismIsFavourite()?R.drawable.favourite:R.drawable.non_favourite);
+        holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).ismIsFavourite()?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
         holder.mView.setTag(position);
     }
 

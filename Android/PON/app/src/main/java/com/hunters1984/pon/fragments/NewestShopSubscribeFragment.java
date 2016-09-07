@@ -3,6 +3,7 @@ package com.hunters1984.pon.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.ShopModel;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * Use the {@link NewestShopSubscribeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewestShopSubscribeFragment extends BaseShopSubscribeFragment implements BaseShopSubscribeFragment.OnLoadDataListener {
+public class NewestShopSubscribeFragment extends BaseShopSubscribeFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

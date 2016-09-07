@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_grey"
     tools:context="com.hunters1984.pon.activities.MainActivity">
 
     <LinearLayout
@@ -28,7 +28,7 @@
                 android:layout_weight="1">
                 <ImageView android:layout_width="@dimen/icon_size"
                         android:layout_height="@dimen/icon_size"
-                        android:src="@drawable/ico_add"
+                        android:src="@drawable/ic_add"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:id="@+id/iv_follow_shop"/>
@@ -45,7 +45,7 @@
                     android:layout_width="@dimen/icon_size"
                     android:layout_height="@dimen/icon_size"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ico_search"/>
+                    android:src="@drawable/ic_search"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/textbox_search_height"
@@ -62,7 +62,7 @@
                 <ImageView android:layout_width="@dimen/icon_size"
                     android:layout_height="@dimen/icon_size"
                     android:layout_gravity="right"
-                    android:src="@drawable/ico_location"
+                    android:src="@drawable/ic_location"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_shop_location"/>
             </FrameLayout>
@@ -80,9 +80,9 @@
             <ImageView
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
-                android:src="@drawable/ico_navigation"
+                android:src="@drawable/ic_navigation"
                 android:scaleType="fitXY"/>
-            <TextView
+            <com.hunters1984.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/layout_margin_left"
@@ -129,7 +129,7 @@
                 android:layout_height="@dimen/icon_size"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/non_favourite"
+                android:src="@drawable/ic_non_favourite"
                 android:scaleType="fitXY"/>
 
             <ImageView
@@ -138,14 +138,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/non_favourite"
+                android:src="@drawable/ic_non_favourite"
                 android:scaleType="fitXY"/>
         </RelativeLayout>
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/non_favourite"
+            android:src="@drawable/ic_non_favourite"
             android:scaleType="fitXY"/>
     </RelativeLayout>
 </RelativeLayout>

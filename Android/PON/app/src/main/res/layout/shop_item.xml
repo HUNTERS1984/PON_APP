@@ -9,13 +9,13 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/ico_location"
+        android:src="@drawable/ic_location"
         android:scaleType="fitXY"
         android:background="@xml/circle_stroke_light_grey"
         android:layout_centerVertical="true"
         android:padding="10dp"
         android:id="@+id/iv_shop_logo"/>
-    <TextView
+    <com.hunters1984.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/iv_shop_logo"
@@ -29,9 +29,9 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
-        android:src="@drawable/ico_detail"
+        android:src="@drawable/ic_detail"
         android:id="@+id/iv_detail"/>
-    <TextView
+    <com.hunters1984.pon.customs.CustomTextView
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:gravity="center"

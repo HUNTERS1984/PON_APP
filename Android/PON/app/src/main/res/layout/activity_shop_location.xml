@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ico_search"
+            android:src="@drawable/ic_search"
             android:scaleType="fitXY"
             android:layout_margin="10dp"
             android:layout_centerVertical="true"
@@ -34,7 +34,7 @@
             android:textColorHint="@android:color/white"
             android:textSize="@dimen/font_size_textbox_search"
             android:hint="Search Shop"/>
-        <TextView
+        <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -51,18 +51,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:id="@+id/rl_shop_location">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="10dp"
+            android:padding="15dp"
             android:background="@xml/circle_stroke_light_blue"
-            android:src="@drawable/ico_navigation"
+            android:src="@drawable/ic_navigation"
             android:scaleType="fitXY"
             android:id="@+id/iv_navigation"/>
 
-        <TextView
+        <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/iv_detail"
@@ -74,7 +75,7 @@
         <ImageView
             android:layout_width="@dimen/icon_size_more_detail"
             android:layout_height="@dimen/icon_size_more_detail"
-            android:src="@drawable/ico_detail"
+            android:src="@drawable/ic_detail"
             android:scaleType="fitXY"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -89,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dark_grey"/>
-        <TextView
+        <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/light_grey"
