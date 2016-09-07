@@ -22,4 +22,9 @@ class EditAccountViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.showBackButton()
+    }
 }

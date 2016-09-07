@@ -66,7 +66,7 @@ extension CouponViewController {
         
     }
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
+    @IBAction override func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

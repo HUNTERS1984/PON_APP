@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -429,6 +429,7 @@
                                                 <connections>
                                                     <outlet property="confirmView" destination="Mpv-vv-MPG" id="Xl1-ii-Kfx"/>
                                                     <outlet property="couponContentView" destination="c8y-o7-xF0" id="GbK-r6-UUI"/>
+                                                    <outlet property="thumbImageView" destination="G1u-XW-4mS" id="Fiz-gc-YdR"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

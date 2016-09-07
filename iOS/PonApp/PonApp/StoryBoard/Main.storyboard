@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -240,54 +240,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovM-tY-HPQ" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-EZ-Ojo">
-                                        <rect key="frame" x="147" y="60" width="80" height="80"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="YI2-EZ-Ojo" secondAttribute="height" multiplier="1:1" id="UET-QY-Ynr"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya3-1v-1KA">
-                                        <rect key="frame" x="335" y="32" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.12549019610000001" green="0.72156862749999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="8Ma-eT-CW3"/>
-                                            <constraint firstAttribute="width" constant="40" id="iao-hb-kLv"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="settingButtonPressed:" destination="x8s-Mi-LH4" eventType="touchUpInside" id="KUj-EI-iMx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Ya3-1v-1KA" secondAttribute="trailing" id="ORe-h5-AiE"/>
-                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="height" secondItem="ovM-tY-HPQ" secondAttribute="height" multiplier="80/200" id="R6a-R4-lyW"/>
-                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerY" secondItem="ovM-tY-HPQ" secondAttribute="centerY" id="lFP-KV-936"/>
-                                    <constraint firstItem="Ya3-1v-1KA" firstAttribute="top" secondItem="ovM-tY-HPQ" secondAttribute="top" constant="32" id="r2R-qY-UZo"/>
-                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerX" secondItem="ovM-tY-HPQ" secondAttribute="centerX" id="vIf-kT-FsK"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-xJ-SPQ" userLabel="Tab View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-xJ-SPQ" userLabel="Tab View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="200" width="375" height="100"/>
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdv-I7-d53">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSY-uM-WIe">
                                         <rect key="frame" x="125" y="0.0" width="125" height="100"/>
-                                        <color key="backgroundColor" red="0.76470588240000004" green="0.14117647059999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0t3-tj-lSk">
                                         <rect key="frame" x="250" y="0.0" width="125" height="100"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.12549019610000001" green="0.72156862749999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="0t3-tj-lSk" firstAttribute="width" secondItem="SSY-uM-WIe" secondAttribute="width" id="5Vl-SP-Jsp"/>
                                     <constraint firstAttribute="trailing" secondItem="0t3-tj-lSk" secondAttribute="trailing" id="5Yq-Cx-qHr"/>
@@ -306,6 +275,11 @@
                                     <constraint firstItem="fdv-I7-d53" firstAttribute="width" secondItem="LsX-xJ-SPQ" secondAttribute="width" multiplier="1/3" id="oce-sw-WSN"/>
                                     <constraint firstAttribute="bottom" secondItem="0t3-tj-lSk" secondAttribute="bottom" id="vPq-pv-qdI"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
+                                        <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92d-Ef-Xel" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
@@ -377,9 +351,8 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-2K-MFB">
                                                     <rect key="frame" x="20" y="0.0" width="322" height="59"/>
-                                                    <color key="backgroundColor" red="0.12549019610000001" green="0.72156862749999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -399,6 +372,46 @@
                                     <outlet property="delegate" destination="x8s-Mi-LH4" id="Ecc-mH-bcx"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovM-tY-HPQ" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-EZ-Ojo">
+                                        <rect key="frame" x="147" y="60" width="80" height="80"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ob5-JN-xwg" userLabel="Avatar Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Ob5-JN-xwg" firstAttribute="top" secondItem="YI2-EZ-Ojo" secondAttribute="top" id="Axo-Ur-cvq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ob5-JN-xwg" secondAttribute="bottom" id="N0L-zR-BRT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ob5-JN-xwg" secondAttribute="trailing" id="Nt4-Fb-v3n"/>
+                                            <constraint firstAttribute="width" secondItem="YI2-EZ-Ojo" secondAttribute="height" multiplier="1:1" id="UET-QY-Ynr"/>
+                                            <constraint firstItem="Ob5-JN-xwg" firstAttribute="leading" secondItem="YI2-EZ-Ojo" secondAttribute="leading" id="jeW-JQ-fFb"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya3-1v-1KA">
+                                        <rect key="frame" x="335" y="32" width="40" height="40"/>
+                                        <color key="backgroundColor" red="0.12549019610000001" green="0.72156862749999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8Ma-eT-CW3"/>
+                                            <constraint firstAttribute="width" constant="40" id="iao-hb-kLv"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="settingButtonPressed:" destination="x8s-Mi-LH4" eventType="touchUpInside" id="KUj-EI-iMx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ya3-1v-1KA" secondAttribute="trailing" id="ORe-h5-AiE"/>
+                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="height" secondItem="ovM-tY-HPQ" secondAttribute="height" multiplier="80/200" id="R6a-R4-lyW"/>
+                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerY" secondItem="ovM-tY-HPQ" secondAttribute="centerY" id="lFP-KV-936"/>
+                                    <constraint firstItem="Ya3-1v-1KA" firstAttribute="top" secondItem="ovM-tY-HPQ" secondAttribute="top" constant="32" id="r2R-qY-UZo"/>
+                                    <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerX" secondItem="ovM-tY-HPQ" secondAttribute="centerX" id="vIf-kT-FsK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -672,6 +685,7 @@
                                         <connections>
                                             <outlet property="confirmView" destination="SZZ-Bf-QmG" id="ElA-RV-jV7"/>
                                             <outlet property="couponContentView" destination="ULA-6K-B1d" id="xD6-8S-DrX"/>
+                                            <outlet property="thumbImageView" destination="T33-Aq-DhM" id="GDO-GQ-VzS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
