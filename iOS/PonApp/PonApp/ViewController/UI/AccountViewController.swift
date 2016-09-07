@@ -12,6 +12,7 @@ class AccountViewController: BaseViewController {
 
     @IBOutlet weak var recentTableView: UITableView!
     
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
     @IBOutlet weak var tabAccountButton: UIButton!
@@ -31,6 +32,7 @@ class AccountViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.settingButton.setImage(UIImage(named: "account_setting_button"), forState: .Normal)
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_selected"), forState: .Normal)
