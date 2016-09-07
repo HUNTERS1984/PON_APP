@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BaseViewController: UIViewController {
     
@@ -55,4 +56,27 @@ class BaseViewController: UIViewController {
         setUpComponentsOnWillDisappear()
     }
     
+}
+
+//MARK: - Public Methods
+extension BaseViewController {
+    
+    func hideBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(), style: .Plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+    
+    func showBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .Plain, target: self, action: #selector(self.backButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+    
+}
+
+//MARK: - IBAction 
+extension BaseViewController {
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

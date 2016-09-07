@@ -10,6 +10,11 @@ import UIKit
 
 class SplashViewController: BaseViewController {
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var twitterButton: UIButton!
+    @IBOutlet weak var mailButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,12 +23,28 @@ class SplashViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.backgroundImageView.image = UIImage(named: "splash_background")
+        self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), forState: .Normal)
+        self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), forState: .Normal)
+        self.mailButton.setImage(UIImage(named: "splash_button_email"), forState: .Normal)
+    }
+    
 }
 
 //MARK: - IBAction
 extension SplashViewController {
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
+    @IBAction func facebookButtonPressed(sender: AnyObject) {
+    
+    }
+    
+    @IBAction func twitterButtonPressed(sender: AnyObject) {
+
+    }
+    
+    @IBAction func mailButtonPressed(sender: AnyObject) {
         self.setupTabbarViewController()
     }
     

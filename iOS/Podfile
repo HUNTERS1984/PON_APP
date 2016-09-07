@@ -7,4 +7,6 @@ target 'PonApp' do
 	pod 'GoogleMaps'
     pod 'Alamofire', '~> 3.4'
     pod 'SwiftyJSON', '~> 2.3'
+    pod 'ImageSlideshow/Alamofire'
+    pod 'DKImagePickerController'
 end

@@ -13,6 +13,10 @@ class MainViewController: BaseViewController {
     var pageMenu : CAPSPageMenu?
     @IBOutlet weak var scrollMenuView: UIView!
     
+    @IBOutlet weak var tabFavoriteButton: UIButton!
+    @IBOutlet weak var tabPonButton: UIButton!
+    @IBOutlet weak var tabAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,7 +32,10 @@ class MainViewController: BaseViewController {
     }
     
     override func setUpUserInterface() {
-        
+        super.setUpUserInterface()
+        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
+        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
+        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
     }
     
 }
