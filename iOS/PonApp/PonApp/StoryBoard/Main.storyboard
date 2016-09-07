@@ -343,11 +343,6 @@
                                     <constraint firstItem="0t3-tj-lSk" firstAttribute="leading" secondItem="SSY-uM-WIe" secondAttribute="trailing" id="qPV-p9-0Hi"/>
                                     <constraint firstAttribute="bottom" secondItem="0t3-tj-lSk" secondAttribute="bottom" id="yj5-ez-t1Y"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                                        <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92d-Ef-Xel" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
