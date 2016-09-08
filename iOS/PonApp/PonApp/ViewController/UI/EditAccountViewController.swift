@@ -25,6 +25,7 @@ class EditAccountViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.title = "プロフィール編集"
         self.showBackButton()
     }
 }

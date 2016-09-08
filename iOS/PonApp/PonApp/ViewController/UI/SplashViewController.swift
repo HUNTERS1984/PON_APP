@@ -11,6 +11,7 @@ import UIKit
 class SplashViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var mailButton: UIButton!

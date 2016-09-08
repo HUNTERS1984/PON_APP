@@ -56,7 +56,7 @@ extension MainViewController {
     
     @IBAction func locationButtonPressed(sender: AnyObject) {
         let vc = HomeSearchViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
