@@ -11,11 +11,11 @@ import UIKit
 class DesignableView: UIView {
 
     // IBInspectable properties for the gradient colors
-    @IBInspectable var bottomColor: UIColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
-    @IBInspectable var middleColor: UIColor = UIColor(red:0.98, green:0.85, blue:0.38, alpha:1)
-    @IBInspectable var topColor: UIColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
+    @IBInspectable var bottomColor: UIColor = UIColor.whiteColor()
+    @IBInspectable var middleColor: UIColor = UIColor.whiteColor()
+    @IBInspectable var topColor: UIColor = UIColor.whiteColor()
     @IBInspectable var bottomColorAlpha: CGFloat = 1.0
-    @IBInspectable var middleColorAlpha: CGFloat = 0.8
+    @IBInspectable var middleColorAlpha: CGFloat = 1.0
     @IBInspectable var topColorAlpha: CGFloat = 1.0
     
     // IBInspectable properties for rounded corners and border color / width

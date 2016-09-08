@@ -11,8 +11,11 @@ import UIKit
 class HomeMapViewController: BaseViewController {
 
     @IBOutlet weak var offerViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var menuButton: DesignableButton!
-    @IBOutlet weak var hideOfferButton: DesignableButton!
+    @IBOutlet weak var offerView: UIView!
+    
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var hideOfferButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +27,17 @@ class HomeMapViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.title = "現在地付近でさがす"
+        self.showBackButton()
+        
+        self.offerView.backgroundColor = UIColor(hex3: 0xfff, alpha: 0.5)
         self.offerViewBottomConstraint.constant -= 172
         self.hideOfferButton.hidden = true
         self.menuButton.hidden = false
+        
+        self.currentLocationButton.setImage(UIImage(named: "map_icon_location"), forState: .Normal)
+        self.menuButton.setImage(UIImage(named: "map_icon_menu"), forState: .Normal)
+        self.hideOfferButton.setImage(UIImage(named: "map_icon_down"), forState: .Normal)
     }
 
 }
@@ -40,11 +51,15 @@ extension HomeMapViewController {
     
     @IBAction func menuButtonPressed(sender: AnyObject) {
         let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func hideOfferButtonPressed(sender: AnyObject) {
         self.hideOfferView()
+    }
+    
+    override func navCloseButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(false)
     }
     
 }

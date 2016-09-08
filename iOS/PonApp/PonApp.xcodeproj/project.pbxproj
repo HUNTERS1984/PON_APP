@@ -104,11 +104,19 @@
 		FA822BC51D81071C00FB9364 /* ui_top_02_01-05.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B991D81071C00FB9364 /* ui_top_02_01-05.png */; };
 		FA822BC61D81071C00FB9364 /* ui_top_02_01-06.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9A1D81071C00FB9364 /* ui_top_02_01-06.png */; };
 		FA822BC71D81071C00FB9364 /* ui_top_02_03_-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9B1D81071C00FB9364 /* ui_top_02_03_-02.png */; };
-		FA822BC81D81071C00FB9364 /* ui_top_02_03_-03.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9C1D81071C00FB9364 /* ui_top_02_03_-03.png */; };
-		FA822BC91D81071C00FB9364 /* ui_top_02_03_-04.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9D1D81071C00FB9364 /* ui_top_02_03_-04.png */; };
+		FA822BC81D81071C00FB9364 /* map_icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9C1D81071C00FB9364 /* map_icon_menu@2x.png */; };
+		FA822BC91D81071C00FB9364 /* map_icon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B9D1D81071C00FB9364 /* map_icon_location@2x.png */; };
 		FA822BCC1D81074200FB9364 /* HiraginoSansGB-W3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA822BCA1D81074200FB9364 /* HiraginoSansGB-W3.ttf */; };
 		FA822BCD1D81074200FB9364 /* HiraginoSansGB-W6.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA822BCB1D81074200FB9364 /* HiraginoSansGB-W6.ttf */; };
 		FA822BD31D8114A400FB9364 /* HiraginoSansUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BD21D8114A400FB9364 /* HiraginoSansUIFont.swift */; };
+		FA822BD81D813FA800FB9364 /* map_icon_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822BD71D813FA800FB9364 /* map_icon_down@2x.png */; };
+		FA822BDA1D81426900FB9364 /* nav_close_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822BD91D81426900FB9364 /* nav_close_white@2x.png */; };
+		FA822BDC1D814A2600FB9364 /* CouponList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA822BDB1D814A2600FB9364 /* CouponList.storyboard */; };
+		FA822BDE1D814ADD00FB9364 /* CouponPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BDD1D814ADD00FB9364 /* CouponPopularViewController.swift */; };
+		FA822BE01D814B1D00FB9364 /* CouponNewestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BDF1D814B1D00FB9364 /* CouponNewestViewController.swift */; };
+		FA822BE21D814DD800FB9364 /* ListCouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */; };
+		FA822BE41D814FB900FB9364 /* ListCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BE31D814FB900FB9364 /* ListCouponViewController.swift */; };
+		FA822BE61D81589A00FB9364 /* CouponNearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */; };
 		FAC0B6D11D7FA39900E96E3A /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D01D7FA39900E96E3A /* Coupon.swift */; };
 		FAC0B6DA1D7FB61900E96E3A /* LeftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */; };
 		FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */; };
@@ -235,11 +243,19 @@
 		FA822B991D81071C00FB9364 /* ui_top_02_01-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_02_01-05.png"; sourceTree = "<group>"; };
 		FA822B9A1D81071C00FB9364 /* ui_top_02_01-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_02_01-06.png"; sourceTree = "<group>"; };
 		FA822B9B1D81071C00FB9364 /* ui_top_02_03_-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_02_03_-02.png"; sourceTree = "<group>"; };
-		FA822B9C1D81071C00FB9364 /* ui_top_02_03_-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_02_03_-03.png"; sourceTree = "<group>"; };
-		FA822B9D1D81071C00FB9364 /* ui_top_02_03_-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_02_03_-04.png"; sourceTree = "<group>"; };
+		FA822B9C1D81071C00FB9364 /* map_icon_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_icon_menu@2x.png"; sourceTree = "<group>"; };
+		FA822B9D1D81071C00FB9364 /* map_icon_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_icon_location@2x.png"; sourceTree = "<group>"; };
 		FA822BCA1D81074200FB9364 /* HiraginoSansGB-W3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSansGB-W3.ttf"; sourceTree = "<group>"; };
 		FA822BCB1D81074200FB9364 /* HiraginoSansGB-W6.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSansGB-W6.ttf"; sourceTree = "<group>"; };
 		FA822BD21D8114A400FB9364 /* HiraginoSansUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraginoSansUIFont.swift; sourceTree = "<group>"; };
+		FA822BD71D813FA800FB9364 /* map_icon_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_icon_down@2x.png"; sourceTree = "<group>"; };
+		FA822BD91D81426900FB9364 /* nav_close_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_close_white@2x.png"; sourceTree = "<group>"; };
+		FA822BDB1D814A2600FB9364 /* CouponList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CouponList.storyboard; sourceTree = "<group>"; };
+		FA822BDD1D814ADD00FB9364 /* CouponPopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponPopularViewController.swift; sourceTree = "<group>"; };
+		FA822BDF1D814B1D00FB9364 /* CouponNewestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponNewestViewController.swift; sourceTree = "<group>"; };
+		FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA822BE31D814FB900FB9364 /* ListCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponViewController.swift; sourceTree = "<group>"; };
+		FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponNearestViewController.swift; sourceTree = "<group>"; };
 		FAC0B6D01D7FA39900E96E3A /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = PonApp/Libraries/HLKit/Extensions/Coupon.swift; sourceTree = SOURCE_ROOT; };
 		FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBorderView.swift; sourceTree = "<group>"; };
 		FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBorderView.swift; sourceTree = "<group>"; };
@@ -434,7 +450,6 @@
 		4ADE370C1D79D5F400C99476 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */,
 				4ADE370D1D79D5F400C99476 /* SplashViewController.swift */,
 				4ADE37161D79D94800C99476 /* MainViewController.swift */,
 				4ADE37181D79DBE800C99476 /* AccountViewController.swift */,
@@ -446,7 +461,12 @@
 				FA51B53A1D7D717B00CF10D8 /* HomeNewestViewController.swift */,
 				FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */,
 				FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */,
+				FAFC2E7B1D7E76D10067B18E /* HomeMenuViewController.swift */,
 				FAFC2E801D7E80EA0067B18E /* CouponViewController.swift */,
+				FA822BE31D814FB900FB9364 /* ListCouponViewController.swift */,
+				FA822BDD1D814ADD00FB9364 /* CouponPopularViewController.swift */,
+				FA822BDF1D814B1D00FB9364 /* CouponNewestViewController.swift */,
+				FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -567,6 +587,7 @@
 				FA51B50F1D7D033200CF10D8 /* Account.storyboard */,
 				FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */,
 				FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */,
+				FA822BDB1D814A2600FB9364 /* CouponList.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -610,6 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */,
+				FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -638,6 +660,7 @@
 				FA822B7C1D81071C00FB9364 /* coupon_normal@2x.png */,
 				FA822B7D1D81071C00FB9364 /* coupon_twitter_button@2x.png */,
 				FA822B7E1D81071C00FB9364 /* icon_location@2x.png */,
+				FA822BD91D81426900FB9364 /* nav_close_white@2x.png */,
 				FA822B7F1D81071C00FB9364 /* nav_add@2x.png */,
 				FA822B801D81071C00FB9364 /* nav_back@2x.png */,
 				FA822B811D81071C00FB9364 /* nav_close_blue@2x.png */,
@@ -667,8 +690,9 @@
 				FA822B991D81071C00FB9364 /* ui_top_02_01-05.png */,
 				FA822B9A1D81071C00FB9364 /* ui_top_02_01-06.png */,
 				FA822B9B1D81071C00FB9364 /* ui_top_02_03_-02.png */,
-				FA822B9C1D81071C00FB9364 /* ui_top_02_03_-03.png */,
-				FA822B9D1D81071C00FB9364 /* ui_top_02_03_-04.png */,
+				FA822B9C1D81071C00FB9364 /* map_icon_menu@2x.png */,
+				FA822BD71D813FA800FB9364 /* map_icon_down@2x.png */,
+				FA822B9D1D81071C00FB9364 /* map_icon_location@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -738,13 +762,14 @@
 				FA822BBD1D81071C00FB9364 /* ui_coupon_01-08.png in Resources */,
 				FA822BA31D81071C00FB9364 /* arrow_right@2x.png in Resources */,
 				FA822BC11D81071C00FB9364 /* ui_coupon_03-06.png in Resources */,
+				FA822BDA1D81426900FB9364 /* nav_close_white@2x.png in Resources */,
 				FA822BB21D81071C00FB9364 /* splash_button_twitter@2x.png in Resources */,
 				FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */,
 				FA822BC21D81071C00FB9364 /* ui_coupon_03-07.png in Resources */,
 				FA822BBF1D81071C00FB9364 /* ui_coupon_03-04.png in Resources */,
 				FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */,
 				FA822BAE1D81071C00FB9364 /* nav_search@2x.png in Resources */,
-				FA822BC81D81071C00FB9364 /* ui_top_02_03_-03.png in Resources */,
+				FA822BC81D81071C00FB9364 /* map_icon_menu@2x.png in Resources */,
 				FA822BBE1D81071C00FB9364 /* ui_coupon_03-02.png in Resources */,
 				FA822B9E1D81071C00FB9364 /* account_avatar_placehoder@2x.png in Resources */,
 				FA822BBA1D81071C00FB9364 /* coupon_time@2x.png in Resources */,
@@ -765,8 +790,10 @@
 				FA822BC41D81071C00FB9364 /* ui_top_02_01-04.png in Resources */,
 				FA822BCC1D81074200FB9364 /* HiraginoSansGB-W3.ttf in Resources */,
 				FA822BB91D81071C00FB9364 /* coupon_phone@2x.png in Resources */,
+				FA822BD81D813FA800FB9364 /* map_icon_down@2x.png in Resources */,
 				FA822BAC1D81071C00FB9364 /* nav_back@2x.png in Resources */,
 				FA822BC71D81071C00FB9364 /* ui_top_02_03_-02.png in Resources */,
+				FA822BDC1D814A2600FB9364 /* CouponList.storyboard in Resources */,
 				FA822BB11D81071C00FB9364 /* splash_button_facebook@2x.png in Resources */,
 				FA822BC31D81071C00FB9364 /* icon_food@2x.png in Resources */,
 				FA822BAD1D81071C00FB9364 /* nav_close_blue@2x.png in Resources */,
@@ -780,7 +807,7 @@
 				FA822BAF1D81071C00FB9364 /* splash_background@2x.png in Resources */,
 				FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */,
 				FA822BA41D81071C00FB9364 /* coupon_facebook_button@2x.png in Resources */,
-				FA822BC91D81071C00FB9364 /* ui_top_02_03_-04.png in Resources */,
+				FA822BC91D81071C00FB9364 /* map_icon_location@2x.png in Resources */,
 				FA822BA01D81071C00FB9364 /* account_icon_list@2x.png in Resources */,
 				FA822BC01D81071C00FB9364 /* ui_coupon_03-05.png in Resources */,
 				FA822B9F1D81071C00FB9364 /* account_icon_history@2x.png in Resources */,
@@ -853,6 +880,7 @@
 				FA2F20191D780D5800608061 /* LocationManager.swift in Sources */,
 				4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */,
+				FA822BE01D814B1D00FB9364 /* CouponNewestViewController.swift in Sources */,
 				FAC0B77D1D80227200E96E3A /* CircleImageView.swift in Sources */,
 				FA51B5301D7D670700CF10D8 /* HomePopularViewController.swift in Sources */,
 				FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */,
@@ -876,6 +904,7 @@
 				FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */,
 				4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */,
 				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				FA822BE21D814DD800FB9364 /* ListCouponCollectionViewCell.swift in Sources */,
 				FA51B51D1D7D125B00CF10D8 /* TabbarView.swift in Sources */,
 				4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */,
 				FA51B51A1D7D0CB800CF10D8 /* PonButton.swift in Sources */,
@@ -897,6 +926,7 @@
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
 				FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */,
 				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
+				FA822BE61D81589A00FB9364 /* CouponNearestViewController.swift in Sources */,
 				FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */,
 				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
 				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
@@ -904,8 +934,10 @@
 				4A6FD4C81D79C9DE000D4F85 /* TypeConversionHelper.swift in Sources */,
 				4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
 				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
+				FA822BDE1D814ADD00FB9364 /* CouponPopularViewController.swift in Sources */,
 				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
 				FA822BD31D8114A400FB9364 /* HiraginoSansUIFont.swift in Sources */,
+				FA822BE41D814FB900FB9364 /* ListCouponViewController.swift in Sources */,
 				FAFC2E831D7E9EB00067B18E /* CouponBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

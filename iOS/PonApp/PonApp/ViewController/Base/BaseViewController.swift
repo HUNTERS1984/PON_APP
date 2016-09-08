@@ -81,6 +81,11 @@ extension BaseViewController {
         button.setTitleTextAttributes([NSFontAttributeName: UIFont.HiraginoSansW6(17)], forState: UIControlState.Normal)
         self.navigationItem.rightBarButtonItem = button
     }
+    
+    func showCloseButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "nav_close_white"), style: .Plain, target: self, action: #selector(self.navCloseButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
+    }
 }
 
 //MARK: - IBAction 
@@ -96,6 +101,10 @@ extension BaseViewController {
     
     @IBAction func rightBarButtonPressed(sender: AnyObject) {
         
+    }
+    
+    @IBAction func navCloseButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(false)
     }
     
 }
