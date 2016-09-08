@@ -16,6 +16,69 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Home Nearest View Controller-->
+        <scene sceneID="Z2u-A8-Zu1">
+            <objects>
+                <viewController storyboardIdentifier="HomeNearestViewController" automaticallyAdjustsScrollViewInsets="NO" id="Iod-Rd-hKm" customClass="HomeNearestViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2GW-2d-eKc"/>
+                        <viewControllerLayoutGuide type="bottom" id="eQC-Sk-ljw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Rm-dN-wcv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYn-Fa-Upu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="61g-V7-cyA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Dcl-wC-F6u">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dcl-wC-F6u" id="aRa-3u-Ixq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Iod-Rd-hKm" id="k80-vh-qCI"/>
+                                            <outlet property="delegate" destination="Iod-Rd-hKm" id="pvT-Dn-1sJ"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="61g-V7-cyA" firstAttribute="leading" secondItem="sYn-Fa-Upu" secondAttribute="leading" id="Jjp-mm-U8W"/>
+                                    <constraint firstItem="61g-V7-cyA" firstAttribute="top" secondItem="sYn-Fa-Upu" secondAttribute="top" id="S9t-99-WsS"/>
+                                    <constraint firstAttribute="bottom" secondItem="61g-V7-cyA" secondAttribute="bottom" id="WnG-Mj-R2M"/>
+                                    <constraint firstAttribute="trailing" secondItem="61g-V7-cyA" secondAttribute="trailing" id="k8b-Lr-kb5"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sYn-Fa-Upu" firstAttribute="top" secondItem="4Rm-dN-wcv" secondAttribute="top" id="XPM-GG-T41"/>
+                            <constraint firstItem="eQC-Sk-ljw" firstAttribute="top" secondItem="sYn-Fa-Upu" secondAttribute="bottom" id="hQ5-4F-sxr"/>
+                            <constraint firstItem="sYn-Fa-Upu" firstAttribute="leading" secondItem="4Rm-dN-wcv" secondAttribute="leading" id="i1v-eq-YMh"/>
+                            <constraint firstItem="61g-V7-cyA" firstAttribute="height" secondItem="4Rm-dN-wcv" secondAttribute="height" priority="250" id="m4f-Ri-vyn"/>
+                            <constraint firstAttribute="trailing" secondItem="sYn-Fa-Upu" secondAttribute="trailing" id="xir-UN-JaH"/>
+                            <constraint firstItem="61g-V7-cyA" firstAttribute="width" secondItem="4Rm-dN-wcv" secondAttribute="width" id="zoN-0n-G0G"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="contentTableView" destination="61g-V7-cyA" id="yQ3-2k-j6j"/>
+                        <outlet property="contentTableViewHeight" destination="m4f-Ri-vyn" id="nEt-rv-sKI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgR-Cc-aYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-484.5" y="561.5"/>
+        </scene>
         <!--Home Popular View Controller-->
         <scene sceneID="aH1-TT-7e9">
             <objects>
