@@ -25,13 +25,6 @@ class HomeNearestViewController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("self.contentTableView.contentSize.height: \(self.contentTableView.contentSize.height)")
-        self.contentTableViewHeight.constant = 1110
-        print("\(self.contentTableViewHeight.constant)")
-        print("\(self.contentTableView.frame)")
-        
-        print("self.mainScrollView.contentSize.height: \(self.mainScrollView.contentSize.height)")
-        print("\(self.mainScrollView.frame)")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -40,9 +33,12 @@ class HomeNearestViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.mainScrollView.backgroundColor = UIColor.blueColor()
-        self.contentTableView.backgroundColor = UIColor.redColor()
         self.contentTableView.scrollEnabled = false
+        self.contentTableView.separatorStyle = .None
+        self.contentTableView.reloadData { 
+            let heightConstant = self.contentTableView.contentSize.height
+            self.contentTableViewHeight.constant = heightConstant;
+        }
     }
     
 }
@@ -55,7 +51,9 @@ extension HomeNearestViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CouponCollectionTableViewCell
-        cell.backgroundColor = UIColor.greenColor()
+        cell.moreButtonCallback = {(sender) -> Void in
+            
+        }
         return cell
     }
     

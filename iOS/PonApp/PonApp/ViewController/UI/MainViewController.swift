@@ -69,12 +69,14 @@ extension MainViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
+//        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
+        let popular = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         popular.parentNavigationController = self.navigationController
         popular.title = "人気"
         controllerArray.append(popular)
         
-        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
+//        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
+        let newest = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         newest.parentNavigationController = self.navigationController
         newest.title = "新着"
         controllerArray.append(newest)
@@ -84,12 +86,11 @@ extension MainViewController {
         nearby.title = "近く"
         controllerArray.append(nearby)
         
-        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
+//        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
+        let used = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         used.parentNavigationController = self.navigationController
         used.title = "Used"
         controllerArray.append(used)
-        
-        
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),

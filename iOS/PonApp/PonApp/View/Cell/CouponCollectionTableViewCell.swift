@@ -8,10 +8,16 @@
 
 import UIKit
 
+typealias MoreButtonPressed = (sender: AnyObject) -> ()
+
 class CouponCollectionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var couponCollectionView: UICollectionView!
-
+    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
+    
+    var moreButtonCallback: MoreButtonPressed? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,6 +31,12 @@ class CouponCollectionTableViewCell: UITableViewCell {
         self.couponCollectionView.delegate = delegate
         self.couponCollectionView.tag = index
         self.couponCollectionView.reloadData()
+    }
+    
+    @IBAction func moreButtonPressed(sender: AnyObject) {
+        if let _ = moreButtonCallback {
+            moreButtonCallback!(sender: sender)
+        }
     }
 
 }
