@@ -118,6 +118,8 @@
 		FA822BE41D814FB900FB9364 /* ListCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BE31D814FB900FB9364 /* ListCouponViewController.swift */; };
 		FA822BE61D81589A00FB9364 /* CouponNearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */; };
 		FA9F656A1D8185F100B86A89 /* HomeNearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F65691D8185F100B86A89 /* HomeNearestViewController.swift */; };
+		FABC3D591D824D760061E596 /* CouponCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC3D581D824D760061E596 /* CouponCollectionTableViewCell.swift */; };
+		FABC3D5E1D8263FF0061E596 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */; };
 		FAC0B6D11D7FA39900E96E3A /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D01D7FA39900E96E3A /* Coupon.swift */; };
 		FAC0B6DA1D7FB61900E96E3A /* LeftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */; };
 		FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */; };
@@ -258,6 +260,8 @@
 		FA822BE31D814FB900FB9364 /* ListCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponViewController.swift; sourceTree = "<group>"; };
 		FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponNearestViewController.swift; sourceTree = "<group>"; };
 		FA9F65691D8185F100B86A89 /* HomeNearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNearestViewController.swift; sourceTree = "<group>"; };
+		FABC3D581D824D760061E596 /* CouponCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		FAC0B6D01D7FA39900E96E3A /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = PonApp/Libraries/HLKit/Extensions/Coupon.swift; sourceTree = SOURCE_ROOT; };
 		FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBorderView.swift; sourceTree = "<group>"; };
 		FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBorderView.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				4A6FD4A31D79C9DE000D4F85 /* UIViewControllerExtension.swift */,
 				4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */,
 				FAFC2E8B1D7EBEDE0067B18E /* UINavigationControllerExtension.swift */,
+				FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 			children = (
 				FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */,
 				FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */,
+				FABC3D581D824D760061E596 /* CouponCollectionTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -916,6 +922,7 @@
 				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
 				FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */,
 				FAFC2E8A1D7EAFA80067B18E /* BottomBorderView.swift in Sources */,
+				FABC3D5E1D8263FF0061E596 /* UITableViewExtension.swift in Sources */,
 				FAFC2E8C1D7EBEDE0067B18E /* UINavigationControllerExtension.swift in Sources */,
 				4ADE37101D79D5F400C99476 /* BaseTabBarController.swift in Sources */,
 				4ADE37121D79D5F400C99476 /* SplashViewController.swift in Sources */,
@@ -931,6 +938,7 @@
 				FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */,
 				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
 				FA822BE61D81589A00FB9364 /* CouponNearestViewController.swift in Sources */,
+				FABC3D591D824D760061E596 /* CouponCollectionTableViewCell.swift in Sources */,
 				FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */,
 				4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */,
 				4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */,
