@@ -12,7 +12,10 @@ import ImageSlideshow
 class CouponViewController: BaseViewController {
 
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var qrCodeButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var couponInfoLabel: UILabel!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
@@ -21,7 +24,7 @@ class CouponViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let text = "この日は国連が定めた「国際ヨガの日 夏至は１年で最も昼の時間が長いことから、自然との調和を重んじるヨガの世界では特別な日とされて この日は国連が定めた「国際ヨガの日 夏至は１年で最も昼の時間が長いことから、自然との調和を重んじるヨガの世界では特別な日とされて この日は国連が定めた「国際ヨガの日 夏至は１年で最も昼の時間が長いことから、自然との調和を重んじるヨガの世界では特別な日とされて この日は国連が定めた「国際ヨガの日 夏至は１年で最も昼の時間が長いことから、自然との調和を重んじるヨガの世界では特別な日とされて この日は国連が定めた「国際ヨガの日"
+        let text = "説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入りま す説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります.."
         self.couponInfoLabel.text = text
         self.setupImageSlideShow()
     }
@@ -37,6 +40,13 @@ class CouponViewController: BaseViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
+        self.shareButton.setImage(UIImage(named: "coupon_button_share"), forState: .Normal)
+        self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
     }
 }
 
@@ -69,6 +79,10 @@ extension CouponViewController {
     @IBAction override func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func qrCodeButtonPressed(sender: AnyObject) {
+    }
+    
 }
 
 //MARK: - Private methods
@@ -95,18 +109,18 @@ extension CouponViewController {
 //MARK: UIScrollViewDelegate
 extension CouponViewController: UIScrollViewDelegate {
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        self.point = scrollView.contentOffset
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y == 0 {
-            return
-        }
-        if scrollView.contentOffset.y < self.point.y {
-            self.backButton.hidden = false
-        }else {
-            self.backButton.hidden = true
-        }
-    }
+//    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+//        self.point = scrollView.contentOffset
+//    }
+//    
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y == 0 {
+//            return
+//        }
+//        if scrollView.contentOffset.y < self.point.y {
+//            self.backButton.hidden = false
+//        }else {
+//            self.backButton.hidden = true
+//        }
+//    }
 }
