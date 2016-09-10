@@ -62,15 +62,30 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     func hideBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(), style: .Plain, target: self, action: nil)
-        self.navigationItem.leftBarButtonItem = backButton
+        let button = UIBarButtonItem(image: UIImage(), style: .Plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = button
     }
     
     func showBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .Plain, target: self, action: #selector(self.backButtonPressed(_: )))
-        self.navigationItem.leftBarButtonItem = backButton
+        let button = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .Plain, target: self, action: #selector(self.backButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
     }
     
+    func showAddButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "nav_add"), style: .Plain, target: self, action: #selector(self.navAddButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
+    }
+    
+    func showRightBarButtonWithTitle(title: String) {
+        let button = UIBarButtonItem(title: title, style: .Plain, target: self, action: #selector(self.rightBarButtonPressed(_: )))
+        button.setTitleTextAttributes([NSFontAttributeName: UIFont.HiraginoSansW6(17)], forState: UIControlState.Normal)
+        self.navigationItem.rightBarButtonItem = button
+    }
+    
+    func showCloseButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "nav_close_white"), style: .Plain, target: self, action: #selector(self.navCloseButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
+    }
 }
 
 //MARK: - IBAction 
@@ -79,4 +94,17 @@ extension BaseViewController {
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func navAddButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func rightBarButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func navCloseButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
 }

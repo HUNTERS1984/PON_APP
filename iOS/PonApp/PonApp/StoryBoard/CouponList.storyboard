@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HiraginoSansGB-W6.ttf">
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--List Coupon View Controller-->
+        <scene sceneID="UTi-yn-pmy">
+            <objects>
+                <viewController storyboardIdentifier="ListCouponViewController" id="1QO-N4-KjB" customClass="ListCouponViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xnS-LV-0xE"/>
+                        <viewControllerLayoutGuide type="bottom" id="suR-hV-Mwg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V3j-VY-fkb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFp-sl-mvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-341.5" y="319.5"/>
+        </scene>
+        <!--Coupon Popular View Controller-->
+        <scene sceneID="DMC-yU-Hb8">
+            <objects>
+                <viewController storyboardIdentifier="CouponPopularViewController" automaticallyAdjustsScrollViewInsets="NO" id="z04-bf-q30" customClass="CouponPopularViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dZq-zC-38S"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zz7-f1-QTJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G2H-53-AcA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A9m-yw-umA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="hvo-8a-he9">
+                                    <size key="itemSize" width="175" height="220"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCouponCollectionViewCell" id="B5e-Yi-5Ij" customClass="ListCouponCollectionViewCell" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="175" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQD-tL-D0A" userLabel="Content View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkR-8c-hhF" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="10" width="155" height="160"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                                    <real key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2t-yf-Bvr" userLabel="Button">
+                                                            <rect key="frame" x="10" y="180" width="155" height="30"/>
+                                                            <color key="backgroundColor" red="0.29411764709999999" green="0.6588235294" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                            <state key="normal" title="フォロー中"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="S2t-yf-Bvr" secondAttribute="bottom" constant="10" id="73M-3n-r0S"/>
+                                                        <constraint firstItem="EkR-8c-hhF" firstAttribute="top" secondItem="wQD-tL-D0A" secondAttribute="top" constant="10" id="I2z-eW-VZ0"/>
+                                                        <constraint firstItem="S2t-yf-Bvr" firstAttribute="leading" secondItem="wQD-tL-D0A" secondAttribute="leading" constant="10" id="Sbo-2U-32x"/>
+                                                        <constraint firstItem="EkR-8c-hhF" firstAttribute="leading" secondItem="wQD-tL-D0A" secondAttribute="leading" constant="10" id="bMA-cf-zua"/>
+                                                        <constraint firstAttribute="trailing" secondItem="S2t-yf-Bvr" secondAttribute="trailing" constant="10" id="d8J-up-Vcx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EkR-8c-hhF" secondAttribute="trailing" constant="10" id="db8-qb-CU7"/>
+                                                        <constraint firstItem="EkR-8c-hhF" firstAttribute="height" secondItem="wQD-tL-D0A" secondAttribute="height" multiplier="160/220" id="gSR-1D-Tgd"/>
+                                                        <constraint firstItem="S2t-yf-Bvr" firstAttribute="height" secondItem="wQD-tL-D0A" secondAttribute="height" multiplier="30/220" id="qLH-k5-5jV"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.82352941176470584" green="0.82745098039215681" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wQD-tL-D0A" secondAttribute="trailing" id="5ip-UK-KfB"/>
+                                            <constraint firstItem="wQD-tL-D0A" firstAttribute="leading" secondItem="B5e-Yi-5Ij" secondAttribute="leading" id="8TC-K8-ucb"/>
+                                            <constraint firstAttribute="bottom" secondItem="wQD-tL-D0A" secondAttribute="bottom" id="OkP-gG-zT1"/>
+                                            <constraint firstItem="wQD-tL-D0A" firstAttribute="top" secondItem="B5e-Yi-5Ij" secondAttribute="top" id="pK9-GF-bTB"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="z04-bf-q30" id="70N-5t-fYb"/>
+                                    <outlet property="delegate" destination="z04-bf-q30" id="X0N-Jh-A02"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A9m-yw-umA" firstAttribute="leading" secondItem="G2H-53-AcA" secondAttribute="leading" id="PED-aW-VHU"/>
+                            <constraint firstItem="Zz7-f1-QTJ" firstAttribute="top" secondItem="A9m-yw-umA" secondAttribute="bottom" id="emW-wZ-3nY"/>
+                            <constraint firstAttribute="trailing" secondItem="A9m-yw-umA" secondAttribute="trailing" id="ge8-Ni-JwK"/>
+                            <constraint firstItem="A9m-yw-umA" firstAttribute="top" secondItem="G2H-53-AcA" secondAttribute="top" id="rcZ-IJ-TqI"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ns2-At-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.5" y="319.5"/>
+        </scene>
+        <!--Coupon Newest View Controller-->
+        <scene sceneID="6uG-aM-BFj">
+            <objects>
+                <viewController storyboardIdentifier="CouponNewestViewController" id="u53-cS-lsP" customClass="CouponNewestViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ALa-Aq-apc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bjg-Jp-vEH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hze-oh-nB0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ase-po-MIS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="dn4-8N-ah9">
+                                    <size key="itemSize" width="175" height="220"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCouponCollectionViewCell" id="xnr-BJ-DTq" customClass="ListCouponCollectionViewCell" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="175" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84b-TS-5Iy" userLabel="Content View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3G-8R-Hoo" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="10" width="155" height="160"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                                    <real key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS4-Ki-Esl" userLabel="Button">
+                                                            <rect key="frame" x="10" y="180" width="155" height="30"/>
+                                                            <color key="backgroundColor" red="0.29411764709999999" green="0.6588235294" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                            <state key="normal" title="フォロー中"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="E3G-8R-Hoo" secondAttribute="trailing" constant="10" id="FAl-DW-VF8"/>
+                                                        <constraint firstItem="OS4-Ki-Esl" firstAttribute="height" secondItem="84b-TS-5Iy" secondAttribute="height" multiplier="30/220" id="K4g-5g-qaD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OS4-Ki-Esl" secondAttribute="trailing" constant="10" id="SyN-Ax-vqC"/>
+                                                        <constraint firstItem="E3G-8R-Hoo" firstAttribute="height" secondItem="84b-TS-5Iy" secondAttribute="height" multiplier="160/220" id="TXE-UU-cOD"/>
+                                                        <constraint firstItem="E3G-8R-Hoo" firstAttribute="top" secondItem="84b-TS-5Iy" secondAttribute="top" constant="10" id="TZj-U4-eY5"/>
+                                                        <constraint firstItem="OS4-Ki-Esl" firstAttribute="leading" secondItem="84b-TS-5Iy" secondAttribute="leading" constant="10" id="Zud-ri-ocI"/>
+                                                        <constraint firstItem="E3G-8R-Hoo" firstAttribute="leading" secondItem="84b-TS-5Iy" secondAttribute="leading" constant="10" id="jpp-s0-RjF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OS4-Ki-Esl" secondAttribute="bottom" constant="10" id="oUm-jU-YHK"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="84b-TS-5Iy" firstAttribute="top" secondItem="xnr-BJ-DTq" secondAttribute="top" id="Afu-F7-vE7"/>
+                                            <constraint firstItem="84b-TS-5Iy" firstAttribute="leading" secondItem="xnr-BJ-DTq" secondAttribute="leading" id="Ky2-9w-CSP"/>
+                                            <constraint firstAttribute="trailing" secondItem="84b-TS-5Iy" secondAttribute="trailing" id="M9v-eo-291"/>
+                                            <constraint firstAttribute="bottom" secondItem="84b-TS-5Iy" secondAttribute="bottom" id="WVb-jH-0iu"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="u53-cS-lsP" id="exM-Gu-9Kr"/>
+                                    <outlet property="delegate" destination="u53-cS-lsP" id="SqG-aR-WzD"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bjg-Jp-vEH" firstAttribute="top" secondItem="ase-po-MIS" secondAttribute="bottom" id="Chu-xw-Oib"/>
+                            <constraint firstAttribute="trailing" secondItem="ase-po-MIS" secondAttribute="trailing" id="Gox-AP-J1u"/>
+                            <constraint firstItem="ase-po-MIS" firstAttribute="top" secondItem="hze-oh-nB0" secondAttribute="top" id="Pni-QB-Fxj"/>
+                            <constraint firstItem="ase-po-MIS" firstAttribute="leading" secondItem="hze-oh-nB0" secondAttribute="leading" id="nCP-Xz-sXb"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIw-eQ-3nI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="475.5" y="319.5"/>
+        </scene>
+        <!--Coupon Nearest View Controller-->
+        <scene sceneID="wFi-iE-2i4">
+            <objects>
+                <viewController storyboardIdentifier="CouponNearestViewController" id="ebc-LB-ZLV" customClass="CouponNearestViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KiH-31-v5h"/>
+                        <viewControllerLayoutGuide type="bottom" id="UGF-9Y-o8i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qIC-3m-EVr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iQj-cT-PES">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="FWp-m6-FWk">
+                                    <size key="itemSize" width="175" height="220"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCouponCollectionViewCell" id="ob7-e5-Wrf" customClass="ListCouponCollectionViewCell" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="175" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoy-5V-Sa9" userLabel="Content View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="220"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpq-aV-7sT" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="10" width="155" height="160"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                                    <real key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaN-Nu-9e0" userLabel="Button">
+                                                            <rect key="frame" x="10" y="180" width="155" height="30"/>
+                                                            <color key="backgroundColor" red="0.29411764709999999" green="0.6588235294" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                            <state key="normal" title="フォロー中"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="wpq-aV-7sT" secondAttribute="trailing" constant="10" id="72s-iL-3Qc"/>
+                                                        <constraint firstItem="wpq-aV-7sT" firstAttribute="leading" secondItem="zoy-5V-Sa9" secondAttribute="leading" constant="10" id="8Dx-4C-JdP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gaN-Nu-9e0" secondAttribute="trailing" constant="10" id="HQO-1j-4vd"/>
+                                                        <constraint firstItem="wpq-aV-7sT" firstAttribute="height" secondItem="zoy-5V-Sa9" secondAttribute="height" multiplier="160/220" id="Mio-dw-3sm"/>
+                                                        <constraint firstItem="gaN-Nu-9e0" firstAttribute="height" secondItem="zoy-5V-Sa9" secondAttribute="height" multiplier="30/220" id="QKJ-Hh-n2M"/>
+                                                        <constraint firstItem="wpq-aV-7sT" firstAttribute="top" secondItem="zoy-5V-Sa9" secondAttribute="top" constant="10" id="bmQ-qh-R64"/>
+                                                        <constraint firstItem="gaN-Nu-9e0" firstAttribute="leading" secondItem="zoy-5V-Sa9" secondAttribute="leading" constant="10" id="eQA-WP-vGF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="gaN-Nu-9e0" secondAttribute="bottom" constant="10" id="ehZ-Vj-an8"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="zoy-5V-Sa9" firstAttribute="leading" secondItem="ob7-e5-Wrf" secondAttribute="leading" id="G35-R6-e4f"/>
+                                            <constraint firstItem="zoy-5V-Sa9" firstAttribute="top" secondItem="ob7-e5-Wrf" secondAttribute="top" id="fOW-eV-1SG"/>
+                                            <constraint firstAttribute="trailing" secondItem="zoy-5V-Sa9" secondAttribute="trailing" id="gd2-Nk-tSQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="zoy-5V-Sa9" secondAttribute="bottom" id="sPm-px-EQd"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ebc-LB-ZLV" id="S3h-ri-dfo"/>
+                                    <outlet property="delegate" destination="ebc-LB-ZLV" id="6Eh-0d-8ND"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iQj-cT-PES" firstAttribute="top" secondItem="qIC-3m-EVr" secondAttribute="top" id="7Hv-jn-gBZ"/>
+                            <constraint firstItem="iQj-cT-PES" firstAttribute="leading" secondItem="qIC-3m-EVr" secondAttribute="leading" id="DO8-fF-PFx"/>
+                            <constraint firstItem="UGF-9Y-o8i" firstAttribute="top" secondItem="iQj-cT-PES" secondAttribute="bottom" id="JiE-U7-ljJ"/>
+                            <constraint firstAttribute="trailing" secondItem="iQj-cT-PES" secondAttribute="trailing" id="pjr-uY-3If"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1N-ac-5HI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894.5" y="319.5"/>
+        </scene>
+    </scenes>
+</document>

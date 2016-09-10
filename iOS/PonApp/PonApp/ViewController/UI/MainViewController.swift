@@ -56,7 +56,7 @@ extension MainViewController {
     
     @IBAction func locationButtonPressed(sender: AnyObject) {
         let vc = HomeSearchViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
@@ -69,25 +69,28 @@ extension MainViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
+//        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
+        let popular = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         popular.parentNavigationController = self.navigationController
-        popular.title = "Popular"
+        popular.title = "人気"
         controllerArray.append(popular)
         
-        let nearby = HomeNearByViewController.instanceFromStoryBoard("MainMenu") as! HomeNearByViewController
+//        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
+        let newest = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        newest.parentNavigationController = self.navigationController
+        newest.title = "新着"
+        controllerArray.append(newest)
+        
+        let nearby = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         nearby.parentNavigationController = self.navigationController
-        nearby.title = "Nearest"
+        nearby.title = "近く"
         controllerArray.append(nearby)
         
-        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
+//        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
+        let used = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         used.parentNavigationController = self.navigationController
         used.title = "Used"
         controllerArray.append(used)
-        
-        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
-        newest.parentNavigationController = self.navigationController
-        newest.title = "Newest"
-        controllerArray.append(newest)
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
@@ -99,7 +102,7 @@ extension MainViewController {
             .MenuHeight(50.0),
             .SelectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .UnselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),
-            .MenuItemFont(UIFont(name: "HelveticaNeue-Medium", size: 14.0)!),
+            .MenuItemFont(UIFont.HiraginoSansW6(17)),
             .MenuItemSeparatorRoundEdges(true),
             .SelectionIndicatorHeight(2.0),
             .MenuItemSeparatorPercentageHeight(0.1)

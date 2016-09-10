@@ -22,6 +22,14 @@ class HomeSearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        let leftBarButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .Plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        self.showSearchBox()
+        self.showRightBarButtonWithTitle("キャンセル")
+    }
 
 }
 
@@ -31,6 +39,30 @@ extension HomeSearchViewController {
     @IBAction func locationButtonPressed(sender: AnyObject) {
         let vc = HomeMapViewController.instanceFromStoryBoard("MainMenu")
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func rightBarButtonPressed(sender: AnyObject) {
+        super.rightBarButtonPressed(sender)
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+}
+
+//MARK: - Private
+extension HomeSearchViewController {
+    
+    private func showSearchBox() {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
+        
+        let searchBox = UITextField(frame: CGRectMake(0, 0, screenWidth - 60, 30))
+        searchBox.backgroundColor = UIColor.clearColor()
+        searchBox.textColor = UIColor.whiteColor()
+        searchBox.font = UIFont.HiraginoSansW6(17)
+        searchBox.placeholder = "地名/ショップ名を入力"
+        searchBox.borderStyle = .None
+        searchBox.autoresizingMask = .FlexibleWidth
+        self.navigationItem.titleView = searchBox
     }
     
 }

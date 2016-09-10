@@ -17,6 +17,12 @@ class HomeMenuViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func setUpUserInterface() {
+        super.setUpUserInterface()
+        self.title = "ショップの追加"
+        self.showCloseButton()
+    }
 
 }
 
@@ -40,7 +46,9 @@ extension HomeMenuViewController: UITableViewDataSource {
 extension HomeMenuViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let vc = ListCouponViewController.instanceFromStoryBoard("CouponList")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

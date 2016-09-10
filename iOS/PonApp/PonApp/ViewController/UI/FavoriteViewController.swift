@@ -29,6 +29,9 @@ class FavoriteViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.title = "お気に入り"
+        
+        self.showAddButton()
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
