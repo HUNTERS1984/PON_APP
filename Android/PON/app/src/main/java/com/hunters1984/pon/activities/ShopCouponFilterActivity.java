@@ -3,17 +3,18 @@ package com.hunters1984.pon.activities;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.ShopCouponFilterPager;
 
-public class ShopCouponFilterActivity extends AppCompatActivity {
+public class ShopCouponFilterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        mContext = this;
         setContentView(R.layout.activity_shop_coupon_filter);
+        super.onCreate(savedInstanceState);
+        setTitle(getString(R.string.title_shop_coupons_filter));
 
         initLayout();
     }

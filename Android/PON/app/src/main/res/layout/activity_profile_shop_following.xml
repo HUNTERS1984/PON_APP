@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hunters1984.pon.activities.HistoryActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.hunters1984.pon.activities.ProfileShopFollowingActivity">
 
-    <include layout="@layout/include_header_layout"/>
+   <include layout="@layout/include_header_layout"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_view_history" />
+        android:id="@+id/rv_profile_shop_following"/>
 </LinearLayout>

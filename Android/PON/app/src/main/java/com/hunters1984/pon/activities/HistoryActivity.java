@@ -16,8 +16,9 @@ public class HistoryActivity extends BaseActivity implements OnLoadDataListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDataListener = this;
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        super.onCreate(savedInstanceState);
+        setTitle(getResources().getString(R.string.title_history));
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_history);
         rv.setLayoutManager(new GridLayoutManager(this, 2));

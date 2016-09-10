@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.models.CouponModel;
@@ -21,12 +22,19 @@ public class BaseActivity extends AppCompatActivity {
     protected OnLoadDataListener mDataListener;
     protected List<CouponModel> mListCoupons;
 
-    private ImageView mIvHome, mIvMyFavourite, mIvProfile;
+    private ImageView mIvHome, mIvMyFavourite, mIvProfile, mIvBack;
+    private TextView mTvTitle;
     protected Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initCommonLayout();
+    }
+
+    protected void initCommonLayout()
+    {
         mIvHome = (ImageView)findViewById(R.id.iv_home);
         if(mIvHome != null){
             mIvHome.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +71,18 @@ public class BaseActivity extends AppCompatActivity {
             });
         }
 
+        mIvBack = (ImageView)findViewById(R.id.iv_back);
+        if(mIvBack != null) {
+            mIvBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+        }
+
+        mTvTitle = (TextView)findViewById(R.id.tv_title);
+
         if(mDataListener != null) {
             mDataListener.onLoadData();
         }
@@ -93,5 +113,11 @@ public class BaseActivity extends AppCompatActivity {
     {
         mIvProfile.setImageResource(R.drawable.ic_menu_profile_unselect);
         mIvMyFavourite.setImageResource(R.drawable.ic_menu_favourite_unselect);
+    }
+
+    protected void setTitle(String title) {
+        if(mTvTitle != null){
+            mTvTitle.setText(title);
+        }
     }
 }

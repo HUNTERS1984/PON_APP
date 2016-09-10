@@ -6,26 +6,8 @@
     android:orientation="vertical"
     tools:context="com.hunters1984.pon.activities.ShopCouponFilterActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:background="@color/colorPrimary">
-        <ImageView
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_back"
-            android:scaleType="fitXY"
-            android:layout_centerVertical="true"/>
+   <include layout="@layout/include_header_layout"/>
 
-        <com.hunters1984.pon.customs.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Shop Couponse"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title_font_size"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"

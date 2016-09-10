@@ -65,7 +65,7 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         rlShopFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(mContext, ProfileShopFollowingActivity.class, false);
             }
         });
 

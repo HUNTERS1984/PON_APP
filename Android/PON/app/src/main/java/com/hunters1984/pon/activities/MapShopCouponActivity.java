@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,7 +28,7 @@ import com.hunters1984.pon.utils.PermissionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapShopCouponActivity extends AppCompatActivity implements GoogleMap.OnMyLocationButtonClickListener,
+public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnMyLocationButtonClickListener,
         OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
 
@@ -50,12 +49,17 @@ public class MapShopCouponActivity extends AppCompatActivity implements GoogleMa
      * {@link #onRequestPermissionsResult(int, String[], int[])}.
      */
     private boolean mPermissionDenied = false;
+    private boolean isShowMyLocationFirstTime = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mContext = this;
+        mDataListener = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_shop_coupon);
+        initCommonLayout();
+        setTitle(getString(R.string.title_shop_map));
 
         try {
             if (mGoogleMap == null) {
@@ -66,8 +70,6 @@ public class MapShopCouponActivity extends AppCompatActivity implements GoogleMa
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        onLoadData();
         initLayout();
     }
 
@@ -82,6 +84,10 @@ public class MapShopCouponActivity extends AppCompatActivity implements GoogleMa
             @Override
             public void onMyLocationChange(Location location) {
                 mUserLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                if(!isShowMyLocationFirstTime) {
+                    showMyLocation();
+                    isShowMyLocationFirstTime = true;
+                }
             }
         });
     }
