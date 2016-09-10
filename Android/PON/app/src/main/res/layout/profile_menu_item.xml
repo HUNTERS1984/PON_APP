@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+    <com.hunters1984.pon.customs.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="Menu Item 1"
+        android:id="@+id/tv_menu_name"/>
+    <ImageView
+        android:layout_width="@dimen/icon_size_more_detail"
+        android:layout_height="@dimen/icon_size_more_detail"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/ic_detail" />
+</RelativeLayout>

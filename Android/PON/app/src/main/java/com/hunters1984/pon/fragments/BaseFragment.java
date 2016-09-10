@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.hunters1984.pon.R;
-import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.CouponModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.ArrayList;
 import java.util.List;

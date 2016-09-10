@@ -102,7 +102,7 @@
                     android:text="Description require login "
                     android:textSize="20sp"
                     android:textColor="@color/colorPrimary"/>
-                <Button
+                <com.hunters1984.pon.customs.CustomButton
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

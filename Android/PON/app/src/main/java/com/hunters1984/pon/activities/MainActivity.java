@@ -1,24 +1,30 @@
 package com.hunters1984.pon.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext = this;
+        super.onCreate(savedInstanceState);
+
+        initLayout();
+    }
+
+    private void initLayout()
+    {
+        activeHomePage();
 
         mBtnShopSubscribe = (ImageView) findViewById(R.id.iv_follow_shop);
         mBtnShopLocation = (ImageView)findViewById(R.id.iv_shop_location);
@@ -56,16 +62,14 @@ public class MainActivity extends AppCompatActivity {
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iShopLocation = new Intent(MainActivity.this, ShopLocationActivity.class);
-                startActivity(iShopLocation);
+                startActivity(MainActivity.this, ShopLocationActivity.class, false);
             }
         });
 
         mBtnShopSubscribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iShopSubscribe = new Intent(MainActivity.this, ShopSubscribeActivity.class);
-                startActivity(iShopSubscribe);
+                startActivity(MainActivity.this, ShopSubscribeActivity.class, false);
             }
         });
     }

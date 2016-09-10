@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
-import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.ShopModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.List;
 

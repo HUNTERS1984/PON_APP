@@ -2,10 +2,7 @@ package com.hunters1984.pon.activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -13,24 +10,20 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
-import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.CouponModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.PermissionUtils;
 
 import java.util.ArrayList;

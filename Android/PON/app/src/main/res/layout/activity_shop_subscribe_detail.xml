@@ -11,29 +11,29 @@
     android:layout_height="50dp"
     android:padding="10dp"
     android:background="@color/colorPrimary">
-    <ImageView
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
-        android:src="@drawable/ic_back"
-        android:scaleType="fitXY"
-        android:layout_centerVertical="true"/>
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/ic_back"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"/>
 
-    <com.hunters1984.pon.customs.CustomTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Shop Subscribe Detail"
-        android:textColor="@color/white"
-        android:textSize="@dimen/title_font_size"
-        android:layout_centerInParent="true"/>
+        <com.hunters1984.pon.customs.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop Subscribe Detail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_font_size"
+            android:layout_centerInParent="true"/>
 
-    <ImageView
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
-        android:src="@drawable/ic_search"
-        android:scaleType="fitXY"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"/>
-</RelativeLayout>
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/ic_search"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"

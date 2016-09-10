@@ -3,8 +3,8 @@ package com.hunters1984.pon.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.hunters1984.pon.interfaces.OnLoadDataListener;
 import com.hunters1984.pon.models.ShopModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.ArrayList;
 

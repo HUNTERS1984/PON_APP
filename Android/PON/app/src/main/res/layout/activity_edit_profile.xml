@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hunters1984.pon.activities.EditProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_back"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"/>
+
+            <com.hunters1984.pon.customs.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_font_size"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="80dp"
+                          android:orientation="horizontal">
+                <FrameLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <com.hunters1984.pon.customs.CircularImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_avarta_user"
+                        android:scaleType="fitXY"
+                        android:id="@+id/iv_user_pic"
+                        android:layout_gravity="center_vertical"
+                        />
+                </FrameLayout>
+
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="History"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/item_font_size"
+                    />
+                <FrameLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_column="3"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_height="1dp"
+                  android:background="@color/light_grey_stroke_icon"/>
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="Name"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/item_font_size" />
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:text="Robert Lens"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/item_font_size" />
+                <FrameLayout android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight="0.5">
+                    <ImageView android:layout_width="@dimen/icon_size"
+                               android:layout_height="@dimen/icon_size"
+                               android:src="@drawable/ic_delete"
+                               android:scaleType="fitXY"
+                               android:layout_gravity="center"/>
+                </FrameLayout>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey_stroke_icon"/>
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/item_font_size" />
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:text="huylx86@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/item_font_size" />
+                <FrameLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+                    <ImageView android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:src="@drawable/ic_delete"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey_stroke_icon"/>
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="Title 1"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/item_font_size" />
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:text="value 1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/item_font_size" />
+                <FrameLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+                    <ImageView android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:src="@drawable/ic_ext_down"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey_stroke_icon"/>
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="Title 2"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/item_font_size"/>
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:text="value 2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/item_font_size" />
+                <FrameLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+                    <ImageView android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:src="@drawable/ic_ext_down"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey_stroke_icon"/>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:background="@drawable/background_rectangle_highlight"
+        android:text="Update"/>
+</RelativeLayout>

@@ -15,19 +15,22 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.location" android:required="true" />
-    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
-
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
@@ -41,16 +44,21 @@
         <activity android:name=".activities.ShopSubscribeActivity" />
         <activity android:name=".activities.ShopSubscribeDetailActivity" />
         <activity android:name=".activities.ShopCouponFilterActivity" />
-        <activity android:name=".activities.MapShopCouponActivity"></activity>
+        <activity android:name=".activities.MapShopCouponActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBZP9vS85xoMyKfGJupqCO_sSwm7LkZEjg"/>
-
+            android:value="AIzaSyBZP9vS85xoMyKfGJupqCO_sSwm7LkZEjg" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".activities.MyFavouriteActivity" />
+        <activity
+            android:name=".activities.HistoryActivity"
+            android:label="@string/title_activity_history" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.EditProfileActivity"></activity>
     </application>
 
 </manifest>

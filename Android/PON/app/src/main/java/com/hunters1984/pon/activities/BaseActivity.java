@@ -1,0 +1,97 @@
+package com.hunters1984.pon.activities;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.hunters1984.pon.R;
+import com.hunters1984.pon.models.CouponModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
+
+import java.util.List;
+
+/**
+ * Created by LENOVO on 9/8/2016.
+ */
+public class BaseActivity extends AppCompatActivity {
+
+    protected OnLoadDataListener mDataListener;
+    protected List<CouponModel> mListCoupons;
+
+    private ImageView mIvHome, mIvMyFavourite, mIvProfile;
+    protected Context mContext;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mIvHome = (ImageView)findViewById(R.id.iv_home);
+        if(mIvHome != null){
+            mIvHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!(mContext instanceof MainActivity)) {
+                        startActivity(mContext, MainActivity.class, true);
+                    }
+                }
+            });
+        }
+
+        mIvMyFavourite = (ImageView) findViewById(R.id.iv_my_favourite);
+        if (mIvMyFavourite != null) {
+            mIvMyFavourite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!(mContext instanceof MyFavouriteActivity)) {
+                        startActivity(mContext, MyFavouriteActivity.class, true);
+                    }
+                }
+            });
+        }
+
+        mIvProfile = (ImageView) findViewById(R.id.iv_profile);
+        if (mIvProfile != null){
+            mIvProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!(mContext instanceof ProfileActivity)) {
+                        startActivity(mContext, ProfileActivity.class, true);
+                    }
+                }
+            });
+        }
+
+        if(mDataListener != null) {
+            mDataListener.onLoadData();
+        }
+    }
+
+    protected void startActivity(Context context, Class<?> activity, boolean isClearTop)
+    {
+        Intent intent = new Intent(context, activity);
+        if(isClearTop){
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+        startActivity(intent);
+    }
+
+    protected void activeProfile()
+    {
+        mIvProfile.setImageResource(R.drawable.ic_menu_profile_select);
+        mIvMyFavourite.setImageResource(R.drawable.ic_menu_favourite_unselect);
+    }
+
+    protected void activeMyFavourite()
+    {
+        mIvProfile.setImageResource(R.drawable.ic_menu_profile_unselect);
+        mIvMyFavourite.setImageResource(R.drawable.ic_menu_favourite_select);
+    }
+
+    protected void activeHomePage()
+    {
+        mIvProfile.setImageResource(R.drawable.ic_menu_profile_unselect);
+        mIvMyFavourite.setImageResource(R.drawable.ic_menu_favourite_unselect);
+    }
+}

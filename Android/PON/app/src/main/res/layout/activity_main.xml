@@ -42,9 +42,10 @@
                 android:padding="5dp"
                 android:background="@xml/background_rectangle_white">
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:scaleType="fitXY"
+                    android:layout_marginLeft="5dp"
                     android:src="@drawable/ic_search"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -106,46 +107,48 @@
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@id/tab_layout"/>
+            android:layout_below="@id/tab_layout"
+            android:layout_marginBottom="50dp"/>
 
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/transparent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
-            android:background="@color/white">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey"/>
-            <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_non_favourite"
-                android:scaleType="fitXY"/>
+    <include layout="@layout/include_bottom_menu_layout"/>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@color/transparent">-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@color/white">-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/grey"/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/icon_size"-->
+                <!--android:layout_height="@dimen/icon_size"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:src="@drawable/ic_non_favourite"-->
+                <!--android:scaleType="fitXY"/>-->
 
-            <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_non_favourite"
-                android:scaleType="fitXY"/>
-        </RelativeLayout>
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_non_favourite"
-            android:scaleType="fitXY"/>
-    </RelativeLayout>
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/icon_size"-->
+                <!--android:layout_height="@dimen/icon_size"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:src="@drawable/ic_non_favourite"-->
+                <!--android:scaleType="fitXY"/>-->
+        <!--</RelativeLayout>-->
+        <!--<ImageView-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:src="@drawable/ic_non_favourite"-->
+            <!--android:scaleType="fitXY"/>-->
+    <!--</RelativeLayout>-->
 </RelativeLayout>

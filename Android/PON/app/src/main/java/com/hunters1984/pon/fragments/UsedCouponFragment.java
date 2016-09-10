@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
-import com.hunters1984.pon.interfaces.OnLoadDataListener;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 /**
  * A simple {@link Fragment} subclass.
