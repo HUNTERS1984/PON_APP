@@ -1,6 +1,7 @@
 package com.hunters1984.pon.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.activities.CouponDetailActivity;
 import com.hunters1984.pon.models.CouponModel;
 
 import java.util.List;
@@ -80,6 +82,8 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
                 mLinearLoginRequired.setVisibility(View.VISIBLE);
             } else {
                 mLinearLoginRequired.setVisibility(View.GONE);
+                Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
+                mContext.startActivity(iCouponDetail);
             }
         }
     }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PON.iml" filepath="$PROJECT_DIR$/PON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/libs/ViewPagerIndiicator/ViewPagerIndiicator.iml" filepath="$PROJECT_DIR$/app/libs/ViewPagerIndiicator/ViewPagerIndiicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
