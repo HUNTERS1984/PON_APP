@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         let vc = SplashViewController.instanceFromStoryBoard("Main")
-        self.window?.rootViewController = vc
+        let nav = BaseNavigationController(rootViewController: vc)
+        self.window?.rootViewController = nav
     }
 
     func applicationWillResignActive(application: UIApplication) {

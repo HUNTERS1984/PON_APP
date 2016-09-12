@@ -13,5 +13,6 @@
 #import "SPGooglePlacesAutocomplete.h"
 #import "MF_Base64Additions.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import "UINavigationBar+Awesome.h"
 
 #endif /* ObjC_Header_h */

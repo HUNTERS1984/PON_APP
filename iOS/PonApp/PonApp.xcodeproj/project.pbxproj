@@ -43,6 +43,9 @@
 		4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37161D79D94800C99476 /* MainViewController.swift */; };
 		4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE37181D79DBE800C99476 /* AccountViewController.swift */; };
 		4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE371C1D79DC1600C99476 /* FavoriteViewController.swift */; };
+		FA1F27D81D8689E600CE423D /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1F27D71D8689E600CE423D /* Shop.storyboard */; };
+		FA1F27DC1D8697D800CE423D /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F27DB1D8697D800CE423D /* UINavigationBar+Awesome.m */; };
+		FA1F27DE1D86A0F100CE423D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F27DD1D86A0F100CE423D /* ShopViewController.swift */; };
 		FA2F20191D780D5800608061 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FDF1D780D5800608061 /* LocationManager.swift */; };
 		FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FE01D780D5800608061 /* MapTasks.swift */; };
 		FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */; };
 		FA51B54B1D7D846400CF10D8 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */; };
 		FA51B54D1D7D868200CF10D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B54C1D7D868200CF10D8 /* MapView.swift */; };
+		FA654E2F1D865116002B6522 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA654E2E1D865116002B6522 /* Register.storyboard */; };
+		FA654E381D86613D002B6522 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA654E371D86613D002B6522 /* SignInViewController.swift */; };
+		FA654E3A1D86614E002B6522 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA654E391D86614E002B6522 /* SignUpViewController.swift */; };
 		FA822B9E1D81071C00FB9364 /* account_avatar_placehoder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B721D81071C00FB9364 /* account_avatar_placehoder@2x.png */; };
 		FA822B9F1D81071C00FB9364 /* account_icon_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B731D81071C00FB9364 /* account_icon_history@2x.png */; };
 		FA822BA01D81071C00FB9364 /* account_icon_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA822B741D81071C00FB9364 /* account_icon_list@2x.png */; };
@@ -182,6 +188,10 @@
 		4ADE371C1D79DC1600C99476 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1F27D71D8689E600CE423D /* Shop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		FA1F27DA1D8697D800CE423D /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		FA1F27DB1D8697D800CE423D /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		FA1F27DD1D86A0F100CE423D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		FA2F1FCE1D780D5800608061 /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
 		FA2F1FDF1D780D5800608061 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FA2F1FE01D780D5800608061 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
@@ -203,6 +213,9 @@
 		FA51B5481D7D7F9200CF10D8 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		FA51B54A1D7D846400CF10D8 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		FA51B54C1D7D868200CF10D8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FA654E2E1D865116002B6522 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		FA654E371D86613D002B6522 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FA654E391D86614E002B6522 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FA822B721D81071C00FB9364 /* account_avatar_placehoder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_avatar_placehoder@2x.png"; sourceTree = "<group>"; };
 		FA822B731D81071C00FB9364 /* account_icon_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_icon_history@2x.png"; sourceTree = "<group>"; };
 		FA822B741D81071C00FB9364 /* account_icon_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_icon_list@2x.png"; sourceTree = "<group>"; };
@@ -365,6 +378,7 @@
 		4A6FD4A71D79C9DE000D4F85 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FA1F27D91D8697D800CE423D /* LTNavigationBar */,
 				FA51B52A1D7D63C200CF10D8 /* CAPSPageMenu */,
 				4A6FD4A81D79C9DE000D4F85 /* Encryption */,
 				4A6FD4AD1D79C9DE000D4F85 /* Haversine */,
@@ -476,6 +490,9 @@
 				FA822BE51D81589A00FB9364 /* CouponNearestViewController.swift */,
 				FABC3D5F1D82A0100061E596 /* ShareCouponViewController.swift */,
 				FABC3D611D82A0200061E596 /* ScanQRCodeViewController.swift */,
+				FA654E371D86613D002B6522 /* SignInViewController.swift */,
+				FA654E391D86614E002B6522 /* SignUpViewController.swift */,
+				FA1F27DD1D86A0F100CE423D /* ShopViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -503,6 +520,15 @@
 				86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA1F27D91D8697D800CE423D /* LTNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				FA1F27DA1D8697D800CE423D /* UINavigationBar+Awesome.h */,
+				FA1F27DB1D8697D800CE423D /* UINavigationBar+Awesome.m */,
+			);
+			path = LTNavigationBar;
 			sourceTree = "<group>";
 		};
 		FA2F1FCD1D780D5800608061 /* Header */ = {
@@ -597,6 +623,8 @@
 				FA51B5461D7D7CEA00CF10D8 /* MainMenu.storyboard */,
 				FAFC2E7E1D7E7BA30067B18E /* Coupon.storyboard */,
 				FA822BDB1D814A2600FB9364 /* CouponList.storyboard */,
+				FA654E2E1D865116002B6522 /* Register.storyboard */,
+				FA1F27D71D8689E600CE423D /* Shop.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -800,6 +828,7 @@
 				FA822BB91D81071C00FB9364 /* coupon_phone@2x.png in Resources */,
 				FA822BD81D813FA800FB9364 /* map_icon_down@2x.png in Resources */,
 				FA822BAC1D81071C00FB9364 /* nav_back@2x.png in Resources */,
+				FA1F27D81D8689E600CE423D /* Shop.storyboard in Resources */,
 				FA822BC71D81071C00FB9364 /* ui_top_02_03_-02.png in Resources */,
 				FA822BDC1D814A2600FB9364 /* CouponList.storyboard in Resources */,
 				FA822BB11D81071C00FB9364 /* splash_button_facebook@2x.png in Resources */,
@@ -807,6 +836,7 @@
 				FA822BAD1D81071C00FB9364 /* nav_close_blue@2x.png in Resources */,
 				FA822BCD1D81074200FB9364 /* HiraginoSansGB-W6.ttf in Resources */,
 				FA822BA91D81071C00FB9364 /* coupon_twitter_button@2x.png in Resources */,
+				FA654E2F1D865116002B6522 /* Register.storyboard in Resources */,
 				FA822BB51D81071C00FB9364 /* tabbar_account_selected@2x.png in Resources */,
 				FA822BB01D81071C00FB9364 /* splash_button_email@2x.png in Resources */,
 				FA822BC61D81071C00FB9364 /* ui_top_02_01-06.png in Resources */,
@@ -912,6 +942,7 @@
 				FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */,
 				4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */,
 				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				FA1F27DE1D86A0F100CE423D /* ShopViewController.swift in Sources */,
 				FA822BE21D814DD800FB9364 /* ListCouponCollectionViewCell.swift in Sources */,
 				FA51B51D1D7D125B00CF10D8 /* TabbarView.swift in Sources */,
 				4A6FD4CF1D79C9DE000D4F85 /* MF_Base64Additions.m in Sources */,
@@ -930,6 +961,8 @@
 				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
 				FA51B5391D7D716B00CF10D8 /* HomeUsedViewController.swift in Sources */,
 				FABC3D601D82A0100061E596 /* ShareCouponViewController.swift in Sources */,
+				FA654E3A1D86614E002B6522 /* SignUpViewController.swift in Sources */,
+				FA1F27DC1D8697D800CE423D /* UINavigationBar+Awesome.m in Sources */,
 				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
 				4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */,
@@ -948,6 +981,7 @@
 				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
 				FA822BDE1D814ADD00FB9364 /* CouponPopularViewController.swift in Sources */,
 				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
+				FA654E381D86613D002B6522 /* SignInViewController.swift in Sources */,
 				FA822BD31D8114A400FB9364 /* HiraginoSansUIFont.swift in Sources */,
 				FA822BE41D814FB900FB9364 /* ListCouponViewController.swift in Sources */,
 				FAFC2E831D7E9EB00067B18E /* CouponBannerView.swift in Sources */,

@@ -9,4 +9,5 @@ target 'PonApp' do
     pod 'SwiftyJSON', '~> 2.3'
     pod 'ImageSlideshow/Alamofire'
     pod 'DKImagePickerController'
+    pod 'SwiftQRCode'
 end
