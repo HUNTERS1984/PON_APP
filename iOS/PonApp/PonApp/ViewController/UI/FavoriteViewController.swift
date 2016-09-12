@@ -31,7 +31,8 @@ class FavoriteViewController: BaseViewController {
         super.setUpUserInterface()
         self.title = "お気に入り"
         
-        self.showAddButton()
+        let button = UIBarButtonItem(image: UIImage(named: "nav_add"), style: .Plain, target: self, action: #selector(self.navAddButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
@@ -51,6 +52,11 @@ extension FavoriteViewController {
     
     @IBAction func accountButtonPressed(sender: AnyObject) {
         self.tabBarController?.selectedIndex = 2
+    }
+    
+    @IBAction func navAddButtonPressed(sender: AnyObject) {
+        let vc = ShopViewController.instanceFromStoryBoard("Shop")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
 }
