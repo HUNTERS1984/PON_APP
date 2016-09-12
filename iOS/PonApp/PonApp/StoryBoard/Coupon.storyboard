@@ -15,6 +15,11 @@
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -407,55 +412,263 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrZ-jo-nw3">
-                                <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-lA-mf9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-lA-mf9">
                                 <rect key="frame" x="0.0" y="18" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lBl-zU-98b"/>
+                                    <constraint firstAttribute="width" constant="40" id="y8e-Lw-OUT"/>
+                                </constraints>
                                 <state key="normal" image="nav_close_blue.png"/>
+                                <connections>
+                                    <action selector="closeButttonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="y3u-2b-tWm"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gP-ZA8" userLabel="Name Label">
-                                <rect key="frame" x="20" y="60" width="335" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gP-ZA8" userLabel="Name Label">
+                                <rect key="frame" x="20" y="60" width="335" height="30"/>
                                 <string key="text">このクーポンを使うためには、
 友人へクーポンをシェアしてください。</string>
                                 <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
                                 <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-MM-SZ8">
-                                <rect key="frame" x="0.0" y="95" width="375" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-MM-SZ8" userLabel="Action View">
+                                <rect key="frame" x="15" y="135" width="345" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9d-iq-Gnm" userLabel="SNS Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="40"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                        <state key="normal" title="SNSで送る">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.78039215689999997" green="0.80784313730000001" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="snsButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Meg-Fd-4Bd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-Ig-9rI" userLabel="QR Button">
+                                        <rect key="frame" x="179" y="0.0" width="166" height="40"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                        <state key="normal" title="QRコードで送る">
+                                            <color key="titleColor" red="0.7803921568627451" green="0.80784313725490198" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="qrCodePressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Fc5-p3-u4S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="l9d-iq-Gnm" secondAttribute="bottom" id="91h-gt-t09"/>
+                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="width" secondItem="bSD-MM-SZ8" secondAttribute="width" multiplier="0.48" id="Fas-av-KTS"/>
+                                    <constraint firstItem="tVO-Ig-9rI" firstAttribute="width" secondItem="l9d-iq-Gnm" secondAttribute="width" id="MYl-YD-Ios"/>
+                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="top" id="NHz-n0-Ynf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tVO-Ig-9rI" secondAttribute="trailing" id="Nmt-zx-Yj7"/>
+                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="leading" secondItem="bSD-MM-SZ8" secondAttribute="leading" id="ZHs-pd-Llx"/>
+                                    <constraint firstItem="tVO-Ig-9rI" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="top" id="oE9-w5-qBd"/>
+                                    <constraint firstAttribute="bottom" secondItem="tVO-Ig-9rI" secondAttribute="bottom" id="pQB-VI-Zia"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJo-D7-aoO" userLabel="Instagram Button">
+                                <rect key="frame" x="10" y="235" width="355" height="50"/>
+                                <connections>
+                                    <action selector="instagramButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="D7y-NH-qtg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WD-9G-ghu" userLabel="Facebook Button">
+                                <rect key="frame" x="10" y="305" width="355" height="50"/>
+                                <connections>
+                                    <action selector="facebookButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="exF-nL-v6u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkx-9S-TqV" userLabel="Twitter Button">
+                                <rect key="frame" x="10" y="375" width="355" height="50"/>
+                                <connections>
+                                    <action selector="twitterButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="oSf-er-0eF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-A4-3wt" userLabel="Line Button">
+                                <rect key="frame" x="10" y="445" width="355" height="50"/>
+                                <connections>
+                                    <action selector="lineButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Ibs-hr-ZAD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yte-gP-ZA8" secondAttribute="trailing" constant="20" id="0td-W3-vcO"/>
+                            <constraint firstItem="5WD-9G-ghu" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="2cd-6H-jks"/>
+                            <constraint firstItem="yte-gP-ZA8" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="20" id="5wH-Fk-6Cp"/>
+                            <constraint firstItem="5WD-9G-ghu" firstAttribute="height" secondItem="wJo-D7-aoO" secondAttribute="height" id="6Tc-D7-yLj"/>
+                            <constraint firstAttribute="trailing" secondItem="5WD-9G-ghu" secondAttribute="trailing" constant="10" id="97y-fk-vdO"/>
+                            <constraint firstItem="1xo-A4-3wt" firstAttribute="top" secondItem="Hkx-9S-TqV" secondAttribute="bottom" constant="20" id="Ga1-Bp-I5k"/>
+                            <constraint firstItem="pAl-lA-mf9" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" id="NUx-Ty-HZn"/>
+                            <constraint firstItem="bSD-MM-SZ8" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="40/667" id="Oba-Fl-uEj"/>
+                            <constraint firstItem="wJo-D7-aoO" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="bottom" constant="60" id="QTK-rk-MPK"/>
+                            <constraint firstItem="wJo-D7-aoO" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="aB7-WN-6vE"/>
+                            <constraint firstItem="Hkx-9S-TqV" firstAttribute="height" secondItem="5WD-9G-ghu" secondAttribute="height" id="abF-3A-Wag"/>
+                            <constraint firstItem="1xo-A4-3wt" firstAttribute="height" secondItem="Hkx-9S-TqV" secondAttribute="height" id="aeK-Or-rH4"/>
+                            <constraint firstItem="wJo-D7-aoO" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="50/667" id="ebf-dg-jcJ"/>
+                            <constraint firstItem="5WD-9G-ghu" firstAttribute="top" secondItem="wJo-D7-aoO" secondAttribute="bottom" constant="20" id="gQ2-Bm-JoO"/>
+                            <constraint firstItem="1xo-A4-3wt" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="gUK-8v-kAU"/>
+                            <constraint firstItem="Hkx-9S-TqV" firstAttribute="top" secondItem="5WD-9G-ghu" secondAttribute="bottom" constant="20" id="iRK-hE-95q"/>
+                            <constraint firstItem="Hkx-9S-TqV" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="keS-eB-F6v"/>
+                            <constraint firstAttribute="trailing" secondItem="1xo-A4-3wt" secondAttribute="trailing" constant="10" id="lSi-L5-rcX"/>
+                            <constraint firstAttribute="trailing" secondItem="bSD-MM-SZ8" secondAttribute="trailing" constant="15" id="qMY-rU-N9i"/>
+                            <constraint firstItem="yte-gP-ZA8" firstAttribute="top" secondItem="VcG-hg-URG" secondAttribute="bottom" constant="40" id="u96-3i-6xU"/>
+                            <constraint firstItem="bSD-MM-SZ8" firstAttribute="top" secondItem="yte-gP-ZA8" secondAttribute="bottom" constant="45" id="una-Gg-1D9"/>
+                            <constraint firstItem="bSD-MM-SZ8" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="15" id="vhC-EA-EW7"/>
+                            <constraint firstAttribute="trailing" secondItem="wJo-D7-aoO" secondAttribute="trailing" constant="10" id="vqp-xt-Tb4"/>
+                            <constraint firstItem="pAl-lA-mf9" firstAttribute="top" secondItem="IOl-bf-2Om" secondAttribute="top" constant="18" id="yC1-q5-7N2"/>
+                            <constraint firstAttribute="trailing" secondItem="Hkx-9S-TqV" secondAttribute="trailing" constant="10" id="yF2-7u-mSx"/>
+                        </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="facebookButton" destination="5WD-9G-ghu" id="LBL-At-nVm"/>
+                        <outlet property="instagramButton" destination="wJo-D7-aoO" id="ERy-Zp-VBm"/>
+                        <outlet property="lineButton" destination="1xo-A4-3wt" id="vyl-fc-aMe"/>
+                        <outlet property="twitterButton" destination="Hkx-9S-TqV" id="41C-hz-H5w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUF-s8-oNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="532.5" y="288.5"/>
         </scene>
         <!--ScanQR Code View Controller-->
-        <scene sceneID="EQH-S2-fU4">
+        <scene sceneID="6En-8U-WJw">
             <objects>
-                <viewController storyboardIdentifier="ScanQRCodeViewController" id="jTI-eF-Rzw" customClass="ScanQRCodeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanQRCodeViewController" id="Iud-e9-nhj" customClass="ScanQRCodeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZHl-SF-slv"/>
-                        <viewControllerLayoutGuide type="bottom" id="HVf-7n-iWU"/>
+                        <viewControllerLayoutGuide type="top" id="W3U-wc-QDT"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdt-Ow-wHk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="F79-gW-4cF">
+                    <view key="view" contentMode="scaleToFill" id="ZPo-Oo-iYp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igS-Db-yhq">
+                                <rect key="frame" x="0.0" y="18" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="OMd-LM-IXD"/>
+                                    <constraint firstAttribute="height" constant="40" id="eYQ-My-LqQ"/>
+                                </constraints>
+                                <state key="normal" image="nav_close_blue.png"/>
+                                <connections>
+                                    <action selector="closeButttonPressed:" destination="Iud-e9-nhj" eventType="touchUpInside" id="5MU-7P-UCJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvL-7q-YBM" userLabel="Name Label">
+                                <rect key="frame" x="20" y="60" width="335" height="30"/>
+                                <string key="text">このクーポンを使うためには、
+友人へクーポンをシェアしてください。</string>
+                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yp-Fu-VrQ" userLabel="Action View">
+                                <rect key="frame" x="15" y="135" width="345" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-6h-DrL" userLabel="SNS Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="40"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                        <state key="normal" title="SNSで送る">
+                                            <color key="titleColor" red="0.7843137255" green="0.82352941180000006" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22V-5h-zni" userLabel="QR Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="179" y="0.0" width="166" height="40"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                        <state key="normal" title="QRコードで送る">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.78039215689999997" green="0.80784313730000001" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="qrCodePressed:" destination="Iud-e9-nhj" eventType="touchUpInside" id="4tB-xF-wjJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="E1h-6h-DrL" secondAttribute="bottom" id="8Sj-bj-1yr"/>
+                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="top" id="BPf-9a-h5f"/>
+                                    <constraint firstAttribute="bottom" secondItem="22V-5h-zni" secondAttribute="bottom" id="ENw-ZN-3h8"/>
+                                    <constraint firstItem="22V-5h-zni" firstAttribute="width" secondItem="E1h-6h-DrL" secondAttribute="width" id="L2e-Gm-P9r"/>
+                                    <constraint firstAttribute="trailing" secondItem="22V-5h-zni" secondAttribute="trailing" id="SaF-LQ-XCG"/>
+                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="leading" secondItem="0Yp-Fu-VrQ" secondAttribute="leading" id="VNx-cq-Gba"/>
+                                    <constraint firstItem="22V-5h-zni" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="top" id="YHx-BV-7jP"/>
+                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="width" secondItem="0Yp-Fu-VrQ" secondAttribute="width" multiplier="0.48" id="c9k-eZ-f38"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYN-cr-doi" userLabel="QR View">
+                                <rect key="frame" x="28" y="235" width="320" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QYN-cr-doi" secondAttribute="height" multiplier="1:1" id="vPV-83-dDB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="leading" secondItem="ZPo-Oo-iYp" secondAttribute="leading" constant="15" id="2Vi-XP-b8h"/>
+                            <constraint firstAttribute="trailing" secondItem="MvL-7q-YBM" secondAttribute="trailing" constant="20" id="8AU-Tu-nQu"/>
+                            <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="height" secondItem="ZPo-Oo-iYp" secondAttribute="height" multiplier="40/667" id="DSP-Vv-gAU"/>
+                            <constraint firstItem="QYN-cr-doi" firstAttribute="centerX" secondItem="ZPo-Oo-iYp" secondAttribute="centerX" id="DY5-Ol-waA"/>
+                            <constraint firstItem="QYN-cr-doi" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="bottom" constant="60" id="Id4-a1-TIa"/>
+                            <constraint firstItem="QYN-cr-doi" firstAttribute="width" secondItem="ZPo-Oo-iYp" secondAttribute="width" multiplier="320/375" id="Ljj-4H-xeY"/>
+                            <constraint firstItem="MvL-7q-YBM" firstAttribute="leading" secondItem="ZPo-Oo-iYp" secondAttribute="leading" constant="20" id="NRl-OM-pDE"/>
+                            <constraint firstItem="MvL-7q-YBM" firstAttribute="top" secondItem="W3U-wc-QDT" secondAttribute="bottom" constant="40" id="cDj-0C-PQc"/>
+                            <constraint firstItem="igS-Db-yhq" firstAttribute="leading" secondItem="ZPo-Oo-iYp" secondAttribute="leading" id="hV1-SN-Waj"/>
+                            <constraint firstAttribute="trailing" secondItem="0Yp-Fu-VrQ" secondAttribute="trailing" constant="15" id="iti-wT-ixI"/>
+                            <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="top" secondItem="MvL-7q-YBM" secondAttribute="bottom" constant="45" id="jPx-yj-3oW"/>
+                            <constraint firstItem="igS-Db-yhq" firstAttribute="top" secondItem="ZPo-Oo-iYp" secondAttribute="top" constant="18" id="uEU-ti-3b7"/>
+                        </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="qrCodeView" destination="QYN-cr-doi" id="8sC-cA-oU9"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4gI-zA-MHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJR-bc-cG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.5" y="288.5"/>
+            <point key="canvasLocation" x="943.5" y="288.5"/>
         </scene>
     </scenes>
     <resources>

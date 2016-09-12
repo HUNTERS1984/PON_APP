@@ -69,7 +69,8 @@ extension CouponViewController {
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        
+        let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func likeButtonPressed(sender: AnyObject) {
@@ -81,6 +82,8 @@ extension CouponViewController {
     }
     
     @IBAction func qrCodeButtonPressed(sender: AnyObject) {
+        let vc = ScanQRCodeViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
 }
@@ -109,18 +112,4 @@ extension CouponViewController {
 //MARK: UIScrollViewDelegate
 extension CouponViewController: UIScrollViewDelegate {
     
-//    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-//        self.point = scrollView.contentOffset
-//    }
-//    
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y == 0 {
-//            return
-//        }
-//        if scrollView.contentOffset.y < self.point.y {
-//            self.backButton.hidden = false
-//        }else {
-//            self.backButton.hidden = true
-//        }
-//    }
 }
