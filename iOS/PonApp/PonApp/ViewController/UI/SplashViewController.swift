@@ -24,6 +24,11 @@ class SplashViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.backgroundImageView.image = UIImage(named: "splash_background")
@@ -38,21 +43,24 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-    
+        self.setupTabbarViewController()
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
-
+        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func mailButtonPressed(sender: AnyObject) {
-        self.setupTabbarViewController()
+        let vc = SignInViewController.instanceFromStoryBoard("Register")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
 }
 
 //MARK: - Private methods
 extension SplashViewController {
+    
     private func setupTabbarViewController() {
         let mainNavigationController: BaseNavigationController?
         let accountNavigationController: BaseNavigationController?
@@ -80,4 +88,5 @@ extension SplashViewController {
         mainTabbarViewController?.tabBar.hidden = true
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
+    
 }
