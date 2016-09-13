@@ -13,6 +13,9 @@ let NavBarChangePoint: CGFloat = 50.0
 class ShopViewController: BaseViewController {
 
     @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +40,28 @@ class ShopViewController: BaseViewController {
         super.setUpUserInterface()
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
         self.showBackButton()
+        self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), forState: .Normal)
+        self.locationButton.setImage(UIImage(named: "shop_detail_button_location"), forState: .Normal)
+        self.shareButton.setImage(UIImage(named: "shop_detail_button_share"), forState: .Normal)
     }
 
+}
+
+//MARK: - IBAction
+extension ShopViewController {
+    
+    @IBAction func phoneButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func locationButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func shareButtonPressed(sender: AnyObject) {
+    
+    }
+    
 }
 
 //MARK: - UIScrollViewDelegate
@@ -53,6 +76,43 @@ extension ShopViewController: UIScrollViewDelegate {
         }else {
             self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
         }
+    }
+    
+}
+
+//MARK: - UICollectionViewDataSource
+extension ShopViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        cell.coupon = Coupon.init()
+        return cell
+        
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        return commentView
+    }
+    
+}
+
+//MARK: - UICollectionViewDelegate
+extension ShopViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

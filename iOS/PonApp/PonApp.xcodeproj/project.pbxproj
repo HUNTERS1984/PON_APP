@@ -50,6 +50,10 @@
 		FA2F201A1D780D5800608061 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F1FE01D780D5800608061 /* MapTasks.swift */; };
 		FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */; };
 		FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */; };
+		FA3D2A591D87960D00D81A39 /* shop_detail_button_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3D2A561D87960D00D81A39 /* shop_detail_button_location@2x.png */; };
+		FA3D2A5A1D87960D00D81A39 /* shop_detail_button_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3D2A571D87960D00D81A39 /* shop_detail_button_phone@2x.png */; };
+		FA3D2A5B1D87960D00D81A39 /* shop_detail_button_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3D2A581D87960D00D81A39 /* shop_detail_button_share@2x.png */; };
+		FA3D2A5D1D87963800D81A39 /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D2A5C1D87963800D81A39 /* TopBorderView.swift */; };
 		FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */; };
 		FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50F1D7D033200CF10D8 /* Account.storyboard */; };
 		FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */; };
@@ -199,6 +203,10 @@
 		FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA33FCF51D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA33FCF71D77BFDA0048EF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3D2A561D87960D00D81A39 /* shop_detail_button_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_button_location@2x.png"; sourceTree = "<group>"; };
+		FA3D2A571D87960D00D81A39 /* shop_detail_button_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_button_phone@2x.png"; sourceTree = "<group>"; };
+		FA3D2A581D87960D00D81A39 /* shop_detail_button_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_button_share@2x.png"; sourceTree = "<group>"; };
+		FA3D2A5C1D87963800D81A39 /* TopBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
 		FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA51B50F1D7D033200CF10D8 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -660,6 +668,7 @@
 				FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */,
 				FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */,
 				FAC0B77C1D80227200E96E3A /* CircleImageView.swift */,
+				FA3D2A5C1D87963800D81A39 /* TopBorderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -685,6 +694,9 @@
 		FA822B711D81071C00FB9364 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D2A561D87960D00D81A39 /* shop_detail_button_location@2x.png */,
+				FA3D2A571D87960D00D81A39 /* shop_detail_button_phone@2x.png */,
+				FA3D2A581D87960D00D81A39 /* shop_detail_button_share@2x.png */,
 				FA822B721D81071C00FB9364 /* account_avatar_placehoder@2x.png */,
 				FA822B731D81071C00FB9364 /* account_icon_history@2x.png */,
 				FA822B741D81071C00FB9364 /* account_icon_list@2x.png */,
@@ -807,6 +819,7 @@
 				FA822BAE1D81071C00FB9364 /* nav_search@2x.png in Resources */,
 				FA822BC81D81071C00FB9364 /* map_icon_menu@2x.png in Resources */,
 				FA822BBE1D81071C00FB9364 /* ui_coupon_03-02.png in Resources */,
+				FA3D2A5B1D87960D00D81A39 /* shop_detail_button_share@2x.png in Resources */,
 				FA822B9E1D81071C00FB9364 /* account_avatar_placehoder@2x.png in Resources */,
 				FA822BBA1D81071C00FB9364 /* coupon_time@2x.png in Resources */,
 				FA822BA81D81071C00FB9364 /* coupon_normal@2x.png in Resources */,
@@ -814,6 +827,8 @@
 				FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */,
 				FAFC2E7F1D7E7BA30067B18E /* Coupon.storyboard in Resources */,
 				FA822BB71D81071C00FB9364 /* tabbar_favorite_selected@2x.png in Resources */,
+				FA3D2A5A1D87960D00D81A39 /* shop_detail_button_phone@2x.png in Resources */,
+				FA3D2A591D87960D00D81A39 /* shop_detail_button_location@2x.png in Resources */,
 				FA822BA71D81071C00FB9364 /* coupon_line_button@2x.png in Resources */,
 				FA822BA51D81071C00FB9364 /* coupon_instagram_button@2x.png in Resources */,
 				FA822BB81D81071C00FB9364 /* tabbar_pon@2x.png in Resources */,
@@ -940,6 +955,7 @@
 				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
 				4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */,
 				FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */,
+				FA3D2A5D1D87963800D81A39 /* TopBorderView.swift in Sources */,
 				4ADE37171D79D94800C99476 /* MainViewController.swift in Sources */,
 				4A6FD4D11D79C9DE000D4F85 /* SPGooglePlacesAutocompletePlace.m in Sources */,
 				FA1F27DE1D86A0F100CE423D /* ShopViewController.swift in Sources */,
