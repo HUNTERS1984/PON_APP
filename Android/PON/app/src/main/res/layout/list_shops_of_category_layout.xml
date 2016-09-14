@@ -13,7 +13,7 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_location"
+            android:src="@drawable/ic_demo_restaurant"
             android:scaleType="fitXY"
             android:id="@+id/iv_shop_category_icon"/>
 
@@ -25,6 +25,7 @@
             android:layout_toRightOf="@id/iv_shop_category_icon"
             android:textSize="18sp"
             android:textColor="@color/black"
+            android:textStyle="bold"
             android:text="Drink"
             android:id="@+id/tv_shop_category_name"/>
 
@@ -36,7 +37,7 @@
             android:layout_alignParentRight="true"
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
-            android:text="Detail" />
+            android:text="@string/view_more" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

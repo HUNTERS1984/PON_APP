@@ -10,21 +10,27 @@ import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.DividerItemDecoration;
 import com.hunters1984.pon.adapters.ListShopRecyclerViewAdapter;
 import com.hunters1984.pon.models.ShopModel;
+import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopSubscribeActivity extends Activity {
+public class ShopSubscribeActivity extends BaseActivity implements OnLoadDataListener {
 
-    private List<ShopModel> mListShops;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_subscribe);
+        mContext = this;
+        mDataListener = this;
+        super.onCreate(savedInstanceState);
 
-        initData();
+        initLayout();
 
+    }
+
+    private void initLayout()
+    {
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_shop_subscribe);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
@@ -34,8 +40,8 @@ public class ShopSubscribeActivity extends Activity {
         rv.setAdapter(adapter);
     }
 
-    private void initData()
-    {
+    @Override
+    public void onLoadData() {
         mListShops = new ArrayList<>();
 
         for(int i=0; i<5; i++){

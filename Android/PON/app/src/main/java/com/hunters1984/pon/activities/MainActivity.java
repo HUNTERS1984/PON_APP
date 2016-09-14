@@ -30,10 +30,10 @@ public class MainActivity extends BaseActivity {
         mBtnShopLocation = (ImageView)findViewById(R.id.iv_shop_location);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Popular"));
-        tabLayout.addTab(tabLayout.newTab().setText("Newest"));
-        tabLayout.addTab(tabLayout.newTab().setText("Nearest"));
-        tabLayout.addTab(tabLayout.newTab().setText("Used"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.deals)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

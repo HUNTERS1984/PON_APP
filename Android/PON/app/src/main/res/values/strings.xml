@@ -2,9 +2,6 @@
     <string name="app_name">PON</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login">Login</string>
-    <string name="skip">Skip</string>
 
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
     <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
@@ -18,4 +15,20 @@
     <string name="title_select_shop_following">Shop Following Selection</string>
     <string name="title_shop_coupons_filter">Shop Coupons</string>
     <string name="title_shop_map">Shop Map</string>
+
+    <string name="facebook_app_id">171150533289663</string>
+
+    <string name="navigation">渋谷区</string>
+    <string name="search_place_shop_name">地名/ショップ名を入力</string>
+    <string name="popularity">人気</string>
+    <string name="newest">新着</string>
+    <string name="near">近く</string>
+    <string name="deals">お得</string>
+    <string name="view_more">もっと見る</string>
+    <string name="member_only_coupons">会員限定クーポン</string>
+    <string name="membership_coupons_required_1">このクーポンは会員登録す</string>
+    <string name="membership_coupons_required_2">ると、ご利用頂けます。</string>
+    <string name="new_member_registration">が新規会員登録</string>
+    <string name="start_free">無料ではじめる</string>
+    <string name="login">ログイン</string>
 </resources>

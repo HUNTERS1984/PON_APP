@@ -20,4 +20,5 @@
     <color name="tab_text_unselect">#CFF4F2</color>
     <color name="background_white_transparent">#92FFFFFF</color>
     <color name="background_black_transparent">#92000000</color>
+    <color name="background_top">#141E22</color>
 </resources>

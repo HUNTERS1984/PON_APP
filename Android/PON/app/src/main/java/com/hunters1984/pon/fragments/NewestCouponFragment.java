@@ -72,11 +72,11 @@ public class NewestCouponFragment extends BaseFragment implements OnLoadDataList
             RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
             TextView tvCatName = (TextView)vCatCoupons.findViewById(R.id.tv_shop_category_name);
             if(i==0) {
-                tvCatName.setText("Restaurant");
+                tvCatName.setText("グルメ");
             } else if(i==1) {
-                tvCatName.setText("Clothes");
+                tvCatName.setText("ファッション");
             } else {
-                tvCatName.setText("Music");
+                tvCatName.setText("音楽");
             }
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

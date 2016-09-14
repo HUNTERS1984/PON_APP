@@ -132,9 +132,9 @@ public class BaseFragment extends Fragment {
         mListCoupons = new ArrayList<>();
         for(int i=0; i<5; i++) {
             CouponModel coupon = new CouponModel();
-            coupon.setmTitle("Title");
-            coupon.setmDescription("Description");
-            coupon.setmExpireDate("Expire : 2016.2.7");
+            coupon.setmTitle("タイトルが入ります");
+            coupon.setmDescription("タイプが入ります");
+            coupon.setmExpireDate("期限：2016.07.31");
             coupon.setmIsFavourite((i%2==0?true:false));
             coupon.setmIsLoginRequired((i%2==0?true:false));
             mListCoupons.add(coupon);

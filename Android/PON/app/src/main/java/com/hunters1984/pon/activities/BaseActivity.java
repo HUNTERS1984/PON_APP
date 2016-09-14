@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.models.CouponModel;
+import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected OnLoadDataListener mDataListener;
     protected List<CouponModel> mListCoupons;
+    protected List<ShopModel> mListShops;
 
     private ImageView mIvHome, mIvMyFavourite, mIvProfile, mIvBack;
     private TextView mTvTitle;

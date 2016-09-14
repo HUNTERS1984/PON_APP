@@ -28,7 +28,7 @@
             android:layout_marginBottom="@dimen/button_margin"
             android:layout_marginRight="@dimen/button_margin"
             android:layout_marginLeft="@dimen/button_margin"
-            android:text="@string/skip"
+            android:text="@string/start_free"
             android:background="@drawable/background_rectangle_non_highlight"
             android:textColor="@color/colorPrimary"
             android:id="@+id/btn_skip"/>

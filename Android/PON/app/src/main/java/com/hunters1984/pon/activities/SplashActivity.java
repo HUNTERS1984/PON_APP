@@ -10,6 +10,7 @@ import com.hunters1984.pon.R;
 
 public class SplashActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,10 @@ public class SplashActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent iLoginScreen = new Intent(SplashActivity.this, LoginActivity.class);
+                iLoginScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(iLoginScreen);
+                finish();
             }
         });
 

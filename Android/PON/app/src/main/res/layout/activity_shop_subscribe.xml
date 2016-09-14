@@ -16,7 +16,8 @@
             android:layout_height="@dimen/icon_size"
             android:src="@drawable/ic_close"
             android:scaleType="fitXY"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_back"/>
         <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
