@@ -11,10 +11,14 @@ import UIKit
 class SplashViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var loginActionView: UIView!
+    @IBOutlet weak var actionView: UIView!
     @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var mailButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +36,14 @@ class SplashViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.backgroundImageView.image = UIImage(named: "splash_background")
+        self.view.sendSubviewToBack(self.backgroundImageView)
         self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), forState: .Normal)
         self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), forState: .Normal)
         self.mailButton.setImage(UIImage(named: "splash_button_email"), forState: .Normal)
+        
+        self.loginActionView.alpha = 0
+        self.skipButton.setImage(UIImage(named: "splash_button_skip"), forState: .Normal)
+        self.loginButton.setImage(UIImage(named: "splash_button_login"), forState: .Normal)
     }
     
 }
@@ -43,7 +52,7 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        self.setupTabbarViewController()
+        
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
@@ -54,6 +63,15 @@ extension SplashViewController {
     @IBAction func mailButtonPressed(sender: AnyObject) {
         let vc = SignInViewController.instanceFromStoryBoard("Register")
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @IBAction func skipButtonPressed(sender: AnyObject) {
+        self.setupTabbarViewController()
+    }
+    
+    @IBAction func loginActionButtonPressed(sender: AnyObject) {
+        self.actionView.fadeOut()
+        self.loginActionView.fadeIn()
     }
     
 }
