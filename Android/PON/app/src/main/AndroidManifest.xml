@@ -69,11 +69,14 @@
         <activity android:name=".activities.EditProfileActivity" />
         <activity android:name=".activities.ProfileShopFollowingActivity" />
         <activity android:name=".activities.CouponDetailActivity" />
-        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.SplashSelectLoginActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="526355f92571a6994097fe9df35fba919c2da78c" />
+
+        <activity android:name=".activities.SignInEmailActivity" />
+        <activity android:name=".activities.SignUpEmailActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.hunters1984.pon.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +12,6 @@ import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ShopSubscribeActivity extends BaseActivity implements OnLoadDataListener {
 
@@ -46,7 +44,25 @@ public class ShopSubscribeActivity extends BaseActivity implements OnLoadDataLis
 
         for(int i=0; i<5; i++){
             ShopModel shop = new ShopModel();
-            shop.setmShopName("Shop B");
+            switch (i)
+            {
+                case 0:
+                    shop.setmShopName("グルメ");
+                    break;
+                case 1:
+                    shop.setmShopName("ファッション");
+                    break;
+                case 2:
+                    shop.setmShopName("レジャー");
+                    break;
+                case 3:
+                    shop.setmShopName("グルメ");
+                    break;
+                case 4:
+                    shop.setmShopName("レジャー");
+                    break;
+            }
+
             shop.setmNumberOfShopSubscribe(String.valueOf(100*i+1));
             mListShops.add(shop);
         }

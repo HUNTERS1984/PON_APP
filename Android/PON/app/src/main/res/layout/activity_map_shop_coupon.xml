@@ -20,7 +20,7 @@
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="340dp"
         android:layout_alignParentBottom="true">
 
         <ImageView
@@ -52,10 +52,10 @@
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:id="@+id/rl_list_coupons"
-            android:visibility="gone">
+            android:visibility="visible">
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="230dp"
                 android:background="@color/background_white_transparent"
                 android:layout_alignParentBottom="true"/>
             <LinearLayout

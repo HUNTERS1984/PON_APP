@@ -10,13 +10,27 @@
 
     <!-- Title of screen -->
     <string name="title_history">History</string>
-    <string name="title_edit_profile">Edit Profile</string>
     <string name="title_profile_shop_following">Shop Following</string>
     <string name="title_select_shop_following">Shop Following Selection</string>
     <string name="title_shop_coupons_filter">Shop Coupons</string>
     <string name="title_shop_map">Shop Map</string>
 
     <string name="facebook_app_id">171150533289663</string>
+
+    <!-- Splash screen -->
+    <string name="your_photo_is_in_coupons">あなたの写真がクーポンに！?</string>
+    <string name="login_facebook">Facebookではじめる</string>
+    <string name="login_twitter">Twitterではじめる"</string>
+    <string name="login_email">メールアドレスではじめる</string>
+
+    <!-- Login screen & registration-->
+    <string name="password">パスワード</string>
+    <string name="register_new_member">新規会員登録</string>
+    <string name="user_name_registration">ユーザーネーム</string>
+    <string name="password_confirm">パスワード（確認）</string>
+    <string name="registration_with_content">こちらの内容で登録</string>
+    <string name="already_member">すでに会員の方は、</string>
+    <string name="click_here"><u>こちらへ</u></string>
 
     <string name="navigation">渋谷区</string>
     <string name="search_place_shop_name">地名/ショップ名を入力</string>
@@ -31,4 +45,37 @@
     <string name="new_member_registration">が新規会員登録</string>
     <string name="start_free">無料ではじめる</string>
     <string name="login">ログイン</string>
+
+    <!--Profile screen -->
+    <string name="follow">フォロー</string>
+    <string name="history">履歴</string>
+    <string name="news">お知らせ</string>
+    <string name="term_of_service">利用規約</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="specific_trade">特定商取引</string>
+    <string name="contact_us">お問い合わせ</string>
+    <string name="post_hope_of_shop_like">掲載希望のショップ様</string>
+
+    <!-- Edit Profile screen -->
+    <string name="edit_profile">プロフィール編集</string>
+    <string name="change_profile_photo">プロフィール写真を変更</string>
+    <string name="user_name">ユーザー名</string>
+    <string name="email_address">メールアドレス</string>
+    <string name="sex">性別</string>
+    <string name="male">男性</string>
+    <string name="female">女性</string>
+    <string name="prefecture">都道府県</string>
+    <string name="save">保存</string>
+
+    <!--Shop following screen -->
+    <string name="following">フォロー中</string>
+    <string name="add_shop">ショップの追加</string>
+
+    <!--Shop location -->
+    <string name="cancel">キャンセル</string>
+    <string name="find_current_location">現在地付近でさがす</string>
+    <string name="category">カテゴリー</string>
+
+    <!--My faourite screen-->
+    <string name="favourite">お気に入り</string>
 </resources>

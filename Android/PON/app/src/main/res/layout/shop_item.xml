@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_location"
+        android:src="@drawable/ic_demo_restaurant"
         android:scaleType="fitXY"
         android:background="@xml/circle_stroke_light_grey"
         android:layout_centerVertical="true"

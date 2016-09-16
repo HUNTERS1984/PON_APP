@@ -41,13 +41,13 @@ public class ShopSubscribeDetailRecyclerViewAdapter extends RecyclerView.Adapter
         boolean isShopSubscribe = mListShops.get(position).ismIsShopSubscribe();
         if(isShopSubscribe){
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
-            holder.mDesShopSelectStatus.setText("Select");
+            holder.mDesShopSelectStatus.setText(mContext.getString(R.string.following));
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.white));
             holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_tick);
 
         } else {
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_non_highlight);
-            holder.mDesShopSelectStatus.setText("Unselect");
+            holder.mDesShopSelectStatus.setText(mContext.getString(R.string.follow));
             holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.shop_subscribe_select));
             holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_add_follow_shop);
         }

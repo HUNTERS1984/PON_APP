@@ -30,7 +30,7 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:text="Robert Lens"/>
+                android:text="ユーザーネーム"/>
         </LinearLayout>
         <ImageView
             android:layout_width="@dimen/icon_size_menu"
@@ -73,7 +73,7 @@
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
                         android:textColor="@color/colorPrimary"
-                        android:text="Shop Follow"/>
+                        android:text="@string/follow"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"
@@ -104,7 +104,7 @@
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
                         android:textColor="@color/colorPrimary"
-                        android:text="History"/>
+                        android:text="@string/history"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"
@@ -135,7 +135,7 @@
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
                         android:textColor="@color/colorPrimary"
-                        android:text="Used"/>
+                        android:text="@string/news"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"

@@ -122,4 +122,11 @@ public class BaseActivity extends AppCompatActivity {
             mTvTitle.setText(title);
         }
     }
+
+    protected void setIconBack(int iconBack)
+    {
+        if(mIvBack != null) {
+            mIvBack.setImageResource(iconBack);
+        }
+    }
 }

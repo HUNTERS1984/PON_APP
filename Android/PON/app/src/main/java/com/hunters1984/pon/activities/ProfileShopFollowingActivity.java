@@ -22,7 +22,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
         mDataListener = this;
         setContentView(R.layout.activity_profile_shop_following);
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.title_profile_shop_following));
+        setTitle(getString(R.string.follow));
 
         initLayout();
     }

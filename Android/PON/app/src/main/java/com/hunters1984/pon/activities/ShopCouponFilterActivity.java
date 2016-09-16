@@ -14,7 +14,7 @@ public class ShopCouponFilterActivity extends BaseActivity {
         mContext = this;
         setContentView(R.layout.activity_shop_coupon_filter);
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.title_shop_coupons_filter));
+        setTitle("グルメでさがす");
 
         initLayout();
     }
@@ -22,10 +22,10 @@ public class ShopCouponFilterActivity extends BaseActivity {
     private void initLayout()
     {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Popular"));
-        tabLayout.addTab(tabLayout.newTab().setText("Newest"));
-        tabLayout.addTab(tabLayout.newTab().setText("Nearest"));
-        tabLayout.addTab(tabLayout.newTab().setText("Used"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.deals)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

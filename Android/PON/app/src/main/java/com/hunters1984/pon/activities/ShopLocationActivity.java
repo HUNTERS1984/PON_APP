@@ -53,7 +53,24 @@ public class ShopLocationActivity extends Activity {
 
         for(int i=0; i<5; i++){
             ShopModel shop = new ShopModel();
-            shop.setmShopName("Shop B");
+            switch (i)
+            {
+                case 0:
+                    shop.setmShopName("グルメ");
+                    break;
+                case 1:
+                    shop.setmShopName("ファッション");
+                    break;
+                case 2:
+                    shop.setmShopName("レジャー");
+                    break;
+                case 3:
+                    shop.setmShopName("グルメ");
+                    break;
+                case 4:
+                    shop.setmShopName("レジャー");
+                    break;
+            }
             mListShops.add(shop);
         }
     }

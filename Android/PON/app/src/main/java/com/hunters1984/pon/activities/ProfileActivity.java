@@ -34,9 +34,11 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
     @Override
     public void onLoadData() {
         mListMenuNames = new ArrayList<>();
-        mListMenuNames.add("Menu 1");
-        mListMenuNames.add("Menu 2");
-        mListMenuNames.add("Menu 3");
+        mListMenuNames.add(getString(R.string.term_of_service));
+        mListMenuNames.add(getString(R.string.privacy_policy));
+        mListMenuNames.add(getString(R.string.specific_trade));
+        mListMenuNames.add(getString(R.string.contact_us));
+        mListMenuNames.add(getString(R.string.post_hope_of_shop_like));
     }
 
 

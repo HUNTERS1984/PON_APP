@@ -13,6 +13,7 @@
     <dimen name="font_size_textbox_search">17sp</dimen>
     <dimen name="title_font_size">23sp</dimen>
     <dimen name="item_font_size">20sp</dimen>
+    <dimen name="edit_profile_font_size">16sp</dimen>
 
     <dimen name="slide_image_height">180dp</dimen>
 

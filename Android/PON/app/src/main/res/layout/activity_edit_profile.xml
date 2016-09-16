@@ -37,16 +37,13 @@
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:gravity="center_vertical"
-                    android:text="History"
+                    android:text="@string/change_profile_photo"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size"
+                    android:textSize="@dimen/edit_profile_font_size"
                     />
-                <FrameLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:layout_column="3"/>
+
             </LinearLayout>
             <View android:layout_width="match_parent"
                   android:layout_height="1dp"
@@ -60,26 +57,34 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:layout_weight="1"
-                    android:text="Name"
+                    android:text="@string/user_name"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/item_font_size" />
-                <com.hunters1984.pon.customs.CustomTextView
+                    android:textSize="@dimen/edit_profile_font_size" />
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1.5"
                     android:gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:text="Robert Lens"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size" />
-                <FrameLayout android:layout_width="0dp"
-                             android:layout_height="match_parent"
-                             android:layout_weight="0.5">
-                    <ImageView android:layout_width="@dimen/icon_size"
-                               android:layout_height="@dimen/icon_size"
-                               android:src="@drawable/ic_delete"
-                               android:scaleType="fitXY"
-                               android:layout_gravity="center"/>
-                </FrameLayout>
+                    android:orientation="horizontal">
+                    <com.hunters1984.pon.customs.CustomEditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:text="@string/user_name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/item_font_size"
+                        android:background="@color/transparent"/>
+                    <FrameLayout android:layout_width="0dp"
+                                 android:layout_height="match_parent"
+                                 android:layout_weight="1">
+                        <ImageView android:layout_width="@dimen/icon_size"
+                                   android:layout_height="@dimen/icon_size"
+                                   android:src="@drawable/ic_delete"
+                                   android:scaleType="fitXY"
+                                   android:layout_gravity="center"/>
+                    </FrameLayout>
+                </LinearLayout>
             </LinearLayout>
             <View android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -93,26 +98,34 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:layout_weight="1"
-                    android:text="Email"
+                    android:text="@string/email_address"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/item_font_size" />
-                <com.hunters1984.pon.customs.CustomTextView
+                    android:textSize="@dimen/edit_profile_font_size" />
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1.5"
                     android:gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:text="huylx86@gmail.com"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size" />
-                <FrameLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5">
-                    <ImageView android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
-                        android:src="@drawable/ic_delete"
-                        android:scaleType="fitXY"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
+                    android:orientation="horizontal">
+                    <com.hunters1984.pon.customs.CustomEditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:text="example@ex.com"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/edit_profile_font_size"
+                        android:background="@color/transparent"/>
+                    <FrameLayout android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <ImageView android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:src="@drawable/ic_delete"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center"/>
+                    </FrameLayout>
+                </LinearLayout>
             </LinearLayout>
             <View android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -126,26 +139,20 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:layout_weight="1"
-                    android:text="Title 1"
+                    android:text="@string/sex"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/item_font_size" />
-                <com.hunters1984.pon.customs.CustomTextView
+                    android:textSize="@dimen/edit_profile_font_size" />
+
+                <Spinner
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:text="value 1"
+                    android:layout_weight="1.5"
+                    android:text="@string/male"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size" />
-                <FrameLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5">
-                    <ImageView android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
-                        android:src="@drawable/ic_ext_down"
-                        android:scaleType="fitXY"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
+                    android:textSize="@dimen/edit_profile_font_size"
+                    android:textDirection="firstStrongLtr"
+                    android:id="@+id/spn_sex"/>
+
             </LinearLayout>
             <View android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -159,26 +166,17 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:layout_weight="1"
-                    android:text="Title 2"
+                    android:text="@string/prefecture"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/item_font_size"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                    android:textSize="@dimen/edit_profile_font_size"/>
+                <Spinner
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:text="value 2"
+                    android:layout_weight="1.5"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size" />
-                <FrameLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5">
-                    <ImageView android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
-                        android:src="@drawable/ic_ext_down"
-                        android:scaleType="fitXY"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
+                    android:textSize="@dimen/item_font_size"
+                    android:textDirection="firstStrongLtr"
+                    android:id="@+id/spn_prefecture"/>
             </LinearLayout>
             <View android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -192,5 +190,6 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:background="@drawable/background_rectangle_highlight"
-        android:text="Update"/>
+        android:text="@string/save"
+        android:id="@+id/btn_save"/>
 </RelativeLayout>

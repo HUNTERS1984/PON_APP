@@ -42,7 +42,7 @@ public class ListShopRecyclerViewAdapter extends RecyclerView.Adapter<ListShopRe
     @Override
     public void onBindViewHolder(ListShopRecyclerViewHolders holder, int position) {
         holder.mShopName.setText(mListShops.get(position).getmShopName());
-        holder.mShopLogo.setImageResource(R.drawable.ic_location);
+        holder.mShopLogo.setImageResource(R.drawable.ic_demo_restaurant);
         if(mIsShopLocation) {
             holder.mNumberOfShopSubscribe.setVisibility(View.GONE);
         } else {

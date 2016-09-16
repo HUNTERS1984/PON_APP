@@ -14,12 +14,12 @@ public class ShopSubscribeDetailActivity extends BaseActivity {
         mContext = this;
         setContentView(R.layout.activity_shop_subscribe_detail);
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.title_select_shop_following));
+        setTitle("グルメ");
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Popular"));
-        tabLayout.addTab(tabLayout.newTab().setText("Newest"));
-        tabLayout.addTab(tabLayout.newTab().setText("Nearest"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
