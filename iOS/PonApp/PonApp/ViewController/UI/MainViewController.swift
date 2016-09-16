@@ -11,8 +11,10 @@ import UIKit
 class MainViewController: BaseViewController {
 
     var pageMenu : CAPSPageMenu?
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
+
     @IBOutlet weak var scrollMenuView: UIView!
-    
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
     @IBOutlet weak var tabAccountButton: UIButton!
@@ -33,6 +35,8 @@ class MainViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.setupScrollMenu()
+        self.addButton.setImage(UIImage(named: "top_button_add"), forState: .Normal)
+        self.locationButton.setImage(UIImage(named: "top_button_location"), forState: .Normal)
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
