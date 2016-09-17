@@ -46,6 +46,7 @@ class LocationManager: NSObject {
 extension LocationManager {
     
     func startUpdatingLocation() {
+        self.locateManage.stopUpdatingLocation()
         self.locateManage.startUpdatingLocation()
     }
     

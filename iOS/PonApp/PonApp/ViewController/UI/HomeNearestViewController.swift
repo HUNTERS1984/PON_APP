@@ -11,6 +11,7 @@ import UIKit
 class HomeNearestViewController: BaseViewController {
 
     var parentNavigationController : UINavigationController?
+    
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var contentTableView: UITableView!
     @IBOutlet weak var contentTableViewHeight: NSLayoutConstraint!
@@ -100,6 +101,8 @@ extension HomeNearestViewController:UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
+        self.parentNavigationController?.pushViewController(vc, animated: true)
     }
 }
 

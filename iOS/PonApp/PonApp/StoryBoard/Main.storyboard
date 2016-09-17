@@ -16,6 +16,7 @@
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -192,8 +193,37 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-lA-PaK" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="0.0" width="269" height="30"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="地名/ショップ名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-N2-EIu">
+                                                        <rect key="frame" x="30" y="0.0" width="209" height="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="pNu-kW-wkX">
+                                                        <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="YQg-rq-zSb"/>
+                                                            <constraint firstAttribute="width" constant="20" id="q72-NP-mru"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="pNu-kW-wkX" firstAttribute="leading" secondItem="mkF-lA-PaK" secondAttribute="leading" constant="5" id="9Dl-Gm-jIQ"/>
+                                                    <constraint firstItem="pNu-kW-wkX" firstAttribute="centerY" secondItem="mkF-lA-PaK" secondAttribute="centerY" id="PfO-zc-Ulu"/>
+                                                    <constraint firstItem="2fd-N2-EIu" firstAttribute="leading" secondItem="mkF-lA-PaK" secondAttribute="leading" constant="30" id="Sf7-8T-3BN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2fd-N2-EIu" secondAttribute="trailing" constant="30" id="XqM-oL-AEW"/>
+                                                    <constraint firstItem="2fd-N2-EIu" firstAttribute="top" secondItem="mkF-lA-PaK" secondAttribute="top" id="aPp-Rz-njG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2fd-N2-EIu" secondAttribute="bottom" id="dKe-Py-5Km"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomColorAlpha">
                                                         <real key="value" value="0.5"/>
                                                     </userDefinedRuntimeAttribute>
@@ -205,12 +235,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
                                                         <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -230,11 +254,21 @@
                                             <constraint firstItem="thF-6O-5I4" firstAttribute="top" secondItem="iFE-aN-bBo" secondAttribute="top" id="sSb-58-ygh"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaQ-Gg-6eC">
+                                        <rect key="frame" x="10" y="107" width="96" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="6Pl-ME-F1X"/>
+                                            <constraint firstAttribute="height" constant="28" id="9rt-fQ-76T"/>
+                                        </constraints>
+                                        <state key="normal" image="top_button_direction.png"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="iFE-aN-bBo" secondAttribute="trailing" id="MnW-Go-Y5a"/>
+                                    <constraint firstItem="XaQ-Gg-6eC" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" constant="10" id="O8z-Os-b3N"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="top" secondItem="FrO-hJ-9o4" secondAttribute="top" constant="27" id="QYh-Uy-a1A"/>
+                                    <constraint firstAttribute="bottom" secondItem="XaQ-Gg-6eC" secondAttribute="bottom" constant="25" id="RfX-Vv-5N2"/>
                                     <constraint firstAttribute="height" constant="160" id="j6Q-bn-DdE"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" id="lAp-e3-b5d"/>
                                 </constraints>
@@ -308,6 +342,7 @@
                         <outlet property="addButton" destination="thF-6O-5I4" id="OFT-hQ-b7h"/>
                         <outlet property="locationButton" destination="r4p-jC-5Z2" id="hi3-My-TUT"/>
                         <outlet property="scrollMenuView" destination="XAa-fQ-CFM" id="OQP-QI-kg7"/>
+                        <outlet property="seachContainerView" destination="mkF-lA-PaK" id="wHg-Y2-rEP"/>
                         <outlet property="tabAccountButton" destination="W7H-QO-7jA" id="H9R-WI-z7Z"/>
                         <outlet property="tabFavoriteButton" destination="Lh1-uh-CUO" id="PAa-VO-xND"/>
                         <outlet property="tabPonButton" destination="jXM-d5-fcW" id="X5B-Fd-afZ"/>
@@ -891,6 +926,8 @@
         <image name="account_icon_list.png" width="34" height="37"/>
         <image name="account_icon_store.png" width="36" height="37"/>
         <image name="arrow_right.png" width="12" height="19"/>
+        <image name="nav_search.png" width="28" height="29"/>
         <image name="splash_icon_pon.png" width="145" height="64"/>
+        <image name="top_button_direction.png" width="96" height="28"/>
     </resources>
 </document>

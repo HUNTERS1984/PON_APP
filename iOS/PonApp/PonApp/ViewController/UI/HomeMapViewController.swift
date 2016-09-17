@@ -16,6 +16,9 @@ class HomeMapViewController: BaseViewController {
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var hideOfferButton: UIButton!
+    @IBOutlet weak var mapView: MapView!
+    
+    var offerShowed: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,8 @@ class HomeMapViewController: BaseViewController {
         self.currentLocationButton.setImage(UIImage(named: "map_icon_location"), forState: .Normal)
         self.menuButton.setImage(UIImage(named: "map_icon_menu"), forState: .Normal)
         self.hideOfferButton.setImage(UIImage(named: "map_icon_down"), forState: .Normal)
+        
+        self.mapView.handler = self
     }
 
 }
@@ -46,7 +51,7 @@ class HomeMapViewController: BaseViewController {
 extension HomeMapViewController {
     
     @IBAction func currentLocationButtonPressed(sender: AnyObject) {
-        self.showOfferView()
+        self.mapView.moveToCurentLocation()
     }
     
     @IBAction func menuButtonPressed(sender: AnyObject) {
@@ -56,6 +61,7 @@ extension HomeMapViewController {
     
     @IBAction func hideOfferButtonPressed(sender: AnyObject) {
         self.hideOfferView()
+
     }
     
     override func navCloseButtonPressed(sender: AnyObject) {
@@ -68,7 +74,11 @@ extension HomeMapViewController {
 extension HomeMapViewController {
     
     private func showOfferView() {
-        UIView.animateWithDuration(0.5) { 
+        if self.offerShowed {
+            return
+        }
+        self.offerShowed = true
+        UIView.animateWithDuration(0.5) {
             self.offerViewBottomConstraint.constant += 172
             self.hideOfferButton.hidden = false
             self.menuButton.hidden = true
@@ -77,6 +87,10 @@ extension HomeMapViewController {
     }
     
     private func hideOfferView() {
+        if !self.offerShowed {
+            return
+        }
+        self.offerShowed = false
         UIView.animateWithDuration(0.5) {
             self.offerViewBottomConstraint.constant -= 172
             self.hideOfferButton.hidden = true
@@ -129,6 +143,26 @@ extension HomeMapViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(150, 160)
+    }
+    
+}
+
+extension HomeMapViewController: MapViewDelegate {
+    
+    func mapView(mapView: MapView!, didDragMarker marker: MapMarker!) {
+        
+    }
+    
+    func mapView(mapView: MapView!, didEndDraggingMarker marker: MapMarker!) {
+        
+    }
+    
+    func mapView(mapView: MapView!, didTapMarker marker: MapMarker!) {
+        self.showOfferView()
+    }
+    
+    func mapView(mapView: MapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        self.hideOfferView()
     }
     
 }
