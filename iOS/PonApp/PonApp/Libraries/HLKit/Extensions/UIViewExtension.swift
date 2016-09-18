@@ -86,4 +86,12 @@ extension UIView {
             self.alpha = 0.0
             }, completion: completion)
     }
+    
+    func setBackgroundImage(imageName: String) {
+        UIGraphicsBeginImageContext(self.frame.size)
+        UIImage(named: imageName)?.drawInRect(self.bounds)
+        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.backgroundColor = UIColor(patternImage: image)
+    }
 }

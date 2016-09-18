@@ -14,6 +14,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
 
+    @IBOutlet weak var seachContainerView: UIView!
     @IBOutlet weak var scrollMenuView: UIView!
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
@@ -64,6 +65,8 @@ extension MainViewController {
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
+        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -93,7 +96,7 @@ extension MainViewController {
 //        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
         let used = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
         used.parentNavigationController = self.navigationController
-        used.title = "Used"
+        used.title = "お得"
         controllerArray.append(used)
         
         let parameters: [CAPSPageMenuOption] = [

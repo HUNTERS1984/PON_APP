@@ -10,6 +10,99 @@ import UIKit
 import MapKit
 import GoogleMaps
 
-class MapView: GMSMapView {
+protocol MapViewDelegate: class {
+    func mapView(mapView: MapView!, didDragMarker marker: MapMarker!)
+    func mapView(mapView: MapView!, didEndDraggingMarker marker: MapMarker!)
+    func mapView(mapView: MapView!, didTapMarker marker: MapMarker!)
+    func mapView(mapView: MapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D)
+}
 
+class MapView: GMSMapView {
+    
+    weak var handler: MapViewDelegate? = nil
+    var cameraPosition: GMSCameraPosition!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+            if let _ = error {
+                
+            }else {
+                if self.cameraPosition == nil {
+                    self.cameraPosition = GMSCameraPosition.cameraWithLatitude( Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
+                    self.camera = self.cameraPosition
+                    self.delegate = self
+                    self.createFakeMarker(location!)
+                }
+            }
+        }
+    }
+    
+    
+    private func createFakeMarker(coordinate: CLLocationCoordinate2D) {
+        self.clear()
+        let marker = MapMarker(position: coordinate)
+        marker.icon = UIImage(named: "map_icon_marker")
+        marker.appearAnimation = kGMSMarkerAnimationNone
+        marker.map = self
+    }
+    
+    func moveToCurentLocation() {
+        LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+            if let _ = error {
+                
+            }else {
+                let cameraPos = GMSCameraPosition.cameraWithLatitude( Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
+                self.camera = cameraPos
+            }
+        }
+    }
+    
+}
+
+
+extension MapView: GMSMapViewDelegate {
+    
+    func mapView(mapView: GMSMapView, didDragMarker marker: GMSMarker) {
+        self.handler?.mapView(self, didDragMarker: marker as! MapMarker)
+    }
+    
+    func mapView(mapView: GMSMapView, didEndDraggingMarker marker: GMSMarker) {
+        self.handler?.mapView(self, didEndDraggingMarker: marker as! MapMarker)
+    }
+    
+    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+        
+    }
+    
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        self.handler?.mapView(self, didTapMarker: marker as! MapMarker)
+        return true
+    }
+    
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        
+    }
+    
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        self.handler?.mapView(self, didTapAtCoordinate: coordinate)
+    }
+    
+    func mapView(mapView: GMSMapView, didTapOverlay overlay: GMSOverlay) {
+        
+    }
+    
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        return UIView()
+    }
+    
 }

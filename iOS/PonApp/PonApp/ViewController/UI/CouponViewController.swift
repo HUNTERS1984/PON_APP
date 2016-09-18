@@ -113,3 +113,50 @@ extension CouponViewController {
 extension CouponViewController: UIScrollViewDelegate {
     
 }
+
+//MARK: - UICollectionViewDataSource
+extension CouponViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        cell.coupon = Coupon.init()
+        return cell
+        
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        return commentView
+    }
+    
+}
+
+//MARK: - UICollectionViewDelegate
+extension CouponViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension CouponViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let picDimension = (self.view.frame.size.width - 30) / 2.0
+        return CGSizeMake(picDimension, 185)
+    }
+    
+}
