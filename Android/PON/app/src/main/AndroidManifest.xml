@@ -77,7 +77,10 @@
 
         <activity android:name=".activities.SignInEmailActivity" />
         <activity android:name=".activities.SignUpEmailActivity" />
-        <activity android:name=".activities.ShopDetailActivity"></activity>
+        <activity android:name=".activities.ShopDetailActivity" />
+        <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.PrivacyPolicyActivity" />
+        <activity android:name=".activities.SpecificTradeActivity"></activity>
     </application>
 
 </manifest>

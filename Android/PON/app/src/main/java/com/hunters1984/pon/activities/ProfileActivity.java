@@ -79,11 +79,11 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
             }
         });
 
-        RelativeLayout rlCouponsUsed = (RelativeLayout)findViewById(R.id.rl_coupons_used);
+        RelativeLayout rlCouponsUsed = (RelativeLayout)findViewById(R.id.rl_news);
         rlCouponsUsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(mContext, NewsActivity.class, false);
             }
         });
     }

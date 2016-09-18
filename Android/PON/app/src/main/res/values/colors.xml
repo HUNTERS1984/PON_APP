@@ -22,4 +22,7 @@
     <color name="background_black_transparent">#92000000</color>
     <color name="background_top">#141E22</color>
     <color name="background_lighter_blue">#F5FCFD</color>
+
+    <color name="text_short_des">#626D71</color>
+    <color name="text_description">#BDB7B3</color>
 </resources>

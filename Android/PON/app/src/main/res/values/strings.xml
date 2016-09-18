@@ -83,6 +83,7 @@
     <string name="coupons_related">このクーポンのユーザー投稿</string>
     <string name="more">もっと見る \n +40</string>
     <string name="coupons_other_shop">他のお店の類似クーポン</string>
+    <string name="qr_code">QRコード</string>
 
     <!-- Shop Detail -->
     <string name="id">ID</string>
@@ -95,4 +96,7 @@
     <string name="call">電話をかける</string>
     <string name="view_on_map">マップで見る</string>
     <string name="share">シェア</string>
+    <string name="shop_example_text">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が...</string>
+
+    <!--Privacy Policy screen -->
 </resources>
