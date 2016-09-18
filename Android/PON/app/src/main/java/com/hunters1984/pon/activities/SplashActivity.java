@@ -28,9 +28,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent iLoginScreen = new Intent(SplashActivity.this, SplashSelectLoginActivity.class);
-                iLoginScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(iLoginScreen);
-                finish();
             }
         });
 

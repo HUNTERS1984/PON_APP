@@ -3,12 +3,14 @@ package com.hunters1984.pon.activities;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 
 public class SignUpEmailActivity extends BaseActivity {
 
     private Button mBtnSignUp;
+    private TextView mTvBackToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,14 @@ public class SignUpEmailActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        mTvBackToLogin = (TextView)findViewById(R.id.tv_back_to_login);
+        mTvBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

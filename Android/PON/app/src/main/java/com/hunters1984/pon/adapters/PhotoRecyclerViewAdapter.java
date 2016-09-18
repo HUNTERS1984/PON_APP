@@ -9,40 +9,47 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
-import com.hunters1984.pon.models.CouponModel;
 
 import java.util.List;
 
 /**
  * Created by LENOVO on 9/11/2016.
  */
-public class RelatedCouponRecyclerViewAdapter extends RecyclerView.Adapter<RelatedCouponRecyclerViewAdapter.RelatedCouponRecyclerViewHolders> {
+public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecyclerViewAdapter.RelatedCouponRecyclerViewHolders> {
 
-    private List<CouponModel> mListCoupons;
+    private List<String> mListCoupons;
     private Context mContext;
+    private boolean mIsShowMore;
 
-    public RelatedCouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons) {
-        this.mListCoupons = lstCoupons;
+    public PhotoRecyclerViewAdapter(Context context, List<String> lstPhotos, boolean isShowMore) {
+        this.mListCoupons = lstPhotos;
         this.mContext = context;
+        mIsShowMore = isShowMore;
     }
 
     @Override
     public RelatedCouponRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.related_coupon_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_item, null);
         RelatedCouponRecyclerViewHolders holders = new RelatedCouponRecyclerViewHolders(view);
         return holders;
     }
 
     @Override
     public void onBindViewHolder(RelatedCouponRecyclerViewHolders holder, int position) {
-        if(position != (mListCoupons.size() - 1)) {
-            holder.mCouponPhoto.setImageResource(R.drawable.coupon_example);
-            holder.mCouponPhoto.setVisibility(View.VISIBLE);
-            holder.mViewMore.setVisibility(View.INVISIBLE);
+        if(mIsShowMore) {
+            if (position != (mListCoupons.size() - 1)) {
+                holder.mPhoto.setImageResource(R.drawable.coupon_example);
+                holder.mPhoto.setVisibility(View.VISIBLE);
+                holder.mViewMore.setVisibility(View.INVISIBLE);
+            } else {
+                holder.mPhoto.setVisibility(View.INVISIBLE);
+                holder.mViewMore.setVisibility(View.VISIBLE);
+            }
         } else {
-            holder.mCouponPhoto.setVisibility(View.INVISIBLE);
-            holder.mViewMore.setVisibility(View.VISIBLE);
+            holder.mPhoto.setBackgroundColor(mContext.getResources().getColor(R.color.grey));
+            holder.mPhoto.setVisibility(View.VISIBLE);
+            holder.mViewMore.setVisibility(View.GONE);
         }
         holder.mView.setTag(position);
     }
@@ -54,7 +61,7 @@ public class RelatedCouponRecyclerViewAdapter extends RecyclerView.Adapter<Relat
 
     public class RelatedCouponRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public ImageView mCouponPhoto;
+        public ImageView mPhoto;
         public TextView mViewMore;
         public View mView;
 
@@ -62,7 +69,7 @@ public class RelatedCouponRecyclerViewAdapter extends RecyclerView.Adapter<Relat
             super(itemView);
             mView = itemView;
             itemView.setOnClickListener(this);
-            mCouponPhoto = (ImageView) itemView.findViewById(R.id.iv_related_coupons);
+            mPhoto = (ImageView) itemView.findViewById(R.id.iv_photo);
             mViewMore = (TextView) itemView.findViewById(R.id.tv_view_more);
         }
 

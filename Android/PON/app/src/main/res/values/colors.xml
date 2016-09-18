@@ -21,4 +21,5 @@
     <color name="background_white_transparent">#92FFFFFF</color>
     <color name="background_black_transparent">#92000000</color>
     <color name="background_top">#141E22</color>
+    <color name="background_lighter_blue">#F5FCFD</color>
 </resources>

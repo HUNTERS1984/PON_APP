@@ -1,11 +1,10 @@
 package com.hunters1984.pon.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,41 +18,34 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
-import com.hunters1984.pon.adapters.PhotoCouponPagerAdapter;
 import com.hunters1984.pon.adapters.PhotoRecyclerViewAdapter;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
-import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CouponDetailActivity extends AppCompatActivity implements OnMapReadyCallback,
-        ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
+public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataListener, OnMapReadyCallback,
+        ActivityCompat.OnRequestPermissionsResultCallback {
+
+    private List<String> mLstPhotos;
+    private List<CouponModel> mListCoupons;
 
     private GoogleMap mGoogleMap;
-    protected List<CouponModel> mListCoupons;
-    private List<String> mLstPhotos;
-
-    private ViewPager mPagerCoupons;
-    private CirclePageIndicator mPageIndicatorProduct;
-    private int[] mListCouponPhotos =  {R.drawable.coupon_photo_1, R.drawable.coupon_photo_2};
-
-    private boolean isFavourite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coupon_detail);
-
+        setContentView(R.layout.activity_shop_detail);
         onLoadData();
+
         initLayout();
+
     }
 
     private void initLayout()
     {
-
         try {
             if (mGoogleMap == null) {
                 ((MapFragment) getFragmentManager().
@@ -64,6 +56,19 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             e.printStackTrace();
         }
 
+        RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.recycler_view_coupons_of_shop);
+        LinearLayoutManager lmCoupons = new LinearLayoutManager(this);
+        lmCoupons.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvCoupons.setLayoutManager(lmCoupons);
+        CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(this, mListCoupons);
+        rvCoupons.setAdapter(adapter);
+
+        RecyclerView rvPhotoShops = (RecyclerView) findViewById(R.id.recycler_view_photo_of_shop);
+        GridLayoutManager lmShop = new GridLayoutManager(this, 3);
+        rvPhotoShops.setLayoutManager(lmShop);
+        PhotoRecyclerViewAdapter couponAdapter = new PhotoRecyclerViewAdapter(this, mLstPhotos, false);
+        rvPhotoShops.setAdapter(couponAdapter);
+
         ImageView ivBack = (ImageView)findViewById(R.id.iv_back);
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,39 +76,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 onBackPressed();
             }
         });
-        mPagerCoupons = (ViewPager)findViewById(R.id.pager_coupons_photo);
-        PhotoCouponPagerAdapter photoAdapter = new PhotoCouponPagerAdapter(this, mListCouponPhotos);
-        mPagerCoupons.setAdapter(photoAdapter);
 
-        mPageIndicatorProduct = (CirclePageIndicator)findViewById(R.id.page_indicator_coupons_photo);
-        mPageIndicatorProduct.setViewPager(mPagerCoupons);
-        mPageIndicatorProduct.setFillColor(getResources().getColor(R.color.pink));
-        mPageIndicatorProduct.setStrokeColor(getResources().getColor(R.color.grey));
-
-        RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.rv_list_related_coupons);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
-        rvCoupons.setLayoutManager(layoutManager);
-        PhotoRecyclerViewAdapter couponAdapter = new PhotoRecyclerViewAdapter(this, mLstPhotos, true);
-        rvCoupons.setAdapter(couponAdapter);
-
-        final FloatingActionButton btnFavourite = (FloatingActionButton)findViewById(R.id.fab_add_favourite);
-        btnFavourite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isFavourite = !isFavourite;
-                if(isFavourite) {
-                    btnFavourite.setImageResource(R.drawable.ic_favourite);
-                } else {
-                    btnFavourite.setImageResource(R.drawable.ic_non_favourite);
-                }
-            }
-        });
-
-        RecyclerView rv = (RecyclerView)findViewById(R.id.rv_list_coupons_other_shops);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
-
-        CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(this, mListCoupons);
-        rv.setAdapter(adapter);
     }
 
     @Override

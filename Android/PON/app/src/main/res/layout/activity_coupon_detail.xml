@@ -47,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:textColor="@color/white"
-                        android:text="Drinking"/>
+                        android:text="グルメ"/>
                 </LinearLayout>
 
                 <ImageView
@@ -69,11 +69,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginLeft="20dp"
-                    android:text="Coupons title"
+                    android:text="タイトルが入ります"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"/>
                 <View android:layout_width="match_parent"
-                      android:layout_height="1dp"
+                      android:layout_height="2dp"
                       android:background="@color/light_grey_stroke_icon"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -83,14 +83,14 @@
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Coupons description"
+                        android:text="タイプが入ります・IDが入ります"
                         android:textColor="@color/grey"
                         android:id="@+id/tv_title"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_title"
-                        android:text="Coupons description"
+                        android:text="期限：2016.07.31"
                         android:textColor="@color/pink"/>
                     <ImageView
                         android:layout_width="@dimen/icon_size_menu"
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="Grab the NEW Soft Drink Coupons and Printable Soft Drink Coupons to get great savings on your favorite soft drinks! Combine Printable Coupons and Manufacturers Coupons with Store Deals to get the best savings. This is a great way to save at the grocery store for your family."
+                    android:text="説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります"
                     android:textColor="@color/grey"/>
 
                 <fragment
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin_left"
-                        android:text="location"
+                        android:text="住所が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>
 
@@ -151,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin_left"
-                        android:text="history"
+                        android:text="営業時間が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>
 
@@ -175,22 +175,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin_left"
-                        android:text="contact"
+                        android:text="電話番号が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Product Related"
+                    android:layout_margin="20dp"
+                    android:text="@string/coupons_related"
                     android:textColor="@color/colorPrimary"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/rv_list_related_coupons"/>
+
+                <com.hunters1984.pon.customs.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="@string/coupons_other_shop"
+                    android:textColor="@color/colorPrimary"/>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/light_grey_stroke_icon"/>
 
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:id="@+id/rv_list_related_coupons"/>
+                    android:layout_margin="5dp"
+                    android:id="@+id/rv_list_coupons_other_shops"/>
 
             </LinearLayout>
         <android.support.design.widget.FloatingActionButton

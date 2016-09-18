@@ -76,7 +76,8 @@
             android:value="526355f92571a6994097fe9df35fba919c2da78c" />
 
         <activity android:name=".activities.SignInEmailActivity" />
-        <activity android:name=".activities.SignUpEmailActivity"></activity>
+        <activity android:name=".activities.SignUpEmailActivity" />
+        <activity android:name=".activities.ShopDetailActivity"></activity>
     </application>
 
 </manifest>
