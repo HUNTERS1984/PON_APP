@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class SplashViewController: BaseViewController {
     
@@ -52,7 +53,9 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
+            
+        }
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {

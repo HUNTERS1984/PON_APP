@@ -69,9 +69,7 @@
 		4A00D8521D8CE5B600230085 /* ShopFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00D8511D8CE5B600230085 /* ShopFollowViewController.swift */; };
 		4A00D8541D8CE8E300230085 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00D8531D8CE8E300230085 /* MapMarker.swift */; };
 		4A00D8561D8CEAF400230085 /* map_icon_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A00D8551D8CEAF400230085 /* map_icon_marker@2x.png */; };
-		4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */; };
 		4A6FD4BE1D79C9DE000D4F85 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4901D79C9DE000D4F85 /* Location.swift */; };
-		4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */; };
 		4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4961D79C9DE000D4F85 /* HLKSharedResources.swift */; };
 		4A6FD4C11D79C9DE000D4F85 /* HLKAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4981D79C9DE000D4F85 /* HLKAlertView.swift */; };
 		4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD4991D79C9DE000D4F85 /* HLKDropDownTextField.swift */; };
@@ -149,6 +147,12 @@
 		FAC0B6DA1D7FB61900E96E3A /* LeftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */; };
 		FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */; };
 		FAC0B77D1D80227200E96E3A /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B77C1D80227200E96E3A /* CircleImageView.swift */; };
+		FAE37AEF1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */; };
+		FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */; };
+		FAE37AF71D8FD11E00EC7333 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF31D8FD11E00EC7333 /* Bolts.framework */; };
+		FAE37AF81D8FD11E00EC7333 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */; };
+		FAE37AF91D8FD11E00EC7333 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */; };
+		FAE37AFA1D8FD11E00EC7333 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF61D8FD11E00EC7333 /* FBSDKShareKit.framework */; };
 		FAFC2E761D7E76B20067B18E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E751D7E76B20067B18E /* DesignableButton.swift */; };
 		FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */; };
 		FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E781D7E76BC0067B18E /* DesignableView.swift */; };
@@ -223,9 +227,7 @@
 		4A00D8511D8CE5B600230085 /* ShopFollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopFollowViewController.swift; sourceTree = "<group>"; };
 		4A00D8531D8CE8E300230085 /* MapMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		4A00D8551D8CEAF400230085 /* map_icon_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_icon_marker@2x.png"; sourceTree = "<group>"; };
-		4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunkFiveUIFont.swift; sourceTree = "<group>"; };
 		4A6FD4901D79C9DE000D4F85 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSansProUIFont.swift; sourceTree = "<group>"; };
 		4A6FD4961D79C9DE000D4F85 /* HLKSharedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKSharedResources.swift; sourceTree = "<group>"; };
 		4A6FD4981D79C9DE000D4F85 /* HLKAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKAlertView.swift; sourceTree = "<group>"; };
 		4A6FD4991D79C9DE000D4F85 /* HLKDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKDropDownTextField.swift; sourceTree = "<group>"; };
@@ -317,6 +319,12 @@
 		FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBorderView.swift; sourceTree = "<group>"; };
 		FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBorderView.swift; sourceTree = "<group>"; };
 		FAC0B77C1D80227200E96E3A /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
+		FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
+		FAE37AF31D8FD11E00EC7333 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		FAE37AF61D8FD11E00EC7333 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		FAFC2E751D7E76B20067B18E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		FAFC2E781D7E76BC0067B18E /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -334,6 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */,
+				FAE37AF81D8FD11E00EC7333 /* FBSDKCoreKit.framework in Frameworks */,
+				FAE37AFA1D8FD11E00EC7333 /* FBSDKShareKit.framework in Frameworks */,
+				FAE37AF91D8FD11E00EC7333 /* FBSDKLoginKit.framework in Frameworks */,
+				FAE37AF71D8FD11E00EC7333 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,9 +420,8 @@
 		4A6FD48E1D79C9DE000D4F85 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				4A6FD48F1D79C9DE000D4F85 /* ChunkFiveUIFont.swift */,
 				4A6FD4901D79C9DE000D4F85 /* Location.swift */,
-				4A6FD4911D79C9DE000D4F85 /* SourceSansProUIFont.swift */,
+				FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -700,6 +711,7 @@
 		FA33FCEA1D77BFDA0048EF73 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAE37AF21D8FD11E00EC7333 /* Frameworks */,
 				FA51B50C1D7D02EC00CF10D8 /* StoryBoard */,
 				4ADE37131D79D6C900C99476 /* Constant */,
 				4ADE37051D79D5F400C99476 /* App */,
@@ -775,6 +787,7 @@
 		FA51B5271D7D572500CF10D8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */,
 				FA51B5281D7D574200CF10D8 /* CouponCollectionViewCell.swift */,
 				FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */,
 				FABC3D581D824D760061E596 /* CouponCollectionTableViewCell.swift */,
@@ -789,6 +802,17 @@
 				FA51B52B1D7D63C200CF10D8 /* CAPSPageMenu.swift */,
 			);
 			path = CAPSPageMenu;
+			sourceTree = "<group>";
+		};
+		FAE37AF21D8FD11E00EC7333 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAE37AF31D8FD11E00EC7333 /* Bolts.framework */,
+				FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */,
+				FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */,
+				FAE37AF61D8FD11E00EC7333 /* FBSDKShareKit.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -826,7 +850,7 @@
 				TargetAttributes = {
 					FA33FCE71D77BFDA0048EF73 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = M8AF2Y2268;
+						DevelopmentTeam = D26XEPCZ8Q;
 					};
 				};
 			};
@@ -891,6 +915,7 @@
 				4A00D81F1D8CDD4000230085 /* coupon_facebook_button@2x.png in Resources */,
 				4A00D84B1D8CDD4000230085 /* ui_top_02_01-04.png in Resources */,
 				4A00D8271D8CDD4000230085 /* coupon_time@2x.png in Resources */,
+				FAE37AEF1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib in Resources */,
 				4A00D8201D8CDD4000230085 /* coupon_instagram_button@2x.png in Resources */,
 				4A00D8421D8CDD4000230085 /* tabbar_favorite_normal@2x.png in Resources */,
 				4A00D8381D8CDD4000230085 /* shop_detail_header_icon@2x.png in Resources */,
@@ -1008,7 +1033,6 @@
 				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
 				FA9F656A1D8185F100B86A89 /* HomeNearestViewController.swift in Sources */,
 				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
-				4A6FD4BD1D79C9DE000D4F85 /* ChunkFiveUIFont.swift in Sources */,
 				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
 				4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */,
 				FA51B53B1D7D717B00CF10D8 /* HomeNewestViewController.swift in Sources */,
@@ -1033,6 +1057,7 @@
 				4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */,
 				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
 				FA51B5391D7D716B00CF10D8 /* HomeUsedViewController.swift in Sources */,
+				FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */,
 				FABC3D601D82A0100061E596 /* ShareCouponViewController.swift in Sources */,
 				FA654E3A1D86614E002B6522 /* SignUpViewController.swift in Sources */,
 				FA1F27DC1D8697D800CE423D /* UINavigationBar+Awesome.m in Sources */,
@@ -1055,7 +1080,6 @@
 				4A6FD4D31D79C9DE000D4F85 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
 				4A6FD4CB1D79C9DE000D4F85 /* UIViewControllerExtension.swift in Sources */,
 				FA822BDE1D814ADD00FB9364 /* CouponPopularViewController.swift in Sources */,
-				4A6FD4BF1D79C9DE000D4F85 /* SourceSansProUIFont.swift in Sources */,
 				FA654E381D86613D002B6522 /* SignInViewController.swift in Sources */,
 				FA822BD31D8114A400FB9364 /* HiraginoSansUIFont.swift in Sources */,
 				FA822BE41D814FB900FB9364 /* ListCouponViewController.swift in Sources */,
@@ -1166,17 +1190,17 @@
 			baseConfigurationReference = 551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PonApp/FacebookSDK",
+					"$(PROJECT_DIR)/PonApp/Frameworks",
 				);
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
+				PRODUCT_BUNDLE_IDENTIFIER = bai888.doden.giaitri.cothuong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "9fccb751-8964-41c2-b36a-80e94f555b19";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1186,17 +1210,17 @@
 			baseConfigurationReference = 38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PonApp/FacebookSDK",
+					"$(PROJECT_DIR)/PonApp/Frameworks",
 				);
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
+				PRODUCT_BUNDLE_IDENTIFIER = bai888.doden.giaitri.cothuong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "9fccb751-8964-41c2-b36a-80e94f555b19";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

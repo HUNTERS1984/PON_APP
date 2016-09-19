@@ -17,6 +17,7 @@ class HomeMapViewController: BaseViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var hideOfferButton: UIButton!
     @IBOutlet weak var mapView: MapView!
+    @IBOutlet weak var offersCollectionView:UICollectionView!
     
     var offerShowed: Bool = false
     
@@ -43,6 +44,8 @@ class HomeMapViewController: BaseViewController {
         self.hideOfferButton.setImage(UIImage(named: "map_icon_down"), forState: .Normal)
         
         self.mapView.handler = self
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        offersCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
 
 }

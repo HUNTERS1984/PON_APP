@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         self.setupApplicationData()
         self.setUpApplicationTheme()
         self.setupStartViewController()
@@ -48,22 +50,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = BaseNavigationController(rootViewController: vc)
         self.window?.rootViewController = nav
     }
-
-    func applicationWillResignActive(application: UIApplication) {
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        FacebookLogin.application(app, openURL: url, options: options)
+        return true
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        FacebookLogin.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return true
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-    }
+    
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FacebookLogin.activateApp()
     }
-
-    func applicationWillTerminate(application: UIApplication) {
-    }
-
 
 }
 
