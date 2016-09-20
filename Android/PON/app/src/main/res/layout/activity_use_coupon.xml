@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_use_coupon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hunters1984.pon.activities.UseCouponActivity">
+
+    <ImageView
+        android:layout_width="@dimen/icon_size_menu"
+        android:layout_height="@dimen/icon_size_menu"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_close_share"
+        android:scaleType="fitXY"
+        android:id="@+id/iv_back"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <com.hunters1984.pon.customs.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/use_coupon_1"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+        <com.hunters1984.pon.customs.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/use_coupon_2"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/iv_qr_code"/>
+</LinearLayout>

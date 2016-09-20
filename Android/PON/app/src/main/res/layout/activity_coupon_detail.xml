@@ -63,7 +63,8 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"
                     android:background="@drawable/background_rectangle_qr_code"
-                    android:text="@string/qr_code"/>
+                    android:text="@string/qr_code"
+                    android:id="@+id/btn_use_coupon"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"

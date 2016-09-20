@@ -98,5 +98,15 @@
     <string name="share">シェア</string>
     <string name="shop_example_text">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が...</string>
 
-    <!--Privacy Policy screen -->
+    <!--Share Coupon screen -->
+    <string name="share_coupon_1">このクーポンを使うためには、</string>
+    <string name="share_coupon_2">友人へクーポンをシェアしてください。</string>
+    <string name="share_SNS">SNSで送る</string>
+    <string name="share_QR">QRコードで送る</string>
+    <string name="share_instagram">Instagramでシェア</string>
+    <string name="share_facebook">Facebookでシェア</string>
+    <string name="share_twitter">Twitterでシェア</string>
+    <string name="share_line">LINEでシェア</string>
+    <string name="use_coupon_1">QRコードをスタッフに見せて、</string>
+    <string name="use_coupon_2">ご利用ください。</string>
 </resources>

@@ -80,7 +80,9 @@
         <activity android:name=".activities.ShopDetailActivity" />
         <activity android:name=".activities.NewsActivity" />
         <activity android:name=".activities.PrivacyPolicyActivity" />
-        <activity android:name=".activities.SpecificTradeActivity"></activity>
+        <activity android:name=".activities.SpecificTradeActivity" />
+        <activity android:name=".activities.ShareCouponActivity" />
+        <activity android:name=".activities.UseCouponActivity"></activity>
     </application>
 
 </manifest>

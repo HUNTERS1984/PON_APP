@@ -1,5 +1,7 @@
 package com.hunters1984.pon.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -40,10 +43,11 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private int[] mListCouponPhotos =  {R.drawable.coupon_photo_1, R.drawable.coupon_photo_2};
 
     private boolean isFavourite = false;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        mContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon_detail);
 
@@ -86,6 +90,14 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         PhotoRecyclerViewAdapter couponAdapter = new PhotoRecyclerViewAdapter(this, mLstPhotos, true);
         rvCoupons.setAdapter(couponAdapter);
 
+        final FloatingActionButton btnShare = (FloatingActionButton)findViewById(R.id.fab_share);
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, ShareCouponActivity.class));
+            }
+        });
+
         final FloatingActionButton btnFavourite = (FloatingActionButton)findViewById(R.id.fab_add_favourite);
         btnFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,9 +113,16 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_list_coupons_other_shops);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
-
         CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(this, mListCoupons);
         rv.setAdapter(adapter);
+
+        Button btnUseCoupons = (Button)findViewById(R.id.btn_use_coupon);
+        btnUseCoupons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mContext, UseCouponActivity.class));
+            }
+        });
     }
 
     @Override

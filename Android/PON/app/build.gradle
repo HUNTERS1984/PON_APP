@@ -48,4 +48,5 @@ dependencies {
     compile('com.twitter.sdk.android:twitter-core:1.6.3@aar') {
         transitive = true;
     }
+    compile 'com.google.zxing:core:3.2.1'
 }
