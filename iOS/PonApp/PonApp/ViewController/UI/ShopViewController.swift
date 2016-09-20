@@ -16,6 +16,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var couponCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,9 @@ class ShopViewController: BaseViewController {
         self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), forState: .Normal)
         self.locationButton.setImage(UIImage(named: "shop_detail_button_location"), forState: .Normal)
         self.shareButton.setImage(UIImage(named: "shop_detail_button_share"), forState: .Normal)
+        
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
 
 }

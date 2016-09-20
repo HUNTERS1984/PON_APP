@@ -18,12 +18,27 @@ class CouponCollectionTableViewCell: UITableViewCell {
     
     var moreButtonCallback: MoreButtonPressed? = nil
     
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setupTableViewCell()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.setupTableViewCell()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setupTableViewCell() {
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
     func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: protocol<UICollectionViewDelegate,UICollectionViewDataSource>, index: NSInteger) {

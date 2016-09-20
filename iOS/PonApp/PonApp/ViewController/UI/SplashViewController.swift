@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import TwitterKit
 
 class SplashViewController: BaseViewController {
     
@@ -52,12 +54,30 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
+            
+        }
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
-        let vc = SignUpViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: false)
+        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
+            if success {
+                if let _ = result {
+                    let session = result as! TWTRSession
+                    let alert = UIAlertController(title: "Logged In",
+                                                  message: "User \(session.userName) has logged in",
+                                                  preferredStyle: UIAlertControllerStyle.Alert
+                    )
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    let error = result as! NSError
+                    print("Login error: %@", error.localizedDescription);
+                }
+            }else {
+                
+            }
+        }
     }
     
     @IBAction func mailButtonPressed(sender: AnyObject) {
@@ -66,12 +86,16 @@ extension SplashViewController {
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
-        self.setupTabbarViewController()
+//        self.setupTabbarViewController()
+        
+        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
+        let navController = UINavigationController(rootViewController: vc)
+        self.presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBAction func loginActionButtonPressed(sender: AnyObject) {
-        self.actionView.fadeOut()
-        self.loginActionView.fadeIn()
+        self.actionView.fadeOut(0.5)
+        self.loginActionView.fadeIn(0.5)
     }
     
 }

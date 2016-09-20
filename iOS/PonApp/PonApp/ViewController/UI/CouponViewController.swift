@@ -17,6 +17,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var couponInfoLabel: UILabel!
+    @IBOutlet weak var similarCouponCollectionView: UICollectionView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var point: CGPoint!
@@ -47,6 +48,8 @@ class CouponViewController: BaseViewController {
         self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), forState: .Normal)
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        similarCouponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
 }
 

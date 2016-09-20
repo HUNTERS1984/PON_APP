@@ -10,4 +10,7 @@ target 'PonApp' do
     pod 'ImageSlideshow/Alamofire'
     pod 'DKImagePickerController'
     pod 'SwiftQRCode'
+    pod 'InstagramKit', '~> 3.0'
+    pod 'Fabric'
+    pod 'TwitterKit'
 end

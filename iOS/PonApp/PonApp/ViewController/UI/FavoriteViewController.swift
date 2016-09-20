@@ -13,6 +13,7 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
     @IBOutlet weak var tabAccountButton: UIButton!
+    @IBOutlet weak var collectionView:UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,9 @@ class FavoriteViewController: BaseViewController {
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
+        
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
 }
