@@ -15,8 +15,5 @@ let DefaultRedTextColor                                     = 0xFF432F
 let DefaultGreenColor                                       = 0x3CAC73
 
 let GoogleMapAPIKey                                         = "AIzaSyCWPCOVykZmln4xRd94C7-GeTLpGFGsMvU"
-
-let BaseURL                                                 = "http://tracking.chungcutayhotay.com.vn"
-let EncryptKey                                              = "F5XCSRHBFA52HZZ4"
-let OTPKey                                                  = "WQ34Y33CCL53H25F"
-let App                                                     = "relax"
+let TWConsumerKey                                           = "2aXrW6h4koTNieO4NgqDXhzLT"
+let TWConsumerSecret                                        = "Ls27BnWr1CXF5ILi1jpB0V1pbxYdXtdxWc9Iib8X2yVpf8UzOW"

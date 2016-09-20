@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMaps
-import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
+        TwitterLogin.setupTwitterLogin()
         self.setupApplicationData()
         self.setUpApplicationTheme()
         self.setupStartViewController()
@@ -24,15 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupApplicationData() {
-        //Google Map
         GMSServices.provideAPIKey(GoogleMapAPIKey)
         LocationManager.sharedInstance
     }
     
     func setUpApplicationTheme() {
-        // Configure Application status bar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        // Configure Navigation Bar
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().barTintColor = UIColor(hex: 0x18c0d4)
         let navTitleTextAttributes = [

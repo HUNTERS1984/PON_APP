@@ -153,6 +153,9 @@
 		FAE37AF81D8FD11E00EC7333 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */; };
 		FAE37AF91D8FD11E00EC7333 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */; };
 		FAE37AFA1D8FD11E00EC7333 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF61D8FD11E00EC7333 /* FBSDKShareKit.framework */; };
+		FAFB56E31D90E05C004AAD3F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFB56E21D90E05C004AAD3F /* Login.storyboard */; };
+		FAFB56E51D90E0D2004AAD3F /* InstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB56E41D90E0D2004AAD3F /* InstagramLoginViewController.swift */; };
+		FAFB56F41D9115E0004AAD3F /* TwitterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB56F31D9115E0004AAD3F /* TwitterLogin.swift */; };
 		FAFC2E761D7E76B20067B18E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E751D7E76B20067B18E /* DesignableButton.swift */; };
 		FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */; };
 		FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC2E781D7E76BC0067B18E /* DesignableView.swift */; };
@@ -325,6 +328,9 @@
 		FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAE37AF61D8FD11E00EC7333 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FAFB56E21D90E05C004AAD3F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FAFB56E41D90E0D2004AAD3F /* InstagramLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramLoginViewController.swift; sourceTree = "<group>"; };
+		FAFB56F31D9115E0004AAD3F /* TwitterLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterLogin.swift; sourceTree = "<group>"; };
 		FAFC2E751D7E76B20067B18E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		FAFC2E781D7E76BC0067B18E /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -422,6 +428,7 @@
 			children = (
 				4A6FD4901D79C9DE000D4F85 /* Location.swift */,
 				FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */,
+				FAFB56F31D9115E0004AAD3F /* TwitterLogin.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -608,6 +615,7 @@
 				FA654E391D86614E002B6522 /* SignUpViewController.swift */,
 				FA1F27DD1D86A0F100CE423D /* ShopViewController.swift */,
 				4A00D8511D8CE5B600230085 /* ShopFollowViewController.swift */,
+				FAFB56E41D90E0D2004AAD3F /* InstagramLoginViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -742,6 +750,7 @@
 				FA654E2E1D865116002B6522 /* Register.storyboard */,
 				FA1F27D71D8689E600CE423D /* Shop.storyboard */,
 				4A00D84F1D8CE56D00230085 /* Follow.storyboard */,
+				FAFB56E21D90E05C004AAD3F /* Login.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -828,6 +837,7 @@
 				FA33FCE61D77BFDA0048EF73 /* Resources */,
 				E9FF5A17A821114A648B5EDC /* [CP] Embed Pods Frameworks */,
 				38995BA011EAE41E22DD835C /* [CP] Copy Pods Resources */,
+				FAFB56F21D91135B004AAD3F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -885,6 +895,7 @@
 				FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */,
 				4A00D81B1D8CDD4000230085 /* coupon_button_like@2x.png in Resources */,
 				FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */,
+				FAFB56E31D90E05C004AAD3F /* Login.storyboard in Resources */,
 				4A00D8231D8CDD4000230085 /* coupon_location@2x.png in Resources */,
 				FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */,
 				FAFC2E7F1D7E7BA30067B18E /* Coupon.storyboard in Resources */,
@@ -999,6 +1010,19 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PonApp/Pods-PonApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FAFB56F21D91135B004AAD3F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 68fd822f20f39523415f9e60eb836a88dd9b54d7 23813d4d061a4e5a767659c2a21bd41106292dd5b233fa99ed0401b31cbc3e74";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1013,6 +1037,7 @@
 				FAC0B6DA1D7FB61900E96E3A /* LeftBorderView.swift in Sources */,
 				FA2F20191D780D5800608061 /* LocationManager.swift in Sources */,
 				4A6FD4D41D79C9DE000D4F85 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
+				FAFB56F41D9115E0004AAD3F /* TwitterLogin.swift in Sources */,
 				FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */,
 				FA822BE01D814B1D00FB9364 /* CouponNewestViewController.swift in Sources */,
 				FAC0B77D1D80227200E96E3A /* CircleImageView.swift in Sources */,
@@ -1061,6 +1086,7 @@
 				FABC3D601D82A0100061E596 /* ShareCouponViewController.swift in Sources */,
 				FA654E3A1D86614E002B6522 /* SignUpViewController.swift in Sources */,
 				FA1F27DC1D8697D800CE423D /* UINavigationBar+Awesome.m in Sources */,
+				FAFB56E51D90E0D2004AAD3F /* InstagramLoginViewController.swift in Sources */,
 				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
 				4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */,
