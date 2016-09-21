@@ -122,6 +122,8 @@
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
 		FA405C8B1D922A8A00D56602 /* LineLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA405C8A1D922A8A00D56602 /* LineLogin.swift */; };
 		FA405C8D1D9230D200D56602 /* LineAdapter.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA405C8C1D9230D200D56602 /* LineAdapter.plist */; };
+		FA405C901D92478900D56602 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA405C8F1D92478900D56602 /* ApiManager.swift */; };
+		FA405C921D9247AD00D56602 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA405C911D9247AD00D56602 /* ApiResponse.swift */; };
 		FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */; };
 		FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50F1D7D033200CF10D8 /* Account.storyboard */; };
 		FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */; };
@@ -309,6 +311,8 @@
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		FA405C8A1D922A8A00D56602 /* LineLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLogin.swift; sourceTree = "<group>"; };
 		FA405C8C1D9230D200D56602 /* LineAdapter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LineAdapter.plist; sourceTree = "<group>"; };
+		FA405C8F1D92478900D56602 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FA405C911D9247AD00D56602 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA51B50F1D7D033200CF10D8 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -759,6 +763,7 @@
 		FA33FCEA1D77BFDA0048EF73 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA405C8E1D92477100D56602 /* Api */,
 				FAE37AF21D8FD11E00EC7333 /* Frameworks */,
 				FA51B50C1D7D02EC00CF10D8 /* StoryBoard */,
 				4ADE37131D79D6C900C99476 /* Constant */,
@@ -778,6 +783,15 @@
 				FA33FCF71D77BFDA0048EF73 /* Info.plist */,
 			);
 			path = PonApp;
+			sourceTree = "<group>";
+		};
+		FA405C8E1D92477100D56602 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				FA405C8F1D92478900D56602 /* ApiManager.swift */,
+				FA405C911D9247AD00D56602 /* ApiResponse.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		FA51B50C1D7D02EC00CF10D8 /* StoryBoard */ = {
@@ -1077,6 +1091,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA405C901D92478900D56602 /* ApiManager.swift in Sources */,
 				FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */,
 				4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */,
 				FAFC2E811D7E80EA0067B18E /* CouponViewController.swift in Sources */,
@@ -1121,6 +1136,7 @@
 				4A6FD4CE1D79C9DE000D4F85 /* Encryption.m in Sources */,
 				FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */,
 				FAFC2E8A1D7EAFA80067B18E /* BottomBorderView.swift in Sources */,
+				FA405C921D9247AD00D56602 /* ApiResponse.swift in Sources */,
 				FABC3D5E1D8263FF0061E596 /* UITableViewExtension.swift in Sources */,
 				FAFC2E8C1D7EBEDE0067B18E /* UINavigationControllerExtension.swift in Sources */,
 				FABC3D621D82A0200061E596 /* ScanQRCodeViewController.swift in Sources */,
