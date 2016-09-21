@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
+        LineLogin.sharedInstance.handleLaunchOptions(launchOptions)
         self.setupApplicationData()
         self.setUpApplicationTheme()
         self.setupStartViewController()
@@ -50,14 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         FacebookLogin.application(app, openURL: url, options: options)
+        LineLogin.sharedInstance.handleOpenURL(url)
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         FacebookLogin.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        LineLogin.sharedInstance.handleOpenURL(url)
         return true
     }
-    
 
     func applicationDidBecomeActive(application: UIApplication) {
         FacebookLogin.activateApp()

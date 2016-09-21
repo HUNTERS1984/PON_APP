@@ -14,5 +14,8 @@
 #import "MF_Base64Additions.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import "UINavigationBar+Awesome.h"
+#import <LineAdapter/LineAdapter.h>
+#import <LineAdapterLogin/LineAdapterLogin.h>
+#import <LineAdapterUI/LineAdapterUI.h>
 
 #endif /* ObjC_Header_h */

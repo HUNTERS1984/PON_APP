@@ -110,6 +110,18 @@
 		FA33FCF31D77BFDA0048EF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */; };
 		FA33FCF61D77BFDA0048EF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */; };
 		FA3D2A5D1D87963800D81A39 /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D2A5C1D87963800D81A39 /* TopBorderView.swift */; };
+		FA405C7A1D92287B00D56602 /* LineAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C761D92287B00D56602 /* LineAdapter.framework */; };
+		FA405C7B1D92287B00D56602 /* LineAdapterLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C771D92287B00D56602 /* LineAdapterLogin.framework */; };
+		FA405C7C1D92287B00D56602 /* LineAdapterUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA405C781D92287B00D56602 /* LineAdapterUI.bundle */; };
+		FA405C7D1D92287B00D56602 /* LineAdapterUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C791D92287B00D56602 /* LineAdapterUI.framework */; };
+		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; };
+		FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C801D9228AE00D56602 /* Foundation.framework */; };
+		FA405C831D9228B500D56602 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C821D9228B500D56602 /* Security.framework */; };
+		FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C841D9228BC00D56602 /* CoreTelephony.framework */; };
+		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
+		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
+		FA405C8B1D922A8A00D56602 /* LineLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA405C8A1D922A8A00D56602 /* LineLogin.swift */; };
+		FA405C8D1D9230D200D56602 /* LineAdapter.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA405C8C1D9230D200D56602 /* LineAdapter.plist */; };
 		FA51B50E1D7D02EC00CF10D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */; };
 		FA51B5101D7D033200CF10D8 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA51B50F1D7D033200CF10D8 /* Account.storyboard */; };
 		FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */; };
@@ -285,6 +297,18 @@
 		FA33FCF51D77BFDA0048EF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA33FCF71D77BFDA0048EF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3D2A5C1D87963800D81A39 /* TopBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
+		FA405C761D92287B00D56602 /* LineAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapter.framework; sourceTree = "<group>"; };
+		FA405C771D92287B00D56602 /* LineAdapterLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapterLogin.framework; sourceTree = "<group>"; };
+		FA405C781D92287B00D56602 /* LineAdapterUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LineAdapterUI.bundle; sourceTree = "<group>"; };
+		FA405C791D92287B00D56602 /* LineAdapterUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapterUI.framework; sourceTree = "<group>"; };
+		FA405C7E1D9228A700D56602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA405C801D9228AE00D56602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA405C821D9228B500D56602 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FA405C841D9228BC00D56602 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FA405C8A1D922A8A00D56602 /* LineLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLogin.swift; sourceTree = "<group>"; };
+		FA405C8C1D9230D200D56602 /* LineAdapter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LineAdapter.plist; sourceTree = "<group>"; };
 		FA51B50D1D7D02EC00CF10D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA51B50F1D7D033200CF10D8 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		FA51B5111D7D03AA00CF10D8 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -347,7 +371,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */,
+				FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */,
+				FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */,
+				FA405C831D9228B500D56602 /* Security.framework in Frameworks */,
+				FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */,
+				FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */,
+				FA405C7A1D92287B00D56602 /* LineAdapter.framework in Frameworks */,
 				27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */,
+				FA405C7D1D92287B00D56602 /* LineAdapterUI.framework in Frameworks */,
+				FA405C7B1D92287B00D56602 /* LineAdapterLogin.framework in Frameworks */,
 				FAE37AF81D8FD11E00EC7333 /* FBSDKCoreKit.framework in Frameworks */,
 				FAE37AFA1D8FD11E00EC7333 /* FBSDKShareKit.framework in Frameworks */,
 				FAE37AF91D8FD11E00EC7333 /* FBSDKLoginKit.framework in Frameworks */,
@@ -429,6 +462,7 @@
 				4A6FD4901D79C9DE000D4F85 /* Location.swift */,
 				FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */,
 				FAFB56F31D9115E0004AAD3F /* TwitterLogin.swift */,
+				FA405C8A1D922A8A00D56602 /* LineLogin.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -640,6 +674,12 @@
 		D48EAA8D573D1FF68F8534A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA405C881D9228CC00D56602 /* CoreText.framework */,
+				FA405C861D9228C700D56602 /* CoreGraphics.framework */,
+				FA405C841D9228BC00D56602 /* CoreTelephony.framework */,
+				FA405C821D9228B500D56602 /* Security.framework */,
+				FA405C801D9228AE00D56602 /* Foundation.framework */,
+				FA405C7E1D9228A700D56602 /* UIKit.framework */,
 				86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */,
 			);
 			name = Frameworks;
@@ -734,6 +774,7 @@
 				FA51B5171D7D0C9600CF10D8 /* View */,
 				FA33FCF21D77BFDA0048EF73 /* Assets.xcassets */,
 				FA33FCF41D77BFDA0048EF73 /* LaunchScreen.storyboard */,
+				FA405C8C1D9230D200D56602 /* LineAdapter.plist */,
 				FA33FCF71D77BFDA0048EF73 /* Info.plist */,
 			);
 			path = PonApp;
@@ -816,6 +857,10 @@
 		FAE37AF21D8FD11E00EC7333 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA405C761D92287B00D56602 /* LineAdapter.framework */,
+				FA405C771D92287B00D56602 /* LineAdapterLogin.framework */,
+				FA405C781D92287B00D56602 /* LineAdapterUI.bundle */,
+				FA405C791D92287B00D56602 /* LineAdapterUI.framework */,
 				FAE37AF31D8FD11E00EC7333 /* Bolts.framework */,
 				FAE37AF41D8FD11E00EC7333 /* FBSDKCoreKit.framework */,
 				FAE37AF51D8FD11E00EC7333 /* FBSDKLoginKit.framework */,
@@ -860,7 +905,7 @@
 				TargetAttributes = {
 					FA33FCE71D77BFDA0048EF73 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = D26XEPCZ8Q;
+						DevelopmentTeam = M8AF2Y2268;
 					};
 				};
 			};
@@ -937,6 +982,7 @@
 				FA822BDC1D814A2600FB9364 /* CouponList.storyboard in Resources */,
 				4A00D8151D8CDD4000230085 /* account_avatar_placehoder@2x.png in Resources */,
 				4A00D8281D8CDD4000230085 /* coupon_twitter_button@2x.png in Resources */,
+				FA405C8D1D9230D200D56602 /* LineAdapter.plist in Resources */,
 				4A00D81A1D8CDD4000230085 /* arrow_right@2x.png in Resources */,
 				4A00D8561D8CEAF400230085 /* map_icon_marker@2x.png in Resources */,
 				4A00D83C1D8CDD4000230085 /* splash_button_login@2x.png in Resources */,
@@ -954,6 +1000,7 @@
 				4A00D8461D8CDD4000230085 /* top_button_direction@2x.png in Resources */,
 				4A00D8251D8CDD4000230085 /* coupon_phone@2x.png in Resources */,
 				4A00D82B1D8CDD4000230085 /* map_icon_down@2x.png in Resources */,
+				FA405C7C1D92287B00D56602 /* LineAdapterUI.bundle in Resources */,
 				4A00D8411D8CDD4000230085 /* tabbar_account_selected@2x.png in Resources */,
 				4A00D8291D8CDD4000230085 /* icon_food@2x.png in Resources */,
 				4A00D81C1D8CDD4000230085 /* coupon_button_liked@2x.png in Resources */,
@@ -1057,6 +1104,7 @@
 				FAFC2E7A1D7E76BC0067B18E /* DesignableView.swift in Sources */,
 				4A6FD4CA1D79C9DE000D4F85 /* UIImageExtension.swift in Sources */,
 				FA9F656A1D8185F100B86A89 /* HomeNearestViewController.swift in Sources */,
+				FA405C8B1D922A8A00D56602 /* LineLogin.swift in Sources */,
 				4A6FD4C51D79C9DE000D4F85 /* MKMapViewExtension.swift in Sources */,
 				4A6FD4D91D79CA08000D4F85 /* LoggingPrint.swift in Sources */,
 				4ADE371D1D79DC1600C99476 /* FavoriteViewController.swift in Sources */,
@@ -1224,9 +1272,9 @@
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bai888.doden.giaitri.cothuong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9fccb751-8964-41c2-b36a-80e94f555b19";
+				PROVISIONING_PROFILE = "8d9bc9aa-01d2-4f65-8aeb-135d83e1f603";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1244,9 +1292,9 @@
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bai888.doden.giaitri.cothuong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9fccb751-8964-41c2-b36a-80e94f555b19";
+				PROVISIONING_PROFILE = "8d9bc9aa-01d2-4f65-8aeb-135d83e1f603";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;
