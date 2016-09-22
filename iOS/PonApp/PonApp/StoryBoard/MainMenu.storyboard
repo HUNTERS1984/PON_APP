@@ -352,10 +352,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-Mj-a9C" userLabel="Offer Content View">
-                                <rect key="frame" x="0.0" y="495" width="375" height="172"/>
+                                <rect key="frame" x="0.0" y="471" width="375" height="196"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Kk-i6-PHN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="186"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="WSw-9L-Jbv">
                                             <size key="itemSize" width="150" height="160"/>
@@ -371,15 +371,15 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="5eh-Lq-s4y"/>
+                                    <constraint firstAttribute="height" constant="196" id="5eh-Lq-s4y"/>
                                     <constraint firstAttribute="bottom" secondItem="0Kk-i6-PHN" secondAttribute="bottom" id="Fb0-3G-qyj"/>
-                                    <constraint firstItem="0Kk-i6-PHN" firstAttribute="top" secondItem="U4J-Mj-a9C" secondAttribute="top" id="O7c-z2-knf"/>
+                                    <constraint firstItem="0Kk-i6-PHN" firstAttribute="top" secondItem="U4J-Mj-a9C" secondAttribute="top" constant="10" id="O7c-z2-knf"/>
                                     <constraint firstItem="0Kk-i6-PHN" firstAttribute="leading" secondItem="U4J-Mj-a9C" secondAttribute="leading" id="gXT-qr-QPo"/>
                                     <constraint firstAttribute="trailing" secondItem="0Kk-i6-PHN" secondAttribute="trailing" id="l3d-up-VHI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Xz-Riv" userLabel="Menu View">
-                                <rect key="frame" x="295" y="355" width="60" height="130"/>
+                                <rect key="frame" x="295" y="356" width="60" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bz-gB-eRe" userLabel="Location Button">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -431,7 +431,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tq1-6A-QcG" firstAttribute="top" secondItem="ZtM-ZZ-F4K" secondAttribute="bottom" id="OJo-Ze-qjm"/>
-                            <constraint firstItem="U4J-Mj-a9C" firstAttribute="top" secondItem="UGA-Xz-Riv" secondAttribute="bottom" constant="10" id="OeT-sS-a3x"/>
+                            <constraint firstItem="U4J-Mj-a9C" firstAttribute="top" secondItem="UGA-Xz-Riv" secondAttribute="bottom" constant="-15" id="OeT-sS-a3x"/>
                             <constraint firstAttribute="trailing" secondItem="U4J-Mj-a9C" secondAttribute="trailing" id="PoE-uf-rJW"/>
                             <constraint firstItem="U4J-Mj-a9C" firstAttribute="leading" secondItem="VOm-Qy-txN" secondAttribute="leading" id="TcQ-Qt-jSH"/>
                             <constraint firstItem="tq1-6A-QcG" firstAttribute="top" secondItem="U4J-Mj-a9C" secondAttribute="bottom" id="TqZ-Ky-JnY"/>

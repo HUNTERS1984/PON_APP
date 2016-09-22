@@ -178,6 +178,7 @@
 		FACC131C1D938788008D88DB /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = FACC130C1D938788008D88DB /* IQUIView+IQKeyboardToolbar.m */; };
 		FACC131D1D938788008D88DB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FACC130E1D938788008D88DB /* IQKeyboardManager.bundle */; };
 		FACC13211D9388CB008D88DB /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FACC13201D9388CB008D88DB /* IQDropDownTextField.m */; };
+		FACC13231D93BA73008D88DB /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC13221D93BA73008D88DB /* ShadowView.swift */; };
 		FAE37AEF1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */; };
 		FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */; };
 		FAE37AF71D8FD11E00EC7333 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF31D8FD11E00EC7333 /* Bolts.framework */; };
@@ -401,6 +402,7 @@
 		FACC130E1D938788008D88DB /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		FACC131F1D9388CB008D88DB /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
 		FACC13201D9388CB008D88DB /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
+		FACC13221D93BA73008D88DB /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		FAE37AF31D8FD11E00EC7333 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 		FA51B51B1D7D123E00CF10D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FACC13221D93BA73008D88DB /* ShadowView.swift */,
 				FAFC2E771D7E76BC0067B18E /* DesignableImageView.swift */,
 				FAFC2E781D7E76BC0067B18E /* DesignableView.swift */,
 				FA51B51C1D7D125B00CF10D8 /* TabbarView.swift */,
@@ -1298,6 +1301,7 @@
 				4A6FD4C21D79C9DE000D4F85 /* HLKDropDownTextField.swift in Sources */,
 				FACC13141D938788008D88DB /* IQUIWindow+Hierarchy.m in Sources */,
 				4A6FD4CC1D79C9DE000D4F85 /* UIViewExtension.swift in Sources */,
+				FACC13231D93BA73008D88DB /* ShadowView.swift in Sources */,
 				4A6FD4C41D79C9DE000D4F85 /* HLKTextField.swift in Sources */,
 				FA51B5391D7D716B00CF10D8 /* HomeUsedViewController.swift in Sources */,
 				FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */,
@@ -1438,7 +1442,7 @@
 			baseConfigurationReference = 551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1448,7 +1452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d9bc9aa-01d2-4f65-8aeb-135d83e1f603";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1458,7 +1462,7 @@
 			baseConfigurationReference = 38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1468,7 +1472,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d9bc9aa-01d2-4f65-8aeb-135d83e1f603";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

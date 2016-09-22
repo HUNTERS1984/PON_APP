@@ -10,7 +10,7 @@ import UIKit
 
 class DesignableImageView: UIImageView {
 
-    @IBInspectable var borderColor : UIColor = UIColor.clearColor()
+    @IBInspectable var borderColor : UIColor = UIColor(hex: DefaultBorderColor)
     @IBInspectable var borderWidth: CGFloat = 0
     @IBInspectable var cornerRadius: CGFloat = 0
     
