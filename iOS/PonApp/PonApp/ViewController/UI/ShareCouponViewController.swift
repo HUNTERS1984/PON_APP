@@ -61,6 +61,7 @@ extension ShareCouponViewController {
     }
     
     @IBAction func lineButtonPressed(sender: AnyObject) {
+        LineLogin.sharedInstance.loginWithLine()
     }
     
 }

@@ -64,12 +64,8 @@ extension SplashViewController {
             if success {
                 if let _ = result {
                     let session = result as! TWTRSession
-                    let alert = UIAlertController(title: "Logged In",
-                                                  message: "User \(session.userName) has logged in",
-                                                  preferredStyle: UIAlertControllerStyle.Alert
-                    )
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
                 } else {
                     let error = result as! NSError
                     print("Login error: %@", error.localizedDescription);
@@ -86,11 +82,11 @@ extension SplashViewController {
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
-//        self.setupTabbarViewController()
+        self.setupTabbarViewController()
         
-        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
-        let navController = UINavigationController(rootViewController: vc)
-        self.presentViewController(navController, animated: true, completion: nil)
+//        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
+//        let navController = UINavigationController(rootViewController: vc)
+//        self.presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBAction func loginActionButtonPressed(sender: AnyObject) {
