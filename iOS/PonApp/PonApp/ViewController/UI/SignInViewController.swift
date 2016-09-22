@@ -33,3 +33,44 @@ class SignInViewController: BaseViewController {
     }
 
 }
+
+//MARK: - IBAction
+extension SignInViewController {
+    
+    @IBAction func signInButtonPressed(sender: AnyObject) {
+        self.setupTabbarViewController()
+    }
+    
+}
+
+extension SignInViewController {
+    
+    private func setupTabbarViewController() {
+        let mainNavigationController: BaseNavigationController?
+        let accountNavigationController: BaseNavigationController?
+        let favoriteNavigationController: BaseNavigationController?
+        
+        var mainTabbarViewController: BaseTabBarController?
+        
+        let mainViewController = MainViewController.instanceFromStoryBoard("Main")
+        mainNavigationController = BaseNavigationController(rootViewController: mainViewController)
+        
+        let accountViewController = AccountViewController.instanceFromStoryBoard("Main")
+        accountNavigationController = BaseNavigationController(rootViewController: accountViewController)
+        
+        let favoriteViewController = FavoriteViewController.instanceFromStoryBoard("Main")
+        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController)
+        
+        
+        mainTabbarViewController = BaseTabBarController()
+        mainTabbarViewController?.viewControllers = [
+            favoriteNavigationController!,
+            mainNavigationController!,
+            accountNavigationController!
+        ]
+        mainTabbarViewController?.selectedIndex = 1
+        mainTabbarViewController?.tabBar.hidden = true
+        self.appDelegate?.window?.rootViewController = mainTabbarViewController!
+    }
+    
+}
