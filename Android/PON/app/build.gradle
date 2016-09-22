@@ -9,6 +9,8 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 
+apply plugin: 'io.fabric'
+
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
@@ -49,4 +51,7 @@ dependencies {
         transitive = true;
     }
     compile 'com.google.zxing:core:3.2.1'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.3@aar') {
+        transitive = true;
+    }
 }

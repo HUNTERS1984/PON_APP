@@ -2,6 +2,7 @@ package com.hunters1984.pon.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         holder.mCouponTitle.setText(mListCoupons.get(position).getmTitle());
         holder.mCouponDescription.setText(mListCoupons.get(position).getmDescription());
         holder.mCouponExpireDate.setText(mListCoupons.get(position).getmExpireDate());
-        holder.mCouponPhoto.setImageResource(R.drawable.coupon_example);
+        holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
         holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).ismIsFavourite()?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
         holder.mView.setTag(position);
     }

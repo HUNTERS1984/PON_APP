@@ -24,7 +24,7 @@
                     android:id="@+id/iv_coupon_photo"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
-                    android:src="@drawable/coupon_example"
+                    android:background="@color/light_grey_stroke_icon"
                     android:scaleType="fitXY" />
                 <ImageView
                     android:layout_width="@dimen/icon_size"

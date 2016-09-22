@@ -38,7 +38,7 @@
                     <com.hunters1984.pon.customs.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/logo_example"
+                        android:src="@drawable/ic_logo_example"
                         android:scaleType="fitXY"
                         android:id="@+id/iv_user_pic"/>
                     <com.hunters1984.pon.customs.CustomTextView

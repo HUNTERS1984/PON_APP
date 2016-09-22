@@ -2,15 +2,25 @@ package com.hunters1984.pon.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.hunters1984.pon.R;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import io.fabric.sdk.android.Fabric;
@@ -24,7 +34,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
     private CallbackManager mFacebookCallbackManager;
     private LoginButton mFacebookSignInButton;
 
-    private TwitterLoginButton loginButton;
+    private TwitterLoginButton mTwitterSignInButton;
 
     private RelativeLayout mRlFacebookLogin, mRlTwitterLogin, mRlEmailLogin;
 
@@ -33,6 +43,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         mFacebookCallbackManager = CallbackManager.Factory.create();
 
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY,
@@ -42,44 +53,6 @@ public class SplashSelectLoginActivity extends BaseActivity {
         setContentView(R.layout.activity_splash_select_login);
 
         initLayout();
-
-//        mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
-//        mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
-//                new FacebookCallback<LoginResult>() {
-//                    @Override
-//                    public void onSuccess(final LoginResult loginResult) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancel() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(FacebookException error) {
-//                    }
-//                }
-//        );
-
-
-//        loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
-//        loginButton.setCallback(new Callback<TwitterSession>() {
-//            @Override
-//            public void success(Result<TwitterSession> result) {
-//                // The TwitterSession is also available through:
-//                // Twitter.getInstance().core.getSessionManager().getActiveSession()
-//                TwitterSession session = result.data;
-//                // TODO: Remove toast and use the TwitterSession's userID
-//                // with your app's user model
-//                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
-//                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//            }
-//            @Override
-//            public void failure(TwitterException exception) {
-//
-//            }
-//        });
 
     }
 
@@ -91,7 +64,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
         mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
 
         if(TwitterAuthConfig.DEFAULT_AUTH_REQUEST_CODE == requestCode) {
-            loginButton.onActivityResult(requestCode, resultCode, data);
+            mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -107,5 +80,61 @@ public class SplashSelectLoginActivity extends BaseActivity {
                 startActivity(SplashSelectLoginActivity.this, SignInEmailActivity.class, true);
             }
         });
+
+        //Facebook
+        mRlFacebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mFacebookSignInButton.performClick();
+            }
+        });
+
+        mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
+        mFacebookSignInButton.setReadPermissions("email");
+        mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(final LoginResult loginResult) {
+                        Log.d("FACEBOOK", "success");
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                    }
+                }
+        );
+        //End of Facebook
+
+        //Twitter
+        mRlTwitterLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTwitterSignInButton.performClick();
+            }
+        });
+
+        mTwitterSignInButton = (TwitterLoginButton) findViewById(R.id.twitter_sign_in_button);
+        mTwitterSignInButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                // The TwitterSession is also available through:
+                // Twitter.getInstance().core.getSessionManager().getActiveSession()
+                TwitterSession session = result.data;
+                // TODO: Remove toast and use the TwitterSession's userID
+                // with your app's user model
+                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void failure(TwitterException exception) {
+                exception.printStackTrace();
+            }
+        });
+
     }
 }

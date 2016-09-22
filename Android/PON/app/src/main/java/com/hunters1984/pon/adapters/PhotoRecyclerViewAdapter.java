@@ -1,6 +1,7 @@
 package com.hunters1984.pon.adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     public void onBindViewHolder(RelatedCouponRecyclerViewHolders holder, int position) {
         if(mIsShowMore) {
             if (position != (mListCoupons.size() - 1)) {
-                holder.mPhoto.setImageResource(R.drawable.coupon_example);
+                holder.mPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
                 holder.mPhoto.setVisibility(View.VISIBLE);
                 holder.mViewMore.setVisibility(View.INVISIBLE);
             } else {

@@ -1,6 +1,7 @@
 package com.hunters1984.pon.adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class PhotoCouponPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.coupon_photo_pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.iv_photo);
-        imageView.setImageResource(mListCouponPhotos[position]);
+        imageView.setBackgroundColor(ContextCompat.getColor(mContext, mListCouponPhotos[position]));
 //        if (mSourceToLoadImage == Constants.LOAD_IMAGE_FROM_URL) {
 //            if (!mListProductPhotos.get(position).equalsIgnoreCase("")) {
 //                Picasso.with(mContext).load(mListProductPhotos.get(position)).into(imageView);

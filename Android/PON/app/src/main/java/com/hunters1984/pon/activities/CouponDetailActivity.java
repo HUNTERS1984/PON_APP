@@ -40,7 +40,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     private ViewPager mPagerCoupons;
     private CirclePageIndicator mPageIndicatorProduct;
-    private int[] mListCouponPhotos =  {R.drawable.coupon_photo_1, R.drawable.coupon_photo_2};
+    private int[] mListCouponPhotos =  {R.color.black, R.color.black};
 
     private boolean isFavourite = false;
     private Context mContext;
