@@ -95,10 +95,6 @@ class HLKDropDownTextField: UITextField {
         toolbar.setItems([flexibleSpaceLeft, doneButton], animated: false)
         self.inputView = pickerView
         self.inputAccessoryView = toolbar
-        
-        self.layer.borderColor = UIColor(hex: DefaultBorderColor).CGColor
-        self.layer.borderWidth = 0.5
-        self.layer.cornerRadius = 3.0
     }
     
     func resetDropdown() {
