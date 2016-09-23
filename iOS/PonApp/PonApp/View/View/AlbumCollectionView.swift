@@ -10,11 +10,7 @@ import UIKit
 
 class AlbumCollectionView: UICollectionView {
 
-    var photos = [String] () {
-        didSet {
-            self.reloadData()
-        }
-    }
+    var photos = [String] ()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -19,6 +19,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var couponInfoLabel: UILabel!
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
     @IBOutlet weak var similarCouponCollectionView: UICollectionView!
+    @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var point: CGPoint!
@@ -133,6 +134,11 @@ extension CouponViewController {
             "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
             "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg"
         ]
+        self.albumCollectionView.reloadData {
+            self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
+            print(self.albumCollectionView.contentSize.height)
+            self.view.layoutIfNeeded()
+        }
     }
     
 }
