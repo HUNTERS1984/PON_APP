@@ -60,3 +60,22 @@ extension String {
     }
     
 }
+
+extension String {
+    
+    static func sha256(str: String) -> String? {
+        guard
+            let data = str.dataUsingEncoding(NSUTF8StringEncoding),
+            let shaData = sha256(data)
+            else { return nil }
+        let rc = shaData.base64EncodedStringWithOptions([])
+        return rc
+    }
+    
+    static func sha256(data: NSData) -> NSData? {
+        guard let res = NSMutableData(length: Int(CC_SHA256_DIGEST_LENGTH)) else { return nil }
+        CC_SHA256(data.bytes, CC_LONG(data.length), UnsafeMutablePointer(res.mutableBytes))
+        return res
+    }
+    
+}

@@ -182,6 +182,8 @@
 		FACC13251D93C86F008D88DB /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC13241D93C86F008D88DB /* ApiEndpoint.swift */; };
 		FAD911221D94BE0100EC05E6 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD911211D94BE0100EC05E6 /* UICollectionViewExtension.swift */; };
 		FAD911241D94EA8200EC05E6 /* ApiFileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */; };
+		FAD911261D9504C600EC05E6 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD911251D9504C600EC05E6 /* ApiRequest.swift */; };
+		FAD911281D950F8900EC05E6 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD911271D950F8900EC05E6 /* AlbumCollectionViewCell.xib */; };
 		FAE37AEF1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */; };
 		FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */; };
 		FAE37AF71D8FD11E00EC7333 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF31D8FD11E00EC7333 /* Bolts.framework */; };
@@ -409,6 +411,8 @@
 		FACC13241D93C86F008D88DB /* ApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		FAD911211D94BE0100EC05E6 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFileUpload.swift; sourceTree = "<group>"; };
+		FAD911251D9504C600EC05E6 /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		FAD911271D950F8900EC05E6 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		FAE37AF31D8FD11E00EC7333 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -855,6 +859,7 @@
 				FA405C911D9247AD00D56602 /* ApiResponse.swift */,
 				FACC13241D93C86F008D88DB /* ApiEndpoint.swift */,
 				FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */,
+				FAD911251D9504C600EC05E6 /* ApiRequest.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -922,6 +927,7 @@
 				FA822BE11D814DD800FB9364 /* ListCouponCollectionViewCell.swift */,
 				FABC3D581D824D760061E596 /* CouponCollectionTableViewCell.swift */,
 				FA8BB86A1D8A3BFF008A16E8 /* AlbumCollectionViewCell.swift */,
+				FAD911271D950F8900EC05E6 /* AlbumCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1117,6 +1123,7 @@
 				4A00D8181D8CDD4000230085 /* account_icon_store@2x.png in Resources */,
 				4A00D8241D8CDD4000230085 /* coupon_normal@2x.png in Resources */,
 				4A00D8321D8CDD4000230085 /* nav_search@2x.png in Resources */,
+				FAD911281D950F8900EC05E6 /* AlbumCollectionViewCell.xib in Resources */,
 				4A00D8301D8CDD4000230085 /* nav_close_blue@2x.png in Resources */,
 				4A00D8431D8CDD4000230085 /* tabbar_favorite_selected@2x.png in Resources */,
 				4A00D8161D8CDD4000230085 /* account_icon_history@2x.png in Resources */,
@@ -1324,6 +1331,7 @@
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
 				FAD911221D94BE0100EC05E6 /* UICollectionViewExtension.swift in Sources */,
 				4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */,
+				FAD911261D9504C600EC05E6 /* ApiRequest.swift in Sources */,
 				FAC0B6D11D7FA39900E96E3A /* Coupon.swift in Sources */,
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
 				FACC13171D938788008D88DB /* IQTextView.m in Sources */,

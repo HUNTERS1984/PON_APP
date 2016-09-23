@@ -10,6 +10,12 @@ import UIKit
 
 class AlbumCollectionView: UICollectionView {
 
+    var photos = [String] () {
+        didSet {
+            self.reloadData()
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialize()
@@ -23,6 +29,8 @@ class AlbumCollectionView: UICollectionView {
     func initialize() {
         self.dataSource = self
         self.delegate = self
+        let myCellNib = UINib(nibName: "AlbumCollectionViewCell", bundle: nil)
+        self.registerNib(myCellNib, forCellWithReuseIdentifier: "AlbumCollectionViewCell")
     }
 
 }
@@ -31,12 +39,17 @@ class AlbumCollectionView: UICollectionView {
 extension AlbumCollectionView: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        if self.photos.count > 9 {
+            return 9
+        }else {
+            return self.photos.count
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AlbumCollectionViewCell", forIndexPath: indexPath) as! AlbumCollectionViewCell
+        let URL = NSURL(string: self.photos[indexPath.item])!
+        cell.thumbImageView.af_setImageWithURL(URL)
         return cell
         
     }

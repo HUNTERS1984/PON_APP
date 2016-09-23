@@ -34,7 +34,7 @@ public struct ApiManager {
         return standarParameter;
     }
     
-    static func processRequest(endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, completion: ApiCompletion) {
+    static func processRequest(endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = true, completion: ApiCompletion) {
         // Compose full-path of URL request
         let url = getBaseApiURL() + endpoint
         let standardParams = ApiManager.standardizeParameter(parameters)
@@ -53,7 +53,7 @@ public struct ApiManager {
                 ApiManager.processPostRequest(url, parameters: standardParams, completion: completion)
             }
         case .PUT:
-            if let uploadFiles = uploadFiles {
+            if let _ = uploadFiles {
 
             }else {
 

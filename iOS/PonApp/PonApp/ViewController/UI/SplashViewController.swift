@@ -82,7 +82,7 @@ extension SplashViewController {
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
-//        self.setupTabbarViewController()
+        self.setupTabbarViewController()
         
 //        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
 //        let navController = UINavigationController(rootViewController: vc)

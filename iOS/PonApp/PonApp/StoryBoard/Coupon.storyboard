@@ -340,18 +340,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCollectionViewCell" id="IuF-fp-GFD" customClass="AlbumCollectionViewCell" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-fP-qKO" userLabel="Similar Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1155" width="375" height="60"/>
@@ -382,7 +371,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="390" id="fAM-fi-Chs"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="p2Y-C6-dez">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p2Y-C6-dez">
                                                     <size key="itemSize" width="175" height="185"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -458,6 +447,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="albumCollectionView" destination="Zxh-As-GZH" id="6HH-wH-66a"/>
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="imageSlideshow" destination="W7w-2M-KHV" id="cwT-m8-0Rd"/>
