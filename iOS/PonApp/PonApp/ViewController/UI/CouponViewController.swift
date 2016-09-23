@@ -17,6 +17,8 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var couponInfoLabel: UILabel!
+    @IBOutlet weak var albumCollectionView: AlbumCollectionView!
+    @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var similarCouponCollectionView: UICollectionView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
@@ -28,6 +30,7 @@ class CouponViewController: BaseViewController {
         let text = "説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入りま す説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります.."
         self.couponInfoLabel.text = text
         self.setupImageSlideShow()
+        self.setupPhotoCollectionView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +44,7 @@ class CouponViewController: BaseViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
@@ -108,6 +112,33 @@ extension CouponViewController {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
         imageSlideshow.addGestureRecognizer(recognizer)
         imageSlideshow.setImageInputs(alamofireSource)
+    }
+    
+    private func setupPhotoCollectionView() {
+        self.albumCollectionView.photos = [
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg"
+        ]
+        self.albumCollectionView.reloadData {
+            self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
+            self.view.layoutIfNeeded()
+        }
     }
     
 }

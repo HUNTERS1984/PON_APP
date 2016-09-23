@@ -21,7 +21,7 @@ class DesignableView: UIView {
     // IBInspectable properties for rounded corners and border color / width
     @IBInspectable var cornerSize: CGFloat = 0
     @IBInspectable var borderSize: CGFloat = 0
-    @IBInspectable var borderColor: UIColor = UIColor.blackColor()
+    @IBInspectable var borderColor: UIColor = UIColor(hex: DefaultBorderColor)
     @IBInspectable var borderAlpha: CGFloat = 1.0
     
     override func drawRect(rect: CGRect) {

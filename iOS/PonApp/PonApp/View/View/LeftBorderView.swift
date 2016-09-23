@@ -13,8 +13,8 @@ class LeftBorderView: UIView {
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 1.0)
-        CGContextSetStrokeColorWithColor(context, UIColor.lightGrayColor().CGColor)
+        CGContextSetLineWidth(context, 0.5)
+        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
         CGContextMoveToPoint(context, marginLeft, 0)
         CGContextAddLineToPoint(context, marginLeft, rect.size.height)
         CGContextStrokePath(context)

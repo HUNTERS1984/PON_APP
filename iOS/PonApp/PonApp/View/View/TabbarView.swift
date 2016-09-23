@@ -28,7 +28,7 @@ class TabbarView: UIView {
         super.drawRect(rect)
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, UIColor(hex:0xd8dada).CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
         CGContextMoveToPoint(context, 0, 10)
         CGContextAddLineToPoint(context, rect.width, 10)
         CGContextStrokePath(context)

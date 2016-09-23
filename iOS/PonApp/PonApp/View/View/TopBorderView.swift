@@ -15,8 +15,8 @@ class TopBorderView: UIView {
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 1.0)
-        CGContextSetStrokeColorWithColor(context, UIColor.lightGrayColor().CGColor)
+        CGContextSetLineWidth(context, 0.5)
+        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
         CGContextMoveToPoint(context, marginLeft, 0)
         CGContextAddLineToPoint(context, rect.size.width - marginRight, 0)
         CGContextStrokePath(context)

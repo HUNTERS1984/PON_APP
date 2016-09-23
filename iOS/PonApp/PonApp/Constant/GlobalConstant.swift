@@ -9,10 +9,14 @@
 import UIKit
 
 let DefaultBackgroundColor                      = 0xFAFAFA
-let DefaultBorderColor                          = 0xBEBEBE
-let DefaultTextColor                            = 0x374655
-let DefaultRedTextColor                         = 0xFF432F
-let DefaultGreenColor                           = 0x3CAC73
+let DefaultBorderColor                          = 0xc8d2d6
+let DefaultBlackTextColor                       = 0x505a5e
+let DefaultLightGrayTextColor                   = 0x82898b
+let DefaultDarkGrayTextColor                    = 0x646e72
+let DefaultPinkTextColor                        = 0xff5078
+let DefaultBlueTextColor                        = 0x18c0d4
+
+let BaseURL                                     = "http://pon.cm/api"
 
 let GoogleMapAPIKey                             = "AIzaSyCWPCOVykZmln4xRd94C7-GeTLpGFGsMvU"
 let TWConsumerKey                               = "2aXrW6h4koTNieO4NgqDXhzLT"

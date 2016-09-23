@@ -87,7 +87,7 @@ extension HomeSearchViewController: UITableViewDataSource {
 extension HomeSearchViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

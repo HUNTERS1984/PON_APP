@@ -29,12 +29,17 @@ class HomeMapViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "現在地付近でさがす"
         self.showBackButton()
         
-        self.offerView.backgroundColor = UIColor(hex3: 0xfff, alpha: 0.5)
+        self.offerView.backgroundColor = UIColor.clearColor()
         self.offerViewBottomConstraint.constant -= 172
         self.hideOfferButton.hidden = true
         self.menuButton.hidden = false
@@ -85,6 +90,7 @@ extension HomeMapViewController {
             self.offerViewBottomConstraint.constant += 172
             self.hideOfferButton.hidden = false
             self.menuButton.hidden = true
+            self.offerView.backgroundColor = UIColor(hex3: 0xfff, alpha: 0.5)
             self.view.layoutIfNeeded()
         }
     }
@@ -98,6 +104,7 @@ extension HomeMapViewController {
             self.offerViewBottomConstraint.constant -= 172
             self.hideOfferButton.hidden = true
             self.menuButton.hidden = false
+            self.offerView.backgroundColor = UIColor.clearColor()
             self.view.layoutIfNeeded()
         }
     }

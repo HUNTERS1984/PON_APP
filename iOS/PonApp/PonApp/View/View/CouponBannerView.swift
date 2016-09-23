@@ -10,7 +10,7 @@ import UIKit
 
 class CouponBannerView: UIView {
 
-    var bottomBorderColor: UIColor = UIColor(red:200.0/255.0, green:210.0/255.0, blue:214.0/255.0, alpha:1)
+    var bottomBorderColor: UIColor = UIColor(hex: DefaultBorderColor)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +29,7 @@ class CouponBannerView: UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 1.0)
+        CGContextSetLineWidth(context, 0.5)
         CGContextSetStrokeColorWithColor(context, UIColor.whiteColor().CGColor)
         CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
         let rectangle = CGRectMake(0,rect.size.height * (20/95), rect.size.width, rect.size.height - (rect.size.height * (20/95)))
@@ -37,7 +37,7 @@ class CouponBannerView: UIView {
         CGContextFillPath(context)
         
         
-        CGContextSetLineWidth(context, 1.0)
+        CGContextSetLineWidth(context, 0.5)
         CGContextSetStrokeColorWithColor(context, bottomBorderColor.CGColor)
         CGContextMoveToPoint(context, 15, rect.size.height)
         CGContextAddLineToPoint(context, rect.size.width, rect.size.height)
