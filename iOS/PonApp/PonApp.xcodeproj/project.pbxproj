@@ -179,6 +179,9 @@
 		FACC131D1D938788008D88DB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FACC130E1D938788008D88DB /* IQKeyboardManager.bundle */; };
 		FACC13211D9388CB008D88DB /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FACC13201D9388CB008D88DB /* IQDropDownTextField.m */; };
 		FACC13231D93BA73008D88DB /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC13221D93BA73008D88DB /* ShadowView.swift */; };
+		FACC13251D93C86F008D88DB /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC13241D93C86F008D88DB /* ApiEndpoint.swift */; };
+		FAD911221D94BE0100EC05E6 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD911211D94BE0100EC05E6 /* UICollectionViewExtension.swift */; };
+		FAD911241D94EA8200EC05E6 /* ApiFileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */; };
 		FAE37AEF1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */; };
 		FAE37AF11D8FD0BA00EC7333 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */; };
 		FAE37AF71D8FD11E00EC7333 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE37AF31D8FD11E00EC7333 /* Bolts.framework */; };
@@ -403,6 +406,9 @@
 		FACC131F1D9388CB008D88DB /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
 		FACC13201D9388CB008D88DB /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
 		FACC13221D93BA73008D88DB /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		FACC13241D93C86F008D88DB /* ApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		FAD911211D94BE0100EC05E6 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFileUpload.swift; sourceTree = "<group>"; };
 		FAE37AEE1D8FC2FC00EC7333 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAE37AF01D8FD0BA00EC7333 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		FAE37AF31D8FD11E00EC7333 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -584,6 +590,7 @@
 				4A6FD4A41D79C9DE000D4F85 /* UIViewExtension.swift */,
 				FAFC2E8B1D7EBEDE0067B18E /* UINavigationControllerExtension.swift */,
 				FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */,
+				FAD911211D94BE0100EC05E6 /* UICollectionViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -846,6 +853,8 @@
 			children = (
 				FA405C8F1D92478900D56602 /* ApiManager.swift */,
 				FA405C911D9247AD00D56602 /* ApiResponse.swift */,
+				FACC13241D93C86F008D88DB /* ApiEndpoint.swift */,
+				FAD911231D94EA8200EC05E6 /* ApiFileUpload.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1241,6 +1250,7 @@
 				FA51B5121D7D03AA00CF10D8 /* EditAccountViewController.swift in Sources */,
 				4A6FD4C91D79C9DE000D4F85 /* UIColorExtension.swift in Sources */,
 				FACC131C1D938788008D88DB /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				FACC13251D93C86F008D88DB /* ApiEndpoint.swift in Sources */,
 				FAFC2E811D7E80EA0067B18E /* CouponViewController.swift in Sources */,
 				FACC130F1D938788008D88DB /* IQNSArray+Sort.m in Sources */,
 				FACC13161D938788008D88DB /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -1312,6 +1322,7 @@
 				FAFB56E51D90E0D2004AAD3F /* InstagramLoginViewController.swift in Sources */,
 				4A6FD4C01D79C9DE000D4F85 /* HLKSharedResources.swift in Sources */,
 				4A6FD4C31D79C9DE000D4F85 /* HLKLinearScrollView.swift in Sources */,
+				FAD911221D94BE0100EC05E6 /* UICollectionViewExtension.swift in Sources */,
 				4ADE37191D79DBE800C99476 /* AccountViewController.swift in Sources */,
 				FAC0B6D11D7FA39900E96E3A /* Coupon.swift in Sources */,
 				4A6FD4D61D79C9DE000D4F85 /* SwiftyUserDefaults.swift in Sources */,
@@ -1320,6 +1331,7 @@
 				4A00D8521D8CE5B600230085 /* ShopFollowViewController.swift in Sources */,
 				FA51B5491D7D7F9200CF10D8 /* HomeSearchViewController.swift in Sources */,
 				4ADE370E1D79D5F400C99476 /* AppDelegate.swift in Sources */,
+				FAD911241D94EA8200EC05E6 /* ApiFileUpload.swift in Sources */,
 				FA822BE61D81589A00FB9364 /* CouponNearestViewController.swift in Sources */,
 				FABC3D591D824D760061E596 /* CouponCollectionTableViewCell.swift in Sources */,
 				FAFC2E791D7E76BC0067B18E /* DesignableImageView.swift in Sources */,
