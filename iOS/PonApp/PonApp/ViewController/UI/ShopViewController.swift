@@ -16,6 +16,8 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var albumCollectionView: AlbumCollectionView!
+    @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var couponCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -30,6 +32,7 @@ class ShopViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.scrollViewDidScroll(self.mainScrollView)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -47,6 +50,7 @@ class ShopViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        self.setupPhotoCollectionView()
     }
 
 }
@@ -64,6 +68,38 @@ extension ShopViewController {
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
     
+    }
+    
+}
+
+//MARK: - Private
+extension ShopViewController {
+    
+    private func setupPhotoCollectionView() {
+        self.albumCollectionView.photos = [
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
+            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg"
+        ]
+        self.albumCollectionView.reloadData {
+            self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
+            self.view.layoutIfNeeded()
+        }
     }
     
 }

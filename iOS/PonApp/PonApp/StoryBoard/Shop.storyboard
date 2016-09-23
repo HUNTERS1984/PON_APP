@@ -111,6 +111,9 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-d1-ahw" userLabel="Photo Galery Collection View" customClass="AlbumCollectionView" customModule="PonApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="495" width="375" height="240"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="750" constant="240" id="KKh-el-lub"/>
+                                                </constraints>
                                                 <inset key="scrollIndicatorInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oNJ-Ke-8dU">
                                                     <size key="itemSize" width="80" height="80"/>
@@ -118,43 +121,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCollectionViewCell" id="ekk-ev-R3P" customClass="AlbumCollectionViewCell" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="0.0" width="80" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ecg-gS-U97" userLabel="Content View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                                                            <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                                                            <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                                                            <color key="value" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                                                            <real key="value" value="4"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Ecg-gS-U97" secondAttribute="trailing" id="9vh-xK-X9H"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Ecg-gS-U97" secondAttribute="bottom" id="Bqi-lT-jNZ"/>
-                                                            <constraint firstItem="Ecg-gS-U97" firstAttribute="top" secondItem="ekk-ev-R3P" secondAttribute="top" id="n44-0p-3ob"/>
-                                                            <constraint firstItem="Ecg-gS-U97" firstAttribute="leading" secondItem="ekk-ev-R3P" secondAttribute="leading" id="vFM-zH-rEf"/>
-                                                        </constraints>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFx-eH-CJy" userLabel="Map Header View">
                                                 <rect key="frame" x="0.0" y="735" width="375" height="60"/>
@@ -533,7 +500,6 @@
                             <constraint firstAttribute="trailing" secondItem="ELV-mB-rCk" secondAttribute="trailing" id="WCl-h5-YZE"/>
                             <constraint firstItem="qmc-LL-Nzj" firstAttribute="top" secondItem="ELV-mB-rCk" secondAttribute="bottom" id="ZZq-HK-k35"/>
                             <constraint firstItem="t5M-vr-x9h" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="60/667" id="bl3-Wy-hU2"/>
-                            <constraint firstItem="cxi-d1-ahw" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="240/667" id="fr1-eU-bkf"/>
                             <constraint firstItem="c8e-ho-KvT" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="140/667" id="jnL-pP-bwu"/>
                             <constraint firstItem="Q7F-vh-638" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="240/667" id="mQ3-xT-cbC"/>
                             <constraint firstItem="or9-sN-Ozs" firstAttribute="width" secondItem="wdr-qw-uch" secondAttribute="width" id="mcl-Lz-5N2"/>
@@ -545,6 +511,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="albumCollectionView" destination="cxi-d1-ahw" id="Ny4-3P-RUm"/>
+                        <outlet property="albumCollectionViewConstraint" destination="KKh-el-lub" id="fWK-jp-dBA"/>
                         <outlet property="couponCollectionView" destination="evq-fu-n8U" id="h8T-cj-Cju"/>
                         <outlet property="locationButton" destination="VVP-WY-BHg" id="IwU-SN-uJM"/>
                         <outlet property="mainScrollView" destination="Obt-pX-oxe" id="a1a-X3-rLQ"/>

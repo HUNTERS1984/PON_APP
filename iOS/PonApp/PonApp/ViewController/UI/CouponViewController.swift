@@ -18,8 +18,8 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var couponInfoLabel: UILabel!
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
-    @IBOutlet weak var similarCouponCollectionView: UICollectionView!
     @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var similarCouponCollectionView: UICollectionView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var point: CGPoint!
@@ -44,6 +44,7 @@ class CouponViewController: BaseViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
@@ -136,7 +137,6 @@ extension CouponViewController {
         ]
         self.albumCollectionView.reloadData {
             self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
-            print(self.albumCollectionView.contentSize.height)
             self.view.layoutIfNeeded()
         }
     }
