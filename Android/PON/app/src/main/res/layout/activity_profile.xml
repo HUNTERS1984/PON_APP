@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/grey">
+        android:background="@color/black">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,11 +30,12 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="ユーザーネーム"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="@dimen/icon_size_menu"
-            android:layout_height="@dimen/icon_size_menu"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
             android:src="@drawable/ic_setting"
@@ -63,8 +64,8 @@
                     android:orientation="vertical"
                     android:gravity="center">
                     <ImageView
-                        android:layout_width="@dimen/icon_size_menu"
-                        android:layout_height="@dimen/icon_size_menu"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/ic_profile_shop"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -72,6 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
                         android:text="@string/follow"/>
                 </LinearLayout>
@@ -94,8 +96,8 @@
                     android:orientation="vertical"
                     android:gravity="center">
                     <ImageView
-                        android:layout_width="@dimen/icon_size_menu"
-                        android:layout_height="@dimen/icon_size_menu"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/ic_profile_clock"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -103,6 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
                         android:text="@string/history"/>
                 </LinearLayout>
@@ -125,15 +128,16 @@
                     android:orientation="vertical"
                     android:gravity="center">
                     <ImageView
-                        android:layout_width="@dimen/icon_size_menu"
-                        android:layout_height="@dimen/icon_size_menu"
-                        android:src="@drawable/ic_profile_copy"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_profile_news"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
                         android:text="@string/news"/>
                 </LinearLayout>
@@ -146,12 +150,16 @@
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="1dp"
+            android:background="@color/line_item_1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:background="@color/light_grey"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey"/>
+            android:layout_height="2dp"
+            android:background="@color/line_item_2"/>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

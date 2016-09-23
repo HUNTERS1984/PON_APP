@@ -39,6 +39,9 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
 
     private void initLayout()
     {
+        setTitle(getString(R.string.favourite));
+        setIconBack(R.drawable.ic_add);
+
         activeMyFavourite();
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_my_favourite);

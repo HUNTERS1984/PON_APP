@@ -5,8 +5,8 @@
     android:padding="10dp"
     android:background="@color/colorPrimary">
     <ImageView
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_back"
         android:scaleType="fitXY"
         android:layout_centerVertical="true"

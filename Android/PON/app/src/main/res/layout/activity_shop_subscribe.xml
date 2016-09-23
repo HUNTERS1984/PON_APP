@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:paddingLeft="@dimen/layout_margin_left"
+        android:paddingLeft="@dimen/layout_margin"
         android:background="@color/colorPrimary">
         <ImageView
             android:layout_width="@dimen/icon_size"

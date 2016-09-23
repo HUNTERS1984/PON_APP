@@ -133,7 +133,7 @@
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin_left"
+                        android:layout_marginLeft="@dimen/layout_margin"
                         android:text="住所が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -157,7 +157,7 @@
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin_left"
+                        android:layout_marginLeft="@dimen/layout_margin"
                         android:text="営業時間が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -181,7 +181,7 @@
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin_left"
+                        android:layout_marginLeft="@dimen/layout_margin"
                         android:text="電話番号が入ります"
                         android:textColor="@color/black"/>
                 </LinearLayout>

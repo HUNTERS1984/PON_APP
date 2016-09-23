@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.SplashSelectLoginActivity"
-    android:background="@color/background_top">
+    android:background="@drawable/splash_background">
 
     <include layout="@layout/include_splash_title"/>
 
@@ -21,8 +21,8 @@
             android:background="@drawable/background_rectangle_facebook"
             android:id="@+id/rl_facebook_login">
             <ImageView
-                android:layout_width="@dimen/icon_size_menu"
-                android:layout_height="@dimen/icon_size_menu"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_facebook"/>
@@ -32,7 +32,7 @@
                 android:layout_centerInParent="true"
                 android:paddingLeft="40dp"
                 android:text="@string/login_facebook"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/white" />
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/facebook_sign_in_button"
@@ -47,8 +47,8 @@
             android:background="@drawable/background_rectangle_twitter"
             android:id="@+id/rl_twitter_login">
             <ImageView
-                android:layout_width="@dimen/icon_size_menu"
-                android:layout_height="@dimen/icon_size_menu"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_twitter"/>
@@ -58,7 +58,7 @@
                 android:layout_centerInParent="true"
                 android:paddingLeft="10dp"
                 android:text="@string/login_twitter"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/white" />
             <com.twitter.sdk.android.core.identity.TwitterLoginButton
                 android:id="@+id/twitter_sign_in_button"
@@ -74,8 +74,8 @@
             android:background="@drawable/background_rectangle_email"
             android:id="@+id/rl_email_login">
             <ImageView
-                android:layout_width="@dimen/icon_size_menu"
-                android:layout_height="@dimen/icon_size_menu"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_mail"/>
@@ -85,7 +85,7 @@
                 android:layout_centerInParent="true"
                 android:paddingLeft="50dp"
                 android:text="@string/login_email"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/white" />
         </RelativeLayout>
     </LinearLayout>

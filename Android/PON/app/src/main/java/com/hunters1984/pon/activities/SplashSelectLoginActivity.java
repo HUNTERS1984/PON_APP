@@ -18,12 +18,9 @@ import com.hunters1984.pon.R;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
-
-import io.fabric.sdk.android.Fabric;
 
 public class SplashSelectLoginActivity extends BaseActivity {
 
@@ -46,9 +43,9 @@ public class SplashSelectLoginActivity extends BaseActivity {
         AppEventsLogger.activateApp(this);
         mFacebookCallbackManager = CallbackManager.Factory.create();
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY,
-                TWITTER_SECRET);
-        Fabric.with(this, new TwitterCore(authConfig));
+//        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY,
+//                TWITTER_SECRET);
+//        Fabric.with(this, new TwitterCore(authConfig));
 
         setContentView(R.layout.activity_splash_select_login);
 

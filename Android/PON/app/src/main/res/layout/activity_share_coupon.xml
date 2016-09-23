@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/background_rectangle_instagram"
-                android:id="@+id/rl_instagram">
+                android:id="@+id/rl_share_instagram">
                 <ImageView
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
@@ -94,7 +94,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_rectangle_facebook"
-                android:id="@+id/rl_facebook_login">
+                android:id="@+id/rl_share_facebook">
                 <ImageView
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
@@ -115,7 +115,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_rectangle_twitter"
-                android:id="@+id/rl_twitter_login">
+                android:id="@+id/rl_share_twitter">
                 <ImageView
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
@@ -136,7 +136,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_rectangle_line"
-                android:id="@+id/rl_email_login">
+                android:id="@+id/rl_share_line">
                 <ImageView
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"

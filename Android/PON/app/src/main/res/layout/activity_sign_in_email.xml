@@ -16,20 +16,19 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-
         <View android:layout_width="match_parent"
               android:layout_height="2dp"
               android:background="@color/light_grey_stroke_icon"/>
 
         <com.hunters1984.pon.customs.CustomEditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:hint="@string/email_address"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:background="@color/transparent"/>
 
         <View android:layout_width="match_parent"
@@ -39,13 +38,13 @@
 
         <com.hunters1984.pon.customs.CustomEditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:hint="@string/password"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:background="@color/transparent"/>
 
         <View android:layout_width="match_parent"
@@ -58,9 +57,10 @@
         android:layout_marginBottom="@dimen/button_margin"
         android:layout_marginRight="@dimen/button_margin"
         android:layout_marginLeft="@dimen/button_margin"
-        android:layout_marginTop="@dimen/button_margin"
+        android:layout_marginTop="20dp"
         android:text="@string/login"
         android:background="@drawable/background_rectangle_highlight"
         android:textColor="@color/white"
+        android:textSize="18sp"
         android:id="@+id/btn_login"/>
 </LinearLayout>

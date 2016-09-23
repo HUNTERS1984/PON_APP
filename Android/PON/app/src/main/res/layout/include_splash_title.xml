@@ -3,14 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="80dp"
     android:background="@color/transparent">
-    <com.hunters1984.pon.customs.CustomTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pon"
-        android:textSize="80sp"
-        android:textColor="@color/white"/>
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_splash_pon"
+        android:scaleType="fitXY"/>
     <com.hunters1984.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

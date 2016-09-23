@@ -30,8 +30,7 @@
                         android:src="@drawable/ic_avarta_user"
                         android:scaleType="fitXY"
                         android:id="@+id/iv_user_pic"
-                        android:layout_gravity="center_vertical"
-                        />
+                        android:layout_gravity="center_vertical" />
                 </FrameLayout>
 
                 <com.hunters1984.pon.customs.CustomTextView
@@ -41,7 +40,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/change_profile_photo"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/edit_profile_font_size"
+                    android:textSize="@dimen/edit_profile_value_font_size"
                     />
 
             </LinearLayout>
@@ -59,7 +58,7 @@
                     android:layout_weight="1"
                     android:text="@string/user_name"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_font_size" />
+                    android:textSize="@dimen/edit_profile_caption_font_size" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -73,7 +72,7 @@
                         android:layout_weight="2"
                         android:text="@string/user_name"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/item_font_size"
+                        android:textSize="@dimen/edit_profile_value_font_size"
                         android:background="@color/transparent"/>
                     <FrameLayout android:layout_width="0dp"
                                  android:layout_height="match_parent"
@@ -100,7 +99,7 @@
                     android:layout_weight="1"
                     android:text="@string/email_address"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_font_size" />
+                    android:textSize="@dimen/edit_profile_caption_font_size" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -114,7 +113,7 @@
                         android:layout_weight="2"
                         android:text="example@ex.com"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/edit_profile_font_size"
+                        android:textSize="@dimen/edit_profile_value_font_size"
                         android:background="@color/transparent"/>
                     <FrameLayout android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -141,7 +140,7 @@
                     android:layout_weight="1"
                     android:text="@string/sex"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_font_size" />
+                    android:textSize="@dimen/edit_profile_caption_font_size" />
 
                 <Spinner
                     android:layout_width="0dp"
@@ -149,7 +148,7 @@
                     android:layout_weight="1.5"
                     android:text="@string/male"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/edit_profile_font_size"
+                    android:textSize="@dimen/edit_profile_value_font_size"
                     android:textDirection="firstStrongLtr"
                     android:id="@+id/spn_sex"/>
 
@@ -168,13 +167,13 @@
                     android:layout_weight="1"
                     android:text="@string/prefecture"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_font_size"/>
+                    android:textSize="@dimen/edit_profile_caption_font_size"/>
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/item_font_size"
+                    android:textSize="@dimen/edit_profile_value_font_size"
                     android:textDirection="firstStrongLtr"
                     android:id="@+id/spn_prefecture"/>
             </LinearLayout>
@@ -188,7 +187,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:background="@drawable/background_rectangle_highlight"
         android:text="@string/save"
         android:id="@+id/btn_save"/>

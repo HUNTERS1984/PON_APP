@@ -27,4 +27,8 @@
     <color name="text_description">#BDB7B3</color>
     <color name="color_background_share_coupons">#F9F9F9</color>
     <color name="color_background_share_option">#F2F2F2</color>
+    <color name="color_hint_text">#D1DDE9</color>
+    <color name="line_item_1">#DFE0E3</color>
+    <color name="line_item_2">#C8D2D6</color>
+    <color name="line_bottom">#D0D2D2</color>
 </resources>

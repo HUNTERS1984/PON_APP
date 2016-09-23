@@ -13,7 +13,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/light_grey"/>
+            android:background="@color/line_bottom"/>
         <ImageView
             android:layout_width="@dimen/icon_size_menu"
             android:layout_height="@dimen/icon_size_menu"

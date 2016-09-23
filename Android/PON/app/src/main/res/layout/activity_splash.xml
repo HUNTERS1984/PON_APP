@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_top"
+    android:background="@drawable/splash_background"
     tools:context=".activities.SplashActivity">
 
     <include layout="@layout/include_splash_title" />
@@ -19,10 +19,11 @@
             android:layout_marginBottom="@dimen/button_margin"
             android:layout_marginRight="@dimen/button_margin"
             android:layout_marginLeft="@dimen/button_margin"
-            android:text="@string/login"
+            android:text="@string/start_free"
             android:background="@drawable/background_rectangle_highlight"
             android:textColor="@color/white"
-            android:id="@+id/btn_login"/>
+            android:textSize="18sp"
+            android:id="@+id/btn_skip"/>
 
         <com.hunters1984.pon.customs.CustomButton
             android:layout_width="match_parent"
@@ -31,9 +32,10 @@
             android:layout_marginBottom="@dimen/button_margin"
             android:layout_marginRight="@dimen/button_margin"
             android:layout_marginLeft="@dimen/button_margin"
-            android:text="@string/start_free"
+            android:text="@string/login"
             android:background="@drawable/background_rectangle_non_highlight"
             android:textColor="@color/colorPrimary"
-            android:id="@+id/btn_skip"/>
+            android:textSize="18sp"
+            android:id="@+id/btn_login"/>
     </LinearLayout>
 </RelativeLayout>

@@ -30,7 +30,6 @@
                     android:layout_width="@dimen/icon_size"
                     android:layout_height="@dimen/icon_size"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
                     android:src="@drawable/ic_non_favourite"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_coupon_favourite"/>
@@ -39,14 +38,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:layout_marginLeft="@dimen/layout_margin"
                 android:orientation="vertical">
                 <com.hunters1984.pon.customs.CustomTextView
                     android:id="@+id/tv_coupon_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:text="Coupon Title"/>
@@ -55,7 +55,7 @@
                     android:id="@+id/tv_coupon_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textColor="@color/grey"
                     android:text="Coupon Description"/>
 
@@ -63,7 +63,7 @@
                     android:id="@+id/tv_coupon_expire_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="@color/pink"
                     android:text="Date : 2016.07.31"/>

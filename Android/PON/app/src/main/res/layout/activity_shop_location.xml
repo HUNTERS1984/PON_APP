@@ -11,8 +11,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/layout_margin_left"
-        android:paddingRight="@dimen/layout_margin_right"
+        android:paddingLeft="@dimen/layout_margin"
+        android:paddingRight="@dimen/layout_margin"
         android:background="@color/colorPrimary">
         <ImageView
             android:layout_width="@dimen/icon_size"
@@ -69,7 +69,7 @@
             android:layout_toLeftOf="@+id/iv_detail"
             android:layout_toRightOf="@id/iv_navigation"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/layout_margin_left"
+            android:layout_marginLeft="@dimen/layout_margin"
             android:text="@string/find_current_location"/>
 
         <ImageView

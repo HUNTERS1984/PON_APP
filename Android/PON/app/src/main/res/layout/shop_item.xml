@@ -37,7 +37,7 @@
         android:gravity="center"
         android:layout_toLeftOf="@id/iv_detail"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/layout_margin_right"
+        android:layout_marginRight="@dimen/layout_margin"
         android:background="@xml/circle_blue"
         android:text="24"
         android:textColor="@color/colorPrimary"

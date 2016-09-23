@@ -5,13 +5,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginRight="@dimen/layout_margin_right"
-        android:layout_marginLeft="@dimen/layout_margin_left">
+        android:layout_height="70dp"
+        android:layout_marginRight="@dimen/layout_margin"
+        android:layout_marginLeft="@dimen/layout_margin">
 
         <ImageView
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/icon_size_info"
+            android:layout_height="@dimen/icon_size_info"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_demo_restaurant"
             android:scaleType="fitXY"
@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/iv_shop_category_icon"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:text="Drink"
@@ -35,7 +35,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/colorPrimary"
             android:text="@string/view_more" />
     </RelativeLayout>

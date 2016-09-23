@@ -19,8 +19,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:layout_marginRight="@dimen/layout_margin_right"
+                android:layout_marginLeft="@dimen/layout_margin"
+                android:layout_marginRight="@dimen/layout_margin"
                 android:layout_marginTop="5dp"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
@@ -30,12 +30,12 @@
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/layout_margin_right"
+                    android:layout_marginRight="@dimen/layout_margin"
                     android:layout_weight="1">
                     <ImageView android:layout_width="@dimen/icon_size"
                             android:layout_height="@dimen/icon_size"
+                            android:layout_gravity="left"
                             android:src="@drawable/ic_add"
-                            android:layout_weight="1"
                             android:scaleType="fitXY"
                             android:id="@+id/iv_follow_shop"/>
                 </FrameLayout>
@@ -43,13 +43,13 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
+                    android:layout_weight="5"
                     android:gravity="center_vertical"
                     android:padding="5dp"
                     android:background="@xml/background_rectangle_white">
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:scaleType="fitXY"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
@@ -68,11 +68,11 @@
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin_left"
+                    android:layout_marginLeft="@dimen/layout_margin"
                     android:layout_weight="1">
                     <ImageView android:layout_width="@dimen/icon_size"
                         android:layout_height="@dimen/icon_size"
-                        android:layout_gravity="center"
+                        android:layout_gravity="right"
                         android:src="@drawable/ic_location"
                         android:scaleType="fitXY"
                         android:id="@+id/iv_shop_location"/>
@@ -83,21 +83,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:layout_marginLeft="@dimen/layout_margin"
                 android:layout_marginBottom="40dp"
-                android:layout_marginRight="@dimen/layout_margin_right"
+                android:layout_marginRight="@dimen/layout_margin"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_navigation"
                     android:scaleType="fitXY"/>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin_left"
-                    android:textSize="18sp"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     android:text="@string/navigation"/>
             </LinearLayout>
@@ -111,7 +111,6 @@
             android:minHeight="?attr/actionBarSize"
             android:background="@color/white"
             style="@style/CustomTabLayout"
-
             />
 
         <android.support.v4.view.ViewPager

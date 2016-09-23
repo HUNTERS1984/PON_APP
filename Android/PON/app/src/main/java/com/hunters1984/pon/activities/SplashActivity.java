@@ -8,16 +8,25 @@ import android.widget.Button;
 
 import com.crashlytics.android.Crashlytics;
 import com.hunters1984.pon.R;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import io.fabric.sdk.android.Fabric;
 
 public class SplashActivity extends AppCompatActivity {
 
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "lR5KcVjRjsMB0m5wBhzlkt7xm";
+    private static final String TWITTER_SECRET = "P1mIpYeWDKWIqTAJ8erjZwBka9fbvFCjzG1O3AQPF77kCCCFob";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Crashlytics(), new Twitter(authConfig), new TweetComposer());
         setContentView(R.layout.activity_splash);
 
         initLayout();
