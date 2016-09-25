@@ -42,10 +42,12 @@ class SplashViewController: BaseViewController {
         self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), forState: .Normal)
         self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), forState: .Normal)
         self.mailButton.setImage(UIImage(named: "splash_button_email"), forState: .Normal)
-        
-        self.loginActionView.alpha = 0
         self.skipButton.setImage(UIImage(named: "splash_button_skip"), forState: .Normal)
         self.loginButton.setImage(UIImage(named: "splash_button_login"), forState: .Normal)
+        
+        self.loginActionView.alpha = 0
+        self.actionView.alpha = 0
+        self.authorizeToken()
     }
     
 }
@@ -54,32 +56,27 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-//        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
-//            
-//        }
-        
-        let vc = SignUpViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: false)
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
+            
+        }
+//        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
-//        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
-//            if success {
-//                if let _ = result {
-//                    let session = result as! TWTRSession
-//                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
-//                    alert.show()
-//                } else {
-//                    let error = result as! NSError
-//                    print("Login error: %@", error.localizedDescription);
-//                }
-//            }else {
-//                
-//            }
-//        }
-        
-        ApiRequest.signOut { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
-            
+        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
+            if success {
+                if let _ = result {
+                    let session = result as! TWTRSession
+                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                } else {
+                    let error = result as! NSError
+                    print("Login error: %@", error.localizedDescription);
+                }
+            }else {
+                
+            }
         }
     }
     
@@ -90,10 +87,6 @@ extension SplashViewController {
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
         self.setupTabbarViewController()
-        
-//        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
-//        let navController = UINavigationController(rootViewController: vc)
-//        self.presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBAction func loginActionButtonPressed(sender: AnyObject) {
@@ -133,5 +126,25 @@ extension SplashViewController {
         mainTabbarViewController?.tabBar.hidden = true
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
+    
+    private func authorizeToken() {
+        self.showHUD()
+        ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                self.actionView.fadeIn(0.5)
+                self.loginActionView.fadeOut(0.5)
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.setupTabbarViewController()
+                    }
+                }else {
+                    
+                }
+            }
+        }
+    }
+    
     
 }

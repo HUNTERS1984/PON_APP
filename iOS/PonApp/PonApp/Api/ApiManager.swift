@@ -23,6 +23,14 @@ public struct ApiManager {
         return BaseURL
     }
     
+    private static func getToken() -> String {
+        if let _ = Defaults[.token] {
+            return Defaults[.token]!
+        }else {
+            return ""
+        }
+    }
+    
     private static func standardizeParameter(parameters: [String: AnyObject?]?) -> [String: AnyObject] {
         var standarParameter = [String: AnyObject]()
         if let parameters = parameters {
@@ -62,24 +70,24 @@ public struct ApiManager {
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
             }else {
-                ApiManager.processFailureResponese(response.result.error!, completion: completion)
+                ApiManager.processFailureResponese(response, completion: completion)
             }
         }
         let headers = [
-            "Authorization": "Bearer \(Defaults[.token]!)"
+            "Authorization": "Bearer \(self.getToken())"
         ]
         
         if let parameters = parameters {
             if hasAuth {
-                Alamofire.request(.GET, urlString, parameters: parameters, headers: headers).responseString(completionHandler: completionHandler)
+                Alamofire.request(.GET, urlString, parameters: parameters, headers: headers).validate().responseString(completionHandler: completionHandler)
             }else {
-                Alamofire.request(.GET, urlString, parameters: parameters).responseString(completionHandler: completionHandler)
+                Alamofire.request(.GET, urlString, parameters: parameters).validate().responseString(completionHandler: completionHandler)
             }
         }else {
             if hasAuth {
-                Alamofire.request(.GET, urlString, headers: headers).responseString(completionHandler: completionHandler)
+                Alamofire.request(.GET, urlString, headers: headers).validate().responseString(completionHandler: completionHandler)
             }else {
-                Alamofire.request(.GET, urlString).responseString(completionHandler: completionHandler)
+                Alamofire.request(.GET, urlString).validate().responseString(completionHandler: completionHandler)
             }
         }
     }
@@ -90,16 +98,16 @@ public struct ApiManager {
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
             }else {
-                ApiManager.processFailureResponese(response.result.error!, completion: completion)
+                ApiManager.processFailureResponese(response, completion: completion)
             }
         }
         let headers = [
-            "Authorization": "Bearer \(Defaults[.token]!)"
+            "Authorization": "Bearer \(self.getToken())"
         ]
         if hasAuth {
-            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON, headers: headers).responseString(completionHandler: completionHandler)
+            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON, headers: headers).validate().responseString(completionHandler: completionHandler)
         }else {
-            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON).responseString(completionHandler: completionHandler)
+            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON).validate().responseString(completionHandler: completionHandler)
         }
     }
     
@@ -113,12 +121,12 @@ public struct ApiManager {
                         if response.result.isSuccess {
                             ApiManager.processSuccessResponese(response, completion: completion)
                         }else {
-                            ApiManager.processFailureResponese(response.result.error!, completion: completion)
+                            ApiManager.processFailureResponese(response, completion: completion)
                         }
                     }
                 }
             case .Failure(let encodingError):
-                ApiManager.processFailureResponese(encodingError, completion: completion)
+                ApiManager.processFailureResponese(nil, completion: completion)
             }
         }
         
@@ -140,6 +148,7 @@ public struct ApiManager {
         let resultString = response.result.value
         let json = JSON(data: (resultString?.dataUsingEncoding(NSUTF8StringEncoding))!)
         print("RESPONSE JSON: \(json)")
+        
         if json != nil {
             let response = ApiResponse(response: json)
             completion(request: urlRequest, result: response, error: nil)
@@ -150,7 +159,21 @@ public struct ApiManager {
     }
     
     //MARK: - FAILURE RESPONSE
-    private static func processFailureResponese(encodingError: ErrorType, completion: ApiCompletion) {
+    private static func processFailureResponese(response: Response<String, NSError>?, completion: ApiCompletion) {
+        var message : String
+        if let httpStatusCode = response!.response?.statusCode {
+            switch(httpStatusCode) {
+            case 400:
+                message = "Username or password not provided."
+            case 401:
+                message = "Incorrect password for user."
+            default:
+                break
+            }
+        } else {
+            
+        }
+        let encodingError = response!.result.error!
         let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
         completion(request: nil, result: nil, error: error)
     }

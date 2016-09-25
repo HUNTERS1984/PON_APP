@@ -40,6 +40,10 @@ class FavoriteViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        
+        ApiRequest.getFavoriteCoupon { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            
+        }
     }
     
 }

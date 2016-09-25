@@ -8,7 +8,20 @@
 
 import UIKit
 
+let SuccessCode                                 = 1000
+
+public enum CouponFeature: Int {
+    case Popularity = 1
+    case NewArrival = 2
+    case Near = 3
+    case Deal = 4
+}
+
+let Authorized                                  = "/v1/authorized"
 let SignUp                                      = "/v1/signup"
 let SignIn                                      = "/v1/signin"
 let SignOut                                     = "/v1/signout"
 let CouponType                                  = "/v1/coupon/types"
+let CouponByFeature                             = "/v1/featured/%d/coupons"
+let FavoriteCoupon                              = "/v1/favorite/coupons"
+let CouponDetail                                = "/v1/coupons/%d"

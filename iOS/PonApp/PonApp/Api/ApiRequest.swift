@@ -10,6 +10,10 @@ import UIKit
 
 public struct ApiRequest {
     
+    static func authorized(completion: ApiCompletion) {
+        ApiManager.processRequest(Authorized, method: .GET, hasAuth: true, completion: completion)
+    }
+    
     static func signUp(userName: String, email: String, password: String, completion: ApiCompletion) {
         let parameters: [String: AnyObject?] = [
             "username": userName,
@@ -32,6 +36,20 @@ public struct ApiRequest {
     
     static func signOut(completion: ApiCompletion) {
         ApiManager.processRequest(SignOut, method: .GET, hasAuth: true, completion: completion)
+    }
+    
+    static func getCouponByFeature(couponFeature: CouponFeature, completion: ApiCompletion) {
+        let endpoint = String(format:CouponByFeature, couponFeature.rawValue)
+        ApiManager.processRequest(endpoint, method: .GET, completion: completion)
+    }
+    
+    static func getFavoriteCoupon(completion: ApiCompletion) {
+        ApiManager.processRequest(FavoriteCoupon, method: .GET, hasAuth: true, completion: completion)
+    }
+    
+    static func getCouponDetail(couponId: Int, completion: ApiCompletion) {
+        let endpoint = String(format:CouponDetail, couponId)
+        ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
 
 }
