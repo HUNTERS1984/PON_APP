@@ -13,7 +13,7 @@ import SwiftyJSON
 typealias ApiCompletion = (request: NSURLRequest?, result: Any?, error: NSError?) -> Void
 
 public enum ApiMethod: String {
-    case GET, POST, PUT
+    case GET, POST
 }
 
 public struct ApiManager {
@@ -51,12 +51,6 @@ public struct ApiManager {
                 ApiManager.processPostWithMultipartFormDataRequest(url, parameters: standardParams, uploadFiles: uploadFiles, completion: completion)
             }else {
                 ApiManager.processPostRequest(url, parameters: standardParams, completion: completion)
-            }
-        case .PUT:
-            if let _ = uploadFiles {
-
-            }else {
-
             }
         }
     }
@@ -134,14 +128,14 @@ public struct ApiManager {
             let response = ApiResponse(response: json)
             completion(request: urlRequest, result: response, error: nil)
         }else {
-            let error = NSError(domain: "IApi Error", code: 1, userInfo: ["error":"Unable to decrypt data"])
+            let error = NSError(domain: "PON", code: 1, userInfo: ["error":"PON Api Error"])
             completion(request: nil, result: nil, error: error)
         }
     }
     
     //MARK: - FAILURE RESPONSE
     private static func processFailureResponese(encodingError: ErrorType, completion: ApiCompletion) {
-        let error = NSError(domain: "IApi Error", code: 1, userInfo: ["error":"\(encodingError)"])
+        let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
         completion(request: nil, result: nil, error: error)
     }
     
