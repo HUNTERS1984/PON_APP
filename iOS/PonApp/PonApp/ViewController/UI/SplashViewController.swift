@@ -63,19 +63,23 @@ extension SplashViewController {
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
-        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
-            if success {
-                if let _ = result {
-                    let session = result as! TWTRSession
-                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
-                    alert.show()
-                } else {
-                    let error = result as! NSError
-                    print("Login error: %@", error.localizedDescription);
-                }
-            }else {
-                
-            }
+//        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
+//            if success {
+//                if let _ = result {
+//                    let session = result as! TWTRSession
+//                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
+//                    alert.show()
+//                } else {
+//                    let error = result as! NSError
+//                    print("Login error: %@", error.localizedDescription);
+//                }
+//            }else {
+//                
+//            }
+//        }
+        
+        ApiRequest.signOut { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            
         }
     }
     

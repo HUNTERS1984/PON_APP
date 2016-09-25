@@ -86,7 +86,9 @@ extension SignUpViewController {
     }
     
     private func registerUser(userName: String, email: String, password: String) {
-        ApiRequest.signUp(userName, email: email, password: password) { (request: NSURLRequest?, result: Any?, error: NSError?) in
+        self.showHUD()
+        ApiRequest.signUp(userName, email: email, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
             if let _ = error {
                 
             }else {

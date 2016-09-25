@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias ApiCompletion = (request: NSURLRequest?, result: Any?, error: NSError?) -> Void
+typealias ApiCompletion = (request: NSURLRequest?, result: ApiResponse?, error: NSError?) -> Void
 
 public enum ApiMethod: String {
     case GET, POST
@@ -34,29 +35,29 @@ public struct ApiManager {
         return standarParameter;
     }
     
-    static func processRequest(endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = true, completion: ApiCompletion) {
+    static func processRequest(endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = false, completion: ApiCompletion) {
         // Compose full-path of URL request
         let url = getBaseApiURL() + endpoint
         let standardParams = ApiManager.standardizeParameter(parameters)
         switch method {
         case .GET:
             if parameters != nil {
-                ApiManager.processGetRequest(url, parameters: standardParams, completion: completion)
+                ApiManager.processGetRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
             } else {
-                ApiManager.processGetRequest(url, completion: completion)
+                ApiManager.processGetRequest(url, hasAuth: hasAuth, completion: completion)
             }
             
         case .POST:
             if let uploadFiles = uploadFiles {
-                ApiManager.processPostWithMultipartFormDataRequest(url, parameters: standardParams, uploadFiles: uploadFiles, completion: completion)
+                ApiManager.processPostWithMultipartFormDataRequest(url, parameters: standardParams, uploadFiles: uploadFiles, hasAuth: hasAuth, completion: completion)
             }else {
-                ApiManager.processPostRequest(url, parameters: standardParams, completion: completion)
+                ApiManager.processPostRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
             }
         }
     }
     
     //MARK: - GET
-    private static func processGetRequest(urlString: String, parameters: [String: AnyObject]? = nil, completion: ApiCompletion) {
+    private static func processGetRequest(urlString: String, parameters: [String: AnyObject]? = nil, hasAuth: Bool = false, completion: ApiCompletion) {
         let completionHandler = {(response: Response<String, NSError>) -> Void in
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
@@ -64,19 +65,27 @@ public struct ApiManager {
                 ApiManager.processFailureResponese(response.result.error!, completion: completion)
             }
         }
+        let headers = [
+            "Authorization": "Bearer \(Defaults[.token]!)"
+        ]
+        
         if let parameters = parameters {
-            Alamofire.request(
-                .GET,
-                urlString,
-                parameters: parameters
-                ).responseString(completionHandler: completionHandler)
+            if hasAuth {
+                Alamofire.request(.GET, urlString, parameters: parameters, headers: headers).responseString(completionHandler: completionHandler)
+            }else {
+                Alamofire.request(.GET, urlString, parameters: parameters).responseString(completionHandler: completionHandler)
+            }
         }else {
-            Alamofire.request(.GET, urlString).responseString(completionHandler: completionHandler)
+            if hasAuth {
+                Alamofire.request(.GET, urlString, headers: headers).responseString(completionHandler: completionHandler)
+            }else {
+                Alamofire.request(.GET, urlString).responseString(completionHandler: completionHandler)
+            }
         }
     }
     
     //MARK: - POST
-    private static func processPostRequest(urlString: String, parameters: [String: AnyObject], completion: ApiCompletion) {
+    private static func processPostRequest(urlString: String, parameters: [String: AnyObject], hasAuth: Bool = false, completion: ApiCompletion) {
         let completionHandler = {(response: Response<String, NSError>) -> Void in
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
@@ -84,11 +93,18 @@ public struct ApiManager {
                 ApiManager.processFailureResponese(response.result.error!, completion: completion)
             }
         }
-        Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON).responseString(completionHandler: completionHandler)
+        let headers = [
+            "Authorization": "Bearer \(Defaults[.token]!)"
+        ]
+        if hasAuth {
+            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON, headers: headers).responseString(completionHandler: completionHandler)
+        }else {
+            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON).responseString(completionHandler: completionHandler)
+        }
     }
     
     //MARK: - MULTIPART POST
-    private static func processPostWithMultipartFormDataRequest(urlString: String, parameters: [String: AnyObject], uploadFiles: [ApiFileUpload], completion: ApiCompletion) {
+    private static func processPostWithMultipartFormDataRequest(urlString: String, parameters: [String: AnyObject], uploadFiles: [ApiFileUpload], hasAuth: Bool = false, completion: ApiCompletion) {
         let encodingCompletion = { (encodingResult: Alamofire.Manager.MultipartFormDataEncodingResult) -> Void in
             switch encodingResult {
             case .Success(let upload, _, _):

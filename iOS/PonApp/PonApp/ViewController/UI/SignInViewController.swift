@@ -101,11 +101,20 @@ extension SignInViewController {
     }
     
     private func signIn(userName: String, password: String) {
-        ApiRequest.signIn(userName, password: password) { (request: NSURLRequest?, result: Any?, error: NSError?) in
+        self.showHUD()
+        ApiRequest.signIn(userName, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
             if let _ = error {
                 
             }else {
-                self.setupTabbarViewController()
+                if result?.code == 1000 {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    self.setupTabbarViewController()
+                }else {
+                    
+                }
             }
         }
     }

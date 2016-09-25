@@ -11,8 +11,6 @@ import UIKit
 
 extension DefaultsKeys {
     
-    static let launchCount = DefaultsKey<Int>("launchCount")
-    static let username = DefaultsKey<String?>("username")
-    static let session = DefaultsKey<String?>("session")
+    static let token = DefaultsKey<String?>("token")
     
 }
