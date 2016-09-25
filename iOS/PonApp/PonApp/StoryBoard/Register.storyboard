@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -128,7 +128,7 @@
                                     <constraint firstAttribute="trailing" secondItem="XRM-Jq-idm" secondAttribute="trailing" constant="10" id="jVm-D5-vfV"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-MZ-u3y" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-MZ-u3y" userLabel="Signup Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="308" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -150,6 +150,9 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signupButtonPressed:" destination="eLp-j4-9mg" eventType="touchUpInside" id="A7N-tg-M3R"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,6 +179,12 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="GWr-ZE-civ" id="TjF-9J-IC1"/>
+                        <outlet property="passConfirmationTextField" destination="XRM-Jq-idm" id="V3u-PF-Am4"/>
+                        <outlet property="passwordTextField" destination="Iek-Jw-Rf3" id="A9A-e0-a06"/>
+                        <outlet property="userNameTextField" destination="mD4-fb-Mmi" id="5in-Pu-ixz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxN-pI-GSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,6 +297,10 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Cye-SA-hcE" id="rhp-mL-see"/>
+                        <outlet property="userNameTextField" destination="HJM-nH-Xj4" id="stX-fd-KBm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4X-tr-WJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

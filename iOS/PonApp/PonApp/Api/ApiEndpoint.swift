@@ -8,7 +8,7 @@
 
 import UIKit
 
-let SignUp                                      = "/v1/app/signup"
-let SignIn                                      = "/v1/app/signin"
-let SignOut                                     = "/v1/app/signout"
+let SignUp                                      = "/v1/signup"
+let SignIn                                      = "/v1/signin"
+let SignOut                                     = "/v1/signout"
 let CouponType                                  = "/v1/coupon/types"

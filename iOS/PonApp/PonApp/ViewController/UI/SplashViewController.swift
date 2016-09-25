@@ -54,9 +54,12 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
-            
-        }
+//        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
+//            
+//        }
+        
+        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
@@ -87,9 +90,6 @@ extension SplashViewController {
 //        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
 //        let navController = UINavigationController(rootViewController: vc)
 //        self.presentViewController(navController, animated: true, completion: nil)
-        ApiManager.processRequest(CouponType, method: .GET) { (request, result, error) in
-            
-        }
     }
     
     @IBAction func loginActionButtonPressed(sender: AnyObject) {

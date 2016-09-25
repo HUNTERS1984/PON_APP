@@ -14,7 +14,7 @@ public struct ApiRequest {
         let parameters: [String: AnyObject?] = [
             "username": userName,
             "email": email,
-            "plainPassword": password
+            "password": password
         ]
         ApiManager.processRequest(SignUp, method: .POST, parameters: parameters, completion: completion)
     }
@@ -22,9 +22,12 @@ public struct ApiRequest {
     static func signIn(userName: String, password: String, completion: ApiCompletion) {
         let parameters: [String: AnyObject?] = [
             "username": userName,
-            "plainPassword": password
+            "password": password,
+            "grant_type": password,
+            "client_id": ClientId,
+            "client_secret":ClientSecret
         ]
-        ApiManager.processRequest(SignUp, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
+        ApiManager.processRequest(SignIn, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
     }
     
     static func signOut(userName: String, password: String, completion: ApiCompletion) {
@@ -32,7 +35,7 @@ public struct ApiRequest {
             "username": userName,
             "plainPassword": password
         ]
-        ApiManager.processRequest(SignUp, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
+        ApiManager.processRequest(SignOut, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
     }
 
 }
