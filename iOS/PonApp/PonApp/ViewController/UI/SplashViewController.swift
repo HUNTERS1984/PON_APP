@@ -42,10 +42,12 @@ class SplashViewController: BaseViewController {
         self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), forState: .Normal)
         self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), forState: .Normal)
         self.mailButton.setImage(UIImage(named: "splash_button_email"), forState: .Normal)
-        
-        self.loginActionView.alpha = 0
         self.skipButton.setImage(UIImage(named: "splash_button_skip"), forState: .Normal)
         self.loginButton.setImage(UIImage(named: "splash_button_login"), forState: .Normal)
+        
+        self.loginActionView.alpha = 0
+        self.actionView.alpha = 0
+        self.authorizeToken()
     }
     
 }
@@ -57,6 +59,8 @@ extension SplashViewController {
         FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             
         }
+//        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
@@ -83,13 +87,6 @@ extension SplashViewController {
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
         self.setupTabbarViewController()
-        
-//        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
-//        let navController = UINavigationController(rootViewController: vc)
-//        self.presentViewController(navController, animated: true, completion: nil)
-        ApiManager.processRequest(CouponType, method: .GET) { (request, result, error) in
-            
-        }
     }
     
     @IBAction func loginActionButtonPressed(sender: AnyObject) {
@@ -129,5 +126,25 @@ extension SplashViewController {
         mainTabbarViewController?.tabBar.hidden = true
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
+    
+    private func authorizeToken() {
+        self.showHUD()
+        ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                self.actionView.fadeIn(0.5)
+                self.loginActionView.fadeOut(0.5)
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.setupTabbarViewController()
+                    }
+                }else {
+                    
+                }
+            }
+        }
+    }
+    
     
 }

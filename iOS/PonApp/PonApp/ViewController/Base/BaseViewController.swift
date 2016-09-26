@@ -58,6 +58,26 @@ class BaseViewController: UIViewController {
     
 }
 
+//MARK: - Loading
+extension BaseViewController {
+    
+    func showHUD() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.view.endEditing(true)
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            return
+        })
+    }
+    
+    func hideHUD() {
+        dispatch_async(dispatch_get_main_queue(), {
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            return
+        })
+    }
+    
+}
+
 //MARK: - Public Methods
 extension BaseViewController {
     

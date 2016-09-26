@@ -106,7 +106,8 @@ extension MainViewController {
             .BottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .SelectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .MenuItemWidth(70.0),
-            .MenuHeight(50.0),
+            
+            .MenuHeight(self.view.bounds.size.height * (50/667)),
             .SelectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .UnselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),
             .MenuItemFont(UIFont.HiraginoSansW6(17)),
@@ -114,7 +115,6 @@ extension MainViewController {
             .SelectionIndicatorHeight(2.0),
             .MenuItemSeparatorPercentageHeight(0.1)
         ]
-        
         // Initialize scroll menu
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.scrollMenuView.frame.width, self.scrollMenuView.frame.height), pageMenuOptions: parameters)
         pageMenu!.delegate = self

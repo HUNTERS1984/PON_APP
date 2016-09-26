@@ -10,6 +10,9 @@ import UIKit
 
 class SignInViewController: BaseViewController {
 
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +41,16 @@ class SignInViewController: BaseViewController {
 extension SignInViewController {
     
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        self.setupTabbarViewController()
+        let userName = self.userNameTextField.text
+        let password = self.passwordTextField.text
+        
+        self.validInfomation(userName, password: password) { (successed: Bool, message: String) in
+            if successed {
+                self.signIn(userName!, password: password!)
+            }else {
+                HLKAlertView.show("", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+            }
+        }
     }
     
 }
@@ -73,4 +85,38 @@ extension SignInViewController {
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
     
+    private func validInfomation(userName: String?, password: String?, completion:(successed: Bool, message: String) -> Void) {
+        if let _ = userName {
+            
+        }else {
+            completion(successed: false, message: "Please enter user name")
+        }
+        
+        if let _ = password {
+            
+        }else {
+            completion(successed: false, message: "Please enter password")
+        }
+        completion(successed: true, message: "")
+    }
+    
+    private func signIn(userName: String, password: String) {
+        self.showHUD()
+        ApiRequest.signIn(userName, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == 1000 {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    self.setupTabbarViewController()
+                }else {
+                    
+                }
+            }
+        }
+    }
+
 }

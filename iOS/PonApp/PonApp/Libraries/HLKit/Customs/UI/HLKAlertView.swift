@@ -27,7 +27,7 @@ class HLKAlertView: NSObject, UIAlertViewDelegate {
         return Static.instance!
     }
     
-    class func show(title: String?, message: String?, accessoryView: UIView?, cancelButtonTitle: String?, otherButtonTitles: [String]?, handler: ((selectedOption: String) -> ())?) -> UIAlertView {
+    class func show(title: String?, message: String?, accessoryView: UIView? = nil, cancelButtonTitle: String?, otherButtonTitles: [String]?, handler: ((selectedOption: String) -> ())?) -> UIAlertView {
         
         let alertView = UIAlertViewExt(title: title, message: message, delegate: self.defaultInstance, cancelButtonTitle: nil)
         

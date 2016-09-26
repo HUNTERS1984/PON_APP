@@ -40,11 +40,12 @@ class HomeNearestViewController: BaseViewController {
             let heightConstant = self.contentTableView.contentSize.height
             self.contentTableViewHeight.constant = heightConstant;
         }
+        self.getCoupon()
     }
     
 }
 
-extension HomeNearestViewController {
+extension HomeNearestViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -69,7 +70,7 @@ extension HomeNearestViewController {
     
 }
 
-extension HomeNearestViewController {
+extension HomeNearestViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -103,6 +104,20 @@ extension HomeNearestViewController:UICollectionViewDataSource, UICollectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let vc = CouponViewController.instanceFromStoryBoard("Coupon")
         self.parentNavigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+//MARK: - Private
+extension HomeNearestViewController {
+    
+    private func getCoupon() {
+        ApiRequest.getCouponByFeature(.Near) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            if let _ = error {
+                
+            }else {
+                
+            }
+        }
     }
 }
 
