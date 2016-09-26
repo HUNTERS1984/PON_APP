@@ -7,8 +7,8 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
         android:src="@drawable/ic_demo_restaurant"
         android:scaleType="fitXY"
         android:background="@xml/circle_stroke_light_grey"

@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/colorPrimary"
                 android:text="カテゴリが入ります"/>
             <com.hunters1984.pon.customs.CustomTextView
@@ -46,7 +46,7 @@
                 android:id="@+id/tv_news_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/text_description"
                 android:text="@string/shop_example_text"/>
         </LinearLayout>

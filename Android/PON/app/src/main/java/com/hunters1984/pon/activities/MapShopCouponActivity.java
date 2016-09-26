@@ -158,8 +158,10 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
 
     private void showMyLocation()
     {
-        CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(mUserLocation, 15);
-        mGoogleMap.animateCamera(camera);
+        if(mUserLocation != null) {
+            CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(mUserLocation, 15);
+            mGoogleMap.animateCamera(camera);
+        }
     }
 
     private void enableMyLocation() {

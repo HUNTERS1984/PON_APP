@@ -17,7 +17,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -35,7 +35,8 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
-                    <com.hunters1984.pon.customs.CircularImageView
+                    <!--<com.hunters1984.pon.customs.CircularImageView-->
+                    <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:src="@drawable/ic_logo_example"
@@ -44,21 +45,24 @@
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:text="SALVATORE"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:background="@xml/background_rectangle_black_transparent"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:text="仙川駅前店"/>
                 </LinearLayout>
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_back"
                     android:scaleType="fitXY"
                     android:layout_margin="10dp"
@@ -67,11 +71,15 @@
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/recycler_view_coupons_of_shop"/>
 
             <View android:layout_width="match_parent"
                   android:layout_height="2dp"
+                  android:layout_marginTop="10dp"
                   android:background="@color/light_grey_stroke_icon"/>
+
             <com.hunters1984.pon.customs.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +87,9 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="フォトギャラリー"/>
+
             <android.support.v7.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,6 +103,8 @@
                 android:background="@color/background_lighter_blue"
                 android:gravity="center"
                 android:text="@string/view_more"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/colorPrimary"/>
 
             <fragment
@@ -112,6 +124,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/id"
+                    android:textSize="16sp"
                     android:textColor="@color/grey"/>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="0dp"
@@ -119,6 +132,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="3"
                     android:text="12345678"
+                    android:textSize="16sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
@@ -139,6 +153,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/street_name"
+                    android:textSize="16sp"
                     android:textColor="@color/grey"/>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="0dp"
@@ -146,6 +161,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="3"
                     android:text="愛知県名古屋市中区"
+                    android:textSize="16sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
@@ -166,12 +182,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/access"
+                    android:textSize="16sp"
                     android:textColor="@color/grey"/>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="3"
+                    android:textSize="16sp"
                     android:text="◎線◎◎駅降りて徒歩2分"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -187,12 +205,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/business_hour"
+                    android:textSize="16sp"
                     android:textColor="@color/grey"/>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="3"
+                    android:textSize="16sp"
                     android:text="10:00～23:00"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -207,6 +227,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
+                    android:textSize="16sp"
                     android:text="@string/regular_holiday"
                     android:textColor="@color/grey"/>
                 <com.hunters1984.pon.customs.CustomTextView
@@ -214,6 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="3"
+                    android:textSize="16sp"
                     android:text="月曜日"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -287,8 +309,8 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_call"
                 android:scaleType="fitXY"/>
             <com.hunters1984.pon.customs.CustomTextView
@@ -305,8 +327,8 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_location"
                 android:scaleType="fitXY"/>
             <com.hunters1984.pon.customs.CustomTextView
@@ -323,8 +345,8 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_share"
                 android:scaleType="fitXY"/>
             <com.hunters1984.pon.customs.CustomTextView

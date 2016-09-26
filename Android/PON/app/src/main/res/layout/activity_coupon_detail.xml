@@ -32,33 +32,36 @@
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="20dp"
-                    android:padding="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:background="@color/background_black_transparent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
+                        android:layout_width="@dimen/icon_size_info"
+                        android:layout_height="@dimen/icon_size_info"
                         android:src="@drawable/ic_demo_restaurant"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="15dp"
                         android:textColor="@color/white"
                         android:text="グルメ"/>
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_back"
                     android:scaleType="fitXY"
                     android:layout_margin="15dp"
                     android:id="@+id/iv_back"/>
                 <com.hunters1984.pon.customs.CustomButton
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     android:textColor="@color/white"
@@ -77,8 +80,10 @@
                     android:layout_height="60dp"
                     android:layout_marginLeft="20dp"
                     android:text="タイトルが入ります"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     android:gravity="center_vertical"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/color_text_title_coupons"/>
                 <View android:layout_width="match_parent"
                       android:layout_height="2dp"
                       android:background="@color/light_grey_stroke_icon"/>
@@ -91,6 +96,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="タイプが入ります・IDが入ります"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                         android:textColor="@color/grey"
                         android:id="@+id/tv_title"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -98,18 +105,22 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_title"
                         android:text="期限：2016.07.31"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                         android:textColor="@color/pink"/>
                     <ImageView
-                        android:layout_width="@dimen/icon_size_menu"
-                        android:layout_height="@dimen/icon_size_menu"
-                        android:src="@drawable/ic_non_favourite"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_coupon_type"
                         android:scaleType="fitXY"
                         android:layout_alignParentRight="true"/>
                 </RelativeLayout>
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:text="説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります"
                     android:textColor="@color/grey"/>
 
@@ -126,8 +137,8 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
                     <ImageView
-                        android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
+                        android:layout_width="@dimen/icon_size_info"
+                        android:layout_height="@dimen/icon_size_info"
                         android:src="@drawable/ic_location_coupon_detail"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -135,13 +146,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="住所が入ります"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold"
+                        android:textColor="@color/grey"/>
                 </LinearLayout>
-
-                <View android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@color/light_grey_stroke_icon"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,8 +157,8 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
                     <ImageView
-                        android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
+                        android:layout_width="@dimen/icon_size_info"
+                        android:layout_height="@dimen/icon_size_info"
                         android:src="@drawable/ic_time_coupons_detail"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -159,13 +166,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="営業時間が入ります"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold"
+                        android:textColor="@color/grey"/>
                 </LinearLayout>
 
                 <View android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@color/light_grey_stroke_icon"/>
+                    android:background="@color/grey"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -174,8 +182,8 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
                     <ImageView
-                        android:layout_width="@dimen/icon_size"
-                        android:layout_height="@dimen/icon_size"
+                        android:layout_width="@dimen/icon_size_info"
+                        android:layout_height="@dimen/icon_size_info"
                         android:src="@drawable/ic_contact_coupons_detail"
                         android:scaleType="fitXY"/>
                     <com.hunters1984.pon.customs.CustomTextView
@@ -183,13 +191,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="電話番号が入ります"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold"
+                        android:textColor="@color/grey"/>
                 </LinearLayout>
 
                 <com.hunters1984.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:text="@string/coupons_related"
                     android:textColor="@color/colorPrimary"/>
 
@@ -203,6 +214,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:text="@string/coupons_other_shop"
                     android:textColor="@color/colorPrimary"/>
 
@@ -236,7 +249,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:src="@drawable/ic_non_favourite"
+            android:src="@drawable/ic_non_favourite_floating_button"
             app:backgroundTint="@color/white"
             app:layout_anchor="@id/rl_coupon_photo"
             app:layout_anchorGravity="bottom|right|end" />

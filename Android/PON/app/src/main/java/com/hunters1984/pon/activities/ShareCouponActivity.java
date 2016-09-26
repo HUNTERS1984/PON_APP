@@ -80,6 +80,13 @@ public class ShareCouponActivity extends BaseActivity {
                 shareInstagram();
             }
         });
+
+        mShareLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareLine();
+            }
+        });
         showSNSShare();
     }
 
@@ -132,12 +139,25 @@ public class ShareCouponActivity extends BaseActivity {
 
     private void shareInstagram()
     {
-//        Uri file = Uri.parse("android.resource://com.code2care.thebuddhaquotes/");
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setType("image/*");
-//        shareIntent.putExtra(Intent.EXTRA_STREAM,file);
-        shareIntent.putExtra(Intent.EXTRA_TITLE, "YOUR TEXT HERE");
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www.google.com");
+//        shareIntent.putExtra(Intent.EXTRA_TITLE, "YOUR TEXT HERE");
         shareIntent.setPackage("com.instagram.android");
         startActivity(shareIntent);
+        // Broadcast the Intent.
+//        startActivity(Intent.createChooser(shareIntent, "Share to"));
+    }
+
+    private void shareLine()
+    {
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www.google.com");
+//        shareIntent.putExtra(Intent.EXTRA_TITLE, "YOUR TEXT HERE");
+        shareIntent.setPackage("jp.naver.line.android");
+        startActivity(shareIntent);
+        // Broadcast the Intent.
+//        startActivity(Intent.createChooser(shareIntent, "Share to"));
     }
 }

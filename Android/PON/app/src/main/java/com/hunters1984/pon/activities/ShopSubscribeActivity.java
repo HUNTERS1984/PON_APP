@@ -29,6 +29,9 @@ public class ShopSubscribeActivity extends BaseActivity implements OnLoadDataLis
 
     private void initLayout()
     {
+        setTitle(getString(R.string.add_shop));
+        setIconBack(R.drawable.ic_close);
+
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_shop_subscribe);
         rv.setLayoutManager(new LinearLayoutManager(this));
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -40,7 +41,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     private ViewPager mPagerCoupons;
     private CirclePageIndicator mPageIndicatorProduct;
-    private int[] mListCouponPhotos =  {R.color.black, R.color.black};
+    private int[] mListCouponPhotos =  {R.color.color_background_pager_coupons, R.color.color_background_pager_coupons};
 
     private boolean isFavourite = false;
     private Context mContext;
@@ -81,8 +82,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         mPageIndicatorProduct = (CirclePageIndicator)findViewById(R.id.page_indicator_coupons_photo);
         mPageIndicatorProduct.setViewPager(mPagerCoupons);
-        mPageIndicatorProduct.setFillColor(getResources().getColor(R.color.pink));
-        mPageIndicatorProduct.setStrokeColor(getResources().getColor(R.color.grey));
+        mPageIndicatorProduct.setFillColor(ContextCompat.getColor(mContext, R.color.blue_sky));
+        mPageIndicatorProduct.setStrokeColor(ContextCompat.getColor(mContext, R.color.grey));
 
         RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.rv_list_related_coupons);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
@@ -104,9 +105,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             public void onClick(View view) {
                 isFavourite = !isFavourite;
                 if(isFavourite) {
-                    btnFavourite.setImageResource(R.drawable.ic_favourite);
+                    btnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
                 } else {
-                    btnFavourite.setImageResource(R.drawable.ic_non_favourite);
+                    btnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
                 }
             }
         });

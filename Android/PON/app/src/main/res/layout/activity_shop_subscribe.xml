@@ -6,26 +6,8 @@
     tools:context="com.hunters1984.pon.activities.ShopSubscribeActivity"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="@dimen/layout_margin"
-        android:background="@color/colorPrimary">
-        <ImageView
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_close"
-            android:scaleType="fitXY"
-            android:layout_centerVertical="true"
-            android:id="@+id/iv_back"/>
-        <com.hunters1984.pon.customs.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/title_font_size"
-            android:text="@string/add_shop"/>
-    </RelativeLayout>
+    <include layout="@layout/include_header_layout" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

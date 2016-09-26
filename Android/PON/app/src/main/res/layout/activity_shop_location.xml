@@ -10,30 +10,35 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:paddingLeft="@dimen/layout_margin"
         android:paddingRight="@dimen/layout_margin"
+        android:paddingBottom="10dp"
         android:background="@color/colorPrimary">
-        <ImageView
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_search"
-            android:scaleType="fitXY"
-            android:layout_margin="10dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:id="@+id/iv_search"/>
-        <com.hunters1984.pon.customs.CustomEditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/textbox_search_height"
-            android:layout_toLeftOf="@+id/tv_search"
-            android:layout_toRightOf="@id/iv_search"
-            android:background="@android:color/transparent"
-            android:layout_margin="10dp"
-            android:layout_centerVertical="true"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="@dimen/font_size_textbox_search"
-            android:hint="@string/search_place_shop_name"/>
+            android:gravity="center_vertical"
+            android:padding="5dp">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_search"/>
+            <com.hunters1984.pon.customs.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textbox_search_height"
+                android:id="@+id/tv_search"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:hint="@string/search_place_shop_name"
+                android:background="@android:color/transparent"
+                android:textSize="@dimen/font_size_textbox_search"/>
+        </LinearLayout>
+
         <com.hunters1984.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +64,7 @@
             android:layout_height="50dp"
             android:padding="15dp"
             android:background="@xml/circle_stroke_light_blue"
-            android:src="@drawable/ic_navigation"
+            android:src="@drawable/ic_my_location"
             android:scaleType="fitXY"
             android:id="@+id/iv_navigation"/>
 

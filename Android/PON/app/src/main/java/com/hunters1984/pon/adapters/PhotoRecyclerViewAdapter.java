@@ -48,7 +48,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
                 holder.mViewMore.setVisibility(View.VISIBLE);
             }
         } else {
-            holder.mPhoto.setBackgroundColor(mContext.getResources().getColor(R.color.grey));
+            holder.mPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.grey));
             holder.mPhoto.setVisibility(View.VISIBLE);
             holder.mViewMore.setVisibility(View.GONE);
         }

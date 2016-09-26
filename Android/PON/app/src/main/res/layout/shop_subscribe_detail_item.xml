@@ -35,8 +35,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="@dimen/icon_size_info"
+                    android:layout_height="@dimen/icon_size_info"
                     android:src="@drawable/ic_add_follow_shop"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_shop_select_status"/>

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#18C0D4</color>
     <color name="colorAccent">#FF4081</color>
     <color name="pink">#FF849F</color>
+    <color name="blue_sky">#18C0D4</color>
     <color name="grey">#888E90</color>
     <color name="black">#000000</color>
     <color name="dark_grey">#DDE3E5</color>
@@ -19,7 +20,7 @@
     <color name="transparent">#00000000</color>
     <color name="tab_text_unselect">#CFF4F2</color>
     <color name="background_white_transparent">#92FFFFFF</color>
-    <color name="background_black_transparent">#92000000</color>
+    <color name="background_black_transparent">#9220313F</color>
     <color name="background_top">#141E22</color>
     <color name="background_lighter_blue">#F5FCFD</color>
 
@@ -31,4 +32,7 @@
     <color name="line_item_1">#DFE0E3</color>
     <color name="line_item_2">#C8D2D6</color>
     <color name="line_bottom">#D0D2D2</color>
+
+    <color name="color_background_pager_coupons">#141E22</color>
+    <color name="color_text_title_coupons">#626D71</color>
 </resources>
