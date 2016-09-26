@@ -157,6 +157,7 @@
 		FABC3D5E1D8263FF0061E596 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */; };
 		FABC3D601D82A0100061E596 /* ShareCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC3D5F1D82A0100061E596 /* ShareCouponViewController.swift */; };
 		FABC3D621D82A0200061E596 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC3D611D82A0200061E596 /* ScanQRCodeViewController.swift */; };
+		FABE1B581D992A28006705AF /* CommonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1B571D992A28006705AF /* CommonDataManager.swift */; };
 		FAC0B6D11D7FA39900E96E3A /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D01D7FA39900E96E3A /* Coupon.swift */; };
 		FAC0B6DA1D7FB61900E96E3A /* LeftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */; };
 		FAC0B6DC1D7FB62500E96E3A /* RightBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */; };
@@ -369,6 +370,7 @@
 		FABC3D5D1D8263FF0061E596 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		FABC3D5F1D82A0100061E596 /* ShareCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCouponViewController.swift; sourceTree = "<group>"; };
 		FABC3D611D82A0200061E596 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
+		FABE1B571D992A28006705AF /* CommonDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDataManager.swift; sourceTree = "<group>"; };
 		FAC0B6D01D7FA39900E96E3A /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = PonApp/Libraries/HLKit/Extensions/Coupon.swift; sourceTree = SOURCE_ROOT; };
 		FAC0B6D91D7FB61900E96E3A /* LeftBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBorderView.swift; sourceTree = "<group>"; };
 		FAC0B6DB1D7FB62500E96E3A /* RightBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBorderView.swift; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 			children = (
 				FA2F1FDF1D780D5800608061 /* LocationManager.swift */,
 				FA2F1FE01D780D5800608061 /* MapTasks.swift */,
+				FABE1B571D992A28006705AF /* CommonDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1310,6 +1313,7 @@
 				FA51B5291D7D574200CF10D8 /* CouponCollectionViewCell.swift in Sources */,
 				FAFC2E8A1D7EAFA80067B18E /* BottomBorderView.swift in Sources */,
 				FA405C921D9247AD00D56602 /* ApiResponse.swift in Sources */,
+				FABE1B581D992A28006705AF /* CommonDataManager.swift in Sources */,
 				FABC3D5E1D8263FF0061E596 /* UITableViewExtension.swift in Sources */,
 				FAFC2E8C1D7EBEDE0067B18E /* UINavigationControllerExtension.swift in Sources */,
 				FABC3D621D82A0200061E596 /* ScanQRCodeViewController.swift in Sources */,
@@ -1472,7 +1476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1492,7 +1496,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

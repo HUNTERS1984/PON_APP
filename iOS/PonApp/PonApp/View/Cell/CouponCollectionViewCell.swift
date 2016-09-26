@@ -11,18 +11,37 @@ import AlamofireImage
 
 class CouponCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var couponContentView: DesignableView!
     @IBOutlet weak var confirmView: DesignableView!
+    
+    @IBOutlet weak var couponContentView: DesignableView!
     @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var expireDateLabel: UILabel!
+    @IBOutlet weak var likeIconImage: UIImageView!
     
     var coupon: Coupon! {
         didSet {
-            self.setDataForCell(coupon)
+            self.setDataForCell(self.coupon)
         }
     }
     
     func setDataForCell(coupon: Coupon) {
+        if coupon.showConfirmView {
+            self.confirmView.hidden = false
+            self.couponContentView.hidden = true
+        }else {
+            self.confirmView.hidden = true
+            self.couponContentView.hidden = false
+        }
         let URL = NSURL(string: coupon.imageURL)!
         self.thumbImageView.af_setImageWithURL(URL)
+        self.titleLabel.text = coupon.title
+        self.expireDateLabel.text = coupon.expiryDate
+        if let _ = coupon.isLike {
+            self.likeIconImage.hidden = !coupon.isLike
+        }else {
+            self.likeIconImage.hidden = true
+        }
     }
 }

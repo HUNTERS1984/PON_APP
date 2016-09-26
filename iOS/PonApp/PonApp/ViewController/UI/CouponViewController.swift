@@ -54,6 +54,8 @@ class CouponViewController: BaseViewController {
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        
+        self.getCouponDetail(1)
     }
 }
 
@@ -141,6 +143,23 @@ extension CouponViewController {
         }
     }
     
+    private func getCouponDetail(couponId: Int) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let coupon = Coupon(response: result?.data)
+                self.displayCouponDetail(coupon)
+            }
+        }
+    }
+    
+    private func displayCouponDetail(coupon: Coupon) {
+        
+    }
+    
 }
 
 //MARK: UIScrollViewDelegate
@@ -158,7 +177,6 @@ extension CouponViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        cell.coupon = Coupon.init()
         return cell
         
     }

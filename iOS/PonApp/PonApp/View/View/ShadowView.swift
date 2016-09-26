@@ -11,41 +11,38 @@ import QuartzCore
 
 class ShadowView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat = 0.0
-    @IBInspectable var shadowColor: UIColor = UIColor(hex: DefaultBorderColor)
-    @IBInspectable var shadowOffset: CGSize = CGSize(width: 1.0, height: 1.0)
-    @IBInspectable var shadowRadius: CGFloat = 0.0
-    @IBInspectable var shadowOpacity: Float = 0.6
-    
-    override func drawRect(rect: CGRect) {
-        self.updateProperties()
+    @IBInspectable var shadow: Bool {
+        get {
+            return layer.shadowOpacity > 0.0
+        }
+        set {
+            if newValue == true {
+                self.addShadow()
+            }
+        }
     }
     
-    private func updateProperties() {
-        self.layer.masksToBounds = false
-        self.layer.cornerRadius = self.cornerRadius
-        self.layer.shadowColor = self.shadowColor.CGColor
-        self.layer.shadowOffset = self.shadowOffset
-        self.layer.shadowRadius = self.shadowRadius
-        self.layer.shadowOpacity = self.shadowOpacity
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = self.shadowColor.CGColor
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+            
+            // Don't touch the masksToBound property if a shadow is needed in addition to the cornerRadius
+            if shadow == false {
+                self.layer.masksToBounds = true
+            }
+        }
     }
     
-    private func updateShadowPath() {
-        self.layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).CGPath
+    func addShadow(shadowOpacity: Float = 0.4, shadowRadius: CGFloat = 1.0) {
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
-
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        self.updateProperties()
-//        self.updateShadowPath()
-//    }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.updateShadowPath()
-    }
 }
 
 

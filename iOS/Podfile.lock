@@ -40,6 +40,7 @@ PODS:
     - Fabric
   - TwitterKit (2.3.0):
     - TwitterCore (= 2.3.0)
+  - XLRefreshSwift (0.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - SwiftQRCode
   - SwiftyJSON (~> 2.3)
   - TwitterKit
+  - XLRefreshSwift (~> 0.2.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -67,7 +69,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TwitterCore: 817eae3e291fa4125b47789e26a4f6f024115c1f
   TwitterKit: 8a383da8d9c21b0423716381ea8bbfce20622d91
+  XLRefreshSwift: 9f6c05ca9ba9952e466d54015b6f4fb6af2a0f94
 
-PODFILE CHECKSUM: 0c52a8eca94f419526c02733ef44c415de1567d7
+PODFILE CHECKSUM: f51291cf05dda1208f840ae84a663b4d13c92a11
 
 COCOAPODS: 1.0.1
