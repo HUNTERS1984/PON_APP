@@ -153,12 +153,10 @@ extension CouponViewController {
     
     private func displayCouponDetail(coupon: Coupon) {
         self.couponInfoLabel.text = coupon.description
-        if let _ = coupon.isLike {
-            if coupon.isLike! {
-                self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
-            }else {
-                self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
-            }
+        if coupon.isLike! {
+            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
+        }else {
+            self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
         }
         self.setupImageSlideShow(coupon.couponPhotosUrl)
         self.couponTitleLabel.text = coupon.title
