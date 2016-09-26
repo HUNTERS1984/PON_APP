@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -43,8 +43,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-8u-evy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-vM-f2C" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1625"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-vM-f2C" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1235"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arB-n3-ct6" userLabel="Header View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
@@ -368,11 +368,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-Tz-ZAZ" userLabel="Similar Coupon Collection View">
-                                                <rect key="frame" x="0.0" y="1215" width="375" height="390"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-Tz-ZAZ" userLabel="Similar Coupon Collection View">
+                                                <rect key="frame" x="0.0" y="1215" width="375" height="0.0"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="390" id="OSE-Cg-7Wp"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="390" id="OSE-Cg-7Wp"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hha-K1-m6a">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -453,11 +453,18 @@
                         <outlet property="albumCollectionViewConstraint" destination="LhT-D2-loi" id="dCN-Hd-QB8"/>
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
+                        <outlet property="couponTitleLabel" destination="2Yb-5v-dOe" id="FxE-Ix-GBU"/>
+                        <outlet property="expiryLabel" destination="U3h-zO-4p0" id="V8R-IA-kqX"/>
                         <outlet property="imageSlideshow" destination="W7w-2M-KHV" id="cwT-m8-0Rd"/>
                         <outlet property="likeButton" destination="cKq-ru-Ag9" id="pl0-Qz-5vW"/>
                         <outlet property="qrCodeButton" destination="wYM-c4-UUk" id="clc-3q-cc3"/>
                         <outlet property="shareButton" destination="mqw-Qy-ngb" id="SCk-d7-4xN"/>
+                        <outlet property="shopAddressLabel" destination="6Ne-j0-Bye" id="lP5-Uy-Iah"/>
+                        <outlet property="shopAvatarImageView" destination="e2L-G1-g6k" id="SCc-Cj-tcL"/>
+                        <outlet property="shopBusinessHoursLabel" destination="nmb-88-SyL" id="Y7C-Ex-hCq"/>
+                        <outlet property="shopPhoneNumber" destination="hoY-ov-15O" id="V6I-Zm-fGt"/>
                         <outlet property="similarCouponCollectionView" destination="XBO-Tz-ZAZ" id="5rw-LH-5kx"/>
+                        <outlet property="similarCouponCollectionViewConstraint" destination="OSE-Cg-7Wp" id="k1M-LM-Gqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W38-03-Cie" userLabel="First Responder" sceneMemberID="firstResponder"/>

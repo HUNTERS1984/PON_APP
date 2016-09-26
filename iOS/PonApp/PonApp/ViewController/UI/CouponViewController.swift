@@ -20,17 +20,31 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
     @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var similarCouponCollectionView: UICollectionView!
+    @IBOutlet weak var similarCouponCollectionViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var couponTitleLabel: UILabel!
+    @IBOutlet weak var expiryLabel: UILabel!
+    @IBOutlet weak var shopAvatarImageView: DesignableImageView!
+    @IBOutlet weak var shopAddressLabel: UILabel!
+    @IBOutlet weak var shopBusinessHoursLabel: UILabel!
+    @IBOutlet weak var shopPhoneNumber: UILabel!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
-    var point: CGPoint!
+    var similarCoupon = [Coupon]() {
+        didSet {
+            if self.similarCoupon.count > 0 {
+                self.similarCouponCollectionView.reloadData {
+                    self.similarCouponCollectionViewConstraint.constant = self.similarCouponCollectionView.contentSize.height
+                }
+            }else {
+                self.similarCouponCollectionView.reloadData {
+                    self.similarCouponCollectionViewConstraint.constant = 0
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let text = "説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入りま す説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります.."
-        self.couponInfoLabel.text = text
-        self.setupImageSlideShow()
-        self.setupPhotoCollectionView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,12 +114,12 @@ extension CouponViewController {
 //MARK: - Private methods
 extension CouponViewController {
     
-    private func setupImageSlideShow() {
-        let alamofireSource = [AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!,
-                               AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!,
-                               AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
+    private func setupImageSlideShow(urls: [String]) {
+        var alamofireSource = [AlamofireSource]()
+        for url in urls {
+            alamofireSource.append(AlamofireSource(urlString: url)!)
+        }
         imageSlideshow.backgroundColor = UIColor.lightGrayColor()
-//        imageSlideshow.slideshowInterval = 2.0
         imageSlideshow.pageControlPosition = PageControlPosition.UnderScrollView
         imageSlideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGrayColor()
         imageSlideshow.pageControl.pageIndicatorTintColor = UIColor.blackColor()
@@ -116,27 +130,8 @@ extension CouponViewController {
         imageSlideshow.setImageInputs(alamofireSource)
     }
     
-    private func setupPhotoCollectionView() {
-        self.albumCollectionView.photos = [
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg"
-        ]
+    private func setupPhotoCollectionView(urls: [String]) {
+        self.albumCollectionView.photos = urls
         self.albumCollectionView.reloadData {
             self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
             self.view.layoutIfNeeded()
@@ -157,7 +152,23 @@ extension CouponViewController {
     }
     
     private func displayCouponDetail(coupon: Coupon) {
-        
+        self.couponInfoLabel.text = coupon.description
+        if let _ = coupon.isLike {
+            if coupon.isLike! {
+                self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
+            }else {
+                self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
+            }
+        }
+        self.setupImageSlideShow(coupon.couponPhotosUrl)
+        self.couponTitleLabel.text = coupon.title
+        self.expiryLabel.text = coupon.expiryDate
+        self.shopAvatarImageView.af_setImageWithURL(NSURL(string: coupon.shopAvatarUrl)!)
+        self.shopAddressLabel.text = coupon.shopAddress
+        self.shopBusinessHoursLabel.text = coupon.shopBusinessHours
+        self.shopPhoneNumber.text = coupon.shopPhonenumber
+        self.setupPhotoCollectionView(coupon.userPhotosUrl)
+        self.similarCoupon = coupon.similarCoupons
     }
     
 }
@@ -171,12 +182,12 @@ extension CouponViewController: UIScrollViewDelegate {
 extension CouponViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.similarCoupon.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        cell.coupon = self.similarCoupon[indexPath.item]
         return cell
         
     }
@@ -207,8 +218,10 @@ extension CouponViewController: UICollectionViewDelegate {
 extension CouponViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let picDimension = (self.view.frame.size.width - 30) / 2.0
-        return CGSizeMake(picDimension, 185)
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        let width = (self.view.frame.size.width - 30) / 2.0
+        let height = screenHeight * (189/667)
+        return CGSizeMake(width, height)
     }
     
 }

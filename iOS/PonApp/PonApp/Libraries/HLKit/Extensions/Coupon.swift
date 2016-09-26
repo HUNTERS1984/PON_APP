@@ -27,6 +27,7 @@ struct Coupon {
     var couponTypeIconUrl: String!
     var userPhotosUrl = [String]()
     var couponPhotosUrl = [String]()
+    var similarCoupons = [Coupon]()
     
     var showConfirmView: Bool = false
     
@@ -120,6 +121,12 @@ struct Coupon {
         if let couponPhoto = response!["coupon_photo_url"].array {
             for url in couponPhoto {
                 self.couponPhotosUrl.append(url.stringValue)
+            }
+        }
+        
+        if let similarCoupons = response!["similar_coupon"].array {
+            for couponData in similarCoupons {
+                self.similarCoupons.append(Coupon(response: couponData))
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLRefreshSwift
 
 class FavoriteViewController: BaseViewController {
 
@@ -42,6 +43,12 @@ class FavoriteViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+//        collectionView.xlfooter = XLRefreshFooter(action: {
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC)*2)), dispatch_get_main_queue(), {
+//                self.collectionView.endFooterRefresh()
+//            })
+//        })
+        
         self.loadFavoriteCoupon(1)
     }
     
