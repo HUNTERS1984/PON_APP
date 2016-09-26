@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 struct Coupon {
-    var couponID: Int!
+    var couponID: Float!
     var imageURL: String!
     var title: String!
     var expiryDate: String!
@@ -31,11 +31,15 @@ struct Coupon {
     var showConfirmView: Bool = false
     
     init(response: JSON?) {
-        if let couponID = response!["id"].int {
+        if let couponID = response!["id"].float {
             self.couponID = couponID
+        }else {
+            if let couponID = response!["id"].string {
+                self.couponID = couponID.floatValue
+            }
         }
         
-        if let imageUrl = response!["imageUrl"].string {
+        if let imageUrl = response!["image_url"].string {
             self.imageURL = imageUrl
         }else {
             self.imageURL = ""
