@@ -69,5 +69,10 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
     
+    
+    static func getUsedCoupon(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        ApiManager.processRequest(GetUsedCoupon, method: .GET, hasAuth: true, completion: completion)
+    }
+    
 
 }

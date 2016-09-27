@@ -198,7 +198,7 @@
                         <viewControllerLayoutGuide type="top" id="Lef-rc-DdY"/>
                         <viewControllerLayoutGuide type="bottom" id="e1f-gj-ZTn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Ne-6j-ZWb">
+                    <view key="view" contentMode="scaleToFill" id="8Ne-6j-ZWb" customClass="IQPreviousNextView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
