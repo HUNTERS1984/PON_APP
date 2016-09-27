@@ -3,16 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HiraginoSansGB-W3.ttf">
             <string>HiraginoSansGB-W3</string>
         </mutableArray>
         <mutableArray key="HiraginoSansGB-W6.ttf">
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
@@ -41,86 +37,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="667" id="HCs-MC-OAG"/>
                                         </constraints>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Dcl-wC-F6u" customClass="CouponCollectionTableViewCell" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="222"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dcl-wC-F6u" id="aRa-3u-Ixq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-X4-Yhl" userLabel="Top Bar View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-JW-kHN" userLabel="More Button">
-                                                                    <rect key="frame" x="267" y="1" width="100" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="2IT-QY-fe1"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
-                                                                    <state key="normal" title="もっと見る">
-                                                                        <color key="titleColor" red="0.094117647058823528" green="0.75294117647058822" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="moreButtonPressed:" destination="Dcl-wC-F6u" eventType="touchUpInside" id="RtA-TE-yUt"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="hEB-co-8ia">
-                                                                    <rect key="frame" x="10" y="0.0" width="32" height="32"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="hEB-co-8ia" secondAttribute="height" multiplier="1:1" id="qTX-A8-3YN"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グルメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9p-8H-rvg" userLabel="Title Label">
-                                                                    <rect key="frame" x="50" y="0.0" width="209" height="32"/>
-                                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
-                                                                    <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="5kc-JW-kHN" secondAttribute="bottom" constant="1" id="A1e-vj-QfJ"/>
-                                                                <constraint firstItem="5kc-JW-kHN" firstAttribute="top" secondItem="ehl-X4-Yhl" secondAttribute="top" constant="1" id="FGb-Ib-YgI"/>
-                                                                <constraint firstItem="B9p-8H-rvg" firstAttribute="leading" secondItem="hEB-co-8ia" secondAttribute="trailing" constant="8" id="PJd-ei-0dR"/>
-                                                                <constraint firstAttribute="trailing" secondItem="5kc-JW-kHN" secondAttribute="trailing" constant="8" id="bfq-8u-C6n"/>
-                                                                <constraint firstItem="hEB-co-8ia" firstAttribute="top" secondItem="ehl-X4-Yhl" secondAttribute="top" id="g2O-Yi-Tv6"/>
-                                                                <constraint firstItem="5kc-JW-kHN" firstAttribute="leading" secondItem="B9p-8H-rvg" secondAttribute="trailing" constant="8" id="m4w-6N-IiT"/>
-                                                                <constraint firstItem="hEB-co-8ia" firstAttribute="height" secondItem="ehl-X4-Yhl" secondAttribute="height" id="ndb-bG-XzM"/>
-                                                                <constraint firstAttribute="bottom" secondItem="B9p-8H-rvg" secondAttribute="bottom" id="oBn-OG-r0M"/>
-                                                                <constraint firstItem="B9p-8H-rvg" firstAttribute="top" secondItem="ehl-X4-Yhl" secondAttribute="top" id="rkI-Yt-xp4"/>
-                                                                <constraint firstItem="hEB-co-8ia" firstAttribute="leading" secondItem="ehl-X4-Yhl" secondAttribute="leading" constant="10" id="wOy-bg-SYs"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PYT-2B-RpO">
-                                                            <rect key="frame" x="0.0" y="32" width="375" height="189"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="VgH-ya-CQL">
-                                                                <size key="itemSize" width="175" height="185"/>
-                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                            </collectionViewFlowLayout>
-                                                            <cells/>
-                                                        </collectionView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="ehl-X4-Yhl" firstAttribute="height" secondItem="aRa-3u-Ixq" secondAttribute="height" multiplier="32/221" id="0fZ-gb-aJ6"/>
-                                                        <constraint firstItem="ehl-X4-Yhl" firstAttribute="top" secondItem="aRa-3u-Ixq" secondAttribute="top" id="4C9-nd-MIk"/>
-                                                        <constraint firstItem="PYT-2B-RpO" firstAttribute="top" secondItem="ehl-X4-Yhl" secondAttribute="bottom" id="HVj-cC-Q8H"/>
-                                                        <constraint firstItem="ehl-X4-Yhl" firstAttribute="leading" secondItem="aRa-3u-Ixq" secondAttribute="leading" id="SCg-SA-wrb"/>
-                                                        <constraint firstItem="PYT-2B-RpO" firstAttribute="leading" secondItem="aRa-3u-Ixq" secondAttribute="leading" id="dXa-Xe-uPo"/>
-                                                        <constraint firstAttribute="trailing" secondItem="PYT-2B-RpO" secondAttribute="trailing" id="j1g-XV-4tw"/>
-                                                        <constraint firstAttribute="bottom" secondItem="PYT-2B-RpO" secondAttribute="bottom" id="kPp-jT-wyB"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ehl-X4-Yhl" secondAttribute="trailing" id="rUw-4J-QMG"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="couponCollectionView" destination="PYT-2B-RpO" id="phn-lz-Jga"/>
-                                                    <outlet property="headerLabel" destination="B9p-8H-rvg" id="SSQ-Sx-Xsx"/>
-                                                    <outlet property="thumbImageView" destination="hEB-co-8ia" id="Ab7-A0-nDL"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="Iod-Rd-hKm" id="k80-vh-qCI"/>
                                             <outlet property="delegate" destination="Iod-Rd-hKm" id="pvT-Dn-1sJ"/>

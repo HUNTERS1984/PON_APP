@@ -42,6 +42,7 @@ class CouponViewController: BaseViewController {
             }
         }
     }
+    var coupon: Coupon? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +70,9 @@ class CouponViewController: BaseViewController {
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
-        self.getCouponDetail(1)
+        if let _ = self.coupon {
+            self.displayCouponDetail(self.coupon!)
+        }
     }
 }
 
@@ -125,8 +128,8 @@ extension CouponViewController {
         imageSlideshow.pageControl.pageIndicatorTintColor = UIColor.blackColor()
         imageSlideshow.contentScaleMode = .ScaleToFill
         imageSlideshow.pageControlPosition = .InsideScrollView
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
-        imageSlideshow.addGestureRecognizer(recognizer)
+//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
+//        imageSlideshow.addGestureRecognizer(recognizer)
         imageSlideshow.setImageInputs(alamofireSource)
     }
     
@@ -138,7 +141,7 @@ extension CouponViewController {
         }
     }
     
-    private func getCouponDetail(couponId: Int) {
+    private func getCouponDetail(couponId: Float) {
         self.showHUD()
         ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -206,8 +209,8 @@ extension CouponViewController: UICollectionViewDataSource {
 extension CouponViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

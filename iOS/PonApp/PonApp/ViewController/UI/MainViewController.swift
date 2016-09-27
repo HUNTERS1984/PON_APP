@@ -126,11 +126,11 @@ extension MainViewController {
 extension MainViewController: CAPSPageMenuDelegate {
     
     func didMoveToPage(controller: UIViewController, index: Int) {
-        print("did move to page")
+        
     }
     
     func willMoveToPage(controller: UIViewController, index: Int) {
-        print("will move to page")
+        
     }
     
 }

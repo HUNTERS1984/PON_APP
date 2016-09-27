@@ -17,6 +17,7 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet weak var collectionView:UICollectionView!
     
     var coupons = [Coupon]()
+    var previousSelectedIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +97,6 @@ extension FavoriteViewController {
                         let coupon = Coupon(response: couponData)
                         responseCoupon.append(coupon)
                     }
-                    self.coupons = responseCoupon
                     if pageIndex == 1 {
                         self.displayCoupon(responseCoupon, type: .New)
                     }else {
@@ -125,6 +125,21 @@ extension FavoriteViewController {
         }
     }
     
+    private func getCouponDetail(couponId: Float) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let coupon = Coupon(response: result?.data)
+                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                vc.coupon = coupon
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -137,8 +152,14 @@ extension FavoriteViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
         let couponTest = self.coupons[indexPath.item]
-        cell.coupon = couponTest
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            dispatch_async(dispatch_get_main_queue(), { 
+                cell.coupon = couponTest
+            })
+        }
         return cell
         
     }
@@ -158,15 +179,23 @@ extension FavoriteViewController: UICollectionViewDataSource {
 extension FavoriteViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var selectedCoupon = self.coupons[indexPath.item]
+        let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.getCouponDetail(selectedCoupon.couponID)
             }else {
-                selectedCoupon.showConfirmView = true
-                self.coupons[indexPath.item] = selectedCoupon
-                collectionView.reloadItemsAtIndexPaths([indexPath])
+                if let _ = self.previousSelectedIndexPath {
+                    self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+                    collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+                    
+                    self.coupons[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }else {
+                    self.coupons[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }
             }
         }
     }

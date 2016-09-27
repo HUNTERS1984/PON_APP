@@ -305,6 +305,106 @@
             </objects>
             <point key="canvasLocation" x="151.5" y="309.5"/>
         </scene>
+        <!--Terms Of Service View Controller-->
+        <scene sceneID="IxC-Gv-iCX">
+            <objects>
+                <viewController storyboardIdentifier="TermsOfServiceViewController" id="ygx-U0-Rd7" customClass="TermsOfServiceViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PK5-sT-oyc"/>
+                        <viewControllerLayoutGuide type="bottom" id="J25-qs-a17"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yMP-vc-8gH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTk-Ft-dYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565.5" y="309.5"/>
+        </scene>
+        <!--Specified Trade View Controller-->
+        <scene sceneID="CIq-4e-Me7">
+            <objects>
+                <viewController storyboardIdentifier="SpecifiedTradeViewController" id="U8Y-ln-oVh" customClass="SpecifiedTradeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WfL-hU-VrD"/>
+                        <viewControllerLayoutGuide type="bottom" id="4WV-Dh-r87"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G1G-Hx-n3T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6p-eD-etI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361.5" y="309.5"/>
+        </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="GFd-rV-iU7">
+            <objects>
+                <viewController storyboardIdentifier="PrivacyPolicyViewController" id="1AP-jF-OSW" customClass="PrivacyPolicyViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jLx-hg-LTS"/>
+                        <viewControllerLayoutGuide type="bottom" id="a0C-9P-lT1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ckK-eJ-t55">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="829-XV-jxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959.5" y="309.5"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="BVf-Pz-RaB">
+            <objects>
+                <viewController storyboardIdentifier="NewsViewController" id="hC5-eK-wRy" customClass="NewsViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xB9-Pu-Qyl"/>
+                        <viewControllerLayoutGuide type="bottom" id="WPQ-Mw-WRf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XVH-km-dNO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfy-wF-6HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758.5" y="309.5"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="OxB-MA-htJ">
+            <objects>
+                <viewController storyboardIdentifier="HistoryViewController" id="iBp-fq-Wkc" customClass="HistoryViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cSm-qk-6cE"/>
+                        <viewControllerLayoutGuide type="bottom" id="DtN-p5-p5z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u5r-Yi-XjO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJf-68-nOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2153.5" y="309.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="account_avatar_placehoder.png" width="85" height="84"/>
