@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HiraginoSansGB-W6.ttf">
@@ -205,9 +206,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQQ-zt-pPL" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1mb-Tq-g3b"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MX-qD-mCc" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="60" width="375" height="57"/>
@@ -225,7 +223,6 @@
                                     <constraint firstItem="HJM-nH-Xj4" firstAttribute="top" secondItem="5MX-qD-mCc" secondAttribute="top" id="gGo-8t-wye"/>
                                     <constraint firstAttribute="trailing" secondItem="HJM-nH-Xj4" secondAttribute="trailing" constant="10" id="hkC-s2-mGa"/>
                                     <constraint firstItem="HJM-nH-Xj4" firstAttribute="leading" secondItem="5MX-qD-mCc" secondAttribute="leading" constant="20" id="o1z-ZK-RuA"/>
-                                    <constraint firstAttribute="height" constant="57" id="u0z-3r-vmx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
@@ -248,16 +245,12 @@
                                     <constraint firstAttribute="trailing" secondItem="Cye-SA-hcE" secondAttribute="trailing" constant="10" id="Mgw-mh-Csd"/>
                                     <constraint firstAttribute="bottom" secondItem="Cye-SA-hcE" secondAttribute="bottom" id="R7J-kY-Cno"/>
                                     <constraint firstItem="Cye-SA-hcE" firstAttribute="leading" secondItem="099-28-SIm" secondAttribute="leading" constant="20" id="kNj-1F-VOU"/>
-                                    <constraint firstAttribute="height" constant="57" id="nbL-vU-bhc"/>
                                     <constraint firstItem="Cye-SA-hcE" firstAttribute="top" secondItem="099-28-SIm" secondAttribute="top" id="x8A-jZ-Olt"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgN-9z-Qkl" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="194" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9tr-aF-oiJ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
                                 <state key="normal" title="ログイン"/>
                                 <userDefinedRuntimeAttributes>
@@ -284,15 +277,19 @@
                             <constraint firstAttribute="trailing" secondItem="ZQQ-zt-pPL" secondAttribute="trailing" id="8yY-wz-7cw"/>
                             <constraint firstItem="ZQQ-zt-pPL" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="Bjq-Br-lfC"/>
                             <constraint firstItem="ZQQ-zt-pPL" firstAttribute="top" secondItem="8Ne-6j-ZWb" secondAttribute="top" id="G7T-cd-3r6"/>
+                            <constraint firstItem="ZQQ-zt-pPL" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="60/667" id="Gu2-Nc-Hg7"/>
                             <constraint firstItem="099-28-SIm" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="HnZ-Cj-TP2"/>
                             <constraint firstAttribute="trailing" secondItem="tgN-9z-Qkl" secondAttribute="trailing" constant="20" id="Pi3-Ob-8Mj"/>
                             <constraint firstItem="tgN-9z-Qkl" firstAttribute="top" secondItem="099-28-SIm" secondAttribute="bottom" constant="20" id="Tk2-Gy-EI1"/>
+                            <constraint firstItem="099-28-SIm" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="57/667" id="Vwv-28-omZ"/>
                             <constraint firstItem="099-28-SIm" firstAttribute="top" secondItem="5MX-qD-mCc" secondAttribute="bottom" id="YHh-VZ-AxC"/>
                             <constraint firstAttribute="trailing" secondItem="099-28-SIm" secondAttribute="trailing" id="kns-bS-W9v"/>
                             <constraint firstItem="tgN-9z-Qkl" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" constant="20" id="mao-cB-R4C"/>
                             <constraint firstItem="5MX-qD-mCc" firstAttribute="top" secondItem="ZQQ-zt-pPL" secondAttribute="bottom" id="pCR-xZ-IvO"/>
+                            <constraint firstItem="tgN-9z-Qkl" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="50/667" id="r1A-w4-uHL"/>
                             <constraint firstItem="5MX-qD-mCc" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="u32-Mm-CnZ"/>
                             <constraint firstAttribute="trailing" secondItem="5MX-qD-mCc" secondAttribute="trailing" id="w65-xV-gvc"/>
+                            <constraint firstItem="5MX-qD-mCc" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="57/667" id="wPW-Vv-Woz"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>

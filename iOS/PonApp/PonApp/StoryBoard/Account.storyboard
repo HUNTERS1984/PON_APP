@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HiraginoSansGB-W3.ttf">
@@ -58,8 +60,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_avatar_placehoder.png" translatesAutoresizingMaskIntoConstraints="NO" id="egv-Wn-yYU" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="C89-2Q-hty"/>
-                                                    <constraint firstAttribute="height" constant="50" id="qf6-1E-fxD"/>
+                                                    <constraint firstAttribute="width" secondItem="egv-Wn-yYU" secondAttribute="height" multiplier="1:1" id="HJd-ev-u5h"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c78-1v-zxn" userLabel="Edit Avatar Button">
@@ -71,6 +72,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="egv-Wn-yYU" firstAttribute="height" secondItem="Akg-jq-GGU" secondAttribute="height" multiplier="50/90" id="1VF-4m-Cn3"/>
                                             <constraint firstItem="OsC-Z2-PdI" firstAttribute="leading" secondItem="egv-Wn-yYU" secondAttribute="trailing" constant="8" id="3V7-eR-KHd"/>
                                             <constraint firstAttribute="bottom" secondItem="c78-1v-zxn" secondAttribute="bottom" constant="8" id="F1B-Dm-7aV"/>
                                             <constraint firstItem="c78-1v-zxn" firstAttribute="top" secondItem="Akg-jq-GGU" secondAttribute="top" constant="8" id="Fh8-RZ-voG"/>
@@ -239,7 +241,7 @@
                                                             <constraint firstAttribute="width" constant="15" id="qA9-sF-cJM"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jx0-Ir-I4d" customClass="IQDropDownTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jx0-Ir-I4d" customClass="HLKDropDownTextField" customModule="PonApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="217" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
