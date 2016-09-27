@@ -37,7 +37,9 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     @Override
     public void onBindViewHolder(NewsRecyclerViewHolders holder, int position) {
         holder.mNewsTitle.setText(mListNews.get(position).getmTitle());
-        holder.mNewsDescription.setText(Html.fromHtml(mListNews.get(position).getmDescriprion()));
+        String description = mListNews.get(position).getmDescriprion();
+        String des = description.substring(0, (description.length() < 71?description.length()-1:70)) + "...<font color=#18C0D4>もっと見る</font>";
+        holder.mNewsDescription.setText(Html.fromHtml(des));
         holder.mNewsShortTitle.setText(mListNews.get(position).getmShortTitle());
         holder.mView.setTag(position);
     }

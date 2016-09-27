@@ -33,7 +33,7 @@ public class SpecificTradeActivity extends BaseActivity {
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.specific_trade), "ローディング...");
+        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.specific_trade), getString(R.string.connecting));
 
         web.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

@@ -109,4 +109,9 @@
     <string name="share_line">LINEでシェア</string>
     <string name="use_coupon_1">QRコードをスタッフに見せて、</string>
     <string name="use_coupon_2">ご利用ください。</string>
+    <string name="connecting">ローディング...</string>
+    <string name="password_not_match">Password does not match the confirm password</string>
+
+    <!--Dialog-->
+    <string name="title_alert_dialog">アラート</string>
 </resources>

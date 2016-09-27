@@ -55,4 +55,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.3@aar') {
         transitive = true;
     }
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0+'
 }

@@ -28,7 +28,8 @@
             android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:id="@+id/edt_username"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -44,7 +45,8 @@
             android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:id="@+id/edt_email"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -59,7 +61,8 @@
             android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:id="@+id/edt_password"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -74,7 +77,8 @@
             android:textColorHint="@color/color_hint_text"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:id="@+id/edt_password_confirm"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="3dp"

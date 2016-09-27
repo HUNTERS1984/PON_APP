@@ -33,7 +33,7 @@ public class PrivacyPolicyActivity extends BaseActivity {
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.privacy_policy), "ローディング...");
+        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.privacy_policy), getString(R.string.connecting));
 
         web.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
