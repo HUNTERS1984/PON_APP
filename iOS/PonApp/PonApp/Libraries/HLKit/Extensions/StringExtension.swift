@@ -79,3 +79,24 @@ extension String {
     }
     
 }
+
+extension String {
+    
+    static func convertDateFormater(dateString: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss:+zzzz"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        
+        guard let date = dateFormatter.dateFromString(dateString) else {
+            assert(false, "no date from string")
+            return ""
+        }
+        
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        let timeStamp = dateFormatter.stringFromDate(date)
+        
+        return timeStamp
+    }
+    
+}
