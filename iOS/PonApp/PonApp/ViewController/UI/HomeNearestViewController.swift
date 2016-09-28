@@ -17,6 +17,9 @@ class HomeNearestViewController: BaseViewController {
     @IBOutlet weak var contentTableViewHeight: NSLayoutConstraint!
     
     var couponListData = [CouponListData]()
+    var previousSelectedIndexPath: NSIndexPath? = nil
+    var previousCollectionIndex: Int? = nil
+    var previousCollectionView: UICollectionView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,27 @@ class HomeNearestViewController: BaseViewController {
     
 }
 
+//MARK: - Private
+extension HomeNearestViewController {
+    
+    private func getCouponDetail(couponId: Float) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let coupon = Coupon(response: result?.data)
+                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                vc.coupon = coupon
+                self.parentNavigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
+}
+
+//MARK: - UITableViewDataSource
 extension HomeNearestViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +87,7 @@ extension HomeNearestViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
         collectionCell.couponCollectionView.index = indexPath.row
-        collectionCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
+        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, coupons: self.couponListData[indexPath.row].coupons)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -74,6 +98,7 @@ extension HomeNearestViewController: UITableViewDataSource {
     
 }
 
+//MARK: - UITableViewDelegate
 extension HomeNearestViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -82,39 +107,10 @@ extension HomeNearestViewController: UITableViewDelegate {
     
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
-extension HomeNearestViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeNearestViewController: HorizontalCollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let listView = collectionView as! HorizontalCollectionView
-        let index = listView.index
-        return self.couponListData[index].coupons.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        let listView = collectionView as! HorizontalCollectionView
-        let index = listView.index
-        cell.coupon = self.couponListData[index].coupons[indexPath.item]
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        return commentView
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-        self.parentNavigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let width = screenWidth * (162/375)
-        let height = screenHeight * (172/667)
-        return CGSizeMake(width, height)
+    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon, atIndexPath indexPath: NSIndexPath) {
+        self.getCouponDetail(coupon.couponID)
     }
     
 }

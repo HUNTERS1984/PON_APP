@@ -41,11 +41,9 @@ class CouponCollectionTableViewCell: UITableViewCell {
         couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: protocol<UICollectionViewDelegate,UICollectionViewDataSource>, index: NSInteger) {
-        self.couponCollectionView.dataSource = delegate
-        self.couponCollectionView.delegate = delegate
-        self.couponCollectionView.tag = index
-        self.couponCollectionView.reloadData()
+    func setCollectionViewDelegate(delegate delegate: protocol<HorizontalCollectionViewDelegate>, index: NSInteger, coupons: [Coupon]) {
+        self.couponCollectionView.handler = delegate
+        self.couponCollectionView.coupons = coupons
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

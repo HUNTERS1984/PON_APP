@@ -88,6 +88,8 @@ extension HomeSearchViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let vc = ListCouponViewController.instanceFromStoryBoard("CouponList")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -16,6 +16,7 @@ struct Coupon {
     var expiryDate: String!
     var canUse: Bool!
     var isLike: Bool!
+    var isUsed: Bool = false
     var description: String!
     var shopAddress: String!
     var shopPhonenumber: String!

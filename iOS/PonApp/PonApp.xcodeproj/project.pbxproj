@@ -218,6 +218,7 @@
 		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
 		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
+		FA85F1C01D9BAAA7003BE0C1 /* used_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -462,6 +463,7 @@
 		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,6 +692,7 @@
 		4A85F2AF1D9ABCDD00733161 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */,
 				4A85F2B01D9ABCDD00733161 /* account_avatar_placehoder@2x.png */,
 				4A85F2B11D9ABCDD00733161 /* account_icon_history@2x.png */,
 				4A85F2B21D9ABCDD00733161 /* account_icon_list@2x.png */,
@@ -1228,6 +1231,7 @@
 				4A85F3C61D9ABCDD00733161 /* map_icon_menu@2x.png in Resources */,
 				4A85F3F01D9ABCDD00733161 /* Register.storyboard in Resources */,
 				4A85F3D51D9ABCDD00733161 /* splash_button_facebook@2x.png in Resources */,
+				FA85F1C01D9BAAA7003BE0C1 /* used_coupon@2x.png in Resources */,
 				4A85F4051D9ABCDD00733161 /* IQKeyboardManager.bundle in Resources */,
 				4A85F4181D9ABCDD00733161 /* ShopFollowCollectionViewCell.xib in Resources */,
 				4A85F3B41D9ABCDD00733161 /* coupon_button_liked@2x.png in Resources */,

@@ -404,7 +404,7 @@
         <!--History View Controller-->
         <scene sceneID="OxB-MA-htJ">
             <objects>
-                <viewController storyboardIdentifier="HistoryViewController" id="iBp-fq-Wkc" customClass="HistoryViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryViewController" automaticallyAdjustsScrollViewInsets="NO" id="iBp-fq-Wkc" customClass="HistoryViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cSm-qk-6cE"/>
                         <viewControllerLayoutGuide type="bottom" id="DtN-p5-p5z"/>
@@ -412,10 +412,46 @@
                     <view key="view" contentMode="scaleToFill" id="u5r-Yi-XjO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1KG-tA-r97">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="Ji1-sn-dvN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Rw-8c-yOG">
+                                        <rect key="frame" x="10" y="5" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="iBp-fq-Wkc" id="Gah-BJ-zzI"/>
+                                    <outlet property="delegate" destination="iBp-fq-Wkc" id="exL-R6-PyW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1KG-tA-r97" secondAttribute="trailing" id="6hw-b3-EmE"/>
+                            <constraint firstItem="DtN-p5-p5z" firstAttribute="top" secondItem="1KG-tA-r97" secondAttribute="bottom" id="GNp-TD-6bi"/>
+                            <constraint firstItem="1KG-tA-r97" firstAttribute="leading" secondItem="u5r-Yi-XjO" secondAttribute="leading" id="c8g-KE-16B"/>
+                            <constraint firstItem="1KG-tA-r97" firstAttribute="top" secondItem="u5r-Yi-XjO" secondAttribute="top" id="xey-w4-NTk"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="1KG-tA-r97" id="kby-Ya-jta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJf-68-nOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

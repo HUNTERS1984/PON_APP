@@ -19,6 +19,7 @@ class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var expireDateLabel: UILabel!
     @IBOutlet weak var likeIconImage: UIImageView!
+    @IBOutlet weak var usedIconImage: UIImageView!
     
     var coupon: Coupon! {
         didSet {
@@ -34,6 +35,8 @@ class CouponCollectionViewCell: UICollectionViewCell {
             self.confirmView.hidden = true
             self.couponContentView.hidden = false
         }
+        
+        self.usedIconImage.hidden = !coupon.isUsed
         let URL = NSURL(string: coupon.imageURL)!
         self.thumbImageView.af_setImageWithURL(URL)
         self.titleLabel.text = coupon.title
