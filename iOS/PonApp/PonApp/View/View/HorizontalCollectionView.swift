@@ -10,7 +10,7 @@ import UIKit
 
 protocol HorizontalCollectionViewDelegate: class {
     
-    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon, atIndexPath indexPath: NSIndexPath)
+    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: NSIndexPath)
 }
 
 class HorizontalCollectionView: UICollectionView {
@@ -37,6 +37,14 @@ class HorizontalCollectionView: UICollectionView {
     func initialize() {
         self.dataSource = self
         self.delegate = self
+    }
+    
+    func resetCollectionView() {
+        if let _ = self.previousSelectedIndexPath {
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+            self.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+            self.previousSelectedIndexPath = nil
+        }
     }
 
 }
@@ -76,6 +84,7 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
         let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
+                self.resetCollectionView()
                 self.handler?.horizontalCollectionView(self, didSelectCoupon: selectedCoupon, atIndexPath: indexPath)
             }else {
                 if let _ = self.previousSelectedIndexPath {
@@ -93,6 +102,7 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
                     collectionView.reloadItemsAtIndexPaths([indexPath])
                     self.previousSelectedIndexPath = indexPath
                 }
+                self.handler?.horizontalCollectionView(self, didSelectCoupon: nil, atIndexPath: indexPath)
             }
         }
     }

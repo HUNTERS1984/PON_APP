@@ -17,9 +17,7 @@ class HomeNearestViewController: BaseViewController {
     @IBOutlet weak var contentTableViewHeight: NSLayoutConstraint!
     
     var couponListData = [CouponListData]()
-    var previousSelectedIndexPath: NSIndexPath? = nil
-    var previousCollectionIndex: Int? = nil
-    var previousCollectionView: UICollectionView? = nil
+    var previousCollectionView: HorizontalCollectionView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +107,16 @@ extension HomeNearestViewController: UITableViewDelegate {
 
 extension HomeNearestViewController: HorizontalCollectionViewDelegate {
     
-    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon, atIndexPath indexPath: NSIndexPath) {
-        self.getCouponDetail(coupon.couponID)
+    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: NSIndexPath) {
+        if let _ = self.previousCollectionView {
+            if self.previousCollectionView! != collectionView {
+                self.previousCollectionView!.resetCollectionView()
+            }
+        }
+        self.previousCollectionView = collectionView
+        if let _ = coupon {
+            self.getCouponDetail(coupon!.couponID)
+        }
     }
     
 }

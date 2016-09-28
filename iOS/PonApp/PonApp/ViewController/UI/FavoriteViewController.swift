@@ -134,6 +134,14 @@ extension FavoriteViewController {
         }
     }
     
+    private func resetCollectionView() {
+        if let _ = self.previousSelectedIndexPath {
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+            collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+            self.previousSelectedIndexPath = nil
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -176,6 +184,7 @@ extension FavoriteViewController: UICollectionViewDelegate {
         let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
+                self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID)
             }else {
                 if let _ = self.previousSelectedIndexPath {
