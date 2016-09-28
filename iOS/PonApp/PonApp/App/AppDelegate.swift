@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        IQKeyboardManager.sharedManager().enable = true
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
         LineLogin.sharedInstance.handleLaunchOptions(launchOptions)

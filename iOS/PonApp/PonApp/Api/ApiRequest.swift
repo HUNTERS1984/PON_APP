@@ -51,9 +51,28 @@ public struct ApiRequest {
         ApiManager.processRequest(FavoriteCoupon, method: .GET, parameters: parameters, hasAuth: true, completion: completion)
     }
     
-    static func getCouponDetail(couponId: Int, completion: ApiCompletion) {
+    static func getCouponDetail(couponId: Float, completion: ApiCompletion) {
         let endpoint = String(format:CouponDetail, couponId)
         ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
+    
+    static func getFollowedShop(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        ApiManager.processRequest(FollowedShop, method: .GET, parameters: parameters, hasAuth: true, completion: completion)
+    }
+    
+    static func getShopDetail(shopId: Float, completion: ApiCompletion) {
+        let endpoint = String(format:ShopDetail, shopId)
+        ApiManager.processRequest(endpoint, method: .GET, completion: completion)
+    }
+    
+    
+    static func getUsedCoupon(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        ApiManager.processRequest(GetUsedCoupon, method: .GET, hasAuth: true, completion: completion)
+    }
+    
 
 }

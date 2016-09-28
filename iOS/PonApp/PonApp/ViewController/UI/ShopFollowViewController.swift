@@ -10,6 +10,10 @@ import UIKit
 
 class ShopFollowViewController: BaseViewController {
     
+    @IBOutlet weak var collectionView:UICollectionView!
+    
+    var shops = [Shop]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,13 +24,80 @@ class ShopFollowViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "フォロー 12"
         self.showBackButton()
+        
+        let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
+        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
+        self.loadFollowedShop(1)
+    }
+    
+}
+
+
+//MARK: - Private
+extension ShopFollowViewController {
+    
+    private func loadFollowedShop(pageIndex: Int) {
+        self.showHUD()
+        ApiRequest.getFollowedShop(pageIndex: pageIndex) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                var responseShop = [Shop]()
+                let shopArray = result?.data?.array
+                if let _ = shopArray {
+                    for shopData in shopArray! {
+                        let shop = Shop(response: shopData)
+                        responseShop.append(shop)
+                    }
+                    if pageIndex == 1 {
+                        self.displayShop(responseShop, type: .New)
+                    }else {
+                        self.displayShop(responseShop, type: .LoadMore)
+                    }
+                }else {
+                    
+                }
+            }
+        }
+    }
+    
+    private func displayShop(shops: [Shop], type: GetType) {
+        switch type {
+        case .New:
+            self.shops.removeAll()
+            self.shops = shops
+            self.collectionView.reloadData()
+            break
+        case .LoadMore:
+            self.shops.appendContentsOf(shops)
+            self.collectionView.reloadData()
+            break
+        case .Reload:
+            break
+        }
+    }
+    
+    private func getShopDetail(shopId: Float) {
+        self.showHUD()
+        ApiRequest.getShopDetail(shopId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let shop = Shop(response: result?.data)
+                let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
+                vc.shop = shop
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
 }
@@ -35,12 +106,13 @@ class ShopFollowViewController: BaseViewController {
 extension ShopFollowViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return self.shops.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ListCouponCollectionViewCell", forIndexPath: indexPath) as! ListCouponCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShopFollowCollectionViewCell", forIndexPath: indexPath) as! ShopFollowCollectionViewCell
+        cell.shop = self.shops[indexPath.item]
         return cell
         
     }
@@ -61,8 +133,8 @@ extension ShopFollowViewController: UICollectionViewDataSource {
 extension ShopFollowViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = ShopViewController.instanceFromStoryBoard("Shop")
-        self.navigationController?.pushViewController(vc, animated: false)
+        let selectedShopId = self.shops[indexPath.item].shopID
+        self.getShopDetail(selectedShopId)
     }
     
 }

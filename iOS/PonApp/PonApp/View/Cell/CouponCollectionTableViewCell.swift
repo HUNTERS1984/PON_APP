@@ -12,7 +12,7 @@ typealias MoreButtonPressed = (sender: AnyObject) -> ()
 
 class CouponCollectionTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var couponCollectionView: UICollectionView!
+    @IBOutlet weak var couponCollectionView: HorizontalCollectionView!
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var headerLabel: UILabel!
     

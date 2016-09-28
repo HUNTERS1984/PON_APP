@@ -12,6 +12,7 @@ let NavBarChangePoint: CGFloat = 50.0
 
 class ShopViewController: BaseViewController {
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
@@ -19,6 +20,23 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
     @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var couponCollectionView: UICollectionView!
+    @IBOutlet weak var navigationView: UIView!
+    @IBOutlet weak var shopId: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var accessLabel: UILabel!
+    @IBOutlet weak var industriTime: UILabel!
+    @IBOutlet weak var holidayLabel: UILabel!
+    @IBOutlet weak var meanCountLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+
+    var shopCoupon = [Coupon]() {
+        didSet {
+            self.couponCollectionView.reloadData()
+        }
+    }
+    
+    var shop: Shop? = nil
+    var previousSelectedIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,27 +48,25 @@ class ShopViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.scrollViewDidScroll(self.mainScrollView)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.lt_reset()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
         self.showBackButton()
+        self.view.bringSubviewToFront(self.navigationView)
+        self.navigationView.backgroundColor = UIColor(hex: 0x18c0d4).colorWithAlphaComponent(0)
+        
+        self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
         self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), forState: .Normal)
         self.locationButton.setImage(UIImage(named: "shop_detail_button_location"), forState: .Normal)
         self.shareButton.setImage(UIImage(named: "shop_detail_button_share"), forState: .Normal)
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
-        self.setupPhotoCollectionView()
+        if let _ = self.shop {
+            self.displayShopDetail(self.shop!)
+        }
     }
 
 }
@@ -70,35 +86,47 @@ extension ShopViewController {
     
     }
     
+    @IBAction override func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
 
 //MARK: - Private
 extension ShopViewController {
     
-    private func setupPhotoCollectionView() {
-        self.albumCollectionView.photos = [
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-653-636038386342807622.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-652-636038386296710231.jpg",
-            "https://media.foody.vn/res/g10/93336/s170x170/foody-5ku-quan-nguyen-thong-815-636038386334056950.jpg"
-        ]
+    private func displayShopDetail(shop: Shop) {
+        shopId.text = "\(shop.shopID)"
+        addressLabel.text = shop.shopAddress
+        accessLabel.text = shop.shopDirection
+//        industriTime: UILabel!
+        holidayLabel.text = shop.regularHoliday
+        meanCountLabel.text = "~\(shop.shopAvegerBill)円"
+        phoneNumberLabel.text = shop.shopPhonenumber
+        self.shopCoupon = shop.shopCoupons
+        self.setupPhotoCollectionView(shop.shopPhotosUrl)
+    }
+    
+    private func setupPhotoCollectionView(urls: [String]) {
+        self.albumCollectionView.photos = urls
         self.albumCollectionView.reloadData {
             self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func getCouponDetail(couponId: Float) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let coupon = Coupon(response: result?.data)
+                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                vc.coupon = coupon
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
@@ -108,13 +136,13 @@ extension ShopViewController {
 extension ShopViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let color = UIColor(hex: 0x18c0d3)
+        let color = UIColor(hex: 0x18c0d4)
         let offsetY = scrollView.contentOffset.y
         if offsetY > NavBarChangePoint {
             let alpha = min(1, 1 - ((NavBarChangePoint + 64 - offsetY) / 64))
-            self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(alpha))
+            self.navigationView.backgroundColor = color.colorWithAlphaComponent(alpha)
         }else {
-            self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
+            self.navigationView.backgroundColor = color.colorWithAlphaComponent(0)
         }
     }
     
@@ -124,11 +152,12 @@ extension ShopViewController: UIScrollViewDelegate {
 extension ShopViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.shopCoupon.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        cell.coupon = self.shopCoupon[indexPath.item]
         return cell
         
     }
@@ -138,9 +167,16 @@ extension ShopViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
         let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
         return commentView
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let width = screenWidth * (162/375)
+        let height = screenHeight * (172/667)
+        return CGSizeMake(width, height)
     }
     
 }
@@ -149,8 +185,25 @@ extension ShopViewController: UICollectionViewDataSource {
 extension ShopViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc, animated: true)
+        let selectedCoupon = self.shopCoupon[indexPath.item]
+        if let _ = selectedCoupon.canUse {
+            if selectedCoupon.canUse! {
+                self.getCouponDetail(selectedCoupon.couponID)
+            }else {
+                if let _ = self.previousSelectedIndexPath {
+                    self.shopCoupon[self.previousSelectedIndexPath!.item].showConfirmView = false
+                    collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+                    
+                    self.shopCoupon[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }else {
+                    self.shopCoupon[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }
+            }
+        }
     }
     
 }

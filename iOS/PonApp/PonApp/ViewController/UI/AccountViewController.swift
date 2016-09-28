@@ -58,28 +58,83 @@ extension AccountViewController {
         let vc = EditAccountViewController.instanceFromStoryBoard("Account")
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func followedShopButtonPressed(sender: AnyObject) {
+        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func historyButtonPressed(sender: AnyObject) {
+        let vc = HistoryViewController.instanceFromStoryBoard("Account")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func newsButtonPressed(sender: AnyObject) {
+        let vc = NewsViewController.instanceFromStoryBoard("Account")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
+//MARK: - Private
+extension AccountViewController {
+    
+    private func getListFunction() -> [String] {
+        return [
+            "利用規約",//terms of service
+            "プライバシーポリシー",//privacy policy
+            "特定商取引",//specified trade
+            "お問い合わせ",//contact us
+            "掲載希望のショップ様"//news
+        ]
+    }
+    
+}
+
+
+//MARK: - UITableViewDataSource
 extension AccountViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.getListFunction().count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("AccountTableViewCell") as! AccountTableViewCell
+        cell.titleLabel.text = self.getListFunction()[indexPath.row]
+        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        return screenHeight * (60/667)
     }
     
 }
 
+//MARK: - UITableViewDelegate
 extension AccountViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        switch indexPath.row {
+        case 0:
+            let vc = TermsOfServiceViewController.instanceFromStoryBoard("Account")
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
+        case 1:
+            let vc = PrivacyPolicyViewController.instanceFromStoryBoard("Account")
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
+        case 2:
+            let vc = SpecifiedTradeViewController.instanceFromStoryBoard("Account")
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            break;
+        }
     }
 }

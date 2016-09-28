@@ -9,12 +9,9 @@
 import UIKit
 
 class EditAccountViewController: BaseViewController {
-
-    var returnKeyHandler: IQKeyboardReturnKeyHandler?
     
-    @IBOutlet weak var genderDropdown: HLKDropDownTextField!
-    @IBOutlet weak var perfectureDropdown: HLKDropDownTextField!
-    
+    @IBOutlet weak var genderDropdown: IQDropDownTextField!
+    @IBOutlet weak var perfectureDropdown: IQDropDownTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +28,6 @@ class EditAccountViewController: BaseViewController {
     
     override func setUpComponentsOnLoad() {
         super.setUpComponentsOnLoad()
-        self.returnKeyHandler = IQKeyboardReturnKeyHandler(viewController: self)
-        self.returnKeyHandler?.lastTextFieldReturnKeyType = .Done
     }
     
     override func setUpUserInterface() {
@@ -44,43 +39,46 @@ class EditAccountViewController: BaseViewController {
     }
 }
 
+//MARK: - IBAction
+extension EditAccountViewController {
+    
+    @IBAction func saveButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func editAvatarButtonPressed(sender: AnyObject) {
+        
+    }
+    
+}
+
 //MARK: - Private
 extension EditAccountViewController {
     
     private func setupGenderDropdown() {
-        self.genderDropdown.placeHolderText = "男性"
-        self.genderDropdown.handler = self
-        let types = [
-            HLKDropDownItem(itemId: 1, itemTitle: "Male"),
-            HLKDropDownItem(itemId: 2, itemTitle: "Female"),
-            HLKDropDownItem(itemId: 3, itemTitle: "LGBT"),
-            ]
-        
-        genderDropdown.itemList = types
+        genderDropdown.keyboardDistanceFromTextField = 50
+        genderDropdown.delegate = self
+        genderDropdown.itemList = [
+            "男性",
+            "女人"
+        ]
     }
     
     private func setupPerfectureDropdown() {
-        self.perfectureDropdown.placeHolderText = "東京都"
-        self.perfectureDropdown.handler = self
-        let types = [
-            HLKDropDownItem(itemId: 1, itemTitle: "Male"),
-            HLKDropDownItem(itemId: 2, itemTitle: "Female"),
-            HLKDropDownItem(itemId: 3, itemTitle: "LGBT"),
-            ]
-        
-        perfectureDropdown.itemList = types
+        perfectureDropdown.keyboardDistanceFromTextField = 50
+        perfectureDropdown.delegate = self
+        perfectureDropdown.itemList = [
+            "男性",
+            "女人"
+        ]
     }
     
 }
 
 //MARK: - HLKDropDownTextFieldDelegate
-extension EditAccountViewController: HLKDropDownTextFieldDelegate {
+extension EditAccountViewController: IQDropDownTextFieldDelegate {
     
-    func dropDownTextField(dropdown: HLKDropDownTextField, didSelectItem item: HLKDropDownItem, atIndex index: Int) {
-        
-    }
-    
-    func dropDownTextFieldShouldBeginEditing(dropdown: HLKDropDownTextField) {
+    func textField(textField: IQDropDownTextField!, didSelectItem item: String!) {
         
     }
     
