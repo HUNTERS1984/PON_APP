@@ -1,15 +1,15 @@
 //
-//  HomeNearestViewController.swift
+//  MainCouponContentViewController.swift
 //  PonApp
 //
-//  Created by HaoLe on 9/8/16.
+//  Created by OSXVN on 9/28/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
 import UIKit
 
-class HomeNearestViewController: BaseViewController {
-
+class MainCouponContentViewController: BaseViewController {
+    
     var parentNavigationController : UINavigationController?
     
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -48,7 +48,7 @@ class HomeNearestViewController: BaseViewController {
 }
 
 //MARK: - Private
-extension HomeNearestViewController {
+extension MainCouponContentViewController {
     
     private func getCouponDetail(couponId: Float) {
         self.showHUD()
@@ -68,7 +68,7 @@ extension HomeNearestViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension HomeNearestViewController: UITableViewDataSource {
+extension MainCouponContentViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return couponListData.count
@@ -97,7 +97,7 @@ extension HomeNearestViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension HomeNearestViewController: UITableViewDelegate {
+extension MainCouponContentViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -105,7 +105,7 @@ extension HomeNearestViewController: UITableViewDelegate {
     
 }
 
-extension HomeNearestViewController: HorizontalCollectionViewDelegate {
+extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
     
     func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: NSIndexPath) {
         if let _ = self.previousCollectionView {
@@ -122,7 +122,7 @@ extension HomeNearestViewController: HorizontalCollectionViewDelegate {
 }
 
 //MARK: - Private
-extension HomeNearestViewController {
+extension MainCouponContentViewController {
     
     private func getCoupon(pageIndex: Int) {
         self.showHUD()
@@ -173,5 +173,3 @@ extension HomeNearestViewController {
     }
     
 }
-
-

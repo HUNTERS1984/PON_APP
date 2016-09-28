@@ -115,7 +115,7 @@ extension BaseViewController {
     }
     
     @IBAction func navCloseButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

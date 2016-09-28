@@ -1,14 +1,14 @@
 //
-//  ListCouponViewController.swift
+//  ListShopViewController.swift
 //  PonApp
 //
-//  Created by HaoLe on 9/8/16.
+//  Created by OSXVN on 9/28/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
 import UIKit
 
-class ListCouponViewController: BaseViewController {
+class ListShopViewController: BaseViewController {
     
     var pageMenu : CAPSPageMenu?
     var couponType: Int?
@@ -28,48 +28,47 @@ class ListCouponViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "グルメでさがす"
+        self.title = "グルメ"
         self.showBackButton()
+        let barButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .Plain, target: self, action: #selector(self.searchBarButtonPressed(_:)))
+        self.navigationItem.rightBarButtonItem = barButton
     }
 }
 
 //IBAction
-extension ListCouponViewController {
+extension ListShopViewController {
+    
+    @IBAction func searchBarButtonPressed(sender: AnyObject) {
+        
+    }
     
 }
 
-extension ListCouponViewController {
+extension ListShopViewController {
     
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-        let popular = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
+        let popular = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         popular.parentNavigationController = self.navigationController
         popular.couponFeature = .Popularity
         popular.couponType = self.couponType
         popular.title = "人気"
         controllerArray.append(popular)
         
-        let newest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
+        let newest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         newest.parentNavigationController = self.navigationController
         newest.couponFeature = .NewArrival
         newest.couponType = self.couponType
         newest.title = "新着"
         controllerArray.append(newest)
         
-        let nearest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
+        let nearest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         nearest.parentNavigationController = self.navigationController
         nearest.couponFeature = .Near
         nearest.couponType = self.couponType
         nearest.title = "近く"
         controllerArray.append(nearest)
-        
-        let deal = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
-        deal.parentNavigationController = self.navigationController
-        deal.couponFeature = .Deal
-        deal.couponType = self.couponType
-        deal.title = "お得"
-        controllerArray.append(deal)
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
@@ -95,10 +94,10 @@ extension ListCouponViewController {
     
 }
 
-extension ListCouponViewController: CAPSPageMenuDelegate {
+extension ListShopViewController: CAPSPageMenuDelegate {
     
     func didMoveToPage(controller: UIViewController, index: Int) {
-    
+
     }
     
     func willMoveToPage(controller: UIViewController, index: Int) {

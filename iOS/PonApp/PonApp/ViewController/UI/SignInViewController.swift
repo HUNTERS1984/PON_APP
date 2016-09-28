@@ -114,7 +114,7 @@ extension SignInViewController {
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-                    
+                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }
         }

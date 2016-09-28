@@ -125,7 +125,7 @@ public struct ApiManager {
                         }
                     }
                 }
-            case .Failure(let encodingError):
+            case .Failure( _):
                 ApiManager.processFailureResponese(nil, completion: completion)
             }
         }

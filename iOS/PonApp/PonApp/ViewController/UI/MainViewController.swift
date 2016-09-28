@@ -76,28 +76,25 @@ extension MainViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-//        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
-        let popular = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let popular = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         popular.parentNavigationController = self.navigationController
         popular.title = "人気"
         controllerArray.append(popular)
         
-//        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
-        let newest = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let newest = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         newest.parentNavigationController = self.navigationController
         newest.title = "新着"
         controllerArray.append(newest)
         
-        let nearby = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let nearby = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         nearby.parentNavigationController = self.navigationController
         nearby.title = "近く"
         controllerArray.append(nearby)
         
-//        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
-        let used = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
-        used.parentNavigationController = self.navigationController
-        used.title = "お得"
-        controllerArray.append(used)
+        let deal = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
+        deal.parentNavigationController = self.navigationController
+        deal.title = "お得"
+        controllerArray.append(deal)
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
@@ -106,7 +103,6 @@ extension MainViewController {
             .BottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .SelectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .MenuItemWidth(70.0),
-            
             .MenuHeight(self.view.bounds.size.height * (50/667)),
             .SelectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .UnselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),

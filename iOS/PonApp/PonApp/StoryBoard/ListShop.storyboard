@@ -5,15 +5,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--List Coupon View Controller-->
-        <scene sceneID="UTi-yn-pmy">
+        <!--List Shop View Controller-->
+        <scene sceneID="ZJd-cY-PZe">
             <objects>
-                <viewController storyboardIdentifier="ListCouponViewController" id="1QO-N4-KjB" customClass="ListCouponViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListShopViewController" id="Y17-WY-uQ1" customClass="ListShopViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xnS-LV-0xE"/>
-                        <viewControllerLayoutGuide type="bottom" id="suR-hV-Mwg"/>
+                        <viewControllerLayoutGuide type="top" id="ylL-ku-1t9"/>
+                        <viewControllerLayoutGuide type="bottom" id="K7f-qF-VJh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V3j-VY-fkb">
+                    <view key="view" contentMode="scaleToFill" id="cPd-4A-01u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -21,33 +21,33 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MFp-sl-mvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCS-0F-2VX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-341.5" y="319.5"/>
+            <point key="canvasLocation" x="80.5" y="0.5"/>
         </scene>
-        <!--List Coupon Content View Controller-->
-        <scene sceneID="5si-ag-E1X">
+        <!--List Shop Content View Controller-->
+        <scene sceneID="yWY-b0-P7Z">
             <objects>
-                <viewController storyboardIdentifier="ListCouponContentViewController" id="1gb-wu-q14" customClass="ListCouponContentViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListShopContentViewController" id="JV2-zs-pDX" customClass="ListShopContentViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DCw-xh-nGc"/>
-                        <viewControllerLayoutGuide type="bottom" id="kEX-ma-eN9"/>
+                        <viewControllerLayoutGuide type="top" id="sbO-c7-pDr"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ez-Sx-B2S"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gM5-mc-7NH">
+                    <view key="view" contentMode="scaleToFill" id="TCb-BH-yc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DA5-UA-OAy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8F-H0-eEI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="afT-Xg-Jvb">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="n6H-R5-Mer">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ALv-di-E2D">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rQq-nC-OR7">
                                         <rect key="frame" x="10" y="5" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -58,28 +58,28 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="1gb-wu-q14" id="eMu-ng-qM1"/>
-                                    <outlet property="delegate" destination="1gb-wu-q14" id="8MU-mu-YKm"/>
+                                    <outlet property="dataSource" destination="JV2-zs-pDX" id="Gar-Bn-0pZ"/>
+                                    <outlet property="delegate" destination="JV2-zs-pDX" id="Xvc-AZ-FB7"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kEX-ma-eN9" firstAttribute="top" secondItem="DA5-UA-OAy" secondAttribute="bottom" id="67b-6i-NLY"/>
-                            <constraint firstItem="DA5-UA-OAy" firstAttribute="leading" secondItem="gM5-mc-7NH" secondAttribute="leading" id="CGK-Gm-Wmc"/>
-                            <constraint firstAttribute="trailing" secondItem="DA5-UA-OAy" secondAttribute="trailing" id="JvU-hc-uPn"/>
-                            <constraint firstItem="DA5-UA-OAy" firstAttribute="top" secondItem="gM5-mc-7NH" secondAttribute="top" id="kxr-Zz-BkA"/>
+                            <constraint firstItem="3ez-Sx-B2S" firstAttribute="top" secondItem="A8F-H0-eEI" secondAttribute="bottom" id="3UX-oS-9gq"/>
+                            <constraint firstAttribute="trailing" secondItem="A8F-H0-eEI" secondAttribute="trailing" id="SMR-4G-0z9"/>
+                            <constraint firstItem="A8F-H0-eEI" firstAttribute="top" secondItem="TCb-BH-yc5" secondAttribute="top" id="fXi-7J-Mb6"/>
+                            <constraint firstItem="A8F-H0-eEI" firstAttribute="leading" secondItem="TCb-BH-yc5" secondAttribute="leading" id="sdT-gY-0v5"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="collectionView" destination="DA5-UA-OAy" id="40e-F1-S83"/>
+                        <outlet property="collectionView" destination="A8F-H0-eEI" id="h6t-MH-dWY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8fT-3x-Cuk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWJ-Gq-wep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.5" y="319.5"/>
+            <point key="canvasLocation" x="489.5" y="0.5"/>
         </scene>
     </scenes>
 </document>

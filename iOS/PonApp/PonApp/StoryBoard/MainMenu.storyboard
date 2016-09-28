@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,10 +16,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Home Nearest View Controller-->
+        <!--Main Coupon Content View Controller-->
         <scene sceneID="Z2u-A8-Zu1">
             <objects>
-                <viewController storyboardIdentifier="HomeNearestViewController" id="Iod-Rd-hKm" customClass="HomeNearestViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainCouponContentViewController" id="Iod-Rd-hKm" customClass="MainCouponContentViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2GW-2d-eKc"/>
                         <viewControllerLayoutGuide type="bottom" id="eQC-Sk-ljw"/>
@@ -70,35 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgR-Cc-aYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-484.5" y="561.5"/>
-        </scene>
-        <!--Home Popular View Controller-->
-        <scene sceneID="aH1-TT-7e9">
-            <objects>
-                <tableViewController storyboardIdentifier="HomePopularViewController" id="nHd-7F-gvL" customClass="HomePopularViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dQm-h5-a4F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="p30-YL-aUO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p30-YL-aUO" id="FCz-3F-lNm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="nHd-7F-gvL" id="qOc-nA-JGp"/>
-                            <outlet property="delegate" destination="nHd-7F-gvL" id="rU8-DX-ZLz"/>
-                        </connections>
-                    </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S0h-EA-ngD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-82.5" y="561.5"/>
         </scene>
         <!--Home Search View Controller-->
         <scene sceneID="dFq-Me-LHJ">
@@ -182,7 +153,7 @@
                                 <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="MOz-q2-uzW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponTypeTableViewCell" rowHeight="72" id="MOz-q2-uzW" customClass="CouponTypeTableViewCell" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOz-q2-uzW" id="Z5x-gY-J7H">
@@ -196,13 +167,13 @@
                                                         <constraint firstAttribute="height" constant="15" id="v3Z-qX-CgQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グルメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
                                                     <rect key="frame" x="68" y="0.0" width="274" height="71"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="pDD-AW-LHB" userLabel="Thumb Image View">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pDD-AW-LHB" userLabel="Thumb Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="13" width="45" height="45"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -222,6 +193,10 @@
                                                 <constraint firstItem="lM3-3p-fh8" firstAttribute="leading" secondItem="pDD-AW-LHB" secondAttribute="trailing" constant="8" id="wu2-ZQ-CyA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbImageView" destination="pDD-AW-LHB" id="DIA-ML-9Dy"/>
+                                            <outlet property="titleLabel" destination="lM3-3p-fh8" id="vBB-I6-nCb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -246,6 +221,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="couponTypeTableView" destination="74G-w9-8lz" id="Kiq-KO-M0F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2K6-BO-6kB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,14 +366,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="ku1-2S-HPc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShopCountTableViewCell" rowHeight="72" id="ku1-2S-HPc" customClass="ShopCountTableViewCell" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ku1-2S-HPc" id="rcb-68-u7w">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-10-yYi" userLabel="Thumb Image View">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-10-yYi" userLabel="Thumb Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="13" width="45" height="45"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -413,9 +391,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo7-FW-9Xm" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
                                                     <rect key="frame" x="284" y="21" width="30" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-dR-rIy">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-dR-rIy">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.792156862745098" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -444,7 +422,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グルメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-YG-R9f">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-YG-R9f">
                                                     <rect key="frame" x="68" y="0.0" width="208" height="71"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
                                                     <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -464,6 +442,11 @@
                                                 <constraint firstItem="fo7-FW-9Xm" firstAttribute="centerY" secondItem="rcb-68-u7w" secondAttribute="centerY" id="zC1-0C-jZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="shopCountLabel" destination="cWc-dR-rIy" id="ShY-Ej-4Gm"/>
+                                            <outlet property="thumbImageView" destination="2AY-10-yYi" id="B0c-3U-4go"/>
+                                            <outlet property="titleLabel" destination="UWt-YG-R9f" id="vMX-ka-Y5e"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -482,73 +465,17 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="couponTypeTableView" destination="uHy-8T-Y1n" id="y6u-3u-b3a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFA-d0-fBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777.5" y="1304.5"/>
         </scene>
-        <!--Home Newest View Controller-->
-        <scene sceneID="sov-oi-CNa">
-            <objects>
-                <tableViewController storyboardIdentifier="HomeNewestViewController" id="uDY-gF-PGE" customClass="HomeNewestViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="otk-sR-Rts">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DaY-uq-Ixq">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DaY-uq-Ixq" id="2I5-sp-WWj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="uDY-gF-PGE" id="W9J-wu-hUd"/>
-                            <outlet property="delegate" destination="uDY-gF-PGE" id="zcz-GF-4R9"/>
-                        </connections>
-                    </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2xk-QK-iE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="317.5" y="561.5"/>
-        </scene>
-        <!--Home Used View Controller-->
-        <scene sceneID="r4n-9v-8gW">
-            <objects>
-                <tableViewController storyboardIdentifier="HomeUsedViewController" id="PyV-Ix-9aL" customClass="HomeUsedViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bRC-PS-Geu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="UtK-ZX-LuA">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UtK-ZX-LuA" id="1di-nI-Pfr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="PyV-Ix-9aL" id="qOa-pc-yN6"/>
-                            <outlet property="delegate" destination="PyV-Ix-9aL" id="r74-gf-B4c"/>
-                        </connections>
-                    </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LXK-CE-cGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="730.5" y="561.5"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow_right.png" width="12" height="19"/>
-        <image name="icon_food.png" width="55" height="55"/>
         <image name="icon_location.png" width="55" height="55"/>
     </resources>
 </document>

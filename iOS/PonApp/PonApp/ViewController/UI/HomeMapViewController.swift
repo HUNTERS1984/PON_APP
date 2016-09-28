@@ -64,12 +64,11 @@ extension HomeMapViewController {
     
     @IBAction func menuButtonPressed(sender: AnyObject) {
         let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func hideOfferButtonPressed(sender: AnyObject) {
         self.hideOfferView()
-
     }
     
     override func navCloseButtonPressed(sender: AnyObject) {

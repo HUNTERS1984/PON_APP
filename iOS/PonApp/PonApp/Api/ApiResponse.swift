@@ -25,6 +25,8 @@ struct ApiResponse {
     init(response: JSON?) {
         if let message = response!["message"].string {
             self.message = message
+        }else {
+            self.message = ""
         }
         
         if let data = response!["data"].dictionary {

@@ -10,6 +10,19 @@ import UIKit
 
 class HomeSearchViewController: BaseViewController {
 
+    @IBOutlet weak var couponTypeTableView: UITableView!
+    
+    var couponTypes = [CouponType]() {
+        didSet {
+            self.couponTypeTableView.reloadData()
+            if couponTypes.count > 0 {
+                self.couponTypeTableView.hidden = false
+            }else {
+                self.couponTypeTableView.hidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,6 +42,8 @@ class HomeSearchViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem = leftBarButton
         self.showSearchBox()
         self.showRightBarButtonWithTitle("キャンセル")
+        self.couponTypeTableView.hidden = true
+        self.getCouponType(1)
     }
 
 }
@@ -65,17 +80,42 @@ extension HomeSearchViewController {
         self.navigationItem.titleView = searchBox
     }
     
+    private func getCouponType(pageIndex: Int) {
+        self.showHUD()
+        ApiRequest.getCouponType(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    var responseCouponType = [CouponType]()
+                    let couponTypeArray = result?.data?.array
+                    if let _ = couponTypeArray {
+                        for couponTypeData in couponTypeArray! {
+                            let couponType = CouponType(response: couponTypeData)
+                            responseCouponType.append(couponType)
+                        }
+                        self.couponTypes = responseCouponType
+                    }
+                }else {
+                    
+                }
+            }
+        }
+    }
+    
 }
 
 extension HomeSearchViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.couponTypes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("CouponTypeTableViewCell") as! CouponTypeTableViewCell
+        cell.setDataForCell(self.couponTypes[indexPath.row])
+        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -88,7 +128,9 @@ extension HomeSearchViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let vc = ListCouponViewController.instanceFromStoryBoard("CouponList")
+        let selectedType = self.couponTypes[indexPath.row]
+        let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
+        vc.couponType = selectedType.couponTypeID
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
