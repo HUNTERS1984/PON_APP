@@ -114,4 +114,5 @@
 
     <!--Dialog-->
     <string name="title_alert_dialog">アラート</string>
+    <string name="deadline">期限：</string>
 </resources>

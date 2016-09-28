@@ -9,4 +9,7 @@ public class APIConstants {
     public static final int HANDLER_REQUEST_SERVER_FAILED = 1;
 
     public static final int REQUEST_OK = 1000;
+
+    public static final int TRUE = 1;
+    public static final int FALSE = 0;
 }

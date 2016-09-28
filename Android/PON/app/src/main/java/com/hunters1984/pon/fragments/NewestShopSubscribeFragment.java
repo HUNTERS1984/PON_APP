@@ -76,7 +76,7 @@ public class NewestShopSubscribeFragment extends BaseShopSubscribeFragment imple
 
         for(int i=0; i<8;i++){
             ShopModel shop =new ShopModel();
-            shop.setmIsShopSubscribe(false);
+            shop.setmIsShopFollow(0);
             mListShops.add(shop);
         }
     }

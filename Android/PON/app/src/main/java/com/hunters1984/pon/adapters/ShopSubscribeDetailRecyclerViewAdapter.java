@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.ShopDetailActivity;
 import com.hunters1984.pon.models.ShopModel;
+import com.hunters1984.pon.utils.CommonUtils;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class ShopSubscribeDetailRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(ShopSubscribeDetailRecyclerViewHolders holder, int position) {
-        boolean isShopSubscribe = mListShops.get(position).ismIsShopSubscribe();
+        boolean isShopSubscribe = CommonUtils.convertBoolean(mListShops.get(position).getmIsShopFollow());
         if(isShopSubscribe){
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
             holder.mDesShopSelectStatus.setText(mContext.getString(R.string.following));
@@ -88,8 +89,8 @@ public class ShopSubscribeDetailRecyclerViewAdapter extends RecyclerView.Adapter
 
             switch (view.getId()){
                 case R.id.rl_back_ground_shop_select_status:
-                    boolean isShopSubscribe = mListShops.get(pos).ismIsShopSubscribe();
-                    mListShops.get(pos).setmIsShopSubscribe(!isShopSubscribe);
+                    boolean isShopSubscribe = CommonUtils.convertBoolean(mListShops.get(pos).getmIsShopFollow());
+                    mListShops.get(pos).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
                     notifyDataSetChanged();
                     break;
                 default:

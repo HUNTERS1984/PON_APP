@@ -29,10 +29,9 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
         for(int i=0; i<5; i++) {
             CouponModel coupon = new CouponModel();
             coupon.setmTitle("タイトルが入ります");
-            coupon.setmDescription("タイプが入ります");
-            coupon.setmExpireDate("期限：2016.07.31");
-            coupon.setmIsFavourite(true);
-            coupon.setmIsLoginRequired(false);
+            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
+            coupon.setmIsFavourite(1);
+            coupon.setmIsLoginRequired(0);
             mListCoupons.add(coupon);
         }
     }

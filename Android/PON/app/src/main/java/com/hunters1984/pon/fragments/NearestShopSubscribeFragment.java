@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.CommonUtils;
 
 import java.util.ArrayList;
 
@@ -76,7 +77,7 @@ public class NearestShopSubscribeFragment extends BaseShopSubscribeFragment impl
 
         for(int i=0; i<2;i++){
             ShopModel shop =new ShopModel();
-            shop.setmIsShopSubscribe(false);
+            shop.setmIsShopFollow(CommonUtils.convertInt(false));
             mListShops.add(shop);
         }
     }

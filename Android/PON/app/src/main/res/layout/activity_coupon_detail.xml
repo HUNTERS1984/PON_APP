@@ -83,7 +83,8 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
-                    android:textColor="@color/color_text_title_coupons"/>
+                    android:textColor="@color/color_text_title_coupons"
+                    android:id="@+id/tv_coupon_title"/>
                 <View android:layout_width="match_parent"
                       android:layout_height="2dp"
                       android:background="@color/light_grey_stroke_icon"/>
@@ -99,15 +100,16 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/grey"
-                        android:id="@+id/tv_title"/>
+                        android:id="@+id/tv_coupon_type_id"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_title"
+                        android:layout_below="@id/tv_coupon_type_id"
                         android:text="期限：2016.07.31"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/pink"/>
+                        android:textColor="@color/pink"
+                        android:id="@+id/tv_coupon_expire_date"/>
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
@@ -122,7 +124,8 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:text="説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります..説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります"
-                    android:textColor="@color/grey"/>
+                    android:textColor="@color/grey"
+                    android:id="@+id/tv_coupon_description"/>
 
                 <fragment
                     android:id="@+id/map_shop"
@@ -147,7 +150,8 @@
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="住所が入ります"
                         android:textStyle="bold"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/grey"
+                        android:id="@+id/tv_coupon_address"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -167,7 +171,8 @@
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="営業時間が入ります"
                         android:textStyle="bold"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/grey"
+                        android:id="@+id/tv_coupon_opearation_time"/>
                 </LinearLayout>
 
                 <View android:layout_width="match_parent"
@@ -192,7 +197,8 @@
                         android:layout_marginLeft="@dimen/layout_margin"
                         android:text="電話番号が入ります"
                         android:textStyle="bold"
-                        android:textColor="@color/grey"/>
+                        android:textColor="@color/grey"
+                        android:id="@+id/tv_coupon_phone"/>
                 </LinearLayout>
 
                 <com.hunters1984.pon.customs.CustomTextView

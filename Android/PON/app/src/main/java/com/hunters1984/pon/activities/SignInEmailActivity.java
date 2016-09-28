@@ -10,8 +10,8 @@ import android.widget.EditText;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseUserData;
 import com.hunters1984.pon.api.UserProfileAPIHelper;
-import com.hunters1984.pon.models.ResponseUserDataModel;
 import com.hunters1984.pon.utils.DialogUtiils;
 
 public class SignInEmailActivity extends BaseActivity {
@@ -52,7 +52,7 @@ public class SignInEmailActivity extends BaseActivity {
     private Handler mHanlderSignIn = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            ResponseUserDataModel user = (ResponseUserDataModel) msg.obj;
+            ResponseUserData user = (ResponseUserData) msg.obj;
             if (user.code != APIConstants.REQUEST_OK) {
                 new DialogUtiils().showDialog(mContext, user.message);
             } else {

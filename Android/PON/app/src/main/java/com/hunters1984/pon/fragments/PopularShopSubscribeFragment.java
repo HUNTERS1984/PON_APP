@@ -57,7 +57,7 @@ public class PopularShopSubscribeFragment extends BaseShopSubscribeFragment impl
 
         for(int i=0; i<8;i++){
             ShopModel shop =new ShopModel();
-            shop.setmIsShopSubscribe(false);
+            shop.setmIsShopFollow(0);
             mListShops.add(shop);
         }
     }

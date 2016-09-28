@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.CouponDetailActivity;
 import com.hunters1984.pon.models.CouponModel;
+import com.hunters1984.pon.utils.CommonUtils;
 
 import java.util.List;
 
@@ -41,16 +42,23 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
     @Override
     public void onBindViewHolder(CouponRecyclerViewHolders holder, int position) {
         holder.mCouponTitle.setText(mListCoupons.get(position).getmTitle());
-        holder.mCouponDescription.setText(mListCoupons.get(position).getmDescription());
-        holder.mCouponExpireDate.setText(mListCoupons.get(position).getmExpireDate());
+        holder.mCouponDescription.setText(mListCoupons.get(position).getmType());
+        holder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(mListCoupons.get(position).getmExpireDate()));
         holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
-        holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).ismIsFavourite()?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
+
+        holder.mCouponIsFavourite.setImageResource(CommonUtils.convertBoolean(mListCoupons.get(position).getmIsFavourite())?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
         holder.mView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return this.mListCoupons.size();
+    }
+
+    public void updateData(List<CouponModel> lstCoupons)
+    {
+        mListCoupons = lstCoupons;
+        notifyDataSetChanged();
     }
 
     public class CouponRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -78,7 +86,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
-            boolean isLoginRequired = mListCoupons.get(pos).ismIsLoginRequired();
+            boolean isLoginRequired = CommonUtils.convertBoolean(mListCoupons.get(pos).getmIsLoginRequired());
             if(isLoginRequired) {
                 mLinearLoginRequired.setVisibility(View.VISIBLE);
             } else {

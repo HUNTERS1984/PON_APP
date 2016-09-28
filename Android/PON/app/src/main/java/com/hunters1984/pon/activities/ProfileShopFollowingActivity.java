@@ -42,7 +42,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
 
         for(int i=0; i<4;i++){
             ShopModel shop =new ShopModel();
-            shop.setmIsShopSubscribe(true);
+            shop.setmIsShopFollow(1);
             mListShops.add(shop);
         }
     }
