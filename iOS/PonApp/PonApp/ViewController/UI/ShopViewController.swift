@@ -13,6 +13,8 @@ let NavBarChangePoint: CGFloat = 50.0
 class ShopViewController: BaseViewController {
 
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var navTitleLabel: UILabel!
+    @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
@@ -56,6 +58,7 @@ class ShopViewController: BaseViewController {
         self.showBackButton()
         self.view.bringSubviewToFront(self.navigationView)
         self.navigationView.backgroundColor = UIColor(hex: 0x18c0d4).colorWithAlphaComponent(0)
+        self.navTitleLabel.alpha = 0
         
         self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
         self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), forState: .Normal)
@@ -96,10 +99,12 @@ extension ShopViewController {
 extension ShopViewController {
     
     private func displayShopDetail(shop: Shop) {
+        self.shopNameLabel.text = shop.title
+        self.navTitleLabel.text = shop.title
         shopId.text = "\(shop.shopID)"
         addressLabel.text = shop.shopAddress
         accessLabel.text = shop.shopDirection
-//        industriTime: UILabel!
+        industriTime.text = "\(shop.shopStartTime)~\(shop.shopEndTime)"
         holidayLabel.text = shop.regularHoliday
         meanCountLabel.text = "~\(shop.shopAvegerBill)円"
         phoneNumberLabel.text = shop.shopPhonenumber
@@ -136,13 +141,19 @@ extension ShopViewController {
 extension ShopViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let color = UIColor(hex: 0x18c0d4)
-        let offsetY = scrollView.contentOffset.y
-        if offsetY > NavBarChangePoint {
-            let alpha = min(1, 1 - ((NavBarChangePoint + 64 - offsetY) / 64))
-            self.navigationView.backgroundColor = color.colorWithAlphaComponent(alpha)
+        if scrollView.isKindOfClass(UICollectionView.classForCoder()) {
+            return
         }else {
-            self.navigationView.backgroundColor = color.colorWithAlphaComponent(0)
+            let color = UIColor(hex: 0x18c0d4)
+            let offsetY = scrollView.contentOffset.y
+            if offsetY > NavBarChangePoint {
+                let alpha = min(1, 1 - ((NavBarChangePoint + 64 - offsetY) / 64))
+                self.navigationView.backgroundColor = color.colorWithAlphaComponent(alpha)
+                self.navTitleLabel.alpha = alpha
+            }else {
+                self.navigationView.backgroundColor = color.colorWithAlphaComponent(0)
+                self.navTitleLabel.alpha = 0
+            }
         }
     }
     

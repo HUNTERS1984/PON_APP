@@ -139,7 +139,15 @@ public struct ApiManager {
                 multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
             }
         }
-        Alamofire.upload(.POST, urlString, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        
+        let headers = [
+            "Authorization": "Bearer \(self.getToken())"
+        ]
+        if hasAuth {
+            Alamofire.upload(.POST, urlString, headers: headers, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        }else {
+            Alamofire.upload(.POST, urlString, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        }
     }
     
     //MARK: - SUCCESS RESPONSE

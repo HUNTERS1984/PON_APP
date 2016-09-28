@@ -43,5 +43,6 @@ class CouponCollectionViewCell: UICollectionViewCell {
         }else {
             self.likeIconImage.hidden = true
         }
+        self.typeLabel.text = coupon.couponType
     }
 }

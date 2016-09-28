@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -664,11 +664,13 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="Ob5-JN-xwg" id="0Me-1k-76S"/>
                         <outlet property="recentTableView" destination="n63-JL-axY" id="r8o-zg-Mnh"/>
                         <outlet property="settingButton" destination="Ya3-1v-1KA" id="JBQ-MZ-7WA"/>
                         <outlet property="tabAccountButton" destination="7hh-QC-gJy" id="wpq-hp-ncw"/>
                         <outlet property="tabFavoriteButton" destination="7Ya-oy-qay" id="6lQ-MH-Jlz"/>
                         <outlet property="tabPonButton" destination="kIc-FN-Vjh" id="iJB-6z-04F"/>
+                        <outlet property="usernamLabel" destination="5pt-Nn-PZH" id="jrs-aC-jyG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34g-sp-BEF" userLabel="First Responder" sceneMemberID="firstResponder"/>

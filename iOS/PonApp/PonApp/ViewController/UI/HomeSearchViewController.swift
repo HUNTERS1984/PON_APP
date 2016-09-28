@@ -43,7 +43,7 @@ extension HomeSearchViewController {
     
     override func rightBarButtonPressed(sender: AnyObject) {
         super.rightBarButtonPressed(sender)
-        self.navigationController?.popViewControllerAnimated(false)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

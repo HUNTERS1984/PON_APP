@@ -137,6 +137,7 @@ extension SplashViewController {
             }else {
                 if let _ = result {
                     if result!.code == SuccessCode {
+                        UserDataManager.getUserProfile()
                         self.setupTabbarViewController()
                     }
                 }else {

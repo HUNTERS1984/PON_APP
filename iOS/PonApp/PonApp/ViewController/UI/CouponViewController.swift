@@ -17,6 +17,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var couponInfoLabel: UILabel!
+    @IBOutlet weak var couponTypeLabel: UILabel!
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
     @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var similarCouponCollectionView: UICollectionView!
@@ -156,6 +157,7 @@ extension CouponViewController {
     
     private func displayCouponDetail(coupon: Coupon) {
         self.couponInfoLabel.text = coupon.description
+        self.couponTypeLabel.text = "\(coupon.couponType)・ID \(coupon.couponID)"
         if coupon.isLike! {
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
         }else {
@@ -166,7 +168,7 @@ extension CouponViewController {
         self.expiryLabel.text = coupon.expiryDate
         self.shopAvatarImageView.af_setImageWithURL(NSURL(string: coupon.shopAvatarUrl)!)
         self.shopAddressLabel.text = coupon.shopAddress
-        self.shopBusinessHoursLabel.text = coupon.shopBusinessHours
+        self.shopBusinessHoursLabel.text = "\(coupon.shopStartTime)~\(coupon.shopEndTime)"
         self.shopPhoneNumber.text = coupon.shopPhonenumber
         self.setupPhotoCollectionView(coupon.userPhotosUrl)
         self.similarCoupon = coupon.similarCoupons

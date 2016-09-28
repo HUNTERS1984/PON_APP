@@ -48,7 +48,6 @@
 		4A85F3A01D9ABCDD00733161 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F29E1D9ABCDD00733161 /* UIViewExtension.swift */; };
 		4A85F3A11D9ABCDD00733161 /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2A01D9ABCDD00733161 /* LoggingPrint.swift */; };
 		4A85F3A21D9ABCDD00733161 /* LineAdapter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2A11D9ABCDD00733161 /* LineAdapter.plist */; };
-		4A85F3A31D9ABCDD00733161 /* CommonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2A31D9ABCDD00733161 /* CommonDataManager.swift */; };
 		4A85F3A41D9ABCDD00733161 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2A41D9ABCDD00733161 /* LocationManager.swift */; };
 		4A85F3A51D9ABCDD00733161 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2A51D9ABCDD00733161 /* MapTasks.swift */; };
 		4A85F3A61D9ABCDD00733161 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2A71D9ABCDD00733161 /* Coupon.swift */; };
@@ -218,6 +217,7 @@
 		FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C841D9228BC00D56602 /* CoreTelephony.framework */; };
 		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
+		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,7 +263,6 @@
 		4A85F29E1D9ABCDD00733161 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4A85F2A01D9ABCDD00733161 /* LoggingPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
 		4A85F2A11D9ABCDD00733161 /* LineAdapter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LineAdapter.plist; sourceTree = "<group>"; };
-		4A85F2A31D9ABCDD00733161 /* CommonDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDataManager.swift; sourceTree = "<group>"; };
 		4A85F2A41D9ABCDD00733161 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4A85F2A51D9ABCDD00733161 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		4A85F2A71D9ABCDD00733161 /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
@@ -462,6 +461,7 @@
 		FA405C841D9228BC00D56602 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,10 +493,10 @@
 			isa = PBXGroup;
 			children = (
 				4A85F2781D9ABCDD00733161 /* Frameworks */,
-				4A85F26B1D9ABCDD00733161 /* Api */,
 				4A85F2711D9ABCDD00733161 /* App */,
 				4A85F2761D9ABCDD00733161 /* Constant */,
 				4A85F2811D9ABCDD00733161 /* Header */,
+				4A85F26B1D9ABCDD00733161 /* Api */,
 				4A85F2831D9ABCDD00733161 /* Helper */,
 				4A85F2891D9ABCDD00733161 /* Libraries */,
 				4A85F2A21D9ABCDD00733161 /* Manager */,
@@ -651,9 +651,9 @@
 		4A85F2A21D9ABCDD00733161 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				4A85F2A31D9ABCDD00733161 /* CommonDataManager.swift */,
 				4A85F2A41D9ABCDD00733161 /* LocationManager.swift */,
 				4A85F2A51D9ABCDD00733161 /* MapTasks.swift */,
+				FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1316,6 +1316,7 @@
 				4A85F40F1D9ABCDD00733161 /* AccountTableViewCell.swift in Sources */,
 				4A85F4391D9ABCDD00733161 /* InstagramLoginViewController.swift in Sources */,
 				4A85F4231D9ABCDD00733161 /* RightBorderView.swift in Sources */,
+				FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */,
 				4A85F43E1D9ABCDD00733161 /* ScanQRCodeViewController.swift in Sources */,
 				4A85F4271D9ABCDD00733161 /* BaseNavigationController.swift in Sources */,
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
@@ -1343,7 +1344,6 @@
 				4A85F4101D9ABCDD00733161 /* AlbumCollectionViewCell.swift in Sources */,
 				4A85F4261D9ABCDD00733161 /* TopBorderView.swift in Sources */,
 				4A85F4401D9ABCDD00733161 /* ShopFollowViewController.swift in Sources */,
-				4A85F3A31D9ABCDD00733161 /* CommonDataManager.swift in Sources */,
 				4A85F3961D9ABCDD00733161 /* MKMapViewExtension.swift in Sources */,
 				4A85F38E1D9ABCDD00733161 /* Location.swift in Sources */,
 				4A85F3A81D9ABCDD00733161 /* Shop.swift in Sources */,
@@ -1534,7 +1534,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1554,7 +1554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

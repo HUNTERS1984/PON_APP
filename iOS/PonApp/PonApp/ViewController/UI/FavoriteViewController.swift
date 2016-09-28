@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLRefreshSwift
 
 class FavoriteViewController: BaseViewController {
 

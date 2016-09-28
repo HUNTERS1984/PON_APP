@@ -74,5 +74,30 @@ public struct ApiRequest {
         ApiManager.processRequest(GetUsedCoupon, method: .GET, hasAuth: true, completion: completion)
     }
     
+    
+    static func getUserProfile(completion: ApiCompletion) {
+        ApiManager.processRequest(UserProfile, method: .GET, hasAuth: true, completion: completion)
+    }
+    
+    static func updateUserProfile(name: String? = nil, gender: Int? = nil, address: String? = nil, avatar: UIImage? = nil, completion: ApiCompletion) {
+        if let _ =  avatar {
+            let avatarData = UIImagePNGRepresentation(avatar!)
+            let avatarFile = ApiFileUpload(data: avatarData!, name: "avatar_url", fileName: "avatar_url")
+            let parameters: [String: AnyObject?] = [
+                "name": name,
+                "gender": "\(gender!)",
+                "address": address
+            ]
+            ApiManager.processRequest(UserProfile, method: .POST, parameters: parameters, uploadFiles: [avatarFile], hasAuth: true, completion: completion)
+        }else {
+            let parameters: [String: AnyObject?] = [
+                "name": name,
+                "gender": gender,
+                "address": address
+            ]
+            ApiManager.processRequest(UserProfile, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+        }
+        
+    }
 
 }

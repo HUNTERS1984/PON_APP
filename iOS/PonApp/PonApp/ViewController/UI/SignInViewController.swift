@@ -107,10 +107,11 @@ extension SignInViewController {
             if let _ = error {
                 
             }else {
-                if result?.code == 1000 {
+                if result?.code == SuccessCode {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
+                    UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
                     

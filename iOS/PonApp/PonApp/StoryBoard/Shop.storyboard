@@ -24,6 +24,8 @@
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
+            <string>HiraginoSansGB-W6</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -54,12 +56,24 @@
                                                             <constraint firstAttribute="width" secondItem="IGF-lO-N5h" secondAttribute="height" multiplier="1:1" id="rIb-K2-Zb1"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-ka-0K3">
+                                                        <rect key="frame" x="8" y="150" width="359" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="bji-y9-PV3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="IGF-lO-N5h" firstAttribute="height" secondItem="Q7F-vh-638" secondAttribute="height" multiplier="85/240" id="BfO-fp-cAb"/>
+                                                    <constraint firstItem="kXR-ka-0K3" firstAttribute="leading" secondItem="Q7F-vh-638" secondAttribute="leading" constant="8" id="F99-UF-0h0"/>
+                                                    <constraint firstItem="kXR-ka-0K3" firstAttribute="top" secondItem="IGF-lO-N5h" secondAttribute="bottom" constant="8" id="McA-aT-dic"/>
                                                     <constraint firstItem="IGF-lO-N5h" firstAttribute="centerX" secondItem="Q7F-vh-638" secondAttribute="centerX" id="o8e-4j-QX2"/>
                                                     <constraint firstItem="IGF-lO-N5h" firstAttribute="top" secondItem="Q7F-vh-638" secondAttribute="top" constant="57" id="qwa-Ta-AVE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kXR-ka-0K3" secondAttribute="trailing" constant="8" id="wcI-fx-0Z4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-hp-lmb" userLabel="Offer Content View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
@@ -502,12 +516,31 @@
                                             <action selector="backButtonPressed:" destination="pWY-FS-F1n" eventType="touchUpInside" id="XDo-WX-AU4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-5c-VBZ">
+                                        <rect key="frame" x="335" y="24" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Fj8-jg-ZgU"/>
+                                            <constraint firstAttribute="height" constant="40" id="Tsx-gX-Oux"/>
+                                        </constraints>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-8J-cPn">
+                                        <rect key="frame" x="48" y="25" width="279" height="39"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="vSF-8J-cPn" firstAttribute="leading" secondItem="EUR-gK-h7z" secondAttribute="trailing" constant="8" id="5we-Ty-oU7"/>
+                                    <constraint firstAttribute="bottom" secondItem="vSF-8J-cPn" secondAttribute="bottom" id="6a5-hI-Mr4"/>
                                     <constraint firstItem="EUR-gK-h7z" firstAttribute="top" secondItem="CqE-oO-0n9" secondAttribute="top" constant="23" id="HCa-qh-04t"/>
+                                    <constraint firstItem="m5U-5c-VBZ" firstAttribute="leading" secondItem="vSF-8J-cPn" secondAttribute="trailing" constant="8" id="Kpt-5M-2o3"/>
+                                    <constraint firstAttribute="trailing" secondItem="m5U-5c-VBZ" secondAttribute="trailing" id="fPN-Ss-zQf"/>
                                     <constraint firstItem="EUR-gK-h7z" firstAttribute="leading" secondItem="CqE-oO-0n9" secondAttribute="leading" id="hhP-Xq-qko"/>
+                                    <constraint firstItem="vSF-8J-cPn" firstAttribute="top" secondItem="CqE-oO-0n9" secondAttribute="top" constant="25" id="pvF-Ib-8Of"/>
                                     <constraint firstAttribute="height" constant="64" id="xza-hh-0mc"/>
+                                    <constraint firstAttribute="bottom" secondItem="m5U-5c-VBZ" secondAttribute="bottom" id="ztt-MZ-p4r"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -547,11 +580,13 @@
                         <outlet property="locationButton" destination="VVP-WY-BHg" id="IwU-SN-uJM"/>
                         <outlet property="mainScrollView" destination="Obt-pX-oxe" id="a1a-X3-rLQ"/>
                         <outlet property="meanCountLabel" destination="lVh-hr-Lgd" id="bGY-4S-92Y"/>
+                        <outlet property="navTitleLabel" destination="vSF-8J-cPn" id="9c9-Na-gj9"/>
                         <outlet property="navigationView" destination="CqE-oO-0n9" id="sfD-To-1cY"/>
                         <outlet property="phoneButton" destination="cye-0Q-Act" id="f10-vM-ofh"/>
                         <outlet property="phoneNumberLabel" destination="ZXJ-jF-28F" id="BZp-um-DUC"/>
                         <outlet property="shareButton" destination="lFN-pu-ic1" id="9yJ-Ee-seb"/>
                         <outlet property="shopId" destination="DoS-Qf-SV1" id="Dg4-er-Ffj"/>
+                        <outlet property="shopNameLabel" destination="kXR-ka-0K3" id="gOH-U5-P7H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcf-GG-zJg" userLabel="First Responder" sceneMemberID="firstResponder"/>

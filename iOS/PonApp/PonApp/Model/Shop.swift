@@ -23,6 +23,8 @@ struct Shop {
     var shopAvegerBill: Float!
     var regularHoliday: String!
     var shopDirection: String!
+    var shopStartTime: String!
+    var shopEndTime: String!
     
     init(response: JSON?) {
         if let shopID = response!["id"].float {
@@ -87,6 +89,14 @@ struct Shop {
         
         if let shopDirection = response!["help_text"].string {
             self.shopDirection = shopDirection
+        }
+        
+        if let shopStartTime = response!["operation_start_time"].string {
+            self.shopStartTime = shopStartTime
+        }
+        
+        if let shopEndTime = response!["operation_end_time"].string {
+            self.shopEndTime = shopEndTime
         }
     }
     

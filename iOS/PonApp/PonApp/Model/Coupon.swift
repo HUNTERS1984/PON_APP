@@ -19,15 +19,18 @@ struct Coupon {
     var description: String!
     var shopAddress: String!
     var shopPhonenumber: String!
-    var shopBusinessHours: String!
+    var shopCloseDate: String!
     var shopLongitude: Float!
     var shopLatitude: Float!
     var shopAvatarUrl: String!
+    var shopStartTime: String!
+    var shopEndTime: String!
     var couponType: String!
     var couponTypeIconUrl: String!
     var userPhotosUrl = [String]()
     var couponPhotosUrl = [String]()
     var similarCoupons = [Coupon]()
+    
     
     var showConfirmView: Bool = false
     
@@ -86,10 +89,10 @@ struct Coupon {
             self.shopPhonenumber = ""
         }
         
-        if let shopBusinessHours = response!["shop"]["close_date"].string {
-            self.shopBusinessHours = shopBusinessHours
+        if let shopCloseDate = response!["shop"]["close_date"].string {
+            self.shopCloseDate = shopCloseDate
         }else {
-            self.shopBusinessHours = ""
+            self.shopCloseDate = ""
         }
         
         if let shopLongitude = response!["shop"]["longitude"].float {
@@ -102,6 +105,14 @@ struct Coupon {
         
         if let shopAvatarUrl = response!["shop"]["avatar_url"].string {
             self.shopAvatarUrl = shopAvatarUrl
+        }
+        
+        if let shopStartTime = response!["shop"]["operation_start_time"].string {
+            self.shopStartTime = shopStartTime
+        }
+        
+        if let shopEndTime = response!["shop"]["operation_end_time"].string {
+            self.shopEndTime = shopEndTime
         }
         
         if let couponType = response!["coupon_type"]["name"].string {
@@ -126,7 +137,9 @@ struct Coupon {
         
         if let similarCoupons = response!["similar_coupon"].array {
             for couponData in similarCoupons {
-                self.similarCoupons.append(Coupon(response: couponData))
+                var coupon = Coupon(response: couponData)
+                coupon.couponType = self.couponType
+                self.similarCoupons.append(coupon)
             }
         }
     }

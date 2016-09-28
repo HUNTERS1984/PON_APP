@@ -454,6 +454,7 @@
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="couponTitleLabel" destination="zIf-jE-byz" id="g6c-FM-rXN"/>
+                        <outlet property="couponTypeLabel" destination="2Yb-5v-dOe" id="aw2-bs-O7u"/>
                         <outlet property="expiryLabel" destination="U3h-zO-4p0" id="V8R-IA-kqX"/>
                         <outlet property="imageSlideshow" destination="W7w-2M-KHV" id="cwT-m8-0Rd"/>
                         <outlet property="likeButton" destination="cKq-ru-Ag9" id="pl0-Qz-5vW"/>
