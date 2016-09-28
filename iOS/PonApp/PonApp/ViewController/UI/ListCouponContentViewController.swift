@@ -108,7 +108,7 @@ extension ListCouponContentViewController {
                 let coupon = Coupon(response: result?.data)
                 let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                 vc.coupon = coupon
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.parentNavigationController?.pushViewController(vc, animated: true)
             }
         }
     }

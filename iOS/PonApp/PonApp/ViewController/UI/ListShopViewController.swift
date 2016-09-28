@@ -23,7 +23,7 @@ class ListShopViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupScrollMenu()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
@@ -32,6 +32,7 @@ class ListShopViewController: BaseViewController {
         self.showBackButton()
         let barButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .Plain, target: self, action: #selector(self.searchBarButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = barButton
+        self.setupScrollMenu()
     }
 }
 

@@ -36,7 +36,7 @@ class ListShopContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
-        self.loadFollowedShop(1)
+        self.getShopByFeatureAndType(1)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -48,12 +48,16 @@ class ListShopContentViewController: BaseViewController {
 //MARK: - IBAction
 extension ListShopContentViewController {
     
+    override func backButtonPressed(sender: AnyObject) {
+        self.parentNavigationController?.popViewControllerAnimated(true)
+    }
+    
 }
 
 //MARK: - Private
 extension ListShopContentViewController {
     
-    private func loadFollowedShop(pageIndex: Int) {
+    private func getShopByFeatureAndType(pageIndex: Int) {
         self.showHUD()
         ApiRequest.getShopByFeatureAndType(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -105,7 +109,7 @@ extension ListShopContentViewController {
                 let shop = Shop(response: result?.data)
                 let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
                 vc.shop = shop
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.parentNavigationController?.pushViewController(vc, animated: true)
             }
         }
     }

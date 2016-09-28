@@ -23,13 +23,14 @@ class ListCouponViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupScrollMenu()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "グルメでさがす"
         self.showBackButton()
+        self.setupScrollMenu()
     }
 }
 
