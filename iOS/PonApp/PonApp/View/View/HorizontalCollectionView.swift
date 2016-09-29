@@ -37,6 +37,8 @@ class HorizontalCollectionView: UICollectionView {
     func initialize() {
         self.dataSource = self
         self.delegate = self
+        let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
+        self.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
     func resetCollectionView() {

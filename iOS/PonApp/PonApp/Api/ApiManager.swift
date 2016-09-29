@@ -179,7 +179,8 @@ public struct ApiManager {
     }
     
     private static func processInvalidToken() {
-//        NSNotificationCenter.defaultCenter().postNotificationName(TokenInvalidNotification, object: nil)
+        Defaults[.token] = nil
+        NSNotificationCenter.defaultCenter().postNotificationName(TokenInvalidNotification, object: nil)
     }
     
 }
