@@ -53,6 +53,11 @@ extension SignInViewController {
         }
     }
     
+    @IBAction func signUnButtonPressed(sender: AnyObject) {
+        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension SignInViewController {

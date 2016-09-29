@@ -59,8 +59,6 @@ extension SplashViewController {
         FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             
         }
-//        let vc = SignUpViewController.instanceFromStoryBoard("Register")
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
@@ -82,7 +80,7 @@ extension SplashViewController {
     
     @IBAction func mailButtonPressed(sender: AnyObject) {
         let vc = SignInViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {

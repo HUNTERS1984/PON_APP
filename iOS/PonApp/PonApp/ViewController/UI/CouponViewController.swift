@@ -13,6 +13,7 @@ class CouponViewController: BaseViewController {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var qrCodeButton: UIButton!
+    @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
@@ -68,6 +69,7 @@ class CouponViewController: BaseViewController {
         self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), forState: .Normal)
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
+        self.useCouponButton.setImage(UIImage(named: "coupon_use_coupon_button"), forState: .Normal)
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
@@ -113,6 +115,8 @@ extension CouponViewController {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
+    @IBAction func useCouponButtonPressed(sender: AnyObject) {
+    }
 }
 
 //MARK: - Private methods

@@ -75,8 +75,13 @@ extension HomeSearchViewController {
         searchBox.textColor = UIColor.whiteColor()
         searchBox.font = UIFont.HiraginoSansW6(17)
         searchBox.placeholder = "地名/ショップ名を入力"
+        searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         searchBox.borderStyle = .None
         searchBox.autoresizingMask = .FlexibleWidth
+
+        
+        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        leftNegativeSpacer.width = -6
         self.navigationItem.titleView = searchBox
     }
     

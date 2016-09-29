@@ -14,6 +14,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
 
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var seachContainerView: UIView!
     @IBOutlet weak var scrollMenuView: UIView!
     @IBOutlet weak var tabFavoriteButton: UIButton!
@@ -41,6 +42,7 @@ class MainViewController: BaseViewController {
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
+        self.searchTextField.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
 }

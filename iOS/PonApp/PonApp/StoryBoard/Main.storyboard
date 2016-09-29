@@ -167,6 +167,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrO-hJ-9o4" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_header_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="TDL-u6-fjC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFE-aN-bBo">
                                         <rect key="frame" x="0.0" y="27" width="375" height="30"/>
                                         <subviews>
@@ -191,7 +194,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-lA-PaK" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="0.0" width="269" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="地名/ショップ名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-N2-EIu">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-N2-EIu">
                                                         <rect key="frame" x="30" y="0.0" width="209" height="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
@@ -264,9 +267,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="iFE-aN-bBo" secondAttribute="trailing" id="MnW-Go-Y5a"/>
                                     <constraint firstItem="XaQ-Gg-6eC" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" constant="10" id="O8z-Os-b3N"/>
+                                    <constraint firstAttribute="trailing" secondItem="TDL-u6-fjC" secondAttribute="trailing" id="OCE-x8-9dh"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="top" secondItem="FrO-hJ-9o4" secondAttribute="top" constant="27" id="QYh-Uy-a1A"/>
                                     <constraint firstAttribute="bottom" secondItem="XaQ-Gg-6eC" secondAttribute="bottom" constant="25" id="RfX-Vv-5N2"/>
+                                    <constraint firstItem="TDL-u6-fjC" firstAttribute="top" secondItem="FrO-hJ-9o4" secondAttribute="top" id="cJV-2l-GNc"/>
+                                    <constraint firstAttribute="bottom" secondItem="TDL-u6-fjC" secondAttribute="bottom" id="deR-oL-oKp"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" id="lAp-e3-b5d"/>
+                                    <constraint firstItem="TDL-u6-fjC" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" id="qdX-tD-fg1"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-xk-jAR" customClass="TabbarView" customModule="PonApp" customModuleProvider="target">
@@ -340,6 +347,7 @@
                         <outlet property="locationButton" destination="r4p-jC-5Z2" id="hi3-My-TUT"/>
                         <outlet property="scrollMenuView" destination="XAa-fQ-CFM" id="OQP-QI-kg7"/>
                         <outlet property="seachContainerView" destination="mkF-lA-PaK" id="wHg-Y2-rEP"/>
+                        <outlet property="searchTextField" destination="2fd-N2-EIu" id="FmO-qU-Qd6"/>
                         <outlet property="tabAccountButton" destination="W7H-QO-7jA" id="H9R-WI-z7Z"/>
                         <outlet property="tabFavoriteButton" destination="Lh1-uh-CUO" id="PAa-VO-xND"/>
                         <outlet property="tabPonButton" destination="jXM-d5-fcW" id="X5B-Fd-afZ"/>
@@ -364,6 +372,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovM-tY-HPQ" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_header_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="wBv-7B-d1I">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-EZ-Ojo">
                                         <rect key="frame" x="147" y="60" width="80" height="80"/>
                                         <subviews>
@@ -397,17 +408,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="wBv-7B-d1I" firstAttribute="top" secondItem="ovM-tY-HPQ" secondAttribute="top" id="2f6-dg-ipG"/>
                                     <constraint firstAttribute="trailing" secondItem="5pt-Nn-PZH" secondAttribute="trailing" constant="8" id="2lM-qr-MUf"/>
                                     <constraint firstItem="5pt-Nn-PZH" firstAttribute="top" secondItem="YI2-EZ-Ojo" secondAttribute="bottom" constant="8" id="32M-0N-4Pz"/>
                                     <constraint firstAttribute="bottom" secondItem="5pt-Nn-PZH" secondAttribute="bottom" constant="8" id="6Le-hi-mh2"/>
+                                    <constraint firstItem="wBv-7B-d1I" firstAttribute="leading" secondItem="ovM-tY-HPQ" secondAttribute="leading" id="IcJ-9J-YGh"/>
                                     <constraint firstAttribute="trailing" secondItem="Ya3-1v-1KA" secondAttribute="trailing" id="ORe-h5-AiE"/>
                                     <constraint firstItem="YI2-EZ-Ojo" firstAttribute="height" secondItem="ovM-tY-HPQ" secondAttribute="height" multiplier="80/200" id="R6a-R4-lyW"/>
+                                    <constraint firstAttribute="bottom" secondItem="wBv-7B-d1I" secondAttribute="bottom" id="jeO-kP-xRk"/>
                                     <constraint firstItem="5pt-Nn-PZH" firstAttribute="leading" secondItem="ovM-tY-HPQ" secondAttribute="leading" constant="8" id="ksF-Ia-zr2"/>
                                     <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerY" secondItem="ovM-tY-HPQ" secondAttribute="centerY" id="lFP-KV-936"/>
                                     <constraint firstItem="Ya3-1v-1KA" firstAttribute="top" secondItem="ovM-tY-HPQ" secondAttribute="top" constant="32" id="r2R-qY-UZo"/>
                                     <constraint firstItem="YI2-EZ-Ojo" firstAttribute="centerX" secondItem="ovM-tY-HPQ" secondAttribute="centerX" id="vIf-kT-FsK"/>
+                                    <constraint firstAttribute="trailing" secondItem="wBv-7B-d1I" secondAttribute="trailing" id="wT5-65-As8"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-xJ-SPQ" userLabel="Tab View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
@@ -778,10 +792,12 @@
     </scenes>
     <resources>
         <image name="account_avatar_placehoder.png" width="85" height="84"/>
+        <image name="account_header_background.png" width="375" height="200"/>
         <image name="account_icon_history.png" width="35" height="37"/>
         <image name="account_icon_list.png" width="34" height="37"/>
         <image name="account_icon_store.png" width="36" height="37"/>
         <image name="arrow_right.png" width="12" height="19"/>
+        <image name="main_header_background.png" width="375" height="160"/>
         <image name="nav_search.png" width="28" height="29"/>
         <image name="splash_icon_pon.png" width="145" height="64"/>
         <image name="top_button_direction.png" width="96" height="28"/>
