@@ -28,16 +28,13 @@
                         <viewControllerLayoutGuide type="top" id="7bO-h3-12v"/>
                         <viewControllerLayoutGuide type="bottom" id="tKJ-bP-hMt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wqs-7b-UoJ">
+                    <view key="view" contentMode="scaleToFill" id="Wqs-7b-UoJ" customClass="IQPreviousNextView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggl-Tm-3fB" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="jFw-lu-wiF"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mme-7H-5Na" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="60" width="375" height="57"/>
@@ -51,7 +48,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="BCE-wn-8x0"/>
                                     <constraint firstItem="mD4-fb-Mmi" firstAttribute="leading" secondItem="mme-7H-5Na" secondAttribute="leading" constant="20" id="Fid-H2-fDY"/>
                                     <constraint firstAttribute="trailing" secondItem="mD4-fb-Mmi" secondAttribute="trailing" constant="10" id="VtD-r5-JDx"/>
                                     <constraint firstItem="mD4-fb-Mmi" firstAttribute="top" secondItem="mme-7H-5Na" secondAttribute="top" id="jJN-Gy-aRH"/>
@@ -77,7 +73,6 @@
                                 <constraints>
                                     <constraint firstItem="GWr-ZE-civ" firstAttribute="leading" secondItem="xVU-jZ-nbx" secondAttribute="leading" constant="20" id="4Rb-wU-O8g"/>
                                     <constraint firstAttribute="trailing" secondItem="GWr-ZE-civ" secondAttribute="trailing" constant="10" id="Qdx-9V-sym"/>
-                                    <constraint firstAttribute="height" constant="57" id="WUz-8W-s2v"/>
                                     <constraint firstAttribute="bottom" secondItem="GWr-ZE-civ" secondAttribute="bottom" id="Xbu-AW-OgP"/>
                                     <constraint firstItem="GWr-ZE-civ" firstAttribute="top" secondItem="xVU-jZ-nbx" secondAttribute="top" id="hqd-9e-sWg"/>
                                 </constraints>
@@ -103,7 +98,6 @@
                                     <constraint firstItem="Iek-Jw-Rf3" firstAttribute="leading" secondItem="nB8-ov-qQh" secondAttribute="leading" constant="20" id="GfI-o7-gtu"/>
                                     <constraint firstAttribute="bottom" secondItem="Iek-Jw-Rf3" secondAttribute="bottom" id="bSa-sN-vXe"/>
                                     <constraint firstItem="Iek-Jw-Rf3" firstAttribute="top" secondItem="nB8-ov-qQh" secondAttribute="top" id="jPN-wP-qCY"/>
-                                    <constraint firstAttribute="height" constant="57" id="pDs-re-XQB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
@@ -123,7 +117,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="6AC-Xw-0P7"/>
                                     <constraint firstItem="XRM-Jq-idm" firstAttribute="leading" secondItem="0hd-AN-7it" secondAttribute="leading" constant="20" id="6Nq-Vx-r9h"/>
                                     <constraint firstItem="XRM-Jq-idm" firstAttribute="top" secondItem="0hd-AN-7it" secondAttribute="top" id="K1Z-Vf-BHI"/>
                                     <constraint firstAttribute="bottom" secondItem="XRM-Jq-idm" secondAttribute="bottom" id="a8l-EO-gaQ"/>
@@ -133,9 +126,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-MZ-u3y" userLabel="Signup Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="308" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8t2-NZ-lrd"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
                                 <state key="normal" title="こちらの内容で登録"/>
                                 <userDefinedRuntimeAttributes>
@@ -159,11 +149,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xVU-jZ-nbx" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="2Yc-fU-ZJI"/>
+                            <constraint firstItem="nB8-ov-qQh" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="422-9G-mg9"/>
                             <constraint firstItem="xVU-jZ-nbx" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="4OM-o6-m6h"/>
                             <constraint firstItem="Ggl-Tm-3fB" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="9Eg-NC-b1Q"/>
                             <constraint firstItem="0hd-AN-7it" firstAttribute="top" secondItem="nB8-ov-qQh" secondAttribute="bottom" id="EW2-8C-wr2"/>
                             <constraint firstAttribute="trailing" secondItem="nB8-ov-qQh" secondAttribute="trailing" id="GVW-Pd-UsK"/>
                             <constraint firstItem="nB8-ov-qQh" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="Igy-gW-UIz"/>
+                            <constraint firstItem="Ggl-Tm-3fB" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="60/667" id="KOF-Sj-5IY"/>
                             <constraint firstItem="5qB-MZ-u3y" firstAttribute="top" secondItem="0hd-AN-7it" secondAttribute="bottom" constant="20" id="LWO-zL-3Kf"/>
                             <constraint firstItem="5qB-MZ-u3y" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leadingMargin" id="P7S-aa-d1x"/>
                             <constraint firstAttribute="trailing" secondItem="0hd-AN-7it" secondAttribute="trailing" id="S8n-79-Zie"/>
@@ -173,10 +166,13 @@
                             <constraint firstAttribute="trailing" secondItem="xVU-jZ-nbx" secondAttribute="trailing" id="cc2-bk-4w4"/>
                             <constraint firstItem="mme-7H-5Na" firstAttribute="top" secondItem="Ggl-Tm-3fB" secondAttribute="bottom" id="d7r-UQ-rcC"/>
                             <constraint firstItem="nB8-ov-qQh" firstAttribute="top" secondItem="xVU-jZ-nbx" secondAttribute="bottom" id="fuv-Em-wrK"/>
+                            <constraint firstItem="mme-7H-5Na" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="57/667" id="kOa-6q-5dm"/>
+                            <constraint firstItem="5qB-MZ-u3y" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="50/667" id="lHT-Ui-WO8"/>
                             <constraint firstItem="xVU-jZ-nbx" firstAttribute="top" secondItem="mme-7H-5Na" secondAttribute="bottom" id="lK2-WD-XfX"/>
                             <constraint firstAttribute="trailing" secondItem="Ggl-Tm-3fB" secondAttribute="trailing" id="nFQ-nX-j3r"/>
                             <constraint firstItem="0hd-AN-7it" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="tZP-OQ-e4l"/>
                             <constraint firstItem="5qB-MZ-u3y" firstAttribute="trailing" secondItem="Wqs-7b-UoJ" secondAttribute="trailingMargin" id="uxP-yq-Kc0"/>
+                            <constraint firstItem="0hd-AN-7it" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="yNo-bA-kEF"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
