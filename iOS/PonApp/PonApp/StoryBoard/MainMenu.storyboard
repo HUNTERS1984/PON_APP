@@ -338,6 +338,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="actionView" destination="UGA-Xz-Riv" id="Dyp-J5-TTn"/>
                         <outlet property="currentLocationButton" destination="9Bz-gB-eRe" id="uNs-I0-bsM"/>
                         <outlet property="hideOfferButton" destination="p44-Wh-30y" id="Ohg-eP-mJO"/>
                         <outlet property="mapView" destination="ZtM-ZZ-F4K" id="gjX-ki-gAY"/>
@@ -477,6 +478,6 @@
     </scenes>
     <resources>
         <image name="arrow_right.png" width="12" height="19"/>
-        <image name="icon_location.png" width="55" height="55"/>
+        <image name="icon_location.png" width="47" height="47"/>
     </resources>
 </document>

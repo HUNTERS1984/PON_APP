@@ -116,6 +116,7 @@ extension SignInViewController {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
+                    UserDataManager.sharedInstance.loggedIn = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {

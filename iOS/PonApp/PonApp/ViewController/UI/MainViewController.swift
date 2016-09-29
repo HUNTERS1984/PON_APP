@@ -51,14 +51,23 @@ class MainViewController: BaseViewController {
 extension MainViewController {
     
     @IBAction func favoriteButtonPressed(sender: AnyObject) {
-        self.tabBarController?.selectedIndex = 0
+        if UserDataManager.isLoggedIn() {
+            self.tabBarController?.selectedIndex = 0
+        }else {
+            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        }
     }
     
     @IBAction func homeButtonPressed(sender: AnyObject) {
+        
     }
     
     @IBAction func accountButtonPressed(sender: AnyObject) {
-        self.tabBarController?.selectedIndex = 2
+        if UserDataManager.isLoggedIn() {
+            self.tabBarController?.selectedIndex = 2
+        }else {
+            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        }
     }
     
     @IBAction func locationButtonPressed(sender: AnyObject) {
@@ -67,8 +76,8 @@ extension MainViewController {
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
-        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

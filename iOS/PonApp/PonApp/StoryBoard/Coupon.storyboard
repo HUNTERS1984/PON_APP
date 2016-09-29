@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -708,29 +709,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCF-Xv-KQV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCF-Xv-KQV">
                                 <rect key="frame" x="0.0" y="18" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6FK-iZ-ayU"/>
+                                    <constraint firstAttribute="height" constant="40" id="FKq-00-UVt"/>
+                                </constraints>
                                 <state key="normal" image="nav_close_blue.png"/>
                                 <connections>
                                     <action selector="closeButttonPressed:" destination="r9z-3B-Udm" eventType="touchUpInside" id="t4T-T7-YMj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9y-yx-48a" userLabel="Name Label">
-                                <rect key="frame" x="20" y="60" width="335" height="30"/>
-                                <string key="text">このクーポンを使うためには、
-友人へクーポンをシェアしてください。</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9y-yx-48a" userLabel="Name Label">
+                                <rect key="frame" x="16" y="60" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3bx-UM-6pK"/>
+                                </constraints>
+                                <string key="text">QRコードをスタッフに見せて、
+ご利用ください。</string>
                                 <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
                                 <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQK-yp-x8d" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="28" y="245" width="320" height="320"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQK-yp-x8d" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="27" y="174" width="320" height="320"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-kF-MR7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-kF-MR7">
                                         <rect key="frame" x="60" y="60" width="200" height="200"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tir-kF-MR7" secondAttribute="trailing" constant="60" id="7N2-eL-yE9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tir-kF-MR7" secondAttribute="bottom" constant="60" id="7c5-qX-SmE"/>
+                                    <constraint firstItem="Tir-kF-MR7" firstAttribute="top" secondItem="TQK-yp-x8d" secondAttribute="top" constant="60" id="Tmp-Tr-tL0"/>
+                                    <constraint firstItem="Tir-kF-MR7" firstAttribute="leading" secondItem="TQK-yp-x8d" secondAttribute="leading" constant="60" id="nnW-Hp-dii"/>
+                                    <constraint firstAttribute="width" secondItem="TQK-yp-x8d" secondAttribute="height" multiplier="1:1" id="pPs-D2-Ckb"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
                                         <real key="value" value="0.5"/>
@@ -742,6 +757,16 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="trailing" secondItem="srS-i6-TXw" secondAttribute="trailingMargin" id="L43-ho-taz"/>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="leading" secondItem="srS-i6-TXw" secondAttribute="leadingMargin" id="Vjg-gM-QQE"/>
+                            <constraint firstItem="VCF-Xv-KQV" firstAttribute="leading" secondItem="srS-i6-TXw" secondAttribute="leading" id="dmM-EU-nyQ"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="centerY" secondItem="srS-i6-TXw" secondAttribute="centerY" id="fbU-w1-Qmr"/>
+                            <constraint firstItem="VCF-Xv-KQV" firstAttribute="top" secondItem="srS-i6-TXw" secondAttribute="top" constant="18" id="hK0-7G-iAm"/>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="top" secondItem="Car-W2-6Rh" secondAttribute="bottom" constant="40" id="qUP-Gy-bRH"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="width" secondItem="srS-i6-TXw" secondAttribute="width" multiplier="320/375" id="x8g-Ie-hiA"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="centerX" secondItem="srS-i6-TXw" secondAttribute="centerX" id="ypl-8u-u2S"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -136,6 +136,7 @@ extension SplashViewController {
             }else {
                 if let _ = result {
                     if result!.code == SuccessCode {
+                        UserDataManager.sharedInstance.loggedIn = true
                         UserDataManager.getUserProfile()
                         self.setupTabbarViewController()
                     }else {

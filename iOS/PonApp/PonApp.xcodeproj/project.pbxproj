@@ -220,6 +220,8 @@
 		FAA43A741D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A711D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png */; };
 		FAA43A751D9D0B8F0013BCE3 /* qr_code_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A721D9D0B8F0013BCE3 /* qr_code_button@2x.png */; };
 		FAA43A761D9D0B8F0013BCE3 /* sns_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */; };
+		FAA43A781D9D15A50013BCE3 /* shop_button_follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */; };
+		FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -466,6 +468,8 @@
 		FAA43A711D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_use_coupon_button@2x.png"; sourceTree = "<group>"; };
 		FAA43A721D9D0B8F0013BCE3 /* qr_code_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_code_button@2x.png"; sourceTree = "<group>"; };
 		FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sns_button@2x.png"; sourceTree = "<group>"; };
+		FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_button_follow@2x.png"; sourceTree = "<group>"; };
+		FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				4A85F2771D9ABCDD00733161 /* GlobalConstant.swift */,
+				FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				4A85F2CD1D9ABCDD00733161 /* nav_close_blue@2x.png */,
 				4A85F2CE1D9ABCDD00733161 /* nav_close_white@2x.png */,
 				4A85F2CF1D9ABCDD00733161 /* nav_search@2x.png */,
+				FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */,
 				4A85F2D01D9ABCDD00733161 /* shop_button_followed@2x.png */,
 				4A85F2D11D9ABCDD00733161 /* shop_detail_button_location@2x.png */,
 				4A85F2D21D9ABCDD00733161 /* shop_detail_button_phone@2x.png */,
@@ -1182,6 +1188,7 @@
 				4A85F3D31D9ABCDD00733161 /* splash_background@2x.png in Resources */,
 				4A85F3AD1D9ABCDD00733161 /* account_icon_history@2x.png in Resources */,
 				4A85F3D11D9ABCDD00733161 /* shop_detail_header_bar@2x.png in Resources */,
+				FAA43A781D9D15A50013BCE3 /* shop_button_follow@2x.png in Resources */,
 				4A85F3B61D9ABCDD00733161 /* coupon_button_share@2x.png in Resources */,
 				4A85F3CA1D9ABCDD00733161 /* nav_close_white@2x.png in Resources */,
 				FAA43A6E1D9CF6E50013BCE3 /* account_header_background@2x.png in Resources */,
@@ -1369,6 +1376,7 @@
 				4A85F38F1D9ABCDD00733161 /* TwitterLogin.swift in Sources */,
 				4A85F4061D9ABCDD00733161 /* UINavigationBar+Awesome.m in Sources */,
 				4A85F4251D9ABCDD00733161 /* TabbarView.swift in Sources */,
+				FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */,
 				4A85F39E1D9ABCDD00733161 /* UITableViewExtension.swift in Sources */,
 				4A85F3FB1D9ABCDD00733161 /* IQUIViewController+Additions.m in Sources */,
 				4A85F4241D9ABCDD00733161 /* ShadowView.swift in Sources */,

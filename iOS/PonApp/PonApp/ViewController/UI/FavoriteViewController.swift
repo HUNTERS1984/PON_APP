@@ -68,8 +68,8 @@ extension FavoriteViewController {
     }
     
     @IBAction func navAddButtonPressed(sender: AnyObject) {
-        let vc = ShopViewController.instanceFromStoryBoard("Shop")
-        self.navigationController?.pushViewController(vc, animated: false)
+//        let vc = ShopViewController.instanceFromStoryBoard("Shop")
+//        self.navigationController?.pushViewController(vc, animated: false)
     }
     
 }

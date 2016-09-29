@@ -116,6 +116,8 @@ extension CouponViewController {
     }
     
     @IBAction func useCouponButtonPressed(sender: AnyObject) {
+        let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 

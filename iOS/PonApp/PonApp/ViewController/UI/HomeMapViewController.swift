@@ -12,6 +12,7 @@ class HomeMapViewController: BaseViewController {
 
     @IBOutlet weak var offerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var offerView: UIView!
+    @IBOutlet weak var actionView: UIView!
     
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
@@ -22,7 +23,6 @@ class HomeMapViewController: BaseViewController {
     var offerShowed: Bool = false
     var coupons = [Coupon]() {
         didSet {
-//            self.offersCollectionView.reloadData()
         }
     }
     
@@ -41,7 +41,7 @@ class HomeMapViewController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.offerViewBottomConstraint.constant = -self.offerView.bounds.height
+        
     }
     
     override func setUpUserInterface() {
@@ -60,6 +60,9 @@ class HomeMapViewController: BaseViewController {
         self.mapView.handler = self
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         offersCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        self.offerViewBottomConstraint.constant -= (screenHeight * (196/667) - 20)
         self.getShopNearMyLocation()
     }
 }

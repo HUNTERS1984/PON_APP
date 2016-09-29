@@ -26,7 +26,7 @@ class UserDataManager: NSObject {
     var email: String?
     var address: String?
     var avatarUrl: String?
-    var didLogin: Bool = false
+    var loggedIn: Bool = false
     var gender: Int?
     
     private func getUserProfile() {
@@ -65,6 +65,10 @@ class UserDataManager: NSObject {
     
     static func getUserProfile() {
         UserDataManager.sharedInstance.getUserProfile()
+    }
+    
+    static func isLoggedIn() -> Bool {
+        return UserDataManager.sharedInstance.loggedIn
     }
     
 }
