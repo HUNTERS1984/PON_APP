@@ -48,7 +48,7 @@ extension SignInViewController {
             if successed {
                 self.signIn(userName!, password: password!)
             }else {
-                HLKAlertView.show("", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
     }
@@ -89,13 +89,13 @@ extension SignInViewController {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: "Please enter user name")
+            completion(successed: false, message: "Username not valid")
         }
         
         if let _ = password {
             
         }else {
-            completion(successed: false, message: "Please enter password")
+            completion(successed: false, message: "Password not valid")
         }
         completion(successed: true, message: "")
     }

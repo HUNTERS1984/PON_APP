@@ -128,7 +128,6 @@
 		4A85F3E91D9ABCDD00733161 /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2EE1D9ABCDD00733161 /* Coupon.storyboard */; };
 		4A85F3EA1D9ABCDD00733161 /* CouponList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2EF1D9ABCDD00733161 /* CouponList.storyboard */; };
 		4A85F3EB1D9ABCDD00733161 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F01D9ABCDD00733161 /* Follow.storyboard */; };
-		4A85F3EC1D9ABCDD00733161 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F11D9ABCDD00733161 /* Home.storyboard */; };
 		4A85F3ED1D9ABCDD00733161 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F21D9ABCDD00733161 /* Login.storyboard */; };
 		4A85F3EE1D9ABCDD00733161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F31D9ABCDD00733161 /* Main.storyboard */; };
 		4A85F3EF1D9ABCDD00733161 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F41D9ABCDD00733161 /* MainMenu.storyboard */; };
@@ -345,7 +344,6 @@
 		4A85F2EE1D9ABCDD00733161 /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
 		4A85F2EF1D9ABCDD00733161 /* CouponList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CouponList.storyboard; sourceTree = "<group>"; };
 		4A85F2F01D9ABCDD00733161 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
-		4A85F2F11D9ABCDD00733161 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4A85F2F21D9ABCDD00733161 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4A85F2F31D9ABCDD00733161 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4A85F2F41D9ABCDD00733161 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
@@ -767,7 +765,6 @@
 				4A85F2EE1D9ABCDD00733161 /* Coupon.storyboard */,
 				4A85F2EF1D9ABCDD00733161 /* CouponList.storyboard */,
 				4A85F2F01D9ABCDD00733161 /* Follow.storyboard */,
-				4A85F2F11D9ABCDD00733161 /* Home.storyboard */,
 				4A85F2F21D9ABCDD00733161 /* Login.storyboard */,
 				4A85F2F31D9ABCDD00733161 /* Main.storyboard */,
 				4A85F2F41D9ABCDD00733161 /* MainMenu.storyboard */,
@@ -1197,7 +1194,6 @@
 				4A85F3C91D9ABCDD00733161 /* nav_close_blue@2x.png in Resources */,
 				4A85F3BC1D9ABCDD00733161 /* coupon_normal@2x.png in Resources */,
 				4A85F3D71D9ABCDD00733161 /* splash_button_skip@2x.png in Resources */,
-				4A85F3EC1D9ABCDD00733161 /* Home.storyboard in Resources */,
 				4A85F3CD1D9ABCDD00733161 /* shop_detail_button_location@2x.png in Resources */,
 				4A85F3CF1D9ABCDD00733161 /* shop_detail_button_share@2x.png in Resources */,
 				4A85F3B51D9ABCDD00733161 /* coupon_button_qrcode@2x.png in Resources */,
@@ -1542,7 +1538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1562,7 +1558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

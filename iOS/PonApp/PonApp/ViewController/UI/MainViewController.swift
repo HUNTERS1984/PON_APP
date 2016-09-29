@@ -78,21 +78,25 @@ extension MainViewController {
         
         let popular = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         popular.parentNavigationController = self.navigationController
+        popular.couponFeature = .Popularity
         popular.title = "人気"
         controllerArray.append(popular)
         
         let newest = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         newest.parentNavigationController = self.navigationController
+        newest.couponFeature = .New
         newest.title = "新着"
         controllerArray.append(newest)
         
         let nearby = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         nearby.parentNavigationController = self.navigationController
+        nearby.couponFeature = .Near
         nearby.title = "近く"
         controllerArray.append(nearby)
         
         let deal = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         deal.parentNavigationController = self.navigationController
+        deal.couponFeature = .Deal
         deal.title = "お得"
         controllerArray.append(deal)
         

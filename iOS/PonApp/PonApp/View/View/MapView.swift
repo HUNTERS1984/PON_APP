@@ -22,6 +22,12 @@ class MapView: GMSMapView {
     weak var handler: MapViewDelegate? = nil
     var cameraPosition: GMSCameraPosition!
     
+    var shops = [Shop]() {
+        didSet {
+            self.createShopMarkers()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -33,18 +39,7 @@ class MapView: GMSMapView {
     }
     
     private func initialize() {
-        LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
-            if let _ = error {
-                
-            }else {
-                if self.cameraPosition == nil {
-                    self.cameraPosition = GMSCameraPosition.cameraWithLatitude( Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
-                    self.camera = self.cameraPosition
-                    self.delegate = self
-                    self.createFakeMarker(location!)
-                }
-            }
-        }
+        self.delegate = self
     }
     
     
@@ -63,6 +58,27 @@ class MapView: GMSMapView {
             }else {
                 let cameraPos = GMSCameraPosition.cameraWithLatitude( Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
                 self.camera = cameraPos
+            }
+        }
+    }
+    
+    func moveCameraToLocation(location: CLLocationCoordinate2D) {
+        let cameraPos = GMSCameraPosition.cameraWithLatitude( location.latitude, longitude: location.longitude, zoom: 15.0)
+        self.camera = cameraPos
+    }
+    
+    private func createShopMarkers() {
+        self.clear()
+        if self.shops.count == 0 {
+            return
+        }else {
+            for shop in self.shops {
+                let marker = MapMarker(position: shop.coordinate)
+                marker.icon = UIImage(named: "map_icon_marker")
+                marker.mapMarkerId = shop.shopID
+                marker.shop = shop
+                marker.appearAnimation = kGMSMarkerAnimationNone
+                marker.map = self
             }
         }
     }

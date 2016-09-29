@@ -168,22 +168,18 @@ public struct ApiManager {
     
     //MARK: - FAILURE RESPONSE
     private static func processFailureResponese(response: Response<String, NSError>?, completion: ApiCompletion) {
-        var message : String
         if let httpStatusCode = response!.response?.statusCode {
-            switch(httpStatusCode) {
-            case 400:
-                message = "Username or password not provided."
-            case 401:
-                message = "Incorrect password for user."
-            default:
-                break
+            if httpStatusCode == 401 {
+                ApiManager.processInvalidToken()
             }
-        } else {
-            
+            let encodingError = response!.result.error!
+            let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
+            completion(request: nil, result: nil, error: error)
         }
-        let encodingError = response!.result.error!
-        let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
-        completion(request: nil, result: nil, error: error)
+    }
+    
+    private static func processInvalidToken() {
+//        NSNotificationCenter.defaultCenter().postNotificationName(TokenInvalidNotification, object: nil)
     }
     
 }

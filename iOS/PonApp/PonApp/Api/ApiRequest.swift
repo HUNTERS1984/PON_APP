@@ -132,5 +132,14 @@ public struct ApiRequest {
         let endpoint = String(format:GetShopByFeatureAndType, feature.rawValue, couponType)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
+    
+    static func getShopByLattitudeAndLongitude(lattitude: Double, longitude: Double, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        let endpoint = String(format:GetShopByLattitudeAndLongitude, lattitude, longitude)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+    }
 
 }

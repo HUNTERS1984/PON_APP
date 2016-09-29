@@ -12,7 +12,7 @@ let SuccessCode                                 = 1000
 
 public enum CouponFeature: Int {
     case Popularity = 1
-    case NewArrival = 2
+    case New = 2
     case Near = 3
     case Deal = 4
 }
@@ -32,3 +32,4 @@ let UserProfile                                 = "/v1/profile"
 let GetNumberOfShopByType                       = "/v1/coupon/types/shop"
 let GetCouponByFeatureAndType                   = "/v1/featured/%d/coupons/%d"
 let GetShopByFeatureAndType                     = "/v1/featured/%d/shops/%d"
+let GetShopByLattitudeAndLongitude              = "/v1/map/%f/%f/shops"

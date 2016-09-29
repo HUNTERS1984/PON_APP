@@ -21,6 +21,25 @@ class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeIconImage: UIImageView!
     @IBOutlet weak var usedIconImage: UIImageView!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initialize()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.initialize()
+    }
+    
+    func initialize() {
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
     var coupon: Coupon! {
         didSet {
             self.setDataForCell(self.coupon)

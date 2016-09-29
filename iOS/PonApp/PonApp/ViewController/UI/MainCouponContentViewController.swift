@@ -16,6 +16,7 @@ class MainCouponContentViewController: BaseViewController {
     @IBOutlet weak var contentTableView: UITableView!
     @IBOutlet weak var contentTableViewHeight: NSLayoutConstraint!
     
+    var couponFeature:CouponFeature?
     var couponListData = [CouponListData]()
     var previousCollectionView: HorizontalCollectionView? = nil
     
@@ -42,7 +43,7 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.scrollEnabled = false
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .None
-        self.getCoupon(1)
+        self.getCouponByFeature(self.couponFeature!, pageIndex: 1)
     }
     
 }
@@ -124,9 +125,9 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
 //MARK: - Private
 extension MainCouponContentViewController {
     
-    private func getCoupon(pageIndex: Int) {
+    private func getCouponByFeature(couponFeature: CouponFeature, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeature(.Near) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeature(couponFeature) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

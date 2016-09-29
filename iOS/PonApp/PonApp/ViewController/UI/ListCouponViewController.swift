@@ -53,7 +53,7 @@ extension ListCouponViewController {
         
         let newest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         newest.parentNavigationController = self.navigationController
-        newest.couponFeature = .NewArrival
+        newest.couponFeature = .New
         newest.couponType = self.couponType
         newest.title = "新着"
         controllerArray.append(newest)

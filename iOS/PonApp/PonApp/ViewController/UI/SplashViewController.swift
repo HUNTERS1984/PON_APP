@@ -128,6 +128,7 @@ extension SplashViewController {
     }
     
     private func authorizeToken() {
+        print("Bearer \(Defaults[.token]!)")
         self.showHUD()
         ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -139,9 +140,9 @@ extension SplashViewController {
                     if result!.code == SuccessCode {
                         UserDataManager.getUserProfile()
                         self.setupTabbarViewController()
+                    }else {
+                        HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                     }
-                }else {
-                    
                 }
             }
         }

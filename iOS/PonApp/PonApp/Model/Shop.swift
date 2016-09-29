@@ -26,6 +26,10 @@ struct Shop {
     var shopStartTime: String!
     var shopEndTime: String!
     
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
+    }
+
     init(response: JSON?) {
         if let shopID = response!["id"].float {
             self.shopID = shopID
@@ -49,10 +53,18 @@ struct Shop {
         
         if let shopLongitude = response!["longitude"].float {
             self.shopLongitude = shopLongitude
+        }else {
+            if let shopLongitude = response!["longitude"].string {
+                self.shopLongitude = shopLongitude.floatValue
+            }
         }
         
         if let shopLatitude = response!["lattitude"].float {
             self.shopLatitude = shopLatitude
+        }else {
+            if let shopLatitude = response!["lattitude"].string {
+                self.shopLatitude = shopLatitude.floatValue
+            }
         }
         
         if let shopAddress = response!["address"].string {

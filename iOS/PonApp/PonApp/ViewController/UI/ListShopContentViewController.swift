@@ -64,20 +64,22 @@ extension ListShopContentViewController {
             if let _ = error {
                 
             }else {
-                var responseShop = [Shop]()
-                let shopArray = result?.data?.array
-                if let _ = shopArray {
-                    for shopData in shopArray! {
-                        let shop = Shop(response: shopData)
-                        responseShop.append(shop)
-                    }
-                    if pageIndex == 1 {
-                        self.displayShop(responseShop, type: .New)
+                if result?.code == SuccessCode {
+                    var responseShop = [Shop]()
+                    let shopArray = result?.data?.array
+                    if let _ = shopArray {
+                        for shopData in shopArray! {
+                            let shop = Shop(response: shopData)
+                            responseShop.append(shop)
+                        }
+                        if pageIndex == 1 {
+                            self.displayShop(responseShop, type: .New)
+                        }else {
+                            self.displayShop(responseShop, type: .LoadMore)
+                        }
                     }else {
-                        self.displayShop(responseShop, type: .LoadMore)
+                        
                     }
-                }else {
-                    
                 }
             }
         }
