@@ -117,7 +117,6 @@ extension HomeMapViewController {
         }
         self.offerShowed = false
         UIView.animateWithDuration(0.5) {
-            print(self.offerView.bounds.height)
             self.offerViewBottomConstraint.constant = -(self.offerView.bounds.height - 20)
             self.hideOfferButton.hidden = true
             self.offerView.fadeOut(0.4)
