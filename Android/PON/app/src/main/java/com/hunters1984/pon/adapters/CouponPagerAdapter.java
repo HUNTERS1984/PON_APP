@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.hunters1984.pon.fragments.NearestCouponFragment;
-import com.hunters1984.pon.fragments.NewestCouponFragment;
-import com.hunters1984.pon.fragments.PopularCouponFragment;
-import com.hunters1984.pon.fragments.UsedCouponFragment;
+import com.hunters1984.pon.fragments.TopNearestCouponFragment;
+import com.hunters1984.pon.fragments.TopNewestCouponFragment;
+import com.hunters1984.pon.fragments.TopPopularCouponFragment;
+import com.hunters1984.pon.fragments.TopUsedCouponFragment;
 
 /**
  * Created by LENOVO on 9/1/2016.
@@ -25,16 +25,16 @@ public class CouponPagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                PopularCouponFragment popular = new PopularCouponFragment();
+                TopPopularCouponFragment popular = new TopPopularCouponFragment();
                 return popular;
             case 1:
-                NewestCouponFragment newest = new NewestCouponFragment();
+                TopNewestCouponFragment newest = new TopNewestCouponFragment();
                 return newest;
             case 2:
-                NearestCouponFragment nearest = new NearestCouponFragment();
+                TopNearestCouponFragment nearest = new TopNearestCouponFragment();
                 return nearest;
             case 3:
-                UsedCouponFragment used = new UsedCouponFragment();
+                TopUsedCouponFragment used = new TopUsedCouponFragment();
                 return used;
             default:
                 return null;

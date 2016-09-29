@@ -65,4 +65,13 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:id="@+id/btn_login"/>
+
+    <com.hunters1984.pon.customs.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/click_new_member_registration"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/edit_profile_value_font_size"
+        android:id="@+id/tv_new_member_registration"/>
 </LinearLayout>

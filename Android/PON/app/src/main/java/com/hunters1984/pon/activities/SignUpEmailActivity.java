@@ -1,6 +1,8 @@
 package com.hunters1984.pon.activities;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,21 +12,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseCommon;
 import com.hunters1984.pon.api.UserProfileAPIHelper;
+import com.hunters1984.pon.protocols.OnDialogButtonConfirm;
+import com.hunters1984.pon.utils.Constants;
 import com.hunters1984.pon.utils.DialogUtiils;
 
-public class SignUpEmailActivity extends BaseActivity {
+public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonConfirm {
 
     private Button mBtnSignUp;
     private TextView mTvBackToLogin;
     private EditText mEdtUsername, mEdtEmail, mEdtPassword, mEdtPasswordConfirm;
     private Context mContext;
+    private OnDialogButtonConfirm mDialogConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_sign_up_email);
         super.onCreate(savedInstanceState);
         mContext = this;
+        mDialogConfirm = this;
         initLayout();
     }
 
@@ -41,7 +49,7 @@ public class SignUpEmailActivity extends BaseActivity {
                 String confirmPass = mEdtPasswordConfirm.getText().toString();
 
                 if (!password.equalsIgnoreCase(confirmPass)) {
-                    new DialogUtiils().showDialog(mContext, getString(R.string.password_not_match));
+                    new DialogUtiils().showDialog(mContext, getString(R.string.password_not_match), false);
                     return;
                 }
 
@@ -55,6 +63,7 @@ public class SignUpEmailActivity extends BaseActivity {
         mTvBackToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setResult(Activity.RESULT_CANCELED);
                 finish();
             }
         });
@@ -68,7 +77,31 @@ public class SignUpEmailActivity extends BaseActivity {
     private Handler mHanlderSignUp = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            new DialogUtiils().showDialog(mContext, msg.obj.toString());
+            switch (msg.what){
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon res = (ResponseCommon)msg.obj;
+                    String message = res.message;
+                    if(res.code == APIConstants.REQUEST_OK) {
+                        new DialogUtiils().showDialog(mContext, message, mDialogConfirm);
+                    } else {
+                        new DialogUtiils().showDialog(mContext, message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+                default:
+                    break;
+            }
+
         }
     };
+
+    @Override
+    public void onDialogButtonConfirm() {
+        Intent data = new Intent();
+        data.putExtra(Constants.EXTRA_USER_NAME, mEdtUsername.getText().toString());
+        setResult(Activity.RESULT_OK, data);
+        finish();
+    }
 }

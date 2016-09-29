@@ -3,17 +3,29 @@ package com.hunters1984.pon.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
+import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseCouponMainTop;
+import com.hunters1984.pon.api.ResponseCouponMainTopData;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.DialogUtiils;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,7 +84,7 @@ public class BaseFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        initData();
+//        initData();
     }
 
     @Override
@@ -127,16 +139,51 @@ public class BaseFragment extends Fragment {
 //        void onLoadData();
 //    }
 
-    protected void initData()
-    {
-        mListCoupons = new ArrayList<>();
-        for(int i=0; i<5; i++) {
-            CouponModel coupon = new CouponModel();
-            coupon.setmTitle("タイトルが入ります");
-            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
-            coupon.setmIsFavourite((i%2==0?1:0));
-            coupon.setmIsLoginRequired((i%2==0?1:0));
-            mListCoupons.add(coupon);
+//    protected void initData()
+//    {
+//        mListCoupons = new ArrayList<>();
+//        for(int i=0; i<5; i++) {
+//            CouponModel coupon = new CouponModel();
+//            coupon.setmTitle("タイトルが入ります");
+//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
+//            coupon.setmIsFavourite((i%2==0?1:0));
+//            coupon.setmIsLoginRequired((i%2==0?1:0));
+//            mListCoupons.add(coupon);
+//        }
+//    }
+
+    protected Handler mHanlderGetCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            ResponseCouponMainTopData couponData = (ResponseCouponMainTopData) msg.obj;
+            if (couponData.code == APIConstants.REQUEST_OK){
+                List<ResponseCouponMainTop> lstCouponType = couponData.data;
+                for(ResponseCouponMainTop couponType : lstCouponType) {
+                    View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
+                    RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
+                    TextView tvCatName = (TextView)vCatCoupons.findViewById(R.id.tv_coupon_category_name);
+                    ImageView ivIconType = (ImageView)vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
+
+                    tvCatName.setText(couponType.getmTypeName());
+                    Picasso.with(getActivity()).load(couponType.getmIconUrl()).
+                            resize(CommonUtils.dpToPx(getActivity(), 20), CommonUtils.dpToPx(getActivity(), 20)).into(ivIconType);
+
+                    List<CouponModel> lstCoupons = couponType.getmLstCoupons();
+                    for(CouponModel coupon : lstCoupons) {
+                        coupon.setmType(couponType.getmTypeName());
+                        mListCoupons.add(coupon);
+                    }
+
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                    layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                    rvCoupons.setLayoutManager(layoutManager);
+                    CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
+                    rvCoupons.setAdapter(adapter);
+                    mLnShopCatCoupons.addView(vCatCoupons);
+                }
+            } else {
+                new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
+            }
         }
-    }
+    };
 }

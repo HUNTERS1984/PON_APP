@@ -1,15 +1,20 @@
 package com.hunters1984.pon.adapters;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.utils.CommonUtils;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 /**
  * Created by LENOVO on 9/12/2016.
@@ -19,24 +24,28 @@ public class PhotoCouponPagerAdapter extends PagerAdapter {
     //    private List<String> mListProducts;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private int[] mListCouponPhotos;
+    private List<String> mListUserPhotos;
 
-    public PhotoCouponPagerAdapter(Context context, int[] lstProductPhotos){
+    public PhotoCouponPagerAdapter(Context context, List<String> lstProductPhotos){
         mContext = context;
-//        this.mListCouponPhotos = new ArrayList<>();
-//        this.mListCouponPhotos.addAll(lstProductPhotos);
-        mListCouponPhotos = lstProductPhotos;
+        mListUserPhotos = lstProductPhotos;
         mLayoutInflater  = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return mListCouponPhotos.length;//mListProducts.size();
+        return mListUserPhotos.size();
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == ((LinearLayout) object);
+        return view == ((RelativeLayout) object);
+    }
+
+    public void updatePhotos(List<String> lstPhotos)
+    {
+        mListUserPhotos = lstPhotos;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -44,15 +53,23 @@ public class PhotoCouponPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.coupon_photo_pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.iv_photo);
-        imageView.setBackgroundColor(ContextCompat.getColor(mContext, mListCouponPhotos[position]));
-//        if (mSourceToLoadImage == Constants.LOAD_IMAGE_FROM_URL) {
-//            if (!mListProductPhotos.get(position).equalsIgnoreCase("")) {
-//                Picasso.with(mContext).load(mListProductPhotos.get(position)).into(imageView);
-//            }
-//        } else {
-//            Integer resId = Integer.parseInt(mListProductPhotos.get(position));
-//            imageView.setImageResource(resId);
-//        }
+        final ProgressBar progressBarLoadingPhoto = (ProgressBar) itemView.findViewById(R.id.progress_bar_loading_photo);
+
+        String photo = mListUserPhotos.get(position);
+
+        Picasso.with(mContext).load(photo).placeholder(R.color.color_background_pager_coupons).
+                resize(CommonUtils.dpToPx(mContext, 180),CommonUtils.dpToPx(mContext, 150)).centerCrop().into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                progressBarLoadingPhoto.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError() {
+                progressBarLoadingPhoto.setVisibility(View.VISIBLE);
+            }
+        });
+
 
         container.addView(itemView);
 
@@ -61,6 +78,6 @@ public class PhotoCouponPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((RelativeLayout) object);
     }
 }

@@ -6,16 +6,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="2dp"
-    >
-    <FrameLayout
+    android:padding="2dp"
+    card_view:cardCornerRadius="2dp">
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="2dp">
         <TextView   android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:gravity="center"
                     android:lines="2"
-                    android:text = "@string/more"
+                    android:text="@string/more"
                     android:textColor="@color/white"
                     android:background="@color/grey"
                     android:id="@+id/tv_view_more"/>
@@ -24,6 +26,12 @@
             android:layout_height="110dp"
             android:scaleType="fitXY"
             android:id="@+id/iv_photo"/>
+        <ProgressBar
+            android:id="@+id/progress_bar_loading_coupon_photo"
+            style="?android:attr/progressBarStyleSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
-    </FrameLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

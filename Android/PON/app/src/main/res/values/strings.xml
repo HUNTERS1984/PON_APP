@@ -31,6 +31,7 @@
     <string name="registration_with_content">こちらの内容で登録</string>
     <string name="already_member">すでに会員の方は、</string>
     <string name="click_here"><u>こちらへ</u></string>
+    <string name="click_new_member_registration"><u>新規会員登録</u></string>
 
     <string name="navigation">渋谷区</string>
     <string name="search_place_shop_name">地名/ショップ名を入力</string>
@@ -81,9 +82,10 @@
 
     <!-- Coupons Detail -->
     <string name="coupons_related">このクーポンのユーザー投稿</string>
-    <string name="more">もっと見る \n +40</string>
+    <string name="more">もっと見る \n +%s</string>
     <string name="coupons_other_shop">他のお店の類似クーポン</string>
     <string name="qr_code">QRコード</string>
+    <string name="use_this_coupon">このクーポンを使う</string>
 
     <!-- Shop Detail -->
     <string name="id">ID</string>
@@ -115,4 +117,5 @@
     <!--Dialog-->
     <string name="title_alert_dialog">アラート</string>
     <string name="deadline">期限：</string>
+    <string name="connection_failed">Server failed to request</string>
 </resources>

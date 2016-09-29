@@ -33,14 +33,16 @@ public class UserProfileAPIHelper extends APIHelper{
             public void onResponse(Call<ResponseCommon> call, Response<ResponseCommon> response) {
                 ResponseCommon res = response.body();
                 Message msg = Message.obtain();
-                msg.obj = res.message;
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
                 handler.sendMessage(msg);
                 closeDialog();
             }
 
             @Override
             public void onFailure(Call<ResponseCommon> call, Throwable t) {
-
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
             }
         });
     }
@@ -70,9 +72,7 @@ public class UserProfileAPIHelper extends APIHelper{
 
             @Override
             public void onFailure(Call<ResponseUserData> call, Throwable t) {
-                Message msg = Message.obtain();
-                msg.what = APIConstants.HANDLER_REQUEST_SERVER_FAILED;
-                handler.sendMessage(msg);
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }
         });

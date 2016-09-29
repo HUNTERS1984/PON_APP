@@ -48,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iMainScreen = new Intent(SplashActivity.this, MainActivity.class);
+                Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(iMainScreen);
                 finish();

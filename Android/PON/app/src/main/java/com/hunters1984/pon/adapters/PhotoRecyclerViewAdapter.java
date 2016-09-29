@@ -1,15 +1,18 @@
 package com.hunters1984.pon.adapters;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.utils.CommonUtils;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,11 +24,13 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     private List<String> mListCoupons;
     private Context mContext;
     private boolean mIsShowMore;
+    private String mMorePhotoNumber;
 
     public PhotoRecyclerViewAdapter(Context context, List<String> lstPhotos, boolean isShowMore) {
         this.mListCoupons = lstPhotos;
         this.mContext = context;
         mIsShowMore = isShowMore;
+        mMorePhotoNumber = "";
     }
 
     @Override
@@ -37,20 +42,34 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     }
 
     @Override
-    public void onBindViewHolder(RelatedCouponRecyclerViewHolders holder, int position) {
+    public void onBindViewHolder(final RelatedCouponRecyclerViewHolders holder, int position) {
+
+        Picasso.with(mContext).load(mListCoupons.get(position)).placeholder(R.color.grey).
+                resize(CommonUtils.dpToPx(mContext, 110), CommonUtils.dpToPx(mContext, 110)).centerCrop().into(holder.mPhoto, new Callback() {
+            @Override
+            public void onSuccess() {
+                holder.mProgressBarLoadingCoupon.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError() {
+                holder.mProgressBarLoadingCoupon.setVisibility(View.VISIBLE);
+            }
+        });
+
         if(mIsShowMore) {
             if (position != (mListCoupons.size() - 1)) {
-                holder.mPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
                 holder.mPhoto.setVisibility(View.VISIBLE);
-                holder.mViewMore.setVisibility(View.INVISIBLE);
+                holder.mTvMore.setVisibility(View.INVISIBLE);
             } else {
+                holder.mTvMore.setText(mContext.getString(R.string.more).replace("%s", mMorePhotoNumber));
                 holder.mPhoto.setVisibility(View.INVISIBLE);
-                holder.mViewMore.setVisibility(View.VISIBLE);
+                holder.mTvMore.setVisibility(View.VISIBLE);
+                holder.mProgressBarLoadingCoupon.setVisibility(View.GONE);
             }
         } else {
-            holder.mPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.grey));
             holder.mPhoto.setVisibility(View.VISIBLE);
-            holder.mViewMore.setVisibility(View.GONE);
+            holder.mTvMore.setVisibility(View.GONE);
         }
         holder.mView.setTag(position);
     }
@@ -60,18 +79,28 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
         return this.mListCoupons.size();
     }
 
+    public void updateData(List<String> lstCouponPhotos, boolean isShowMore, String moreNumber)
+    {
+        mListCoupons = lstCouponPhotos;
+        mIsShowMore = isShowMore;
+        mMorePhotoNumber = moreNumber;
+        notifyDataSetChanged();
+    }
+
     public class RelatedCouponRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ImageView mPhoto;
-        public TextView mViewMore;
+        public TextView mTvMore;
         public View mView;
+        public ProgressBar mProgressBarLoadingCoupon;
 
         public RelatedCouponRecyclerViewHolders(View itemView) {
             super(itemView);
             mView = itemView;
             itemView.setOnClickListener(this);
             mPhoto = (ImageView) itemView.findViewById(R.id.iv_photo);
-            mViewMore = (TextView) itemView.findViewById(R.id.tv_view_more);
+            mTvMore = (TextView) itemView.findViewById(R.id.tv_view_more);
+            mProgressBarLoadingCoupon = (ProgressBar) itemView.findViewById(R.id.progress_bar_loading_coupon_photo);
         }
 
         @Override

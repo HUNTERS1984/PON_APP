@@ -35,6 +35,7 @@ import com.hunters1984.pon.api.ResponseCouponDetailData;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -45,16 +46,22 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     private GoogleMap mGoogleMap;
     protected List<CouponModel> mListCoupons;
-    private List<String> mLstPhotos;
+    private List<String> mLstCouponPhotos;
 
     private TextView mTvCouponTitle, mTvCouponTypeid, mTvCouponDescription, mTvCouponExpireDate, mTvCouponAddress,
-                     mTvCouponOperationTime, mTvCouponPhone;
+                     mTvCouponOperationTime, mTvCouponPhone, mTvCouponType;
+    private ImageView mIvCouponTypeIcon;
+
     private RecyclerView mRvSimilarCoupons;
     private CouponRecyclerViewAdapter mAdapterSimilarCoupon;
+    private FloatingActionButton mBtnShare, mBtnFavourite;
+    private PhotoCouponPagerAdapter mUserPhotoPagerAdapter;
+    private PhotoRecyclerViewAdapter mCouponPhotoAdapter;
+    private Button mBtnUseThisCoupon;
 
     private ViewPager mPagerCoupons;
     private CirclePageIndicator mPageIndicatorProduct;
-    private int[] mListCouponPhotos =  {R.color.color_background_pager_coupons, R.color.color_background_pager_coupons};
+    private List<String> mLstUserPhotos;
 
     private boolean isFavourite = false;
     private double mShopLng, mShopLat;
@@ -83,6 +90,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             e.printStackTrace();
         }
 
+        mTvCouponType = (TextView)findViewById(R.id.tv_coupon_type);
+        mIvCouponTypeIcon = (ImageView)findViewById(R.id.iv_coupon_type_icon);
         mTvCouponTitle = (TextView)findViewById(R.id.tv_coupon_title);
         mTvCouponTypeid = (TextView)findViewById(R.id.tv_coupon_type_id);
         mTvCouponExpireDate = (TextView)findViewById(R.id.tv_coupon_expire_date);
@@ -99,8 +108,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             }
         });
         mPagerCoupons = (ViewPager)findViewById(R.id.pager_coupons_photo);
-        PhotoCouponPagerAdapter photoAdapter = new PhotoCouponPagerAdapter(this, mListCouponPhotos);
-        mPagerCoupons.setAdapter(photoAdapter);
+        mUserPhotoPagerAdapter = new PhotoCouponPagerAdapter(this, mLstUserPhotos);
+        mPagerCoupons.setAdapter(mUserPhotoPagerAdapter);
 
         mPageIndicatorProduct = (CirclePageIndicator)findViewById(R.id.page_indicator_coupons_photo);
         mPageIndicatorProduct.setViewPager(mPagerCoupons);
@@ -110,26 +119,26 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.rv_list_related_coupons);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         rvCoupons.setLayoutManager(layoutManager);
-        PhotoRecyclerViewAdapter couponAdapter = new PhotoRecyclerViewAdapter(this, mLstPhotos, true);
-        rvCoupons.setAdapter(couponAdapter);
+        mCouponPhotoAdapter = new PhotoRecyclerViewAdapter(this, mLstCouponPhotos, true);
+        rvCoupons.setAdapter(mCouponPhotoAdapter);
 
-        final FloatingActionButton btnShare = (FloatingActionButton)findViewById(R.id.fab_share);
-        btnShare.setOnClickListener(new View.OnClickListener() {
+        mBtnShare = (FloatingActionButton)findViewById(R.id.fab_share);
+        mBtnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mContext.startActivity(new Intent(mContext, ShareCouponActivity.class));
             }
         });
 
-        final FloatingActionButton btnFavourite = (FloatingActionButton)findViewById(R.id.fab_add_favourite);
-        btnFavourite.setOnClickListener(new View.OnClickListener() {
+        mBtnFavourite = (FloatingActionButton)findViewById(R.id.fab_add_favourite);
+        mBtnFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 isFavourite = !isFavourite;
                 if(isFavourite) {
-                    btnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
+                    mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
                 } else {
-                    btnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
+                    mBtnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
                 }
             }
         });
@@ -139,11 +148,19 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
         mRvSimilarCoupons.setAdapter(mAdapterSimilarCoupon);
 
-        Button btnUseCoupons = (Button)findViewById(R.id.btn_use_coupon);
+        Button btnUseCoupons = (Button)findViewById(R.id.btn_qr_code_coupon);
         btnUseCoupons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(mContext, UseCouponActivity.class));
+            }
+        });
+
+        mBtnUseThisCoupon = (Button)findViewById(R.id.btn_use_this_coupon);
+        mBtnUseThisCoupon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -159,25 +176,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     @Override
     public void onLoadData() {
         mListCoupons = new ArrayList<>();
-        new CouponAPIHelper().getCouponDetail(mContext, 1, mHanlderCouponDetail);
-
-
-//        for(int i=0; i<5; i++) {
-//            CouponModel coupon = new CouponModel();
-//            coupon.setmTitle("タイトルが入ります");
-//            coupon.setmExpireDate("期限：2016.07.31");
-//            coupon.setmIsFavourite((i%2==0?1:0));
-//            coupon.setmIsLoginRequired((i%2==0?1:0));
-//            mListCoupons.add(coupon);
-//        }
-
-        mLstPhotos = new ArrayList<>();
-        mLstPhotos.add("url1");
-        mLstPhotos.add("url1");
-        mLstPhotos.add("url1");
-        mLstPhotos.add("url1");
-        mLstPhotos.add("url1");
-        mLstPhotos.add("url1");
+        mLstCouponPhotos = new ArrayList<>();
+        mLstUserPhotos = new ArrayList<>();
+        new CouponAPIHelper().getCouponDetail(mContext, 10, mHanlderCouponDetail);
     }
 
     private Handler mHanlderCouponDetail = new Handler(){
@@ -195,7 +196,32 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                             model.setmType(type);
                             mListCoupons.add(model);
                         }
+
+                        List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
+                        if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
+                            if(lstCouponPhotos.size() > 8) {
+                                mLstCouponPhotos.addAll(lstCouponPhotos.subList(0, 9));
+                                mCouponPhotoAdapter.updateData(mLstCouponPhotos, true, String.valueOf(lstCouponPhotos.size() - 8));
+                            } else {
+                                mLstCouponPhotos.addAll(lstCouponPhotos);
+                                mCouponPhotoAdapter.updateData(mLstCouponPhotos, false, "");
+                            }
+                        }
+
+                        List<String> lstUserPhotos = coupon.getmLstPhotoUsers();
+                        if(lstUserPhotos != null && lstUserPhotos.size() > 0) {
+                            mLstUserPhotos.addAll(lstUserPhotos);
+                            mUserPhotoPagerAdapter.updatePhotos(mLstUserPhotos);
+                        }
+
                         mAdapterSimilarCoupon.updateData(mListCoupons);
+
+                        //Show/Hide button Use this coupon
+                        if(CommonUtils.convertBoolean(coupon.getmCanUse())){
+                            mBtnUseThisCoupon.setVisibility(View.VISIBLE);
+                        } else {
+                            mBtnUseThisCoupon.setVisibility(View.GONE);
+                        }
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -206,6 +232,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     private void popularLayout(ResponseCouponDetail coupon)
     {
+        mTvCouponType.setText(coupon.getmCouponType().getmName());
+        Picasso.with(mContext).load(coupon.getmCouponType().getmIcon()).
+                resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20)).into(mIvCouponTypeIcon);
         mTvCouponTitle.setText(coupon.getmTitle());
         mTvCouponTypeid.setText(coupon.getmCouponType().getmName() + "・" + coupon.getmId());
         mTvCouponExpireDate.setText(getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
@@ -213,6 +242,14 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mTvCouponAddress.setText(coupon.getmShop().getmAddress());
         mTvCouponOperationTime.setText(coupon.getmShop().getmOperationStartTime() + " - " + coupon.getmShop().getmOperationEndTime());
         mTvCouponPhone.setText(coupon.getmShop().getmPhone());
+
+
+        boolean isFavourite = CommonUtils.convertBoolean(coupon.getmIsFavourite());
+        if(isFavourite) {
+            mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
+        } else {
+            mBtnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
+        }
 
         mShopLat = Double.parseDouble(coupon.getmShop().getmLatitude().toString());
         mShopLng = Double.parseDouble(coupon.getmShop().getmLongitude().toString());
@@ -223,9 +260,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     {
         if (mGoogleMap != null) {
             LatLng shopLoc = new LatLng(lat, lng);
-            CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(shopLoc, 15);
-            mGoogleMap.animateCamera(camera);
-
+            CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(shopLoc, 10);
+//            mGoogleMap.animateCamera(camera);
+            mGoogleMap.moveCamera(camera);
             mGoogleMap.addMarker(new MarkerOptions().position(shopLoc));
         }
     }

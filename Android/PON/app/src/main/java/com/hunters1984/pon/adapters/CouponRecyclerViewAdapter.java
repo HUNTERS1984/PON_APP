@@ -2,19 +2,21 @@ package com.hunters1984.pon.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.CouponDetailActivity;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,11 +42,26 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
     }
 
     @Override
-    public void onBindViewHolder(CouponRecyclerViewHolders holder, int position) {
-        holder.mCouponTitle.setText(mListCoupons.get(position).getmTitle());
-        holder.mCouponDescription.setText(mListCoupons.get(position).getmType());
-        holder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(mListCoupons.get(position).getmExpireDate()));
-        holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
+    public void onBindViewHolder(final CouponRecyclerViewHolders holder, int position) {
+        CouponModel coupon = mListCoupons.get(position);
+        holder.mCouponTitle.setText(coupon.getmTitle());
+        holder.mCouponDescription.setText(coupon.getmType());
+        holder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
+        Picasso.with(mContext).load(coupon.getmImageUrl()).placeholder(R.color.light_grey_stroke_icon).
+                resize(CommonUtils.dpToPx(mContext,120), CommonUtils.dpToPx(mContext,140) ).centerCrop().
+                into(holder.mCouponPhoto,  new Callback() {
+
+                    @Override
+                    public void onSuccess() {
+                        holder.mProgressBarLoadingCoupon.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        holder.mProgressBarLoadingCoupon.setVisibility(View.VISIBLE);
+                    }
+                });
+//        holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
 
         holder.mCouponIsFavourite.setImageResource(CommonUtils.convertBoolean(mListCoupons.get(position).getmIsFavourite())?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
         holder.mView.setTag(position);
@@ -70,6 +87,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         public ImageView mCouponIsFavourite;
         public LinearLayout mLinearLoginRequired;
         public View mView;
+        public ProgressBar mProgressBarLoadingCoupon;
 
         public CouponRecyclerViewHolders(View itemView) {
             super(itemView);
@@ -81,6 +99,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
             mCouponPhoto = (ImageView) itemView.findViewById(R.id.iv_coupon_photo);
             mCouponIsFavourite = (ImageView) itemView.findViewById(R.id.iv_coupon_favourite);
             mLinearLoginRequired = (LinearLayout) itemView.findViewById(R.id.ln_login_required);
+            mProgressBarLoadingCoupon = (ProgressBar) itemView.findViewById(R.id.progress_bar_loading_coupon);
         }
 
         @Override

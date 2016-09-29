@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
+import com.hunters1984.pon.utils.CommonUtils;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,7 +28,9 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        Call<ResponseCouponDetailData> response = service.getCouponDetail(id);
+        String token = CommonUtils.getToken(context);
+
+        Call<ResponseCouponDetailData> response = service.getCouponDetail(token, id);
 
         response.enqueue(new Callback<ResponseCouponDetailData>() {
             @Override
@@ -41,9 +45,40 @@ public class CouponAPIHelper extends APIHelper {
 
             @Override
             public void onFailure(Call<ResponseCouponDetailData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void getCouponMainTop(Context context, String type, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = CommonUtils.getToken(context);
+
+        Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "1", pageIndex);
+
+        response.enqueue(new Callback<ResponseCouponMainTopData>() {
+            @Override
+            public void onResponse(Call<ResponseCouponMainTopData> call, Response<ResponseCouponMainTopData> response) {
+                ResponseCouponMainTopData res = response.body();
                 Message msg = Message.obtain();
-                msg.what = APIConstants.HANDLER_REQUEST_SERVER_FAILED;
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
                 handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCouponMainTopData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }
         });

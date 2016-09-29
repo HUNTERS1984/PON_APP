@@ -39,7 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.MainTopActivity" />
         <activity android:name=".activities.ShopLocationActivity" />
         <activity android:name=".activities.ShopSubscribeActivity" />
         <activity android:name=".activities.ShopSubscribeDetailActivity" />

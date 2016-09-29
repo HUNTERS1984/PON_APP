@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponPagerAdapter;
 
-public class MainActivity extends BaseActivity {
+public class MainTopActivity extends BaseActivity {
 
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
 
@@ -62,14 +62,14 @@ public class MainActivity extends BaseActivity {
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(MainActivity.this, ShopLocationActivity.class, false);
+                startActivity(MainTopActivity.this, ShopLocationActivity.class, false);
             }
         });
 
         mBtnShopSubscribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(MainActivity.this, ShopSubscribeActivity.class, false);
+                startActivity(MainTopActivity.this, ShopSubscribeActivity.class, false);
             }
         });
     }

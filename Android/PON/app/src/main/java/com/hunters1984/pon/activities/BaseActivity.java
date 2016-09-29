@@ -42,8 +42,8 @@ public class BaseActivity extends AppCompatActivity {
             mIvHome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(!(mContext instanceof MainActivity)) {
-                        startActivity(mContext, MainActivity.class, true);
+                    if(!(mContext instanceof MainTopActivity)) {
+                        startActivity(mContext, MainTopActivity.class, true);
                     }
                 }
             });
@@ -97,6 +97,12 @@ public class BaseActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
         startActivity(intent);
+    }
+
+    protected void startActivityForResult(Context context, Class<?> activity, int requestCode)
+    {
+        Intent intent = new Intent(context, activity);
+        startActivityForResult(intent, requestCode);
     }
 
     protected void activeProfile()
