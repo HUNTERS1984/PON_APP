@@ -92,7 +92,16 @@ extension SignUpViewController {
             if let _ = error {
                 
             }else {
-                
+                if result?.code == SuccessCode {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.getUserProfile()
+                    self.setupTabbarViewController()
+                }else {
+                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                }
             }
         }
     }

@@ -97,34 +97,6 @@ extension SplashViewController {
 //MARK: - Private methods
 extension SplashViewController {
     
-    private func setupTabbarViewController() {
-        let mainNavigationController: BaseNavigationController?
-        let accountNavigationController: BaseNavigationController?
-        let favoriteNavigationController: BaseNavigationController?
-        
-        var mainTabbarViewController: BaseTabBarController?
-        
-        let mainViewController = MainViewController.instanceFromStoryBoard("Main")
-        mainNavigationController = BaseNavigationController(rootViewController: mainViewController)
-        
-        let accountViewController = AccountViewController.instanceFromStoryBoard("Main")
-        accountNavigationController = BaseNavigationController(rootViewController: accountViewController)
-        
-        let favoriteViewController = FavoriteViewController.instanceFromStoryBoard("Main")
-        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController)
-
-        
-        mainTabbarViewController = BaseTabBarController()
-        mainTabbarViewController?.viewControllers = [
-            favoriteNavigationController!,
-            mainNavigationController!,
-            accountNavigationController!
-        ]
-        mainTabbarViewController?.selectedIndex = 1
-        mainTabbarViewController?.tabBar.hidden = true
-        self.appDelegate?.window?.rootViewController = mainTabbarViewController!
-    }
-    
     private func authorizeToken() {
         if let _ = Defaults[.token] {
             print("Bearer \(Defaults[.token]!)")
