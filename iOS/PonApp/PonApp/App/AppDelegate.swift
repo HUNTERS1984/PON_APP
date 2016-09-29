@@ -28,6 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupApplicationData() {
         GMSServices.provideAPIKey(GoogleMapAPIKey)
         LocationManager.sharedInstance
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.receivedTokenInvalidNotification(_:)), name:TokenInvalidNotification, object: nil)
+    }
+    
+    func receivedTokenInvalidNotification(notification: NSNotification){
+        HLKAlertView.show("Error", message: "Access token invalid", cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        let vc = SplashViewController.instanceFromStoryBoard("Main")
+        let nav = BaseNavigationController(rootViewController: vc)
+        self.window?.rootViewController = nav
     }
     
     func setUpApplicationTheme() {

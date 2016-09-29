@@ -94,29 +94,32 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d1d-Ym-ZIW">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="111"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9u-k8-0BW" userLabel="Title Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9u-k8-0BW" userLabel="Title Label">
                                         <rect key="frame" x="10" y="116" width="155" height="22"/>
                                         <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
                                         <color key="textColor" red="0.23529411764705882" green="0.27450980392156865" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイプが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbL-gi-TQb" userLabel="Type Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbL-gi-TQb" userLabel="Type Label">
                                         <rect key="frame" x="10" y="138" width="155" height="22"/>
                                         <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="12"/>
                                         <color key="textColor" red="0.50980392156862742" green="0.53725490196078429" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限:2016.07.31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igO-bC-mdZ" userLabel="Expire Date Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igO-bC-mdZ" userLabel="Expire Date Label">
                                         <rect key="frame" x="10" y="157" width="155" height="22"/>
                                         <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.31372549019607843" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_liked.png" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-59-ogd">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_liked.png" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-59-ogd">
                                         <rect key="frame" x="137" y="0.0" width="38" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fGw-59-ogd" secondAttribute="height" multiplier="1:1" id="PFL-Ua-GcD"/>
                                         </constraints>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="used_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPM-J1-n8a">
+                                        <rect key="frame" x="-1" y="-1" width="60" height="45"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,17 +128,21 @@
                                     <constraint firstAttribute="trailing" secondItem="d1d-Ym-ZIW" secondAttribute="trailing" id="3bd-es-oxF"/>
                                     <constraint firstItem="igO-bC-mdZ" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="21/175" id="5Oe-j3-4cu"/>
                                     <constraint firstItem="b9u-k8-0BW" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="21/175" id="Bnf-gm-C3e"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="-1" id="E0n-EM-xm1"/>
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="105/175" id="K5P-5Q-t39"/>
                                     <constraint firstItem="igO-bC-mdZ" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="PFF-dD-k6L"/>
                                     <constraint firstAttribute="trailing" secondItem="fGw-59-ogd" secondAttribute="trailing" id="PyG-dd-1Nx"/>
                                     <constraint firstItem="igO-bC-mdZ" firstAttribute="top" secondItem="JbL-gi-TQb" secondAttribute="bottom" constant="-3" id="RHh-w3-fc8"/>
                                     <constraint firstItem="b9u-k8-0BW" firstAttribute="top" secondItem="d1d-Ym-ZIW" secondAttribute="bottom" constant="5" id="RHp-Rg-gkS"/>
                                     <constraint firstItem="fGw-59-ogd" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="38/175" id="Rjh-lp-9Zw"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="45/185" id="Uue-qh-p4a"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="60/175" id="XTw-Dc-QZv"/>
                                     <constraint firstAttribute="trailing" secondItem="igO-bC-mdZ" secondAttribute="trailing" constant="10" id="Xq9-hk-zLE"/>
                                     <constraint firstAttribute="trailing" secondItem="JbL-gi-TQb" secondAttribute="trailing" constant="10" id="Y7E-Zj-BcA"/>
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" id="ZaY-ay-ptR"/>
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" id="bWo-MY-MC1"/>
                                     <constraint firstItem="b9u-k8-0BW" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="iQB-DY-NLR"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" constant="-1" id="lUA-fe-EJo"/>
                                     <constraint firstAttribute="trailing" secondItem="b9u-k8-0BW" secondAttribute="trailing" constant="10" id="oZx-bd-VmQ"/>
                                     <constraint firstItem="fGw-59-ogd" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" id="pQE-Iw-ody"/>
                                     <constraint firstItem="JbL-gi-TQb" firstAttribute="top" secondItem="b9u-k8-0BW" secondAttribute="bottom" id="weO-f4-uW4"/>
@@ -184,11 +191,13 @@
                 <outlet property="thumbImageView" destination="d1d-Ym-ZIW" id="u8z-xF-Fnt"/>
                 <outlet property="titleLabel" destination="b9u-k8-0BW" id="oqm-XJ-bjT"/>
                 <outlet property="typeLabel" destination="JbL-gi-TQb" id="CQS-jn-Sag"/>
+                <outlet property="usedIconImage" destination="oPM-J1-n8a" id="XDX-ef-RMg"/>
             </connections>
             <point key="canvasLocation" x="495.5" y="260.5"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="coupon_liked.png" width="39" height="38"/>
+        <image name="used_coupon.png" width="61" height="45"/>
     </resources>
 </document>

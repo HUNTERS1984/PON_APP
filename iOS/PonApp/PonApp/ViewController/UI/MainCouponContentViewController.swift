@@ -1,22 +1,24 @@
 //
-//  HomeNearestViewController.swift
+//  MainCouponContentViewController.swift
 //  PonApp
 //
-//  Created by HaoLe on 9/8/16.
+//  Created by OSXVN on 9/28/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
 import UIKit
 
-class HomeNearestViewController: BaseViewController {
-
+class MainCouponContentViewController: BaseViewController {
+    
     var parentNavigationController : UINavigationController?
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var contentTableView: UITableView!
     @IBOutlet weak var contentTableViewHeight: NSLayoutConstraint!
     
+    var couponFeature:CouponFeature?
     var couponListData = [CouponListData]()
+    var previousCollectionView: HorizontalCollectionView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +43,33 @@ class HomeNearestViewController: BaseViewController {
         self.contentTableView.scrollEnabled = false
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .None
-        self.getCoupon(1)
+        self.getCouponByFeature(self.couponFeature!, pageIndex: 1)
     }
     
 }
 
-extension HomeNearestViewController: UITableViewDataSource {
+//MARK: - Private
+extension MainCouponContentViewController {
+    
+    private func getCouponDetail(couponId: Float) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                let coupon = Coupon(response: result?.data)
+                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                vc.coupon = coupon
+                self.parentNavigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
+}
+
+//MARK: - UITableViewDataSource
+extension MainCouponContentViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return couponListData.count
@@ -63,7 +86,7 @@ extension HomeNearestViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
         collectionCell.couponCollectionView.index = indexPath.row
-        collectionCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
+        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, coupons: self.couponListData[indexPath.row].coupons)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -74,7 +97,8 @@ extension HomeNearestViewController: UITableViewDataSource {
     
 }
 
-extension HomeNearestViewController: UITableViewDelegate {
+//MARK: - UITableViewDelegate
+extension MainCouponContentViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -82,49 +106,28 @@ extension HomeNearestViewController: UITableViewDelegate {
     
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
-extension HomeNearestViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let listView = collectionView as! HorizontalCollectionView
-        let index = listView.index
-        return self.couponListData[index].coupons.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        let listView = collectionView as! HorizontalCollectionView
-        let index = listView.index
-        cell.coupon = self.couponListData[index].coupons[indexPath.item]
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        return commentView
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-        self.parentNavigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let width = screenWidth * (162/375)
-        let height = screenHeight * (172/667)
-        return CGSizeMake(width, height)
+    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: NSIndexPath) {
+        if let _ = self.previousCollectionView {
+            if self.previousCollectionView! != collectionView {
+                self.previousCollectionView!.resetCollectionView()
+            }
+        }
+        self.previousCollectionView = collectionView
+        if let _ = coupon {
+            self.getCouponDetail(coupon!.couponID)
+        }
     }
     
 }
 
 //MARK: - Private
-extension HomeNearestViewController {
+extension MainCouponContentViewController {
     
-    private func getCoupon(pageIndex: Int) {
+    private func getCouponByFeature(couponFeature: CouponFeature, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeature(.Near) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeature(couponFeature) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -171,5 +174,3 @@ extension HomeNearestViewController {
     }
     
 }
-
-

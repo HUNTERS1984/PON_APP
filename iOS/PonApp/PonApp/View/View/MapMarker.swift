@@ -11,5 +11,6 @@ import MapKit
 import GoogleMaps
 
 class MapMarker: GMSMarker {
-    var Id: String!
+    var mapMarkerId: Float!
+    var shop: Shop!
 }

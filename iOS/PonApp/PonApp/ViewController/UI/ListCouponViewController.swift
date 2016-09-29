@@ -11,6 +11,7 @@ import UIKit
 class ListCouponViewController: BaseViewController {
     
     var pageMenu : CAPSPageMenu?
+    var couponType: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,24 +23,19 @@ class ListCouponViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupScrollMenu()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "グルメ"
+        self.title = "グルメでさがす"
         self.showBackButton()
-        let barButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .Plain, target: self, action: #selector(self.searchBarButtonPressed(_:)))
-        self.navigationItem.rightBarButtonItem = barButton
+        self.setupScrollMenu()
     }
 }
 
 //IBAction
 extension ListCouponViewController {
-    
-    @IBAction func searchBarButtonPressed(sender: AnyObject) {
-        
-    }
     
 }
 
@@ -48,20 +44,33 @@ extension ListCouponViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-        let popular = CouponPopularViewController.instanceFromStoryBoard("CouponList") as! CouponPopularViewController
+        let popular = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         popular.parentNavigationController = self.navigationController
+        popular.couponFeature = .Popularity
+        popular.couponType = self.couponType
         popular.title = "人気"
         controllerArray.append(popular)
         
-        let newest = CouponNewestViewController.instanceFromStoryBoard("CouponList") as! CouponNewestViewController
+        let newest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         newest.parentNavigationController = self.navigationController
+        newest.couponFeature = .New
+        newest.couponType = self.couponType
         newest.title = "新着"
         controllerArray.append(newest)
         
-        let nearest = CouponNearestViewController.instanceFromStoryBoard("CouponList") as! CouponNearestViewController
+        let nearest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         nearest.parentNavigationController = self.navigationController
+        nearest.couponFeature = .Near
+        nearest.couponType = self.couponType
         nearest.title = "近く"
         controllerArray.append(nearest)
+        
+        let deal = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
+        deal.parentNavigationController = self.navigationController
+        deal.couponFeature = .Deal
+        deal.couponType = self.couponType
+        deal.title = "お得"
+        controllerArray.append(deal)
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
@@ -70,7 +79,7 @@ extension ListCouponViewController {
             .BottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .SelectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .MenuItemWidth(70.0),
-            .MenuHeight(50.0),
+            .MenuHeight(self.view.bounds.size.height * (50/667)),
             .SelectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .UnselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),
             .MenuItemFont(UIFont.HiraginoSansW6(17)),
@@ -90,11 +99,11 @@ extension ListCouponViewController {
 extension ListCouponViewController: CAPSPageMenuDelegate {
     
     func didMoveToPage(controller: UIViewController, index: Int) {
-        print("did move to page")
+    
     }
     
     func willMoveToPage(controller: UIViewController, index: Int) {
-        print("will move to page")
+
     }
     
 }

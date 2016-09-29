@@ -39,7 +39,8 @@ struct CouponListData {
         
         if let couponsArray = response!["coupons"].array {
             for couponData in couponsArray {
-                let coupon = Coupon(response: couponData)
+                var coupon = Coupon(response: couponData)
+                coupon.couponType = couponType
                 self.coupons.append(coupon)
             }
         }

@@ -19,6 +19,26 @@ class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var expireDateLabel: UILabel!
     @IBOutlet weak var likeIconImage: UIImageView!
+    @IBOutlet weak var usedIconImage: UIImageView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initialize()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.initialize()
+    }
+    
+    func initialize() {
+        self.backgroundColor = UIColor.clearColor()
+    }
     
     var coupon: Coupon! {
         didSet {
@@ -34,6 +54,8 @@ class CouponCollectionViewCell: UICollectionViewCell {
             self.confirmView.hidden = true
             self.couponContentView.hidden = false
         }
+        
+        self.usedIconImage.hidden = !coupon.isUsed
         let URL = NSURL(string: coupon.imageURL)!
         self.thumbImageView.af_setImageWithURL(URL)
         self.titleLabel.text = coupon.title
@@ -43,5 +65,6 @@ class CouponCollectionViewCell: UICollectionViewCell {
         }else {
             self.likeIconImage.hidden = true
         }
+        self.typeLabel.text = coupon.couponType
     }
 }

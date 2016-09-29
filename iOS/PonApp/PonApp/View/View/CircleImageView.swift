@@ -10,8 +10,8 @@ import UIKit
 
 class CircleImageView: UIImageView {
     
-    @IBInspectable var imageBorderColor: UIColor = UIColor(red:162.0/255.0, green:169.0/255.0, blue:175.0/255.0, alpha:1)
-    @IBInspectable var borderSize: CGFloat = 1.0
+    @IBInspectable var imageBorderColor: UIColor = UIColor(hex: DefaultBorderColor)
+    @IBInspectable var borderSize: CGFloat = 0.5
     
     override init(frame: CGRect) {
         super.init(frame: frame)

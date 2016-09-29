@@ -23,7 +23,13 @@ struct Shop {
     var shopAvegerBill: Float!
     var regularHoliday: String!
     var shopDirection: String!
+    var shopStartTime: String!
+    var shopEndTime: String!
     
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
+    }
+
     init(response: JSON?) {
         if let shopID = response!["id"].float {
             self.shopID = shopID
@@ -47,10 +53,18 @@ struct Shop {
         
         if let shopLongitude = response!["longitude"].float {
             self.shopLongitude = shopLongitude
+        }else {
+            if let shopLongitude = response!["longitude"].string {
+                self.shopLongitude = shopLongitude.floatValue
+            }
         }
         
         if let shopLatitude = response!["lattitude"].float {
             self.shopLatitude = shopLatitude
+        }else {
+            if let shopLatitude = response!["lattitude"].string {
+                self.shopLatitude = shopLatitude.floatValue
+            }
         }
         
         if let shopAddress = response!["address"].string {
@@ -87,6 +101,14 @@ struct Shop {
         
         if let shopDirection = response!["help_text"].string {
             self.shopDirection = shopDirection
+        }
+        
+        if let shopStartTime = response!["operation_start_time"].string {
+            self.shopStartTime = shopStartTime
+        }
+        
+        if let shopEndTime = response!["operation_end_time"].string {
+            self.shopEndTime = shopEndTime
         }
     }
     

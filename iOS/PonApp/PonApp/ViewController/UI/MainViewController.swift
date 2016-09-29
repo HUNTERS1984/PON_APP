@@ -14,6 +14,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
 
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var seachContainerView: UIView!
     @IBOutlet weak var scrollMenuView: UIView!
     @IBOutlet weak var tabFavoriteButton: UIButton!
@@ -41,6 +42,7 @@ class MainViewController: BaseViewController {
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
+        self.searchTextField.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
 }
@@ -49,24 +51,33 @@ class MainViewController: BaseViewController {
 extension MainViewController {
     
     @IBAction func favoriteButtonPressed(sender: AnyObject) {
-        self.tabBarController?.selectedIndex = 0
+        if UserDataManager.isLoggedIn() {
+            self.tabBarController?.selectedIndex = 0
+        }else {
+            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        }
     }
     
     @IBAction func homeButtonPressed(sender: AnyObject) {
+        
     }
     
     @IBAction func accountButtonPressed(sender: AnyObject) {
-        self.tabBarController?.selectedIndex = 2
+        if UserDataManager.isLoggedIn() {
+            self.tabBarController?.selectedIndex = 2
+        }else {
+            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        }
     }
     
     @IBAction func locationButtonPressed(sender: AnyObject) {
         let vc = HomeSearchViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
-        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -76,28 +87,29 @@ extension MainViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-//        let popular = HomePopularViewController.instanceFromStoryBoard("MainMenu") as! HomePopularViewController
-        let popular = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let popular = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         popular.parentNavigationController = self.navigationController
+        popular.couponFeature = .Popularity
         popular.title = "人気"
         controllerArray.append(popular)
         
-//        let newest = HomeNewestViewController.instanceFromStoryBoard("MainMenu") as! HomeNewestViewController
-        let newest = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let newest = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         newest.parentNavigationController = self.navigationController
+        newest.couponFeature = .New
         newest.title = "新着"
         controllerArray.append(newest)
         
-        let nearby = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
+        let nearby = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
         nearby.parentNavigationController = self.navigationController
+        nearby.couponFeature = .Near
         nearby.title = "近く"
         controllerArray.append(nearby)
         
-//        let used = HomeUsedViewController.instanceFromStoryBoard("MainMenu") as! HomeUsedViewController
-        let used = HomeNearestViewController.instanceFromStoryBoard("MainMenu") as! HomeNearestViewController
-        used.parentNavigationController = self.navigationController
-        used.title = "お得"
-        controllerArray.append(used)
+        let deal = MainCouponContentViewController.instanceFromStoryBoard("MainMenu") as! MainCouponContentViewController
+        deal.parentNavigationController = self.navigationController
+        deal.couponFeature = .Deal
+        deal.title = "お得"
+        controllerArray.append(deal)
         
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
@@ -106,7 +118,6 @@ extension MainViewController {
             .BottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .SelectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .MenuItemWidth(70.0),
-            
             .MenuHeight(self.view.bounds.size.height * (50/667)),
             .SelectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .UnselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),

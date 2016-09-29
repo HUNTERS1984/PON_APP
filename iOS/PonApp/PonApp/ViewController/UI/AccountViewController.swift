@@ -16,6 +16,8 @@ class AccountViewController: BaseViewController {
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
     @IBOutlet weak var tabAccountButton: UIButton!
+    @IBOutlet weak var avatarImageView: CircleImageView!
+    @IBOutlet weak var usernamLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,11 @@ class AccountViewController: BaseViewController {
         self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_selected"), forState: .Normal)
+    }
+    
+    override func setUpComponentsOnWillAppear() {
+        super.setUpComponentsOnWillAppear()
+        self.displayUserInfo()
     }
     
 }
@@ -86,6 +93,28 @@ extension AccountViewController {
             "お問い合わせ",//contact us
             "掲載希望のショップ様"//news
         ]
+    }
+    
+    private func getUserProfile() {
+        self.showHUD()
+        ApiRequest.getUserProfile { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+        }
+    }
+    
+    private func displayUserInfo() {
+        if let _ = UserDataManager.sharedInstance.username {
+            self.usernamLabel.text = UserDataManager.sharedInstance.username!
+        }else {
+            self.usernamLabel.text = ""
+        }
+        
+        if let _ = UserDataManager.sharedInstance.avatarUrl {
+            let avatarUrl = NSURL(string: UserDataManager.sharedInstance.avatarUrl!)
+            self.avatarImageView.af_setImageWithURL(avatarUrl!)
+        }else {
+            self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
+        }
     }
     
 }

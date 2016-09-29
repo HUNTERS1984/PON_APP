@@ -59,8 +59,6 @@ extension SplashViewController {
         FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             
         }
-//        let vc = SignUpViewController.instanceFromStoryBoard("Register")
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
@@ -82,7 +80,7 @@ extension SplashViewController {
     
     @IBAction func mailButtonPressed(sender: AnyObject) {
         let vc = SignInViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
@@ -99,51 +97,34 @@ extension SplashViewController {
 //MARK: - Private methods
 extension SplashViewController {
     
-    private func setupTabbarViewController() {
-        let mainNavigationController: BaseNavigationController?
-        let accountNavigationController: BaseNavigationController?
-        let favoriteNavigationController: BaseNavigationController?
-        
-        var mainTabbarViewController: BaseTabBarController?
-        
-        let mainViewController = MainViewController.instanceFromStoryBoard("Main")
-        mainNavigationController = BaseNavigationController(rootViewController: mainViewController)
-        
-        let accountViewController = AccountViewController.instanceFromStoryBoard("Main")
-        accountNavigationController = BaseNavigationController(rootViewController: accountViewController)
-        
-        let favoriteViewController = FavoriteViewController.instanceFromStoryBoard("Main")
-        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController)
-
-        
-        mainTabbarViewController = BaseTabBarController()
-        mainTabbarViewController?.viewControllers = [
-            favoriteNavigationController!,
-            mainNavigationController!,
-            accountNavigationController!
-        ]
-        mainTabbarViewController?.selectedIndex = 1
-        mainTabbarViewController?.tabBar.hidden = true
-        self.appDelegate?.window?.rootViewController = mainTabbarViewController!
-    }
-    
     private func authorizeToken() {
-        self.showHUD()
-        ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
-            if let _ = error {
-                self.actionView.fadeIn(0.5)
-                self.loginActionView.fadeOut(0.5)
-            }else {
-                if let _ = result {
-                    if result!.code == SuccessCode {
-                        self.setupTabbarViewController()
-                    }
+        if let _ = Defaults[.token] {
+            print("Bearer \(Defaults[.token]!)")
+            self.showHUD()
+            ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+                self.hideHUD()
+                if let _ = error {
+                    self.showActionView()
                 }else {
-                    
+                    if let _ = result {
+                        if result!.code == SuccessCode {
+                            UserDataManager.sharedInstance.loggedIn = true
+                            UserDataManager.getUserProfile()
+                            self.setupTabbarViewController()
+                        }else {
+                            HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                        }
+                    }
                 }
             }
+        }else {
+            self.showActionView()
         }
+    }
+    
+    private func showActionView() {
+        self.actionView.fadeIn(0.5)
+        self.loginActionView.fadeOut(0.5)
     }
     
     

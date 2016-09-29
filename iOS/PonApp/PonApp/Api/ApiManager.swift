@@ -125,7 +125,7 @@ public struct ApiManager {
                         }
                     }
                 }
-            case .Failure(let encodingError):
+            case .Failure( _):
                 ApiManager.processFailureResponese(nil, completion: completion)
             }
         }
@@ -139,7 +139,15 @@ public struct ApiManager {
                 multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
             }
         }
-        Alamofire.upload(.POST, urlString, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        
+        let headers = [
+            "Authorization": "Bearer \(self.getToken())"
+        ]
+        if hasAuth {
+            Alamofire.upload(.POST, urlString, headers: headers, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        }else {
+            Alamofire.upload(.POST, urlString, multipartFormData: multipartFormData, encodingCompletion:encodingCompletion)
+        }
     }
     
     //MARK: - SUCCESS RESPONSE
@@ -160,22 +168,19 @@ public struct ApiManager {
     
     //MARK: - FAILURE RESPONSE
     private static func processFailureResponese(response: Response<String, NSError>?, completion: ApiCompletion) {
-        var message : String
         if let httpStatusCode = response!.response?.statusCode {
-            switch(httpStatusCode) {
-            case 400:
-                message = "Username or password not provided."
-            case 401:
-                message = "Incorrect password for user."
-            default:
-                break
+            if httpStatusCode == 401 {
+                ApiManager.processInvalidToken()
             }
-        } else {
-            
+            let encodingError = response!.result.error!
+            let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
+            completion(request: nil, result: nil, error: error)
         }
-        let encodingError = response!.result.error!
-        let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(encodingError)"])
-        completion(request: nil, result: nil, error: error)
+    }
+    
+    private static func processInvalidToken() {
+        Defaults[.token] = nil
+        NSNotificationCenter.defaultCenter().postNotificationName(TokenInvalidNotification, object: nil)
     }
     
 }

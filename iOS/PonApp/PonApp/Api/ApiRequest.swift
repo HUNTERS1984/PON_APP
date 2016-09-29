@@ -74,5 +74,72 @@ public struct ApiRequest {
         ApiManager.processRequest(GetUsedCoupon, method: .GET, hasAuth: true, completion: completion)
     }
     
+    
+    static func getUserProfile(completion: ApiCompletion) {
+        ApiManager.processRequest(UserProfile, method: .GET, hasAuth: true, completion: completion)
+    }
+    
+    static func updateUserProfile(name: String? = nil, gender: Int? = nil, address: String? = nil, avatar: UIImage? = nil, completion: ApiCompletion) {
+        if let _ =  avatar {
+            let avatarData = UIImagePNGRepresentation(avatar!)
+            let avatarFile = ApiFileUpload(data: avatarData!, name: "avatar_url", fileName: "avatar_url")
+            let parameters: [String: AnyObject?] = [
+                "name": name,
+                "gender": "\(gender!)",
+                "address": address
+            ]
+            ApiManager.processRequest(UserProfile, method: .POST, parameters: parameters, uploadFiles: [avatarFile], hasAuth: true, completion: completion)
+        }else {
+            let parameters: [String: AnyObject?] = [
+                "name": name,
+                "gender": gender,
+                "address": address
+            ]
+            ApiManager.processRequest(UserProfile, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+        }
+    }
+    
+    static func getCouponType(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        ApiManager.processRequest(GetCouponType, method: .GET, parameters: parameters, completion: completion)
+    }
+    
+    static func getNumberOfShopByCouponType(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        ApiManager.processRequest(GetNumberOfShopByType, method: .GET, parameters: parameters, completion: completion)
+    }
+    
+    static func getCouponByFeatureAndType(feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        let endpoint = String(format:GetCouponByFeatureAndType, feature.rawValue, couponType)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+    }
+    
+    static func getShopByFeatureAndType(feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        let endpoint = String(format:GetShopByFeatureAndType, feature.rawValue, couponType)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+    }
+    
+    static func getShopByLattitudeAndLongitude(lattitude: Double, longitude: Double, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        let endpoint = String(format:GetShopByLattitudeAndLongitude, lattitude, longitude)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+    }
 
 }

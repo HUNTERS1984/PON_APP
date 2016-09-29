@@ -48,54 +48,31 @@ extension SignInViewController {
             if successed {
                 self.signIn(userName!, password: password!)
             }else {
-                HLKAlertView.show("", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
+    }
+    
+    @IBAction func signUnButtonPressed(sender: AnyObject) {
+        let vc = SignUpViewController.instanceFromStoryBoard("Register")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
 extension SignInViewController {
     
-    private func setupTabbarViewController() {
-        let mainNavigationController: BaseNavigationController?
-        let accountNavigationController: BaseNavigationController?
-        let favoriteNavigationController: BaseNavigationController?
-        
-        var mainTabbarViewController: BaseTabBarController?
-        
-        let mainViewController = MainViewController.instanceFromStoryBoard("Main")
-        mainNavigationController = BaseNavigationController(rootViewController: mainViewController)
-        
-        let accountViewController = AccountViewController.instanceFromStoryBoard("Main")
-        accountNavigationController = BaseNavigationController(rootViewController: accountViewController)
-        
-        let favoriteViewController = FavoriteViewController.instanceFromStoryBoard("Main")
-        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController)
-        
-        
-        mainTabbarViewController = BaseTabBarController()
-        mainTabbarViewController?.viewControllers = [
-            favoriteNavigationController!,
-            mainNavigationController!,
-            accountNavigationController!
-        ]
-        mainTabbarViewController?.selectedIndex = 1
-        mainTabbarViewController?.tabBar.hidden = true
-        self.appDelegate?.window?.rootViewController = mainTabbarViewController!
-    }
-    
     private func validInfomation(userName: String?, password: String?, completion:(successed: Bool, message: String) -> Void) {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: "Please enter user name")
+            completion(successed: false, message: "Username not valid")
         }
         
         if let _ = password {
             
         }else {
-            completion(successed: false, message: "Please enter password")
+            completion(successed: false, message: "Password not valid")
         }
         completion(successed: true, message: "")
     }
@@ -107,13 +84,15 @@ extension SignInViewController {
             if let _ = error {
                 
             }else {
-                if result?.code == 1000 {
+                if result?.code == SuccessCode {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
+                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-                    
+                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }
         }

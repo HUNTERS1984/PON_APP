@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLRefreshSwift
 
 class FavoriteViewController: BaseViewController {
 
@@ -44,11 +43,6 @@ class FavoriteViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
-//        collectionView.xlfooter = XLRefreshFooter(action: {
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC)*2)), dispatch_get_main_queue(), {
-//                self.collectionView.endFooterRefresh()
-//            })
-//        })
         
         self.loadFavoriteCoupon(1)
     }
@@ -74,8 +68,8 @@ extension FavoriteViewController {
     }
     
     @IBAction func navAddButtonPressed(sender: AnyObject) {
-        let vc = ShopViewController.instanceFromStoryBoard("Shop")
-        self.navigationController?.pushViewController(vc, animated: false)
+//        let vc = ShopViewController.instanceFromStoryBoard("Shop")
+//        self.navigationController?.pushViewController(vc, animated: false)
     }
     
 }
@@ -102,8 +96,6 @@ extension FavoriteViewController {
                     }else {
                         self.displayCoupon(responseCoupon, type: .LoadMore)
                     }
-                }else {
-                    
                 }
             }
         }
@@ -137,6 +129,14 @@ extension FavoriteViewController {
                 vc.coupon = coupon
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+        }
+    }
+    
+    private func resetCollectionView() {
+        if let _ = self.previousSelectedIndexPath {
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+            collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+            self.previousSelectedIndexPath = nil
         }
     }
     
@@ -182,9 +182,13 @@ extension FavoriteViewController: UICollectionViewDelegate {
         let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
+                self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID)
             }else {
                 if let _ = self.previousSelectedIndexPath {
+                    if indexPath == self.previousSelectedIndexPath! {
+                        return
+                    } 
                     self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                     collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
                     

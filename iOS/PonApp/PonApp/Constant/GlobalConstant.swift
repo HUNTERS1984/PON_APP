@@ -32,3 +32,5 @@ public enum GetType {
     case LoadMore
     case New
 }
+
+let TokenInvalidNotification                    = "TokenInvalidNotification"

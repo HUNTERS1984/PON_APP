@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -11,9 +12,6 @@
             <string>HiraginoSansGB-W3</string>
         </mutableArray>
         <mutableArray key="HiraginoSansGB-W6.ttf">
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
             <string>HiraginoSansGB-W6</string>
@@ -41,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-8u-evy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-vM-f2C" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1625"/>
@@ -430,17 +428,29 @@
                                     <outlet property="delegate" destination="hwF-WD-6FX" id="9YD-A3-whr"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ8-Lh-a5Q">
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="hBx-KA-mL1"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="useCouponButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="qhI-9e-i7e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NMI-8u-evy" secondAttribute="trailing" id="3wH-71-rrm"/>
                             <constraint firstItem="arB-n3-ct6" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="270/667" id="Ar6-gx-GtR"/>
                             <constraint firstItem="94o-0j-5hZ" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="195/667" id="D0X-KK-ueM"/>
+                            <constraint firstItem="6o9-m9-gkq" firstAttribute="top" secondItem="eJ8-Lh-a5Q" secondAttribute="bottom" id="EN5-93-7zA"/>
+                            <constraint firstItem="eJ8-Lh-a5Q" firstAttribute="top" secondItem="NMI-8u-evy" secondAttribute="bottom" id="K29-KX-RL4"/>
                             <constraint firstItem="NMI-8u-evy" firstAttribute="leading" secondItem="H9K-lI-VXd" secondAttribute="leading" id="O36-jD-yjZ"/>
                             <constraint firstItem="Ufs-fP-qKO" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="60/667" id="XaW-iv-yb7"/>
-                            <constraint firstItem="6o9-m9-gkq" firstAttribute="top" secondItem="NMI-8u-evy" secondAttribute="bottom" id="bJk-Ot-iqI"/>
                             <constraint firstItem="8Dg-vM-f2C" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" priority="250" id="eSo-YT-LxY"/>
                             <constraint firstItem="O7T-zt-gcD" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="60/667" id="g3f-LQ-ctr"/>
+                            <constraint firstItem="eJ8-Lh-a5Q" firstAttribute="leading" secondItem="H9K-lI-VXd" secondAttribute="leading" id="kLE-wI-8ta"/>
+                            <constraint firstAttribute="trailing" secondItem="eJ8-Lh-a5Q" secondAttribute="trailing" id="pU3-Cy-fFb"/>
                             <constraint firstItem="Eox-RS-uS6" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="140/667" id="qml-8Y-8Sg"/>
                             <constraint firstItem="NMI-8u-evy" firstAttribute="top" secondItem="H9K-lI-VXd" secondAttribute="top" id="sZp-cy-4RY"/>
                             <constraint firstItem="8Dg-vM-f2C" firstAttribute="width" secondItem="H9K-lI-VXd" secondAttribute="width" id="vLo-Gi-R5u"/>
@@ -454,6 +464,7 @@
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="couponTitleLabel" destination="zIf-jE-byz" id="g6c-FM-rXN"/>
+                        <outlet property="couponTypeLabel" destination="2Yb-5v-dOe" id="aw2-bs-O7u"/>
                         <outlet property="expiryLabel" destination="U3h-zO-4p0" id="V8R-IA-kqX"/>
                         <outlet property="imageSlideshow" destination="W7w-2M-KHV" id="cwT-m8-0Rd"/>
                         <outlet property="likeButton" destination="cKq-ru-Ag9" id="pl0-Qz-5vW"/>
@@ -465,6 +476,7 @@
                         <outlet property="shopPhoneNumber" destination="hoY-ov-15O" id="V6I-Zm-fGt"/>
                         <outlet property="similarCouponCollectionView" destination="XBO-Tz-ZAZ" id="5rw-LH-5kx"/>
                         <outlet property="similarCouponCollectionViewConstraint" destination="OSE-Cg-7Wp" id="k1M-LM-Gqc"/>
+                        <outlet property="useCouponButton" destination="eJ8-Lh-a5Q" id="q98-m4-JI7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W38-03-Cie" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,98 +520,40 @@
                                 <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-MM-SZ8" userLabel="Action View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="15" y="135" width="345" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-MM-SZ8" userLabel="Action View">
+                                <rect key="frame" x="15" y="135" width="345" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9d-iq-Gnm" userLabel="SNS Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="5" width="155" height="40"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <state key="normal" title="SNSで送る">
-                                            <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.78039215689999997" green="0.80784313730000001" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="snsButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Meg-Fd-4Bd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-Ig-9rI" userLabel="QR Button">
-                                        <rect key="frame" x="185" y="5" width="155" height="40"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <state key="normal" title="QRコードで送る">
-                                            <color key="titleColor" red="0.7803921568627451" green="0.80784313725490198" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="qrCodePressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Fc5-p3-u4S"/>
-                                        </connections>
-                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sns_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-4P-iZ3">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="l9d-iq-Gnm" secondAttribute="bottom" constant="5" id="91h-gt-t09"/>
-                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="width" secondItem="bSD-MM-SZ8" secondAttribute="width" multiplier="0.45" id="Fas-av-KTS"/>
-                                    <constraint firstItem="tVO-Ig-9rI" firstAttribute="width" secondItem="l9d-iq-Gnm" secondAttribute="width" id="MYl-YD-Ios"/>
-                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="top" constant="5" id="NHz-n0-Ynf"/>
-                                    <constraint firstAttribute="trailing" secondItem="tVO-Ig-9rI" secondAttribute="trailing" constant="5" id="Nmt-zx-Yj7"/>
-                                    <constraint firstItem="l9d-iq-Gnm" firstAttribute="leading" secondItem="bSD-MM-SZ8" secondAttribute="leading" constant="5" id="ZHs-pd-Llx"/>
-                                    <constraint firstItem="tVO-Ig-9rI" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="top" constant="5" id="oE9-w5-qBd"/>
-                                    <constraint firstAttribute="bottom" secondItem="tVO-Ig-9rI" secondAttribute="bottom" constant="5" id="pQB-VI-Zia"/>
+                                    <constraint firstItem="F1S-4P-iZ3" firstAttribute="leading" secondItem="bSD-MM-SZ8" secondAttribute="leading" id="484-E9-oKy"/>
+                                    <constraint firstAttribute="bottom" secondItem="F1S-4P-iZ3" secondAttribute="bottom" id="EiW-Eg-OFo"/>
+                                    <constraint firstAttribute="trailing" secondItem="F1S-4P-iZ3" secondAttribute="trailing" id="q1I-le-up5"/>
+                                    <constraint firstItem="F1S-4P-iZ3" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="top" id="sbj-Jh-w4l"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                        <color key="value" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJo-D7-aoO" userLabel="Instagram Button">
-                                <rect key="frame" x="10" y="245" width="355" height="50"/>
+                                <rect key="frame" x="10" y="240" width="355" height="52"/>
                                 <connections>
                                     <action selector="instagramButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="D7y-NH-qtg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WD-9G-ghu" userLabel="Facebook Button">
-                                <rect key="frame" x="10" y="315" width="355" height="50"/>
+                                <rect key="frame" x="10" y="312" width="355" height="52"/>
                                 <connections>
                                     <action selector="facebookButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="exF-nL-v6u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkx-9S-TqV" userLabel="Twitter Button">
-                                <rect key="frame" x="10" y="385" width="355" height="50"/>
+                                <rect key="frame" x="10" y="384" width="355" height="52"/>
                                 <connections>
                                     <action selector="twitterButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="oSf-er-0eF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-A4-3wt" userLabel="Line Button">
-                                <rect key="frame" x="10" y="455" width="355" height="50"/>
+                                <rect key="frame" x="10" y="456" width="355" height="52"/>
                                 <connections>
                                     <action selector="lineButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Ibs-hr-ZAD"/>
                                 </connections>
@@ -614,12 +568,12 @@
                             <constraint firstAttribute="trailing" secondItem="5WD-9G-ghu" secondAttribute="trailing" constant="10" id="97y-fk-vdO"/>
                             <constraint firstItem="1xo-A4-3wt" firstAttribute="top" secondItem="Hkx-9S-TqV" secondAttribute="bottom" constant="20" id="Ga1-Bp-I5k"/>
                             <constraint firstItem="pAl-lA-mf9" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" id="NUx-Ty-HZn"/>
-                            <constraint firstItem="bSD-MM-SZ8" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="50/667" id="Oba-Fl-uEj"/>
+                            <constraint firstItem="bSD-MM-SZ8" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="45/667" id="Oba-Fl-uEj"/>
                             <constraint firstItem="wJo-D7-aoO" firstAttribute="top" secondItem="bSD-MM-SZ8" secondAttribute="bottom" constant="60" id="QTK-rk-MPK"/>
                             <constraint firstItem="wJo-D7-aoO" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="aB7-WN-6vE"/>
                             <constraint firstItem="Hkx-9S-TqV" firstAttribute="height" secondItem="5WD-9G-ghu" secondAttribute="height" id="abF-3A-Wag"/>
                             <constraint firstItem="1xo-A4-3wt" firstAttribute="height" secondItem="Hkx-9S-TqV" secondAttribute="height" id="aeK-Or-rH4"/>
-                            <constraint firstItem="wJo-D7-aoO" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="50/667" id="ebf-dg-jcJ"/>
+                            <constraint firstItem="wJo-D7-aoO" firstAttribute="height" secondItem="IOl-bf-2Om" secondAttribute="height" multiplier="52/667" id="ebf-dg-jcJ"/>
                             <constraint firstItem="5WD-9G-ghu" firstAttribute="top" secondItem="wJo-D7-aoO" secondAttribute="bottom" constant="20" id="gQ2-Bm-JoO"/>
                             <constraint firstItem="1xo-A4-3wt" firstAttribute="leading" secondItem="IOl-bf-2Om" secondAttribute="leading" constant="10" id="gUK-8v-kAU"/>
                             <constraint firstItem="Hkx-9S-TqV" firstAttribute="top" secondItem="5WD-9G-ghu" secondAttribute="bottom" constant="20" id="iRK-hE-95q"/>
@@ -678,88 +632,50 @@
                                 <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yp-Fu-VrQ" userLabel="Action View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="15" y="135" width="345" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yp-Fu-VrQ" userLabel="Action View">
+                                <rect key="frame" x="15" y="135" width="345" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-6h-DrL" userLabel="SNS Button">
-                                        <rect key="frame" x="5" y="5" width="155" height="40"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <state key="normal" title="SNSで送る">
-                                            <color key="titleColor" red="0.7843137255" green="0.82352941180000006" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22V-5h-zni" userLabel="QR Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="185" y="5" width="155" height="40"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <state key="normal" title="QRコードで送る">
-                                            <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.78039215689999997" green="0.80784313730000001" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="qrCodePressed:" destination="Iud-e9-nhj" eventType="touchUpInside" id="4tB-xF-wjJ"/>
-                                        </connections>
-                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr_code_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-C1-Wuq">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="E1h-6h-DrL" secondAttribute="bottom" constant="5" id="8Sj-bj-1yr"/>
-                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="top" constant="5" id="BPf-9a-h5f"/>
-                                    <constraint firstAttribute="bottom" secondItem="22V-5h-zni" secondAttribute="bottom" constant="5" id="ENw-ZN-3h8"/>
-                                    <constraint firstItem="22V-5h-zni" firstAttribute="width" secondItem="E1h-6h-DrL" secondAttribute="width" id="L2e-Gm-P9r"/>
-                                    <constraint firstAttribute="trailing" secondItem="22V-5h-zni" secondAttribute="trailing" constant="5" id="SaF-LQ-XCG"/>
-                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="leading" secondItem="0Yp-Fu-VrQ" secondAttribute="leading" constant="5" id="VNx-cq-Gba"/>
-                                    <constraint firstItem="22V-5h-zni" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="top" constant="5" id="YHx-BV-7jP"/>
-                                    <constraint firstItem="E1h-6h-DrL" firstAttribute="width" secondItem="0Yp-Fu-VrQ" secondAttribute="width" multiplier="0.45" id="c9k-eZ-f38"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mvh-C1-Wuq" secondAttribute="bottom" id="APr-pp-wae"/>
+                                    <constraint firstItem="Mvh-C1-Wuq" firstAttribute="leading" secondItem="0Yp-Fu-VrQ" secondAttribute="leading" id="NGP-zj-uoY"/>
+                                    <constraint firstItem="Mvh-C1-Wuq" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="top" id="Yi0-Hj-1Dx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mvh-C1-Wuq" secondAttribute="trailing" id="aEP-Lk-4lX"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                        <color key="value" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYN-cr-doi" userLabel="QR View">
-                                <rect key="frame" x="28" y="245" width="320" height="320"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYN-cr-doi" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="28" y="240" width="320" height="320"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ha6-e6-rcs">
+                                        <rect key="frame" x="60" y="60" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Ha6-e6-rcs" firstAttribute="leading" secondItem="QYN-cr-doi" secondAttribute="leading" constant="60" id="6cv-Pc-HqD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ha6-e6-rcs" secondAttribute="trailing" constant="60" id="WR1-fg-dJ9"/>
+                                    <constraint firstItem="Ha6-e6-rcs" firstAttribute="top" secondItem="QYN-cr-doi" secondAttribute="top" constant="60" id="pNZ-dg-5m1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ha6-e6-rcs" secondAttribute="bottom" constant="60" id="tAZ-w9-YXd"/>
                                     <constraint firstAttribute="width" secondItem="QYN-cr-doi" secondAttribute="height" multiplier="1:1" id="vPV-83-dDB"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="leading" secondItem="ZPo-Oo-iYp" secondAttribute="leading" constant="15" id="2Vi-XP-b8h"/>
                             <constraint firstAttribute="trailing" secondItem="MvL-7q-YBM" secondAttribute="trailing" constant="20" id="8AU-Tu-nQu"/>
-                            <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="height" secondItem="ZPo-Oo-iYp" secondAttribute="height" multiplier="50/667" id="DSP-Vv-gAU"/>
+                            <constraint firstItem="0Yp-Fu-VrQ" firstAttribute="height" secondItem="ZPo-Oo-iYp" secondAttribute="height" multiplier="45/667" id="DSP-Vv-gAU"/>
                             <constraint firstItem="QYN-cr-doi" firstAttribute="centerX" secondItem="ZPo-Oo-iYp" secondAttribute="centerX" id="DY5-Ol-waA"/>
                             <constraint firstItem="QYN-cr-doi" firstAttribute="top" secondItem="0Yp-Fu-VrQ" secondAttribute="bottom" constant="60" id="Id4-a1-TIa"/>
                             <constraint firstItem="QYN-cr-doi" firstAttribute="width" secondItem="ZPo-Oo-iYp" secondAttribute="width" multiplier="320/375" id="Ljj-4H-xeY"/>
@@ -774,12 +690,93 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="qrCodeView" destination="QYN-cr-doi" id="8sC-cA-oU9"/>
+                        <outlet property="qrCodeDisplayImageView" destination="Ha6-e6-rcs" id="Wzh-ag-fu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJR-bc-cG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="943.5" y="288.5"/>
+        </scene>
+        <!--ShowQR Code View Controller-->
+        <scene sceneID="jU0-R8-ocg">
+            <objects>
+                <viewController storyboardIdentifier="ShowQRCodeViewController" id="r9z-3B-Udm" customClass="ShowQRCodeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Car-W2-6Rh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dlu-5m-faJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="srS-i6-TXw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCF-Xv-KQV">
+                                <rect key="frame" x="0.0" y="18" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6FK-iZ-ayU"/>
+                                    <constraint firstAttribute="height" constant="40" id="FKq-00-UVt"/>
+                                </constraints>
+                                <state key="normal" image="nav_close_blue.png"/>
+                                <connections>
+                                    <action selector="closeButttonPressed:" destination="r9z-3B-Udm" eventType="touchUpInside" id="t4T-T7-YMj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9y-yx-48a" userLabel="Name Label">
+                                <rect key="frame" x="16" y="60" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3bx-UM-6pK"/>
+                                </constraints>
+                                <string key="text">QRコードをスタッフに見せて、
+ご利用ください。</string>
+                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQK-yp-x8d" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="27" y="174" width="320" height="320"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-kF-MR7">
+                                        <rect key="frame" x="60" y="60" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tir-kF-MR7" secondAttribute="trailing" constant="60" id="7N2-eL-yE9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tir-kF-MR7" secondAttribute="bottom" constant="60" id="7c5-qX-SmE"/>
+                                    <constraint firstItem="Tir-kF-MR7" firstAttribute="top" secondItem="TQK-yp-x8d" secondAttribute="top" constant="60" id="Tmp-Tr-tL0"/>
+                                    <constraint firstItem="Tir-kF-MR7" firstAttribute="leading" secondItem="TQK-yp-x8d" secondAttribute="leading" constant="60" id="nnW-Hp-dii"/>
+                                    <constraint firstAttribute="width" secondItem="TQK-yp-x8d" secondAttribute="height" multiplier="1:1" id="pPs-D2-Ckb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="trailing" secondItem="srS-i6-TXw" secondAttribute="trailingMargin" id="L43-ho-taz"/>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="leading" secondItem="srS-i6-TXw" secondAttribute="leadingMargin" id="Vjg-gM-QQE"/>
+                            <constraint firstItem="VCF-Xv-KQV" firstAttribute="leading" secondItem="srS-i6-TXw" secondAttribute="leading" id="dmM-EU-nyQ"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="centerY" secondItem="srS-i6-TXw" secondAttribute="centerY" id="fbU-w1-Qmr"/>
+                            <constraint firstItem="VCF-Xv-KQV" firstAttribute="top" secondItem="srS-i6-TXw" secondAttribute="top" constant="18" id="hK0-7G-iAm"/>
+                            <constraint firstItem="I9y-yx-48a" firstAttribute="top" secondItem="Car-W2-6Rh" secondAttribute="bottom" constant="40" id="qUP-Gy-bRH"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="width" secondItem="srS-i6-TXw" secondAttribute="width" multiplier="320/375" id="x8g-Ie-hiA"/>
+                            <constraint firstItem="TQK-yp-x8d" firstAttribute="centerX" secondItem="srS-i6-TXw" secondAttribute="centerX" id="ypl-8u-u2S"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="qrCodeDisplayImageView" destination="Tir-kF-MR7" id="Ec1-ZO-B3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W50-18-4Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1341.5" y="288.5"/>
         </scene>
     </scenes>
     <resources>
@@ -788,5 +785,7 @@
         <image name="coupon_phone.png" width="29" height="29"/>
         <image name="coupon_time.png" width="29" height="29"/>
         <image name="nav_close_blue.png" width="16" height="15"/>
+        <image name="qr_code_button.png" width="336" height="45"/>
+        <image name="sns_button.png" width="337" height="46"/>
     </resources>
 </document>

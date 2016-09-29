@@ -12,6 +12,7 @@ import SwiftQRCode
 class ScanQRCodeViewController: BaseViewController {
 
     @IBOutlet weak var qrCodeView: UIView!
+    @IBOutlet weak var qrCodeDisplayImageView: UIImageView!
     
     let scanner = QRCode()
     
@@ -30,12 +31,11 @@ class ScanQRCodeViewController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        scanner.startScan()
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.setupQRCodeView()
+        self.qrCodeDisplayImageView.image = QRCode.generateImage("Hello SwiftQRCode", avatarImage: nil, avatarScale: 0.3)
     }
 
 }
@@ -48,7 +48,8 @@ extension ScanQRCodeViewController {
     }
     
     @IBAction func qrCodePressed(sender: AnyObject) {
-        scanner.startScan()
+
+        
     }
     
 }
