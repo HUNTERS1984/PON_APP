@@ -2,6 +2,8 @@ package com.hunters1984.pon.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,8 +16,13 @@ import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.ShopDetailActivity;
+import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseCommon;
+import com.hunters1984.pon.api.ResponseShopFollowCouponTypeData;
+import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.DialogUtiils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -95,6 +102,8 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
         public ImageView mIconShopSelectStatus;
         public ProgressBar mProgressBarLoadingShopPhoto;
 
+        private int mPosSelection;
+
         public ShopSubscribeDetailRecyclerViewHolders(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -110,13 +119,15 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
 
         @Override
         public void onClick(View view) {
-            int pos = Integer.parseInt(view.getTag().toString());
-
+            mPosSelection = Integer.parseInt(view.getTag().toString());
+            ShopModel shop = mLstShopFollows.get(mPosSelection);
+            double shopId = shop.getmId();
             switch (view.getId()){
                 case R.id.rl_back_ground_shop_select_status:
-                    boolean isShopSubscribe = CommonUtils.convertBoolean(mLstShopFollows.get(pos).getmIsShopFollow());
-                    mLstShopFollows.get(pos).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
-                    notifyDataSetChanged();
+                    new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+//                    boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
+//                    mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
+//                    notifyDataSetChanged();
                     break;
                 default:
                     mContext.startActivity(new Intent(mContext, ShopDetailActivity.class));
@@ -124,5 +135,28 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
             }
 
         }
+
+        protected Handler mHanlderAddShopFollow = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                        ResponseCommon shopFollow = (ResponseCommon) msg.obj;
+                        if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK){
+                            ShopModel shop = mLstShopFollows.get(mPosSelection);
+                            boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
+                            mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
+                            notifyDataSetChanged();
+                        } else {
+                            new DialogUtiils().showDialog(mContext, mContext.getString(R.string.token_expried), false);
+                        }
+                        break;
+                    default:
+                        new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                        break;
+                }
+
+            }
+        };
     }
 }

@@ -35,6 +35,12 @@ public class UserProfileAPIHelper extends APIHelper{
             @Override
             public void onResponse(Call<ResponseCommon> call, Response<ResponseCommon> response) {
                 ResponseCommon res = response.body();
+                if (res == null) {
+                    res = new ResponseCommon();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;
@@ -66,6 +72,12 @@ public class UserProfileAPIHelper extends APIHelper{
             @Override
             public void onResponse(Call<ResponseUserData> call, Response<ResponseUserData> response) {
                 ResponseUserData res = response.body();
+                if (res == null) {
+                    res = new ResponseUserData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;
@@ -99,6 +111,12 @@ public class UserProfileAPIHelper extends APIHelper{
             @Override
             public void onResponse(Call<ResponseProfileData> call, Response<ResponseProfileData> response) {
                 ResponseProfileData res = response.body();
+                if (res == null) {
+                    res = new ResponseProfileData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;

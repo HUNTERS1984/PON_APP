@@ -36,7 +36,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     @Override
     public RelatedCouponRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coupon_type_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_item, null);
         RelatedCouponRecyclerViewHolders holders = new RelatedCouponRecyclerViewHolders(view);
         return holders;
     }
@@ -45,7 +45,8 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     public void onBindViewHolder(final RelatedCouponRecyclerViewHolders holder, int position) {
 
         Picasso.with(mContext).load(mListCoupons.get(position)).placeholder(R.color.grey).
-                resize(CommonUtils.dpToPx(mContext, 110), CommonUtils.dpToPx(mContext, 110)).centerCrop().into(holder.mPhoto, new Callback() {
+                resize(CommonUtils.dpToPx(mContext, 110), CommonUtils.dpToPx(mContext, 110)).centerCrop().
+                into(holder.mPhoto, new Callback() {
             @Override
             public void onSuccess() {
                 holder.mProgressBarLoadingCoupon.setVisibility(View.GONE);

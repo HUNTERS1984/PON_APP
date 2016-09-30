@@ -41,7 +41,7 @@ public interface ICallServices {
     @GET("/api/v1/featured/{type}/shops/{couponType}")
     Call<ResponseShopFollowCouponTypeData> getShopFollowCouponType(@Header("Authorization") String token, @Path("type") String featureType, @Path("couponType") double typeId, @Query("page_size") String size, @Query("page_index") String index);
 
-    @GET("/api/v1/follow/shops/{id}")
+    @POST("/api/v1/follow/shops/{id}")
     Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") double shopId);
 
 }

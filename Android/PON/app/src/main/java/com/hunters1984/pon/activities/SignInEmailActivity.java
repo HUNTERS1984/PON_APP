@@ -66,15 +66,22 @@ public class SignInEmailActivity extends BaseActivity {
     private Handler mHanlderSignIn = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            ResponseUserData user = (ResponseUserData) msg.obj;
-            if (user.code != APIConstants.REQUEST_OK) {
-                new DialogUtiils().showDialog(mContext, user.message, false);
-            } else {
-                CommonUtils.saveToken(mContext, user.data.token);
-                Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
-                iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(iMainScreen);
-                finish();
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseUserData user = (ResponseUserData) msg.obj;
+                    if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
+                        CommonUtils.saveToken(mContext, user.data.token);
+                        Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
+                        iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(iMainScreen);
+                        finish();
+                    } else {
+                        new DialogUtiils().showDialog(mContext, user.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
             }
         }
     };

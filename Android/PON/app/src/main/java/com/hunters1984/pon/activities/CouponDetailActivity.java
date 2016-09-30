@@ -36,6 +36,7 @@ import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.Constants;
+import com.hunters1984.pon.utils.DialogUtiils;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -191,7 +192,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponDetailData data = (ResponseCouponDetailData) msg.obj;
-                    if (data.code == APIConstants.REQUEST_OK) {
+                    if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
                         ResponseCouponDetail coupon = data.data;
                         popularLayout(coupon);
 
@@ -226,9 +227,12 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         } else {
                             mBtnUseThisCoupon.setVisibility(View.GONE);
                         }
+                    } else {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
         }

@@ -118,4 +118,8 @@
     <string name="title_alert_dialog">アラート</string>
     <string name="deadline">期限：</string>
     <string name="connection_failed">Server failed to request</string>
+
+    <!-- Error -->
+    <string name="token_expried">Token Expired. Please login again!</string>
+    <string name="server_error">Got error. Please try again!</string>
 </resources>

@@ -84,11 +84,18 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
     protected Handler mHanlderGetCouponTypeShopFollow = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            ResponseCouponTypeShopFollowData couponTypeShopFollow = (ResponseCouponTypeShopFollowData) msg.obj;
-            if (couponTypeShopFollow.code == APIConstants.REQUEST_OK){
-                mAdapterCouponTypeShopFollow.updateData(couponTypeShopFollow.data);
-            } else {
-                new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCouponTypeShopFollowData couponTypeShopFollow = (ResponseCouponTypeShopFollowData) msg.obj;
+                    if (couponTypeShopFollow.code == APIConstants.REQUEST_OK && couponTypeShopFollow.httpCode == APIConstants.HTTP_OK) {
+                        mAdapterCouponTypeShopFollow.updateData(couponTypeShopFollow.data);
+                    } else {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
             }
         }
     };

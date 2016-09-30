@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +29,7 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = CommonUtils.getToken(context);
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
         Call<ResponseCouponDetailData> response = service.getCouponDetail(token, id);
 
@@ -36,6 +37,12 @@ public class CouponAPIHelper extends APIHelper {
             @Override
             public void onResponse(Call<ResponseCouponDetailData> call, Response<ResponseCouponDetailData> response) {
                 ResponseCouponDetailData res = response.body();
+                if (res == null) {
+                    res = new ResponseCouponDetailData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;
@@ -61,7 +68,7 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = CommonUtils.getToken(context);
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
         Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "1", pageIndex);
 
@@ -69,6 +76,12 @@ public class CouponAPIHelper extends APIHelper {
             @Override
             public void onResponse(Call<ResponseCouponMainTopData> call, Response<ResponseCouponMainTopData> response) {
                 ResponseCouponMainTopData res = response.body();
+                if (res == null) {
+                    res = new ResponseCouponMainTopData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;
@@ -94,7 +107,7 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = CommonUtils.getToken(context);
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
         Call<ResponseCouponTypeShopFollowData> response = service.getCouponTypeShopFollow(token, "1", pageIndex);
 
@@ -102,6 +115,12 @@ public class CouponAPIHelper extends APIHelper {
             @Override
             public void onResponse(Call<ResponseCouponTypeShopFollowData> call, Response<ResponseCouponTypeShopFollowData> response) {
                 ResponseCouponTypeShopFollowData res = response.body();
+                if (res == null) {
+                    res = new ResponseCouponTypeShopFollowData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;
@@ -127,7 +146,7 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = CommonUtils.getToken(context);
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
         Call<ResponseShopFollowCouponTypeData> response = service.getShopFollowCouponType(token, featureType, typeId, "1", pageIndex);
 
@@ -135,6 +154,12 @@ public class CouponAPIHelper extends APIHelper {
             @Override
             public void onResponse(Call<ResponseShopFollowCouponTypeData> call, Response<ResponseShopFollowCouponTypeData> response) {
                 ResponseShopFollowCouponTypeData res = response.body();
+                if (res == null) {
+                    res = new ResponseShopFollowCouponTypeData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;

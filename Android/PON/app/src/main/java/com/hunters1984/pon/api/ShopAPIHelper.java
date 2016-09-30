@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +29,7 @@ public class ShopAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = CommonUtils.getToken(context);
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
         Call<ResponseCommon> response = service.addShopFollow(token, shopId);
 
@@ -36,6 +37,12 @@ public class ShopAPIHelper extends APIHelper {
             @Override
             public void onResponse(Call<ResponseCommon> call, Response<ResponseCommon> response) {
                 ResponseCommon res = response.body();
+                if (res == null) {
+                    res = new ResponseCommon();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
                 Message msg = Message.obtain();
                 msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
                 msg.obj = res;

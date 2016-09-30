@@ -156,11 +156,18 @@ public class BaseShopFollowFragment extends Fragment {
     protected Handler mHanlderShopFollow = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            ResponseShopFollowCouponTypeData shopFollow = (ResponseShopFollowCouponTypeData) msg.obj;
-            if (shopFollow.code == APIConstants.REQUEST_OK){
-                mAdapterShopFollow.updateData(shopFollow.data);
-            } else {
-                new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseShopFollowCouponTypeData shopFollow = (ResponseShopFollowCouponTypeData) msg.obj;
+                    if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
+                        mAdapterShopFollow.updateData(shopFollow.data);
+                    } else {
+                        new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
+                    break;
             }
         }
     };

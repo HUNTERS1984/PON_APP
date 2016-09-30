@@ -7,4 +7,5 @@ package com.hunters1984.pon.api;
 public class ResponseCommon {
     public int code;
     public String message;
+    public int httpCode;
 }

@@ -13,6 +13,7 @@ import com.hunters1984.pon.api.ResponseProfileData;
 import com.hunters1984.pon.api.UserProfileAPIHelper;
 import com.hunters1984.pon.models.UserModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,12 +70,20 @@ public class EditProfileActivity extends BaseActivity implements OnLoadDataListe
     private Handler mHanlderGetProfile = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            ResponseProfileData profile = (ResponseProfileData) msg.obj;
-            if (profile.code == APIConstants.REQUEST_OK) {
-                UserModel user = profile.data;
-                popularUI(user);
-            } else {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
 
+                    ResponseProfileData profile = (ResponseProfileData) msg.obj;
+                    if (profile.code == APIConstants.REQUEST_OK && profile.httpCode == APIConstants.HTTP_OK) {
+                        UserModel user = profile.data;
+                        popularUI(user);
+                    } else {
+
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
             }
         }
     };
