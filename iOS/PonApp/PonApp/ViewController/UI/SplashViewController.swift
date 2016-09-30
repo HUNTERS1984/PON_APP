@@ -84,6 +84,7 @@ extension SplashViewController {
     }
     
     @IBAction func skipButtonPressed(sender: AnyObject) {
+        UserDataManager.sharedInstance.loggedIn = false
         self.setupTabbarViewController()
     }
     

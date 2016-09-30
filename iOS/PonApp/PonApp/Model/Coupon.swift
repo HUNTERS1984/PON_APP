@@ -32,6 +32,9 @@ struct Coupon {
     var couponPhotosUrl = [String]()
     var similarCoupons = [Coupon]()
     
+    var shopCoordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
+    }
     
     var showConfirmView: Bool = false
     
@@ -98,10 +101,18 @@ struct Coupon {
         
         if let shopLongitude = response!["shop"]["longitude"].float {
             self.shopLongitude = shopLongitude
+        }else {
+            if let shopLongitude = response!["shop"]["longitude"].string {
+                self.shopLongitude = shopLongitude.floatValue
+            }
         }
         
         if let shopLatitude = response!["shop"]["lattitude"].float {
             self.shopLatitude = shopLatitude
+        }else {
+            if let shopLatitude = response!["shop"]["lattitude"].string {
+                self.shopLatitude = shopLatitude.floatValue
+            }
         }
         
         if let shopAvatarUrl = response!["shop"]["avatar_url"].string {

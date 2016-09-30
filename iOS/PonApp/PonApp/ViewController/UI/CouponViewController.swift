@@ -29,6 +29,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shopAddressLabel: UILabel!
     @IBOutlet weak var shopBusinessHoursLabel: UILabel!
     @IBOutlet weak var shopPhoneNumber: UILabel!
+    @IBOutlet weak var detailMapView: MapView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
@@ -103,7 +104,9 @@ extension CouponViewController {
     }
     
     @IBAction func likeButtonPressed(sender: AnyObject) {
-        
+        ApiRequest.likeCoupon(1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            
+        }
     }
     
     @IBAction override func backButtonPressed(sender: AnyObject) {
@@ -126,9 +129,16 @@ extension CouponViewController {
     
     private func setupImageSlideShow(urls: [String]) {
         var alamofireSource = [AlamofireSource]()
-        for url in urls {
-            alamofireSource.append(AlamofireSource(urlString: url)!)
+        if urls.count > 5 {
+            for i in 0..<5 {
+                alamofireSource.append(AlamofireSource(urlString: urls[i])!)
+            }
+        }else {
+            for url in urls {
+                alamofireSource.append(AlamofireSource(urlString: url)!)
+            }
         }
+        
         imageSlideshow.backgroundColor = UIColor.lightGrayColor()
         imageSlideshow.pageControlPosition = PageControlPosition.UnderScrollView
         imageSlideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGrayColor()
@@ -169,6 +179,7 @@ extension CouponViewController {
         }else {
             self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
         }
+        self.detailMapView.createShopMarker(coupon.shopCoordinate)
         self.setupImageSlideShow(coupon.couponPhotosUrl)
         self.couponTitleLabel.text = coupon.title
         self.expiryLabel.text = coupon.expiryDate
