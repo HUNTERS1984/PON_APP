@@ -9,6 +9,7 @@
 import UIKit
 
 class BottomBorderView: UIView {
+    
     @IBInspectable var marginLeft: CGFloat = 0
     @IBInspectable var marginRight: CGFloat = 0
     

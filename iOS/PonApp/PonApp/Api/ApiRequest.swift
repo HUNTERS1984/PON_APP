@@ -141,5 +141,12 @@ public struct ApiRequest {
         let endpoint = String(format:GetShopByLattitudeAndLongitude, lattitude, longitude)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
+    
+    static func likeCoupon(couponId: Float, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "id": "\(Int(couponId))",
+        ]
+        ApiManager.processRequest(LikeCoupon, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    }
 
 }

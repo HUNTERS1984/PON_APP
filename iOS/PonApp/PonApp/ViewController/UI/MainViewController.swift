@@ -43,6 +43,7 @@ class MainViewController: BaseViewController {
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
         self.searchTextField.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        self.setupTabbar()
     }
     
 }
@@ -76,8 +77,9 @@ extension MainViewController {
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
-//        let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = AddShopViewController.instanceFromStoryBoard("MainMenu") as! AddShopViewController
+        vc.couponType = 1
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -130,6 +132,16 @@ extension MainViewController {
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.scrollMenuView.frame.width, self.scrollMenuView.frame.height), pageMenuOptions: parameters)
         pageMenu!.delegate = self
         self.scrollMenuView.addSubview(pageMenu!.view)
+    }
+    
+    private func setupTabbar() {
+        if UserDataManager.isLoggedIn() {
+            self.tabFavoriteButton.hidden = false
+            self.tabAccountButton.hidden = false
+        }else {
+            self.tabFavoriteButton.hidden = true
+            self.tabAccountButton.hidden = true
+        }
     }
     
 }

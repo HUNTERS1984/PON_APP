@@ -42,15 +42,6 @@ class MapView: GMSMapView {
         self.delegate = self
     }
     
-    
-    private func createFakeMarker(coordinate: CLLocationCoordinate2D) {
-        self.clear()
-        let marker = MapMarker(position: coordinate)
-        marker.icon = UIImage(named: "map_icon_marker")
-        marker.appearAnimation = kGMSMarkerAnimationNone
-        marker.map = self
-    }
-    
     func moveToCurentLocation() {
         LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
             if let _ = error {
@@ -66,6 +57,21 @@ class MapView: GMSMapView {
         let cameraPos = GMSCameraPosition.cameraWithLatitude( location.latitude, longitude: location.longitude, zoom: 15.0)
         self.camera = cameraPos
     }
+    
+    func createShopMarker(location: CLLocationCoordinate2D) {
+        self.clear()
+        let marker = MapMarker(position: location)
+        marker.icon = UIImage(named: "coupon_map_detail_icon")
+        marker.appearAnimation = kGMSMarkerAnimationNone
+        marker.map = self
+        let cameraPos = GMSCameraPosition.cameraWithLatitude( location.latitude, longitude: location.longitude, zoom: 12.0)
+        self.camera = cameraPos
+    }
+    
+}
+
+//MARK: - Private
+extension MapView {
     
     private func createShopMarkers() {
         self.clear()
@@ -85,7 +91,7 @@ class MapView: GMSMapView {
     
 }
 
-
+//MARK: - GMSMapViewDelegate
 extension MapView: GMSMapViewDelegate {
     
     func mapView(mapView: GMSMapView, didDragMarker marker: GMSMarker) {
