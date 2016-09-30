@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
+import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -72,6 +75,39 @@ public class UserProfileAPIHelper extends APIHelper{
 
             @Override
             public void onFailure(Call<ResponseUserData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void getProfile(Context context, final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+
+        Call<ResponseProfileData> response = service.getProfile(token);
+
+        response.enqueue(new Callback<ResponseProfileData>() {
+            @Override
+            public void onResponse(Call<ResponseProfileData> call, Response<ResponseProfileData> response) {
+                ResponseProfileData res = response.body();
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseProfileData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

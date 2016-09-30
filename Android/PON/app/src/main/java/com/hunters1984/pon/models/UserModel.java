@@ -13,6 +13,12 @@ public class UserModel {
     @SerializedName("name")
     private String mName;
 
+    @SerializedName("username")
+    private String mUsername;
+
+    @SerializedName("email")
+    private String mEmail;
+
     @SerializedName("gender")
     private Object mGender;
 
@@ -60,5 +66,21 @@ public class UserModel {
 
     public void setmAvatarUrl(String mAvatarUrl) {
         this.mAvatarUrl = mAvatarUrl;
+    }
+
+    public String getmUsername() {
+        return mUsername;
+    }
+
+    public void setmUsername(String mUsername) {
+        this.mUsername = mUsername;
+    }
+
+    public String getmEmail() {
+        return mEmail;
+    }
+
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
 }

@@ -16,6 +16,6 @@
     <dimen name="edit_profile_value_font_size">15sp</dimen>
     <dimen name="edit_profile_caption_font_size">14sp</dimen>
 
-    <dimen name="slide_image_height">180dp</dimen>
+    <dimen name="slide_image_height">200dp</dimen>
 
 </resources>

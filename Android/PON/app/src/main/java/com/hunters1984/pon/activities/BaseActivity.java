@@ -12,6 +12,7 @@ import com.hunters1984.pon.R;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.CommonUtils;
 
 import java.util.List;
 
@@ -88,6 +89,8 @@ public class BaseActivity extends AppCompatActivity {
         if(mDataListener != null) {
             mDataListener.onLoadData();
         }
+
+        checkToUpdateButtonLogin();
     }
 
     protected void startActivity(Context context, Class<?> activity, boolean isClearTop)
@@ -133,6 +136,19 @@ public class BaseActivity extends AppCompatActivity {
     {
         if(mIvBack != null) {
             mIvBack.setImageResource(iconBack);
+        }
+    }
+
+    private void checkToUpdateButtonLogin()
+    {
+        if(mIvProfile != null && mIvMyFavourite != null) {
+            if (CommonUtils.isLogin(mContext)) {
+                mIvProfile.setVisibility(View.VISIBLE);
+                mIvMyFavourite.setVisibility(View.VISIBLE);
+            } else {
+                mIvProfile.setVisibility(View.GONE);
+                mIvMyFavourite.setVisibility(View.GONE);
+            }
         }
     }
 }

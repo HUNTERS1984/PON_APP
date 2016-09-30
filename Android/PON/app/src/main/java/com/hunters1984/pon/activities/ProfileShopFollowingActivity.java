@@ -5,7 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.hunters1984.pon.R;
-import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
+import com.hunters1984.pon.adapters.AddShopFollowRecyclerViewAdapter;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 
@@ -32,7 +32,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_profile_shop_following);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
 
-        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(this, mListShops);
+        AddShopFollowRecyclerViewAdapter adapter = new AddShopFollowRecyclerViewAdapter(this, mListShops);
         rv.setAdapter(adapter);
     }
 

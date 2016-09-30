@@ -15,6 +15,7 @@ import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.CouponDetailActivity;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -105,12 +106,14 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
-            boolean isLoginRequired = CommonUtils.convertBoolean(mListCoupons.get(pos).getmIsLoginRequired());
+            CouponModel coupon = mListCoupons.get(pos);
+            boolean isLoginRequired = CommonUtils.convertBoolean(coupon.getmIsLoginRequired());
             if(isLoginRequired) {
                 mLinearLoginRequired.setVisibility(View.VISIBLE);
             } else {
                 mLinearLoginRequired.setVisibility(View.GONE);
                 Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
+                iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, coupon.getmId());
                 mContext.startActivity(iCouponDetail);
             }
         }

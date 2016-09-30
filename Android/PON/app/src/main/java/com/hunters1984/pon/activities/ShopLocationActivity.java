@@ -11,15 +11,15 @@ import android.widget.RelativeLayout;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.DividerItemDecoration;
-import com.hunters1984.pon.adapters.ListShopRecyclerViewAdapter;
-import com.hunters1984.pon.models.ShopModel;
+import com.hunters1984.pon.adapters.ListCouponTypeRecyclerViewAdapter;
+import com.hunters1984.pon.models.CouponTypeModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopLocationActivity extends Activity {
 
-    private List<ShopModel> mListShops;
+    private List<CouponTypeModel> mLstCouponTypes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class ShopLocationActivity extends Activity {
 
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
-        ListShopRecyclerViewAdapter adapter = new ListShopRecyclerViewAdapter(this, mListShops, true);
+        ListCouponTypeRecyclerViewAdapter adapter = new ListCouponTypeRecyclerViewAdapter(this, mLstCouponTypes);
         rv.setAdapter(adapter);
 
         RelativeLayout rlShopLocation = (RelativeLayout)findViewById(R.id.rl_shop_location);
@@ -49,29 +49,29 @@ public class ShopLocationActivity extends Activity {
 
     private void initData()
     {
-        mListShops = new ArrayList<>();
+        mLstCouponTypes = new ArrayList<>();
 
-        for(int i=0; i<5; i++){
-            ShopModel shop = new ShopModel();
-            switch (i)
-            {
-                case 0:
-                    shop.setmShopName("グルメ");
-                    break;
-                case 1:
-                    shop.setmShopName("ファッション");
-                    break;
-                case 2:
-                    shop.setmShopName("レジャー");
-                    break;
-                case 3:
-                    shop.setmShopName("グルメ");
-                    break;
-                case 4:
-                    shop.setmShopName("レジャー");
-                    break;
-            }
-            mListShops.add(shop);
-        }
+//        for(int i=0; i<5; i++){
+//            CouponTypeModel shop = new ShopModel();
+//            switch (i)
+//            {
+//                case 0:
+//                    shop.setmShopName("グルメ");
+//                    break;
+//                case 1:
+//                    shop.setmShopName("ファッション");
+//                    break;
+//                case 2:
+//                    shop.setmShopName("レジャー");
+//                    break;
+//                case 3:
+//                    shop.setmShopName("グルメ");
+//                    break;
+//                case 4:
+//                    shop.setmShopName("レジャー");
+//                    break;
+//            }
+//            mLstCouponTypes.add(shop);
+//        }
     }
 }

@@ -3,6 +3,8 @@ package com.hunters1984.pon.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,21 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hunters1984.pon.R;
-import com.hunters1984.pon.adapters.ShopSubscribeDetailRecyclerViewAdapter;
+import com.hunters1984.pon.adapters.AddShopFollowRecyclerViewAdapter;
+import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseShopFollowCouponTypeData;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.DialogUtiils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BaseShopSubscribeFragment.OnFragmentInteractionListener} interface
+ * {@link BaseShopFollowFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BaseShopSubscribeFragment#newInstance} factory method to
+ * Use the {@link BaseShopFollowFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BaseShopSubscribeFragment extends Fragment {
+public class BaseShopFollowFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,9 +45,11 @@ public class BaseShopSubscribeFragment extends Fragment {
 
     protected OnLoadDataListener mDataListener;
 
-    protected List<ShopModel> mListShops;
+//    protected List<ShopModel> mLstShopFollows;
 
-    public BaseShopSubscribeFragment() {
+    private AddShopFollowRecyclerViewAdapter mAdapterShopFollow;
+
+    public BaseShopFollowFragment() {
         // Required empty public constructor
     }
 
@@ -51,11 +59,11 @@ public class BaseShopSubscribeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BaseShopSubscribeFragment.
+     * @return A new instance of fragment BaseShopFollowFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BaseShopSubscribeFragment newInstance(String param1, String param2) {
-        BaseShopSubscribeFragment fragment = new BaseShopSubscribeFragment();
+    public static BaseShopFollowFragment newInstance(String param1, String param2) {
+        BaseShopFollowFragment fragment = new BaseShopFollowFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -87,8 +95,9 @@ public class BaseShopSubscribeFragment extends Fragment {
         RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
         rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
 
-        ShopSubscribeDetailRecyclerViewAdapter adapter = new ShopSubscribeDetailRecyclerViewAdapter(view.getContext(), mListShops);
-        rv.setAdapter(adapter);
+        List<ShopModel> lstShopFollows = new ArrayList<>();
+        mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(view.getContext(), lstShopFollows);
+        rv.setAdapter(mAdapterShopFollow);
 
         return view;
     }
@@ -143,4 +152,16 @@ public class BaseShopSubscribeFragment extends Fragment {
 //            mListShops.add(shop);
 //        }
 //    }
+
+    protected Handler mHanlderShopFollow = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            ResponseShopFollowCouponTypeData shopFollow = (ResponseShopFollowCouponTypeData) msg.obj;
+            if (shopFollow.code == APIConstants.REQUEST_OK){
+                mAdapterShopFollow.updateData(shopFollow.data);
+            } else {
+                new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
+            }
+        }
+    };
 }

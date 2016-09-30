@@ -22,9 +22,6 @@ public class ShopModel {
     @SerializedName("operation_end_time")
     private String mOperationEndTime;
 
-    @SerializedName("")
-    private String mNumberOfShopSubscribe;
-
     @SerializedName("is_follow")
     private int mIsShopFollow;
 
@@ -84,14 +81,6 @@ public class ShopModel {
 
     public void setmOperationEndTime(String mOperationEndTime) {
         this.mOperationEndTime = mOperationEndTime;
-    }
-
-    public String getmNumberOfShopSubscribe() {
-        return mNumberOfShopSubscribe;
-    }
-
-    public void setmNumberOfShopSubscribe(String mNumberOfShopSubscribe) {
-        this.mNumberOfShopSubscribe = mNumberOfShopSubscribe;
     }
 
     public int getmIsShopFollow() {

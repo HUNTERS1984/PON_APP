@@ -26,6 +26,7 @@ import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.DialogUtiils;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -168,16 +169,17 @@ public class BaseFragment extends Fragment {
                     Picasso.with(getActivity()).load(couponType.getmIconUrl()).
                             resize(CommonUtils.dpToPx(getActivity(), 20), CommonUtils.dpToPx(getActivity(), 20)).into(ivIconType);
 
+                    List<CouponModel> lstUpdatedCoupons = new ArrayList<>();
                     List<CouponModel> lstCoupons = couponType.getmLstCoupons();
                     for(CouponModel coupon : lstCoupons) {
                         coupon.setmType(couponType.getmTypeName());
-                        mListCoupons.add(coupon);
+                        lstUpdatedCoupons.add(coupon);
                     }
 
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                     layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                     rvCoupons.setLayoutManager(layoutManager);
-                    CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
+                    CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), lstUpdatedCoupons);
                     rvCoupons.setAdapter(adapter);
                     mLnShopCatCoupons.addView(vCatCoupons);
                 }

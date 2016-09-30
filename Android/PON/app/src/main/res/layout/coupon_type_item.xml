@@ -14,15 +14,15 @@
         android:background="@xml/circle_stroke_light_grey"
         android:layout_centerVertical="true"
         android:padding="10dp"
-        android:id="@+id/iv_shop_logo"/>
+        android:id="@+id/iv_coupon_type_icon"/>
     <com.hunters1984.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_shop_logo"
+        android:layout_toRightOf="@id/iv_coupon_type_icon"
         android:layout_marginLeft="30dp"
         android:layout_centerVertical="true"
-        android:text="Shop A"
-        android:id="@+id/tv_shop_name"/>
+        android:text=""
+        android:id="@+id/tv_coupon_type_name"/>
     <ImageView
         android:layout_width="@dimen/icon_size_more_detail"
         android:layout_height="@dimen/icon_size_more_detail"
@@ -31,15 +31,4 @@
         android:layout_marginRight="5dp"
         android:src="@drawable/ic_detail"
         android:id="@+id/iv_detail"/>
-    <com.hunters1984.pon.customs.CustomTextView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:layout_toLeftOf="@id/iv_detail"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/layout_margin"
-        android:background="@xml/circle_blue"
-        android:text="24"
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/tv_num_of_shop_subscribe"/>
 </RelativeLayout>

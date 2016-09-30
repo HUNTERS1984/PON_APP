@@ -53,6 +53,7 @@ public class CommonUtils {
         }
 
         return true;
+
     }
 
     public static int dpToPx(Context context, int dp) {

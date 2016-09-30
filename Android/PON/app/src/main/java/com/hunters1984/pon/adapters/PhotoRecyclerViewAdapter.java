@@ -36,7 +36,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     @Override
     public RelatedCouponRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coupon_type_item, null);
         RelatedCouponRecyclerViewHolders holders = new RelatedCouponRecyclerViewHolders(view);
         return holders;
     }

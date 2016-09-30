@@ -13,12 +13,21 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical">
-        <ImageView
+        <RelativeLayout
             android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@color/grey"
-            android:id="@+id/iv_shop_photo"/>
-
+            android:layout_height="150dp">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/grey"
+                android:id="@+id/iv_shop_photo"/>
+            <ProgressBar
+                android:id="@+id/progress_bar_loading_shop_photo"
+                style="?android:attr/progressBarStyleSmallInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="150dp"
             android:layout_height="50dp"

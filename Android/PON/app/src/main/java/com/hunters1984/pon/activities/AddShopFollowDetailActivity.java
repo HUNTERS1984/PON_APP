@@ -5,15 +5,21 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.hunters1984.pon.R;
-import com.hunters1984.pon.adapters.ShopPagerAdapter;
+import com.hunters1984.pon.adapters.ShopFollowPagerAdapter;
+import com.hunters1984.pon.utils.Constants;
 
-public class ShopSubscribeDetailActivity extends BaseActivity {
+public class AddShopFollowDetailActivity extends BaseActivity {
+
+    private double mTypeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
-        setContentView(R.layout.activity_shop_subscribe_detail);
+        setContentView(R.layout.activity_shop_follow_detail);
         super.onCreate(savedInstanceState);
+
+        mTypeId = getIntent().getDoubleExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
+
         setTitle("グルメ");
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -23,8 +29,8 @@ public class ShopSubscribeDetailActivity extends BaseActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final ShopPagerAdapter adapter = new ShopPagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
+        final ShopFollowPagerAdapter adapter = new ShopFollowPagerAdapter
+                (getSupportFragmentManager(), tabLayout.getTabCount(), mTypeId);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

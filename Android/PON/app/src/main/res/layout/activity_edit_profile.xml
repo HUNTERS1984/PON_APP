@@ -73,7 +73,8 @@
                         android:text="@string/user_name"
                         android:textColor="@color/black"
                         android:textSize="@dimen/edit_profile_value_font_size"
-                        android:background="@color/transparent"/>
+                        android:background="@color/transparent"
+                        android:id="@+id/edt_username"/>
                     <FrameLayout android:layout_width="0dp"
                                  android:layout_height="match_parent"
                                  android:layout_weight="1">
@@ -114,7 +115,8 @@
                         android:text="example@ex.com"
                         android:textColor="@color/black"
                         android:textSize="@dimen/edit_profile_value_font_size"
-                        android:background="@color/transparent"/>
+                        android:background="@color/transparent"
+                        android:id="@+id/edt_email"/>
                     <FrameLayout android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">

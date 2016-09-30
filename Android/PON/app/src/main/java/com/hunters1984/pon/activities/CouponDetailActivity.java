@@ -35,6 +35,7 @@ import com.hunters1984.pon.api.ResponseCouponDetailData;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -66,12 +67,15 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private boolean isFavourite = false;
     private double mShopLng, mShopLat;
     private Context mContext;
+    private double mCouponId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon_detail);
+
+        mCouponId = getIntent().getDoubleExtra(Constants.EXTRA_COUPON_ID, 0);
 
         onLoadData();
         initLayout();
@@ -178,7 +182,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mListCoupons = new ArrayList<>();
         mLstCouponPhotos = new ArrayList<>();
         mLstUserPhotos = new ArrayList<>();
-        new CouponAPIHelper().getCouponDetail(mContext, 10, mHanlderCouponDetail);
+        new CouponAPIHelper().getCouponDetail(mContext, mCouponId, mHanlderCouponDetail);
     }
 
     private Handler mHanlderCouponDetail = new Handler(){
