@@ -104,8 +104,21 @@ extension CouponViewController {
     }
     
     @IBAction func likeButtonPressed(sender: AnyObject) {
-        ApiRequest.likeCoupon(1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
-            
+        HLKAlertView.show("Notice", message: LikeCouponConfirmation, cancelButtonTitle: "Cancel", otherButtonTitles: ["OK"]) { (selectedOption) in
+            if selectedOption == "OK" {
+                ApiRequest.likeCoupon(self.coupon!.couponID) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+                    if let _ = error {
+                        
+                    }else {
+                        if result!.code == SuccessCode {
+                            self.likeButton.userInteractionEnabled = false
+                            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
+                        }else {
+                            
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -175,8 +188,10 @@ extension CouponViewController {
         self.couponInfoLabel.text = coupon.description
         self.couponTypeLabel.text = "\(coupon.couponType)・ID \(coupon.couponID)"
         if coupon.isLike! {
+            self.likeButton.userInteractionEnabled = false
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), forState: .Normal)
         }else {
+            self.likeButton.userInteractionEnabled = true
             self.likeButton.setImage(UIImage(named: "coupon_button_like"), forState: .Normal)
         }
         self.detailMapView.createShopMarker(coupon.shopCoordinate)

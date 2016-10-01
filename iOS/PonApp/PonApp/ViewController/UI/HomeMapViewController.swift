@@ -25,6 +25,7 @@ class HomeMapViewController: BaseViewController {
         didSet {
         }
     }
+    var previousSelectedIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,8 +171,34 @@ extension HomeMapViewController {
             if let _ = error {
                 
             }else {
+                self.mapView.moveCameraToLocation(location!)
                 self.getShopByLattitudeAndLongitude(location!.latitude, longitude: location!.longitude)
             }
+        }
+    }
+    
+    private func getCouponDetail(couponId: Float) {
+        self.showHUD()
+        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
+    }
+    
+    private func resetCollectionView() {
+        if let _ = self.previousSelectedIndexPath {
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+            offersCollectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+            self.previousSelectedIndexPath = nil
         }
     }
     
@@ -207,8 +234,29 @@ extension HomeMapViewController: UICollectionViewDataSource {
 extension HomeMapViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc, animated: true)
+        let selectedCoupon = self.coupons[indexPath.item]
+        if let _ = selectedCoupon.canUse {
+            if selectedCoupon.canUse! {
+                self.resetCollectionView()
+                self.getCouponDetail(selectedCoupon.couponID)
+            }else {
+                if let _ = self.previousSelectedIndexPath {
+                    if indexPath == self.previousSelectedIndexPath! {
+                        return
+                    }
+                    self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+                    collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+                    
+                    self.coupons[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }else {
+                    self.coupons[indexPath.item].showConfirmView = true
+                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.previousSelectedIndexPath = indexPath
+                }
+            }
+        }
     }
     
 }

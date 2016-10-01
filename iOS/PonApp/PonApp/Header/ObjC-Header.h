@@ -14,6 +14,7 @@
 #import "MF_Base64Additions.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import "UINavigationBar+Awesome.h"
+
 #import <LineAdapter/LineAdapter.h>
 #import <LineAdapterLogin/LineAdapterLogin.h>
 #import <LineAdapterUI/LineAdapterUI.h>
@@ -36,6 +37,6 @@
 #import "IQUIView+IQKeyboardToolbar.h"
 #import "IQDropDownTextField.h"
 
-#import "IQDropDownTextField.h"
+#import "Reachability.h"
 
 #endif /* ObjC_Header_h */
