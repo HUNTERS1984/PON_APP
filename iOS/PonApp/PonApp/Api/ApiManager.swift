@@ -44,22 +44,27 @@ public struct ApiManager {
     }
     
     static func processRequest(endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = false, completion: ApiCompletion) {
-        // Compose full-path of URL request
-        let url = getBaseApiURL() + endpoint
-        let standardParams = ApiManager.standardizeParameter(parameters)
-        switch method {
-        case .GET:
-            if parameters != nil {
-                ApiManager.processGetRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
-            } else {
-                ApiManager.processGetRequest(url, hasAuth: hasAuth, completion: completion)
-            }
-            
-        case .POST:
-            if let uploadFiles = uploadFiles {
-                ApiManager.processPostWithMultipartFormDataRequest(url, parameters: standardParams, uploadFiles: uploadFiles, hasAuth: hasAuth, completion: completion)
-            }else {
-                ApiManager.processPostRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
+        if !ReachabilityManager.isReachable() {
+            let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(NotConnectInternet)"])
+            completion(request: nil, result: nil, error: error)
+        }else {
+            // Compose full-path of URL request
+            let url = getBaseApiURL() + endpoint
+            let standardParams = ApiManager.standardizeParameter(parameters)
+            switch method {
+            case .GET:
+                if parameters != nil {
+                    ApiManager.processGetRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
+                } else {
+                    ApiManager.processGetRequest(url, hasAuth: hasAuth, completion: completion)
+                }
+                
+            case .POST:
+                if let uploadFiles = uploadFiles {
+                    ApiManager.processPostWithMultipartFormDataRequest(url, parameters: standardParams, uploadFiles: uploadFiles, hasAuth: hasAuth, completion: completion)
+                }else {
+                    ApiManager.processPostRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
+                }
             }
         }
     }

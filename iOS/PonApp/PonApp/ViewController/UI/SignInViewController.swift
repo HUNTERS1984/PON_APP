@@ -84,7 +84,10 @@ extension SignInViewController {
         ApiRequest.signIn(userName, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
-                
+                let message = error!.userInfo["error"] as? String
+                if let _ = message {
+                    HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                }
             }else {
                 if result?.code == SuccessCode {
                     if let token = result?.data!["token"].string {
