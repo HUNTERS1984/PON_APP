@@ -174,4 +174,43 @@ public class CouponAPIHelper extends APIHelper {
             }
         });
     }
+
+    public void getCouponType(Context context, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+
+        Call<ResponseCouponTypeData> response = service.getCouponType(token, "1", pageIndex);
+
+        response.enqueue(new Callback<ResponseCouponTypeData>() {
+            @Override
+            public void onResponse(Call<ResponseCouponTypeData> call, Response<ResponseCouponTypeData> response) {
+                ResponseCouponTypeData res = response.body();
+                if (res == null) {
+                    res = new ResponseCouponTypeData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCouponTypeData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
 }

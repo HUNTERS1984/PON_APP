@@ -34,6 +34,11 @@ public interface ICallServices {
     @GET("/api/v1/featured/{type}/coupons")
     Call<ResponseCouponMainTopData> getCouponMainTop(@Header("Authorization") String token, @Path("type") String type, @Query("page_size") String size, @Query("page_index") String index);
 
+    @GET("/api/v1/coupon/types")
+    Call<ResponseCouponTypeData> getCouponType(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+
+
+    //Shop
     @GET("/api/v1/coupon/types/shop")
     Call<ResponseCouponTypeShopFollowData> getCouponTypeShopFollow(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
 

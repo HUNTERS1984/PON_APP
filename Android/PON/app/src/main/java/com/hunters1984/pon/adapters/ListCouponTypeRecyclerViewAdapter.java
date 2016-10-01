@@ -52,6 +52,11 @@ public class ListCouponTypeRecyclerViewAdapter extends RecyclerView.Adapter<List
         return this.mLstCouponTypes.size();
     }
 
+    public void updateData(List<CouponTypeModel> lstCouponTypes) {
+        mLstCouponTypes = lstCouponTypes;
+        notifyDataSetChanged();
+    }
+
     public class ListCouponTypeRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ImageView mCouponTypeIcon;
