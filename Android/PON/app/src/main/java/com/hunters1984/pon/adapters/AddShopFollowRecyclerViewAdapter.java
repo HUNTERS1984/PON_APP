@@ -18,10 +18,10 @@ import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.ShopDetailActivity;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.ResponseCommon;
-import com.hunters1984.pon.api.ResponseShopFollowCouponTypeData;
 import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.Constants;
 import com.hunters1984.pon.utils.DialogUtiils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -130,7 +130,9 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
 //                    notifyDataSetChanged();
                     break;
                 default:
-                    mContext.startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    Intent shopDetail = new Intent(mContext, ShopDetailActivity.class);
+                    shopDetail.putExtra(Constants.EXTRA_SHOP_ID, shopId);
+                    mContext.startActivity(shopDetail);
                     break;
             }
 

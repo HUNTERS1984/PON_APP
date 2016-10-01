@@ -44,4 +44,6 @@ public interface ICallServices {
     @POST("/api/v1/follow/shops/{id}")
     Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") double shopId);
 
+    @GET("/api/v1/shops/{id}")
+    Call<ResponseShopDetailData> getShopDetail(@Header("Authorization") String token, @Path("id") double shopId);
 }

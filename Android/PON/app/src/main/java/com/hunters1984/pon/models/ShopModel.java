@@ -43,6 +43,9 @@ public class ShopModel {
     @SerializedName("ave_bill")
     private int mAveBudget;
 
+    @SerializedName("help_text")
+    private String mHelpDirection;
+
     public double getmId() {
         return mId;
     }
@@ -137,5 +140,13 @@ public class ShopModel {
 
     public void setmAveBudget(int mAveBudget) {
         this.mAveBudget = mAveBudget;
+    }
+
+    public String getmHelpDirection() {
+        return mHelpDirection;
+    }
+
+    public void setmHelpDirection(String mHelpDirection) {
+        this.mHelpDirection = mHelpDirection;
     }
 }

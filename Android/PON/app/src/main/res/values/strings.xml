@@ -122,4 +122,7 @@
     <!-- Error -->
     <string name="token_expried">Token Expired. Please login again!</string>
     <string name="server_error">Got error. Please try again!</string>
+
+    <!--Shop Detail -->
+    <string name="shop_bill">～%s円</string>
 </resources>

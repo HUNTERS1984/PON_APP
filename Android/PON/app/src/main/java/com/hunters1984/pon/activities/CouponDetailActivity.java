@@ -269,7 +269,6 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         if (mGoogleMap != null) {
             LatLng shopLoc = new LatLng(lat, lng);
             CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(shopLoc, 10);
-//            mGoogleMap.animateCamera(camera);
             mGoogleMap.moveCamera(camera);
             mGoogleMap.addMarker(new MarkerOptions().position(shopLoc));
         }

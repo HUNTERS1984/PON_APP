@@ -22,8 +22,10 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/shop_detail_example"
-                    android:scaleType="fitXY"/>
+                    android:background="@color/grey"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_shop_avatar_photo"/>
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -35,20 +37,19 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
-                    <!--<com.hunters1984.pon.customs.CircularImageView-->
-                    <ImageView
+                    <!--<ImageView-->
+                    <com.hunters1984.pon.customs.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/ic_logo_example"
                         android:scaleType="fitXY"
-                        android:id="@+id/iv_user_pic"/>
+                        android:id="@+id/iv_shop_logo"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="SALVATORE"/>
+                        android:id="@+id/tv_shop_name"/>
                     <com.hunters1984.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -58,8 +59,14 @@
                         android:background="@xml/background_rectangle_black_transparent"
                         android:textColor="@color/white"
                         android:textSize="18sp"
-                        android:text="仙川駅前店"/>
+                        android:id="@+id/tv_shop_type"/>
                 </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/progress_bar_loading_shop_photo"
+                    style="?android:attr/progressBarStyleInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -133,7 +140,8 @@
                     android:layout_weight="3"
                     android:text="12345678"
                     android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_id"/>
             </LinearLayout>
 
             <View
@@ -162,7 +170,8 @@
                     android:layout_weight="3"
                     android:text="愛知県名古屋市中区"
                     android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_address"/>
             </LinearLayout>
 
             <View
@@ -191,7 +200,8 @@
                     android:layout_weight="3"
                     android:textSize="16sp"
                     android:text="◎線◎◎駅降りて徒歩2分"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_help_direction"/>
             </LinearLayout>
 
             <LinearLayout
@@ -214,7 +224,8 @@
                     android:layout_weight="3"
                     android:textSize="16sp"
                     android:text="10:00～23:00"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_operation_time"/>
             </LinearLayout>
 
             <LinearLayout
@@ -237,7 +248,8 @@
                     android:layout_weight="3"
                     android:textSize="16sp"
                     android:text="月曜日"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_close_date"/>
             </LinearLayout>
 
             <View
@@ -264,7 +276,8 @@
                     android:layout_margin="10dp"
                     android:layout_weight="3"
                     android:text="～3,000円"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_avg_budget"/>
             </LinearLayout>
 
             <View
@@ -291,7 +304,8 @@
                     android:layout_margin="10dp"
                     android:layout_weight="3"
                     android:text="03-1234-5678"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_shop_phone"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
