@@ -53,7 +53,7 @@ extension SignUpViewController {
             if successed {
                 self.registerUser(userName!, email: email!, password: password!)
             }else {
-                HLKAlertView.show("", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
     }
@@ -65,33 +65,43 @@ extension SignUpViewController {
     
     private func validInfomation(userName: String?, email: String?, password: String?, confirmPassword: String?, completion:(successed: Bool, message: String) -> Void) {
         if let _ = userName {
-            
+            if userName!.characters.count == 0 {
+                completion(successed: false, message: UserNameBlank)
+                return
+            }
         }else {
             completion(successed: false, message: UserNameBlank)
+            return
         }
         
         if let _ = email {
             if !String.validate(email!) {
                 completion(successed: false, message: EmailNotValid)
+                return
             }
         }else {
             completion(successed: false, message: EmailBlank)
+            return
         }
         
         if let _ = password {
             if password!.characters.count < 6 {
                 completion(successed: false, message: PasswordRange)
+                return
             }
         }else {
             completion(successed: false, message: PasswordBlank)
+            return
         }
         
         if let _ = confirmPassword {
-            if confirmPassword! != confirmPassword! {
+            if password! != confirmPassword! {
                 completion(successed: false, message: PasswordNotMatch)
+                return
             }
         }else {
             completion(successed: false, message: PasswordNotMatch)
+            return
         }
         
         completion(successed: true, message: "")
