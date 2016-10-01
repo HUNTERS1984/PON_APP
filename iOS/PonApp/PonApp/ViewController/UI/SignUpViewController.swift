@@ -47,8 +47,9 @@ extension SignUpViewController {
         let userName = self.userNameTextField.text
         let email = self.emailTextField.text
         let password = self.passwordTextField.text
+        let confimPassowrd = self.passConfirmationTextField.text
         
-        self.validInfomation(userName, email: email, password: password) { (successed: Bool, message: String) in
+        self.validInfomation(userName, email: email, password: password, confirmPassword: confimPassowrd) { (successed: Bool, message: String) in
             if successed {
                 self.registerUser(userName!, email: email!, password: password!)
             }else {
@@ -62,26 +63,37 @@ extension SignUpViewController {
 //MARK: - Private
 extension SignUpViewController {
     
-    private func validInfomation(userName: String?, email: String?, password: String?, completion:(successed: Bool, message: String) -> Void) {
+    private func validInfomation(userName: String?, email: String?, password: String?, confirmPassword: String?, completion:(successed: Bool, message: String) -> Void) {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: "Please enter user name")
+            completion(successed: false, message: UserNameBlank)
         }
         
         if let _ = email {
             if !String.validate(email!) {
-                completion(successed: false, message: "Please enter valid email")
+                completion(successed: false, message: EmailNotValid)
             }
         }else {
-            completion(successed: false, message: "Please enter email")
+            completion(successed: false, message: EmailBlank)
         }
         
         if let _ = password {
-            
+            if password!.characters.count < 6 {
+                completion(successed: false, message: PasswordRange)
+            }
         }else {
-            completion(successed: false, message: "Please enter password")
+            completion(successed: false, message: PasswordBlank)
         }
+        
+        if let _ = confirmPassword {
+            if confirmPassword! != confirmPassword! {
+                completion(successed: false, message: PasswordNotMatch)
+            }
+        }else {
+            completion(successed: false, message: PasswordNotMatch)
+        }
+        
         completion(successed: true, message: "")
     }
     

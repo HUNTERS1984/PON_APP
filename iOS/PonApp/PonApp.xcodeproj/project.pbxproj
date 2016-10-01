@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */; };
+		4A0759441D9F3BBE00E9D6DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0759431D9F3BBE00E9D6DC /* Reachability.m */; };
 		4A649A8A1D9BF7CD0080E976 /* CouponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A891D9BF7CD0080E976 /* CouponType.swift */; };
 		4A649A8C1D9BFA020080E976 /* CouponTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */; };
 		4A649A8E1D9BFEC80080E976 /* ListCouponContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */; };
@@ -230,6 +231,8 @@
 
 /* Begin PBXFileReference section */
 		38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.release.xcconfig"; sourceTree = "<group>"; };
+		4A0759421D9F3BBE00E9D6DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4A0759431D9F3BBE00E9D6DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		4A649A891D9BF7CD0080E976 /* CouponType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponType.swift; sourceTree = "<group>"; };
 		4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponTypeTableViewCell.swift; sourceTree = "<group>"; };
 		4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponContentViewController.swift; sourceTree = "<group>"; };
@@ -505,6 +508,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A0759411D9F3BBE00E9D6DC /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4A0759421D9F3BBE00E9D6DC /* Reachability.h */,
+				4A0759431D9F3BBE00E9D6DC /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		4A85F26A1D9ABCDD00733161 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +808,7 @@
 		4A85F2F71D9ABCDD00733161 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4A0759411D9F3BBE00E9D6DC /* Reachability */,
 				4A85F2F81D9ABCDD00733161 /* CAPSPageMenu */,
 				4A85F2FA1D9ABCDD00733161 /* Encryption */,
 				4A85F2FF1D9ABCDD00733161 /* Haversine */,
@@ -1366,6 +1379,7 @@
 				4A85F42A1D9ABCDD00733161 /* AccountViewController.swift in Sources */,
 				4A85F4451D9ABCDD00733161 /* SplashViewController.swift in Sources */,
 				4A85F4071D9ABCDD00733161 /* SPGooglePlacesAutocompletePlace.m in Sources */,
+				4A0759441D9F3BBE00E9D6DC /* Reachability.m in Sources */,
 				4A85F3931D9ABCDD00733161 /* HLKDropDownTextField.swift in Sources */,
 				4A649A921D9C16500080E976 /* ListShopViewController.swift in Sources */,
 				4A85F4101D9ABCDD00733161 /* AlbumCollectionViewCell.swift in Sources */,
@@ -1566,7 +1580,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
+				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1586,7 +1600,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "454bc013-cfd4-4563-81a7-1807549aeed8";
+				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

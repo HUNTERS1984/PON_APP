@@ -170,6 +170,7 @@ extension HomeMapViewController {
             if let _ = error {
                 
             }else {
+                self.mapView.moveToCurentLocation()
                 self.getShopByLattitudeAndLongitude(location!.latitude, longitude: location!.longitude)
             }
         }

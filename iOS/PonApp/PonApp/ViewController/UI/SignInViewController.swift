@@ -66,13 +66,15 @@ extension SignInViewController {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: "Username not valid")
+            completion(successed: false, message: UserNameBlank)
         }
         
         if let _ = password {
-            
+            if password!.characters.count < 6 {
+                completion(successed: false, message: PasswordRange)
+            }
         }else {
-            completion(successed: false, message: "Password not valid")
+            completion(successed: false, message: PasswordBlank)
         }
         completion(successed: true, message: "")
     }
