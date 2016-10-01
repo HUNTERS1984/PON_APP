@@ -19,3 +19,4 @@ let PasswordRange                               = "Your password must be 6 or mo
 let LocationDisable                             = "Your Location service is turned off"
 let PasswordNotMatch                            = "Password is not match"
 let NotConnectInternet                          = "Not connected to internet"
+let LikeCouponConfirmation                      = "Are you sure you want to like this coupon"
