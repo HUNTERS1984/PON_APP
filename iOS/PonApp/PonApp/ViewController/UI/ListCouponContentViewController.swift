@@ -64,11 +64,9 @@ extension ListCouponContentViewController {
                 if result?.code == SuccessCode {
                     var responseCoupon = [Coupon]()
                     let couponsArray = result?.data?["coupons"].array
-                    let couponType = result?.data?["name"].string
                     if let _ = couponsArray {
                         for couponData in couponsArray! {
-                            var coupon = Coupon(response: couponData)
-                            coupon.couponType = couponType
+                            let coupon = Coupon(response: couponData)
                             responseCoupon.append(coupon)
                         }
                         if pageIndex == 1 {

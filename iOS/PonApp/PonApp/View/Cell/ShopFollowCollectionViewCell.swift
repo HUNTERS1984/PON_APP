@@ -15,13 +15,12 @@ class ShopFollowCollectionViewCell: UICollectionViewCell {
     
     var shop: Shop! {
         didSet {
-            self.setDataForCell(shop)
+            self.setDataForCell(self.shop)
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.followButton.setImage(UIImage(named: "shop_button_followed"), forState: .Normal)
     }
     
     @IBAction func followButtonPressed(sender: AnyObject) {
@@ -29,7 +28,13 @@ class ShopFollowCollectionViewCell: UICollectionViewCell {
     }
     
     func setDataForCell(shop: Shop) {
-        
+        if let _ = shop.isFollow {
+            if shop.isFollow! {
+                self.followButton.setImage(UIImage(named: "shop_button_followed"), forState: .Normal)
+            }else {
+                self.followButton.setImage(UIImage(named: "shop_button_follow"), forState: .Normal)
+            }
+        }
     }
 
 }

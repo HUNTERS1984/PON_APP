@@ -86,7 +86,7 @@ extension MainCouponContentViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
         collectionCell.couponCollectionView.index = indexPath.row
-        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, coupons: self.couponListData[indexPath.row].coupons)
+        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, couponListData: self.couponListData[indexPath.row])
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

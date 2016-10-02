@@ -13,14 +13,14 @@ class CouponTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbImageView: CircleImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var couponType: CouponType! {
+    var category: Category! {
         didSet {
-            self.setDataForCell(self.couponType)
+            self.setDataForCell(self.category)
         }
     }
     
-    func setDataForCell(couponType: CouponType) {
-        self.thumbImageView.af_setImageWithURL(NSURL(string: couponType.couponTypeIconUrl)!)
-        self.titleLabel.text = couponType.couponTypeName
+    func setDataForCell(category: Category) {
+        self.thumbImageView.af_setImageWithURL(NSURL(string: category.categoryIconUrl)!)
+        self.titleLabel.text = category.categoryName
     }
 }

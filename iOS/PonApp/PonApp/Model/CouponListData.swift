@@ -10,37 +10,36 @@ import UIKit
 import SwiftyJSON
 
 struct CouponListData {
-    var couponTypeId: Float!
-    var couponTypeIconUrl: String!
-    var couponType: String!
+    var categoryId: Float!
+    var categoryIconUrl: String!
+    var categoryName: String!
     var coupons = [Coupon]()
     
     
     init(response: JSON?) {
-        if let couponTypeId = response!["id"].float {
-            self.couponTypeId = couponTypeId
+        if let categoryId = response!["id"].float {
+            self.categoryId = categoryId
         }else {
-            if let couponTypeId = response!["id"].string {
-                self.couponTypeId = couponTypeId.floatValue
+            if let categoryId = response!["id"].string {
+                self.categoryId = categoryId.floatValue
             }
         }
         
-        if let couponTypeIconUrl = response!["icon_url"].string {
-            self.couponTypeIconUrl = couponTypeIconUrl
+        if let categoryIconUrl = response!["icon_url"].string {
+            self.categoryIconUrl = categoryIconUrl
         }else {
-            self.couponTypeIconUrl = ""
+            self.categoryIconUrl = ""
         }
         
-        if let couponType = response!["name"].string {
-            self.couponType = couponType
+        if let categoryName = response!["name"].string {
+            self.categoryName = categoryName
         }else {
-            self.couponType = ""
+            self.categoryName = ""
         }
         
         if let couponsArray = response!["coupons"].array {
             for couponData in couponsArray {
-                var coupon = Coupon(response: couponData)
-                coupon.couponType = couponType
+                let coupon = Coupon(response: couponData)
                 self.coupons.append(coupon)
             }
         }
