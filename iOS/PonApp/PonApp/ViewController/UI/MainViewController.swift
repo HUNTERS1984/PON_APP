@@ -116,7 +116,7 @@ extension MainViewController {
         let parameters: [CAPSPageMenuOption] = [
             .MenuItemSeparatorWidth(4.3),
             .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .ViewBackgroundColor(UIColor.whiteColor()),
+            .ViewBackgroundColor(UIColor(hex: 0xf8f8fa)),
             .BottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .SelectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .MenuItemWidth(70.0),
