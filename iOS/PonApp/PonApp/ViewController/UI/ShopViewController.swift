@@ -122,7 +122,7 @@ extension ShopViewController {
     
     fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -130,7 +130,7 @@ extension ShopViewController {
                 let coupon = Coupon(response: result?.data)
                 let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                 vc.coupon = coupon
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController!.pushViewController(vc, animated: true)
             }
         }
     }

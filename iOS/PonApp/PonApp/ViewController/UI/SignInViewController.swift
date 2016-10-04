@@ -48,7 +48,8 @@ extension SignInViewController {
             if successed {
                 self.signIn(userName!, password: password!)
             }else {
-                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                
+//                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
     }
@@ -86,7 +87,7 @@ extension SignInViewController {
             if let _ = error {
                 let message = error!.userInfo["error"] as? String
                 if let _ = message {
-                    HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                    HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }else {
                 if result?.code == SuccessCode {
@@ -97,7 +98,7 @@ extension SignInViewController {
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }
         }

@@ -38,7 +38,6 @@
 		4A85F38E1D9ABCDD00733161 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2861D9ABCDD00733161 /* Location.swift */; };
 		4A85F38F1D9ABCDD00733161 /* TwitterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2871D9ABCDD00733161 /* TwitterLogin.swift */; };
 		4A85F3911D9ABCDD00733161 /* HLKSharedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F28D1D9ABCDD00733161 /* HLKSharedResources.swift */; };
-		4A85F3921D9ABCDD00733161 /* HLKAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F28F1D9ABCDD00733161 /* HLKAlertView.swift */; };
 		4A85F3931D9ABCDD00733161 /* HLKDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2901D9ABCDD00733161 /* HLKDropDownTextField.swift */; };
 		4A85F3941D9ABCDD00733161 /* HLKLinearScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2911D9ABCDD00733161 /* HLKLinearScrollView.swift */; };
 		4A85F3951D9ABCDD00733161 /* HLKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2921D9ABCDD00733161 /* HLKTextField.swift */; };
@@ -200,6 +199,7 @@
 		4A85F4441D9ABCDD00733161 /* SpecifiedTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */; };
 		4A85F4451D9ABCDD00733161 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3791D9ABCDD00733161 /* SplashViewController.swift */; };
 		4A85F4461D9ABCDD00733161 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */; };
+		4A935F5C1DA3FF090086FD74 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */; };
 		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
 		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
@@ -287,7 +287,6 @@
 		4A85F2871D9ABCDD00733161 /* TwitterLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterLogin.swift; sourceTree = "<group>"; };
 		4A85F2881D9ABCDD00733161 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A85F28D1D9ABCDD00733161 /* HLKSharedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKSharedResources.swift; sourceTree = "<group>"; };
-		4A85F28F1D9ABCDD00733161 /* HLKAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKAlertView.swift; sourceTree = "<group>"; };
 		4A85F2901D9ABCDD00733161 /* HLKDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKDropDownTextField.swift; sourceTree = "<group>"; };
 		4A85F2911D9ABCDD00733161 /* HLKLinearScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKLinearScrollView.swift; sourceTree = "<group>"; };
 		4A85F2921D9ABCDD00733161 /* HLKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKTextField.swift; sourceTree = "<group>"; };
@@ -472,6 +471,7 @@
 		4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecifiedTradeViewController.swift; sourceTree = "<group>"; };
 		4A85F3791D9ABCDD00733161 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -688,7 +688,6 @@
 		4A85F28E1D9ABCDD00733161 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4A85F28F1D9ABCDD00733161 /* HLKAlertView.swift */,
 				4A85F2901D9ABCDD00733161 /* HLKDropDownTextField.swift */,
 				4A85F2911D9ABCDD00733161 /* HLKLinearScrollView.swift */,
 				4A85F2921D9ABCDD00733161 /* HLKTextField.swift */,
@@ -709,6 +708,7 @@
 				4A85F29C1D9ABCDD00733161 /* UITableViewExtension.swift */,
 				4A85F29D1D9ABCDD00733161 /* UIViewControllerExtension.swift */,
 				4A85F29E1D9ABCDD00733161 /* UIViewExtension.swift */,
+				4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1597,7 +1597,6 @@
 				4A85F4331D9ABCDD00733161 /* HomeMenuViewController.swift in Sources */,
 				4A85F37E1D9ABCDD00733161 /* ApiRequest.swift in Sources */,
 				4A85F3A01D9ABCDD00733161 /* UIViewExtension.swift in Sources */,
-				4A85F3921D9ABCDD00733161 /* HLKAlertView.swift in Sources */,
 				4A85F3A11D9ABCDD00733161 /* LoggingPrint.swift in Sources */,
 				4A85F3FE1D9ABCDD00733161 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				4A85F3A71D9ABCDD00733161 /* CouponListData.swift in Sources */,
@@ -1638,6 +1637,7 @@
 				4A85F41B1D9ABCDD00733161 /* CircleImageView.swift in Sources */,
 				FA76A9E01DA34D8D00893584 /* QRCode.swift in Sources */,
 				4A85F3F81D9ABCDD00733161 /* IQUIScrollView+Additions.m in Sources */,
+				4A935F5C1DA3FF090086FD74 /* UIAlertControllerExtension.swift in Sources */,
 				FA76A9CD1DA3460000893584 /* DKAssetGroup.swift in Sources */,
 				4A85F37F1D9ABCDD00733161 /* ApiResponse.swift in Sources */,
 				4A85F4301D9ABCDD00733161 /* FavoriteViewController.swift in Sources */,

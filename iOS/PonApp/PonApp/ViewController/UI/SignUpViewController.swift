@@ -53,7 +53,7 @@ extension SignUpViewController {
             if successed {
                 self.registerUser(userName!, email: email!, password: password!)
             }else {
-                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
     }
@@ -122,7 +122,7 @@ extension SignUpViewController {
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }
         }

@@ -33,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func receivedTokenInvalidNotification(_ notification: Notification){
-        HLKAlertView.show("Error", message: "Access token invalid", cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        UIAlertController.present(title: "Error", message: "Access token invalid", actionTitles: ["OK"]) { (action) -> () in
+            print(action.title)
+        }
+        
         let vc = SplashViewController.instanceFromStoryBoard("Main")
         let nav = BaseNavigationController(rootViewController: vc!)
         self.window?.rootViewController = nav

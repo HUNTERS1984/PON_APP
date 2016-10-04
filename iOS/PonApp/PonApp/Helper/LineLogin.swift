@@ -58,8 +58,7 @@ class LineLogin {
     }
     
     func alert(_ title: String, message: String) {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        UIAlertController.present(title: title, message: message, actionTitles: ["OK"])
     }
     
     func handleLaunchOptions(_ launchOptions: [AnyHashable: Any]?) {

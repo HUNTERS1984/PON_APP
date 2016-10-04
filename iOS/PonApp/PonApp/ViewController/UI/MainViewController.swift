@@ -55,7 +55,7 @@ extension MainViewController {
         if UserDataManager.isLoggedIn() {
             self.tabBarController?.selectedIndex = 0
         }else {
-            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
         }
     }
     
@@ -67,7 +67,7 @@ extension MainViewController {
         if UserDataManager.isLoggedIn() {
             self.tabBarController?.selectedIndex = 2
         }else {
-            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
         }
     }
     

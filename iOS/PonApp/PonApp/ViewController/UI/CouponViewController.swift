@@ -103,8 +103,9 @@ extension CouponViewController {
     }
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
-        HLKAlertView.show("Notice", message: LikeCouponConfirmation, cancelButtonTitle: "Cancel", otherButtonTitles: ["OK"]) { (selectedOption) in
-            if selectedOption == "OK" {
+        
+        UIAlertController.present(title: "Error", message: LikeCouponConfirmation, actionTitles: ["OK", "Cancel"]) { (action) -> () in
+            if action.title == "OK" {
                 ApiRequest.likeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
                     if let _ = error {
                         
@@ -171,7 +172,7 @@ extension CouponViewController {
     
     fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

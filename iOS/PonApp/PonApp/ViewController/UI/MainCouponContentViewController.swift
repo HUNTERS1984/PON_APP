@@ -53,7 +53,7 @@ extension MainCouponContentViewController {
     
     fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

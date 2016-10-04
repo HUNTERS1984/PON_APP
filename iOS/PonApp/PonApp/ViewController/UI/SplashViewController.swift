@@ -64,8 +64,9 @@ extension SplashViewController {
             if success {
                 if let _ = result {
                     let session = result as! TWTRSession
-                    let alert = UIAlertView(title: "Logged In", message: "User \(session.userName) has logged in", delegate: nil, cancelButtonTitle: "OK")
-                    alert.show()
+                    UIAlertController.present(title: "Logged In", message: "User \(session.userName) has logged in", actionTitles: ["OK"]) { (action) -> () in
+                        print(action.title)
+                    }
                 } else {
                     let error = result as! NSError
                     print("Login error: %@", error.localizedDescription);
@@ -111,7 +112,7 @@ extension SplashViewController {
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
-                            HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                            HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                         }
                     }
                 }

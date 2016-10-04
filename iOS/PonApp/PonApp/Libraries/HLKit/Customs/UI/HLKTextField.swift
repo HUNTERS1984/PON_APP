@@ -54,7 +54,7 @@ extension HLKTextField {
     
     @IBAction func focusNextField(_ sender: AnyObject) {
         if let _ = nextField {
-            nextField?.becomeFirstResponder()
+            _ = nextField?.becomeFirstResponder()
         }else {
             self.resignFirstResponder()
         }

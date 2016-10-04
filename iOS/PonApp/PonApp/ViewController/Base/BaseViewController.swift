@@ -81,6 +81,12 @@ extension BaseViewController {
 //MARK: - Public Methods
 extension BaseViewController {
     
+    func presentAlert(with title: String = "Error", message: String) {
+        UIAlertController.present(title: title, message: message, actionTitles: ["OK"]) { (action) -> () in
+            print(action.title)
+        }
+    }
+    
     func hideBackButton() {
         let button = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = button
