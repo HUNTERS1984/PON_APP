@@ -53,7 +53,7 @@ public struct ApiRequest {
     
     static func getCouponDetail(_ couponId: Float, completion: @escaping ApiCompletion) {
         let endpoint = String(format:CouponDetail, couponId)
-        ApiManager.processRequest(endpoint, method: .GET, completion: completion)
+        ApiManager.processRequest(endpoint, method: .GET, hasAuth: true, completion: completion)
     }
     
     static func getFollowedShop(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {

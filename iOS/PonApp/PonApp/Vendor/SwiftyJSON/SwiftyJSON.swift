@@ -643,6 +643,8 @@ extension JSON { // : Swift.Bool
             switch self.type {
             case .bool:
                 return self.rawBool
+            case .number:
+                return self.rawNumber.boolValue
             default:
                 return nil
             }

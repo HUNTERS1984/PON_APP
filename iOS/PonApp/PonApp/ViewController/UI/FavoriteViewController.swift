@@ -68,8 +68,7 @@ extension FavoriteViewController {
     }
     
     @IBAction func navAddButtonPressed(_ sender: AnyObject) {
-//        let vc = ShopViewController.instanceFromStoryBoard("Shop")
-//        self.navigationController?.pushViewController(vc, animated: false)
+
     }
     
 }
@@ -84,17 +83,19 @@ extension FavoriteViewController {
             if let _ = error {
                 
             }else {
-                var responseCoupon = [Coupon]()
-                let couponsArray = result?.data?.array
-                if let _ = couponsArray {
-                    for couponData in couponsArray! {
-                        let coupon = Coupon(response: couponData)
-                        responseCoupon.append(coupon)
-                    }
-                    if pageIndex == 1 {
-                        self.displayCoupon(responseCoupon, type: .new)
-                    }else {
-                        self.displayCoupon(responseCoupon, type: .loadMore)
+                if result?.code == SuccessCode {
+                    var responseCoupon = [Coupon]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            let coupon = Coupon(response: couponData)
+                            responseCoupon.append(coupon)
+                        }
+                        if pageIndex == 1 {
+                            self.displayCoupon(responseCoupon, type: .new)
+                        }else {
+                            self.displayCoupon(responseCoupon, type: .loadMore)
+                        }
                     }
                 }
             }
@@ -124,10 +125,12 @@ extension FavoriteViewController {
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.navigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
@@ -180,26 +183,31 @@ extension FavoriteViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
-        if let _ = selectedCoupon.canUse {
-            if selectedCoupon.canUse! {
+        if let _ = selectedCoupon.needLogin {
+            if selectedCoupon.needLogin! {
+                if UserDataManager.isLoggedIn() {
+                    self.resetCollectionView()
+                    self.getCouponDetail(selectedCoupon.couponID)
+                }else {
+                    if let _ = self.previousSelectedIndexPath {
+                        if indexPath == self.previousSelectedIndexPath! {
+                            return
+                        }
+                        self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+                        
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }else {
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }
+                }
+            }else {
                 self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID)
-            }else {
-                if let _ = self.previousSelectedIndexPath {
-                    if indexPath == self.previousSelectedIndexPath! {
-                        return
-                    } 
-                    self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
-                    collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
-                    
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }else {
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }
             }
         }
     }
