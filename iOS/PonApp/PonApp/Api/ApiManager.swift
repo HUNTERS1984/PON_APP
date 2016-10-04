@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 typealias ApiCompletion = (_ request: URLRequest?, _ result: ApiResponse?, _ error: NSError?) -> Void
 

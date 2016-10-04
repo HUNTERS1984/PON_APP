@@ -8,8 +8,6 @@
 
 import UIKit
 
-import SwiftyJSON
-
 struct Category {
     
     var categoryID: Int!

@@ -244,6 +244,7 @@
 		FA76A9E01DA34D8D00893584 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9DF1DA34D8D00893584 /* QRCode.swift */; };
 		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
 		FA85F1C01D9BAAA7003BE0C1 /* used_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */; };
+		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
 		FAA43A6C1D9CF5B30013BCE3 /* main_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */; };
 		FAA43A6E1D9CF6E50013BCE3 /* account_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A6D1D9CF6E50013BCE3 /* account_header_background@2x.png */; };
 		FAA43A701D9D04370013BCE3 /* ShowQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */; };
@@ -525,6 +526,7 @@
 		FA76A9DF1DA34D8D00893584 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@2x.png"; sourceTree = "<group>"; };
+		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_header_background@2x.png"; sourceTree = "<group>"; };
 		FAA43A6D1D9CF6E50013BCE3 /* account_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_header_background@2x.png"; sourceTree = "<group>"; };
 		FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowQRCodeViewController.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 		4A85F2F71D9ABCDD00733161 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FA8A83F81DA3982E0035E48D /* SwiftyJSON */,
 				FA76A9DE1DA34D8D00893584 /* QRCode */,
 				FA76A9B11DA3460000893584 /* DKImagePickerController */,
 				FA76A98E1DA3453600893584 /* ImageSlideshow */,
@@ -1308,6 +1311,14 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		FA8A83F81DA3982E0035E48D /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1675,6 +1686,7 @@
 				4A85F43D1D9ABCDD00733161 /* PrivacyPolicyViewController.swift in Sources */,
 				4A85F4191D9ABCDD00733161 /* AlbumCollectionView.swift in Sources */,
 				4A85F4011D9ABCDD00733161 /* IQPreviousNextView.m in Sources */,
+				FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
