@@ -52,7 +52,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     private TextView mTvCouponTitle, mTvCouponTypeid, mTvCouponDescription, mTvCouponExpireDate, mTvCouponAddress,
                      mTvCouponOperationTime, mTvCouponPhone, mTvCouponType;
-    private ImageView mIvCouponTypeIcon;
+    private ImageView mIvCouponTypeIcon, mIvShopCatIcon;
 
     private RecyclerView mRvSimilarCoupons;
     private CouponRecyclerViewAdapter mAdapterSimilarCoupon;
@@ -68,7 +68,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private boolean isFavourite = false;
     private double mShopLng, mShopLat;
     private Context mContext;
-    private double mCouponId;
+    private long mCouponId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon_detail);
 
-        mCouponId = getIntent().getDoubleExtra(Constants.EXTRA_COUPON_ID, 0);
+        mCouponId = getIntent().getLongExtra(Constants.EXTRA_COUPON_ID, 0);
 
         onLoadData();
         initLayout();
@@ -97,6 +97,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         mTvCouponType = (TextView)findViewById(R.id.tv_coupon_type);
         mIvCouponTypeIcon = (ImageView)findViewById(R.id.iv_coupon_type_icon);
+        mIvShopCatIcon = (ImageView)findViewById(R.id.iv_shop_cat);
         mTvCouponTitle = (TextView)findViewById(R.id.tv_coupon_title);
         mTvCouponTypeid = (TextView)findViewById(R.id.tv_coupon_type_id);
         mTvCouponExpireDate = (TextView)findViewById(R.id.tv_coupon_expire_date);
@@ -196,11 +197,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         ResponseCouponDetail coupon = data.data;
                         popularLayout(coupon);
 
-                        String type = coupon.getmCouponType().getmName();
-                        for(CouponModel model : coupon.getmLstSimilarCoupons()) {
-                            model.setmType(type);
-                            mListCoupons.add(model);
-                        }
+                        mListCoupons = coupon.getmLstSimilarCoupons();
 
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
@@ -241,8 +238,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private void popularLayout(ResponseCouponDetail coupon)
     {
         mTvCouponType.setText(coupon.getmCouponType().getmName());
-        Picasso.with(mContext).load(coupon.getmCouponType().getmIcon()).
+        Picasso.with(mContext).load(coupon.getmImageUrl()).
                 resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20)).into(mIvCouponTypeIcon);
+        Picasso.with(mContext).load(coupon.getmShop().getmShopCat().getmIcon()).
+                resize(CommonUtils.dpToPx(mContext, 60), CommonUtils.dpToPx(mContext, 60)).into(mIvShopCatIcon);
         mTvCouponTitle.setText(coupon.getmTitle());
         mTvCouponTypeid.setText(coupon.getmCouponType().getmName() + "・" + coupon.getmId());
         mTvCouponExpireDate.setText(getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));

@@ -26,7 +26,6 @@ import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.DialogUtiils;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -136,23 +135,6 @@ public class BaseFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-//    public interface OnLoadDataListener {
-//        void onLoadData();
-//    }
-
-//    protected void initData()
-//    {
-//        mListCoupons = new ArrayList<>();
-//        for(int i=0; i<5; i++) {
-//            CouponModel coupon = new CouponModel();
-//            coupon.setmTitle("タイトルが入ります");
-//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
-//            coupon.setmIsFavourite((i%2==0?1:0));
-//            coupon.setmIsLoginRequired((i%2==0?1:0));
-//            mListCoupons.add(coupon);
-//        }
-//    }
-
     protected Handler mHanlderGetCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -160,28 +142,21 @@ public class BaseFragment extends Fragment {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponMainTopData couponData = (ResponseCouponMainTopData) msg.obj;
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
-                        List<ResponseCouponMainTop> lstCouponType = couponData.data;
-                        for (ResponseCouponMainTop couponType : lstCouponType) {
+                        List<ResponseCouponMainTop> lstCouponCats = couponData.data;
+                        for (ResponseCouponMainTop couponCat : lstCouponCats) {
                             View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
                             RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
                             TextView tvCatName = (TextView) vCatCoupons.findViewById(R.id.tv_coupon_category_name);
                             ImageView ivIconType = (ImageView) vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
 
-                            tvCatName.setText(couponType.getmTypeName());
-                            Picasso.with(getActivity()).load(couponType.getmIconUrl()).
+                            tvCatName.setText(couponCat.getmName());
+                            Picasso.with(getActivity()).load(couponCat.getmIcon()).
                                     resize(CommonUtils.dpToPx(getActivity(), 20), CommonUtils.dpToPx(getActivity(), 20)).into(ivIconType);
-
-                            List<CouponModel> lstUpdatedCoupons = new ArrayList<>();
-                            List<CouponModel> lstCoupons = couponType.getmLstCoupons();
-                            for (CouponModel coupon : lstCoupons) {
-                                coupon.setmType(couponType.getmTypeName());
-                                lstUpdatedCoupons.add(coupon);
-                            }
 
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                             rvCoupons.setLayoutManager(layoutManager);
-                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), lstUpdatedCoupons);
+                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
                             rvCoupons.setAdapter(adapter);
                             mLnShopCatCoupons.addView(vCatCoupons);
                         }

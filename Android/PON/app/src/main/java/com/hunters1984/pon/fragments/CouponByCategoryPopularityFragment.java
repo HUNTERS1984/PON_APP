@@ -3,19 +3,21 @@ package com.hunters1984.pon.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.hunters1984.pon.api.ShopAPIHelper;
+import com.hunters1984.pon.api.CouponAPIHelper;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.Constants;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AddShopFollowNearestFragment.OnFragmentInteractionListener} interface
+ * {@link CouponByCategoryPopularityFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AddShopFollowNearestFragment#newInstance} factory method to
+ * Use the {@link CouponByCategoryPopularityFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddShopFollowNearestFragment extends BaseShopFollowFragment implements OnLoadDataListener {
+public class CouponByCategoryPopularityFragment extends BaseCouponByCategoryFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String CAT_ID = "CatId";
@@ -23,7 +25,8 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
     // TODO: Rename and change types of parameters
     private long mCatId;
 
-    public AddShopFollowNearestFragment() {
+
+    public CouponByCategoryPopularityFragment() {
         // Required empty public constructor
     }
 
@@ -33,11 +36,11 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AddShopFollowNearestFragment.
+     * @return A new instance of fragment CouponByCategoryPopularityFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddShopFollowNearestFragment newInstance(long catId) {
-        AddShopFollowNearestFragment fragment = new AddShopFollowNearestFragment();
+    public static CouponByCategoryPopularityFragment newInstance(long catId) {
+        CouponByCategoryPopularityFragment fragment = new CouponByCategoryPopularityFragment();
         Bundle args = new Bundle();
         args.putLong(CAT_ID, catId);
         fragment.setArguments(args);
@@ -50,24 +53,23 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
         if (getArguments() != null) {
             mCatId = getArguments().getLong(CAT_ID);
         }
+
         mDataListener = this;
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_nearest_shop_subscribe, container, false);
-//        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_subscribe);
-//        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
-//
-//        AddShopFollowRecyclerViewAdapter adapter = new AddShopFollowRecyclerViewAdapter(view.getContext(), mListShops);
-//        rv.setAdapter(adapter);
-//        return view;
-//    }
-
     @Override
     public void onLoadData() {
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, "1", mHanlderShopFollow);
+        mListCoupons = new ArrayList<>();
+
+        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "1", mHanlderGetCouponByCategory);
+//        for(int i=0; i<5; i++) {
+//            CouponModel coupon = new CouponModel();
+//            coupon.setmTitle("タイトルが入ります");
+//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
+//            coupon.setmIsFavourite((i%2==0?1:0));
+//            coupon.setmIsLoginRequired((i%2==0?1:0));
+//            mListCoupons.add(coupon);
+//        }
     }
 
 }

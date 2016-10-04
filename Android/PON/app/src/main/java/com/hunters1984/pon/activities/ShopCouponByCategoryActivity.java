@@ -13,28 +13,28 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.adapters.CategoryRecyclerViewAdapter;
 import com.hunters1984.pon.adapters.DividerItemDecoration;
-import com.hunters1984.pon.adapters.ListCouponTypeRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
-import com.hunters1984.pon.api.ResponseCouponTypeData;
-import com.hunters1984.pon.models.CouponTypeModel;
+import com.hunters1984.pon.api.ResponseCategoryData;
+import com.hunters1984.pon.models.CategoryModel;
 import com.hunters1984.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopLocationActivity extends Activity {
+public class ShopCouponByCategoryActivity extends Activity {
 
-    private List<CouponTypeModel> mLstCouponTypes;
-    private ListCouponTypeRecyclerViewAdapter mAdapterCouponType;
+    private List<CategoryModel> mLstCategories;
+    private CategoryRecyclerViewAdapter mAdapterCategory;
 
     private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shop_location);
+        setContentView(R.layout.activity_shop_coupon_by_category);
         mContext = this;
 
         initData();
@@ -44,14 +44,14 @@ public class ShopLocationActivity extends Activity {
 
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
-        mAdapterCouponType = new ListCouponTypeRecyclerViewAdapter(this, mLstCouponTypes);
-        rv.setAdapter(mAdapterCouponType);
+        mAdapterCategory = new CategoryRecyclerViewAdapter(this, mLstCategories);
+        rv.setAdapter(mAdapterCategory);
 
         RelativeLayout rlShopLocation = (RelativeLayout)findViewById(R.id.rl_shop_location);
         rlShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iShopLocation = new Intent(ShopLocationActivity.this, MapShopCouponActivity.class);
+                Intent iShopLocation = new Intent(ShopCouponByCategoryActivity.this, MapShopCouponActivity.class);
                 startActivity(iShopLocation);
             }
         });
@@ -60,42 +60,21 @@ public class ShopLocationActivity extends Activity {
 
     private void initData()
     {
-        mLstCouponTypes = new ArrayList<>();
+        mLstCategories = new ArrayList<>();
 
-        new CouponAPIHelper().getCouponType(mContext, "1", mHanlderGetCouponType);
+        new CouponAPIHelper().getCategory(mContext, "1", mHanlderGetCategory);
 
-//        for(int i=0; i<5; i++){
-//            CouponTypeModel shop = new ShopModel();
-//            switch (i)
-//            {
-//                case 0:
-//                    shop.setmShopName("グルメ");
-//                    break;
-//                case 1:
-//                    shop.setmShopName("ファッション");
-//                    break;
-//                case 2:
-//                    shop.setmShopName("レジャー");
-//                    break;
-//                case 3:
-//                    shop.setmShopName("グルメ");
-//                    break;
-//                case 4:
-//                    shop.setmShopName("レジャー");
-//                    break;
-//            }
-//            mLstCouponTypes.add(shop);
-//        }
+
     }
 
-    private Handler mHanlderGetCouponType = new Handler(){
+    private Handler mHanlderGetCategory = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
-                    ResponseCouponTypeData couponType = (ResponseCouponTypeData) msg.obj;
+                    ResponseCategoryData couponType = (ResponseCategoryData) msg.obj;
                     if (couponType.code == APIConstants.REQUEST_OK && couponType.httpCode == APIConstants.HTTP_OK) {
-                        mAdapterCouponType.updateData(couponType.data);
+                        mAdapterCategory.updateData(couponType.data);
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }

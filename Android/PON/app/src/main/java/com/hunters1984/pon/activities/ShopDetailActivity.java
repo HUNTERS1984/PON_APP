@@ -25,12 +25,10 @@ import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters1984.pon.adapters.PhotoRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
-import com.hunters1984.pon.api.ResponseCouponOfShopDetail;
 import com.hunters1984.pon.api.ResponseShopDetail;
 import com.hunters1984.pon.api.ResponseShopDetailData;
 import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.models.CouponModel;
-import com.hunters1984.pon.models.CouponTypeModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.Constants;
@@ -49,7 +47,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
     private GoogleMap mGoogleMap;
     private Context mContext;
 
-    private double mShopId;
+    private long mShopId;
     private double mShopLat, mShopLng;
 
     private CouponRecyclerViewAdapter mAdapterCoupon;
@@ -66,7 +64,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         setContentView(R.layout.activity_shop_detail);
         mContext = this;
 
-        mShopId = getIntent().getDoubleExtra(Constants.EXTRA_SHOP_ID, 0);
+        mShopId = getIntent().getLongExtra(Constants.EXTRA_SHOP_ID, 0);
         onLoadData();
 
         initLayout();
@@ -136,22 +134,6 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mLstPhotos = new ArrayList<>();
 
         new ShopAPIHelper().getShopDetail(mContext, mShopId, mHanlderShopDetail);
-//        for(int i=0; i<5; i++) {
-//            CouponModel coupon = new CouponModel();
-//            coupon.setmTitle("タイトルが入ります");
-//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
-//            coupon.setmIsFavourite((i%2==0?1:0));
-//            coupon.setmIsLoginRequired((i%2==0?1:0));
-//            mListCoupons.add(coupon);
-//        }
-//
-//        mLstPhotos = new ArrayList<>();
-//        mLstPhotos.add("url1");
-//        mLstPhotos.add("url1");
-//        mLstPhotos.add("url1");
-//        mLstPhotos.add("url1");
-//        mLstPhotos.add("url1");
-//        mLstPhotos.add("url1");
     }
 
     private Handler mHanlderShopDetail = new Handler(){
@@ -190,12 +172,12 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
             }
         });
 
-        Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
+        Picasso.with(mContext).load(shop.getmShopCat().getmIcon())
                 .resize(CommonUtils.dpToPx(mContext, 90), CommonUtils.dpToPx(mContext, 90))
                 .centerCrop().into(mIvShopLogo);
 
         mTvShopName.setText(shop.getmShopName());
-        mTvShopType.setText(shop.getmShopName());
+        mTvShopType.setText(shop.getmShopCat().getmName());
         mTvShopId.setText(String.valueOf(shop.getmId()));
         mTvShopAddress.setText(shop.getmAddress());
         mTvShopHelpDirection.setText(shop.getmHelpDirection());
@@ -205,21 +187,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mTvShopPhone.setText(shop.getmPhone());
 
         //Show List Coupons of Shop
-        List<ResponseCouponOfShopDetail> lstCouponOfShop = shop.getmLstCouponOfShop();
-        for(ResponseCouponOfShopDetail coupon : lstCouponOfShop)
-        {
-            CouponTypeModel type = coupon.getmCouponType();
-            CouponModel model = new CouponModel();
-            model.setmId(coupon.getmId());
-            model.setmCanUse(coupon.getmCanUse());
-            model.setmExpireDate(coupon.getmExpireDate());
-            model.setmImageUrl(coupon.getmImageUrl());
-            model.setmType(type.getmName());
-            model.setmIsFavourite(coupon.getmIsFavourite());
-            model.setmTitle(coupon.getmTitle());
-            mLstCoupons.add(model);
-        }
-        mAdapterCoupon.updateData(mLstCoupons);
+        mAdapterCoupon.updateData(shop.getmLstCouponOfShop());
 
         //Show List Photo Of Shop
         mLstPhotos = shop.getmLstShopPhoto();

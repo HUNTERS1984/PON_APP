@@ -26,29 +26,38 @@ public interface ICallServices {
     @GET("/api/v1/profile")
     Call<ResponseProfileData> getProfile(@Header("Authorization") String token);
 
+    @GET("/api/v1/authorized")
+    Call<ResponseCommon> checkValidToken(@Header("Authorization") String token);
+
 
     //Coupons
     @GET("/api/v1/coupons/{id}")
-    Call<ResponseCouponDetailData> getCouponDetail(@Header("Authorization") String token, @Path("id") double id);
+    Call<ResponseCouponDetailData> getCouponDetail(@Header("Authorization") String token, @Path("id") long id);
 
     @GET("/api/v1/featured/{type}/coupons")
     Call<ResponseCouponMainTopData> getCouponMainTop(@Header("Authorization") String token, @Path("type") String type, @Query("page_size") String size, @Query("page_index") String index);
 
-    @GET("/api/v1/coupon/types")
-    Call<ResponseCouponTypeData> getCouponType(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+    @GET("/api/v1/categories")
+    Call<ResponseCategoryData> getCategory(@Query("page_size") String size, @Query("page_index") String index);
 
+    @GET("/api/v1/featured/{type}/category/{category}/coupons")
+    Call<ResponseCouponByCategoryData> getCouponByCategory(@Path("type") String type, @Path("category") long categoryId, @Query("page_size") String size, @Query("page_index") String index);
 
     //Shop
-    @GET("/api/v1/coupon/types/shop")
-    Call<ResponseCouponTypeShopFollowData> getCouponTypeShopFollow(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+    @GET("/api/v1/categories/shop")
+    Call<ResponseCategoryShopFollowData> getCatShopFollow(@Query("page_size") String size, @Query("page_index") String index);
 
 
-    @GET("/api/v1/featured/{type}/shops/{couponType}")
-    Call<ResponseShopFollowCouponTypeData> getShopFollowCouponType(@Header("Authorization") String token, @Path("type") String featureType, @Path("couponType") double typeId, @Query("page_size") String size, @Query("page_index") String index);
+    @GET("/api/v1/featured/{type}/shops/{category}")
+    Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Path("type") String featureType, @Path("category") long typeId, @Query("page_size") String size, @Query("page_index") String index);
 
     @POST("/api/v1/follow/shops/{id}")
-    Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") double shopId);
+    Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") long shopId);
 
     @GET("/api/v1/shops/{id}")
-    Call<ResponseShopDetailData> getShopDetail(@Header("Authorization") String token, @Path("id") double shopId);
+    Call<ResponseShopDetailData> getShopDetail(@Header("Authorization") String token, @Path("id") long shopId);
+
+    @GET("/api/v1/map/{lattitude}/{longitude}/shops")
+    Call<ResponseMapShopCouponData> getMapShopCoupon(@Path("lattitude") double lat, @Path("longitude") double lng, @Query("page_size") String size, @Query("page_index") String index);
+
 }

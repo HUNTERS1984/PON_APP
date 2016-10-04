@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShopAPIHelper extends APIHelper {
 
-    public void addShopFollow(Context context, double shopId, final Handler handler)
+    public void addShopFollow(Context context, long shopId, final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -29,7 +29,10 @@ public class ShopAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        String token = "";
+        if(!token.equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
 
         Call<ResponseCommon> response = service.addShopFollow(token, shopId);
 
@@ -58,7 +61,7 @@ public class ShopAPIHelper extends APIHelper {
         });
     }
 
-    public void getShopDetail(Context context, double shopId, final Handler handler)
+    public void getShopDetail(Context context, long shopId, final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -91,6 +94,84 @@ public class ShopAPIHelper extends APIHelper {
 
             @Override
             public void onFailure(Call<ResponseShopDetailData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void getShopFollowCategory(Context context, String featureType, long catId, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+
+        Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, "1", pageIndex);
+
+        response.enqueue(new Callback<ResponseShopFollowCategoryData>() {
+            @Override
+            public void onResponse(Call<ResponseShopFollowCategoryData> call, Response<ResponseShopFollowCategoryData> response) {
+                ResponseShopFollowCategoryData res = response.body();
+                if (res == null) {
+                    res = new ResponseShopFollowCategoryData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseShopFollowCategoryData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void getMapShopCoupon(Context context, double lat, double lng, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+
+        Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(lat, lng, "1", pageIndex);
+
+        response.enqueue(new Callback<ResponseMapShopCouponData>() {
+            @Override
+            public void onResponse(Call<ResponseMapShopCouponData> call, Response<ResponseMapShopCouponData> response) {
+                ResponseMapShopCouponData res = response.body();
+                if (res == null) {
+                    res = new ResponseMapShopCouponData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseMapShopCouponData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

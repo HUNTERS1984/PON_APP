@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName;
  * Created by LENOVO on 9/30/2016.
  */
 
-public class CouponTypeShopFollowModel {
+public class CategoryShopFollowModel {
 
     @SerializedName("id")
-    private double mCouponTypeId;
+    private long mCouponTypeId;
 
     @SerializedName("name")
     private String mCouponTypeName;
@@ -20,11 +20,11 @@ public class CouponTypeShopFollowModel {
     @SerializedName("icon_url")
     private String mCouponTypeIconUrl;
 
-    public double getmCouponTypeId() {
+    public long getmCouponTypeId() {
         return mCouponTypeId;
     }
 
-    public void setmCouponTypeId(double mCouponTypeId) {
+    public void setmCouponTypeId(long mCouponTypeId) {
         this.mCouponTypeId = mCouponTypeId;
     }
 

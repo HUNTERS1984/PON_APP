@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ResponseCouponDetail {
     @SerializedName("id")
-    private double mId;
+    private long mId;
 
     @SerializedName("image_url")
     private String mImageUrl;
@@ -51,11 +51,11 @@ public class ResponseCouponDetail {
     @SerializedName("similar_coupon")
     List<CouponModel> mLstSimilarCoupons;
 
-    public double getmId() {
+    public long getmId() {
         return mId;
     }
 
-    public void setmId(double mId) {
+    public void setmId(long mId) {
         this.mId = mId;
     }
 

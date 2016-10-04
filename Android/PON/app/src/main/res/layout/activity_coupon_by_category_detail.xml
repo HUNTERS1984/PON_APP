@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hunters1984.pon.activities.ShopCouponFilterActivity">
+    tools:context="com.hunters1984.pon.activities.CouponByCategoryDetailActivity">
 
    <include layout="@layout/include_header_layout"/>
 

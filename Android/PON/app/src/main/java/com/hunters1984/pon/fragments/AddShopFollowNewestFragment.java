@@ -3,7 +3,7 @@ package com.hunters1984.pon.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.hunters1984.pon.api.CouponAPIHelper;
+import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.Constants;
 
@@ -18,10 +18,10 @@ import com.hunters1984.pon.utils.Constants;
 public class AddShopFollowNewestFragment extends BaseShopFollowFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String TYPE_ID = "TypeId";
+    private static final String CAT_ID = "CatId";
 
     // TODO: Rename and change types of parameters
-    private double mTypeId;
+    private long mCatId;
 
     public AddShopFollowNewestFragment() {
         // Required empty public constructor
@@ -36,10 +36,10 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
      * @return A new instance of fragment AddShopFollowNewestFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddShopFollowNewestFragment newInstance(double typeId) {
+    public static AddShopFollowNewestFragment newInstance(long catId) {
         AddShopFollowNewestFragment fragment = new AddShopFollowNewestFragment();
         Bundle args = new Bundle();
-        args.putDouble(TYPE_ID, typeId);
+        args.putLong(CAT_ID, catId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,7 +48,7 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mTypeId = getArguments().getDouble(TYPE_ID);
+            mCatId = getArguments().getLong(CAT_ID);
         }
         mDataListener = this;
     }
@@ -67,7 +67,7 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
 
     @Override
     public void onLoadData() {
-        new CouponAPIHelper().getShopFollowCouponType(getActivity(), Constants.TYPE_NEWEST_COUPON, mTypeId, "1", mHanlderShopFollow);
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, "1", mHanlderShopFollow);
 //        mListShops = new ArrayList<>();
 //
 //        for(int i=0; i<8;i++){

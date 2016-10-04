@@ -118,7 +118,7 @@
                 android:id="@+id/map_shop"
                 android:name="com.google.android.gms.maps.MapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_height="130dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

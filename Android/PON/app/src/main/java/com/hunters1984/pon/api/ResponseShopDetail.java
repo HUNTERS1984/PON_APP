@@ -1,6 +1,7 @@
 package com.hunters1984.pon.api;
 
 import com.google.gson.annotations.SerializedName;
+import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.models.ShopModel;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class ResponseShopDetail extends ShopModel {
     List<String> mLstShopPhoto;
 
     @SerializedName("coupons")
-    List<ResponseCouponOfShopDetail> mLstCouponOfShop;
+    List<CouponModel> mLstCouponOfShop;
 
     public List<String> getmLstShopPhoto() {
         return mLstShopPhoto;
@@ -25,11 +26,11 @@ public class ResponseShopDetail extends ShopModel {
         this.mLstShopPhoto = mLstShopPhoto;
     }
 
-    public List<ResponseCouponOfShopDetail> getmLstCouponOfShop() {
+    public List<CouponModel> getmLstCouponOfShop() {
         return mLstCouponOfShop;
     }
 
-    public void setmLstCouponOfShop(List<ResponseCouponOfShopDetail> mLstCouponOfShop) {
+    public void setmLstCouponOfShop(List<CouponModel> mLstCouponOfShop) {
         this.mLstCouponOfShop = mLstCouponOfShop;
     }
 }

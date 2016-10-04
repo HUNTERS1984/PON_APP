@@ -2,17 +2,17 @@ package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
 
-import com.hunters1984.pon.api.CouponAPIHelper;
+import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.Constants;
 
 public class AddShopFollowPopularityFragment extends BaseShopFollowFragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String TYPE_ID = "TypeId";
+    private static final String CAT_ID = "CatId";
 
     // TODO: Rename and change types of parameters
-    private double mTypeId;
+    private long mCatId;
 
 
     public AddShopFollowPopularityFragment() {
@@ -28,10 +28,10 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
      * @return A new instance of fragment AddShopFollowPopularityFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddShopFollowPopularityFragment newInstance(double typeId) {
+    public static AddShopFollowPopularityFragment newInstance(long catId) {
         AddShopFollowPopularityFragment fragment = new AddShopFollowPopularityFragment();
         Bundle args = new Bundle();
-        args.putDouble(TYPE_ID, typeId);
+        args.putLong(CAT_ID, catId);
 
         fragment.setArguments(args);
         return fragment;
@@ -41,7 +41,7 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mTypeId = getArguments().getDouble(TYPE_ID);
+            mCatId = getArguments().getLong(CAT_ID);
         }
 
         mDataListener = this;
@@ -49,14 +49,7 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
 
     @Override
     public void onLoadData() {
-        new CouponAPIHelper().getShopFollowCouponType(getActivity(), Constants.TYPE_POPULARITY_COUPON, mTypeId, "1", mHanlderShopFollow);
-//        mLstShopFollows = new ArrayList<>();
-
-//        for(int i=0; i<8;i++){
-//            ShopModel shop =new ShopModel();
-//            shop.setmIsShopFollow(0);
-//            mListShops.add(shop);
-//        }
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "1", mHanlderShopFollow);
     }
 
 //    @Override

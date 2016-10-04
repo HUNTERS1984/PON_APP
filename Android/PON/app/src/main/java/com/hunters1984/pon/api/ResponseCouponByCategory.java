@@ -7,10 +7,10 @@ import com.hunters1984.pon.models.CouponModel;
 import java.util.List;
 
 /**
- * Created by LENOVO on 9/28/2016.
+ * Created by LENOVO on 10/3/2016.
  */
 
-public class ResponseCouponMainTop extends CategoryModel {
+public class ResponseCouponByCategory extends CategoryModel{
 
     @SerializedName("coupons")
     List<CouponModel> mLstCoupons;

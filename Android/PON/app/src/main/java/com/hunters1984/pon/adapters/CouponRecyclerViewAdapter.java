@@ -46,7 +46,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
     public void onBindViewHolder(final CouponRecyclerViewHolders holder, int position) {
         CouponModel coupon = mListCoupons.get(position);
         holder.mCouponTitle.setText(coupon.getmTitle());
-        holder.mCouponDescription.setText(coupon.getmType());
+        holder.mCouponDescription.setText(coupon.getmCouponType().getmName());
         holder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
         Picasso.with(mContext).load(coupon.getmImageUrl()).placeholder(R.color.light_grey_stroke_icon).
                 resize(CommonUtils.dpToPx(mContext,120), CommonUtils.dpToPx(mContext,140) ).centerCrop().

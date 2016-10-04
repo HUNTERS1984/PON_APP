@@ -8,12 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.adapters.CouponTypeShopFollowRecyclerViewAdapter;
 import com.hunters1984.pon.adapters.DividerItemDecoration;
-import com.hunters1984.pon.adapters.ListCouponTypeShopFollowRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
-import com.hunters1984.pon.api.ResponseCouponTypeShopFollowData;
-import com.hunters1984.pon.models.CouponTypeShopFollowModel;
+import com.hunters1984.pon.api.ResponseCategoryShopFollowData;
+import com.hunters1984.pon.models.CategoryShopFollowModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.DialogUtiils;
 
@@ -22,8 +22,8 @@ import java.util.List;
 
 public class AddShopFollowActivity extends BaseActivity implements OnLoadDataListener {
 
-    private List<CouponTypeShopFollowModel> mLstCouponTypeShopFollow;
-    private ListCouponTypeShopFollowRecyclerViewAdapter mAdapterCouponTypeShopFollow;
+    private List<CategoryShopFollowModel> mLstCouponTypeShopFollow;
+    private CouponTypeShopFollowRecyclerViewAdapter mAdapterCouponTypeShopFollow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
 
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
-        mAdapterCouponTypeShopFollow = new ListCouponTypeShopFollowRecyclerViewAdapter(this, mLstCouponTypeShopFollow);
+        mAdapterCouponTypeShopFollow = new CouponTypeShopFollowRecyclerViewAdapter(this, mLstCouponTypeShopFollow);
         rv.setAdapter(mAdapterCouponTypeShopFollow);
     }
 
@@ -54,39 +54,15 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
     public void onLoadData() {
         mLstCouponTypeShopFollow = new ArrayList<>();
 
-        new CouponAPIHelper().getCouponTypeShopFollow(mContext, "1", mHanlderGetCouponTypeShopFollow);
+        new CouponAPIHelper().getCatShopFollow(mContext, "1", mHanlderGetCouponTypeShopFollow);
 
-//        for(int i=0; i<5; i++){
-//            ShopModel shop = new ShopModel();
-//            switch (i)
-//            {
-//                case 0:
-//                    shop.setmShopName("グルメ");
-//                    break;
-//                case 1:
-//                    shop.setmShopName("ファッション");
-//                    break;
-//                case 2:
-//                    shop.setmShopName("レジャー");
-//                    break;
-//                case 3:
-//                    shop.setmShopName("グルメ");
-//                    break;
-//                case 4:
-//                    shop.setmShopName("レジャー");
-//                    break;
-//            }
-//
-//            shop.setmNumberOfShopSubscribe(String.valueOf(100*i+1));
-//            mListShops.add(shop);
-//        }
     }
     protected Handler mHanlderGetCouponTypeShopFollow = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
-                    ResponseCouponTypeShopFollowData couponTypeShopFollow = (ResponseCouponTypeShopFollowData) msg.obj;
+                    ResponseCategoryShopFollowData couponTypeShopFollow = (ResponseCategoryShopFollowData) msg.obj;
                     if (couponTypeShopFollow.code == APIConstants.REQUEST_OK && couponTypeShopFollow.httpCode == APIConstants.HTTP_OK) {
                         mAdapterCouponTypeShopFollow.updateData(couponTypeShopFollow.data);
                     } else {

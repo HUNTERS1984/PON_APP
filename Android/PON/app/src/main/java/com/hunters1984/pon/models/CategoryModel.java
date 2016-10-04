@@ -3,16 +3,19 @@ package com.hunters1984.pon.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by LENOVO on 10/3/2016.
+ * Created by LENOVO on 9/27/2016.
  */
 
-public class CouponTypeModel {
+public class CategoryModel {
 
     @SerializedName("id")
     private long mId;
 
     @SerializedName("name")
     private String mName;
+
+    @SerializedName("icon_url")
+    private String mIcon;
 
     public long getmId() {
         return mId;
@@ -28,5 +31,13 @@ public class CouponTypeModel {
 
     public void setmName(String mName) {
         this.mName = mName;
+    }
+
+    public String getmIcon() {
+        return mIcon;
+    }
+
+    public void setmIcon(String mIcon) {
+        this.mIcon = mIcon;
     }
 }

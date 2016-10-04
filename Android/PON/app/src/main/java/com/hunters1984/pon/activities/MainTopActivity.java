@@ -62,7 +62,7 @@ public class MainTopActivity extends BaseActivity {
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(MainTopActivity.this, ShopLocationActivity.class, false);
+                startActivity(MainTopActivity.this, ShopCouponByCategoryActivity.class, false);
             }
         });
 

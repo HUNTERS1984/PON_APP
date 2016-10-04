@@ -13,9 +13,9 @@ import com.hunters1984.pon.fragments.AddShopFollowPopularityFragment;
  */
 public class ShopFollowPagerAdapter extends FragmentStatePagerAdapter {
     private int mNumOfTabs;
-    private double mCouponTypeId;
+    private long mCouponTypeId;
 
-    public ShopFollowPagerAdapter(FragmentManager fm, int NumOfTabs, double couponTypeId) {
+    public ShopFollowPagerAdapter(FragmentManager fm, int NumOfTabs, long couponTypeId) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
         mCouponTypeId = couponTypeId;

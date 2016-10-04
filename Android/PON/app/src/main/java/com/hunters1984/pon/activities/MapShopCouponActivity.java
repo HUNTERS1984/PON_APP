@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,15 +20,27 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
+import com.hunters1984.pon.api.APIConstants;
+import com.hunters1984.pon.api.ResponseMapShopCoupon;
+import com.hunters1984.pon.api.ResponseMapShopCouponData;
+import com.hunters1984.pon.api.ShopAPIHelper;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.CommonUtils;
+import com.hunters1984.pon.utils.DialogUtiils;
 import com.hunters1984.pon.utils.PermissionUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnMyLocationButtonClickListener,
         OnMapReadyCallback,
@@ -39,6 +53,9 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     private GoogleMap mGoogleMap;
     private List<CouponModel> mListCoupons;
     private LatLng mUserLocation;
+    private CouponRecyclerViewAdapter mAdapterCoupon;
+    private Map<Long, List<CouponModel>> mHashMapOfShop;
+    private LatLngBounds.Builder mBuilderShopMarker;
 
     private RelativeLayout mRlListCoupons;
     private ImageView mIvShowMyLocation1, mIvShowMyLocation2;
@@ -76,20 +93,31 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mGoogleMap.setOnMyLocationButtonClickListener(this);
-        mGoogleMap.getUiSettings().setMyLocationButtonEnabled(false);
-        enableMyLocation();
-        mGoogleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-            @Override
-            public void onMyLocationChange(Location location) {
-                mUserLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                if(!isShowMyLocationFirstTime) {
-                    showMyLocation();
-                    isShowMyLocationFirstTime = true;
+        if(mGoogleMap != null) {
+            mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            mGoogleMap.setOnMyLocationButtonClickListener(this);
+            mGoogleMap.getUiSettings().setMyLocationButtonEnabled(false);
+            enableMyLocation();
+            mGoogleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+                @Override
+                public void onMyLocationChange(Location location) {
+                    mUserLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    if (!isShowMyLocationFirstTime) {
+                        showMyLocation();
+                        isShowMyLocationFirstTime = true;
+                        new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon);
+                    }
                 }
-            }
-        });
+            });
+            mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    long shopId = Long.parseLong(marker.getTag().toString());
+                    mAdapterCoupon.updateData(mHashMapOfShop.get(shopId));
+                    return false;
+                }
+            });
+        }
     }
 
 
@@ -99,8 +127,8 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvCoupons.setLayoutManager(layoutManager);
-        CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(this, mListCoupons);
-        rvCoupons.setAdapter(adapter);
+        mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
+        rvCoupons.setAdapter(mAdapterCoupon);
 
         mIvShowMyLocation1 = (ImageView)findViewById(R.id.iv_my_location_1);
         mIvShowMyLocation2 = (ImageView)findViewById(R.id.iv_my_location_2);
@@ -145,21 +173,22 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
 
     public void onLoadData() {
         mListCoupons = new ArrayList<>();
-        for(int i=0; i<5; i++) {
-            CouponModel coupon = new CouponModel();
-            coupon.setmTitle("タイトルが入ります");
-            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
-            coupon.setmIsFavourite((i%2==0?1:0));
-            coupon.setmIsLoginRequired((i%2==0?1:0));
-            mListCoupons.add(coupon);
-        }
+        mHashMapOfShop = new HashMap<>();
+//        for(int i=0; i<5; i++) {
+//            CouponModel coupon = new CouponModel();
+//            coupon.setmTitle("タイトルが入ります");
+//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
+//            coupon.setmIsFavourite((i%2==0?1:0));
+//            coupon.setmIsLoginRequired((i%2==0?1:0));
+//            mListCoupons.add(coupon);
+//        }
     }
 
     private void showMyLocation()
     {
         if(mUserLocation != null) {
             CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(mUserLocation, 15);
-            mGoogleMap.animateCamera(camera);
+            mGoogleMap.moveCamera(camera);
         }
     }
 
@@ -217,5 +246,50 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     private void showMissingPermissionError() {
         PermissionUtils.PermissionDeniedDialog
                 .newInstance(true).show(getSupportFragmentManager(), "dialog");
+    }
+
+    private Handler mHanlderGetMapShopCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseMapShopCouponData res = (ResponseMapShopCouponData) msg.obj;
+                    if(res.code == APIConstants.REQUEST_OK && res.httpCode == APIConstants.HTTP_OK) {
+                        if(res.data != null && res.data.size() > 0) {
+                            mBuilderShopMarker = new LatLngBounds.Builder();
+                            for (ResponseMapShopCoupon shop : res.data) {
+                                addShopMarker(shop.getmId(), shop.getmShopName(), shop.getmAddress(), Double.parseDouble(shop.getmLatitude()), Double.parseDouble(shop.getmLongitude()));
+                                mHashMapOfShop.put(shop.getmId(), shop.getmLstCoupons());
+                            }
+                            if(mGoogleMap != null) {
+                                mBuilderShopMarker.include(mUserLocation);
+                                LatLngBounds bounds = mBuilderShopMarker.build();
+                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, CommonUtils.dpToPx(mContext, 50));
+                                mGoogleMap.moveCamera(cameraUpdate);
+                            }
+                            mAdapterCoupon.updateData(res.data.get(0).getmLstCoupons());
+                        }
+                    } else {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
+
+    private void addShopMarker(long shopId, String shopName, String shopAddress, double lat, double lng)
+    {
+        if(mGoogleMap != null) {
+            LatLng shopLoc = new LatLng(lat, lng);
+            MarkerOptions optionMarker = new MarkerOptions().position(shopLoc);
+            optionMarker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_shop_marker));
+            optionMarker.title(shopName).snippet(shopAddress);
+            Marker marker = mGoogleMap.addMarker(optionMarker);
+            marker.setTag(shopId);
+            mBuilderShopMarker.include(shopLoc);
+        }
     }
 }

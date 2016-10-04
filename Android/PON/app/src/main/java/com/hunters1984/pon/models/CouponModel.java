@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class CouponModel {
 
     @SerializedName("id")
-    private double mId;
+    private long mId;
 
     @SerializedName("image_url")
     private String mImageUrl;
@@ -22,13 +22,14 @@ public class CouponModel {
     @SerializedName("is_like")
     private int mIsFavourite;
 
-    @SerializedName("")
+    @SerializedName("need_login")
     private int mIsLoginRequired;
 
     @SerializedName("can_use")
     private int mCanUse;
 
-    private String mType;
+    @SerializedName("coupon_type")
+    private CouponTypeModel mCouponType;
 
     public String getmImageUrl() {
         return mImageUrl;
@@ -55,11 +56,11 @@ public class CouponModel {
         this.mExpireDate = mExpireDate;
     }
 
-    public double getmId() {
+    public long getmId() {
         return mId;
     }
 
-    public void setmId(double mId) {
+    public void setmId(long mId) {
         this.mId = mId;
     }
 
@@ -87,11 +88,11 @@ public class CouponModel {
         this.mCanUse = mCanUse;
     }
 
-    public String getmType() {
-        return mType;
+    public CouponTypeModel getmCouponType() {
+        return mCouponType;
     }
 
-    public void setmType(String mType) {
-        this.mType = mType;
+    public void setmCouponType(CouponTypeModel mCouponType) {
+        this.mCouponType = mCouponType;
     }
 }

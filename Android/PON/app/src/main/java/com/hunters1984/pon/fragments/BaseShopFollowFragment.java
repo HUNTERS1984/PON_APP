@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.adapters.AddShopFollowRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
-import com.hunters1984.pon.api.ResponseShopFollowCouponTypeData;
+import com.hunters1984.pon.api.ResponseShopFollowCategoryData;
 import com.hunters1984.pon.models.ShopModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.DialogUtiils;
@@ -158,7 +158,7 @@ public class BaseShopFollowFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
-                    ResponseShopFollowCouponTypeData shopFollow = (ResponseShopFollowCouponTypeData) msg.obj;
+                    ResponseShopFollowCategoryData shopFollow = (ResponseShopFollowCategoryData) msg.obj;
                     if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
                         mAdapterShopFollow.updateData(shopFollow.data);
                     } else {

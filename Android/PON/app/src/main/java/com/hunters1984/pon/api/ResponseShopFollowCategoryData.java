@@ -8,6 +8,6 @@ import java.util.List;
  * Created by LENOVO on 9/30/2016.
  */
 
-public class ResponseShopFollowCouponTypeData extends ResponseCommon {
+public class ResponseShopFollowCategoryData extends ResponseCommon {
     public List<ShopModel> data;
 }

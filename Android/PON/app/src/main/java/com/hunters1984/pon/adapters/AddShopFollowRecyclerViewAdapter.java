@@ -121,10 +121,15 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
         public void onClick(View view) {
             mPosSelection = Integer.parseInt(view.getTag().toString());
             ShopModel shop = mLstShopFollows.get(mPosSelection);
-            double shopId = shop.getmId();
+            long shopId = shop.getmId();
             switch (view.getId()){
                 case R.id.rl_back_ground_shop_select_status:
-                    new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                    String token = CommonUtils.getToken(mContext);
+                    if(token.equalsIgnoreCase("")) {
+                        new DialogUtiils().showDialog(mContext, mContext.getString(R.string.need_login), false );
+                    } else {
+                        new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                    }
 //                    boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
 //                    mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
 //                    notifyDataSetChanged();

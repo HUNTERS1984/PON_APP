@@ -40,10 +40,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MainTopActivity" />
-        <activity android:name=".activities.ShopLocationActivity" />
+        <activity android:name=".activities.ShopCouponByCategoryActivity" />
         <activity android:name=".activities.AddShopFollowActivity" />
         <activity android:name=".activities.AddShopFollowDetailActivity" />
-        <activity android:name=".activities.ShopCouponFilterActivity" />
+        <activity android:name=".activities.CouponByCategoryDetailActivity" />
         <activity android:name=".activities.MapShopCouponActivity" />
         <activity
             android:name="com.facebook.FacebookActivity"

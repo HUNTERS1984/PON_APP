@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class ShopModel {
 
     @SerializedName("id")
-    private double mId;
+    private long mId;
 
     @SerializedName("avatar_url")
     private String mShopPhotoAvarta;
@@ -46,11 +46,14 @@ public class ShopModel {
     @SerializedName("help_text")
     private String mHelpDirection;
 
-    public double getmId() {
+    @SerializedName("category")
+    private CategoryModel mShopCat;
+
+    public long getmId() {
         return mId;
     }
 
-    public void setmId(double mId) {
+    public void setmId(long mId) {
         this.mId = mId;
     }
 
@@ -148,5 +151,13 @@ public class ShopModel {
 
     public void setmHelpDirection(String mHelpDirection) {
         this.mHelpDirection = mHelpDirection;
+    }
+
+    public CategoryModel getmShopCat() {
+        return mShopCat;
+    }
+
+    public void setmShopCat(CategoryModel mShopCat) {
+        this.mShopCat = mShopCat;
     }
 }

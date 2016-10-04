@@ -1,11 +1,19 @@
 package com.hunters1984.pon.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 
+import com.hunters1984.pon.R;
+import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
+import com.hunters1984.pon.api.ResponseCommon;
+import com.hunters1984.pon.api.UserProfileAPIHelper;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
+import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.Constants;
+import com.hunters1984.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
 
@@ -65,27 +73,32 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
     @Override
     public void onLoadData() {
         mListCoupons = new ArrayList<>();
-        new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
+        String token = CommonUtils.getToken(getActivity());
 
-//        for(int i=0;i <3; i++) {
-//            View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
-//            RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
-//            TextView tvCatName = (TextView)vCatCoupons.findViewById(R.id.tv_coupon_category_name);
-//            if(i==0) {
-//                tvCatName.setText("グルメ");
-//            } else if(i==1) {
-//                tvCatName.setText("ファッション");
-//            } else {
-//                tvCatName.setText("音楽");
-//            }
-//            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-//            rvCoupons.setLayoutManager(layoutManager);
-//            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
-//            rvCoupons.setAdapter(adapter);
-//            mLnShopCatCoupons.addView(vCatCoupons);
-//
-//        }
+        if(!token.equalsIgnoreCase("")) {
+            new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
+        } else {
+            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
+        }
+
     }
+
+    private Handler mHanlderCheckValidToken = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon res = (ResponseCommon) msg.obj;
+                    if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        CommonUtils.saveToken(getActivity(), "");
+                    }
+                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
 
 }

@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CouponAPIHelper extends APIHelper {
 
-    public void getCouponDetail(Context context, double id , final Handler handler)
+    public void getCouponDetail(Context context, long id , final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -29,7 +29,11 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        String token = "";
+
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
 
         Call<ResponseCouponDetailData> response = service.getCouponDetail(token, id);
 
@@ -68,7 +72,11 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        String token = "";
+
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
 
         Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "1", pageIndex);
 
@@ -97,7 +105,7 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCouponTypeShopFollow(Context context, String pageIndex , final Handler handler)
+    public void getCatShopFollow(Context context, String pageIndex , final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -107,16 +115,16 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseCouponTypeShopFollowData> response = service.getCouponTypeShopFollow(token, "1", pageIndex);
+        Call<ResponseCategoryShopFollowData> response = service.getCatShopFollow("1", pageIndex);
 
-        response.enqueue(new Callback<ResponseCouponTypeShopFollowData>() {
+        response.enqueue(new Callback<ResponseCategoryShopFollowData>() {
             @Override
-            public void onResponse(Call<ResponseCouponTypeShopFollowData> call, Response<ResponseCouponTypeShopFollowData> response) {
-                ResponseCouponTypeShopFollowData res = response.body();
+            public void onResponse(Call<ResponseCategoryShopFollowData> call, Response<ResponseCategoryShopFollowData> response) {
+                ResponseCategoryShopFollowData res = response.body();
                 if (res == null) {
-                    res = new ResponseCouponTypeShopFollowData();
+                    res = new ResponseCategoryShopFollowData();
                     res.code =  APIConstants.REQUEST_FAILED;
                 }
                 res.httpCode = response.code();
@@ -129,14 +137,14 @@ public class CouponAPIHelper extends APIHelper {
             }
 
             @Override
-            public void onFailure(Call<ResponseCouponTypeShopFollowData> call, Throwable t) {
+            public void onFailure(Call<ResponseCategoryShopFollowData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }
         });
     }
 
-    public void getShopFollowCouponType(Context context, String featureType, double typeId, String pageIndex , final Handler handler)
+    public void getCategory(Context context, String pageIndex , final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -146,16 +154,16 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseShopFollowCouponTypeData> response = service.getShopFollowCouponType(token, featureType, typeId, "1", pageIndex);
+        Call<ResponseCategoryData> response = service.getCategory("1", pageIndex);
 
-        response.enqueue(new Callback<ResponseShopFollowCouponTypeData>() {
+        response.enqueue(new Callback<ResponseCategoryData>() {
             @Override
-            public void onResponse(Call<ResponseShopFollowCouponTypeData> call, Response<ResponseShopFollowCouponTypeData> response) {
-                ResponseShopFollowCouponTypeData res = response.body();
+            public void onResponse(Call<ResponseCategoryData> call, Response<ResponseCategoryData> response) {
+                ResponseCategoryData res = response.body();
                 if (res == null) {
-                    res = new ResponseShopFollowCouponTypeData();
+                    res = new ResponseCategoryData();
                     res.code =  APIConstants.REQUEST_FAILED;
                 }
                 res.httpCode = response.code();
@@ -168,14 +176,14 @@ public class CouponAPIHelper extends APIHelper {
             }
 
             @Override
-            public void onFailure(Call<ResponseShopFollowCouponTypeData> call, Throwable t) {
+            public void onFailure(Call<ResponseCategoryData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }
         });
     }
 
-    public void getCouponType(Context context, String pageIndex , final Handler handler)
+    public void getCouponByCategory(Context context, String type, long catId, String pageIndex , final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -185,16 +193,20 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        String token = "";
+//
+//        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+//            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        }
 
-        Call<ResponseCouponTypeData> response = service.getCouponType(token, "1", pageIndex);
+        Call<ResponseCouponByCategoryData> response = service.getCouponByCategory(type, catId,  "1", pageIndex);
 
-        response.enqueue(new Callback<ResponseCouponTypeData>() {
+        response.enqueue(new Callback<ResponseCouponByCategoryData>() {
             @Override
-            public void onResponse(Call<ResponseCouponTypeData> call, Response<ResponseCouponTypeData> response) {
-                ResponseCouponTypeData res = response.body();
+            public void onResponse(Call<ResponseCouponByCategoryData> call, Response<ResponseCouponByCategoryData> response) {
+                ResponseCouponByCategoryData res = response.body();
                 if (res == null) {
-                    res = new ResponseCouponTypeData();
+                    res = new ResponseCouponByCategoryData();
                     res.code =  APIConstants.REQUEST_FAILED;
                 }
                 res.httpCode = response.code();
@@ -207,7 +219,7 @@ public class CouponAPIHelper extends APIHelper {
             }
 
             @Override
-            public void onFailure(Call<ResponseCouponTypeData> call, Throwable t) {
+            public void onFailure(Call<ResponseCouponByCategoryData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

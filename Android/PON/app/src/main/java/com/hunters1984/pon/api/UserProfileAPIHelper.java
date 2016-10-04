@@ -131,4 +131,43 @@ public class UserProfileAPIHelper extends APIHelper{
             }
         });
     }
+
+    public void checkValidToken(Context context, String token, final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String tokenHeader = Constants.HEADER_AUTHORIZATION.replace("%s", token);
+
+        Call<ResponseCommon> response = service.checkValidToken(tokenHeader);
+
+        response.enqueue(new Callback<ResponseCommon>() {
+            @Override
+            public void onResponse(Call<ResponseCommon> call, Response<ResponseCommon> response) {
+                ResponseCommon res = response.body();
+                if (res == null) {
+                    res = new ResponseCommon();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCommon> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
 }

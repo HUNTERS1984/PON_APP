@@ -10,7 +10,7 @@ import com.hunters1984.pon.utils.Constants;
 
 public class AddShopFollowDetailActivity extends BaseActivity {
 
-    private double mTypeId;
+    private long mTypeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class AddShopFollowDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_shop_follow_detail);
         super.onCreate(savedInstanceState);
 
-        mTypeId = getIntent().getDoubleExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
+        mTypeId = getIntent().getLongExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
 
         setTitle("グルメ");
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.hunters1984.pon.R;
 import com.hunters1984.pon.activities.AddShopFollowDetailActivity;
-import com.hunters1984.pon.models.CouponTypeShopFollowModel;
+import com.hunters1984.pon.models.CategoryShopFollowModel;
 import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.Constants;
 import com.squareup.picasso.Picasso;
@@ -21,12 +21,12 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/4/2016.
  */
-public class ListCouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<ListCouponTypeShopFollowRecyclerViewAdapter.ListCouponTypeRecyclerViewHolders> {
+public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<CouponTypeShopFollowRecyclerViewAdapter.ListCouponTypeRecyclerViewHolders> {
 
-    private List<CouponTypeShopFollowModel> mLstCouponTypeShopFollows;
+    private List<CategoryShopFollowModel> mLstCouponTypeShopFollows;
     private Context mContext;
 
-    public ListCouponTypeShopFollowRecyclerViewAdapter(Context context, List<CouponTypeShopFollowModel> lstCouponTypeShopFollows) {
+    public CouponTypeShopFollowRecyclerViewAdapter(Context context, List<CategoryShopFollowModel> lstCouponTypeShopFollows) {
         this.mLstCouponTypeShopFollows = lstCouponTypeShopFollows;
         this.mContext = context;
     }
@@ -41,7 +41,7 @@ public class ListCouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Ad
 
     @Override
     public void onBindViewHolder(ListCouponTypeRecyclerViewHolders holder, int position) {
-        CouponTypeShopFollowModel couponTypeShopFollow = mLstCouponTypeShopFollows.get(position);
+        CategoryShopFollowModel couponTypeShopFollow = mLstCouponTypeShopFollows.get(position);
         holder.mCouponTypeName.setText(couponTypeShopFollow.getmCouponTypeName());
         Picasso.with(mContext).load(couponTypeShopFollow.getmCouponTypeIconUrl()).
                 resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20))
@@ -56,7 +56,7 @@ public class ListCouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Ad
         return this.mLstCouponTypeShopFollows.size();
     }
 
-    public void updateData(List<CouponTypeShopFollowModel> lstCouponTypeShopFollows)
+    public void updateData(List<CategoryShopFollowModel> lstCouponTypeShopFollows)
     {
         mLstCouponTypeShopFollows = lstCouponTypeShopFollows;
         notifyDataSetChanged();
