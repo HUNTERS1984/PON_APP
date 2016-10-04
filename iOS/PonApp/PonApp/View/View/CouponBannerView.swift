@@ -23,25 +23,25 @@ class CouponBannerView: UIView {
     }
     
     func initialize() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, UIColor.whiteColor().CGColor)
-        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
-        let rectangle = CGRectMake(0,rect.size.height * (20/95), rect.size.width, rect.size.height - (rect.size.height * (20/95)))
-        CGContextAddRect(context, rectangle)
-        CGContextFillPath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(UIColor.white.cgColor)
+        context?.setFillColor(UIColor.white.cgColor)
+        let rectangle = CGRect(x: 0,y: rect.size.height * (20/95), width: rect.size.width, height: rect.size.height - (rect.size.height * (20/95)))
+        context?.addRect(rectangle)
+        context?.fillPath()
         
         
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, bottomBorderColor.CGColor)
-        CGContextMoveToPoint(context, 15, rect.size.height)
-        CGContextAddLineToPoint(context, rect.size.width, rect.size.height)
-        CGContextStrokePath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(bottomBorderColor.cgColor)
+        context?.move(to: CGPoint(x: 15, y: rect.size.height))
+        context?.addLine(to: CGPoint(x: rect.size.width, y: rect.size.height))
+        context?.strokePath()
     }
 
 }

@@ -10,11 +10,11 @@ import UIKit
 
 extension UIFont {
     
-    class func HiraginoSansW3(fontSize: CGFloat) -> UIFont {
+    class func HiraginoSansW3(_ fontSize: CGFloat) -> UIFont {
         return UIFont(name: "HiraginoSansGB-W3", size: fontSize)!
     }
     
-    class func HiraginoSansW6(fontSize: CGFloat) -> UIFont {
+    class func HiraginoSansW6(_ fontSize: CGFloat) -> UIFont {
         return UIFont(name: "HiraginoSansGB-W6", size: fontSize)!
     }
     

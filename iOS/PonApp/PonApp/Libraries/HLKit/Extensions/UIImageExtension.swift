@@ -12,11 +12,11 @@ import UIKit
 extension UIImage {
     
     // Resizes an input image (self) to a specified size
-    func resizeToSize(size: CGSize!) -> UIImage? {
+    func resizeToSize(_ size: CGSize!) -> UIImage? {
         // Begins an image context with the specified size
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
         // Draws the input image (self) in the specified size
-        self.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         // Gets an UIImage from the image context
         let result = UIGraphicsGetImageFromCurrentImageContext()
         // Ends the image context
@@ -26,13 +26,13 @@ extension UIImage {
     }
     
     // Crops an input image (self) to a specified rect
-    func cropToRect(rect: CGRect!) -> UIImage? {
+    func cropToRect(_ rect: CGRect!) -> UIImage? {
         // Correct rect size based on the device screen scale
-        let scaledRect = CGRectMake(rect.origin.x * self.scale, rect.origin.y * self.scale, rect.size.width * self.scale, rect.size.height * self.scale);
+        let scaledRect = CGRect(x: rect.origin.x * self.scale, y: rect.origin.y * self.scale, width: rect.size.width * self.scale, height: rect.size.height * self.scale);
         // New CGImage reference based on the input image (self) and the specified rect
-        let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledRect);
+        let imageRef = self.cgImage?.cropping(to: scaledRect);
         // Gets an UIImage from the CGImage
-        let result = UIImage(CGImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
+        let result = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
         // Returns the final image, or NULL on error
         return result;
     }

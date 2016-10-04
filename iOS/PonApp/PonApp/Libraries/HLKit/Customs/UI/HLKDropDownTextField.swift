@@ -24,13 +24,13 @@ struct HLKDropDownItem {
 
 protocol HLKDropDownTextFieldDelegate: class {
     
-    func dropDownTextField(dropdown: HLKDropDownTextField, didSelectItem item: HLKDropDownItem, atIndex index: Int)
-    func dropDownTextFieldShouldBeginEditing(dropdown: HLKDropDownTextField)
+    func dropDownTextField(_ dropdown: HLKDropDownTextField, didSelectItem item: HLKDropDownItem, atIndex index: Int)
+    func dropDownTextFieldShouldBeginEditing(_ dropdown: HLKDropDownTextField)
 }
 
 class HLKDropDownTextField: UITextField {
     
-    private var padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
+    fileprivate var padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
@@ -45,7 +45,7 @@ class HLKDropDownTextField: UITextField {
     }
     @IBInspectable var borderColor: UIColor? {
         didSet {
-            layer.borderColor = borderColor?.CGColor
+            layer.borderColor = borderColor?.cgColor
         }
     }
     
@@ -65,7 +65,7 @@ class HLKDropDownTextField: UITextField {
             layoutTextField()
         }
     }
-    private var pickerView:UIPickerView!
+    fileprivate var pickerView:UIPickerView!
     weak var handler: HLKDropDownTextFieldDelegate? = nil
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,7 +79,7 @@ class HLKDropDownTextField: UITextField {
     }
     
     func initialize() {
-        self.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
+        (self.value(forKey: "textInputTraits") as AnyObject).setValue(UIColor.clear, forKey: "insertionPointColor")
         self.delegate = self
         self.placeholder = placeHolderText
         
@@ -90,8 +90,8 @@ class HLKDropDownTextField: UITextField {
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let flexibleSpaceLeft = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(HLKDropDownTextField.doneButtonPressed(_:)))
+        let flexibleSpaceLeft = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(HLKDropDownTextField.doneButtonPressed(_:)))
         toolbar.setItems([flexibleSpaceLeft, doneButton], animated: false)
         self.inputView = pickerView
         self.inputAccessoryView = toolbar
@@ -108,23 +108,23 @@ class HLKDropDownTextField: UITextField {
 //MARK: - Override Methods
 extension HLKDropDownTextField {
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, padding))
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, padding))
     }
     
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, padding))
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, padding))
     }
 }
 
 //MARK: - Private Methods
 extension HLKDropDownTextField {
     
-    private func layoutTextField() {
+    fileprivate func layoutTextField() {
         self.placeholder = placeHolderText
     }
     
-    private func selectedItemIndex(selectedItem: HLKDropDownItem) -> Int {
+    fileprivate func selectedItemIndex(_ selectedItem: HLKDropDownItem) -> Int {
         for index in 0 ..< itemList.count {
             let item = itemList[index] as HLKDropDownItem
             if item.itemId == selectedItem.itemId {
@@ -139,7 +139,7 @@ extension HLKDropDownTextField {
 //MARK: - IBAction
 extension HLKDropDownTextField {
     
-    @IBAction func showDropdownMenu(sender: AnyObject) {
+    @IBAction func showDropdownMenu(_ sender: AnyObject) {
         if self.text!.characters.count == 0 {
             self.placeholder = placeholderWhileSelecting
         }else{
@@ -147,7 +147,7 @@ extension HLKDropDownTextField {
         }
     }
     
-    @IBAction func doneButtonPressed(sender: AnyObject) {
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
         resignFirstResponder()
     }
     
@@ -156,13 +156,13 @@ extension HLKDropDownTextField {
 //MARK: - UITextFieldDelegate
 extension HLKDropDownTextField: UITextFieldDelegate {
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         showDropdownMenu(textField)
         handler?.dropDownTextFieldShouldBeginEditing(self)
         return true
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
@@ -171,18 +171,18 @@ extension HLKDropDownTextField: UITextFieldDelegate {
 //MARK: - UIPickerViewDataSource
 extension HLKDropDownTextField: UIPickerViewDataSource {
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if itemList.count > 0 {
             return itemList.count
         }
         return 0
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if itemList.count > 0 {
             let item = itemList[row] as HLKDropDownItem
             return item.itemTitle
@@ -195,7 +195,7 @@ extension HLKDropDownTextField: UIPickerViewDataSource {
 //MARK: - UIPickerViewDelegate
 extension HLKDropDownTextField: UIPickerViewDelegate {
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let item = itemList[row]
         self.text = item.itemTitle
         self.selectedItem = item

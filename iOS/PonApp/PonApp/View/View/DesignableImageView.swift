@@ -17,7 +17,7 @@ class DesignableImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.masksToBounds = true
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
         layer.cornerRadius = cornerRadius
     }

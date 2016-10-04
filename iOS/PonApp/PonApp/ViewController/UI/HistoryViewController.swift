@@ -22,7 +22,7 @@ class HistoryViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -33,7 +33,7 @@ class HistoryViewController: BaseViewController {
         self.showBackButton()
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
-        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
         self.loadUsedCoupon(1)
     }
@@ -52,9 +52,9 @@ extension HistoryViewController {
 //MARK: - Private
 extension HistoryViewController {
     
-    private func loadUsedCoupon(pageIndex: Int) {
+    fileprivate func loadUsedCoupon(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getUsedCoupon(pageIndex: pageIndex) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getUsedCoupon(pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -68,9 +68,9 @@ extension HistoryViewController {
                         responseCoupon.append(coupon)
                     }
                     if pageIndex == 1 {
-                        self.displayCoupon(responseCoupon, type: .New)
+                        self.displayCoupon(responseCoupon, type: .new)
                     }else {
-                        self.displayCoupon(responseCoupon, type: .LoadMore)
+                        self.displayCoupon(responseCoupon, type: .loadMore)
                     }
                 }else {
                     
@@ -79,33 +79,35 @@ extension HistoryViewController {
         }
     }
     
-    private func displayCoupon(coupons: [Coupon], type: GetType) {
+    fileprivate func displayCoupon(_ coupons: [Coupon], type: GetType) {
         switch type {
-        case .New:
+        case .new:
             self.coupons.removeAll()
             self.coupons = coupons
             self.collectionView.reloadData()
             break
-        case .LoadMore:
-            self.coupons.appendContentsOf(coupons)
+        case .loadMore:
+            self.coupons.append(contentsOf: coupons)
             self.collectionView.reloadData()
             break
-        case .Reload:
+        case .reload:
             break
         }
     }
     
-    private func getCouponDetail(couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.navigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.navigationController!.pushViewController(vc, animated: true)
+                }
             }
         }
     }
@@ -115,18 +117,18 @@ extension HistoryViewController {
 //MARK: - UICollectionViewDataSource
 extension HistoryViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return coupons.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
-        let couponTest = self.coupons[indexPath.item]
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            dispatch_async(dispatch_get_main_queue(), {
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        let couponTest = self.coupons[(indexPath as NSIndexPath).item]
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async(execute: {
                 cell.coupon = couponTest
             })
         }
@@ -134,12 +136,12 @@ extension HistoryViewController: UICollectionViewDataSource {
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         return commentView
     }
     
@@ -148,8 +150,8 @@ extension HistoryViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension HistoryViewController: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCoupon = self.coupons[indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
         self.getCouponDetail(selectedCoupon.couponID)
     }
     
@@ -158,11 +160,11 @@ extension HistoryViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension HistoryViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenHeight = UIScreen.mainScreen().bounds.height
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenHeight = UIScreen.main.bounds.height
         let width = (self.view.frame.size.width - 30) / 2.0
         let height = screenHeight * (189/667)
-        return CGSizeMake(width, height)
+        return CGSize(width: width, height: height)
     }
     
 }

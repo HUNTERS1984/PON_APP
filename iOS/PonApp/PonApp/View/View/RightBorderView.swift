@@ -11,13 +11,13 @@ import UIKit
 class RightBorderView: UIView {
     @IBInspectable var marginRight: CGFloat = 0
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
-        CGContextMoveToPoint(context, rect.size.width - marginRight, 0)
-        CGContextAddLineToPoint(context, rect.size.width - marginRight, rect.size.height)
-        CGContextStrokePath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
+        context?.move(to: CGPoint(x: rect.size.width - marginRight, y: 0))
+        context?.addLine(to: CGPoint(x: rect.size.width - marginRight, y: rect.size.height))
+        context?.strokePath()
         
     }
 

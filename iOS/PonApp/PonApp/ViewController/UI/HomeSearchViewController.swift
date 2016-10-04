@@ -16,9 +16,9 @@ class HomeSearchViewController: BaseViewController {
         didSet {
             self.couponTypeTableView.reloadData()
             if couponTypes.count > 0 {
-                self.couponTypeTableView.hidden = false
+                self.couponTypeTableView.isHidden = false
             }else {
-                self.couponTypeTableView.hidden = true
+                self.couponTypeTableView.isHidden = true
             }
         }
     }
@@ -31,18 +31,18 @@ class HomeSearchViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        let leftBarButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .Plain, target: self, action: nil)
+        let leftBarButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = leftBarButton
         self.showSearchBox()
         self.showRightBarButtonWithTitle("キャンセル")
-        self.couponTypeTableView.hidden = true
+        self.couponTypeTableView.isHidden = true
         self.getCouponType(1)
     }
 
@@ -51,14 +51,14 @@ class HomeSearchViewController: BaseViewController {
 //MARK: - IBAction
 extension HomeSearchViewController {
     
-    @IBAction func locationButtonPressed(sender: AnyObject) {
+    @IBAction func locationButtonPressed(_ sender: AnyObject) {
         let vc = HomeMapViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    override func rightBarButtonPressed(sender: AnyObject) {
+    override func rightBarButtonPressed(_ sender: AnyObject) {
         super.rightBarButtonPressed(sender)
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController!.popViewController(animated: true)
     }
     
 }
@@ -66,28 +66,28 @@ extension HomeSearchViewController {
 //MARK: - Private
 extension HomeSearchViewController {
     
-    private func showSearchBox() {
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+    fileprivate func showSearchBox() {
+        let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         
-        let searchBox = UITextField(frame: CGRectMake(0, 0, screenWidth - 60, 30))
-        searchBox.backgroundColor = UIColor.clearColor()
-        searchBox.textColor = UIColor.whiteColor()
+        let searchBox = UITextField(frame: CGRect(x: 0, y: 0, width: screenWidth - 60, height: 30))
+        searchBox.backgroundColor = UIColor.clear
+        searchBox.textColor = UIColor.white
         searchBox.font = UIFont.HiraginoSansW6(17)
         searchBox.placeholder = "地名/ショップ名を入力"
-        searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
-        searchBox.borderStyle = .None
-        searchBox.autoresizingMask = .FlexibleWidth
+        searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.white])
+        searchBox.borderStyle = .none
+        searchBox.autoresizingMask = .flexibleWidth
 
         
-        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         leftNegativeSpacer.width = -6
         self.navigationItem.titleView = searchBox
     }
     
-    private func getCouponType(pageIndex: Int) {
+    fileprivate func getCouponType(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponCategory(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponCategory(pageIndex: 1) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -111,17 +111,17 @@ extension HomeSearchViewController {
 
 extension HomeSearchViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.couponTypes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CouponTypeTableViewCell") as! CouponTypeTableViewCell
-        cell.setDataForCell(self.couponTypes[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTypeTableViewCell") as! CouponTypeTableViewCell
+        cell.setDataForCell(self.couponTypes[(indexPath as NSIndexPath).row])
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
     
@@ -129,9 +129,9 @@ extension HomeSearchViewController: UITableViewDataSource {
 
 extension HomeSearchViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let selectedType = self.couponTypes[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedType = self.couponTypes[(indexPath as NSIndexPath).row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
         vc.couponType = selectedType.categoryID
         self.navigationController?.pushViewController(vc, animated: true)

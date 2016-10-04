@@ -23,25 +23,25 @@ class InstagramLoginViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        let authURL = InstagramEngine.sharedEngine().authorizationURL()
-        self.webView.loadRequest(NSURLRequest(URL: authURL))
+        let authURL = InstagramEngine.shared().authorizationURL()
+        self.webView.loadRequest(URLRequest(url: authURL))
         
         self.title = "Instagram"
-        let button = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(self.cancelButtonPressed(_: )))
+        let button = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
 
 extension InstagramLoginViewController: UIWebViewDelegate {
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         do {
-            try InstagramEngine.sharedEngine().receivedValidAccessTokenFromURL(request.URL!)
+            try InstagramEngine.shared().receivedValidAccessToken(from: request.url!)
         }catch {
             
         }

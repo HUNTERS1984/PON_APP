@@ -35,9 +35,9 @@ class ShadowView: UIView {
         }
     }
     
-    func addShadow(shadowOpacity: Float = 0.4, shadowRadius: CGFloat = 1.0) {
-        backgroundColor = UIColor.clearColor()
-        layer.shadowColor = UIColor.blackColor().CGColor
+    func addShadow(_ shadowOpacity: Float = 0.4, shadowRadius: CGFloat = 1.0) {
+        backgroundColor = UIColor.clear
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius

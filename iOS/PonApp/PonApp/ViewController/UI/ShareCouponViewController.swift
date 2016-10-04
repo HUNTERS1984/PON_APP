@@ -23,17 +23,17 @@ class ShareCouponViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.instagramButton.setImage(UIImage(named: "coupon_instagram_button"), forState: .Normal)
-        self.facebookButton.setImage(UIImage(named: "coupon_facebook_button"), forState: .Normal)
-        self.twitterButton.setImage(UIImage(named: "coupon_twitter_button"), forState: .Normal)
-        self.lineButton.setImage(UIImage(named: "coupon_line_button"), forState: .Normal)
+        self.instagramButton.setImage(UIImage(named: "coupon_instagram_button"), for: UIControlState())
+        self.facebookButton.setImage(UIImage(named: "coupon_facebook_button"), for: UIControlState())
+        self.twitterButton.setImage(UIImage(named: "coupon_twitter_button"), for: UIControlState())
+        self.lineButton.setImage(UIImage(named: "coupon_line_button"), for: UIControlState())
     }
 
 }
@@ -41,26 +41,26 @@ class ShareCouponViewController: BaseViewController {
 //MARK: - IBAction
 extension ShareCouponViewController {
     
-    @IBAction func closeButttonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func closeButttonPressed(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: false)
     }
     
-    @IBAction func snsButtonPressed(sender: AnyObject) {
+    @IBAction func snsButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func qrCodePressed(sender: AnyObject) {
+    @IBAction func qrCodePressed(_ sender: AnyObject) {
     }
     
-    @IBAction func instagramButtonPressed(sender: AnyObject) {
+    @IBAction func instagramButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func facebookButtonPressed(sender: AnyObject) {
+    @IBAction func facebookButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func twitterButtonPressed(sender: AnyObject) {
+    @IBAction func twitterButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func lineButtonPressed(sender: AnyObject) {
+    @IBAction func lineButtonPressed(_ sender: AnyObject) {
         LineLogin.sharedInstance.loginWithLine()
     }
     

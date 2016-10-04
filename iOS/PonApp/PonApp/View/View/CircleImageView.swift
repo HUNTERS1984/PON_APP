@@ -26,13 +26,13 @@ class CircleImageView: UIImageView {
          self.setupImageView()
     }
     
-    private func setupImageView() {
+    func setupImageView() {
         self.clipsToBounds = true
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.bounds.size.height / 2
-        self.layer.borderColor = self.imageBorderColor.CGColor
+        self.layer.borderColor = self.imageBorderColor.cgColor
         self.layer.borderWidth = self.borderSize
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
     }
 
 }

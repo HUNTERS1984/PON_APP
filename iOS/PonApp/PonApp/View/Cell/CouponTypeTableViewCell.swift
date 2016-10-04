@@ -19,8 +19,8 @@ class CouponTypeTableViewCell: UITableViewCell {
         }
     }
     
-    func setDataForCell(category: Category) {
-        self.thumbImageView.af_setImageWithURL(NSURL(string: category.categoryIconUrl)!)
+    func setDataForCell(_ category: Category) {
+        self.thumbImageView.af_setImage(withURL: URL(string: category.categoryIconUrl)!)
         self.titleLabel.text = category.categoryName
     }
 }

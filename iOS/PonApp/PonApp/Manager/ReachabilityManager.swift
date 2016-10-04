@@ -8,31 +8,26 @@
 
 import UIKit
 
-class ReachabilityManager: NSObject {
+class ReachabilityManager {
     
-    static var sharedInstance: ReachabilityManager {
+    class var sharedInstance: ReachabilityManager {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: ReachabilityManager? = nil
+            static let instance = ReachabilityManager()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = ReachabilityManager()
-            Static.instance?.initialize()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
     var reachability: Reachability!
     
     //MARK: - Private methods
     
-    func initialize() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityDidChange(_:)), name: "ReachabilityChangedNotification", object: nil)
-        self.reachability = Reachability.reachabilityForInternetConnection()
+    func initReachabilityManager() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: "ReachabilityChangedNotification"), object: nil)
+        self.reachability = Reachability.forInternetConnection()
         self.reachability.startNotifier()
     }
     
-    func reachabilityDidChange(notification: NSNotification) {
+    @objc func reachabilityDidChange(_ notification: Notification) {
 
     }
     

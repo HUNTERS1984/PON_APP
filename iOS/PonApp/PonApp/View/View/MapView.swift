@@ -11,10 +11,10 @@ import MapKit
 import GoogleMaps
 
 protocol MapViewDelegate: class {
-    func mapView(mapView: MapView!, didDragMarker marker: MapMarker!)
-    func mapView(mapView: MapView!, didEndDraggingMarker marker: MapMarker!)
-    func mapView(mapView: MapView!, didTapMarker marker: MapMarker!)
-    func mapView(mapView: MapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D)
+    func mapView(_ mapView: MapView!, didDragMarker marker: MapMarker!)
+    func mapView(_ mapView: MapView!, didEndDraggingMarker marker: MapMarker!)
+    func mapView(_ mapView: MapView!, didTapMarker marker: MapMarker!)
+    func mapView(_ mapView: MapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D)
 }
 
 class MapView: GMSMapView {
@@ -38,7 +38,7 @@ class MapView: GMSMapView {
         initialize()
     }
     
-    private func initialize() {
+    fileprivate func initialize() {
         self.delegate = self
     }
     
@@ -47,24 +47,24 @@ class MapView: GMSMapView {
             if let _ = error {
                 
             }else {
-                let cameraPos = GMSCameraPosition.cameraWithLatitude( Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
+                let cameraPos = GMSCameraPosition.camera( withLatitude: Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
                 self.camera = cameraPos
             }
         }
     }
     
-    func moveCameraToLocation(location: CLLocationCoordinate2D) {
-        let cameraPos = GMSCameraPosition.cameraWithLatitude( location.latitude, longitude: location.longitude, zoom: 15.0)
+    func moveCameraToLocation(_ location: CLLocationCoordinate2D) {
+        let cameraPos = GMSCameraPosition.camera( withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0)
         self.camera = cameraPos
     }
     
-    func createShopMarker(location: CLLocationCoordinate2D) {
+    func createShopMarker(_ location: CLLocationCoordinate2D) {
         self.clear()
         let marker = MapMarker(position: location)
         marker.icon = UIImage(named: "coupon_map_detail_icon")
         marker.appearAnimation = kGMSMarkerAnimationNone
         marker.map = self
-        let cameraPos = GMSCameraPosition.cameraWithLatitude( location.latitude, longitude: location.longitude, zoom: 12.0)
+        let cameraPos = GMSCameraPosition.camera( withLatitude: location.latitude, longitude: location.longitude, zoom: 12.0)
         self.camera = cameraPos
     }
     
@@ -73,7 +73,7 @@ class MapView: GMSMapView {
 //MARK: - Private
 extension MapView {
     
-    private func createShopMarkers() {
+    fileprivate func createShopMarkers() {
         self.clear()
         if self.shops.count == 0 {
             return
@@ -94,36 +94,36 @@ extension MapView {
 //MARK: - GMSMapViewDelegate
 extension MapView: GMSMapViewDelegate {
     
-    func mapView(mapView: GMSMapView, didDragMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
         self.handler?.mapView(self, didDragMarker: marker as! MapMarker)
     }
     
-    func mapView(mapView: GMSMapView, didEndDraggingMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         self.handler?.mapView(self, didEndDraggingMarker: marker as! MapMarker)
     }
     
-    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         
     }
     
-    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         self.handler?.mapView(self, didTapMarker: marker as! MapMarker)
         return true
     }
     
-    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
     }
     
-    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         self.handler?.mapView(self, didTapAtCoordinate: coordinate)
     }
     
-    func mapView(mapView: GMSMapView, didTapOverlay overlay: GMSOverlay) {
+    func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
         
     }
     
-    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         return UIView()
     }
     

@@ -20,15 +20,15 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-        self.view.backgroundColor = UIColor.whiteColor()
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        self.view.backgroundColor = UIColor.white
         
         setUpComponentsOnLoad()
         setUpUserInterface()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle{
-        return UIStatusBarStyle.Default;
+    override var preferredStatusBarStyle : UIStatusBarStyle{
+        return UIStatusBarStyle.default;
     }
     
     override func viewWillLayoutSubviews() {
@@ -36,22 +36,22 @@ class BaseViewController: UIViewController {
         configUserInterface()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpComponentsOnWillAppear()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setUpComponentsOnDidAppear()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         setUpComponentsOnDidDisappear()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setUpComponentsOnWillDisappear()
     }
@@ -62,16 +62,16 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     func showHUD() {
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.view.endEditing(true)
-            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             return
         })
     }
     
     func hideHUD() {
-        dispatch_async(dispatch_get_main_queue(), {
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        DispatchQueue.main.async(execute: {
+            MBProgressHUD.hide(for: self.view, animated: true)
             return
         })
     }
@@ -82,23 +82,23 @@ extension BaseViewController {
 extension BaseViewController {
     
     func hideBackButton() {
-        let button = UIBarButtonItem(image: UIImage(), style: .Plain, target: self, action: nil)
+        let button = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = button
     }
     
     func showBackButton() {
-        let button = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .Plain, target: self, action: #selector(self.backButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .plain, target: self, action: #selector(self.backButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
     }
     
-    func showRightBarButtonWithTitle(title: String) {
-        let button = UIBarButtonItem(title: title, style: .Plain, target: self, action: #selector(self.rightBarButtonPressed(_: )))
-        button.setTitleTextAttributes([NSFontAttributeName: UIFont.HiraginoSansW6(17)], forState: UIControlState.Normal)
+    func showRightBarButtonWithTitle(_ title: String) {
+        let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(self.rightBarButtonPressed(_: )))
+        button.setTitleTextAttributes([NSFontAttributeName: UIFont.HiraginoSansW6(17)], for: UIControlState())
         self.navigationItem.rightBarButtonItem = button
     }
     
     func showCloseButton() {
-        let button = UIBarButtonItem(image: UIImage(named: "nav_close_white"), style: .Plain, target: self, action: #selector(self.navCloseButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "nav_close_white"), style: .plain, target: self, action: #selector(self.navCloseButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
     }
     
@@ -110,13 +110,13 @@ extension BaseViewController {
         var mainTabbarViewController: BaseTabBarController?
         
         let mainViewController = MainViewController.instanceFromStoryBoard("Main")
-        mainNavigationController = BaseNavigationController(rootViewController: mainViewController)
+        mainNavigationController = BaseNavigationController(rootViewController: mainViewController!)
         
         let accountViewController = AccountViewController.instanceFromStoryBoard("Main")
-        accountNavigationController = BaseNavigationController(rootViewController: accountViewController)
+        accountNavigationController = BaseNavigationController(rootViewController: accountViewController!)
         
         let favoriteViewController = FavoriteViewController.instanceFromStoryBoard("Main")
-        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController)
+        favoriteNavigationController = BaseNavigationController(rootViewController: favoriteViewController!)
         
         
         mainTabbarViewController = BaseTabBarController()
@@ -126,7 +126,7 @@ extension BaseViewController {
             accountNavigationController!
         ]
         mainTabbarViewController?.selectedIndex = 1
-        mainTabbarViewController?.tabBar.hidden = true
+        mainTabbarViewController?.tabBar.isHidden = true
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
 }
@@ -134,16 +134,16 @@ extension BaseViewController {
 //MARK: - IBAction 
 extension BaseViewController {
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: true)
     }
     
-    @IBAction func rightBarButtonPressed(sender: AnyObject) {
+    @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
         
     }
     
-    @IBAction func navCloseButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func navCloseButtonPressed(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: true)
     }
     
 }

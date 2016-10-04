@@ -9,32 +9,27 @@
 import Foundation
 import MapKit
 
-typealias LocationManagerCompletionHandler = (location: CLLocationCoordinate2D?, error: NSError?) -> ()
+typealias LocationManagerCompletionHandler = (_ location: CLLocationCoordinate2D?, _ error: NSError?) -> ()
 
 class LocationManager: NSObject {
 
-    private var locateManage = CLLocationManager()
-    private var handler: LocationManagerCompletionHandler? = nil
+    var locateManage = CLLocationManager()
+    var handler: LocationManagerCompletionHandler? = nil
     var currentCoordinate: CLLocationCoordinate2D?
     
     class var sharedInstance: LocationManager {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: LocationManager? = nil
+            static let instance = LocationManager()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = LocationManager()
-            Static.instance?.initLocationManager()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
-    private func initLocationManager() {
+    func initLocationManager() {
         loggingPrint("Created")
         
         //-------------CLLocationManager-------------//
         self.locateManage.delegate = self
-        if self.locateManage.respondsToSelector(#selector(CLLocationManager.requestAlwaysAuthorization)) {
+        if self.locateManage.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
             self.locateManage.requestAlwaysAuthorization()
         }
         self.locateManage.desiredAccuracy = kCLLocationAccuracyBest
@@ -50,7 +45,7 @@ extension LocationManager {
         self.locateManage.startUpdatingLocation()
     }
     
-    func currentLocation(completionHandler: LocationManagerCompletionHandler) {
+    func currentLocation(_ completionHandler: @escaping LocationManagerCompletionHandler) {
         self.handler = completionHandler
         self.startUpdatingLocation()
     }
@@ -59,20 +54,20 @@ extension LocationManager {
 //MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         let long = userLocation.coordinate.longitude;
         let lat = userLocation.coordinate.latitude;
         self.currentCoordinate = CLLocationCoordinate2D(latitude: Double(lat), longitude: Double(long))
         if let _ = self.handler {
-            self.handler!(location: self.currentCoordinate, error: nil)
+            self.handler!(self.currentCoordinate, nil)
             self.handler = nil
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         if let _ = self.handler {
-            self.handler!(location: nil, error: error)
+            self.handler!(nil, error as NSError?)
             self.handler = nil
         }
     }

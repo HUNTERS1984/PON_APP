@@ -13,13 +13,13 @@ class BottomBorderView: UIView {
     @IBInspectable var marginLeft: CGFloat = 0
     @IBInspectable var marginRight: CGFloat = 0
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
-        CGContextMoveToPoint(context, marginLeft, rect.size.height)
-        CGContextAddLineToPoint(context, rect.size.width - marginRight, rect.size.height)
-        CGContextStrokePath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
+        context?.move(to: CGPoint(x: marginLeft, y: rect.size.height))
+        context?.addLine(to: CGPoint(x: rect.size.width - marginRight, y: rect.size.height))
+        context?.strokePath()
         
     }
     

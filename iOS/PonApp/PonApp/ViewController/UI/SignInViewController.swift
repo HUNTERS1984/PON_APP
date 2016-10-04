@@ -24,7 +24,7 @@ class SignInViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -40,7 +40,7 @@ class SignInViewController: BaseViewController {
 //MARK: - IBAction
 extension SignInViewController {
     
-    @IBAction func signInButtonPressed(sender: AnyObject) {
+    @IBAction func signInButtonPressed(_ sender: AnyObject) {
         let userName = self.userNameTextField.text
         let password = self.passwordTextField.text
         
@@ -53,35 +53,35 @@ extension SignInViewController {
         }
     }
     
-    @IBAction func signUnButtonPressed(sender: AnyObject) {
+    @IBAction func signUnButtonPressed(_ sender: AnyObject) {
         let vc = SignUpViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 }
 
 extension SignInViewController {
     
-    private func validInfomation(userName: String?, password: String?, completion:(successed: Bool, message: String) -> Void) {
+    fileprivate func validInfomation(_ userName: String?, password: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: UserNameBlank)
+            completion(false, UserNameBlank)
             return
         }
         
         if let _ = password {
 
         }else {
-            completion(successed: false, message: PasswordBlank)
+            completion(false, PasswordBlank)
             return
         }
-        completion(successed: true, message: "")
+        completion(true, "")
     }
     
-    private func signIn(userName: String, password: String) {
+    fileprivate func signIn(_ userName: String, password: String) {
         self.showHUD()
-        ApiRequest.signIn(userName, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.signIn(userName, password: password) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 let message = error!.userInfo["error"] as? String

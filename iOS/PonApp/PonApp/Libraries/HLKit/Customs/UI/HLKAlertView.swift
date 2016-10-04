@@ -9,27 +9,21 @@
 import UIKit
 
 class UIAlertViewExt: UIAlertView {
-    var handler: ((selectedOption: String) -> ())?
+    var handler: ((_ selectedOption: String) -> ())?
 }
 
 class HLKAlertView: NSObject, UIAlertViewDelegate {
     
-    class var defaultInstance: HLKAlertView {
+    class var sharedInstance: HLKAlertView {
         struct Static {
-            static var instance: HLKAlertView?
-            static var token: dispatch_once_t = 0
+            static let instance = HLKAlertView()
         }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = HLKAlertView()
-        }
-        
-        return Static.instance!
+        return Static.instance
     }
     
-    class func show(title: String?, message: String?, accessoryView: UIView? = nil, cancelButtonTitle: String?, otherButtonTitles: [String]?, handler: ((selectedOption: String) -> ())?) -> UIAlertView {
+    class func show(_ title: String?, message: String?, accessoryView: UIView? = nil, cancelButtonTitle: String?, otherButtonTitles: [String]?, handler: ((_ selectedOption: String) -> ())?) {
         
-        let alertView = UIAlertViewExt(title: title, message: message, delegate: self.defaultInstance, cancelButtonTitle: nil)
+        let alertView = UIAlertViewExt(title: title, message: message, delegate: self, cancelButtonTitle: nil)
         
         if let accessoryView = accessoryView {
             alertView.setValue(accessoryView, forKey: "accessoryView")
@@ -37,28 +31,26 @@ class HLKAlertView: NSObject, UIAlertViewDelegate {
         
         if let otherButtonTitles = otherButtonTitles {
             for buttonTitle in otherButtonTitles {
-                alertView.addButtonWithTitle(buttonTitle)
+                alertView.addButton(withTitle: buttonTitle)
             }
         }
         
         if let _ = cancelButtonTitle {
-            alertView.cancelButtonIndex = alertView.addButtonWithTitle(cancelButtonTitle!)
+            alertView.cancelButtonIndex = alertView.addButton(withTitle: cancelButtonTitle!)
         }
         
         alertView.handler = handler
         
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             alertView.show()
         })
-        
-        return alertView
     }
     
     // MARK: UIAlertViewDelegate
-    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
         if let alertView = alertView as? UIAlertViewExt {
             alertView.setValue(nil, forKey: "accessoryView")
-            alertView.handler?(selectedOption: alertView.buttonTitleAtIndex(buttonIndex)!)
+            alertView.handler?(alertView.buttonTitle(at: buttonIndex)!)
         }
     }
     

@@ -27,17 +27,17 @@ class AccountViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.settingButton.setImage(UIImage(named: "account_setting_button"), forState: .Normal)
-        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), forState: .Normal)
-        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
-        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_selected"), forState: .Normal)
+        self.settingButton.setImage(UIImage(named: "account_setting_button"), for: UIControlState())
+        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_normal"), for: UIControlState())
+        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), for: UIControlState())
+        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_selected"), for: UIControlState())
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -50,42 +50,42 @@ class AccountViewController: BaseViewController {
 //MARK: - IBAction
 extension AccountViewController {
     
-    @IBAction func favoriteButtonPressed(sender: AnyObject) {
+    @IBAction func favoriteButtonPressed(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 0
     }
     
-    @IBAction func homeButtonPressed(sender: AnyObject) {
+    @IBAction func homeButtonPressed(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
     
-    @IBAction func accountButtonPressed(sender: AnyObject) {
+    @IBAction func accountButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func settingButtonPressed(sender: AnyObject) {
+    @IBAction func settingButtonPressed(_ sender: AnyObject) {
         let vc = EditAccountViewController.instanceFromStoryBoard("Account")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @IBAction func followedShopButtonPressed(sender: AnyObject) {
+    @IBAction func followedShopButtonPressed(_ sender: AnyObject) {
         let vc = ShopFollowViewController.instanceFromStoryBoard("Follow")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @IBAction func historyButtonPressed(sender: AnyObject) {
+    @IBAction func historyButtonPressed(_ sender: AnyObject) {
         let vc = HistoryViewController.instanceFromStoryBoard("Account")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @IBAction func newsButtonPressed(sender: AnyObject) {
+    @IBAction func newsButtonPressed(_ sender: AnyObject) {
         let vc = NewsViewController.instanceFromStoryBoard("Account")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 
 //MARK: - Private
 extension AccountViewController {
     
-    private func getListFunction() -> [String] {
+    fileprivate func getListFunction() -> [String] {
         return [
             "利用規約",//terms of service
             "プライバシーポリシー",//privacy policy
@@ -95,14 +95,14 @@ extension AccountViewController {
         ]
     }
     
-    private func getUserProfile() {
+    fileprivate func getUserProfile() {
         self.showHUD()
-        ApiRequest.getUserProfile { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getUserProfile { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
         }
     }
     
-    private func displayUserInfo() {
+    fileprivate func displayUserInfo() {
         if let _ = UserDataManager.sharedInstance.username {
             self.usernamLabel.text = UserDataManager.sharedInstance.username!
         }else {
@@ -110,8 +110,8 @@ extension AccountViewController {
         }
         
         if let _ = UserDataManager.sharedInstance.avatarUrl {
-            let avatarUrl = NSURL(string: UserDataManager.sharedInstance.avatarUrl!)
-            self.avatarImageView.af_setImageWithURL(avatarUrl!)
+            let avatarUrl = URL(string: UserDataManager.sharedInstance.avatarUrl!)
+            self.avatarImageView.af_setImage(withURL: avatarUrl!)
         }else {
             self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
         }
@@ -123,18 +123,18 @@ extension AccountViewController {
 //MARK: - UITableViewDataSource
 extension AccountViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.getListFunction().count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AccountTableViewCell") as! AccountTableViewCell
-        cell.titleLabel.text = self.getListFunction()[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as! AccountTableViewCell
+        cell.titleLabel.text = self.getListFunction()[(indexPath as NSIndexPath).row]
         return cell
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let screenHeight = UIScreen.mainScreen().bounds.height
+
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let screenHeight = UIScreen.main.bounds.height
         return screenHeight * (60/667)
     }
     
@@ -143,20 +143,20 @@ extension AccountViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension AccountViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        switch indexPath.row {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        switch (indexPath as NSIndexPath).row {
         case 0:
             let vc = TermsOfServiceViewController.instanceFromStoryBoard("Account")
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc!, animated: true)
             break;
         case 1:
             let vc = PrivacyPolicyViewController.instanceFromStoryBoard("Account")
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc!, animated: true)
             break;
         case 2:
             let vc = SpecifiedTradeViewController.instanceFromStoryBoard("Account")
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc!, animated: true)
             break;
         case 3:
             break;

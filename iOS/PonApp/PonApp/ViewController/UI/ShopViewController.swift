@@ -38,7 +38,7 @@ class ShopViewController: BaseViewController {
     }
     
     var shop: Shop? = nil
-    var previousSelectedIndexPath: NSIndexPath? = nil
+    var previousSelectedIndexPath: IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ShopViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -56,17 +56,17 @@ class ShopViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.showBackButton()
-        self.view.bringSubviewToFront(self.navigationView)
-        self.navigationView.backgroundColor = UIColor(hex: 0x18c0d4).colorWithAlphaComponent(0)
+        self.view.bringSubview(toFront: self.navigationView)
+        self.navigationView.backgroundColor = UIColor(hex: 0x18c0d4).withAlphaComponent(0)
         self.navTitleLabel.alpha = 0
         
-        self.backButton.setImage(UIImage(named: "nav_back"), forState: .Normal)
-        self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), forState: .Normal)
-        self.locationButton.setImage(UIImage(named: "shop_detail_button_location"), forState: .Normal)
-        self.shareButton.setImage(UIImage(named: "shop_detail_button_share"), forState: .Normal)
+        self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
+        self.phoneButton.setImage(UIImage(named: "shop_detail_button_phone"), for: UIControlState())
+        self.locationButton.setImage(UIImage(named: "shop_detail_button_location"), for: UIControlState())
+        self.shareButton.setImage(UIImage(named: "shop_detail_button_share"), for: UIControlState())
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
-        couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        couponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         if let _ = self.shop {
             self.displayShopDetail(self.shop!)
         }
@@ -77,20 +77,20 @@ class ShopViewController: BaseViewController {
 //MARK: - IBAction
 extension ShopViewController {
     
-    @IBAction func phoneButtonPressed(sender: AnyObject) {
+    @IBAction func phoneButtonPressed(_ sender: AnyObject) {
         
     }
     
-    @IBAction func locationButtonPressed(sender: AnyObject) {
+    @IBAction func locationButtonPressed(_ sender: AnyObject) {
         
     }
     
-    @IBAction func shareButtonPressed(sender: AnyObject) {
+    @IBAction func shareButtonPressed(_ sender: AnyObject) {
     
     }
     
-    @IBAction override func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction override func backButtonPressed(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: true)
     }
     
 }
@@ -98,7 +98,7 @@ extension ShopViewController {
 //MARK: - Private
 extension ShopViewController {
     
-    private func displayShopDetail(shop: Shop) {
+    fileprivate func displayShopDetail(_ shop: Shop) {
         self.shopNameLabel.text = shop.title
         self.navTitleLabel.text = shop.title
         shopId.text = "\(shop.shopID)"
@@ -112,7 +112,7 @@ extension ShopViewController {
         self.setupPhotoCollectionView(shop.shopPhotosUrl)
     }
     
-    private func setupPhotoCollectionView(urls: [String]) {
+    fileprivate func setupPhotoCollectionView(_ urls: [String]) {
         self.albumCollectionView.photos = urls
         self.albumCollectionView.reloadData {
             self.albumCollectionViewConstraint.constant = self.albumCollectionView.contentSize.height
@@ -120,9 +120,9 @@ extension ShopViewController {
         }
     }
     
-    private func getCouponDetail(couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -140,18 +140,18 @@ extension ShopViewController {
 //MARK: - UIScrollViewDelegate
 extension ShopViewController: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.isKindOfClass(UICollectionView.classForCoder()) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isKind(of: UICollectionView.classForCoder()) {
             return
         }else {
             let color = UIColor(hex: 0x18c0d4)
             let offsetY = scrollView.contentOffset.y
             if offsetY > NavBarChangePoint {
                 let alpha = min(1, 1 - ((NavBarChangePoint + 64 - offsetY) / 64))
-                self.navigationView.backgroundColor = color.colorWithAlphaComponent(alpha)
+                self.navigationView.backgroundColor = color.withAlphaComponent(alpha)
                 self.navTitleLabel.alpha = alpha
             }else {
-                self.navigationView.backgroundColor = color.colorWithAlphaComponent(0)
+                self.navigationView.backgroundColor = color.withAlphaComponent(0)
                 self.navTitleLabel.alpha = 0
             }
         }
@@ -162,32 +162,32 @@ extension ShopViewController: UIScrollViewDelegate {
 //MARK: - UICollectionViewDataSource
 extension ShopViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.shopCoupon.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
-        cell.coupon = self.shopCoupon[indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
+        cell.coupon = self.shopCoupon[(indexPath as NSIndexPath).item]
         return cell
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         return commentView
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
         let width = screenWidth * (162/375)
         let height = screenHeight * (172/667)
-        return CGSizeMake(width, height)
+        return CGSize(width: width, height: height)
     }
     
 }
@@ -195,22 +195,22 @@ extension ShopViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension ShopViewController: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCoupon = self.shopCoupon[indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCoupon = self.shopCoupon[(indexPath as NSIndexPath).item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
                 self.getCouponDetail(selectedCoupon.couponID)
             }else {
                 if let _ = self.previousSelectedIndexPath {
-                    self.shopCoupon[self.previousSelectedIndexPath!.item].showConfirmView = false
-                    collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+                    self.shopCoupon[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                    collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                     
-                    self.shopCoupon[indexPath.item].showConfirmView = true
-                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                    collectionView.reloadItems(at: [indexPath])
                     self.previousSelectedIndexPath = indexPath
                 }else {
-                    self.shopCoupon[indexPath.item].showConfirmView = true
-                    collectionView.reloadItemsAtIndexPaths([indexPath])
+                    self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                    collectionView.reloadItems(at: [indexPath])
                     self.previousSelectedIndexPath = indexPath
                 }
             }

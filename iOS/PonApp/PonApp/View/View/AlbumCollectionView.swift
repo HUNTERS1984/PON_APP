@@ -26,7 +26,7 @@ class AlbumCollectionView: UICollectionView {
         self.dataSource = self
         self.delegate = self
         let myCellNib = UINib(nibName: "AlbumCollectionViewCell", bundle: nil)
-        self.registerNib(myCellNib, forCellWithReuseIdentifier: "AlbumCollectionViewCell")
+        self.register(myCellNib, forCellWithReuseIdentifier: "AlbumCollectionViewCell")
     }
 
 }
@@ -34,7 +34,7 @@ class AlbumCollectionView: UICollectionView {
 //MARK: - UICollectionViewDataSource
 extension AlbumCollectionView: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.photos.count > 9 {
             return 9
         }else {
@@ -42,21 +42,21 @@ extension AlbumCollectionView: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AlbumCollectionViewCell", forIndexPath: indexPath) as! AlbumCollectionViewCell
-        let URL = NSURL(string: self.photos[indexPath.item])!
-        cell.thumbImageView.af_setImageWithURL(URL)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as! AlbumCollectionViewCell
+        let URL = Foundation.URL(string: self.photos[(indexPath as NSIndexPath).item])!
+        cell.thumbImageView.af_setImage(withURL: URL)
         return cell
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AlbumCollectionViewCell", forIndexPath: indexPath) as! AlbumCollectionViewCell
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as! AlbumCollectionViewCell
         return commentView
     }
     
@@ -65,7 +65,7 @@ extension AlbumCollectionView: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension AlbumCollectionView: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
     }
     
@@ -74,9 +74,9 @@ extension AlbumCollectionView: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension AlbumCollectionView: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let picDimension = (self.frame.size.width - 40) / 3.0
-        return CGSizeMake(picDimension, picDimension)
+        return CGSize(width: picDimension, height: picDimension)
     }
     
 }

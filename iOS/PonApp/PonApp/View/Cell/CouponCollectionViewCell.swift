@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import AlamofireImage
 
 class CouponCollectionViewCell: UICollectionViewCell {
@@ -37,7 +38,7 @@ class CouponCollectionViewCell: UICollectionViewCell {
     }
     
     func initialize() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
     var coupon: Coupon! {
@@ -46,24 +47,24 @@ class CouponCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setDataForCell(coupon: Coupon) {
+    func setDataForCell(_ coupon: Coupon) {
         if coupon.showConfirmView {
-            self.confirmView.hidden = false
-            self.couponContentView.hidden = true
+            self.confirmView.isHidden = false
+            self.couponContentView.isHidden = true
         }else {
-            self.confirmView.hidden = true
-            self.couponContentView.hidden = false
+            self.confirmView.isHidden = true
+            self.couponContentView.isHidden = false
         }
         
-        self.usedIconImage.hidden = !coupon.isUsed
-        let URL = NSURL(string: coupon.imageURL)!
-        self.thumbImageView.af_setImageWithURL(URL)
+        self.usedIconImage.isHidden = !coupon.isUsed
+        let URL = Foundation.URL(string: coupon.imageURL)!
+        self.thumbImageView.af_setImage(withURL: URL)
         self.titleLabel.text = coupon.title
         self.expireDateLabel.text = coupon.expiryDate
         if let _ = coupon.isLike {
-            self.likeIconImage.hidden = !coupon.isLike
+            self.likeIconImage.isHidden = !coupon.isLike
         }else {
-            self.likeIconImage.hidden = true
+            self.likeIconImage.isHidden = true
         }
         self.typeLabel.text = coupon.couponType
     }

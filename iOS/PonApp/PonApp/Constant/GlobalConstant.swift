@@ -28,9 +28,9 @@ let ClientSecret                                = "4ok2x70rlfokc8g0wws8c8kwcokw8
 let DefaultPageSize                             = 10
 
 public enum GetType {
-    case Reload
-    case LoadMore
-    case New
+    case reload
+    case loadMore
+    case new
 }
 
 let TokenInvalidNotification                    = "TokenInvalidNotification"

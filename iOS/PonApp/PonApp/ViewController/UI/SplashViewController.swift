@@ -30,7 +30,7 @@ class SplashViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -38,12 +38,12 @@ class SplashViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.backgroundImageView.image = UIImage(named: "splash_background")
-        self.view.sendSubviewToBack(self.backgroundImageView)
-        self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), forState: .Normal)
-        self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), forState: .Normal)
-        self.mailButton.setImage(UIImage(named: "splash_button_email"), forState: .Normal)
-        self.skipButton.setImage(UIImage(named: "splash_button_skip"), forState: .Normal)
-        self.loginButton.setImage(UIImage(named: "splash_button_login"), forState: .Normal)
+        self.view.sendSubview(toBack: self.backgroundImageView)
+        self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), for: UIControlState())
+        self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), for: UIControlState())
+        self.mailButton.setImage(UIImage(named: "splash_button_email"), for: UIControlState())
+        self.skipButton.setImage(UIImage(named: "splash_button_skip"), for: UIControlState())
+        self.loginButton.setImage(UIImage(named: "splash_button_login"), for: UIControlState())
         
         self.loginActionView.alpha = 0
         self.actionView.alpha = 0
@@ -55,13 +55,11 @@ class SplashViewController: BaseViewController {
 //MARK: - IBAction
 extension SplashViewController {
     
-    @IBAction func facebookButtonPressed(sender: AnyObject) {
-        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
-            
-        }
+    @IBAction func facebookButtonPressed(_ sender: AnyObject) {
+
     }
     
-    @IBAction func twitterButtonPressed(sender: AnyObject) {
+    @IBAction func twitterButtonPressed(_ sender: AnyObject) {
         TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
             if success {
                 if let _ = result {
@@ -78,17 +76,17 @@ extension SplashViewController {
         }
     }
     
-    @IBAction func mailButtonPressed(sender: AnyObject) {
+    @IBAction func mailButtonPressed(_ sender: AnyObject) {
         let vc = SignInViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @IBAction func skipButtonPressed(sender: AnyObject) {
+    @IBAction func skipButtonPressed(_ sender: AnyObject) {
         UserDataManager.sharedInstance.loggedIn = false
         self.setupTabbarViewController()
     }
     
-    @IBAction func loginActionButtonPressed(sender: AnyObject) {
+    @IBAction func loginActionButtonPressed(_ sender: AnyObject) {
         self.actionView.fadeOut(0.5)
         self.loginActionView.fadeIn(0.5)
     }
@@ -98,11 +96,11 @@ extension SplashViewController {
 //MARK: - Private methods
 extension SplashViewController {
     
-    private func authorizeToken() {
+    fileprivate func authorizeToken() {
         if let _ = Defaults[.token] {
             print("Bearer \(Defaults[.token]!)")
             self.showHUD()
-            ApiRequest.authorized { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+            ApiRequest.authorized { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
                 self.hideHUD()
                 if let _ = error {
                     self.showActionView()
@@ -123,7 +121,7 @@ extension SplashViewController {
         }
     }
     
-    private func showActionView() {
+    fileprivate func showActionView() {
         self.actionView.fadeIn(0.5)
         self.loginActionView.fadeOut(0.5)
     }
