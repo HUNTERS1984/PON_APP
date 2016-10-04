@@ -42,7 +42,7 @@ public struct ApiManager {
         return standarParameter;
     }
     
-    static func processRequest(_ endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = false, completion: @escaping ApiCompletion) {
+    static func processRequest(_ endpoint: String, method: ApiMethod, parameters: [String: AnyObject?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
         if !ReachabilityManager.isReachable() {
             let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(NotConnectInternet)"])
             completion(nil, nil, error)
@@ -69,7 +69,7 @@ public struct ApiManager {
     }
     
     //MARK: - GET
-    fileprivate static func processGetRequest(_ urlString: String, parameters: [String: AnyObject]? = nil, hasAuth: Bool = false, completion: @escaping ApiCompletion) {
+    fileprivate static func processGetRequest(_ urlString: String, parameters: [String: AnyObject]? = nil, hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
         let completionHandler = {(response: DataResponse<String>) -> Void in
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
@@ -97,7 +97,7 @@ public struct ApiManager {
     }
     
     //MARK: - POST
-    fileprivate static func processPostRequest(_ urlString: String, parameters: [String: AnyObject], hasAuth: Bool = false, completion: @escaping ApiCompletion) {
+    fileprivate static func processPostRequest(_ urlString: String, parameters: [String: AnyObject], hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
         let completionHandler = {(response: DataResponse<String>) -> Void in
             if response.result.isSuccess {
                 ApiManager.processSuccessResponese(response, completion: completion)
@@ -116,7 +116,7 @@ public struct ApiManager {
     }
     
     //MARK: - MULTIPART POST
-    fileprivate static func processPostWithMultipartFormDataRequest(_ urlString: String, parameters: [String: AnyObject], uploadFiles: [ApiFileUpload], hasAuth: Bool = false, completion: @escaping ApiCompletion) {
+    fileprivate static func processPostWithMultipartFormDataRequest(_ urlString: String, parameters: [String: AnyObject], uploadFiles: [ApiFileUpload], hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
         let encodingCompletion = { (encodingResult: SessionManager.MultipartFormDataEncodingResult) -> Void in
             switch encodingResult {
             case .success(let upload, _, _):
@@ -155,7 +155,7 @@ public struct ApiManager {
     }
     
     //MARK: - SUCCESS RESPONSE
-    fileprivate static func processSuccessResponese(_ response: DataResponse<String>, completion: ApiCompletion) {
+    fileprivate static func processSuccessResponese(_ response: DataResponse<String>, completion: @escaping (ApiCompletion)) {
         let urlRequest = response.request
         let resultString = response.result.value
         let json = JSON(data: (resultString?.data(using: String.Encoding.utf8))!)
@@ -171,7 +171,7 @@ public struct ApiManager {
     }
     
     //MARK: - FAILURE RESPONSE
-    fileprivate static func processFailureResponese(_ response: DataResponse<String>?, completion: ApiCompletion) {
+    fileprivate static func processFailureResponese(_ response: DataResponse<String>?, completion: @escaping (ApiCompletion)) {
         if let httpStatusCode = response!.response?.statusCode {
             if httpStatusCode == 401 {
                 ApiManager.processInvalidToken()

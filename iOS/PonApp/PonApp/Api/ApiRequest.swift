@@ -10,11 +10,11 @@ import UIKit
 
 public struct ApiRequest {
     
-    static func authorized(_ completion: @escaping ApiCompletion) {
+    static func authorized(_ completion: @escaping (ApiCompletion)) {
         ApiManager.processRequest(Authorized, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func signUp(_ userName: String, email: String, password: String, completion: @escaping ApiCompletion) {
+    static func signUp(_ userName: String, email: String, password: String, completion: @escaping (ApiCompletion) ) {
         let parameters: [String: AnyObject?] = [
             "username": userName as Optional<AnyObject>,
             "email": email as Optional<AnyObject>,
@@ -23,7 +23,7 @@ public struct ApiRequest {
         ApiManager.processRequest(SignUp, method: .POST, parameters: parameters, completion: completion)
     }
     
-    static func signIn(_ userName: String, password: String, completion: @escaping ApiCompletion) {
+    static func signIn(_ userName: String, password: String, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "username": userName as Optional<AnyObject>,
             "password": password as Optional<AnyObject>,
@@ -34,16 +34,16 @@ public struct ApiRequest {
         ApiManager.processRequest(SignIn, method: .POST, parameters: parameters, completion: completion)
     }
     
-    static func signOut(_ completion: @escaping ApiCompletion) {
+    static func signOut(_ completion: @escaping (ApiCompletion)) {
         ApiManager.processRequest(SignOut, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func getCouponByFeature(_ couponFeature: CouponFeature, completion: @escaping ApiCompletion) {
+    static func getCouponByFeature(_ couponFeature: CouponFeature, completion: @escaping (ApiCompletion)) {
         let endpoint = String(format:CouponByFeature, couponFeature.rawValue)
         ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
     
-    static func getFavoriteCoupon(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getFavoriteCoupon(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -51,12 +51,12 @@ public struct ApiRequest {
         ApiManager.processRequest(FavoriteCoupon, method: .GET, parameters: parameters, hasAuth: true, completion: completion)
     }
     
-    static func getCouponDetail(_ couponId: Float, completion: @escaping ApiCompletion) {
+    static func getCouponDetail(_ couponId: Float, completion: @escaping (ApiCompletion)) {
         let endpoint = String(format:CouponDetail, couponId)
         ApiManager.processRequest(endpoint, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func getFollowedShop(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getFollowedShop(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -64,22 +64,22 @@ public struct ApiRequest {
         ApiManager.processRequest(FollowedShop, method: .GET, parameters: parameters, hasAuth: true, completion: completion)
     }
     
-    static func getShopDetail(_ shopId: Float, completion: @escaping ApiCompletion) {
+    static func getShopDetail(_ shopId: Float, completion: @escaping (ApiCompletion)) {
         let endpoint = String(format:ShopDetail, shopId)
         ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
     
     
-    static func getUsedCoupon(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getUsedCoupon(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         ApiManager.processRequest(GetUsedCoupon, method: .GET, hasAuth: true, completion: completion)
     }
     
     
-    static func getUserProfile(_ completion: @escaping ApiCompletion) {
+    static func getUserProfile(_ completion: @escaping (ApiCompletion)) {
         ApiManager.processRequest(UserProfile, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func updateUserProfile(_ name: String? = nil, gender: Int? = nil, address: String? = nil, avatar: UIImage? = nil, completion: @escaping ApiCompletion) {
+    static func updateUserProfile(_ name: String? = nil, gender: Int? = nil, address: String? = nil, avatar: UIImage? = nil, completion: @escaping (ApiCompletion)) {
         if let _ =  avatar {
             let avatarData = UIImagePNGRepresentation(avatar!)
             let avatarFile = ApiFileUpload(data: avatarData!, name: "avatar_url", fileName: "avatar_url")
@@ -99,7 +99,7 @@ public struct ApiRequest {
         }
     }
     
-    static func getCouponCategory(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getCouponCategory(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -107,7 +107,7 @@ public struct ApiRequest {
         ApiManager.processRequest(GetCouponCategory, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getNumberOfShopByCategory(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion:  @escaping ApiCompletion) {
+    static func getNumberOfShopByCategory(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion:  @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -115,7 +115,7 @@ public struct ApiRequest {
         ApiManager.processRequest(GetNumberOfShopByCategory, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getCouponByFeatureAndType(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getCouponByFeatureAndType(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -124,7 +124,7 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getShopByFeatureAndCategory(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getShopByFeatureAndCategory(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -133,7 +133,7 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getShopByFeature(_ feature: CouponFeature, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getShopByFeature(_ feature: CouponFeature, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -142,7 +142,7 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping ApiCompletion) {
+    static func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize as Optional<AnyObject>,
             "page_index": pageIndex as Optional<AnyObject>
@@ -151,9 +151,9 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func likeCoupon(_ couponId: Float, completion: @escaping ApiCompletion) {
+    static func likeCoupon(_ couponId: Float, completion: @escaping (ApiCompletion)) {
         let parameters: [String: AnyObject?] = [
-            "id": "\(Int(couponId))" as Optional<AnyObject>,
+            "id": Int(couponId) as Optional<AnyObject>,
         ]
         ApiManager.processRequest(LikeCoupon, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }

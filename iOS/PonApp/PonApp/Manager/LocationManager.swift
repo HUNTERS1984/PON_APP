@@ -25,9 +25,6 @@ class LocationManager: NSObject {
     }
     
     func initLocationManager() {
-        loggingPrint("Created")
-        
-        //-------------CLLocationManager-------------//
         self.locateManage.delegate = self
         if self.locateManage.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
             self.locateManage.requestAlwaysAuthorization()

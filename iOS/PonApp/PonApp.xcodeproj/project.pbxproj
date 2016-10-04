@@ -126,9 +126,6 @@
 		4A85F3F01D9ABCDD00733161 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F51D9ABCDD00733161 /* Register.storyboard */; };
 		4A85F3F11D9ABCDD00733161 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2F61D9ABCDD00733161 /* Shop.storyboard */; };
 		4A85F3F21D9ABCDD00733161 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2F91D9ABCDD00733161 /* CAPSPageMenu.swift */; };
-		4A85F3F31D9ABCDD00733161 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2FC1D9ABCDD00733161 /* Encryption.m */; };
-		4A85F3F41D9ABCDD00733161 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2FE1D9ABCDD00733161 /* MF_Base64Additions.m */; };
-		4A85F3F51D9ABCDD00733161 /* Haversine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3011D9ABCDD00733161 /* Haversine.m */; };
 		4A85F3F61D9ABCDD00733161 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3041D9ABCDD00733161 /* IQDropDownTextField.m */; };
 		4A85F3F71D9ABCDD00733161 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3081D9ABCDD00733161 /* IQNSArray+Sort.m */; };
 		4A85F3F81D9ABCDD00733161 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F30A1D9ABCDD00733161 /* IQUIScrollView+Additions.m */; };
@@ -378,12 +375,6 @@
 		4A85F2F51D9ABCDD00733161 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		4A85F2F61D9ABCDD00733161 /* Shop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		4A85F2F91D9ABCDD00733161 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
-		4A85F2FB1D9ABCDD00733161 /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
-		4A85F2FC1D9ABCDD00733161 /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
-		4A85F2FD1D9ABCDD00733161 /* MF_Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MF_Base64Additions.h; sourceTree = "<group>"; };
-		4A85F2FE1D9ABCDD00733161 /* MF_Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MF_Base64Additions.m; sourceTree = "<group>"; };
-		4A85F3001D9ABCDD00733161 /* Haversine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haversine.h; sourceTree = "<group>"; };
-		4A85F3011D9ABCDD00733161 /* Haversine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haversine.m; sourceTree = "<group>"; };
 		4A85F3031D9ABCDD00733161 /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
 		4A85F3041D9ABCDD00733161 /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
 		4A85F3071D9ABCDD00733161 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -867,8 +858,6 @@
 				FA76A98E1DA3453600893584 /* ImageSlideshow */,
 				4A0759411D9F3BBE00E9D6DC /* Reachability */,
 				4A85F2F81D9ABCDD00733161 /* CAPSPageMenu */,
-				4A85F2FA1D9ABCDD00733161 /* Encryption */,
-				4A85F2FF1D9ABCDD00733161 /* Haversine */,
 				4A85F3021D9ABCDD00733161 /* IQDropDownTextField */,
 				4A85F3051D9ABCDD00733161 /* IQKeyboardManager */,
 				4A85F32A1D9ABCDD00733161 /* LTNavigationBar */,
@@ -884,26 +873,6 @@
 				4A85F2F91D9ABCDD00733161 /* CAPSPageMenu.swift */,
 			);
 			path = CAPSPageMenu;
-			sourceTree = "<group>";
-		};
-		4A85F2FA1D9ABCDD00733161 /* Encryption */ = {
-			isa = PBXGroup;
-			children = (
-				4A85F2FB1D9ABCDD00733161 /* Encryption.h */,
-				4A85F2FC1D9ABCDD00733161 /* Encryption.m */,
-				4A85F2FD1D9ABCDD00733161 /* MF_Base64Additions.h */,
-				4A85F2FE1D9ABCDD00733161 /* MF_Base64Additions.m */,
-			);
-			path = Encryption;
-			sourceTree = "<group>";
-		};
-		4A85F2FF1D9ABCDD00733161 /* Haversine */ = {
-			isa = PBXGroup;
-			children = (
-				4A85F3001D9ABCDD00733161 /* Haversine.h */,
-				4A85F3011D9ABCDD00733161 /* Haversine.m */,
-			);
-			path = Haversine;
 			sourceTree = "<group>";
 		};
 		4A85F3021D9ABCDD00733161 /* IQDropDownTextField */ = {
@@ -1633,7 +1602,6 @@
 				4A85F3FE1D9ABCDD00733161 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				4A85F3A71D9ABCDD00733161 /* CouponListData.swift in Sources */,
 				4A85F40E1D9ABCDD00733161 /* PonButton.swift in Sources */,
-				4A85F3F31D9ABCDD00733161 /* Encryption.m in Sources */,
 				FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */,
 				4A85F41F1D9ABCDD00733161 /* HorizontalCollectionView.swift in Sources */,
 				4A85F3F91D9ABCDD00733161 /* IQUITextFieldView+Additions.m in Sources */,
@@ -1647,14 +1615,12 @@
 				FA76A9D71DA3460000893584 /* DKAssetGroupListVC.swift in Sources */,
 				4A85F4461D9ABCDD00733161 /* TermsOfServiceViewController.swift in Sources */,
 				4A85F41E1D9ABCDD00733161 /* DesignableView.swift in Sources */,
-				4A85F3F41D9ABCDD00733161 /* MF_Base64Additions.m in Sources */,
 				4A85F43B1D9ABCDD00733161 /* MainViewController.swift in Sources */,
 				4A85F39A1D9ABCDD00733161 /* UICollectionViewExtension.swift in Sources */,
 				FA76A9A91DA3453600893584 /* InputSource.swift in Sources */,
 				FA76A9AB1DA3453600893584 /* UIImageView+Tools.swift in Sources */,
 				FA76A9D11DA3460000893584 /* DKImagePickerControllerDefaultUIDelegate.swift in Sources */,
 				FA76A9D51DA3460000893584 /* DKAssetGroupDetailVC.swift in Sources */,
-				4A85F3F51D9ABCDD00733161 /* Haversine.m in Sources */,
 				4A85F3941D9ABCDD00733161 /* HLKLinearScrollView.swift in Sources */,
 				4A85F3F21D9ABCDD00733161 /* CAPSPageMenu.swift in Sources */,
 				4A85F3981D9ABCDD00733161 /* StringExtension.swift in Sources */,
