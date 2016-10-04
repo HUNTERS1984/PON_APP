@@ -71,9 +71,13 @@ public class ShopAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        String token = "";
+//
+//        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+//            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//        }
 
-        Call<ResponseShopDetailData> response = service.getShopDetail(token, shopId);
+        Call<ResponseShopDetailData> response = service.getShopDetail(shopId);
 
         response.enqueue(new Callback<ResponseShopDetailData>() {
             @Override
@@ -172,6 +176,49 @@ public class ShopAPIHelper extends APIHelper {
 
             @Override
             public void onFailure(Call<ResponseMapShopCouponData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void getShopFollow(Context context, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = "";
+
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
+
+        Call<ResponseShopFollowData> response = service.getShopFollow(token, "1", pageIndex);
+
+        response.enqueue(new Callback<ResponseShopFollowData>() {
+            @Override
+            public void onResponse(Call<ResponseShopFollowData> call, Response<ResponseShopFollowData> response) {
+                ResponseShopFollowData res = response.body();
+                if (res == null) {
+                    res = new ResponseShopFollowData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseShopFollowData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

@@ -30,8 +30,10 @@ import com.hunters1984.pon.adapters.PhotoCouponPagerAdapter;
 import com.hunters1984.pon.adapters.PhotoRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
+import com.hunters1984.pon.api.ResponseCommon;
 import com.hunters1984.pon.api.ResponseCouponDetail;
 import com.hunters1984.pon.api.ResponseCouponDetailData;
+import com.hunters1984.pon.api.UserProfileAPIHelper;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
 import com.hunters1984.pon.utils.CommonUtils;
@@ -166,7 +168,13 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mBtnUseThisCoupon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String token = CommonUtils.getToken(mContext);
 
+                if(!token.equalsIgnoreCase("")) {
+                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
+                } else {
+                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+                }
             }
         });
     }
@@ -235,6 +243,44 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
+    private Handler mHanlderCheckValidToken = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon res = (ResponseCommon) msg.obj;
+                    if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        CommonUtils.saveToken(mContext, "");
+                        new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
+                    } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
+                        new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderUseCoupon);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
+
+    private Handler mHanlderUseCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon data = (ResponseCommon) msg.obj;
+                    if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK){
+                        new DialogUtiils().showDialog(mContext, data.message, false);
+                    } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
     private void popularLayout(ResponseCouponDetail coupon)
     {
         mTvCouponType.setText(coupon.getmCouponType().getmName());

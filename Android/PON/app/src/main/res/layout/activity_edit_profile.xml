@@ -183,6 +183,61 @@
                 android:layout_height="1dp"
                 android:background="@color/light_grey_stroke_icon"/>
         </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/background_rectangle_facebook"
+            android:id="@+id/rl_facebook_login">
+            <ImageView
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_facebook"/>
+            <com.hunters1984.pon.customs.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingLeft="40dp"
+                android:text="@string/login_facebook"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/facebook_sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rectangle_twitter"
+            android:id="@+id/rl_twitter_login">
+            <ImageView
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_twitter"/>
+            <com.hunters1984.pon.customs.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingLeft="10dp"
+                android:text="@string/login_twitter"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+            <com.twitter.sdk.android.core.identity.TwitterLoginButton
+                android:id="@+id/twitter_sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone"/>
+        </RelativeLayout>
     </LinearLayout>
     <Button
         android:layout_width="match_parent"

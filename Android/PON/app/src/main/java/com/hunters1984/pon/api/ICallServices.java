@@ -43,6 +43,16 @@ public interface ICallServices {
     @GET("/api/v1/featured/{type}/category/{category}/coupons")
     Call<ResponseCouponByCategoryData> getCouponByCategory(@Path("type") String type, @Path("category") long categoryId, @Query("page_size") String size, @Query("page_index") String index);
 
+    @GET("/api/v1/favorite/coupons")
+    Call<ResponseMyFavouriteData> getFavouriteCoupons(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+
+    @GET("/api/v1/used/coupons")
+    Call<ResponseHistoryCouponData> getHistoryCoupon(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+
+    @POST("/api/v1/use/coupons/{id}")
+    Call<ResponseCommon> useCoupon(@Header("Authorization") String token, @Query("id") long id);
+
+
     //Shop
     @GET("/api/v1/categories/shop")
     Call<ResponseCategoryShopFollowData> getCatShopFollow(@Query("page_size") String size, @Query("page_index") String index);
@@ -55,9 +65,12 @@ public interface ICallServices {
     Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") long shopId);
 
     @GET("/api/v1/shops/{id}")
-    Call<ResponseShopDetailData> getShopDetail(@Header("Authorization") String token, @Path("id") long shopId);
+    Call<ResponseShopDetailData> getShopDetail(@Path("id") long shopId);
 
     @GET("/api/v1/map/{lattitude}/{longitude}/shops")
     Call<ResponseMapShopCouponData> getMapShopCoupon(@Path("lattitude") double lat, @Path("longitude") double lng, @Query("page_size") String size, @Query("page_index") String index);
+
+    @GET("/api/v1/follow/shops")
+    Call<ResponseShopFollowData> getShopFollow(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
 
 }

@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
 import com.hunters1984.pon.R;
+import com.hunters1984.pon.activities.MainTopActivity;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
 import com.hunters1984.pon.api.ResponseCommon;
@@ -91,6 +93,10 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
                     ResponseCommon res = (ResponseCommon) msg.obj;
                     if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
                         CommonUtils.saveToken(getActivity(), "");
+                        FragmentActivity activity = getActivity();
+                        if(activity != null && activity instanceof MainTopActivity) {
+                            ((MainTopActivity)activity).checkToUpdateButtonLogin();
+                        }
                     }
                     new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
                     break;

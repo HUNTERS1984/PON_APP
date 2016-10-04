@@ -11,8 +11,8 @@ import com.hunters1984.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters1984.pon.api.APIConstants;
 import com.hunters1984.pon.api.CouponAPIHelper;
 import com.hunters1984.pon.api.ResponseCommon;
-import com.hunters1984.pon.api.ResponseMyFavourite;
-import com.hunters1984.pon.api.ResponseMyFavouriteData;
+import com.hunters1984.pon.api.ResponseHistoryCoupon;
+import com.hunters1984.pon.api.ResponseHistoryCouponData;
 import com.hunters1984.pon.api.UserProfileAPIHelper;
 import com.hunters1984.pon.models.CouponModel;
 import com.hunters1984.pon.protocols.OnLoadDataListener;
@@ -21,18 +21,23 @@ import com.hunters1984.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
 
-public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListener{
+public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataListener {
 
     private CouponRecyclerViewAdapter mAdapterCoupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_my_favourite);
         mContext = this;
         mDataListener = this;
+        setContentView(R.layout.activity_history);
         super.onCreate(savedInstanceState);
+        setTitle(getResources().getString(R.string.history));
 
-        initLayout();
+        RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_history);
+        rv.setLayoutManager(new GridLayoutManager(this, 2));
+
+        mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
+        rv.setAdapter(mAdapterCoupon);
     }
 
     @Override
@@ -44,20 +49,15 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
         if(!token.equalsIgnoreCase("")) {
             new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
         }
-    }
 
-    private void initLayout()
-    {
-        setTitle(getString(R.string.favourite));
-        setIconBack(R.drawable.ic_add);
-
-        activeMyFavourite();
-
-        RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_my_favourite);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
-
-        mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
-        rv.setAdapter(mAdapterCoupon);
+//        for(int i=0; i<5; i++) {
+//            CouponModel coupon = new CouponModel();
+//            coupon.setmTitle("タイトルが入ります");
+//            coupon.setmExpireDate("2016-09-27T15:37:46+0000");
+//            coupon.setmIsFavourite((i%2==0?1:0));
+//            coupon.setmIsLoginRequired((i%2==0?1:0));
+//            mListCoupons.add(coupon);
+//        }
     }
 
     private Handler mHanlderCheckValidToken = new Handler(){
@@ -71,7 +71,7 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
                         checkToUpdateButtonLogin();
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
-                        new CouponAPIHelper().getFavouriteCoupon(mContext, "1", mHanlderFavouriteCoupon);
+                        new CouponAPIHelper().getHistoryCoupon(mContext, "1", mHanlderHistoryCoupon);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -81,14 +81,14 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
         }
     };
 
-    private Handler mHanlderFavouriteCoupon = new Handler(){
+    private Handler mHanlderHistoryCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
-                    ResponseMyFavouriteData couponData = (ResponseMyFavouriteData) msg.obj;
+                    ResponseHistoryCouponData couponData = (ResponseHistoryCouponData) msg.obj;
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
-                        for(ResponseMyFavourite coupon : couponData.data) {
+                        for(ResponseHistoryCoupon coupon : couponData.data) {
                             CouponModel model = new CouponModel();
                             model.setmIsFavourite(coupon.getmIsFavourite());
                             model.setmTitle(coupon.getmTitle());

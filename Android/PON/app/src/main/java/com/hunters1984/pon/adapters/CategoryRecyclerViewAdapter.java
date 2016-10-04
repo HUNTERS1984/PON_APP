@@ -76,8 +76,10 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
+            CategoryModel cat = mLstCategories.get(pos);
             Intent iCouponByCategory = new Intent(mContext, CouponByCategoryDetailActivity.class);
-            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, mLstCategories.get(pos).getmId());
+            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, cat.getmId());
+            iCouponByCategory.putExtra(Constants.EXTRA_TITLE, cat.getmName());
             mContext.startActivity(iCouponByCategory);
         }
     }

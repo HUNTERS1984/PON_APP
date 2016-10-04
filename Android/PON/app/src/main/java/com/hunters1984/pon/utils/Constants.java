@@ -13,6 +13,7 @@ public class Constants {
     public static final String EXTRA_COUPON_ID = "EXTRA_COUPON_ID";
     public static final String EXTRA_COUPON_TYPE_ID = "EXTRA_COUPON_TYPE_ID";
     public static final String EXTRA_SHOP_ID = "EXTRA_SHOP_ID";
+    public static final String EXTRA_TITLE = "EXTRA_TITLE";
 
     public static final String TYPE_POPULARITY_COUPON = "1";
     public static final String TYPE_NEWEST_COUPON = "2";

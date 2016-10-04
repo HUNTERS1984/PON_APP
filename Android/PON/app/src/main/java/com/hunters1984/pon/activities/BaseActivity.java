@@ -139,7 +139,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void checkToUpdateButtonLogin()
+    public void checkToUpdateButtonLogin()
     {
         if(mIvProfile != null && mIvMyFavourite != null) {
             if (CommonUtils.isLogin(mContext)) {

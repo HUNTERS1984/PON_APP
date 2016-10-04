@@ -11,20 +11,23 @@ import com.hunters1984.pon.utils.Constants;
 public class CouponByCategoryDetailActivity extends BaseActivity {
 
     private long mCatId;
+    private String mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
         setContentView(R.layout.activity_coupon_by_category_detail);
         super.onCreate(savedInstanceState);
-        setTitle("グルメでさがす");
 
+        mTitle = getIntent().getStringExtra(Constants.EXTRA_TITLE);
         mCatId = getIntent().getLongExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
+
         initLayout();
     }
 
     private void initLayout()
     {
+        setTitle(mTitle);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));

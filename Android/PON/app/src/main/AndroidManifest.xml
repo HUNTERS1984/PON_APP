@@ -68,7 +68,7 @@
 
         <activity android:name=".activities.MyFavouriteActivity" />
         <activity
-            android:name=".activities.HistoryActivity"
+            android:name=".activities.ProfileHistoryActivity"
             android:label="@string/title_activity_history" />
         <activity android:name=".activities.ProfileActivity" />
         <activity android:name=".activities.EditProfileActivity" />
