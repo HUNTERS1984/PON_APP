@@ -12,7 +12,7 @@ class HomeSearchViewController: BaseViewController {
 
     @IBOutlet weak var couponTypeTableView: UITableView!
     
-    var couponTypes = [CouponType]() {
+    var couponTypes = [Category]() {
         didSet {
             self.couponTypeTableView.reloadData()
             if couponTypes.count > 0 {
@@ -87,23 +87,21 @@ extension HomeSearchViewController {
     
     private func getCouponType(pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponType(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponCategory(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
-                    var responseCouponType = [CouponType]()
-                    let couponTypeArray = result?.data?.array
-                    if let _ = couponTypeArray {
-                        for couponTypeData in couponTypeArray! {
-                            let couponType = CouponType(response: couponTypeData)
-                            responseCouponType.append(couponType)
+                    var responseCategory = [Category]()
+                    let categoryArray = result?.data?.array
+                    if let _ = categoryArray {
+                        for categoryData in categoryArray! {
+                            let category = Category(response: categoryData)
+                            responseCategory.append(category)
                         }
-                        self.couponTypes = responseCouponType
+                        self.couponTypes = responseCategory
                     }
-                }else {
-                    
                 }
             }
         }
@@ -135,7 +133,7 @@ extension HomeSearchViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let selectedType = self.couponTypes[indexPath.row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
-        vc.couponType = selectedType.couponTypeID
+        vc.couponType = selectedType.categoryID
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -36,7 +36,7 @@ class AddShopContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
-        self.getShopByFeatureAndType(1)
+        self.getShopByFeature(1)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -57,9 +57,9 @@ extension AddShopContentViewController {
 //MARK: - Private
 extension AddShopContentViewController {
     
-    private func getShopByFeatureAndType(pageIndex: Int) {
+    private func getShopByFeature(pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndType(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeature(self.couponFeature!, pageIndex: 1) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

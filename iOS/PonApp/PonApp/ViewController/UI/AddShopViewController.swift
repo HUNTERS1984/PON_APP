@@ -50,21 +50,21 @@ extension AddShopViewController {
     internal func setupScrollMenu() {
         var controllerArray : [UIViewController] = []
         
-        let popular = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
+        let popular = AddShopContentViewController.instanceFromStoryBoard("MainMenu") as! AddShopContentViewController
         popular.parentNavigationController = self.navigationController
         popular.couponFeature = .Popularity
         popular.couponType = self.couponType
         popular.title = "人気"
         controllerArray.append(popular)
         
-        let newest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
+        let newest = AddShopContentViewController.instanceFromStoryBoard("MainMenu") as! AddShopContentViewController
         newest.parentNavigationController = self.navigationController
         newest.couponFeature = .New
         newest.couponType = self.couponType
         newest.title = "新着"
         controllerArray.append(newest)
         
-        let nearest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
+        let nearest = AddShopContentViewController.instanceFromStoryBoard("MainMenu") as! AddShopContentViewController
         nearest.parentNavigationController = self.navigationController
         nearest.couponFeature = .Near
         nearest.couponType = self.couponType

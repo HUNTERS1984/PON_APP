@@ -14,17 +14,17 @@ class ShopCountTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var shopCountLabel: UILabel!
     
-    var couponType: CouponType! {
+    var category: Category! {
         didSet {
-            self.setDataForCell(self.couponType)
+            self.setDataForCell(self.category)
         }
     }
     
-    func setDataForCell(couponType: CouponType) {
-        self.thumbImageView.af_setImageWithURL(NSURL(string: couponType.couponTypeIconUrl)!)
-        self.titleLabel.text = couponType.couponTypeName
-        if let _ = couponType.shopCount {
-            self.shopCountLabel.text = "\(couponType.shopCount)"
+    func setDataForCell(category: Category) {
+        self.thumbImageView.af_setImageWithURL(NSURL(string: category.categoryIconUrl)!)
+        self.titleLabel.text = category.categoryName
+        if let _ = category.shopCount {
+            self.shopCountLabel.text = "\(category.shopCount)"
         }
     }
 }

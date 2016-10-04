@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */; };
 		4A0759441D9F3BBE00E9D6DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0759431D9F3BBE00E9D6DC /* Reachability.m */; };
-		4A649A8A1D9BF7CD0080E976 /* CouponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A891D9BF7CD0080E976 /* CouponType.swift */; };
 		4A649A8C1D9BFA020080E976 /* CouponTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */; };
 		4A649A8E1D9BFEC80080E976 /* ListCouponContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */; };
 		4A649A901D9C04C60080E976 /* ShopCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8F1D9C04C60080E976 /* ShopCountTableViewCell.swift */; };
@@ -207,6 +206,7 @@
 		4A85F4441D9ABCDD00733161 /* SpecifiedTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */; };
 		4A85F4451D9ABCDD00733161 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3791D9ABCDD00733161 /* SplashViewController.swift */; };
 		4A85F4461D9ABCDD00733161 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */; };
+		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
 		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
 		FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */; };
@@ -234,7 +234,6 @@
 		38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.release.xcconfig"; sourceTree = "<group>"; };
 		4A0759421D9F3BBE00E9D6DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4A0759431D9F3BBE00E9D6DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		4A649A891D9BF7CD0080E976 /* CouponType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponType.swift; sourceTree = "<group>"; };
 		4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponTypeTableViewCell.swift; sourceTree = "<group>"; };
 		4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponContentViewController.swift; sourceTree = "<group>"; };
 		4A649A8F1D9C04C60080E976 /* ShopCountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCountTableViewCell.swift; sourceTree = "<group>"; };
@@ -459,6 +458,7 @@
 		4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecifiedTradeViewController.swift; sourceTree = "<group>"; };
 		4A85F3791D9ABCDD00733161 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -696,7 +696,7 @@
 				4A85F2A71D9ABCDD00733161 /* Coupon.swift */,
 				4A85F2A81D9ABCDD00733161 /* CouponListData.swift */,
 				4A85F2A91D9ABCDD00733161 /* Shop.swift */,
-				4A649A891D9BF7CD0080E976 /* CouponType.swift */,
+				4AA865631DA0F47B00A09831 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1361,7 +1361,6 @@
 				4A85F4391D9ABCDD00733161 /* InstagramLoginViewController.swift in Sources */,
 				4A85F4231D9ABCDD00733161 /* RightBorderView.swift in Sources */,
 				FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */,
-				4A649A8A1D9BF7CD0080E976 /* CouponType.swift in Sources */,
 				4A85F43E1D9ABCDD00733161 /* ScanQRCodeViewController.swift in Sources */,
 				4A85F4271D9ABCDD00733161 /* BaseNavigationController.swift in Sources */,
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
@@ -1395,6 +1394,7 @@
 				4A85F3A81D9ABCDD00733161 /* Shop.swift in Sources */,
 				4A85F4021D9ABCDD00733161 /* IQTitleBarButtonItem.m in Sources */,
 				4A649A981D9C1B410080E976 /* MainCouponContentViewController.swift in Sources */,
+				4AA865641DA0F47B00A09831 /* Category.swift in Sources */,
 				4A85F42F1D9ABCDD00733161 /* EditAccountViewController.swift in Sources */,
 				4A85F37B1D9ABCDD00733161 /* ApiEndpoint.swift in Sources */,
 				4A85F3971D9ABCDD00733161 /* NSDateExtension.swift in Sources */,
@@ -1575,6 +1575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1584,7 +1585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "8b0cd2c7-5e5c-43b0-b283-2fee40fe40c6";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Debug;
@@ -1595,6 +1596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1604,7 +1606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2df558a-efdd-4037-aeb6-fd5295290dbe";
+				PROVISIONING_PROFILE = "8b0cd2c7-5e5c-43b0-b283-2fee40fe40c6";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 			};
 			name = Release;

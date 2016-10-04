@@ -37,13 +37,15 @@ class CouponCollectionTableViewCell: UITableViewCell {
     }
     
     func setupTableViewCell() {
+        self.backgroundColor = UIColor(hex: 0xf8f8fa)
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
-    func setCollectionViewDelegate(delegate delegate: protocol<HorizontalCollectionViewDelegate>, index: NSInteger, coupons: [Coupon]) {
+    func setCollectionViewDelegate(delegate delegate: protocol<HorizontalCollectionViewDelegate>, index: NSInteger, couponListData: CouponListData) {
+        self.headerLabel.text = couponListData.categoryName
         self.couponCollectionView.handler = delegate
-        self.couponCollectionView.coupons = coupons
+        self.couponCollectionView.coupons = couponListData.coupons
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

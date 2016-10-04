@@ -12,10 +12,10 @@ class HomeMenuViewController: BaseViewController {
 
     @IBOutlet weak var couponTypeTableView: UITableView!
     
-    var couponTypes = [CouponType]() {
+    var categories = [Category]() {
         didSet {
             self.couponTypeTableView.reloadData()
-            if couponTypes.count > 0 {
+            if categories.count > 0 {
                 self.couponTypeTableView.hidden = false
             }else {
                 self.couponTypeTableView.hidden = true
@@ -45,20 +45,20 @@ extension HomeMenuViewController {
     
     private func getNumberOfShopByCouponType(pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getNumberOfShopByCouponType(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getNumberOfShopByCategory(pageIndex: 1) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
-                    var responseCouponType = [CouponType]()
+                    var responseCouponType = [Category]()
                     let couponTypeArray = result?.data?.array
                     if let _ = couponTypeArray {
                         for couponTypeData in couponTypeArray! {
-                            let couponType = CouponType(response: couponTypeData)
+                            let couponType = Category(response: couponTypeData)
                             responseCouponType.append(couponType)
                         }
-                        self.couponTypes = responseCouponType
+                        self.categories = responseCouponType
                     }
                 }else {
                     
@@ -72,12 +72,12 @@ extension HomeMenuViewController {
 extension HomeMenuViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.couponTypes.count
+        return self.categories.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ShopCountTableViewCell") as! ShopCountTableViewCell
-        cell.setDataForCell(self.couponTypes[indexPath.row])
+        cell.setDataForCell(self.categories[indexPath.row])
         return cell
     }
     
@@ -91,9 +91,9 @@ extension HomeMenuViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let selectedType = self.couponTypes[indexPath.row]
+        let selectedType = self.categories[indexPath.row]
         let vc = ListShopViewController.instanceFromStoryBoard("ListShop") as! ListShopViewController
-        vc.couponType = selectedType.couponTypeID
+        vc.couponType = selectedType.categoryID
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

@@ -99,20 +99,20 @@ public struct ApiRequest {
         }
     }
     
-    static func getCouponType(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+    static func getCouponCategory(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize,
             "page_index": pageIndex
         ]
-        ApiManager.processRequest(GetCouponType, method: .GET, parameters: parameters, completion: completion)
+        ApiManager.processRequest(GetCouponCategory, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getNumberOfShopByCouponType(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+    static func getNumberOfShopByCategory(pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize,
             "page_index": pageIndex
         ]
-        ApiManager.processRequest(GetNumberOfShopByType, method: .GET, parameters: parameters, completion: completion)
+        ApiManager.processRequest(GetNumberOfShopByCategory, method: .GET, parameters: parameters, completion: completion)
     }
     
     static func getCouponByFeatureAndType(feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
@@ -124,12 +124,21 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getShopByFeatureAndType(feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+    static func getShopByFeatureAndCategory(feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
         let parameters: [String: AnyObject?] = [
             "page_size": pageSize,
             "page_index": pageIndex
         ]
-        let endpoint = String(format:GetShopByFeatureAndType, feature.rawValue, couponType)
+        let endpoint = String(format:GetShopByFeatureAndCategory, feature.rawValue, couponType)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+    }
+    
+    static func getShopByFeature(feature: CouponFeature, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: ApiCompletion) {
+        let parameters: [String: AnyObject?] = [
+            "page_size": pageSize,
+            "page_index": pageIndex
+        ]
+        let endpoint = String(format:GetShopByFeature, feature.rawValue)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     

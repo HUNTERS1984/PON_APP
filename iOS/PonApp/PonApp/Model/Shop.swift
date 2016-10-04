@@ -25,6 +25,7 @@ struct Shop {
     var shopDirection: String!
     var shopStartTime: String!
     var shopEndTime: String!
+    var isFollow: Bool!
     
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
@@ -109,6 +110,12 @@ struct Shop {
         
         if let shopEndTime = response!["operation_end_time"].string {
             self.shopEndTime = shopEndTime
+        }
+        
+        if let isFollow = response!["is_follow"].bool {
+            self.isFollow = isFollow
+        }else {
+            self.isFollow = false
         }
     }
     

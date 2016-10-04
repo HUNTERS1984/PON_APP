@@ -16,6 +16,7 @@ struct Coupon {
     var expiryDate: String!
     var canUse: Bool!
     var isLike: Bool!
+    var needLogin: Bool!
     var isUsed: Bool = false
     var description: String!
     var shopAddress: String!
@@ -73,6 +74,12 @@ struct Coupon {
             self.isLike = isLike
         }else {
             self.isLike = false
+        }
+        
+        if let needLogin = response!["need_login"].bool {
+            self.needLogin = needLogin
+        }else {
+            self.needLogin = false
         }
         
         if let description = response!["description"].string {
