@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias MoreButtonPressed = (sender: AnyObject) -> ()
+typealias MoreButtonPressed = (_ sender: AnyObject) -> ()
 
 class CouponCollectionTableViewCell: UITableViewCell {
     
@@ -32,25 +32,25 @@ class CouponCollectionTableViewCell: UITableViewCell {
         self.setupTableViewCell()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     func setupTableViewCell() {
         self.backgroundColor = UIColor(hex: 0xf8f8fa)
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
-        couponCollectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        couponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }
     
-    func setCollectionViewDelegate(delegate delegate: protocol<HorizontalCollectionViewDelegate>, index: NSInteger, couponListData: CouponListData) {
+    func setCollectionViewDelegate(delegate: HorizontalCollectionViewDelegate, index: NSInteger, couponListData: CouponListData) {
         self.headerLabel.text = couponListData.categoryName
         self.couponCollectionView.handler = delegate
         self.couponCollectionView.coupons = couponListData.coupons
     }
     
-    @IBAction func moreButtonPressed(sender: AnyObject) {
+    @IBAction func moreButtonPressed(_ sender: AnyObject) {
         if let _ = moreButtonCallback {
-            moreButtonCallback!(sender: sender)
+            moreButtonCallback!(sender)
         }
     }
 

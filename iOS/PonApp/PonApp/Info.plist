@@ -138,6 +138,10 @@
 	<string>I need location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>I need locaion</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>I need photo</string>
+	<key>Privacy - Camera Usage Description </key>
+	<string>I need camera</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HiraginoSansGB-W3.ttf</string>

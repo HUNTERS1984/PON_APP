@@ -21,27 +21,27 @@ class DesignableButton: UIButton {
     // IBInspectable properties for rounded corners and border color / width
     @IBInspectable var cornerSize: CGFloat = 0
     @IBInspectable var borderSize: CGFloat = 0
-    @IBInspectable var borderColor: UIColor = UIColor.blackColor()
+    @IBInspectable var borderColor: UIColor = UIColor.black
     @IBInspectable var borderAlpha: CGFloat = 1.0
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         // set up border and cornerRadius
         self.layer.cornerRadius = cornerSize
-        self.layer.borderColor = borderColor.colorWithAlphaComponent(borderAlpha).CGColor
+        self.layer.borderColor = borderColor.withAlphaComponent(borderAlpha).cgColor
         self.layer.borderWidth = borderSize
         self.layer.masksToBounds = true
         
         // set up gradient
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = rect
-        let c1 = bottomColor.colorWithAlphaComponent(bottomColorAlpha).CGColor
-        let c2 = middleColor.colorWithAlphaComponent(middleColorAlpha).CGColor
-        let c3 = topColor.colorWithAlphaComponent(topColorAlpha).CGColor
+        let c1 = bottomColor.withAlphaComponent(bottomColorAlpha).cgColor
+        let c2 = middleColor.withAlphaComponent(middleColorAlpha).cgColor
+        let c3 = topColor.withAlphaComponent(topColorAlpha).cgColor
         gradientLayer.colors = [c3, c2, c1]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        self.layer.insertSublayer(gradientLayer, atIndex: 0)
+        self.layer.insertSublayer(gradientLayer, at: 0)
         
     }
 

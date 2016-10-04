@@ -12,15 +12,15 @@ import UIKit
 extension UINavigationController {
     
     public func presentTransparentNavigationBar() {
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.translucent = true
+        navigationBar.isTranslucent = true
     }
     
     public func hideTransparentNavigationBar() {
-        navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         navigationBar.shadowImage = nil
         navigationBar.tintColor = nil
-        navigationBar.translucent = false
+        navigationBar.isTranslucent = false
     }
 }

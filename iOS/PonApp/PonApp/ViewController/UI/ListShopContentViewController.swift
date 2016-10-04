@@ -26,7 +26,7 @@ class ListShopContentViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -34,7 +34,7 @@ class ListShopContentViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
-        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
+        collectionView.register(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
         self.getShopByFeatureAndCategory(1)
     }
@@ -48,8 +48,8 @@ class ListShopContentViewController: BaseViewController {
 //MARK: - IBAction
 extension ListShopContentViewController {
     
-    override func backButtonPressed(sender: AnyObject) {
-        self.parentNavigationController?.popViewControllerAnimated(true)
+    override func backButtonPressed(_ sender: AnyObject) {
+        self.parentNavigationController!.popViewController(animated: true)
     }
     
 }
@@ -57,9 +57,9 @@ extension ListShopContentViewController {
 //MARK: - Private
 extension ListShopContentViewController {
     
-    private func getShopByFeatureAndCategory(pageIndex: Int) {
+    fileprivate func getShopByFeatureAndCategory(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndCategory(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeatureAndCategory(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -73,9 +73,9 @@ extension ListShopContentViewController {
                             responseShop.append(shop)
                         }
                         if pageIndex == 1 {
-                            self.displayShop(responseShop, type: .New)
+                            self.displayShop(responseShop, type: .new)
                         }else {
-                            self.displayShop(responseShop, type: .LoadMore)
+                            self.displayShop(responseShop, type: .loadMore)
                         }
                     }else {
                         
@@ -85,25 +85,25 @@ extension ListShopContentViewController {
         }
     }
     
-    private func displayShop(shops: [Shop], type: GetType) {
+    fileprivate func displayShop(_ shops: [Shop], type: GetType) {
         switch type {
-        case .New:
+        case .new:
             self.shops.removeAll()
             self.shops = shops
             self.collectionView.reloadData()
             break
-        case .LoadMore:
-            self.shops.appendContentsOf(shops)
+        case .loadMore:
+            self.shops.append(contentsOf: shops)
             self.collectionView.reloadData()
             break
-        case .Reload:
+        case .reload:
             break
         }
     }
     
-    private func getShopDetail(shopId: Float) {
+    fileprivate func getShopDetail(_ shopId: Float) {
         self.showHUD()
-        ApiRequest.getShopDetail(shopId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopDetail(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -121,25 +121,25 @@ extension ListShopContentViewController {
 //MARK: - UICollectionViewDataSource
 extension ListShopContentViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.shops.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShopFollowCollectionViewCell", forIndexPath: indexPath) as! ShopFollowCollectionViewCell
-        cell.shop = self.shops[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
+        cell.shop = self.shops[(indexPath as NSIndexPath).item]
         return cell
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ListCouponCollectionViewCell", forIndexPath: indexPath) as! ListCouponCollectionViewCell
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ListCouponCollectionViewCell", for: indexPath) as! ListCouponCollectionViewCell
         return commentView
     }
     
@@ -148,9 +148,9 @@ extension ListShopContentViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension ListShopContentViewController: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedShopId = self.shops[indexPath.item].shopID
-        self.getShopDetail(selectedShopId)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedShopId = self.shops[(indexPath as NSIndexPath).item].shopID
+        self.getShopDetail(selectedShopId!)
     }
     
 }
@@ -158,10 +158,10 @@ extension ListShopContentViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension ListShopContentViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let picDimension = (self.view.frame.size.width - 30) / 2.0
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        return CGSizeMake(picDimension, screenSize.height * (220/667))
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGSize(width: picDimension, height: screenSize.height * (220/667))
     }
     
 }

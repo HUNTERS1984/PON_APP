@@ -19,11 +19,11 @@ class BaseNavigationController: UINavigationController {
 //MARK: - Public Method
 extension BaseNavigationController {
     
-    func popToFirstViewControllerOfClass(aClass: AnyClass, animated: Bool) {
+    func popToFirstViewControllerOfClass(_ aClass: AnyClass, animated: Bool) {
         var toViewController:UIViewController?
         for index in 0..<self.viewControllers.count {
             let viewController = self.viewControllers[index]
-            if viewController.isKindOfClass(aClass) {
+            if viewController.isKind(of: aClass) {
                 toViewController = viewController
                 break
             }
@@ -34,11 +34,11 @@ extension BaseNavigationController {
         self.popToViewController(toViewController!, animated: animated)
     }
     
-    func popToLastViewControllerOfClass(aClass: AnyClass, animated: Bool) {
+    func popToLastViewControllerOfClass(_ aClass: AnyClass, animated: Bool) {
         var toViewController:UIViewController?
-        for index in (0..<self.viewControllers.count).reverse() {
+        for index in (0..<self.viewControllers.count).reversed() {
             let viewController = self.viewControllers[index]
-            if viewController.isKindOfClass(aClass) {
+            if viewController.isKind(of: aClass) {
                 toViewController = viewController
                 break
             }

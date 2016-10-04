@@ -10,52 +10,46 @@ import UIKit
 
 class HLKSharedResources {
     
-    private var data: NSMutableDictionary!
-    private var queue: dispatch_queue_t!
+    fileprivate var data: NSMutableDictionary!
+    fileprivate var queue: DispatchQueue!
     
     class var sharedInstance: HLKSharedResources {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: HLKSharedResources? = nil
-            
+            static let instance = HLKSharedResources()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = HLKSharedResources()
-            Static.instance?.commonInit()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
-    private func commonInit() {
+    fileprivate func commonInit() {
         data = NSMutableDictionary()
-        queue = dispatch_queue_create("HLKSharedResources", nil)
+        queue = DispatchQueue(label: "HLKSharedResources", attributes: [])
     }
     
-    func SR_setValue(value: AnyObject, forKey key: String) {
-        dispatch_sync(queue, { () -> Void in
+    func SR_setValue(_ value: AnyObject, forKey key: String) {
+        queue.sync(execute: { () -> Void in
             self.data.setValue(value, forKey: key)
         })
     }
     
-    func SR_valueForKey(key: String) -> AnyObject? {
+    func SR_valueForKey(_ key: String) -> AnyObject? {
         var value: AnyObject? = nil
-        dispatch_sync(queue, { () -> Void in
-            value = self.data.valueForKey(key)
+        queue.sync(execute: { () -> Void in
+            value = self.data.value(forKey: key) as AnyObject?
         })
         return value
     }
     
     func SR_removeAllResources() {
-        dispatch_sync(queue, { () -> Void in
+        queue.sync(execute: { () -> Void in
             self.data.removeAllObjects()
         })
     }
     
-    class func SR_setValue(value: AnyObject, forKey key: String) {
+    class func SR_setValue(_ value: AnyObject, forKey key: String) {
         HLKSharedResources.sharedInstance.SR_setValue(value, forKey: key)
     }
     
-    class func SR_valueForKey(key: String) -> AnyObject? {
+    class func SR_valueForKey(_ key: String) -> AnyObject? {
         return HLKSharedResources.sharedInstance.SR_valueForKey(key)
     }
     

@@ -26,7 +26,7 @@ class SignUpViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -43,7 +43,7 @@ class SignUpViewController: BaseViewController {
 //MARK: - IBAction
 extension SignUpViewController {
     
-    @IBAction func signupButtonPressed(sender: AnyObject) {
+    @IBAction func signupButtonPressed(_ sender: AnyObject) {
         let userName = self.userNameTextField.text
         let email = self.emailTextField.text
         let password = self.passwordTextField.text
@@ -53,7 +53,7 @@ extension SignUpViewController {
             if successed {
                 self.registerUser(userName!, email: email!, password: password!)
             }else {
-                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
     }
@@ -63,53 +63,53 @@ extension SignUpViewController {
 //MARK: - Private
 extension SignUpViewController {
     
-    private func validInfomation(userName: String?, email: String?, password: String?, confirmPassword: String?, completion:(successed: Bool, message: String) -> Void) {
+    fileprivate func validInfomation(_ userName: String?, email: String?, password: String?, confirmPassword: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
             if userName!.characters.count == 0 {
-                completion(successed: false, message: UserNameBlank)
+                completion(false, UserNameBlank)
                 return
             }
         }else {
-            completion(successed: false, message: UserNameBlank)
+            completion(false, UserNameBlank)
             return
         }
         
         if let _ = email {
             if !String.validate(email!) {
-                completion(successed: false, message: EmailNotValid)
+                completion(false, EmailNotValid)
                 return
             }
         }else {
-            completion(successed: false, message: EmailBlank)
+            completion(false, EmailBlank)
             return
         }
         
         if let _ = password {
             if password!.characters.count < 6 {
-                completion(successed: false, message: PasswordRange)
+                completion(false, PasswordRange)
                 return
             }
         }else {
-            completion(successed: false, message: PasswordBlank)
+            completion(false, PasswordBlank)
             return
         }
         
         if let _ = confirmPassword {
             if password! != confirmPassword! {
-                completion(successed: false, message: PasswordNotMatch)
+                completion(false, PasswordNotMatch)
                 return
             }
         }else {
-            completion(successed: false, message: PasswordNotMatch)
+            completion(false, PasswordNotMatch)
             return
         }
         
-        completion(successed: true, message: "")
+        completion(true, "")
     }
     
-    private func registerUser(userName: String, email: String, password: String) {
+    fileprivate func registerUser(_ userName: String, email: String, password: String) {
         self.showHUD()
-        ApiRequest.signUp(userName, email: email, password: password) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.signUp(userName, email: email, password: password) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -122,7 +122,7 @@ extension SignUpViewController {
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+//                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
                 }
             }
         }

@@ -11,10 +11,10 @@ import UIKit
 let SuccessCode                                 = 1000
 
 public enum CouponFeature: Int {
-    case Popularity = 1
-    case New = 2
-    case Near = 3
-    case Deal = 4
+    case popularity = 1
+    case new = 2
+    case near = 3
+    case deal = 4
 }
 
 let Authorized                                  = "/v1/authorized"

@@ -10,7 +10,7 @@ import UIKit
 import TwitterKit
 import Fabric
 
-typealias TwitterLoginCallback = (success: Bool, result: Any?) -> Void
+typealias TwitterLoginCallback = (_ success: Bool, _ result: Any?) -> Void
 
 class TwitterLogin {
     
@@ -19,28 +19,24 @@ class TwitterLogin {
     
     class var sharedInstance: TwitterLogin {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: TwitterLogin? = nil
+            static let instance = TwitterLogin()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = TwitterLogin()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
-    private func initWithConsumerKey(consumerKey: String, consumerSecret: String) {
+    fileprivate func initWithConsumerKey(_ consumerKey: String, consumerSecret: String) {
         if (consumerKey.characters.count == 0 || consumerSecret.characters.count == 0) {
             NSLog("\n\nMissing your application credentials ConsumerKey and ConsumerSecret. You cannot run the app until you provide this in the code.\n\n");
             return;
         }
-        Twitter.sharedInstance().startWithConsumerKey(consumerKey, consumerSecret: consumerSecret)
+        Twitter.sharedInstance().start(withConsumerKey: consumerKey, consumerSecret: consumerSecret)
     }
     
-    private func setupTwitterLogin() {
+    fileprivate func setupTwitterLogin() {
         Fabric.with([Twitter.self])
     }
     
-    private func isSessionValid() -> Bool {
+    fileprivate func isSessionValid() -> Bool {
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
         self.apiClient = TWTRAPIClient(userID: userID)
         if let _ = Twitter.sharedInstance().sessionStore.session() {
@@ -50,30 +46,30 @@ class TwitterLogin {
         }
     }
     
-    private func loginViewControler(aViewController: UIViewController, aCallback: TwitterLoginCallback) {
+    fileprivate func loginViewControler(_ aViewController: UIViewController, aCallback: @escaping TwitterLoginCallback) {
         self.callback = aCallback
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
         if let _ = userID {
             Twitter.sharedInstance().sessionStore.logOutUserID(userID!)
         }
-        Twitter.sharedInstance().logInWithViewController(aViewController, methods: .WebBased, completion: { (session: TWTRSession?, error: NSError?) in
+        Twitter.sharedInstance().logIn(with: aViewController, methods: .webBased, completion: { (session: TWTRSession?, error: NSError?) in
             if let _ = error {
-                self.callback?(success: false, result: error)
+                self.callback?(false, error)
             }else {
                 let userID = Twitter.sharedInstance().sessionStore.session()?.userID
                 self.apiClient = TWTRAPIClient(userID: userID)
-                self.callback?(success: true, result: session)
+                self.callback?(true, session)
             }
-        })
+        } as! TWTRLogInCompletion)
     }
     
-    private func logoutCallback(aCallback: TwitterLoginCallback) {
+    fileprivate func logoutCallback(_ aCallback: TwitterLoginCallback) {
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
         Twitter.sharedInstance().sessionStore.logOutUserID(userID!)
-        aCallback(success: true, result: "Logged out")
+        aCallback(true, "Logged out")
     }
     
-    class func initWithConsumerKey(consumerKey: String, consumerSecret: String) {
+    class func initWithConsumerKey(_ consumerKey: String, consumerSecret: String) {
         TwitterLogin.sharedInstance.initWithConsumerKey(consumerKey, consumerSecret: consumerSecret)
     }
     
@@ -85,11 +81,11 @@ class TwitterLogin {
         return TwitterLogin.sharedInstance.isSessionValid()
     }
     
-    class func loginViewControler(aViewController: UIViewController, aCallback: TwitterLoginCallback) {
+    class func loginViewControler(_ aViewController: UIViewController, aCallback: @escaping TwitterLoginCallback) {
         TwitterLogin.sharedInstance.loginViewControler(aViewController, aCallback: aCallback)
     }
     
-    class func logoutCallback(aCallback: TwitterLoginCallback) {
+    class func logoutCallback(_ aCallback: TwitterLoginCallback) {
         TwitterLogin.sharedInstance.logoutCallback(aCallback)
     }
 }

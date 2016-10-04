@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 struct CouponListData {
     var categoryId: Float!

@@ -21,19 +21,18 @@ class PonButton: UIButton {
     }
     
     func initialize() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
 
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 1.0)
-        CGContextSetStrokeColorWithColor(context,
-                                         UIColor.blueColor().CGColor)
-        let rectangle = CGRectMake(2, 2, rect.width - 4, rect.height - 4)
-        CGContextAddEllipseInRect(context, rectangle)
-        CGContextSetFillColorWithColor(context, UIColor(hex: 0x18c0d4).CGColor)
-        CGContextFillPath(context)
+        context?.setLineWidth(1.0)
+        context?.setStrokeColor(UIColor.blue.cgColor)
+        let rectangle = CGRect(x: 2, y: 2, width: rect.width - 4, height: rect.height - 4)
+        context?.addEllipse(in: rectangle)
+        context?.setFillColor(UIColor(hex: 0x18c0d4).cgColor)
+        context?.fillPath()
     }
 
 }

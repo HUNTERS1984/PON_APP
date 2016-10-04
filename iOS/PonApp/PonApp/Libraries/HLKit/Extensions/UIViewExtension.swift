@@ -13,11 +13,11 @@ extension UIView {
     /*
      *** Class Methods ***
      */
-    class func loadViewFromNib(nibName: String! = nil, bundle: NSBundle! = nil) -> UIView!{
+    class func loadViewFromNib(_ nibName: String! = nil, bundle: Bundle! = nil) -> UIView!{
         var defaultNibName: String! = nil
         if nibName == nil {
             let fullClassName = NSStringFromClass(self)
-            if let className = fullClassName.componentsSeparatedByString(".").last {
+            if let className = fullClassName.components(separatedBy: ".").last {
                 defaultNibName = className
             }
         }else {
@@ -26,27 +26,27 @@ extension UIView {
         let nib = UINib(nibName: defaultNibName, bundle: bundle)
         
         // Assumes UIView is top level and only object in CustomView.xib file
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
     
-    class func loadViewFromNib(nibName: String) -> UIView {
+    class func loadViewFromNib(_ nibName: String) -> UIView {
         
         let nib = UINib(nibName: nibName, bundle: nil)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
     
-    public class func fromNib(nibNameOrNil: String? = nil) -> Self {
+    public class func fromNib(_ nibNameOrNil: String? = nil) -> Self {
         return fromNib(nibNameOrNil, type: self)
     }
     
-    public class func fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T {
+    public class func fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
         let v: T? = fromNib(nibNameOrNil, type: T.self)
         return v!
     }
     
-    public class func fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T? {
+    public class func fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {
@@ -55,8 +55,8 @@ extension UIView {
             // Most nibs are demangled by practice, if not, just declare string explicitly
             name = nibName
         }
-        let nibViews = NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)
-        for v in nibViews {
+        let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
+        for v in nibViews! {
             if let tog = v as? T {
                 view = tog
             }
@@ -65,31 +65,31 @@ extension UIView {
     }
     
     public class var nibName: String {
-        let name = "\(self)".componentsSeparatedByString(".").first ?? ""
+        let name = "\(self)".components(separatedBy: ".").first ?? ""
         return name
     }
     public class var nib: UINib? {
-        if let _ = NSBundle.mainBundle().pathForResource(nibName, ofType: "nib") {
+        if let _ = Bundle.main.path(forResource: nibName, ofType: "nib") {
             return UINib(nibName: nibName, bundle: nil)
         } else {
             return nil
         }
     }
     
-    func fadeIn(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    func fadeIn(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0
             }, completion: completion)  }
     
-    func fadeOut(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    func fadeOut(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 0.0
             }, completion: completion)
     }
     
-    func setBackgroundImage(imageName: String) {
+    func setBackgroundImage(_ imageName: String) {
         UIGraphicsBeginImageContext(self.frame.size)
-        UIImage(named: imageName)?.drawInRect(self.bounds)
+        UIImage(named: imageName)?.draw(in: self.bounds)
         let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.backgroundColor = UIColor(patternImage: image)

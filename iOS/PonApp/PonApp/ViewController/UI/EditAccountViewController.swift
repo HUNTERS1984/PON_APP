@@ -9,7 +9,6 @@
 import UIKit
 import Photos
 import AVKit
-import DKImagePickerController
 
 class EditAccountViewController: BaseViewController {
     
@@ -27,7 +26,7 @@ class EditAccountViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -53,7 +52,7 @@ class EditAccountViewController: BaseViewController {
 //MARK: - IBAction
 extension EditAccountViewController {
     
-    @IBAction func saveButtonPressed(sender: AnyObject) {
+    @IBAction func saveButtonPressed(_ sender: AnyObject) {
         let username = self.nameTextField.text
         let gender = self.genderDropdown.text
         let address = self.addressDropdown.text
@@ -61,13 +60,13 @@ extension EditAccountViewController {
         self.validInfomation(username, gender: gender, address: address) { (successed: Bool, message: String) in
             if successed {
                 self.showHUD()
-                ApiRequest.updateUserProfile(username, gender:self.getGender(gender), address: address, avatar: avatar, completion: { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+                ApiRequest.updateUserProfile(username, gender:self.getGender(gender), address: address, avatar: avatar, completion: { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
                     self.hideHUD()
                     if let _ = error {
                         
                     }else {
                         if result?.code == SuccessCode {
-                            self.navigationController?.popViewControllerAnimated(true)
+                            self.navigationController!.popViewController(animated: true)
                         }
                     }
                 })
@@ -77,11 +76,11 @@ extension EditAccountViewController {
         }
     }
     
-    @IBAction func editAvatarButtonPressed(sender: AnyObject) {
-        showImagePickerWithAssetType(.AllPhotos) { (assets: [DKAsset]) in
+    @IBAction func editAvatarButtonPressed(_ sender: AnyObject) {
+        showImagePickerWithAssetType(.allPhotos) { (assets: [DKAsset]) in
             if assets.count > 0 {
                 let asset = assets[0]
-                asset.fetchOriginalImageWithCompleteBlock({ (image: UIImage?, info: [NSObject : AnyObject]?) in
+                asset.fetchOriginalImageWithCompleteBlock({ (image: UIImage?, info: [AnyHashable: Any]?) in
                     self.avatarImageView.image = image
                 })
             }
@@ -93,7 +92,7 @@ extension EditAccountViewController {
 //MARK: - Private
 extension EditAccountViewController {
     
-    private func setupGenderDropdown() {
+    fileprivate func setupGenderDropdown() {
         genderDropdown.keyboardDistanceFromTextField = 50
         genderDropdown.delegate = self
         genderDropdown.itemList = [
@@ -102,23 +101,61 @@ extension EditAccountViewController {
         ]
     }
     
-    private func setupAddressDropdown() {
+    fileprivate func setupAddressDropdown() {
         addressDropdown.keyboardDistanceFromTextField = 50
         addressDropdown.delegate = self
         addressDropdown.itemList = [
-            "あいちけん",
-            "あきたけん",
-            "あおもりけん",
-            "ちばけん",
-            "えひめけん",
-            "ふくいけん",
-            "ふくおかけん",
-            "ふくしまけん",
-            "ぎふけん"
+            "愛知県",
+            "秋田県",
+            "青森県",
+            "千葉県",
+            "愛媛県",
+            "福井県",
+            "福岡県",
+            "福島県",
+            "岐阜県",
+            "群馬県",
+            "広島県",
+            "北海道",
+            "兵庫県",
+            "茨城県",
+            "石川県",
+            "岩手県",
+            "香川県",
+            "鹿児島県",
+            "神奈川県",
+            "高知県",
+            "熊本県",
+            "京都府",
+            "三重県",
+            "宮城県",
+            "宮崎県",
+            "長野県",
+            "長崎県",
+            "奈良県",
+            "新潟県",
+            "大分県",
+            "岡山県",
+            "沖縄県",
+            "大阪府",
+            "佐賀県",
+            "埼玉県",
+            "滋賀県",
+            "島根県",
+            "静岡県",
+            "栃木県",
+            "徳島県",
+            "東京都",
+            "鳥取県",
+            "富山県",
+            "和歌山県",
+            "山形県",
+            "山口県",
+            "山梨県"
         ]
     }
     
-    private func getGender(gender: String?) -> Int {
+    fileprivate func getGender(_ gender: String?) -> Int {
         if let _ = gender {
             if gender! == "男性" {
                 return 1
@@ -131,7 +168,7 @@ extension EditAccountViewController {
         return 0
     }
     
-    private func converGender(gender: Int?) -> String {
+    fileprivate func converGender(_ gender: Int?) -> String {
         if let _ = gender {
             if gender! == 1 {
                 return "男性"
@@ -144,11 +181,11 @@ extension EditAccountViewController {
         return ""
     }
     
-    private func showImagePickerWithAssetType(assetType: DKImagePickerControllerAssetType,
+    func showImagePickerWithAssetType(_ assetType: DKImagePickerControllerAssetType,
                                               allowMultipleType: Bool = false,
-                                              sourceType: DKImagePickerControllerSourceType = .Both,
+                                              sourceType: DKImagePickerControllerSourceType = .both,
                                               singleSelect: Bool = true,
-                                              didSelectAssets:(assets: [DKAsset]) -> Void) {
+                                              didSelectAssets:@escaping (_ assets: [DKAsset]) -> Void) {
         
         let pickerController = DKImagePickerController()
         
@@ -160,35 +197,35 @@ extension EditAccountViewController {
         
         pickerController.didSelectAssets = didSelectAssets
         
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            pickerController.modalPresentationStyle = .FormSheet
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            pickerController.modalPresentationStyle = .formSheet
         }
         
-        self.presentViewController(pickerController, animated: true) {}
+        self.present(pickerController, animated: true) {}
     }
     
-    private func validInfomation(userName: String?, gender: String?, address: String?, completion:(successed: Bool, message: String) -> Void) {
+    func validInfomation(_ userName: String?, gender: String?, address: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
             
         }else {
-            completion(successed: false, message: "Please enter user name")
+            completion(false, "Please enter user name")
         }
         
         if let _ = gender {
             
         }else {
-            completion(successed: false, message: "Please enter gender")
+            completion(false, "Please enter gender")
         }
         
         if let _ = address {
             
         }else {
-            completion(successed: false, message: "Please enter address")
+            completion(false, "Please enter address")
         }
-        completion(successed: true, message: "")
+        completion(true, "")
     }
     
-    private func displayUserInfo() {
+    fileprivate func displayUserInfo() {
         if let _ = UserDataManager.sharedInstance.name {
             self.nameTextField.text = UserDataManager.sharedInstance.name!
         }else {
@@ -196,8 +233,8 @@ extension EditAccountViewController {
         }
         
         if let _ = UserDataManager.sharedInstance.avatarUrl {
-            let avatarUrl = NSURL(string: UserDataManager.sharedInstance.avatarUrl!)
-            self.avatarImageView.af_setImageWithURL(avatarUrl!)
+            let avatarUrl = URL(string: UserDataManager.sharedInstance.avatarUrl!)
+            self.avatarImageView.af_setImage(withURL: avatarUrl!)
         }else {
             self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
         }
@@ -226,7 +263,7 @@ extension EditAccountViewController {
 //MARK: - HLKDropDownTextFieldDelegate
 extension EditAccountViewController: IQDropDownTextFieldDelegate {
     
-    func textField(textField: IQDropDownTextField!, didSelectItem item: String!) {
+    func textField(_ textField: IQDropDownTextField!, didSelectItem item: String!) {
         
     }
     

@@ -11,13 +11,13 @@ import UIKit
 class LeftBorderView: UIView {
     @IBInspectable var marginLeft: CGFloat = 0
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetStrokeColorWithColor(context, UIColor(hex: DefaultBorderColor).CGColor)
-        CGContextMoveToPoint(context, marginLeft, 0)
-        CGContextAddLineToPoint(context, marginLeft, rect.size.height)
-        CGContextStrokePath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
+        context?.move(to: CGPoint(x: marginLeft, y: 0))
+        context?.addLine(to: CGPoint(x: marginLeft, y: rect.size.height))
+        context?.strokePath()
         
     }
 

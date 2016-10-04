@@ -11,8 +11,8 @@ import UIKit
 class HLKTextField: UITextField {
     
     //MARK: - Private
-    private var errorIcon: UIImageView!
-    private var padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
+    fileprivate var errorIcon: UIImageView!
+    fileprivate var padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
     
     //MARK: - Public
     var nextField: AnyObject?
@@ -27,34 +27,34 @@ class HLKTextField: UITextField {
         initialize()
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, padding))
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, padding))
     }
     
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, padding))
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, padding))
     }
 }
 
 extension HLKTextField {
     
-    private func initialize() {
-        self.addTarget(self, action: #selector(HLKTextField.focusNextField(_:)), forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let line = UIView(frame: CGRectMake(0, 0, screenWidth, 1))
+    fileprivate func initialize() {
+        self.addTarget(self, action: #selector(HLKTextField.focusNextField(_:)), for: UIControlEvents.editingDidEndOnExit)
+        let screenWidth = UIScreen.main.bounds.width
+        let line = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 1))
         line.backgroundColor = UIColor(red: 220, green: 220, blue: 220, alpha: 1)
         self.inputAccessoryView = line
         
         let errorI = UIImage(named: "error-icon")
         self.errorIcon = UIImageView(image: errorI)
-        self.errorIcon.center = CGPointMake(self.bounds.size.width - errorI!.size.width, self.bounds.size.height/2)
-        self.errorIcon?.hidden = true
+        self.errorIcon.center = CGPoint(x: self.bounds.size.width - errorI!.size.width, y: self.bounds.size.height/2)
+        self.errorIcon?.isHidden = true
         self.addSubview(self.errorIcon)
     }
     
-    @IBAction func focusNextField(sender: AnyObject) {
+    @IBAction func focusNextField(_ sender: AnyObject) {
         if let _ = nextField {
-            nextField?.becomeFirstResponder()
+            _ = nextField?.becomeFirstResponder()
         }else {
             self.resignFirstResponder()
         }
@@ -64,11 +64,11 @@ extension HLKTextField {
 
 extension HLKTextField {
     
-    func showErrorIcon(showed: Bool) {
+    func showErrorIcon(_ showed: Bool) {
         if showed {
-            self.errorIcon.hidden = false
+            self.errorIcon.isHidden = false
         }else {
-            self.errorIcon.hidden = true
+            self.errorIcon.isHidden = true
         }
     }
     

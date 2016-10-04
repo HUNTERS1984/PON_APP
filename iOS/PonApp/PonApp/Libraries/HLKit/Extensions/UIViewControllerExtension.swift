@@ -14,13 +14,13 @@ extension UIViewController {
     /*
      *** Class Methods ***
      */
-    class func instanceFromNib(nibName: String! = nil, bundle: NSBundle! = nil) -> UIViewController! {
+    class func instanceFromNib(_ nibName: String! = nil, bundle: Bundle! = nil) -> UIViewController! {
         var _nibName: String! = nil
         
         // If nibName == nil, get default name is Classname
         if (nibName == nil) {
             let fullClassName = NSStringFromClass(self)
-            if let className = fullClassName.componentsSeparatedByString(".").last {
+            if let className = fullClassName.components(separatedBy: ".").last {
                 _nibName = className
             }
         }
@@ -32,11 +32,11 @@ extension UIViewController {
         return self.init(nibName: _nibName, bundle: bundle)
     }
     
-    class func instanceFromStoryBoard(storyboardName: String) -> UIViewController! {
+    class func instanceFromStoryBoard(_ storyboardName: String) -> UIViewController! {
         let fullClassName = NSStringFromClass(self)
-        let storyboardId = fullClassName.componentsSeparatedByString(".").last
+        let storyboardId = fullClassName.components(separatedBy: ".").last
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier(storyboardId!)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId!)
         return vc
     }
     /*

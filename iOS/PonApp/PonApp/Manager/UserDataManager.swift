@@ -8,17 +8,13 @@
 
 import UIKit
 
-class UserDataManager: NSObject {
+class UserDataManager {
     
     class var sharedInstance: UserDataManager {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: UserDataManager? = nil
+            static let instance = UserDataManager()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = UserDataManager()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
     var username: String?
@@ -29,8 +25,8 @@ class UserDataManager: NSObject {
     var loggedIn: Bool = false
     var gender: Int?
     
-    private func getUserProfile() {
-        ApiRequest.getUserProfile { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+    fileprivate func getUserProfile() {
+        ApiRequest.getUserProfile { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             if let _ = error {
                 
             }else {

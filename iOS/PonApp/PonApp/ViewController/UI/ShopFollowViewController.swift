@@ -22,7 +22,7 @@ class ShopFollowViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -33,7 +33,7 @@ class ShopFollowViewController: BaseViewController {
         self.showBackButton()
         
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
-        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
+        collectionView.register(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         self.loadFollowedShop(1)
     }
     
@@ -43,9 +43,9 @@ class ShopFollowViewController: BaseViewController {
 //MARK: - Private
 extension ShopFollowViewController {
     
-    private func loadFollowedShop(pageIndex: Int) {
+    fileprivate func loadFollowedShop(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getFollowedShop(pageIndex: pageIndex) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getFollowedShop(pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -58,9 +58,9 @@ extension ShopFollowViewController {
                         responseShop.append(shop)
                     }
                     if pageIndex == 1 {
-                        self.displayShop(responseShop, type: .New)
+                        self.displayShop(responseShop, type: .new)
                     }else {
-                        self.displayShop(responseShop, type: .LoadMore)
+                        self.displayShop(responseShop, type: .loadMore)
                     }
                 }else {
                     
@@ -69,25 +69,25 @@ extension ShopFollowViewController {
         }
     }
     
-    private func displayShop(shops: [Shop], type: GetType) {
+    fileprivate func displayShop(_ shops: [Shop], type: GetType) {
         switch type {
-        case .New:
+        case .new:
             self.shops.removeAll()
             self.shops = shops
             self.collectionView.reloadData()
             break
-        case .LoadMore:
-            self.shops.appendContentsOf(shops)
+        case .loadMore:
+            self.shops.append(contentsOf: shops)
             self.collectionView.reloadData()
             break
-        case .Reload:
+        case .reload:
             break
         }
     }
     
-    private func getShopDetail(shopId: Float) {
+    fileprivate func getShopDetail(_ shopId: Float) {
         self.showHUD()
-        ApiRequest.getShopDetail(shopId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopDetail(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -105,25 +105,25 @@ extension ShopFollowViewController {
 //MARK: - UICollectionViewDataSource
 extension ShopFollowViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.shops.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShopFollowCollectionViewCell", forIndexPath: indexPath) as! ShopFollowCollectionViewCell
-        cell.shop = self.shops[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
+        cell.shop = self.shops[(indexPath as NSIndexPath).item]
         return cell
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "ListCouponCollectionViewCell", forIndexPath: indexPath) as! ListCouponCollectionViewCell
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ListCouponCollectionViewCell", for: indexPath) as! ListCouponCollectionViewCell
         return commentView
     }
     
@@ -132,9 +132,9 @@ extension ShopFollowViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension ShopFollowViewController: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedShopId = self.shops[indexPath.item].shopID
-        self.getShopDetail(selectedShopId)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedShopId = self.shops[(indexPath as NSIndexPath).item].shopID
+        self.getShopDetail(selectedShopId!)
     }
     
 }
@@ -142,10 +142,10 @@ extension ShopFollowViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension ShopFollowViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let picDimension = (self.view.frame.size.width - 30) / 2.0
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        return CGSizeMake(picDimension, screenSize.height * (220/667))
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGSize(width: picDimension, height: screenSize.height * (220/667))
     }
     
 }

@@ -28,21 +28,21 @@ class MainCouponContentViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
         let myCellNib = UINib(nibName: "CouponCollectionTableViewCell", bundle: nil)
-        contentTableView.registerNib(myCellNib, forCellReuseIdentifier: "CouponCollectionTableViewCell")
-        self.contentTableView.scrollEnabled = false
+        contentTableView.register(myCellNib, forCellReuseIdentifier: "CouponCollectionTableViewCell")
+        self.contentTableView.isScrollEnabled = false
         self.contentTableView.allowsSelection = false
-        self.contentTableView.separatorStyle = .None
+        self.contentTableView.separatorStyle = .none
         self.getCouponByFeature(self.couponFeature!, pageIndex: 1)
     }
     
@@ -51,17 +51,19 @@ class MainCouponContentViewController: BaseViewController {
 //MARK: - Private
 extension MainCouponContentViewController {
     
-    private func getCouponDetail(couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.parentNavigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.parentNavigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
@@ -71,26 +73,26 @@ extension MainCouponContentViewController {
 //MARK: - UITableViewDataSource
 extension MainCouponContentViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return couponListData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CouponCollectionTableViewCell", forIndexPath: indexPath) as! CouponCollectionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCollectionTableViewCell", for: indexPath) as! CouponCollectionTableViewCell
         cell.moreButtonCallback = {(sender) -> Void in
             
         }
         return cell
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    @objc(tableView:willDisplayCell:forRowAtIndexPath:) func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
-        collectionCell.couponCollectionView.index = indexPath.row
-        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, couponListData: self.couponListData[indexPath.row])
+        collectionCell.couponCollectionView.index = (indexPath as NSIndexPath).row
+        collectionCell.setCollectionViewDelegate(delegate: self, index: (indexPath as NSIndexPath).row, couponListData: self.couponListData[(indexPath as NSIndexPath).row])
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let screenHeight = UIScreen.mainScreen().bounds.height
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let screenHeight = UIScreen.main.bounds.height
         let height = screenHeight * (234/667)
         return height
     }
@@ -100,15 +102,15 @@ extension MainCouponContentViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension MainCouponContentViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
 extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
     
-    func horizontalCollectionView(collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: NSIndexPath) {
+    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: IndexPath) {
         if let _ = self.previousCollectionView {
             if self.previousCollectionView! != collectionView {
                 self.previousCollectionView!.resetCollectionView()
@@ -125,9 +127,9 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
 //MARK: - Private
 extension MainCouponContentViewController {
     
-    private func getCouponByFeature(couponFeature: CouponFeature, pageIndex: Int) {
+    fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeature(couponFeature) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeature(couponFeature) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -140,9 +142,9 @@ extension MainCouponContentViewController {
                         responseData.append(data)
                     }
                     if pageIndex == 1 {
-                        self.displayData(responseData, type: .New)
+                        self.displayData(responseData, type: .new)
                     }else {
-                        self.displayData(responseData, type: .LoadMore)
+                        self.displayData(responseData, type: .loadMore)
                     }
                 }else {
                     
@@ -151,9 +153,9 @@ extension MainCouponContentViewController {
         }
     }
     
-    private func displayData(data: [CouponListData], type: GetType) {
+    fileprivate func displayData(_ data: [CouponListData], type: GetType) {
         switch type {
-        case .New:
+        case .new:
             self.couponListData.removeAll()
             self.couponListData = data
             self.contentTableView.reloadData {
@@ -161,14 +163,14 @@ extension MainCouponContentViewController {
                 self.contentTableViewHeight.constant = heightConstant;
             }
             break
-        case .LoadMore:
-            self.couponListData.appendContentsOf(data)
+        case .loadMore:
+            self.couponListData.append(contentsOf: data)
             self.contentTableView.reloadData {
                 let heightConstant = self.contentTableView.contentSize.height
                 self.contentTableViewHeight.constant = heightConstant;
             }
             break
-        case .Reload:
+        case .reload:
             break
         }
     }

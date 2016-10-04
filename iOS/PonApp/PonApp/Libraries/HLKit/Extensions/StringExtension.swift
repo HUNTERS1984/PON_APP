@@ -10,19 +10,19 @@ import UIKit
 
 extension String {
     
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: CGFloat.max)
+    func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = self.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
     }
     
-    func heightForWithFont(font: UIFont, width: CGFloat, insets: UIEdgeInsets) -> CGFloat {
+    func heightForWithFont(_ font: UIFont, width: CGFloat, insets: UIEdgeInsets) -> CGFloat {
         
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, width + insets.left + insets.right, CGFloat.max))
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width + insets.left + insets.right, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = self
         
@@ -31,10 +31,10 @@ extension String {
     }
     
     func md5() -> String! {
-        let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
-        let strLen = CUnsignedInt(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let str = self.cString(using: String.Encoding.utf8)
+        let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
-        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
         
         CC_MD5(str!, strLen, result)
         
@@ -43,58 +43,40 @@ extension String {
             hash.appendFormat("%02x", result[i])
         }
         
-        result.destroy()
+        result.deinitialize()
         
         return String(format: hash as String)
     }
     
-    static func validate(email: String) -> Bool {
+    static func validate(_ email: String) -> Bool {
         let REGEX: String
         REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
-        return NSPredicate(format: "SELF MATCHES %@", REGEX).evaluateWithObject(email)
+        return NSPredicate(format: "SELF MATCHES %@", REGEX).evaluate(with: email)
     }
     
     func isEmpty() -> Bool {
-        let trimmed = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let trimmed = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return trimmed.isEmpty
     }
     
 }
 
-extension String {
-    
-    static func sha256(str: String) -> String? {
-        guard
-            let data = str.dataUsingEncoding(NSUTF8StringEncoding),
-            let shaData = sha256(data)
-            else { return nil }
-        let rc = shaData.base64EncodedStringWithOptions([])
-        return rc
-    }
-    
-    static func sha256(data: NSData) -> NSData? {
-        guard let res = NSMutableData(length: Int(CC_SHA256_DIGEST_LENGTH)) else { return nil }
-        CC_SHA256(data.bytes, CC_LONG(data.length), UnsafeMutablePointer(res.mutableBytes))
-        return res
-    }
-    
-}
 
 extension String {
     
-    static func convertDateFormater(dateString: String) -> String {
-        let dateFormatter = NSDateFormatter()
+    static func convertDateFormater(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+zzzz"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         
-        guard let date = dateFormatter.dateFromString(dateString) else {
+        guard let date = dateFormatter.date(from: dateString) else {
             assert(false, "no date from string")
             return ""
         }
         
         dateFormatter.dateFormat = "yyyy.MM.dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")
-        let timeStamp = dateFormatter.stringFromDate(date)
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let timeStamp = dateFormatter.string(from: date)
         
         return timeStamp
     }

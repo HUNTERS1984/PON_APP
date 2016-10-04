@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftQRCode
 
 class ShowQRCodeViewController: BaseViewController {
     
@@ -24,12 +23,12 @@ class ShowQRCodeViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -43,11 +42,11 @@ class ShowQRCodeViewController: BaseViewController {
 //MARK: - IBAction
 extension ShowQRCodeViewController {
     
-    @IBAction func closeButttonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func closeButttonPressed(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: false)
     }
     
-    @IBAction func qrCodePressed(sender: AnyObject) {
+    @IBAction func qrCodePressed(_ sender: AnyObject) {
         
         
     }
@@ -57,10 +56,10 @@ extension ShowQRCodeViewController {
 //MARK: - Private method
 extension ShowQRCodeViewController {
     
-    private func setupQRCodeView() {
+    fileprivate func setupQRCodeView() {
         self.qrCodeView.clipsToBounds = true
         self.qrCodeView.layer.cornerRadius = 4.0
-        self.qrCodeView.layer.borderColor = UIColor(hex: 0xcad5d9).CGColor
+        self.qrCodeView.layer.borderColor = UIColor(hex: 0xcad5d9).cgColor
         self.qrCodeView.layer.borderWidth = 1.0
         scanner.prepareScan(self.qrCodeView) { (stringValue) -> () in
             print(stringValue)

@@ -16,7 +16,7 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet weak var collectionView:UICollectionView!
     
     var coupons = [Coupon]()
-    var previousSelectedIndexPath: NSIndexPath? = nil
+    var previousSelectedIndexPath: IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class FavoriteViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -35,14 +35,14 @@ class FavoriteViewController: BaseViewController {
         super.setUpUserInterface()
         self.title = "お気に入り"
         
-        let button = UIBarButtonItem(image: UIImage(named: "nav_add"), style: .Plain, target: self, action: #selector(self.navAddButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "nav_add"), style: .plain, target: self, action: #selector(self.navAddButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
-        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), forState: .Normal)
-        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), forState: .Normal)
-        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), forState: .Normal)
+        self.tabFavoriteButton.setImage(UIImage(named: "tabbar_favorite_selected"), for: UIControlState())
+        self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), for: UIControlState())
+        self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), for: UIControlState())
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
-        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
         self.loadFavoriteCoupon(1)
     }
@@ -56,20 +56,19 @@ class FavoriteViewController: BaseViewController {
 //MARK: - IBAction
 extension FavoriteViewController {
     
-    @IBAction func favoriteButtonPressed(sender: AnyObject) {
+    @IBAction func favoriteButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func homeButtonPressed(sender: AnyObject) {
+    @IBAction func homeButtonPressed(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
     
-    @IBAction func accountButtonPressed(sender: AnyObject) {
+    @IBAction func accountButtonPressed(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 2
     }
     
-    @IBAction func navAddButtonPressed(sender: AnyObject) {
-//        let vc = ShopViewController.instanceFromStoryBoard("Shop")
-//        self.navigationController?.pushViewController(vc, animated: false)
+    @IBAction func navAddButtonPressed(_ sender: AnyObject) {
+
     }
     
 }
@@ -77,65 +76,69 @@ extension FavoriteViewController {
 //MARK: - Private
 extension FavoriteViewController {
     
-    private func loadFavoriteCoupon(pageIndex: Int) {
+    fileprivate func loadFavoriteCoupon(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getFavoriteCoupon(pageIndex: pageIndex) {(request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getFavoriteCoupon(pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
-                var responseCoupon = [Coupon]()
-                let couponsArray = result?.data?.array
-                if let _ = couponsArray {
-                    for couponData in couponsArray! {
-                        let coupon = Coupon(response: couponData)
-                        responseCoupon.append(coupon)
-                    }
-                    if pageIndex == 1 {
-                        self.displayCoupon(responseCoupon, type: .New)
-                    }else {
-                        self.displayCoupon(responseCoupon, type: .LoadMore)
+                if result?.code == SuccessCode {
+                    var responseCoupon = [Coupon]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            let coupon = Coupon(response: couponData)
+                            responseCoupon.append(coupon)
+                        }
+                        if pageIndex == 1 {
+                            self.displayCoupon(responseCoupon, type: .new)
+                        }else {
+                            self.displayCoupon(responseCoupon, type: .loadMore)
+                        }
                     }
                 }
             }
         }
     }
     
-    private func displayCoupon(coupons: [Coupon], type: GetType) {
+    fileprivate func displayCoupon(_ coupons: [Coupon], type: GetType) {
         switch type {
-        case .New:
+        case .new:
             self.coupons.removeAll()
             self.coupons = coupons
             self.collectionView.reloadData()
             break
-        case .LoadMore:
-            self.coupons.appendContentsOf(coupons)
+        case .loadMore:
+            self.coupons.append(contentsOf: coupons)
             self.collectionView.reloadData()
             break
-        case .Reload:
+        case .reload:
             break
         }
     }
     
-    private func getCouponDetail(couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float) {
         self.showHUD()
-        ApiRequest.getCouponDetail(couponId) { (request: NSURLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.navigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
     
-    private func resetCollectionView() {
+    fileprivate func resetCollectionView() {
         if let _ = self.previousSelectedIndexPath {
-            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
-            collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
+            self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+            collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
             self.previousSelectedIndexPath = nil
         }
     }
@@ -145,18 +148,18 @@ extension FavoriteViewController {
 //MARK: - UICollectionViewDataSource
 extension FavoriteViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return coupons.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
-        let couponTest = self.coupons[indexPath.item]
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            dispatch_async(dispatch_get_main_queue(), { 
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        let couponTest = self.coupons[(indexPath as NSIndexPath).item]
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async(execute: { 
                 cell.coupon = couponTest
             })
         }
@@ -164,12 +167,12 @@ extension FavoriteViewController: UICollectionViewDataSource {
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CouponCollectionViewCell", forIndexPath: indexPath) as! CouponCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         return commentView
     }
     
@@ -178,28 +181,33 @@ extension FavoriteViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension FavoriteViewController: UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCoupon = self.coupons[indexPath.item]
-        if let _ = selectedCoupon.canUse {
-            if selectedCoupon.canUse! {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
+        if let _ = selectedCoupon.needLogin {
+            if selectedCoupon.needLogin! {
+                if UserDataManager.isLoggedIn() {
+                    self.resetCollectionView()
+                    self.getCouponDetail(selectedCoupon.couponID)
+                }else {
+                    if let _ = self.previousSelectedIndexPath {
+                        if indexPath == self.previousSelectedIndexPath! {
+                            return
+                        }
+                        self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+                        
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }else {
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }
+                }
+            }else {
                 self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID)
-            }else {
-                if let _ = self.previousSelectedIndexPath {
-                    if indexPath == self.previousSelectedIndexPath! {
-                        return
-                    } 
-                    self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
-                    collectionView.reloadItemsAtIndexPaths([self.previousSelectedIndexPath!])
-                    
-                    self.coupons[indexPath.item].showConfirmView = true
-                    collectionView.reloadItemsAtIndexPaths([indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }else {
-                    self.coupons[indexPath.item].showConfirmView = true
-                    collectionView.reloadItemsAtIndexPaths([indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }
             }
         }
     }
@@ -209,11 +217,11 @@ extension FavoriteViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenHeight = UIScreen.mainScreen().bounds.height
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenHeight = UIScreen.main.bounds.height
         let width = (self.view.frame.size.width - 30) / 2.0
         let height = screenHeight * (189/667)
-        return CGSizeMake(width, height)
+        return CGSize(width: width, height: height)
     }
     
 }

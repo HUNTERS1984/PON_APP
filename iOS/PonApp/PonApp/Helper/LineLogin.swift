@@ -10,68 +10,63 @@ import UIKit
 
 class LineLogin {
     
-    private let adapter = LineAdapter.adapterWithConfigFile()
+    fileprivate let adapter = LineAdapter.withConfigFile()
     
     class var sharedInstance: LineLogin {
         struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var instance: LineLogin? = nil
+            static let instance = LineLogin()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = LineLogin()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
     func startObserveLineAdapterNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(self.authorizationDidChange(_:)),
-                                                         name: LineAdapterAuthorizationDidChangeNotification,
-                                                         object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.authorizationDidChange(_:)),
+                                               name: NSNotification.Name.LineAdapterAuthorizationDidChange,
+                                               object: nil)
     }
-    @objc func authorizationDidChange(notification: NSNotification) {
+    
+    @objc func authorizationDidChange(_ notification: Notification) {
         let adapter = notification.object as! LineAdapter
-        
-        if adapter.authorized {
+        if adapter.isAuthorized {
             alert("Login success!", message: "")
             return
         }
         
-        if let error = notification.userInfo?["error"] as? NSError {
+        if let error = (notification as NSNotification).userInfo?["error"] as? NSError {
             alert("Login error!", message: error.localizedDescription)
         }
         
     }
     
     func loginWithLine() {
-        if adapter.authorized {
+        if (adapter?.isAuthorized)! {
             alert("Already authorized", message: "")
             return
         }
         
-        if !adapter.canAuthorizeUsingLineApp {
+        if !(adapter?.canAuthorizeUsingLineApp)! {
             alert("LINE is not installed", message: "")
             return
         }
-        adapter.authorize()
+        adapter?.authorize()
     }
     
     func logout() {
-        adapter.unauthorize()
+        adapter?.unauthorize()
         alert("Logged out", message: "")
     }
     
-    func alert(title: String, message: String) {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+    func alert(_ title: String, message: String) {
+        UIAlertController.present(title: title, message: message, actionTitles: ["OK"])
     }
     
-    func handleLaunchOptions(launchOptions: [NSObject: AnyObject]?) {
+    func handleLaunchOptions(_ launchOptions: [AnyHashable: Any]?) {
         self.startObserveLineAdapterNotification()
         LineAdapter.handleLaunchOptions(launchOptions)
     }
     
-    func handleOpenURL(url: NSURL) {
-        LineAdapter.handleOpenURL(url)
+    func handleOpenURL(_ url: URL) {
+        LineAdapter.handleOpen(url)
     }
 }

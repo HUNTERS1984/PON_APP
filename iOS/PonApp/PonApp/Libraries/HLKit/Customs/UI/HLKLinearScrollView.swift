@@ -54,13 +54,13 @@ class HLKLinearScrollView: UIScrollView {
         super.init(frame: frame)
     }
     
-    func addSubview(view: UIView, margin: LayoutMargin) {
+    func addSubview(_ view: UIView, margin: LayoutMargin) {
         
         let item = LinearLayoutItem(view: view, margin: margin, contentSize: view.bounds.size)
         addItemOnVertical(item)
     }
     
-    func addItemOnVertical(item: LinearLayoutItem) {
+    func addItemOnVertical(_ item: LinearLayoutItem) {
         var offSetY: CGFloat = 0
         let lastItem = self.linearLayoutSubViews.last
         
@@ -73,42 +73,42 @@ class HLKLinearScrollView: UIScrollView {
         let width = item.contentSize.width
         let height = item.contentSize.height
         
-        item.view.frame = CGRectMake(x, y, width, height)
+        item.view.frame = CGRect(x: x!, y: y, width: width, height: height)
         self.addSubview(item.view!)
         self.linearLayoutSubViews.append(item)
         
         //calculate contentsize for scrolling
         let contentHeight:CGFloat = y + height + item.margin.bottom
-        self.contentSize = CGSizeMake(self.contentSize.width, contentHeight)
+        self.contentSize = CGSize(width: self.contentSize.width, height: contentHeight)
         self.originalContentSize = self.contentSize
     }
     
-    func updateItemOnVertical(item:LinearLayoutItem, animated:Bool) {
+    func updateItemOnVertical(_ item:LinearLayoutItem, animated:Bool) {
         let dy = item.view.bounds.size.height - item.contentSize.height
         item.contentSize = item.view.bounds.size
         
-        let indexOfItem = linearLayoutSubViews.indexOf(item)
+        let indexOfItem = linearLayoutSubViews.index(of: item)
         let startIndex = indexOfItem! + 1
         let duration = animated ? 0.5 : 0
         
-        UIView.animateWithDuration(duration, animations: { () -> Void in
+        UIView.animate(withDuration: duration, animations: { () -> Void in
             for index in startIndex..<self.linearLayoutSubViews.count {
                 let item = self.linearLayoutSubViews[index]
-                item.view.frame = CGRectOffset(item.view.frame, 0, dy)
+                item.view.frame = item.view.frame.offsetBy(dx: 0, dy: dy)
             }
             
-        }) { (Bool) -> Void in
+        }, completion: { (Bool) -> Void in
             let lastItem = self.linearLayoutSubViews.last
             
             if let lastItem = lastItem {
                 let contentHeight = lastItem.view.frame.origin.y + lastItem.contentSize.height + lastItem.margin.bottom;
-                self.contentSize = CGSizeMake(self.contentSize.width, contentHeight);
+                self.contentSize = CGSize(width: self.contentSize.width, height: contentHeight);
                 self.originalContentSize = self.contentSize;
             }
-        }
+        }) 
     }
     
-    func updateContentSizeWithKeyboardSize(keyboardSize: CGSize, show: Bool) {
+    func updateContentSizeWithKeyboardSize(_ keyboardSize: CGSize, show: Bool) {
         var linearLayoutSize = self.contentSize
         if show {
             linearLayoutSize.height = linearLayoutSize.height + keyboardSize.height
@@ -119,7 +119,7 @@ class HLKLinearScrollView: UIScrollView {
         }
     }
     
-    func updateSizeForView(view: UIView, animated: Bool) {
+    func updateSizeForView(_ view: UIView, animated: Bool) {
         for item in self.linearLayoutSubViews {
             if item.view == view {
                 updateItemOnVertical(item, animated: animated)
@@ -127,7 +127,7 @@ class HLKLinearScrollView: UIScrollView {
         }
     }
     
-    func wrapSubviewsToLinearLayout(numberOfTags: NSInteger, padding:CGFloat ) {
+    func wrapSubviewsToLinearLayout(_ numberOfTags: NSInteger, padding:CGFloat ) {
         for tag in 1...numberOfTags {
             let view = self.viewWithTag(tag)!
             let lastItem = self.linearLayoutSubViews.last
@@ -150,9 +150,9 @@ class HLKLinearScrollView: UIScrollView {
         }
     }
     
-    func scrollToSender(sender: UIView?, keyboardSize: CGSize) {
+    func scrollToSender(_ sender: UIView?, keyboardSize: CGSize) {
         if let _ = sender {
-            self.contentSize = CGSizeMake(self.originalContentSize.width, self.originalContentSize.height + keyboardSize.height)
+            self.contentSize = CGSize(width: self.originalContentSize.width, height: self.originalContentSize.height + keyboardSize.height)
             var superView = sender
             var y: CGFloat = 0.0
             
@@ -166,18 +166,18 @@ class HLKLinearScrollView: UIScrollView {
             if y > availableHeight {
                 let delta = y - availableHeight;
                 
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.setContentOffset(CGPointMake(0, delta + sender!.bounds.size.height), animated: false)
+                UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                    self.setContentOffset(CGPoint(x: 0, y: delta + sender!.bounds.size.height), animated: false)
                 })
             }
         }else {
-            self.contentSize = CGSizeMake(self.originalContentSize.width, self.originalContentSize.height + keyboardSize.height)
+            self.contentSize = CGSize(width: self.originalContentSize.width, height: self.originalContentSize.height + keyboardSize.height)
             return
         }
     }
     
     func restoreScrollView() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.contentSize = self.originalContentSize
         })
     }
