@@ -59,21 +59,23 @@ extension HistoryViewController {
             if let _ = error {
                 
             }else {
-                var responseCoupon = [Coupon]()
-                let couponsArray = result?.data?.array
-                if let _ = couponsArray {
-                    for couponData in couponsArray! {
-                        var coupon = Coupon(response: couponData)
-                        coupon.isUsed = true
-                        responseCoupon.append(coupon)
-                    }
-                    if pageIndex == 1 {
-                        self.displayCoupon(responseCoupon, type: .new)
-                    }else {
-                        self.displayCoupon(responseCoupon, type: .loadMore)
+                if result?.code == SuccessCode {
+                    var responseCoupon = [Coupon]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            var coupon = Coupon(response: couponData)
+                            coupon.isUsed = true
+                            responseCoupon.append(coupon)
+                        }
+                        if pageIndex == 1 {
+                            self.displayCoupon(responseCoupon, type: .new)
+                        }else {
+                            self.displayCoupon(responseCoupon, type: .loadMore)
+                        }
                     }
                 }else {
-                    
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -107,6 +109,8 @@ extension HistoryViewController {
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
                     self.navigationController!.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

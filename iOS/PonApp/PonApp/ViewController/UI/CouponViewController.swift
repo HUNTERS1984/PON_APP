@@ -100,7 +100,7 @@ extension CouponViewController {
     
     @IBAction func shareButtonPressed(_ sender: AnyObject) {
         let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc!, animated: false)
+        self.navigationController?.present(vc!, animated: true)
     }
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
@@ -115,7 +115,7 @@ extension CouponViewController {
                             self.likeButton.isUserInteractionEnabled = false
                             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
                         }else {
-                            
+                            self.presentAlert(message: (result?.message)!)
                         }
                     }
                 }
@@ -129,7 +129,7 @@ extension CouponViewController {
     
     @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
         let vc = ScanQRCodeViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc!, animated: false)
+        self.navigationController?.present(vc!, animated: true)
     }
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
@@ -243,8 +243,7 @@ extension CouponViewController: UICollectionViewDataSource {
 extension CouponViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = CouponViewController.instanceFromStoryBoard("Coupon")
-//        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
 }

@@ -67,6 +67,8 @@ extension EditAccountViewController {
                     }else {
                         if result?.code == SuccessCode {
                             self.navigationController!.popViewController(animated: true)
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
                         }
                     }
                 })

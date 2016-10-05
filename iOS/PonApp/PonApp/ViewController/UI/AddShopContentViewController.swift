@@ -77,9 +77,9 @@ extension AddShopContentViewController {
                         }else {
                             self.displayShop(responseShop, type: .loadMore)
                         }
-                    }else {
-                        
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -108,10 +108,14 @@ extension AddShopContentViewController {
             if let _ = error {
                 
             }else {
-                let shop = Shop(response: result?.data)
-                let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
-                vc.shop = shop
-                self.parentNavigationController?.pushViewController(vc, animated: true)
+                if result?.message {
+                    let shop = Shop(response: result?.data)
+                    let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
+                    vc.shop = shop
+                    self.parentNavigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
             }
         }
     }

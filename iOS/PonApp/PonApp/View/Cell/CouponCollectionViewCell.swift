@@ -63,11 +63,15 @@ class CouponCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = coupon.title
         self.expireDateLabel.text = coupon.expiryDate
         if let _ = coupon.isLike {
-            self.likeIconImage.isHidden = false
-            self.likeIconImage.image = UIImage(named: "coupon_liked")
+            if coupon.isLike! {
+                self.likeIconImage.isHidden = false
+                self.likeIconImage.image = UIImage(named: "coupon_liked")
+            }else {
+                self.likeIconImage.isHidden = false
+                self.likeIconImage.image = UIImage(named: "coupon_normal")
+            }
         }else {
-            self.likeIconImage.isHidden = false
-            self.likeIconImage.image = UIImage(named: "coupon_normal")
+            self.likeIconImage.isHidden = true
         }
         self.typeLabel.text = coupon.couponType
     }

@@ -102,6 +102,8 @@ extension HomeSearchViewController {
                         }
                         self.couponTypes = responseCategory
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

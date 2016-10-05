@@ -43,13 +43,9 @@ class ScanQRCodeViewController: BaseViewController {
 extension ScanQRCodeViewController {
     
     @IBAction func closeButttonPressed(_ sender: AnyObject) {
-        self.navigationController!.popViewController(animated: false)
+        self.dismiss(animated: true)
     }
     
-    @IBAction func qrCodePressed(_ sender: AnyObject) {
-
-        
-    }
     
 }
 

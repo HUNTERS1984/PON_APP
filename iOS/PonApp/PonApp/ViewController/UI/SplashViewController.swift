@@ -113,7 +113,7 @@ extension SplashViewController {
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
-//                            HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                            self.presentAlert(message: (result?.message)!)
                         }
                     }
                 }

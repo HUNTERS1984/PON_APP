@@ -80,6 +80,8 @@ extension ListShopContentViewController {
                     }else {
                         
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

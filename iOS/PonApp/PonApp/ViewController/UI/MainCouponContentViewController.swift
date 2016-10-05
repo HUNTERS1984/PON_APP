@@ -145,20 +145,22 @@ extension MainCouponContentViewController {
             if let _ = error {
                 
             }else {
-                var responseData = [CouponListData]()
-                let couponsArray = result?.data?.array
-                if let _ = couponsArray {
-                    for couponData in couponsArray! {
-                        let data = CouponListData(response: couponData)
-                        responseData.append(data)
-                    }
-                    if pageIndex == 1 {
-                        self.displayData(responseData, type: .new)
-                    }else {
-                        self.displayData(responseData, type: .loadMore)
+                if result?.code == SuccessCode {
+                    var responseData = [CouponListData]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            let data = CouponListData(response: couponData)
+                            responseData.append(data)
+                        }
+                        if pageIndex == 1 {
+                            self.displayData(responseData, type: .new)
+                        }else {
+                            self.displayData(responseData, type: .loadMore)
+                        }
                     }
                 }else {
-                    
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

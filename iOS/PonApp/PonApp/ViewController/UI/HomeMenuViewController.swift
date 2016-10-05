@@ -61,7 +61,7 @@ extension HomeMenuViewController {
                         self.categories = responseCouponType
                     }
                 }else {
-                    
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

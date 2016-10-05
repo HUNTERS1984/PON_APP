@@ -143,9 +143,9 @@ extension HomeMapViewController {
                             responseShop.append(shop)
                         }
                         self.displayShop(responseShop, lattitude: lattitude, longitude: longitude, type: .new)
-                    }else {
-                        
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -189,6 +189,8 @@ extension HomeMapViewController {
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
                     self.navigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
