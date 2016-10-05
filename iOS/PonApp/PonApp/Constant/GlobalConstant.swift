@@ -33,4 +33,9 @@ public enum GetType {
     case new
 }
 
+public enum LoginState {
+    case normal
+    case qick
+}
+
 let TokenInvalidNotification                    = "TokenInvalidNotification"

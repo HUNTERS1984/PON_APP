@@ -23,6 +23,8 @@ class SignInViewController: BaseViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passConfirmationTextField: UITextField!
     
+    var loginState: LoginState = .normal
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -140,7 +142,10 @@ extension SignInViewController {
                     }
                     UserDataManager.sharedInstance.loggedIn = true
                     UserDataManager.getUserProfile()
-                    self.setupTabbarViewController()
+                    if self.loginState == .normal {
+                        self.setupTabbarViewController()
+                    }
+                    self.dismiss(animated: true)
                 }else {
                     self.presentAlert(message: (result?.message)!)
                 }
@@ -205,7 +210,10 @@ extension SignInViewController {
                     }
                     UserDataManager.sharedInstance.loggedIn = true
                     UserDataManager.getUserProfile()
-                    self.setupTabbarViewController()
+                    if self.loginState == .normal {
+                        self.setupTabbarViewController()
+                        self.dismiss(animated: true)
+                    }
                 }else {
                     self.presentAlert(message: (result?.message)!)
                 }

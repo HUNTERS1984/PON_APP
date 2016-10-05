@@ -15,6 +15,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var navTitleLabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var shopAvatar: CircleImageView!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
@@ -100,6 +101,7 @@ extension ShopViewController {
 extension ShopViewController {
     
     fileprivate func displayShopDetail(_ shop: Shop) {
+        self.shopAvatar.af_setImage(withURL: URL(string: shop.avatarUrl)!)
         self.shopNameLabel.text = shop.title
         self.navTitleLabel.text = shop.title
         shopId.text = "\(shop.shopID!)"

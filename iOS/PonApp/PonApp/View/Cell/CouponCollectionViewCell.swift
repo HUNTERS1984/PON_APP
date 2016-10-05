@@ -77,6 +77,6 @@ class CouponCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func signUpButtonPressed(_ sender: AnyObject) {
-        self.completionHandler!()
+        self.completionHandler?()
     }
 }

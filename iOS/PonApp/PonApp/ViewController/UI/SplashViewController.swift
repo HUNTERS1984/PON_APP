@@ -113,8 +113,7 @@ extension SplashViewController {
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
-                            self.presentAlert(message: (result?.message)!)
-                        }
+                            self.showActionView()                        }
                     }
                 }
             }

@@ -70,7 +70,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7F-vh-638" userLabel="Header View">
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_detail_header_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="rRK-QB-ccs"/>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_detail_header_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="IGF-lO-N5h">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGF-lO-N5h" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="IGF-lO-N5h" secondAttribute="height" multiplier="1:1" id="rIb-K2-Zb1"/>
                                                         </constraints>
@@ -83,10 +83,35 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxr-aC-lei">
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_detail_header_name_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="yjX-c6-u3K"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仙川駅前店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIE-no-pcL">
+                                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="rIE-no-pcL" secondAttribute="trailing" id="B0f-Qk-CEQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="yjX-c6-u3K" secondAttribute="bottom" id="DXO-8N-AQy"/>
+                                                            <constraint firstAttribute="height" constant="25" id="GbR-9M-0oD"/>
+                                                            <constraint firstAttribute="trailing" secondItem="yjX-c6-u3K" secondAttribute="trailing" id="UeM-bB-zZ6"/>
+                                                            <constraint firstItem="rIE-no-pcL" firstAttribute="top" secondItem="kxr-aC-lei" secondAttribute="top" id="aJH-m2-nsN"/>
+                                                            <constraint firstItem="rIE-no-pcL" firstAttribute="leading" secondItem="kxr-aC-lei" secondAttribute="leading" id="hH1-oc-uvZ"/>
+                                                            <constraint firstAttribute="width" constant="140" id="jpR-hu-j0v"/>
+                                                            <constraint firstItem="yjX-c6-u3K" firstAttribute="leading" secondItem="kxr-aC-lei" secondAttribute="leading" id="kPY-De-hUl"/>
+                                                            <constraint firstItem="yjX-c6-u3K" firstAttribute="top" secondItem="kxr-aC-lei" secondAttribute="top" id="n9b-QI-vOT"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rIE-no-pcL" secondAttribute="bottom" id="oY5-ZR-0Bm"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.82352941180000006" green="0.82745098039999998" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="kxr-aC-lei" firstAttribute="top" secondItem="kXR-ka-0K3" secondAttribute="bottom" constant="8" id="0SR-DC-ilF"/>
                                                     <constraint firstAttribute="bottom" secondItem="rRK-QB-ccs" secondAttribute="bottom" id="4Ro-Tu-v97"/>
+                                                    <constraint firstItem="kxr-aC-lei" firstAttribute="centerX" secondItem="Q7F-vh-638" secondAttribute="centerX" id="BfG-6R-EJD"/>
                                                     <constraint firstItem="IGF-lO-N5h" firstAttribute="height" secondItem="Q7F-vh-638" secondAttribute="height" multiplier="85/240" id="BfO-fp-cAb"/>
                                                     <constraint firstItem="rRK-QB-ccs" firstAttribute="top" secondItem="Q7F-vh-638" secondAttribute="top" id="Cgc-nh-DDB"/>
                                                     <constraint firstItem="kXR-ka-0K3" firstAttribute="leading" secondItem="Q7F-vh-638" secondAttribute="leading" constant="8" id="F99-UF-0h0"/>
@@ -531,6 +556,7 @@
                         <outlet property="phoneButton" destination="cye-0Q-Act" id="f10-vM-ofh"/>
                         <outlet property="phoneNumberLabel" destination="ZXJ-jF-28F" id="BZp-um-DUC"/>
                         <outlet property="shareButton" destination="lFN-pu-ic1" id="9yJ-Ee-seb"/>
+                        <outlet property="shopAvatar" destination="IGF-lO-N5h" id="Jt7-Al-2lj"/>
                         <outlet property="shopId" destination="DoS-Qf-SV1" id="Dg4-er-Ffj"/>
                         <outlet property="shopNameLabel" destination="kXR-ka-0K3" id="gOH-U5-P7H"/>
                     </connections>
@@ -542,7 +568,7 @@
     </scenes>
     <resources>
         <image name="shop_detail_header_background.png" width="375" height="240"/>
-        <image name="shop_detail_header_icon.png" width="94" height="94"/>
+        <image name="shop_detail_header_name_background.png" width="141" height="25"/>
         <image name="shop_detail_more_image_button.png" width="356" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -204,6 +204,14 @@ extension HomeMapViewController {
         }
     }
     
+    fileprivate func openSignUp() {
+        self.resetCollectionView()
+        let vc = SignInViewController.instanceFromStoryBoard("Register") as! SignInViewController
+        vc.loginState = .qick
+        let nav = UINavigationController.init(rootViewController: vc)
+        self.navigationController!.present(nav, animated: true)
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -223,6 +231,9 @@ extension HomeMapViewController: UICollectionViewDataSource {
                 cell.coupon = couponData
             })
         }
+        cell.completionHandler = {
+            self.openSignUp()
+        }
         return cell
     }
     
@@ -237,26 +248,31 @@ extension HomeMapViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
-        if let _ = selectedCoupon.canUse {
-            if selectedCoupon.canUse! {
+        if let _ = selectedCoupon.needLogin {
+            if selectedCoupon.needLogin! {
+                if UserDataManager.isLoggedIn() {
+                    self.resetCollectionView()
+                    self.getCouponDetail(selectedCoupon.couponID)
+                }else {
+                    if let _ = self.previousSelectedIndexPath {
+                        if indexPath == self.previousSelectedIndexPath! {
+                            return
+                        }
+                        self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+                        
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }else {
+                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }
+                }
+            }else {
                 self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID)
-            }else {
-                if let _ = self.previousSelectedIndexPath {
-                    if indexPath == self.previousSelectedIndexPath! {
-                        return
-                    }
-                    self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
-                    collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
-                    
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }else {
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }
             }
         }
     }
