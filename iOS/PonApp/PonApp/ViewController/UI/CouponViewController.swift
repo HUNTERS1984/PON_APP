@@ -10,6 +10,7 @@ import UIKit
 
 class CouponViewController: BaseViewController {
 
+    @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var qrCodeButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
@@ -133,7 +134,7 @@ extension CouponViewController {
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
         let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.pushViewController(vc!, animated: false)
+        self.navigationController?.present(vc!, animated: true)
     }
 }
 
@@ -153,8 +154,8 @@ extension CouponViewController {
         }
         
         imageSlideshow.backgroundColor = UIColor.lightGray
-        imageSlideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGray
-        imageSlideshow.pageControl.pageIndicatorTintColor = UIColor.black
+        imageSlideshow.pageControl.currentPageIndicatorTintColor = UIColor(hex: 0x18c0d4)
+        imageSlideshow.pageControl.pageIndicatorTintColor = UIColor.white
         imageSlideshow.contentScaleMode = .scaleToFill
         imageSlideshow.pageControlPosition = .InsideScrollView
 //        let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
@@ -184,8 +185,8 @@ extension CouponViewController {
     }
     
     fileprivate func displayCouponDetail(_ coupon: Coupon) {
-        self.couponInfoLabel.text = coupon.description
-        self.couponTypeLabel.text = "\(coupon.couponType)・ID \(coupon.couponID)"
+        self.couponInfoLabel.text = coupon.description!
+        self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.couponID!)"
         if coupon.isLike! {
             self.likeButton.isUserInteractionEnabled = false
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
@@ -199,7 +200,7 @@ extension CouponViewController {
         self.expiryLabel.text = coupon.expiryDate
         self.shopAvatarImageView.af_setImage(withURL: URL(string: coupon.shopAvatarUrl)!)
         self.shopAddressLabel.text = coupon.shopAddress
-        self.shopBusinessHoursLabel.text = "\(coupon.shopStartTime)~\(coupon.shopEndTime)"
+        self.shopBusinessHoursLabel.text = "\(coupon.shopStartTime!)~\(coupon.shopEndTime!)"
         self.shopPhoneNumber.text = coupon.shopPhonenumber
         self.setupPhotoCollectionView(coupon.userPhotosUrl)
         self.similarCoupon = coupon.similarCoupons

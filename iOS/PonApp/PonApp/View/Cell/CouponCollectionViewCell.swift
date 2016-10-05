@@ -13,7 +13,6 @@ import AlamofireImage
 class CouponCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var confirmView: DesignableView!
-    
     @IBOutlet weak var couponContentView: DesignableView!
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +20,8 @@ class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var expireDateLabel: UILabel!
     @IBOutlet weak var likeIconImage: UIImageView!
     @IBOutlet weak var usedIconImage: UIImageView!
+    
+    var completionHandler:(()->Void)? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,10 +63,16 @@ class CouponCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = coupon.title
         self.expireDateLabel.text = coupon.expiryDate
         if let _ = coupon.isLike {
-            self.likeIconImage.isHidden = !coupon.isLike
+            self.likeIconImage.isHidden = false
+            self.likeIconImage.image = UIImage(named: "coupon_liked")
         }else {
-            self.likeIconImage.isHidden = true
+            self.likeIconImage.isHidden = false
+            self.likeIconImage.image = UIImage(named: "coupon_normal")
         }
         self.typeLabel.text = coupon.couponType
+    }
+    
+    @IBAction func signUpButtonPressed(_ sender: AnyObject) {
+        self.completionHandler!()
     }
 }

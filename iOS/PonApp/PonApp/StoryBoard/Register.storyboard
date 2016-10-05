@@ -1,193 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="HiraginoSansGB-W6.ttf">
+        <array key="HiraginoSansGB-W6.ttf">
             <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
-        <!--Sign Up View Controller-->
-        <scene sceneID="7qY-1Z-Tzk">
-            <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="eLp-j4-9mg" customClass="SignUpViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7bO-h3-12v"/>
-                        <viewControllerLayoutGuide type="bottom" id="tKJ-bP-hMt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wqs-7b-UoJ" customClass="IQPreviousNextView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggl-Tm-3fB" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mme-7H-5Na" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="60" width="375" height="57"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザーネーム" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mD4-fb-Mmi" userLabel="UserName TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="mD4-fb-Mmi" firstAttribute="leading" secondItem="mme-7H-5Na" secondAttribute="leading" constant="20" id="Fid-H2-fDY"/>
-                                    <constraint firstAttribute="trailing" secondItem="mD4-fb-Mmi" secondAttribute="trailing" constant="10" id="VtD-r5-JDx"/>
-                                    <constraint firstItem="mD4-fb-Mmi" firstAttribute="top" secondItem="mme-7H-5Na" secondAttribute="top" id="jJN-Gy-aRH"/>
-                                    <constraint firstAttribute="bottom" secondItem="mD4-fb-Mmi" secondAttribute="bottom" id="wAT-cR-ezn"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVU-jZ-nbx" userLabel="Email View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="117" width="375" height="57"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GWr-ZE-civ" userLabel="Email TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="GWr-ZE-civ" firstAttribute="leading" secondItem="xVU-jZ-nbx" secondAttribute="leading" constant="20" id="4Rb-wU-O8g"/>
-                                    <constraint firstAttribute="trailing" secondItem="GWr-ZE-civ" secondAttribute="trailing" constant="10" id="Qdx-9V-sym"/>
-                                    <constraint firstAttribute="bottom" secondItem="GWr-ZE-civ" secondAttribute="bottom" id="Xbu-AW-OgP"/>
-                                    <constraint firstItem="GWr-ZE-civ" firstAttribute="top" secondItem="xVU-jZ-nbx" secondAttribute="top" id="hqd-9e-sWg"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB8-ov-qQh" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="174" width="375" height="57"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iek-Jw-Rf3" userLabel="Password TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Iek-Jw-Rf3" secondAttribute="trailing" constant="10" id="07M-Mh-Jec"/>
-                                    <constraint firstItem="Iek-Jw-Rf3" firstAttribute="leading" secondItem="nB8-ov-qQh" secondAttribute="leading" constant="20" id="GfI-o7-gtu"/>
-                                    <constraint firstAttribute="bottom" secondItem="Iek-Jw-Rf3" secondAttribute="bottom" id="bSa-sN-vXe"/>
-                                    <constraint firstItem="Iek-Jw-Rf3" firstAttribute="top" secondItem="nB8-ov-qQh" secondAttribute="top" id="jPN-wP-qCY"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hd-AN-7it" userLabel="Password Confirmation View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="231" width="375" height="57"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード（確認）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRM-Jq-idm" userLabel="Password Confirmation TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="XRM-Jq-idm" firstAttribute="leading" secondItem="0hd-AN-7it" secondAttribute="leading" constant="20" id="6Nq-Vx-r9h"/>
-                                    <constraint firstItem="XRM-Jq-idm" firstAttribute="top" secondItem="0hd-AN-7it" secondAttribute="top" id="K1Z-Vf-BHI"/>
-                                    <constraint firstAttribute="bottom" secondItem="XRM-Jq-idm" secondAttribute="bottom" id="a8l-EO-gaQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="XRM-Jq-idm" secondAttribute="trailing" constant="10" id="jVm-D5-vfV"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-MZ-u3y" userLabel="Signup Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="308" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
-                                <state key="normal" title="こちらの内容で登録"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="signupButtonPressed:" destination="eLp-j4-9mg" eventType="touchUpInside" id="A7N-tg-M3R"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xVU-jZ-nbx" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="2Yc-fU-ZJI"/>
-                            <constraint firstItem="nB8-ov-qQh" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="422-9G-mg9"/>
-                            <constraint firstItem="xVU-jZ-nbx" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="4OM-o6-m6h"/>
-                            <constraint firstItem="Ggl-Tm-3fB" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="9Eg-NC-b1Q"/>
-                            <constraint firstItem="0hd-AN-7it" firstAttribute="top" secondItem="nB8-ov-qQh" secondAttribute="bottom" id="EW2-8C-wr2"/>
-                            <constraint firstAttribute="trailing" secondItem="nB8-ov-qQh" secondAttribute="trailing" id="GVW-Pd-UsK"/>
-                            <constraint firstItem="nB8-ov-qQh" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="Igy-gW-UIz"/>
-                            <constraint firstItem="Ggl-Tm-3fB" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="60/667" id="KOF-Sj-5IY"/>
-                            <constraint firstItem="5qB-MZ-u3y" firstAttribute="top" secondItem="0hd-AN-7it" secondAttribute="bottom" constant="20" id="LWO-zL-3Kf"/>
-                            <constraint firstItem="5qB-MZ-u3y" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leadingMargin" id="P7S-aa-d1x"/>
-                            <constraint firstAttribute="trailing" secondItem="0hd-AN-7it" secondAttribute="trailing" id="S8n-79-Zie"/>
-                            <constraint firstAttribute="trailing" secondItem="mme-7H-5Na" secondAttribute="trailing" id="SfP-gd-0rW"/>
-                            <constraint firstItem="Ggl-Tm-3fB" firstAttribute="top" secondItem="Wqs-7b-UoJ" secondAttribute="top" id="WLZ-nV-zhZ"/>
-                            <constraint firstItem="mme-7H-5Na" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="XU4-MQ-PMB"/>
-                            <constraint firstAttribute="trailing" secondItem="xVU-jZ-nbx" secondAttribute="trailing" id="cc2-bk-4w4"/>
-                            <constraint firstItem="mme-7H-5Na" firstAttribute="top" secondItem="Ggl-Tm-3fB" secondAttribute="bottom" id="d7r-UQ-rcC"/>
-                            <constraint firstItem="nB8-ov-qQh" firstAttribute="top" secondItem="xVU-jZ-nbx" secondAttribute="bottom" id="fuv-Em-wrK"/>
-                            <constraint firstItem="mme-7H-5Na" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="57/667" id="kOa-6q-5dm"/>
-                            <constraint firstItem="5qB-MZ-u3y" firstAttribute="height" secondItem="Wqs-7b-UoJ" secondAttribute="height" multiplier="50/667" id="lHT-Ui-WO8"/>
-                            <constraint firstItem="xVU-jZ-nbx" firstAttribute="top" secondItem="mme-7H-5Na" secondAttribute="bottom" id="lK2-WD-XfX"/>
-                            <constraint firstAttribute="trailing" secondItem="Ggl-Tm-3fB" secondAttribute="trailing" id="nFQ-nX-j3r"/>
-                            <constraint firstItem="0hd-AN-7it" firstAttribute="leading" secondItem="Wqs-7b-UoJ" secondAttribute="leading" id="tZP-OQ-e4l"/>
-                            <constraint firstItem="5qB-MZ-u3y" firstAttribute="trailing" secondItem="Wqs-7b-UoJ" secondAttribute="trailingMargin" id="uxP-yq-Kc0"/>
-                            <constraint firstItem="0hd-AN-7it" firstAttribute="height" secondItem="mme-7H-5Na" secondAttribute="height" id="yNo-bA-kEF"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="GWr-ZE-civ" id="TjF-9J-IC1"/>
-                        <outlet property="passConfirmationTextField" destination="XRM-Jq-idm" id="V3u-PF-Am4"/>
-                        <outlet property="passwordTextField" destination="Iek-Jw-Rf3" id="A9A-e0-a06"/>
-                        <outlet property="userNameTextField" destination="mD4-fb-Mmi" id="5in-Pu-ixz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QxN-pI-GSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-225.5" y="297.5"/>
-        </scene>
         <!--Sign In View Controller-->
         <scene sceneID="B7r-O3-wI4">
             <objects>
@@ -196,136 +18,314 @@
                         <viewControllerLayoutGuide type="top" id="Lef-rc-DdY"/>
                         <viewControllerLayoutGuide type="bottom" id="e1f-gj-ZTn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Ne-6j-ZWb" customClass="IQPreviousNextView">
+                    <view key="view" contentMode="scaleToFill" id="8Ne-6j-ZWb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQQ-zt-pPL" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MX-qD-mCc" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="60" width="375" height="57"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztg-TW-g7W" userLabel="Login View" customClass="IQPreviousNextView">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJM-nH-Xj4" userLabel="UserName TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3i-UK-B0f" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="GP1-yn-ANJ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdB-dq-gd5" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DD9-40-XP7" userLabel="UserName TextField">
+                                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="DD9-40-XP7" firstAttribute="top" secondItem="fdB-dq-gd5" secondAttribute="top" id="IDT-DH-s8R"/>
+                                            <constraint firstItem="DD9-40-XP7" firstAttribute="leading" secondItem="fdB-dq-gd5" secondAttribute="leading" constant="20" id="X97-JJ-t1P"/>
+                                            <constraint firstAttribute="bottom" secondItem="DD9-40-XP7" secondAttribute="bottom" id="dQR-7O-9rX"/>
+                                            <constraint firstAttribute="height" constant="57" id="hg4-nz-aA8"/>
+                                            <constraint firstAttribute="trailing" secondItem="DD9-40-XP7" secondAttribute="trailing" constant="10" id="uzh-ok-QHk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-h3-hRS" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXV-oJ-yEY" userLabel="Password TextField">
+                                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="JXV-oJ-yEY" firstAttribute="leading" secondItem="qtk-h3-hRS" secondAttribute="leading" constant="20" id="6U0-cj-vIR"/>
+                                            <constraint firstItem="JXV-oJ-yEY" firstAttribute="top" secondItem="qtk-h3-hRS" secondAttribute="top" id="7oM-bx-wSh"/>
+                                            <constraint firstAttribute="height" constant="57" id="KEm-Aq-s7b"/>
+                                            <constraint firstAttribute="bottom" secondItem="JXV-oJ-yEY" secondAttribute="bottom" id="Ypk-ig-I2r"/>
+                                            <constraint firstAttribute="trailing" secondItem="JXV-oJ-yEY" secondAttribute="trailing" constant="10" id="zmY-Yx-vqs"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAu-9c-lC1" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="lbI-IR-6la"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <state key="normal" title="ログイン"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signInButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="jPq-Mp-kAc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-kz-Zcl" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rPz-RM-wek"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <state key="normal" title="新規会員登録"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showSignUpFormButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="6Gt-bx-jEs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HJM-nH-Xj4" secondAttribute="bottom" id="AUm-9N-Pnk"/>
-                                    <constraint firstItem="HJM-nH-Xj4" firstAttribute="top" secondItem="5MX-qD-mCc" secondAttribute="top" id="gGo-8t-wye"/>
-                                    <constraint firstAttribute="trailing" secondItem="HJM-nH-Xj4" secondAttribute="trailing" constant="10" id="hkC-s2-mGa"/>
-                                    <constraint firstItem="HJM-nH-Xj4" firstAttribute="leading" secondItem="5MX-qD-mCc" secondAttribute="leading" constant="20" id="o1z-ZK-RuA"/>
+                                    <constraint firstAttribute="trailing" secondItem="QAu-9c-lC1" secondAttribute="trailing" constant="20" id="0FI-my-cdG"/>
+                                    <constraint firstItem="qtk-h3-hRS" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" id="53F-OY-n55"/>
+                                    <constraint firstAttribute="trailing" secondItem="fmH-kz-Zcl" secondAttribute="trailing" constant="20" id="6Rx-3G-Gt3"/>
+                                    <constraint firstItem="QAu-9c-lC1" firstAttribute="top" secondItem="qtk-h3-hRS" secondAttribute="bottom" constant="20" id="8JR-Ek-rWm"/>
+                                    <constraint firstItem="QAu-9c-lC1" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" constant="20" id="9EN-tL-kTH"/>
+                                    <constraint firstItem="i3i-UK-B0f" firstAttribute="top" secondItem="ztg-TW-g7W" secondAttribute="top" id="EIl-KH-HYH"/>
+                                    <constraint firstAttribute="bottom" secondItem="fmH-kz-Zcl" secondAttribute="bottom" id="HPl-gG-0q7"/>
+                                    <constraint firstItem="fmH-kz-Zcl" firstAttribute="top" secondItem="QAu-9c-lC1" secondAttribute="bottom" constant="20" id="Q38-yk-Kwt"/>
+                                    <constraint firstAttribute="trailing" secondItem="fdB-dq-gd5" secondAttribute="trailing" id="SLf-E8-lrK"/>
+                                    <constraint firstItem="qtk-h3-hRS" firstAttribute="top" secondItem="fdB-dq-gd5" secondAttribute="bottom" id="Wac-pb-MH0"/>
+                                    <constraint firstItem="fmH-kz-Zcl" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" constant="20" id="fxu-IG-v5E"/>
+                                    <constraint firstItem="i3i-UK-B0f" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" id="lLt-UM-aq0"/>
+                                    <constraint firstAttribute="trailing" secondItem="qtk-h3-hRS" secondAttribute="trailing" id="pdV-qg-Cmr"/>
+                                    <constraint firstItem="fdB-dq-gd5" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" id="r5c-Wm-sNA"/>
+                                    <constraint firstItem="fdB-dq-gd5" firstAttribute="top" secondItem="i3i-UK-B0f" secondAttribute="bottom" id="yDa-oi-4uH"/>
+                                    <constraint firstAttribute="trailing" secondItem="i3i-UK-B0f" secondAttribute="trailing" id="zev-7i-U2m"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="099-28-SIm" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="117" width="375" height="57"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-0s-c9o" userLabel="Register View" customClass="IQPreviousNextView">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cye-SA-hcE" userLabel="Password TextField">
-                                        <rect key="frame" x="20" y="0.0" width="345" height="57"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3l-Ql-ZBd" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8MM-Ox-g3P"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0C-T5-QzF" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザーネーム" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-3p-lwy" userLabel="UserName TextField">
+                                                <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="4jR-3p-lwy" firstAttribute="top" secondItem="W0C-T5-QzF" secondAttribute="top" id="LCp-NB-8go"/>
+                                            <constraint firstAttribute="trailing" secondItem="4jR-3p-lwy" secondAttribute="trailing" constant="10" id="PEv-Nw-ZdN"/>
+                                            <constraint firstAttribute="height" constant="57" id="VPZ-I2-2bD"/>
+                                            <constraint firstAttribute="bottom" secondItem="4jR-3p-lwy" secondAttribute="bottom" id="ZuY-rH-8RQ"/>
+                                            <constraint firstItem="4jR-3p-lwy" firstAttribute="leading" secondItem="W0C-T5-QzF" secondAttribute="leading" constant="20" id="j0o-4Y-T2Q"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-Tv-3iG" userLabel="Email View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Sz-Kw-lN5" userLabel="Email TextField">
+                                                <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="0li-oQ-RBj"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Sz-Kw-lN5" secondAttribute="bottom" id="GYh-MH-zg5"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Sz-Kw-lN5" secondAttribute="trailing" constant="10" id="Z3N-A9-1tv"/>
+                                            <constraint firstItem="9Sz-Kw-lN5" firstAttribute="leading" secondItem="N3n-Tv-3iG" secondAttribute="leading" constant="20" id="uDu-uO-5YQ"/>
+                                            <constraint firstItem="9Sz-Kw-lN5" firstAttribute="top" secondItem="N3n-Tv-3iG" secondAttribute="top" id="wz9-3g-ONd"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-Rz-Bbd" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJc-su-deF" userLabel="Password TextField">
+                                                <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="NoU-Tq-FBg"/>
+                                            <constraint firstAttribute="trailing" secondItem="vJc-su-deF" secondAttribute="trailing" constant="10" id="Xsz-uI-qhm"/>
+                                            <constraint firstItem="vJc-su-deF" firstAttribute="top" secondItem="eeR-Rz-Bbd" secondAttribute="top" id="phm-CA-wSm"/>
+                                            <constraint firstItem="vJc-su-deF" firstAttribute="leading" secondItem="eeR-Rz-Bbd" secondAttribute="leading" constant="20" id="t61-63-amd"/>
+                                            <constraint firstAttribute="bottom" secondItem="vJc-su-deF" secondAttribute="bottom" id="x2H-2w-WEA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-S3-nlb" userLabel="Password Confirmation View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード（確認）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-0P-M0d" userLabel="Password Confirmation TextField">
+                                                <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="aZc-0P-M0d" firstAttribute="top" secondItem="Hhf-S3-nlb" secondAttribute="top" id="1xw-Uj-tLf"/>
+                                            <constraint firstAttribute="trailing" secondItem="aZc-0P-M0d" secondAttribute="trailing" constant="10" id="2Gx-qO-Qgt"/>
+                                            <constraint firstAttribute="height" constant="57" id="9pj-29-SRY"/>
+                                            <constraint firstItem="aZc-0P-M0d" firstAttribute="leading" secondItem="Hhf-S3-nlb" secondAttribute="leading" constant="20" id="TQu-YO-hHz"/>
+                                            <constraint firstAttribute="bottom" secondItem="aZc-0P-M0d" secondAttribute="bottom" id="rP6-4x-UsH"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEg-Md-t5p" userLabel="Signup Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="575-4d-6Tg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <state key="normal" title="こちらの内容で登録"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="aWj-uC-Nrl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrH-4j-fcD">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="uPz-uo-Ixa"/>
+                                        </constraints>
+                                        <state key="normal" image="signup_already_button.png"/>
+                                        <connections>
+                                            <action selector="accountAlreadyButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="YgO-ra-h3V"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Cye-SA-hcE" secondAttribute="trailing" constant="10" id="Mgw-mh-Csd"/>
-                                    <constraint firstAttribute="bottom" secondItem="Cye-SA-hcE" secondAttribute="bottom" id="R7J-kY-Cno"/>
-                                    <constraint firstItem="Cye-SA-hcE" firstAttribute="leading" secondItem="099-28-SIm" secondAttribute="leading" constant="20" id="kNj-1F-VOU"/>
-                                    <constraint firstItem="Cye-SA-hcE" firstAttribute="top" secondItem="099-28-SIm" secondAttribute="top" id="x8A-jZ-Olt"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrH-4j-fcD" secondAttribute="bottom" id="05A-ue-huv"/>
+                                    <constraint firstItem="eeR-Rz-Bbd" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="1Lv-dJ-Hrj"/>
+                                    <constraint firstItem="s3l-Ql-ZBd" firstAttribute="top" secondItem="6u8-0s-c9o" secondAttribute="top" id="1W5-F4-ea5"/>
+                                    <constraint firstAttribute="trailing" secondItem="W0C-T5-QzF" secondAttribute="trailing" id="27F-N9-i7A"/>
+                                    <constraint firstItem="eeR-Rz-Bbd" firstAttribute="top" secondItem="N3n-Tv-3iG" secondAttribute="bottom" id="30D-b0-64j"/>
+                                    <constraint firstItem="s3l-Ql-ZBd" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="8sA-Hk-QJx"/>
+                                    <constraint firstItem="W0C-T5-QzF" firstAttribute="top" secondItem="s3l-Ql-ZBd" secondAttribute="bottom" id="C5Z-4O-VQc"/>
+                                    <constraint firstItem="lrH-4j-fcD" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" constant="18" id="GNZ-G9-u3Y"/>
+                                    <constraint firstItem="W0C-T5-QzF" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="I45-cD-VLQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hhf-S3-nlb" secondAttribute="trailing" id="IJ4-p7-SHZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eeR-Rz-Bbd" secondAttribute="trailing" id="JnY-mV-Faw"/>
+                                    <constraint firstAttribute="trailing" secondItem="nEg-Md-t5p" secondAttribute="trailing" constant="16" id="K8g-xs-M83"/>
+                                    <constraint firstItem="N3n-Tv-3iG" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="NUp-5H-wyz"/>
+                                    <constraint firstItem="nEg-Md-t5p" firstAttribute="top" secondItem="Hhf-S3-nlb" secondAttribute="bottom" constant="20" id="VBS-mB-5bZ"/>
+                                    <constraint firstItem="Hhf-S3-nlb" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="W60-0w-mDJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="N3n-Tv-3iG" secondAttribute="trailing" id="eyo-zx-FjO"/>
+                                    <constraint firstItem="N3n-Tv-3iG" firstAttribute="top" secondItem="W0C-T5-QzF" secondAttribute="bottom" id="gBv-Cq-V1r"/>
+                                    <constraint firstItem="nEg-Md-t5p" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" constant="16" id="lCU-98-gqk"/>
+                                    <constraint firstItem="Hhf-S3-nlb" firstAttribute="top" secondItem="eeR-Rz-Bbd" secondAttribute="bottom" id="saJ-gg-Mhq"/>
+                                    <constraint firstAttribute="trailing" secondItem="s3l-Ql-ZBd" secondAttribute="trailing" id="wms-Mb-goy"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrH-4j-fcD" secondAttribute="trailing" constant="18" id="xMQ-rg-OOP"/>
+                                    <constraint firstItem="lrH-4j-fcD" firstAttribute="top" secondItem="nEg-Md-t5p" secondAttribute="bottom" constant="8" id="zC8-Et-IE5"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgN-9z-Qkl" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="194" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
-                                <state key="normal" title="ログイン"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="signInButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="hNc-GL-BRG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jr1-GS-SXo" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="264" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
-                                <state key="normal" title="新規会員登録"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="signUnButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="kAt-97-xVW"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Jr1-GS-SXo" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="50/667" id="8Wg-cm-78o"/>
-                            <constraint firstAttribute="trailing" secondItem="ZQQ-zt-pPL" secondAttribute="trailing" id="8yY-wz-7cw"/>
-                            <constraint firstItem="ZQQ-zt-pPL" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="Bjq-Br-lfC"/>
-                            <constraint firstItem="ZQQ-zt-pPL" firstAttribute="top" secondItem="8Ne-6j-ZWb" secondAttribute="top" id="G7T-cd-3r6"/>
-                            <constraint firstItem="ZQQ-zt-pPL" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="60/667" id="Gu2-Nc-Hg7"/>
-                            <constraint firstItem="099-28-SIm" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="HnZ-Cj-TP2"/>
-                            <constraint firstItem="Jr1-GS-SXo" firstAttribute="top" secondItem="tgN-9z-Qkl" secondAttribute="bottom" constant="20" id="Li1-Wd-wk1"/>
-                            <constraint firstAttribute="trailing" secondItem="tgN-9z-Qkl" secondAttribute="trailing" constant="20" id="Pi3-Ob-8Mj"/>
-                            <constraint firstItem="tgN-9z-Qkl" firstAttribute="top" secondItem="099-28-SIm" secondAttribute="bottom" constant="20" id="Tk2-Gy-EI1"/>
-                            <constraint firstItem="Jr1-GS-SXo" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" constant="20" id="Uyt-DO-ckz"/>
-                            <constraint firstItem="099-28-SIm" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="57/667" id="Vwv-28-omZ"/>
-                            <constraint firstItem="099-28-SIm" firstAttribute="top" secondItem="5MX-qD-mCc" secondAttribute="bottom" id="YHh-VZ-AxC"/>
-                            <constraint firstAttribute="trailing" secondItem="099-28-SIm" secondAttribute="trailing" id="kns-bS-W9v"/>
-                            <constraint firstItem="tgN-9z-Qkl" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" constant="20" id="mao-cB-R4C"/>
-                            <constraint firstItem="5MX-qD-mCc" firstAttribute="top" secondItem="ZQQ-zt-pPL" secondAttribute="bottom" id="pCR-xZ-IvO"/>
-                            <constraint firstItem="tgN-9z-Qkl" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="50/667" id="r1A-w4-uHL"/>
-                            <constraint firstAttribute="trailing" secondItem="Jr1-GS-SXo" secondAttribute="trailing" constant="20" id="rio-r7-5jC"/>
-                            <constraint firstItem="5MX-qD-mCc" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="u32-Mm-CnZ"/>
-                            <constraint firstAttribute="trailing" secondItem="5MX-qD-mCc" secondAttribute="trailing" id="w65-xV-gvc"/>
-                            <constraint firstItem="5MX-qD-mCc" firstAttribute="height" secondItem="8Ne-6j-ZWb" secondAttribute="height" multiplier="57/667" id="wPW-Vv-Woz"/>
+                            <constraint firstItem="6u8-0s-c9o" firstAttribute="top" secondItem="8Ne-6j-ZWb" secondAttribute="top" id="6wY-1a-TPr"/>
+                            <constraint firstAttribute="trailing" secondItem="ztg-TW-g7W" secondAttribute="trailing" id="GRQ-4G-Mmr"/>
+                            <constraint firstAttribute="trailing" secondItem="6u8-0s-c9o" secondAttribute="trailing" id="QI4-yr-ijg"/>
+                            <constraint firstItem="ztg-TW-g7W" firstAttribute="top" secondItem="8Ne-6j-ZWb" secondAttribute="top" id="e5c-pm-KsH"/>
+                            <constraint firstItem="ztg-TW-g7W" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="pP9-E2-Vef"/>
+                            <constraint firstItem="6u8-0s-c9o" firstAttribute="leading" secondItem="8Ne-6j-ZWb" secondAttribute="leading" id="sep-6v-41e"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="passwordTextField" destination="Cye-SA-hcE" id="rhp-mL-see"/>
-                        <outlet property="userNameTextField" destination="HJM-nH-Xj4" id="stX-fd-KBm"/>
+                        <outlet property="emailTextField" destination="9Sz-Kw-lN5" id="oBm-nL-9uM"/>
+                        <outlet property="lgpasswordTextField" destination="JXV-oJ-yEY" id="rpm-xl-87U"/>
+                        <outlet property="lguserNameTextField" destination="DD9-40-XP7" id="p4b-e5-pLa"/>
+                        <outlet property="loginContainerView" destination="ztg-TW-g7W" id="luZ-Kl-BuS"/>
+                        <outlet property="passConfirmationTextField" destination="aZc-0P-M0d" id="MLU-Gi-OfY"/>
+                        <outlet property="passwordTextField" destination="vJc-su-deF" id="mPg-TN-b1U"/>
+                        <outlet property="registerContainerView" destination="6u8-0s-c9o" id="3Ky-qA-Bzg"/>
+                        <outlet property="userNameTextField" destination="4jR-3p-lwy" id="5Na-s2-pgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4X-tr-WJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.5" y="297.5"/>
+            <point key="canvasLocation" x="23" y="280"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="signup_already_button.png" width="339" height="51"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

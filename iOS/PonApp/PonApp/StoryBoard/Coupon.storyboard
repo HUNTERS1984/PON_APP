@@ -56,6 +56,37 @@
                                                             <action selector="qrCodeButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="qSZ-we-FZy"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGJ-mU-eUy" userLabel="Category View">
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_category_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTf-yb-abn"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_category_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="T7u-DZ-d5c" userLabel="Coupon Category Image">
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="22" id="KzK-iI-XLR"/>
+                                                                    <constraint firstAttribute="width" constant="22" id="mhn-2h-MBC"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グルメ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H48-5J-tdX" userLabel="Coupon Category Label">
+                                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="H48-5J-tdX" secondAttribute="bottom" id="BY0-qj-cca"/>
+                                                            <constraint firstItem="ZTf-yb-abn" firstAttribute="top" secondItem="IGJ-mU-eUy" secondAttribute="top" id="NMS-U5-qHR"/>
+                                                            <constraint firstItem="T7u-DZ-d5c" firstAttribute="leading" secondItem="IGJ-mU-eUy" secondAttribute="leading" constant="15" id="Qgc-Id-e3d"/>
+                                                            <constraint firstItem="ZTf-yb-abn" firstAttribute="leading" secondItem="IGJ-mU-eUy" secondAttribute="leading" id="Red-oU-jYk"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ZTf-yb-abn" secondAttribute="trailing" id="SiJ-yH-glg"/>
+                                                            <constraint firstAttribute="height" constant="33" id="WJ1-00-Z8t"/>
+                                                            <constraint firstAttribute="trailing" secondItem="H48-5J-tdX" secondAttribute="trailing" constant="4" id="cx4-Td-gIc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ZTf-yb-abn" secondAttribute="bottom" id="eXV-xs-tS5"/>
+                                                            <constraint firstItem="H48-5J-tdX" firstAttribute="leading" secondItem="T7u-DZ-d5c" secondAttribute="trailing" id="lb1-fD-MLl"/>
+                                                            <constraint firstAttribute="width" constant="113" id="oRt-xX-Xhi"/>
+                                                            <constraint firstItem="H48-5J-tdX" firstAttribute="top" secondItem="IGJ-mU-eUy" secondAttribute="top" id="pH5-Kj-XuB"/>
+                                                            <constraint firstItem="T7u-DZ-d5c" firstAttribute="centerY" secondItem="IGJ-mU-eUy" secondAttribute="centerY" id="y1t-4a-TQO"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTN-FK-Dyy" userLabel="Banner View" customClass="CouponBannerView" customModule="PonApp" customModuleProvider="target">
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqw-Qy-ngb" userLabel="Share Button">
@@ -105,8 +136,10 @@
                                                     <constraint firstAttribute="bottom" secondItem="FTN-FK-Dyy" secondAttribute="bottom" id="XzQ-cj-BfH"/>
                                                     <constraint firstItem="W7w-2M-KHV" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" id="YQy-TX-aee"/>
                                                     <constraint firstItem="FTN-FK-Dyy" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" id="ct6-c5-eUj"/>
+                                                    <constraint firstItem="FTN-FK-Dyy" firstAttribute="top" secondItem="IGJ-mU-eUy" secondAttribute="bottom" constant="1" id="cx9-ep-nDX"/>
                                                     <constraint firstItem="FTN-FK-Dyy" firstAttribute="height" secondItem="arB-n3-ct6" secondAttribute="height" multiplier="95/270" id="fI2-ur-Oul"/>
                                                     <constraint firstAttribute="trailing" secondItem="wYM-c4-UUk" secondAttribute="trailing" id="oNp-nL-tJp"/>
+                                                    <constraint firstItem="IGJ-mU-eUy" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" constant="-1" id="rvy-Kn-hMw"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-D2-XOC" userLabel="Info View">
@@ -417,6 +450,7 @@
                         <outlet property="albumCollectionView" destination="Zxh-As-GZH" id="BjJ-kz-Wb6"/>
                         <outlet property="albumCollectionViewConstraint" destination="LhT-D2-loi" id="dCN-Hd-QB8"/>
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
+                        <outlet property="couponCategoryLabel" destination="H48-5J-tdX" id="UyJ-uJ-XU0"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="couponTitleLabel" destination="zIf-jE-byz" id="g6c-FM-rXN"/>
                         <outlet property="couponTypeLabel" destination="2Yb-5v-dOe" id="aw2-bs-O7u"/>
@@ -712,6 +746,8 @@
     </scenes>
     <resources>
         <image name="coupon_button_qrcode.png" width="82" height="30"/>
+        <image name="coupon_category_background.png" width="113" height="33"/>
+        <image name="coupon_category_food.png" width="22" height="21"/>
         <image name="coupon_location.png" width="29" height="29"/>
         <image name="coupon_phone.png" width="29" height="29"/>
         <image name="coupon_time.png" width="29" height="29"/>

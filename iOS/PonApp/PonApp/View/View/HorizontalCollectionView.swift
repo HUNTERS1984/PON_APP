@@ -1,4 +1,4 @@
-//
+ //
 //  HorizontalCollectionView.swift
 //  PonApp
 //
@@ -11,6 +11,7 @@ import UIKit
 protocol HorizontalCollectionViewDelegate: class {
     
     func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: IndexPath)
+    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didPressSignUpButton button: AnyObject?)
 }
 
 class HorizontalCollectionView: UICollectionView {
@@ -61,6 +62,9 @@ extension HorizontalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.coupon = self.coupons[(indexPath as NSIndexPath).item]
+        cell.completionHandler = {
+            self.handler?.horizontalCollectionView(self, didPressSignUpButton: nil)
+        }
         return cell
     }
     

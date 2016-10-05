@@ -10,8 +10,18 @@ import UIKit
 
 class SignInViewController: BaseViewController {
 
+    @IBOutlet weak var registerContainerView: UIView!
+    @IBOutlet weak var loginContainerView:UIView!
+    
+    //MARK: Login Outlet
+    @IBOutlet weak var lguserNameTextField: UITextField!
+    @IBOutlet weak var lgpasswordTextField: UITextField!
+    
+    //MARK: Register Outlet
     @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passConfirmationTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +43,7 @@ class SignInViewController: BaseViewController {
         super.setUpUserInterface()
         self.title = "ログイン"
         self.showCloseButton()
+        self.registerContainerView.alpha = 0
     }
 
 }
@@ -41,29 +52,62 @@ class SignInViewController: BaseViewController {
 extension SignInViewController {
     
     @IBAction func signInButtonPressed(_ sender: AnyObject) {
-        let userName = self.userNameTextField.text
-        let password = self.passwordTextField.text
+        let userName = self.lguserNameTextField.text
+        let password = self.lgpasswordTextField.text
         
-        self.validInfomation(userName, password: password) { (successed: Bool, message: String) in
+        self.validSignInInfomation(userName, password: password) { (successed: Bool, message: String) in
             if successed {
                 self.signIn(userName!, password: password!)
             }else {
-                
-//                HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                self.presentAlert(message: message)
             }
         }
     }
     
-    @IBAction func signUnButtonPressed(_ sender: AnyObject) {
-        let vc = SignUpViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc!, animated: true)
+    @IBAction func showSignUpFormButtonPressed(_ sender: AnyObject) {
+        self.showSignUpForm()
     }
     
+    @IBAction func signUpButtonPressed(_ sender: AnyObject) {
+        let userName = self.userNameTextField.text
+        let email = self.emailTextField.text
+        let password = self.passwordTextField.text
+        let confimPassowrd = self.passConfirmationTextField.text
+        
+        self.validSignUpInfomation(userName, email: email, password: password, confirmPassword: confimPassowrd) { (successed: Bool, message: String) in
+            if successed {
+                self.registerUser(userName!, email: email!, password: password!)
+            }else {
+                self.presentAlert(message: message)
+            }
+        }
+    }
+    
+    @IBAction override func navCloseButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func accountAlreadyButtonPressed(_ sender: AnyObject) {
+        self.showLoginForm()
+    }
+
 }
 
 extension SignInViewController {
     
-    fileprivate func validInfomation(_ userName: String?, password: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
+    fileprivate func showLoginForm() {
+        self.title = "ログイン"
+        self.registerContainerView.fadeOut(0.5)
+        self.loginContainerView.fadeIn(0.5)
+    }
+    
+    fileprivate func showSignUpForm() {
+        self.title = "新規会員登録"
+        self.registerContainerView.fadeIn(0.5)
+        self.loginContainerView.fadeOut(0.5)
+    }
+    
+    fileprivate func validSignInInfomation(_ userName: String?, password: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
             
         }else {
@@ -87,7 +131,7 @@ extension SignInViewController {
             if let _ = error {
                 let message = error!.userInfo["error"] as? String
                 if let _ = message {
-//                    HLKAlertView.show("Error", message: message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                    self.presentAlert(message: message!)
                 }
             }else {
                 if result?.code == SuccessCode {
@@ -98,7 +142,72 @@ extension SignInViewController {
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
-//                    HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
+    fileprivate func validSignUpInfomation(_ userName: String?, email: String?, password: String?, confirmPassword: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
+        if let _ = userName {
+            if userName!.characters.count == 0 {
+                completion(false, UserNameBlank)
+                return
+            }
+        }else {
+            completion(false, UserNameBlank)
+            return
+        }
+        
+        if let _ = email {
+            if !String.validate(email!) {
+                completion(false, EmailNotValid)
+                return
+            }
+        }else {
+            completion(false, EmailBlank)
+            return
+        }
+        
+        if let _ = password {
+            if password!.characters.count < 6 {
+                completion(false, PasswordRange)
+                return
+            }
+        }else {
+            completion(false, PasswordBlank)
+            return
+        }
+        
+        if let _ = confirmPassword {
+            if password! != confirmPassword! {
+                completion(false, PasswordNotMatch)
+                return
+            }
+        }else {
+            completion(false, PasswordNotMatch)
+            return
+        }
+        
+        completion(true, "")
+    }
+
+    fileprivate func registerUser(_ userName: String, email: String, password: String) {
+        self.showHUD()
+        ApiRequest.signUp(userName, email: email, password: password) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.getUserProfile()
+                    self.setupTabbarViewController()
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
