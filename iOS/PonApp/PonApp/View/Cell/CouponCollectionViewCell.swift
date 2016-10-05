@@ -25,20 +25,20 @@ class CouponCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initialize()
+        self.setupCollectionViewCell()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.initialize()
+        self.setupCollectionViewCell()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.initialize()
+        self.setupCollectionViewCell()
     }
     
-    func initialize() {
+    func setupCollectionViewCell() {
         self.backgroundColor = UIColor.clear
     }
     

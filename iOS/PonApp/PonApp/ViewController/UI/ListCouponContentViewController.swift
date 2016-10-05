@@ -40,15 +40,6 @@ class ListCouponContentViewController: BaseViewController {
         self.getCouponByFeatureAndType(1)
     }
     
-    override func setUpComponentsOnWillAppear() {
-        super.setUpComponentsOnWillAppear()
-    }
-    
-}
-
-//MARK: - IBAction
-extension ListCouponContentViewController {
-    
 }
 
 //MARK: - Private

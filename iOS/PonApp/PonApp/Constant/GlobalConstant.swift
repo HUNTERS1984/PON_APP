@@ -8,7 +8,7 @@
 
 import UIKit
 
-let DefaultBackgroundColor                      = 0xFAFAFA
+let DefaultBackgroundColor                      = 0xF8F8FA
 let DefaultBorderColor                          = 0xc8d2d6
 let DefaultBlackTextColor                       = 0x505a5e
 let DefaultLightGrayTextColor                   = 0x82898b

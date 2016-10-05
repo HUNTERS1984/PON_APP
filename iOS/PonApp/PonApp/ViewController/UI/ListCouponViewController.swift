@@ -75,7 +75,7 @@ extension ListCouponViewController {
         let parameters: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(4.3),
             .scrollMenuBackgroundColor(UIColor.white),
-            .viewBackgroundColor(UIColor.white),
+            .viewBackgroundColor(UIColor(hex: DefaultBackgroundColor)),
             .bottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .selectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .menuItemWidth(70.0),
