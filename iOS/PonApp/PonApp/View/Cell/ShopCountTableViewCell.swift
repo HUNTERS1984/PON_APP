@@ -24,7 +24,7 @@ class ShopCountTableViewCell: UITableViewCell {
         self.thumbImageView.af_setImage(withURL: URL(string: category.categoryIconUrl)!)
         self.titleLabel.text = category.categoryName
         if let _ = category.shopCount {
-            self.shopCountLabel.text = "\(category.shopCount)"
+            self.shopCountLabel.text = "\(category.shopCount!)"
         }
     }
 }

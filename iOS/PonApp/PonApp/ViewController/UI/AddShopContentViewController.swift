@@ -108,7 +108,7 @@ extension AddShopContentViewController {
             if let _ = error {
                 
             }else {
-                if result?.message {
+                if result?.code == SuccessCode {
                     let shop = Shop(response: result?.data)
                     let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
                     vc.shop = shop
