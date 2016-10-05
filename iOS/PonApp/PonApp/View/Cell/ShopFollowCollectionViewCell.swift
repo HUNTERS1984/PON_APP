@@ -13,6 +13,8 @@ class ShopFollowCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avartarImageView: UIImageView!
     @IBOutlet weak var followButton: UIButton!
     
+    var completionHandler:((_ shopID: Float?, _ index: Int) -> Void)? = nil
+    var index: Int!
     var shop: Shop! {
         didSet {
             self.setDataForCell(self.shop)
@@ -24,7 +26,11 @@ class ShopFollowCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func followButtonPressed(_ sender: AnyObject) {
-        
+        if let _ = shop.isFollow {
+            if !shop.isFollow! {
+                self.completionHandler?(self.shop.shopID, self.index)
+            }
+        }
     }
     
     func setDataForCell(_ shop: Shop) {

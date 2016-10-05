@@ -30,6 +30,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var holidayLabel: UILabel!
     @IBOutlet weak var meanCountLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var detailMapView: MapView!
 
     var shopCoupon = [Coupon]() {
         didSet {
@@ -110,6 +111,7 @@ extension ShopViewController {
         phoneNumberLabel.text = shop.shopPhonenumber
         self.shopCoupon = shop.shopCoupons
         self.setupPhotoCollectionView(shop.shopPhotosUrl)
+        self.detailMapView.createShopMarker(shop.coordinate)
     }
     
     fileprivate func setupPhotoCollectionView(_ urls: [String]) {

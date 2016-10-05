@@ -14,7 +14,7 @@ class ListCouponContentViewController: BaseViewController {
     
     var parentNavigationController : UINavigationController?
     var couponFeature:CouponFeature?
-    var couponType: Int?
+    var couponCategoryID: Int?
     
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
@@ -56,7 +56,7 @@ extension ListCouponContentViewController {
     
     fileprivate func getCouponByFeatureAndType(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeatureAndType(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeatureAndType(self.couponFeature!, couponType: self.couponCategoryID!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

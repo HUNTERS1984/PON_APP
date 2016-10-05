@@ -14,7 +14,7 @@ class ListShopContentViewController: BaseViewController {
     
     var parentNavigationController : UINavigationController?
     var couponFeature:CouponFeature?
-    var couponType: Int?
+    var couponCategoryID: Int?
     
     var shops = [Shop]()
     
@@ -59,7 +59,7 @@ extension ListShopContentViewController {
     
     fileprivate func getShopByFeatureAndCategory(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndCategory(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeatureAndCategory(self.couponFeature!, couponType: self.couponCategoryID!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
