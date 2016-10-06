@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hunters1984.pon.activities.SignUpEmailActivity">
+    tools:context="com.hunters.pon.activities.SignUpEmailActivity">
 
     <include layout="@layout/include_header_layout" />
 
@@ -19,7 +19,7 @@
             android:layout_height="3dp"
             android:background="@color/light_grey_stroke_icon"/>
 
-        <com.hunters1984.pon.customs.CustomEditText
+        <com.hunters.pon.customs.CustomEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
@@ -36,7 +36,7 @@
             android:layout_marginLeft="20dp"
             android:background="@color/light_grey_stroke_icon"/>
 
-        <com.hunters1984.pon.customs.CustomEditText
+        <com.hunters.pon.customs.CustomEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
@@ -52,7 +52,7 @@
             android:layout_height="2dp"
             android:background="@color/light_grey_stroke_icon"/>
 
-        <com.hunters1984.pon.customs.CustomEditText
+        <com.hunters.pon.customs.CustomEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
@@ -62,13 +62,14 @@
             android:textColor="@color/grey"
             android:textSize="16sp"
             android:background="@color/transparent"
+            android:inputType="textPassword"
             android:id="@+id/edt_password"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/light_grey_stroke_icon"/>
 
-        <com.hunters1984.pon.customs.CustomEditText
+        <com.hunters.pon.customs.CustomEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
@@ -78,13 +79,14 @@
             android:textColor="@color/grey"
             android:textSize="16sp"
             android:background="@color/transparent"
+            android:inputType="textPassword"
             android:id="@+id/edt_password_confirm"/>
 
         <View android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/light_grey_stroke_icon"/>
     </LinearLayout>
-    <com.hunters1984.pon.customs.CustomButton
+    <com.hunters.pon.customs.CustomButton
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="@dimen/button_margin"
@@ -102,14 +104,14 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="horizontal">
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_member"
             android:textColor="@color/grey"
             android:textSize="@dimen/edit_profile_value_font_size" />
 
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/click_here"

@@ -49,7 +49,7 @@
                     android:src="@drawable/ic_add_follow_shop"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_shop_select_status"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

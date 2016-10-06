@@ -7,7 +7,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:id="@+id/rl_menu_item">
-    <com.hunters1984.pon.customs.CustomTextView
+    <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"

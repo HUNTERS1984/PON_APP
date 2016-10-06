@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hunters1984.pon.activities.UseCouponActivity">
+    tools:context="com.hunters.pon.activities.UseCouponActivity">
 
     <ImageView
         android:layout_width="30dp"
@@ -20,13 +20,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/use_coupon_1"
             android:textColor="@color/grey"
             android:textSize="16sp" />
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/use_coupon_2"

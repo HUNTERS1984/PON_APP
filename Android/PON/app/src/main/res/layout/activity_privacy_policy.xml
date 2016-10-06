@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hunters1984.pon.activities.PrivacyPolicyActivity">
+    tools:context="com.hunters.pon.activities.PrivacyPolicyActivity">
 
     <include layout="@layout/include_header_layout"/>
 

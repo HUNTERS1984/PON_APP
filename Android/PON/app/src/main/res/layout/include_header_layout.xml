@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:id="@+id/iv_back"/>
 
-    <com.hunters1984.pon.customs.CustomTextView
+    <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="History"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.hunters1984.pon.activities.ShopDetailActivity"
+    tools:context="com.hunters.pon.activities.ShopDetailActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -38,19 +38,19 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <!--<ImageView-->
-                    <com.hunters1984.pon.customs.CircularImageView
+                    <com.hunters.pon.customs.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:scaleType="fitXY"
                         android:id="@+id/iv_shop_logo"/>
-                    <com.hunters1984.pon.customs.CustomTextView
+                    <com.hunters.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:id="@+id/tv_shop_name"/>
-                    <com.hunters1984.pon.customs.CustomTextView
+                    <com.hunters.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -87,7 +87,7 @@
                   android:layout_marginTop="10dp"
                   android:background="@color/light_grey_stroke_icon"/>
 
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
@@ -103,7 +103,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/recycler_view_photo_of_shop"/>
 
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
@@ -125,7 +125,7 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -133,7 +133,7 @@
                     android:text="@string/id"
                     android:textSize="16sp"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -155,7 +155,7 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -163,7 +163,7 @@
                     android:text="@string/street_name"
                     android:textSize="16sp"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -185,7 +185,7 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -193,7 +193,7 @@
                     android:text="@string/access"
                     android:textSize="16sp"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -209,7 +209,7 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -217,7 +217,7 @@
                     android:text="@string/business_hour"
                     android:textSize="16sp"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -233,7 +233,7 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -241,7 +241,7 @@
                     android:textSize="16sp"
                     android:text="@string/regular_holiday"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -263,14 +263,14 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/average_budget"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -291,14 +291,14 @@
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
                     android:text="@string/phone_number"
                     android:textColor="@color/grey"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -327,7 +327,7 @@
                 android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_call"
                 android:scaleType="fitXY"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -345,7 +345,7 @@
                 android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_location"
                 android:scaleType="fitXY"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -363,7 +363,7 @@
                 android:layout_height="@dimen/icon_size_info"
                 android:src="@drawable/ic_shop_share"
                 android:scaleType="fitXY"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

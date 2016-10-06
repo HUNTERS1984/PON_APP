@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_background_share_coupons"
     android:orientation="vertical"
-    tools:context="com.hunters1984.pon.activities.ShareCouponActivity">
+    tools:context="com.hunters.pon.activities.ShareCouponActivity">
 
     <ImageView
         android:layout_width="30dp"
@@ -20,13 +20,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/share_coupon_1"
             android:textColor="@color/grey"
             android:textSize="16sp" />
-        <com.hunters1984.pon.customs.CustomTextView
+        <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/share_coupon_2"
@@ -42,7 +42,7 @@
         android:background="@color/color_background_share_option"
         android:layout_gravity="center"
         android:orientation="horizontal">
-        <com.hunters1984.pon.customs.CustomButton
+        <com.hunters.pon.customs.CustomButton
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:text="@string/share_SNS"
@@ -50,7 +50,7 @@
             android:background="@color/white"
             android:textSize="16sp"
             android:id="@+id/btn_sns"/>
-        <com.hunters1984.pon.customs.CustomButton
+        <com.hunters.pon.customs.CustomButton
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:text="@string/share_QR"

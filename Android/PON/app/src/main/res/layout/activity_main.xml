@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context="com.hunters1984.pon.activities.MainTopActivity">
+    tools:context="com.hunters.pon.activities.MainTopActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/ic_search"/>
-                    <com.hunters1984.pon.customs.CustomEditText
+                    <com.hunters.pon.customs.CustomEditText
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textbox_search_height"
                         android:id="@+id/tv_search"
@@ -93,7 +93,7 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_navigation"
                     android:scaleType="fitXY"/>
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/layout_margin"

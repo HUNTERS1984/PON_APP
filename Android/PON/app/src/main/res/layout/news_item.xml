@@ -25,7 +25,7 @@
             android:layout_weight="4"
             android:padding="10dp"
             android:orientation="vertical">
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:id="@+id/tv_news_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/colorPrimary"
                 android:text="カテゴリが入ります"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:id="@+id/tv_news_short_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:textColor="@color/text_short_des"
                 android:text="カテゴリが入ります"/>
 
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:id="@+id/tv_news_description"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"

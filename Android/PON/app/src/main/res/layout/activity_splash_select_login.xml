@@ -26,7 +26,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_facebook"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -52,7 +52,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_twitter"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -79,7 +79,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_mail"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hunters1984.pon.activities.ProfileEditActivity">
+    tools:context="com.hunters.pon.activities.ProfileEditActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 <FrameLayout android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
-                    <com.hunters1984.pon.customs.CircularImageView
+                    <com.hunters.pon.customs.CircularImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="20dp"
@@ -33,7 +33,7 @@
                         android:layout_gravity="center_vertical" />
                 </FrameLayout>
 
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
@@ -50,7 +50,7 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:gravity="center_vertical"
@@ -65,7 +65,7 @@
                     android:layout_weight="1.5"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
-                    <com.hunters1984.pon.customs.CustomEditText
+                    <com.hunters.pon.customs.CustomEditText
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -92,7 +92,7 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:gravity="center_vertical"
@@ -107,7 +107,7 @@
                     android:layout_weight="1.5"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
-                    <com.hunters1984.pon.customs.CustomEditText
+                    <com.hunters.pon.customs.CustomEditText
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -134,7 +134,7 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:gravity="center_vertical"
@@ -161,7 +161,7 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
-                <com.hunters1984.pon.customs.CustomTextView
+                <com.hunters.pon.customs.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:gravity="center_vertical"
@@ -195,7 +195,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_facebook"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -223,7 +223,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_twitter"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hunters1984.pon.activities.ProfileActivity"
+    tools:context="com.hunters.pon.activities.ProfileActivity"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -18,13 +18,13 @@
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-            <com.hunters1984.pon.customs.CircularImageView
+            <com.hunters.pon.customs.CircularImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:src="@drawable/ic_avarta_user"
                 android:scaleType="fitXY"
                 android:id="@+id/iv_user_pic"/>
-            <com.hunters1984.pon.customs.CustomTextView
+            <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -69,7 +69,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/ic_profile_shop"
                         android:scaleType="fitXY"/>
-                    <com.hunters1984.pon.customs.CustomTextView
+                    <com.hunters.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -101,7 +101,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/ic_profile_clock"
                         android:scaleType="fitXY"/>
-                    <com.hunters1984.pon.customs.CustomTextView
+                    <com.hunters.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -133,7 +133,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/ic_profile_news"
                         android:scaleType="fitXY"/>
-                    <com.hunters1984.pon.customs.CustomTextView
+                    <com.hunters.pon.customs.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"

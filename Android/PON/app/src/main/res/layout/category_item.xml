@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:padding="10dp"
         android:id="@+id/iv_coupon_type_icon"/>
-    <com.hunters1984.pon.customs.CustomTextView
+    <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/iv_coupon_type_icon"
