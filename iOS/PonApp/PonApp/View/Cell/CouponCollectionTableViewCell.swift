@@ -37,7 +37,7 @@ class CouponCollectionTableViewCell: UITableViewCell {
     }
     
     func setupTableViewCell() {
-        self.backgroundColor = UIColor(hex: 0xf8f8fa)
+        self.backgroundColor = UIColor.clear
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         couponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
     }

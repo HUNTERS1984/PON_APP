@@ -79,7 +79,8 @@ extension SplashViewController {
     
     @IBAction func mailButtonPressed(_ sender: AnyObject) {
         let vc = SignInViewController.instanceFromStoryBoard("Register")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let nav = UINavigationController.init(rootViewController: vc!)
+        self.navigationController!.present(nav, animated: true)
     }
     
     @IBAction func skipButtonPressed(_ sender: AnyObject) {
@@ -112,8 +113,7 @@ extension SplashViewController {
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
-//                            HLKAlertView.show("Error", message: result?.message, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
-                        }
+                            self.showActionView()                        }
                     }
                 }
             }

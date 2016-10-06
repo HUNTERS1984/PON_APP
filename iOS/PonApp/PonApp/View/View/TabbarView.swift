@@ -21,17 +21,30 @@ class TabbarView: UIView {
     }
     
     func initialize() {
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.clear
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setLineWidth(0.5)
-        context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
-        context?.move(to: CGPoint(x: 0, y: 10))
-        context?.addLine(to: CGPoint(x: rect.width, y: 10))
-        context?.strokePath()
+        
+        if let ctx = UIGraphicsGetCurrentContext() {
+            let rectangle = CGRect(x: 0, y: 10, width: rect.width, height: rect.height - 10)
+            ctx.setFillColor(UIColor.white.cgColor)
+            ctx.setStrokeColor(UIColor.white.cgColor)
+            ctx.setLineWidth(1.0)
+            ctx.addRect(rectangle)
+            ctx.drawPath(using: .fillStroke)
+            UIGraphicsEndImageContext()
+        }
+        
+        if let ctx = UIGraphicsGetCurrentContext() {
+            ctx.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
+            ctx.setLineWidth(0.5)
+            ctx.move(to: CGPoint(x: 0, y: 10))
+            ctx.addLine(to: CGPoint(x: rect.width, y: 10))
+            ctx.drawPath(using: .stroke)
+            UIGraphicsEndImageContext()
+        }
     }
 
 }

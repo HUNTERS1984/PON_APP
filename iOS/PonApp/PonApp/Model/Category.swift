@@ -34,6 +34,8 @@ struct Category {
         
         if let shopCount = response!["shop_count"].int {
             self.shopCount = shopCount
+        }else {
+            self.shopCount = 0
         }
     }
 }

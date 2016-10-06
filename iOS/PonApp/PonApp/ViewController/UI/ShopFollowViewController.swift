@@ -50,20 +50,22 @@ extension ShopFollowViewController {
             if let _ = error {
                 
             }else {
-                var responseShop = [Shop]()
-                let shopArray = result?.data?.array
-                if let _ = shopArray {
-                    for shopData in shopArray! {
-                        let shop = Shop(response: shopData)
-                        responseShop.append(shop)
-                    }
-                    if pageIndex == 1 {
-                        self.displayShop(responseShop, type: .new)
-                    }else {
-                        self.displayShop(responseShop, type: .loadMore)
+                if result?.code == SuccessCode {
+                    var responseShop = [Shop]()
+                    let shopArray = result?.data?.array
+                    if let _ = shopArray {
+                        for shopData in shopArray! {
+                            let shop = Shop(response: shopData)
+                            responseShop.append(shop)
+                        }
+                        if pageIndex == 1 {
+                            self.displayShop(responseShop, type: .new)
+                        }else {
+                            self.displayShop(responseShop, type: .loadMore)
+                        }
                     }
                 }else {
-                    
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

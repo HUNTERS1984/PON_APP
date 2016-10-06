@@ -11,6 +11,8 @@ import UIKit
 let UserNotLoggedIn                             = "Not logged in, please log in to continue"
 let UserNameNotValid                            = "Username not valid"
 let UserNameBlank                               = "Please enter your username"
+let GenderBlank                                 = "Please enter your gender"
+let AddressBlank                                = "Please select your city"
 let PasswordNotValid                            = "Password not valid"
 let EmailNotValid                               = "Email Address not valid"
 let EmailBlank                                  = "Please enter your email address"

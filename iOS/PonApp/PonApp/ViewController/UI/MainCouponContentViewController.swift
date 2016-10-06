@@ -63,6 +63,8 @@ extension MainCouponContentViewController {
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
                     self.parentNavigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -122,10 +124,21 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
         }
     }
     
+    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didPressSignUpButton button: AnyObject?) {
+        collectionView.resetCollectionView()
+        self.openSignUp()
+    }
+    
 }
 
 //MARK: - Private
 extension MainCouponContentViewController {
+    
+    fileprivate func openSignUp() {
+        let vc = SignInViewController.instanceFromStoryBoard("Register")
+        let nav = UINavigationController.init(rootViewController: vc!)
+        self.parentNavigationController!.present(nav, animated: true)
+    }
     
     fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, pageIndex: Int) {
         self.showHUD()
@@ -134,20 +147,22 @@ extension MainCouponContentViewController {
             if let _ = error {
                 
             }else {
-                var responseData = [CouponListData]()
-                let couponsArray = result?.data?.array
-                if let _ = couponsArray {
-                    for couponData in couponsArray! {
-                        let data = CouponListData(response: couponData)
-                        responseData.append(data)
-                    }
-                    if pageIndex == 1 {
-                        self.displayData(responseData, type: .new)
-                    }else {
-                        self.displayData(responseData, type: .loadMore)
+                if result?.code == SuccessCode {
+                    var responseData = [CouponListData]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            let data = CouponListData(response: couponData)
+                            responseData.append(data)
+                        }
+                        if pageIndex == 1 {
+                            self.displayData(responseData, type: .new)
+                        }else {
+                            self.displayData(responseData, type: .loadMore)
+                        }
                     }
                 }else {
-                    
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

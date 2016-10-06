@@ -15,6 +15,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var navTitleLabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var shopAvatar: CircleImageView!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
@@ -30,6 +31,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var holidayLabel: UILabel!
     @IBOutlet weak var meanCountLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var detailMapView: MapView!
 
     var shopCoupon = [Coupon]() {
         didSet {
@@ -99,17 +101,19 @@ extension ShopViewController {
 extension ShopViewController {
     
     fileprivate func displayShopDetail(_ shop: Shop) {
+        self.shopAvatar.af_setImage(withURL: URL(string: shop.avatarUrl)!)
         self.shopNameLabel.text = shop.title
         self.navTitleLabel.text = shop.title
-        shopId.text = "\(shop.shopID)"
+        shopId.text = "\(shop.shopID!)"
         addressLabel.text = shop.shopAddress
         accessLabel.text = shop.shopDirection
-        industriTime.text = "\(shop.shopStartTime)~\(shop.shopEndTime)"
+        industriTime.text = "\(shop.shopStartTime!)~\(shop.shopEndTime!)"
         holidayLabel.text = shop.regularHoliday
-        meanCountLabel.text = "~\(shop.shopAvegerBill)円"
+        meanCountLabel.text = "~\(shop.shopAvegerBill!)円"
         phoneNumberLabel.text = shop.shopPhonenumber
         self.shopCoupon = shop.shopCoupons
         self.setupPhotoCollectionView(shop.shopPhotosUrl)
+        self.detailMapView.createShopMarker(shop.coordinate)
     }
     
     fileprivate func setupPhotoCollectionView(_ urls: [String]) {
@@ -127,10 +131,14 @@ extension ShopViewController {
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.navigationController!.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.navigationController!.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
             }
         }
     }
@@ -197,22 +205,26 @@ extension ShopViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCoupon = self.shopCoupon[(indexPath as NSIndexPath).item]
-        if let _ = selectedCoupon.canUse {
-            if selectedCoupon.canUse! {
-                self.getCouponDetail(selectedCoupon.couponID)
-            }else {
-                if let _ = self.previousSelectedIndexPath {
-                    self.shopCoupon[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
-                    collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
-                    
-                    self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
+        if let _ = selectedCoupon.needLogin {
+            if selectedCoupon.needLogin! {
+                if UserDataManager.isLoggedIn() {
+                    self.getCouponDetail(selectedCoupon.couponID)
                 }else {
-                    self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
+                    if let _ = self.previousSelectedIndexPath {
+                        self.shopCoupon[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+                        
+                        self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }else {
+                        self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }
                 }
+            }else {
+                self.getCouponDetail(selectedCoupon.couponID)
             }
         }
     }

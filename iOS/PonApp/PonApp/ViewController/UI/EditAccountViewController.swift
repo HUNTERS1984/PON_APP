@@ -41,11 +41,11 @@ class EditAccountViewController: BaseViewController {
         self.showBackButton()
         self.setupGenderDropdown()
         self.setupAddressDropdown()
+        self.displayUserInfo()
     }
     
     override func setUpComponentsOnWillAppear() {
         super.setUpComponentsOnWillAppear()
-        self.displayUserInfo()
     }
 }
 
@@ -67,6 +67,8 @@ extension EditAccountViewController {
                     }else {
                         if result?.code == SuccessCode {
                             self.navigationController!.popViewController(animated: true)
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
                         }
                     }
                 })
@@ -206,21 +208,30 @@ extension EditAccountViewController {
     
     func validInfomation(_ userName: String?, gender: String?, address: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
-            
+            if userName!.characters.count == 0 {
+                completion(false, UserNameBlank)
+                return
+            }
         }else {
-            completion(false, "Please enter user name")
+            completion(false, UserNameBlank)
         }
         
         if let _ = gender {
-            
+            if gender!.characters.count == 0 {
+                completion(false, GenderBlank)
+                return
+            }
         }else {
-            completion(false, "Please enter gender")
+            completion(false, GenderBlank)
         }
         
         if let _ = address {
-            
+            if address!.characters.count == 0 {
+                completion(false, AddressBlank)
+                return
+            }
         }else {
-            completion(false, "Please enter address")
+            completion(false, AddressBlank)
         }
         completion(true, "")
     }

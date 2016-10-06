@@ -43,6 +43,10 @@ class MainViewController: BaseViewController {
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), for: UIControlState())
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), for: UIControlState())
         self.searchTextField.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.white])
+        
+    }
+    
+    override func setUpComponentsOnWillAppear() {
         self.setupTabbar()
     }
     
@@ -54,8 +58,6 @@ extension MainViewController {
     @IBAction func favoriteButtonPressed(_ sender: AnyObject) {
         if UserDataManager.isLoggedIn() {
             self.tabBarController?.selectedIndex = 0
-        }else {
-//            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
         }
     }
     
@@ -66,8 +68,6 @@ extension MainViewController {
     @IBAction func accountButtonPressed(_ sender: AnyObject) {
         if UserDataManager.isLoggedIn() {
             self.tabBarController?.selectedIndex = 2
-        }else {
-//            HLKAlertView.show("Warning", message:UserNotLoggedIn, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
         }
     }
     
@@ -116,7 +116,7 @@ extension MainViewController {
         let parameters: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(4.3),
             .scrollMenuBackgroundColor(UIColor.white),
-            .viewBackgroundColor(UIColor(hex: 0xf8f8fa)),
+            .viewBackgroundColor(UIColor(hex: DefaultBackgroundColor)),
             .bottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .selectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .menuItemWidth(70.0),

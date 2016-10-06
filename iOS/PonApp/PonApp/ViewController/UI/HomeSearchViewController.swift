@@ -102,6 +102,8 @@ extension HomeSearchViewController {
                         }
                         self.couponTypes = responseCategory
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -133,7 +135,7 @@ extension HomeSearchViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedType = self.couponTypes[(indexPath as NSIndexPath).row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
-        vc.couponType = selectedType.categoryID
+        vc.couponCategoryID = selectedType.categoryID
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

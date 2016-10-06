@@ -77,9 +77,9 @@ extension AddShopContentViewController {
                         }else {
                             self.displayShop(responseShop, type: .loadMore)
                         }
-                    }else {
-                        
                     }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -108,10 +108,32 @@ extension AddShopContentViewController {
             if let _ = error {
                 
             }else {
-                let shop = Shop(response: result?.data)
-                let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
-                vc.shop = shop
-                self.parentNavigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let shop = Shop(response: result?.data)
+                    let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
+                    vc.shop = shop
+                    self.parentNavigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
+    fileprivate func followShop(_ shopId: Float, index: Int) {
+        self.showHUD()
+        ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.shops[index].isFollow = true
+                    self.collectionView.reloadData()
+                    self.presentAlert(with: "Message", message: (result?.message)!)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
             }
         }
     }
@@ -126,9 +148,14 @@ extension AddShopContentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
         cell.shop = self.shops[(indexPath as NSIndexPath).item]
+        cell.index = (indexPath as NSIndexPath).item
+        cell.completionHandler = { (shopID: Float?, index: Int) in
+            if let _ = shopID {
+                self.followShop(shopID!, index: index)
+            }
+        }
         return cell
         
     }
@@ -138,7 +165,6 @@ extension AddShopContentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ListCouponCollectionViewCell", for: indexPath) as! ListCouponCollectionViewCell
         return commentView
     }

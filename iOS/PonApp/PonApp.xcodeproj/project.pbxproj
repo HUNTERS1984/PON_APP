@@ -195,7 +195,6 @@
 		4A85F4401D9ABCDD00733161 /* ShopFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */; };
 		4A85F4411D9ABCDD00733161 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3751D9ABCDD00733161 /* ShopViewController.swift */; };
 		4A85F4421D9ABCDD00733161 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3761D9ABCDD00733161 /* SignInViewController.swift */; };
-		4A85F4431D9ABCDD00733161 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3771D9ABCDD00733161 /* SignUpViewController.swift */; };
 		4A85F4441D9ABCDD00733161 /* SpecifiedTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */; };
 		4A85F4451D9ABCDD00733161 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3791D9ABCDD00733161 /* SplashViewController.swift */; };
 		4A85F4461D9ABCDD00733161 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */; };
@@ -212,6 +211,7 @@
 		FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C841D9228BC00D56602 /* CoreTelephony.framework */; };
 		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
+		FA4E8F5B1DA5041600DD2993 /* shop_detail_header_name_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */; };
 		FA76A9A31DA3453600893584 /* ic_cross_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA76A9911DA3453600893584 /* ic_cross_white@2x.png */; };
 		FA76A9A41DA3453600893584 /* ic_cross_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA76A9921DA3453600893584 /* ic_cross_white@3x.png */; };
 		FA76A9A61DA3453600893584 /* FullScreenSlideshowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9961DA3453600893584 /* FullScreenSlideshowViewController.swift */; };
@@ -240,6 +240,11 @@
 		FA76A9D81DA3460000893584 /* DKPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9C81DA3460000893584 /* DKPermissionView.swift */; };
 		FA76A9E01DA34D8D00893584 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9DF1DA34D8D00893584 /* QRCode.swift */; };
 		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
+		FA7BAED01DA499A10045F126 /* signup_already_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAECE1DA499A10045F126 /* signup_already_button@2x.png */; };
+		FA7BAED11DA499A10045F126 /* signup_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAECF1DA499A10045F126 /* signup_button@2x.png */; };
+		FA7BAED31DA49E070045F126 /* shop_detail_more_image_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAED21DA49E070045F126 /* shop_detail_more_image_button@2x.png */; };
+		FA7BAED51DA49E120045F126 /* coupon_category_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAED41DA49E120045F126 /* coupon_category_background@2x.png */; };
+		FA7BAED71DA4A34A0045F126 /* coupon_category_food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAED61DA4A34A0045F126 /* coupon_category_food@2x.png */; };
 		FA85F1C01D9BAAA7003BE0C1 /* used_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */; };
 		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
 		FAA43A6C1D9CF5B30013BCE3 /* main_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */; };
@@ -467,7 +472,6 @@
 		4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopFollowViewController.swift; sourceTree = "<group>"; };
 		4A85F3751D9ABCDD00733161 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		4A85F3761D9ABCDD00733161 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		4A85F3771D9ABCDD00733161 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecifiedTradeViewController.swift; sourceTree = "<group>"; };
 		4A85F3791D9ABCDD00733161 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 		FA405C841D9228BC00D56602 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_name_background@2x.png"; sourceTree = "<group>"; };
 		FA76A9911DA3453600893584 /* ic_cross_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@2x.png"; sourceTree = "<group>"; };
 		FA76A9921DA3453600893584 /* ic_cross_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@3x.png"; sourceTree = "<group>"; };
 		FA76A9961DA3453600893584 /* FullScreenSlideshowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenSlideshowViewController.swift; sourceTree = "<group>"; };
@@ -516,6 +521,11 @@
 		FA76A9C81DA3460000893584 /* DKPermissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKPermissionView.swift; sourceTree = "<group>"; };
 		FA76A9DF1DA34D8D00893584 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		FA7BAECE1DA499A10045F126 /* signup_already_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_already_button@2x.png"; sourceTree = "<group>"; };
+		FA7BAECF1DA499A10045F126 /* signup_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_button@2x.png"; sourceTree = "<group>"; };
+		FA7BAED21DA49E070045F126 /* shop_detail_more_image_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_more_image_button@2x.png"; sourceTree = "<group>"; };
+		FA7BAED41DA49E120045F126 /* coupon_category_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_category_background@2x.png"; sourceTree = "<group>"; };
+		FA7BAED61DA4A34A0045F126 /* coupon_category_food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_category_food@2x.png"; sourceTree = "<group>"; };
 		FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@2x.png"; sourceTree = "<group>"; };
 		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_header_background@2x.png"; sourceTree = "<group>"; };
@@ -792,8 +802,10 @@
 				4A85F2C11D9ABCDD00733161 /* coupon_phone@2x.png */,
 				4A85F2C21D9ABCDD00733161 /* coupon_qr@2xpng.png */,
 				4A85F2C31D9ABCDD00733161 /* coupon_time@2x.png */,
+				FA7BAED41DA49E120045F126 /* coupon_category_background@2x.png */,
 				4A85F2C41D9ABCDD00733161 /* coupon_twitter_button@2x.png */,
 				4A85F2C51D9ABCDD00733161 /* icon_food@2x.png */,
+				FA7BAED61DA4A34A0045F126 /* coupon_category_food@2x.png */,
 				4A85F2C61D9ABCDD00733161 /* icon_location@2x.png */,
 				4A85F2C71D9ABCDD00733161 /* map_icon_down@2x.png */,
 				4A85F2C81D9ABCDD00733161 /* map_icon_location@2x.png */,
@@ -804,8 +816,12 @@
 				4A85F2CD1D9ABCDD00733161 /* nav_close_blue@2x.png */,
 				4A85F2CE1D9ABCDD00733161 /* nav_close_white@2x.png */,
 				4A85F2CF1D9ABCDD00733161 /* nav_search@2x.png */,
+				FA7BAECE1DA499A10045F126 /* signup_already_button@2x.png */,
+				FA7BAECF1DA499A10045F126 /* signup_button@2x.png */,
+				FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */,
 				FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */,
 				4A85F2D01D9ABCDD00733161 /* shop_button_followed@2x.png */,
+				FA7BAED21DA49E070045F126 /* shop_detail_more_image_button@2x.png */,
 				4A85F2D11D9ABCDD00733161 /* shop_detail_button_location@2x.png */,
 				4A85F2D21D9ABCDD00733161 /* shop_detail_button_phone@2x.png */,
 				4A85F2D31D9ABCDD00733161 /* shop_detail_button_share@2x.png */,
@@ -1097,7 +1113,6 @@
 				4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */,
 				4A85F3751D9ABCDD00733161 /* ShopViewController.swift */,
 				4A85F3761D9ABCDD00733161 /* SignInViewController.swift */,
-				4A85F3771D9ABCDD00733161 /* SignUpViewController.swift */,
 				4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */,
 				4A85F3791D9ABCDD00733161 /* SplashViewController.swift */,
 				4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */,
@@ -1326,7 +1341,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M8AF2Y2268;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1359,6 +1374,7 @@
 				4A85F3C01D9ABCDD00733161 /* coupon_twitter_button@2x.png in Resources */,
 				4A85F3BF1D9ABCDD00733161 /* coupon_time@2x.png in Resources */,
 				FAA43A6C1D9CF5B30013BCE3 /* main_header_background@2x.png in Resources */,
+				FA7BAED11DA499A10045F126 /* signup_button@2x.png in Resources */,
 				4A85F3D01D9ABCDD00733161 /* shop_detail_header_background@2x.png in Resources */,
 				4A85F38A1D9ABCDD00733161 /* LineAdapterUI.bundle in Resources */,
 				4A85F3BE1D9ABCDD00733161 /* coupon_qr@2xpng.png in Resources */,
@@ -1377,6 +1393,7 @@
 				4A85F3AF1D9ABCDD00733161 /* account_icon_store@2x.png in Resources */,
 				4A85F3C21D9ABCDD00733161 /* icon_location@2x.png in Resources */,
 				4A85F3D31D9ABCDD00733161 /* splash_background@2x.png in Resources */,
+				FA4E8F5B1DA5041600DD2993 /* shop_detail_header_name_background@2x.png in Resources */,
 				4A85F3AD1D9ABCDD00733161 /* account_icon_history@2x.png in Resources */,
 				FA76A9A41DA3453600893584 /* ic_cross_white@3x.png in Resources */,
 				4A85F3D11D9ABCDD00733161 /* shop_detail_header_bar@2x.png in Resources */,
@@ -1387,12 +1404,14 @@
 				4A85F4151D9ABCDD00733161 /* CouponCollectionViewCell.xib in Resources */,
 				FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */,
 				4A85F3C51D9ABCDD00733161 /* map_icon_marker@2x.png in Resources */,
+				FA7BAED31DA49E070045F126 /* shop_detail_more_image_button@2x.png in Resources */,
 				4A85F3CE1D9ABCDD00733161 /* shop_detail_button_phone@2x.png in Resources */,
 				4A85F3811D9ABCDD00733161 /* Assets.xcassets in Resources */,
 				FAA43A741D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png in Resources */,
 				4A85F3DD1D9ABCDD00733161 /* tabbar_favorite_selected@2x.png in Resources */,
 				4A85F3E21D9ABCDD00733161 /* top_searchbox@2x.png in Resources */,
 				4A85F3B11D9ABCDD00733161 /* arrow_down@2x.png in Resources */,
+				FA7BAED71DA4A34A0045F126 /* coupon_category_food@2x.png in Resources */,
 				FA76A9CA1DA3460000893584 /* DKCameraResource.bundle in Resources */,
 				4A85F3D21D9ABCDD00733161 /* shop_detail_header_icon@2x.png in Resources */,
 				4A85F3C91D9ABCDD00733161 /* nav_close_blue@2x.png in Resources */,
@@ -1400,6 +1419,7 @@
 				4A85F3D71D9ABCDD00733161 /* splash_button_skip@2x.png in Resources */,
 				4A85F3CD1D9ABCDD00733161 /* shop_detail_button_location@2x.png in Resources */,
 				4A85F3CF1D9ABCDD00733161 /* shop_detail_button_share@2x.png in Resources */,
+				FA7BAED01DA499A10045F126 /* signup_already_button@2x.png in Resources */,
 				4A85F3B51D9ABCDD00733161 /* coupon_button_qrcode@2x.png in Resources */,
 				FA76A9A31DA3453600893584 /* ic_cross_white@2x.png in Resources */,
 				4A85F3EE1D9ABCDD00733161 /* Main.storyboard in Resources */,
@@ -1418,6 +1438,7 @@
 				4A85F3A91D9ABCDD00733161 /* HiraginoSansGB-W3.ttf in Resources */,
 				4A85F3C71D9ABCDD00733161 /* nav_add@2x.png in Resources */,
 				4A85F3BA1D9ABCDD00733161 /* coupon_line_button@2x.png in Resources */,
+				FA7BAED51DA49E120045F126 /* coupon_category_background@2x.png in Resources */,
 				4A85F3DA1D9ABCDD00733161 /* tabbar_account_normal@2x.png in Resources */,
 				4A85F3ED1D9ABCDD00733161 /* Login.storyboard in Resources */,
 				4A85F3D81D9ABCDD00733161 /* splash_button_twitter@2x.png in Resources */,
@@ -1645,7 +1666,6 @@
 				4A649A901D9C04C60080E976 /* ShopCountTableViewCell.swift in Sources */,
 				4A85F37C1D9ABCDD00733161 /* ApiFileUpload.swift in Sources */,
 				4A85F39D1D9ABCDD00733161 /* UINavigationControllerExtension.swift in Sources */,
-				4A85F4431D9ABCDD00733161 /* SignUpViewController.swift in Sources */,
 				FA76A9D21DA3460000893584 /* DKImageResource.swift in Sources */,
 				4A85F4281D9ABCDD00733161 /* BaseTabBarController.swift in Sources */,
 				FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */,
@@ -1765,8 +1785,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1774,10 +1794,11 @@
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3f55a592-75c8-444a-8840-341999fe818e";
+				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1790,8 +1811,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -1799,10 +1820,11 @@
 				INFOPLIST_FILE = PonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3f55a592-75c8-444a-8840-341999fe818e";
+				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

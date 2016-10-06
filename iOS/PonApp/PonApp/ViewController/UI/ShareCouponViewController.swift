@@ -42,13 +42,7 @@ class ShareCouponViewController: BaseViewController {
 extension ShareCouponViewController {
     
     @IBAction func closeButttonPressed(_ sender: AnyObject) {
-        self.navigationController!.popViewController(animated: false)
-    }
-    
-    @IBAction func snsButtonPressed(_ sender: AnyObject) {
-    }
-    
-    @IBAction func qrCodePressed(_ sender: AnyObject) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func instagramButtonPressed(_ sender: AnyObject) {

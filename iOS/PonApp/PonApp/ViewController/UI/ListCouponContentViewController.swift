@@ -14,7 +14,7 @@ class ListCouponContentViewController: BaseViewController {
     
     var parentNavigationController : UINavigationController?
     var couponFeature:CouponFeature?
-    var couponType: Int?
+    var couponCategoryID: Int?
     
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
@@ -40,15 +40,6 @@ class ListCouponContentViewController: BaseViewController {
         self.getCouponByFeatureAndType(1)
     }
     
-    override func setUpComponentsOnWillAppear() {
-        super.setUpComponentsOnWillAppear()
-    }
-    
-}
-
-//MARK: - IBAction
-extension ListCouponContentViewController {
-    
 }
 
 //MARK: - Private
@@ -56,7 +47,7 @@ extension ListCouponContentViewController {
     
     fileprivate func getCouponByFeatureAndType(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeatureAndType(self.couponFeature!, couponType: self.couponType!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeatureAndType(self.couponFeature!, couponType: self.couponCategoryID!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -103,10 +94,14 @@ extension ListCouponContentViewController {
             if let _ = error {
                 
             }else {
-                let coupon = Coupon(response: result?.data)
-                let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
-                vc.coupon = coupon
-                self.parentNavigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let coupon = Coupon(response: result?.data)
+                    let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.coupon = coupon
+                    self.parentNavigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
             }
         }
     }

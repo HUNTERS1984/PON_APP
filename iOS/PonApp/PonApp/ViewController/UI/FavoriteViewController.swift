@@ -130,6 +130,8 @@ extension FavoriteViewController {
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
                     self.navigationController?.pushViewController(vc, animated: true)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
                 }
             }
         }

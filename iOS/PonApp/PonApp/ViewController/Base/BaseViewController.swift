@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.shared.delegate as? AppDelegate
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor(hex: DefaultBackgroundColor)
         
         setUpComponentsOnLoad()
         setUpUserInterface()
