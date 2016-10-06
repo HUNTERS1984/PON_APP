@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -29,6 +29,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyZ-ip-IO2" userLabel="Save Button">
                                 <color key="backgroundColor" red="0.094117647058823528" green="0.75294117647058822" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h2s-8i-NZa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
                                 <state key="normal" title="保存"/>
                                 <connections>
@@ -64,6 +67,7 @@
                                             <constraint firstItem="OsC-Z2-PdI" firstAttribute="leading" secondItem="egv-Wn-yYU" secondAttribute="trailing" constant="8" id="eeL-Hy-ZlA"/>
                                             <constraint firstItem="egv-Wn-yYU" firstAttribute="centerY" secondItem="Akg-jq-GGU" secondAttribute="centerY" id="gSL-Qv-0jp"/>
                                             <constraint firstAttribute="trailing" secondItem="c78-1v-zxn" secondAttribute="trailing" constant="8" id="hEo-ZD-2ab"/>
+                                            <constraint firstAttribute="height" constant="90" id="iDK-qo-659"/>
                                             <constraint firstItem="c78-1v-zxn" firstAttribute="leading" secondItem="egv-Wn-yYU" secondAttribute="trailing" constant="8" id="tBr-nU-gIh"/>
                                             <constraint firstAttribute="bottom" secondItem="OsC-Z2-PdI" secondAttribute="bottom" constant="8" id="vf7-R9-fHx"/>
                                             <constraint firstItem="c78-1v-zxn" firstAttribute="top" secondItem="Akg-jq-GGU" secondAttribute="top" constant="8" id="vgz-Mb-Bls"/>
@@ -97,6 +101,7 @@
                                             <constraint firstAttribute="bottom" secondItem="rop-oJ-huj" secondAttribute="bottom" id="aCb-Oi-SJF"/>
                                             <constraint firstItem="D07-Vu-0qu" firstAttribute="top" secondItem="LTq-O1-7kp" secondAttribute="top" id="bOf-cQ-eWJ"/>
                                             <constraint firstItem="rop-oJ-huj" firstAttribute="top" secondItem="LTq-O1-7kp" secondAttribute="top" id="jdO-mS-KRT"/>
+                                            <constraint firstAttribute="height" constant="50" id="lIY-kB-hOp"/>
                                             <constraint firstAttribute="trailing" secondItem="D07-Vu-0qu" secondAttribute="trailing" constant="20" id="phG-T9-SCP"/>
                                             <constraint firstItem="rop-oJ-huj" firstAttribute="leading" secondItem="LTq-O1-7kp" secondAttribute="leading" constant="25" id="tyF-NH-auS"/>
                                         </constraints>
@@ -124,6 +129,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="PxO-oh-j82" firstAttribute="leading" secondItem="EEx-GW-cuc" secondAttribute="leading" constant="25" id="42e-VL-IXU"/>
+                                            <constraint firstAttribute="height" constant="50" id="6Wv-Ne-93R"/>
                                             <constraint firstAttribute="bottom" secondItem="PxO-oh-j82" secondAttribute="bottom" id="Dkl-BE-bzH"/>
                                             <constraint firstItem="un0-Kw-6Ye" firstAttribute="leading" secondItem="PxO-oh-j82" secondAttribute="trailing" constant="8" id="bws-IJ-C10"/>
                                             <constraint firstAttribute="bottom" secondItem="un0-Kw-6Ye" secondAttribute="bottom" id="ese-rj-iGb"/>
@@ -176,6 +182,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="20d-uJ-nY5" secondAttribute="bottom" id="E6J-3A-veE"/>
+                                            <constraint firstAttribute="height" constant="50" id="Hgi-E5-mWz"/>
                                             <constraint firstItem="20d-uJ-nY5" firstAttribute="top" secondItem="dyc-1l-K6x" secondAttribute="top" id="JwZ-rA-ge0"/>
                                             <constraint firstAttribute="trailing" secondItem="fqL-gJ-8Cg" secondAttribute="trailing" constant="20" id="S1f-dQ-c6N"/>
                                             <constraint firstItem="20d-uJ-nY5" firstAttribute="leading" secondItem="dyc-1l-K6x" secondAttribute="leading" constant="25" id="adN-4a-aCx"/>
@@ -233,6 +240,7 @@
                                             <constraint firstItem="WUX-kA-dGe" firstAttribute="leading" secondItem="WyH-JV-txG" secondAttribute="trailing" constant="8" id="aHx-wb-2yf"/>
                                             <constraint firstItem="WyH-JV-txG" firstAttribute="leading" secondItem="jH4-go-Um0" secondAttribute="leading" constant="25" id="dVM-tm-2pg"/>
                                             <constraint firstAttribute="bottom" secondItem="WUX-kA-dGe" secondAttribute="bottom" id="gif-KH-gdM"/>
+                                            <constraint firstAttribute="height" constant="50" id="oc3-bd-dvJ"/>
                                             <constraint firstAttribute="trailing" secondItem="WUX-kA-dGe" secondAttribute="trailing" constant="20" id="tZ7-3G-Ana"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -271,12 +279,6 @@
                             <constraint firstAttribute="trailing" secondItem="9QP-WX-9iU" secondAttribute="trailing" id="EWV-nx-KxS"/>
                             <constraint firstItem="9QP-WX-9iU" firstAttribute="top" secondItem="RaY-rA-Xij" secondAttribute="top" id="F53-pO-udE"/>
                             <constraint firstItem="Br6-5R-9qN" firstAttribute="top" secondItem="OyZ-ip-IO2" secondAttribute="bottom" id="JuT-xH-8Qb"/>
-                            <constraint firstItem="OyZ-ip-IO2" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="50/667" id="cuW-ee-0Qb"/>
-                            <constraint firstItem="dyc-1l-K6x" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="50/667" id="gWS-dU-Tm5"/>
-                            <constraint firstItem="LTq-O1-7kp" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="50/667" id="grP-IT-MOI"/>
-                            <constraint firstItem="jH4-go-Um0" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="50/667" id="ods-4L-wgu"/>
-                            <constraint firstItem="EEx-GW-cuc" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="50/667" id="rtC-Ny-Dep"/>
-                            <constraint firstItem="Akg-jq-GGU" firstAttribute="height" secondItem="RaY-rA-Xij" secondAttribute="height" multiplier="90/667" id="wYi-Fl-sHW"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
