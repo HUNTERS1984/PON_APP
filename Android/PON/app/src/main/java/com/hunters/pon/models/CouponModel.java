@@ -2,10 +2,12 @@ package com.hunters.pon.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by LENOVO on 9/2/2016.
  */
-public class CouponModel {
+public class CouponModel implements Serializable {
 
     @SerializedName("id")
     private long mId;
@@ -30,6 +32,12 @@ public class CouponModel {
 
     @SerializedName("coupon_type")
     private CouponTypeModel mCouponType;
+
+    @SerializedName("code")
+    private String mCode;
+
+    @SerializedName("description")
+    private String mDescription;
 
     public String getmImageUrl() {
         return mImageUrl;
@@ -94,5 +102,21 @@ public class CouponModel {
 
     public void setmCouponType(CouponTypeModel mCouponType) {
         this.mCouponType = mCouponType;
+    }
+
+    public String getmCode() {
+        return mCode;
+    }
+
+    public void setmCode(String mCode) {
+        this.mCode = mCode;
+    }
+
+    public String getmDescription() {
+        return mDescription;
+    }
+
+    public void setmDescription(String mDescription) {
+        this.mDescription = mDescription;
     }
 }

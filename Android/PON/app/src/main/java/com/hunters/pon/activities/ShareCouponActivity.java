@@ -1,6 +1,7 @@
 package com.hunters.pon.activities;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,8 +15,16 @@ import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.hunters.pon.R;
+import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.qrcode.QRCodeUtils;
+import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.ImageUtils;
+import com.squareup.picasso.Picasso;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ShareCouponActivity extends BaseActivity {
 
@@ -26,15 +35,19 @@ public class ShareCouponActivity extends BaseActivity {
     private CallbackManager mCallbackManager;
     private ShareDialog mShareDialog;
     private View mShareFacebook, mShareInstagram, mShareTwitter, mShareLine;
+    private CouponModel mCoupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_share_coupon);
         mContext = this;
         super.onCreate(savedInstanceState);
+        mCoupon = (CouponModel) getIntent().getSerializableExtra(Constants.EXTRA_DATA);
 
         initLayout();
-        new QRCodeUtils().genQRCode(mContext, "Hello", mIvQRCode);
+        if(mCoupon != null) {
+            new QRCodeUtils().genQRCode(mContext, mCoupon.getmCode(), mIvQRCode);
+        }
     }
 
     private void initLayout()
@@ -118,43 +131,52 @@ public class ShareCouponActivity extends BaseActivity {
         mCallbackManager = CallbackManager.Factory.create();
         mShareDialog = new ShareDialog(this);
 
-        if (ShareDialog.canShow(ShareLinkContent.class)) {
+        if (ShareDialog.canShow(ShareLinkContent.class) && mCoupon != null) {
             ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                    .setContentTitle("Test share")
+                    .setContentTitle(mCoupon.getmTitle())
                     .setContentDescription(
-                            "Test share")
-                    .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                           mCoupon.getmDescription())
+                    .setContentUrl(Uri.parse("https://www.google.com.vn"))
                     .build();
 
             mShareDialog.show(linkContent);
         }
     }
 
-    private void shareTwitter()
-    {
-        TweetComposer.Builder builder = new TweetComposer.Builder(this)
-                .text("just setting up my Fabric.");
+    private void shareTwitter() {
+        TweetComposer.Builder builder = null;
+        try {
+            builder = new TweetComposer.Builder(this)
+                    .text(mCoupon.getmTitle()).url(new URL(mCoupon.getmImageUrl()));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         builder.show();
     }
 
     private void shareInstagram()
     {
+        Picasso.with(this).load(mCoupon.getmImageUrl()).into(ImageUtils.picassoImageTarget(getApplicationContext(), "coupon", "share_coupon.png"));
+
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        File directory = cw.getDir("coupon", Context.MODE_PRIVATE);
+        File couponFile = new File(directory, "share_coupon.png");
+
+        Uri file = Uri.fromFile(couponFile);
+
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www.google.com");
-//        shareIntent.putExtra(Intent.EXTRA_TITLE, "YOUR TEXT HERE");
+        shareIntent.setType("image/*");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, file);
         shareIntent.setPackage("com.instagram.android");
         startActivity(shareIntent);
-        // Broadcast the Intent.
-//        startActivity(Intent.createChooser(shareIntent, "Share to"));
     }
 
     private void shareLine()
     {
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www.google.com");
-//        shareIntent.putExtra(Intent.EXTRA_TITLE, "YOUR TEXT HERE");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmImageUrl());
+        shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
         shareIntent.setPackage("jp.naver.line.android");
         startActivity(shareIntent);
         // Broadcast the Intent.

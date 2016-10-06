@@ -1,6 +1,7 @@
 package com.hunters.pon.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,12 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.SignInEmailActivity;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponMainTop;
 import com.hunters.pon.api.ResponseCouponMainTopData;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
 import com.squareup.picasso.Picasso;
@@ -156,7 +159,12 @@ public class BaseFragment extends Fragment {
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                             rvCoupons.setLayoutManager(layoutManager);
-                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
+                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons(), new OnLoginClickListener() {
+                                @Override
+                                public void onLoginClick() {
+                                    startActivity(new Intent(getActivity(), SignInEmailActivity.class));
+                                }
+                            });
                             rvCoupons.setAdapter(adapter);
                             mLnShopCatCoupons.addView(vCatCoupons);
                         }

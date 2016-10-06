@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponDetailActivity;
 import com.hunters.pon.models.CouponModel;
+import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.squareup.picasso.Callback;
@@ -28,6 +30,13 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
 
     private List<CouponModel> mListCoupons;
     private Context mContext;
+    private OnLoginClickListener mLoginClick;
+
+    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, OnLoginClickListener loginClick) {
+        this.mListCoupons = lstCoupons;
+        this.mContext = context;
+        mLoginClick = loginClick;
+    }
 
     public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons) {
         this.mListCoupons = lstCoupons;
@@ -89,6 +98,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         public LinearLayout mLinearLoginRequired;
         public View mView;
         public ProgressBar mProgressBarLoadingCoupon;
+        private Button mBtnLogin;
 
         public CouponRecyclerViewHolders(View itemView) {
             super(itemView);
@@ -101,6 +111,15 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
             mCouponIsFavourite = (ImageView) itemView.findViewById(R.id.iv_coupon_favourite);
             mLinearLoginRequired = (LinearLayout) itemView.findViewById(R.id.ln_login_required);
             mProgressBarLoadingCoupon = (ProgressBar) itemView.findViewById(R.id.progress_bar_loading_coupon);
+            mBtnLogin = (Button)itemView.findViewById(R.id.btn_login) ;
+            mBtnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mLoginClick != null) {
+                        mLoginClick.onLoginClick();
+                    }
+                }
+            });
         }
 
         @Override

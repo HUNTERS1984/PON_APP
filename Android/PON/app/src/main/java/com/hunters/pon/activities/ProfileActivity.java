@@ -61,6 +61,8 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
 
         if(!token.equalsIgnoreCase("")) {
             new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
+        } else {
+            new DialogUtiils().showDialog(mContext, getString(R.string.need_login), true);
         }
     }
 

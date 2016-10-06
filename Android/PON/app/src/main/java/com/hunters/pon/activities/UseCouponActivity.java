@@ -5,10 +5,12 @@ import android.widget.ImageView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.qrcode.QRCodeUtils;
+import com.hunters.pon.utils.Constants;
 
 public class UseCouponActivity extends BaseActivity {
 
     private ImageView mIvQRCode;
+    private String mCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +18,12 @@ public class UseCouponActivity extends BaseActivity {
         mContext = this;
         super.onCreate(savedInstanceState);
 
+        mCode = getIntent().getStringExtra(Constants.EXTRA_DATA);
         initLayout();
 
-        new QRCodeUtils().genQRCode(mContext, "Hello", mIvQRCode);
+        if (mCode != null) {
+            new QRCodeUtils().genQRCode(mContext, mCode, mIvQRCode);
+        }
     }
 
     private void initLayout()

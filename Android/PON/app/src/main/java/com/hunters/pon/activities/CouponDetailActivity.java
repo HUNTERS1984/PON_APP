@@ -71,6 +71,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private double mShopLng, mShopLat;
     private Context mContext;
     private long mCouponId;
+    private CouponModel mCoupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +135,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mBtnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, ShareCouponActivity.class));
+                Intent iShareCoupon = new Intent(mContext, ShareCouponActivity.class);
+                iShareCoupon.putExtra(Constants.EXTRA_DATA, mCoupon);
+                mContext.startActivity(iShareCoupon);
             }
         });
 
@@ -160,7 +163,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         btnUseCoupons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(mContext, UseCouponActivity.class));
+                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
+                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
+                startActivity(iUseCoupon);
             }
         });
 
@@ -205,6 +210,13 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         ResponseCouponDetail coupon = data.data;
                         popularLayout(coupon);
 
+                        mCoupon = new CouponModel();
+                        mCoupon.setmId(coupon.getmId());
+                        mCoupon.setmTitle(coupon.getmTitle());
+                        mCoupon.setmImageUrl(coupon.getmImageUrl());
+                        mCoupon.setmCode(coupon.getmCode());
+                        mCoupon.setmDescription(coupon.getmDescription());
+
                         mListCoupons = coupon.getmLstSimilarCoupons();
 
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
@@ -233,11 +245,11 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                             mBtnUseThisCoupon.setVisibility(View.GONE);
                         }
                     } else {
-                        new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
+                        new DialogUtiils().showDialog(mContext, getString(R.string.server_error), true);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
-                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), true);
                     break;
             }
         }

@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.MainTopActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCommon;
@@ -93,6 +95,10 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
                     ResponseCommon res = (ResponseCommon) msg.obj;
                     if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
                         CommonUtils.saveToken(getActivity(), "");
+                        FragmentActivity activity = getActivity();
+                        if(activity != null && activity instanceof MainTopActivity) {
+                            ((MainTopActivity)activity).checkToUpdateButtonLogin();
+                        }
                     }
                     new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_POPULARITY_COUPON, "1", mHanlderGetCoupon);
                     break;
