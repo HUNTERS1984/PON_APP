@@ -18,9 +18,9 @@ let DefaultBlueTextColor                        = 0x18c0d4
 
 let BaseURL                                     = "http://pon.cm/api"
 
-let GoogleMapAPIKey                             = "AIzaSyCWPCOVykZmln4xRd94C7-GeTLpGFGsMvU"
-let TWConsumerKey                               = "2aXrW6h4koTNieO4NgqDXhzLT"
-let TWConsumerSecret                            = "Ls27BnWr1CXF5ILi1jpB0V1pbxYdXtdxWc9Iib8X2yVpf8UzOW"
+let GoogleMapAPIKey                             = "AIzaSyBPVkG6R4eBAD7XJV09z7ig3QC0zU8D2ns"
+let TWConsumerKey                               = "002neLhPbyLMt6rBP68wVVstN"
+let TWConsumerSecret                            = "u2Cp1LFDin1zeQXxqXdgQEddZP06wsEPMxotStnThe7OsBVK43"
 
 let ClientId                                    = "1_3bcbxd9e24g0gk4swg0kwgcwg4o8k8g4g888kwc44gcc0gwwk4"
 let ClientSecret                                = "4ok2x70rlfokc8g0wws8c8kwcokw80k44sg48goc0ok4w0so0k"

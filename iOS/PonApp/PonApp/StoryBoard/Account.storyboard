@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -354,7 +355,7 @@
         <!--News View Controller-->
         <scene sceneID="BVf-Pz-RaB">
             <objects>
-                <viewController storyboardIdentifier="NewsViewController" id="hC5-eK-wRy" customClass="NewsViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsViewController" automaticallyAdjustsScrollViewInsets="NO" id="hC5-eK-wRy" customClass="NewsViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xB9-Pu-Qyl"/>
                         <viewControllerLayoutGuide type="bottom" id="WPQ-Mw-WRf"/>
@@ -362,9 +363,89 @@
                     <view key="view" contentMode="scaleToFill" id="XVH-km-dNO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="De4-6S-RY6">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" id="2Gi-cq-B5J" customClass="NewsTableViewCell" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="133"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Gi-cq-B5J" id="ifH-Mb-0jS">
+                                            <frame key="frameInset" width="375" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ci-zvf" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="6vf-It-F0i"/>
+                                                        <constraint firstAttribute="width" constant="45" id="yaa-gv-si7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBF-4e-0ap" userLabel="Name Label">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="KfG-X8-ev1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.792156862745098" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQi-b5-Wg3" userLabel="Name Label">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="eOK-nK-XHa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                    <color key="textColor" red="0.38431372549019605" green="0.42745098039215684" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-W2-X90" customClass="ReadMoreTextView" customModule="PonApp" customModuleProvider="target">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.</string>
+                                                    <color key="textColor" red="0.65098039215686276" green="0.69019607843137254" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W3" family="Hiragino Sans GB" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="maximumNumberOfLines">
+                                                            <integer key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="trimText" value="もっと見る"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shouldTrim" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NQi-b5-Wg3" firstAttribute="leading" secondItem="yBF-4e-0ap" secondAttribute="leading" id="1Hw-3G-yLg"/>
+                                                <constraint firstAttribute="trailing" secondItem="yBF-4e-0ap" secondAttribute="trailing" constant="15" id="2Po-NO-Mjz"/>
+                                                <constraint firstAttribute="trailing" secondItem="pOb-W2-X90" secondAttribute="trailing" constant="15" id="4jY-LL-iLm"/>
+                                                <constraint firstItem="4gW-Ci-zvf" firstAttribute="top" secondItem="ifH-Mb-0jS" secondAttribute="top" constant="15" id="50U-bP-QKX"/>
+                                                <constraint firstItem="yBF-4e-0ap" firstAttribute="top" secondItem="ifH-Mb-0jS" secondAttribute="top" constant="7" id="KtF-fD-qKw"/>
+                                                <constraint firstItem="NQi-b5-Wg3" firstAttribute="top" secondItem="yBF-4e-0ap" secondAttribute="bottom" constant="7" id="Mmh-A2-yGZ"/>
+                                                <constraint firstItem="4gW-Ci-zvf" firstAttribute="leading" secondItem="ifH-Mb-0jS" secondAttribute="leading" constant="15" id="PoL-7F-4D0"/>
+                                                <constraint firstItem="yBF-4e-0ap" firstAttribute="leading" secondItem="4gW-Ci-zvf" secondAttribute="trailing" constant="20" id="SsV-oY-E9j"/>
+                                                <constraint firstItem="pOb-W2-X90" firstAttribute="top" secondItem="NQi-b5-Wg3" secondAttribute="bottom" constant="8" id="cyJ-AR-DVr"/>
+                                                <constraint firstItem="pOb-W2-X90" firstAttribute="leading" secondItem="NQi-b5-Wg3" secondAttribute="leading" id="fdN-re-ERr"/>
+                                                <constraint firstAttribute="bottom" secondItem="pOb-W2-X90" secondAttribute="bottom" constant="8" id="kIy-OC-qQi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NQi-b5-Wg3" secondAttribute="trailing" constant="7" id="vxN-YK-2Qw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hC5-eK-wRy" id="jgU-7Y-g22"/>
+                                    <outlet property="delegate" destination="hC5-eK-wRy" id="KDE-o6-QCn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WPQ-Mw-WRf" firstAttribute="top" secondItem="De4-6S-RY6" secondAttribute="bottom" id="01q-2b-XJs"/>
+                            <constraint firstItem="De4-6S-RY6" firstAttribute="leading" secondItem="XVH-km-dNO" secondAttribute="leading" id="1IZ-Wl-xBt"/>
+                            <constraint firstAttribute="trailing" secondItem="De4-6S-RY6" secondAttribute="trailing" id="Npu-CP-Npp"/>
+                            <constraint firstItem="De4-6S-RY6" firstAttribute="top" secondItem="XVH-km-dNO" secondAttribute="top" id="axk-q7-CgL"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="newsTableView" destination="De4-6S-RY6" id="qEe-Fx-KOB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfy-wF-6HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
