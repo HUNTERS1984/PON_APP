@@ -1,11 +1,15 @@
 package com.hunters1984.pon.api;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -29,6 +33,9 @@ public interface ICallServices {
     @GET("/api/v1/authorized")
     Call<ResponseCommon> checkValidToken(@Header("Authorization") String token);
 
+    @Multipart
+    @POST("/api/v1/profile")
+    Call<ResponseUserProfileData> updateProfile(@Header("Authorization") String token,  @Part("name") RequestBody username,  @Part("gender") RequestBody gender, @Part("address") RequestBody address, @Part MultipartBody.Part image);
 
     //Coupons
     @GET("/api/v1/coupons/{id}")

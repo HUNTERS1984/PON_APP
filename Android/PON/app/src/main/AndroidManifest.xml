@@ -8,6 +8,7 @@
 
     <uses-permission android:name="com.hunters1984.pon.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -71,7 +72,7 @@
             android:name=".activities.ProfileHistoryActivity"
             android:label="@string/title_activity_history" />
         <activity android:name=".activities.ProfileActivity" />
-        <activity android:name=".activities.EditProfileActivity" />
+        <activity android:name=".activities.ProfileEditActivity" />
         <activity android:name=".activities.ProfileShopFollowingActivity" />
         <activity android:name=".activities.CouponDetailActivity" />
         <activity android:name=".activities.SplashSelectLoginActivity" />

@@ -31,7 +31,8 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="ユーザーネーム"/>
+                android:text="ユーザーネーム"
+                android:id="@+id/tv_user_name"/>
         </LinearLayout>
         <ImageView
             android:layout_width="@dimen/icon_size"

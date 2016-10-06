@@ -2,11 +2,13 @@ package com.hunters1984.pon.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by LENOVO on 9/26/2016.
  */
 
-public class UserModel {
+public class UserModel implements Serializable {
     @SerializedName("id")
     private int mId;
 

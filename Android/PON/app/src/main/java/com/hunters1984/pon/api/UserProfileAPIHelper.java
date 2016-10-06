@@ -7,6 +7,11 @@ import android.os.Message;
 import com.hunters1984.pon.utils.CommonUtils;
 import com.hunters1984.pon.utils.Constants;
 
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -165,6 +170,58 @@ public class UserProfileAPIHelper extends APIHelper{
 
             @Override
             public void onFailure(Call<ResponseCommon> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void updateProfile(Context context, String username, String gender, String address, String avatarPath, final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+
+//        Map<String, RequestBody> map = new HashMap<>();
+//        File file = new File(avatarPath);
+//
+//        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+//        map.put("file\"; filename=\"" + file.getName() + "\"", requestBody);
+
+        File file = new File(avatarPath);
+        RequestBody avatar = RequestBody.create(MediaType.parse("image/*"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("avatar_url", file.getName(), avatar);
+        RequestBody nameUser = RequestBody.create(MediaType.parse("text/plain"), username);
+        RequestBody genderUser = RequestBody.create(MediaType.parse("text/plain"), gender);
+        RequestBody addressUser = RequestBody.create(MediaType.parse("text/plain"), address);
+
+        Call<ResponseUserProfileData> response = service.updateProfile(token, nameUser, genderUser, addressUser, body);
+
+        response.enqueue(new Callback<ResponseUserProfileData>() {
+            @Override
+            public void onResponse(Call<ResponseUserProfileData> call, Response<ResponseUserProfileData> response) {
+                ResponseUserProfileData res = response.body();
+                if (res == null) {
+                    res = new ResponseUserProfileData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUserProfileData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

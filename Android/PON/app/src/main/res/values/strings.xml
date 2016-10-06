@@ -67,6 +67,10 @@
     <string name="female">女性</string>
     <string name="prefecture">都道府県</string>
     <string name="save">保存</string>
+    <string name="select_photo">Select Photo!</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="photo_from_gallery">Choose from Gallery</string>
+    <string name="select_file">Select File</string>
 
     <!--Shop following screen -->
     <string name="following">フォロー中</string>
@@ -118,6 +122,8 @@
     <string name="title_alert_dialog">アラート</string>
     <string name="deadline">期限：</string>
     <string name="connection_failed">Server failed to request</string>
+    <string name="permission_title">Permission necessary</string>
+    <string name="permission_external">External storage permission is necessary</string>
 
     <!-- Error -->
     <string name="token_expried">Token Expired. Please login again!</string>
