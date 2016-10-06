@@ -255,6 +255,8 @@
 		FAA43A761D9D0B8F0013BCE3 /* sns_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */; };
 		FAA43A781D9D15A50013BCE3 /* shop_button_follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */; };
 		FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */; };
+		FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */; };
+		FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -536,6 +538,8 @@
 		FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sns_button@2x.png"; sourceTree = "<group>"; };
 		FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_button_follow@2x.png"; sourceTree = "<group>"; };
 		FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
+		FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -868,6 +872,7 @@
 		4A85F2F71D9ABCDD00733161 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FAC2D1FE1DA65199006C5722 /* ReadMoreTextView */,
 				FA8A83F81DA3982E0035E48D /* SwiftyJSON */,
 				FA76A9DE1DA34D8D00893584 /* QRCode */,
 				FA76A9B11DA3460000893584 /* DKImagePickerController */,
@@ -1046,6 +1051,7 @@
 				4A85F3481D9ABCDD00733161 /* ShopFollowCollectionViewCell.xib */,
 				4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */,
 				4A649A8F1D9C04C60080E976 /* ShopCountTableViewCell.swift */,
+				FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1303,6 +1309,14 @@
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
+		FAC2D1FE1DA65199006C5722 /* ReadMoreTextView */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */,
+			);
+			path = ReadMoreTextView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1542,6 +1556,7 @@
 				FA76A9CE1DA3460000893584 /* DKImageManager.swift in Sources */,
 				FA76A9D81DA3460000893584 /* DKPermissionView.swift in Sources */,
 				4A85F4141D9ABCDD00733161 /* CouponCollectionViewCell.swift in Sources */,
+				FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */,
 				4A85F4081D9ABCDD00733161 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
 				4A85F3F71D9ABCDD00733161 /* IQNSArray+Sort.m in Sources */,
 				4A85F42E1D9ABCDD00733161 /* CouponViewController.swift in Sources */,
@@ -1556,6 +1571,7 @@
 				FA76A9A81DA3453600893584 /* ImageSlideshowItem.swift in Sources */,
 				FA76A9CB1DA3460000893584 /* DKGroupDataManager.swift in Sources */,
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
+				FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */,
 				4A85F41A1D9ABCDD00733161 /* BottomBorderView.swift in Sources */,
 				4A85F4211D9ABCDD00733161 /* MapMarker.swift in Sources */,
 				4A85F43C1D9ABCDD00733161 /* NewsViewController.swift in Sources */,
@@ -1797,7 +1813,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f55a592-75c8-444a-8840-341999fe818e";
+				PROVISIONING_PROFILE = "0c38f81a-6a38-420f-b2be-6950685bcd9f";
 				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1823,7 +1839,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f55a592-75c8-444a-8840-341999fe818e";
+				PROVISIONING_PROFILE = "0c38f81a-6a38-420f-b2be-6950685bcd9f";
 				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;

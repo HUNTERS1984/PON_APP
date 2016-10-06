@@ -10,6 +10,8 @@ import UIKit
 
 class NewsViewController: BaseViewController {
 
+    @IBOutlet weak var newsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,4 +31,27 @@ class NewsViewController: BaseViewController {
         self.showBackButton()
     }
     
+    override func setUpComponentsOnLoad() {
+        super.setUpComponentsOnLoad()
+        
+        self.newsTableView.rowHeight = UITableViewAutomaticDimension
+        self.newsTableView.estimatedRowHeight = 133;
+    }
+    
+}
+
+extension NewsViewController: UITableViewDataSource, UICollectionViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
+        
+        cell.contentView.setNeedsLayout()
+        cell.contentView.layoutIfNeeded()
+        
+        return cell
+    }
 }
