@@ -52,7 +52,7 @@ class TwitterLogin {
         if let _ = userID {
             Twitter.sharedInstance().sessionStore.logOutUserID(userID!)
         }
-        Twitter.sharedInstance().logIn(with: aViewController, methods: .webBased, completion: { (session: TWTRSession?, error: NSError?) in
+        Twitter.sharedInstance().logIn(with: aViewController, methods: .webBased) { (session, error) in
             if let _ = error {
                 self.callback?(false, error)
             }else {
@@ -60,7 +60,7 @@ class TwitterLogin {
                 self.apiClient = TWTRAPIClient(userID: userID)
                 self.callback?(true, session)
             }
-        } as! TWTRLogInCompletion)
+        }
     }
     
     fileprivate func logoutCallback(_ aCallback: TwitterLoginCallback) {

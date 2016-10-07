@@ -25,6 +25,8 @@ let TWConsumerSecret                            = "u2Cp1LFDin1zeQXxqXdgQEddZP06w
 let ClientId                                    = "1_3bcbxd9e24g0gk4swg0kwgcwg4o8k8g4g888kwc44gcc0gwwk4"
 let ClientSecret                                = "4ok2x70rlfokc8g0wws8c8kwcokw80k44sg48goc0ok4w0so0k"
 
+let FacebookAppID                               = "324209427951910"
+
 let DefaultPageSize                             = 10
 
 public enum GetType {

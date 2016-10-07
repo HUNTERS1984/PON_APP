@@ -56,7 +56,14 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
-
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
+            if let _ = error {
+                
+            }else {
+                print(result)
+                UIAlertController.presentFromViewController(viewController: self, title: "", message: "", actionTitles: ["OK"])
+            }
+        }
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
@@ -64,6 +71,10 @@ extension SplashViewController {
             if success {
                 if let _ = result {
                     let session = result as! TWTRSession
+                    print("authToken: \(session.authToken)")
+                    print("authTokenSecret: \(session.authTokenSecret)")
+                    print("userName: \(session.userName)")
+                    print("userID: \(session.userID)")
                     UIAlertController.present(title: "Logged In", message: "User \(session.userName) has logged in", actionTitles: ["OK"]) { (action) -> () in
                         print(action.title)
                     }
