@@ -34,6 +34,7 @@ class ScanQRCodeViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.view.backgroundColor = UIColor.white
         self.qrCodeDisplayImageView.image = QRCode.generateImage("Hello SwiftQRCode", avatarImage: nil, avatarScale: 0.3)
     }
 
