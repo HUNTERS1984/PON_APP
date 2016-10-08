@@ -74,8 +74,6 @@ extension SplashViewController {
                     let session = result as! TWTRSession
                     let token = session.authToken
                     let tokenSecret = session.authTokenSecret
-                    print(token)
-                    print(tokenSecret)
                     self.signInWithTwitter(token, tokenSecret: tokenSecret)
                 } else {
                     let error = result as! NSError
