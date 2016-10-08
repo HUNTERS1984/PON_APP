@@ -1332,7 +1332,7 @@
 				FA33FCE61D77BFDA0048EF73 /* Resources */,
 				E9FF5A17A821114A648B5EDC /* [CP] Embed Pods Frameworks */,
 				38995BA011EAE41E22DD835C /* [CP] Copy Pods Resources */,
-				FAFB56F21D91135B004AAD3F /* ShellScript */,
+				FAFB56F21D91135B004AAD3F /* Twitter Run Script */,
 			);
 			buildRules = (
 			);
@@ -1536,13 +1536,14 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PonApp/Pods-PonApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FAFB56F21D91135B004AAD3F /* ShellScript */ = {
+		FAFB56F21D91135B004AAD3F /* Twitter Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Twitter Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

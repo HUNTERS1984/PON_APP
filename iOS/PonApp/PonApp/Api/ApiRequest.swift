@@ -161,10 +161,25 @@ public struct ApiRequest {
     
     static func followShop(_ shopId: Float, completion: @escaping (ApiCompletion)) {
         let parameters: [String: String?] = [
-            "id": "\(Int(shopId))",
+            "id": "\(Int(shopId))"
         ]
         let endpoint = String(format:LikeCoupon, Int(shopId))
         ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    }
+    
+    static func signInFacebook(_ accessToken: String, completion: @escaping(ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "facebook_access_token": accessToken
+        ]
+        ApiManager.processRequest(SignInFacebook, method: .POST, parameters: parameters, completion: completion)
+    }
+    
+    static func signInTwitter(_ token: String, tokenSecret: String, completion: @escaping(ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "twitter_access_token": token,
+            "twitter_access_token_secret": tokenSecret
+        ]
+        ApiManager.processRequest(SignInTwitter, method: .POST, parameters: parameters, completion: completion)
     }
 
 }
