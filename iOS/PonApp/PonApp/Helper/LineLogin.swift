@@ -62,7 +62,6 @@ class LineLogin {
     }
     
     func handleLaunchOptions(_ launchOptions: [AnyHashable: Any]?) {
-        self.startObserveLineAdapterNotification()
         LineAdapter.handleLaunchOptions(launchOptions)
     }
     
