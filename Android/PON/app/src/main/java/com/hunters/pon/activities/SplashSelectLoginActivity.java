@@ -2,10 +2,10 @@ package com.hunters.pon.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -15,6 +15,12 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.hunters.pon.R;
+import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseUserData;
+import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.utils.CommonUtils;
+import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.DialogUtiils;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -32,16 +38,20 @@ public class SplashSelectLoginActivity extends BaseActivity {
     private TwitterLoginButton mTwitterSignInButton;
 
     private RelativeLayout mRlFacebookLogin, mRlTwitterLogin, mRlEmailLogin;
+    private boolean isToMainTop = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mContext = this;
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         mFacebookCallbackManager = CallbackManager.Factory.create();
 
         setContentView(R.layout.activity_splash_select_login);
+
+        isToMainTop = getIntent().getBooleanExtra(Constants.EXTRA_DATA, true);
 
         initLayout();
 
@@ -86,7 +96,8 @@ public class SplashSelectLoginActivity extends BaseActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(final LoginResult loginResult) {
-                        Log.d("FACEBOOK", "success");
+                        String token = loginResult.getAccessToken().getToken();
+                        new UserProfileAPIHelper().signInFacebook(mContext, token, mHanlderSignIn);
                     }
 
                     @Override
@@ -96,6 +107,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
 
                     @Override
                     public void onError(FacebookException error) {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     }
                 }
         );
@@ -116,16 +128,46 @@ public class SplashSelectLoginActivity extends BaseActivity {
                 // The TwitterSession is also available through:
                 // Twitter.getInstance().core.getSessionManager().getActiveSession()
                 TwitterSession session = result.data;
-                // TODO: Remove toast and use the TwitterSession's userID
-                // with your app's user model
-                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                String accessToken = session.getAuthToken().token;
+                String secrectToken = session.getAuthToken().secret;
+
+                new UserProfileAPIHelper().signInTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
             }
             @Override
             public void failure(TwitterException exception) {
+                new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                 exception.printStackTrace();
             }
         });
 
     }
+
+    private Handler mHanlderSignIn = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseUserData user = (ResponseUserData) msg.obj;
+                    if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
+                        if(user.data != null) {
+                            CommonUtils.saveToken(mContext, user.data.token);
+                            if(isToMainTop) {
+                                Intent iMainScreen = new Intent(SplashSelectLoginActivity.this, MainTopActivity.class);
+                                iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(iMainScreen);
+                            }
+                            finish();
+                        } else {
+                            new DialogUtiils().showDialog(mContext, user.message, false);
+                        }
+                    } else {
+                        new DialogUtiils().showDialog(mContext, user.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
 }

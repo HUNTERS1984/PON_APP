@@ -37,6 +37,15 @@ public interface ICallServices {
     @POST("/api/v1/profile")
     Call<ResponseUserProfileData> updateProfile(@Header("Authorization") String token,  @Part("name") RequestBody username,  @Part("gender") RequestBody gender, @Part("address") RequestBody address, @Part MultipartBody.Part image);
 
+    @FormUrlEncoded
+    @POST("/api/v1/facebook/signin")
+    Call<ResponseUserData> signInFacebook(@Field("facebook_access_token") String token);
+
+    @FormUrlEncoded
+    @POST("/api/v1/twitter/signin")
+    Call<ResponseUserData> signInTwitter(@Field("twitter_access_token") String accessToken, @Field("twitter_access_token_secret") String secrectToken);
+
+
     //Coupons
     @GET("/api/v1/coupons/{id}")
     Call<ResponseCouponDetailData> getCouponDetail(@Header("Authorization") String token, @Path("id") long id);
@@ -58,6 +67,9 @@ public interface ICallServices {
 
     @POST("/api/v1/use/coupons/{id}")
     Call<ResponseCommon> useCoupon(@Header("Authorization") String token, @Query("id") long id);
+
+    @POST("/api/v1/like/coupons/{id}")
+    Call<ResponseCommon> addFavouriteCoupon(@Header("Authorization") String token, @Query("id") String id);
 
 
     //Shop

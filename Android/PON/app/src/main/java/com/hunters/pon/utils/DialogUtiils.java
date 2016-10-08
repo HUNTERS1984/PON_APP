@@ -5,8 +5,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.SplashSelectLoginActivity;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
 
 /**
@@ -47,6 +49,29 @@ public class DialogUtiils {
                         buttonConfirm.onDialogButtonConfirm();
                         dialog.dismiss();
 
+                    }
+                })
+                .show();
+
+    }
+
+    public void showDialogLogin(final Context context, String message)
+    {
+
+        mAlertDialog = new AlertDialog.Builder(context)
+                .setTitle(context.getString(R.string.title_alert_dialog))
+                .setMessage(message)
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+
+                    }
+                }).setPositiveButton(R.string.login, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent iLogin = new Intent(context, SplashSelectLoginActivity.class);
+                        iLogin.putExtra(Constants.EXTRA_DATA, false);
+                        context.startActivity(iLogin);
                     }
                 })
                 .show();

@@ -1,6 +1,8 @@
 package com.hunters.pon.activities;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -49,6 +51,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
 
     private long mShopId;
     private double mShopLat, mShopLng;
+    private String mPhone, mShopName, mShopDirection;
 
     private CouponRecyclerViewAdapter mAdapterCoupon;
     private PhotoRecyclerViewAdapter mAdapterShopPhoto;
@@ -118,6 +121,39 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
             }
         });
 
+        View callShop = findViewById(R.id.ln_call_shop);
+        callShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mPhone));
+                startActivity(intent);
+            }
+        });
+
+        View showMapShop = findViewById(R.id.ln_map_shop);
+        showMapShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uriBegin = "geo:" + mShopLat + "," + mShopLng;
+                String query = mShopLat + "," + mShopLng + "(" + mShopName + ")";
+                String encodedQuery = Uri.encode(query);
+                String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
+                Uri uri = Uri.parse(uriString);
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        View shareShop = findViewById(R.id.ln_share_shop);
+        shareShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, mShopName);
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, mShopDirection);
+                startActivity(Intent.createChooser(sharingIntent,"Share to"));
+            }
+        });
     }
 
     @Override
@@ -158,6 +194,10 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
 
     private void popularLayout(ResponseShopDetail shop)
     {
+        mPhone = shop.getmPhone();
+        mShopName = shop.getmShopName();
+        mShopDirection = shop.getmHelpDirection();
+
         Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
                 .resize(CommonUtils.dpToPx(mContext, 220), CommonUtils.dpToPx(mContext, 200))
                 .centerCrop().into(mIvShopAvatar, new Callback() {

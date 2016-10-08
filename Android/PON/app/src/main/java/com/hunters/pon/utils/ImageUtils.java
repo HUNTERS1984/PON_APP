@@ -3,16 +3,17 @@ package com.hunters.pon.utils;
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
+import com.hunters.pon.api.APIConstants;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -150,19 +151,22 @@ public class ImageUtils {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
 
-    public static Target picassoImageTarget(Context context, final String imageDir, final String imageName) {
-        ContextWrapper cw = new ContextWrapper(context);
-        final File directory = cw.getDir(imageDir, Context.MODE_PRIVATE); // path to /data/data/yourapp/app_imageDir
+    public static Target picassoImageTarget(final Context context, final String imageName, final Handler hanlderCompleteSaveImage) {
+//        ContextWrapper cw = new ContextWrapper(context);
+//        final File directory = cw.getDir(imageDir, Context.MODE_WORLD_READABLE); // path to /data/data/yourapp/app_imageDir
         return new Target() {
             @Override
             public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        final File myImageFile = new File(directory, imageName); // Create image file
+                        //MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "share_coupon" , "share_coupon");
+
+//                        final File myImageFile = new File(directory, imageName); // Create image file
+                        final File imageFile = new File(CommonUtils.getFileCache(imageName));
                         FileOutputStream fos = null;
                         try {
-                            fos = new FileOutputStream(myImageFile);
+                            fos = new FileOutputStream(imageFile);
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -173,6 +177,7 @@ public class ImageUtils {
                                 e.printStackTrace();
                             }
                         }
+                        hanlderCompleteSaveImage.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_SUCCESS);
 
                     }
                 }).start();
@@ -180,6 +185,7 @@ public class ImageUtils {
 
             @Override
             public void onBitmapFailed(Drawable errorDrawable) {
+                hanlderCompleteSaveImage.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
             }
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable) {

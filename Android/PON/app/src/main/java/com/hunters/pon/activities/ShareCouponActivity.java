@@ -1,10 +1,11 @@
 package com.hunters.pon.activities;
 
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
@@ -15,9 +16,12 @@ import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.hunters.pon.R;
+import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.qrcode.QRCodeUtils;
+import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ImageUtils;
 import com.squareup.picasso.Picasso;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
@@ -127,6 +131,7 @@ public class ShareCouponActivity extends BaseActivity {
 
     private void shareFacebook()
     {
+        showProgressDialog(mContext);
         FacebookSdk.sdkInitialize(getApplicationContext());
         mCallbackManager = CallbackManager.Factory.create();
         mShareDialog = new ShareDialog(this);
@@ -141,9 +146,11 @@ public class ShareCouponActivity extends BaseActivity {
 
             mShareDialog.show(linkContent);
         }
+        closeDialog();
     }
 
     private void shareTwitter() {
+        showProgressDialog(mContext);
         TweetComposer.Builder builder = null;
         try {
             builder = new TweetComposer.Builder(this)
@@ -152,34 +159,64 @@ public class ShareCouponActivity extends BaseActivity {
             e.printStackTrace();
         }
         builder.show();
+        closeDialog();
     }
 
     private void shareInstagram()
     {
-        Picasso.with(this).load(mCoupon.getmImageUrl()).into(ImageUtils.picassoImageTarget(getApplicationContext(), "coupon", "share_coupon.png"));
+        showProgressDialog(mContext);
+        Picasso.with(this).load(mCoupon.getmImageUrl())
+                .into(ImageUtils.picassoImageTarget(getApplicationContext(), "share_coupon.png", mHanlderCompletionSaveImage));
 
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        File directory = cw.getDir("coupon", Context.MODE_PRIVATE);
-        File couponFile = new File(directory, "share_coupon.png");
-
-        Uri file = Uri.fromFile(couponFile);
-
-        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setType("image/*");
-        shareIntent.putExtra(Intent.EXTRA_STREAM, file);
-        shareIntent.setPackage("com.instagram.android");
-        startActivity(shareIntent);
     }
 
     private void shareLine()
     {
-        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmImageUrl());
-        shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
-        shareIntent.setPackage("jp.naver.line.android");
-        startActivity(shareIntent);
-        // Broadcast the Intent.
-//        startActivity(Intent.createChooser(shareIntent, "Share to"));
+        showProgressDialog(mContext);
+        if(CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_LINE)) {
+            Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmImageUrl());
+            shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
+            shareIntent.setPackage(Constants.PACKAGE_LINE);
+            startActivity(shareIntent);
+        } else {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setData(Uri.parse("market://details?id=" + Constants.PACKAGE_LINE));
+            startActivity(intent);
+        }
+        closeDialog();
     }
+
+    private Handler mHanlderCompletionSaveImage = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+            switch (msg.what){
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    File cacheFile = new File(CommonUtils.getFileCache("share_coupon.jpg"));
+
+                    Uri file = Uri.fromFile(cacheFile);
+
+                    if (CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_INSTAGRAM)){
+                        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        shareIntent.setType("image/*");
+                        shareIntent.putExtra(Intent.EXTRA_STREAM, file);
+                        shareIntent.setPackage(Constants.PACKAGE_INSTAGRAM);
+                        startActivity(shareIntent);
+                    } else {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setData(Uri.parse("market://details?id=" + Constants.PACKAGE_INSTAGRAM));
+                        startActivity(intent);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+            closeDialog();
+        }
+    };
 }

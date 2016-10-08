@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
-import com.hunters.pon.activities.SignInEmailActivity;
+import com.hunters.pon.activities.SplashSelectLoginActivity;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponMainTop;
@@ -162,7 +162,7 @@ public class BaseFragment extends Fragment {
                             CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons(), new OnLoginClickListener() {
                                 @Override
                                 public void onLoginClick() {
-                                    startActivity(new Intent(getActivity(), SignInEmailActivity.class));
+                                    startActivity(new Intent(getActivity(), SplashSelectLoginActivity.class));
                                 }
                             });
                             rvCoupons.setAdapter(adapter);

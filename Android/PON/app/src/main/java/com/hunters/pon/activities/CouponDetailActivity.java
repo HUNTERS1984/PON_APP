@@ -48,6 +48,9 @@ import java.util.List;
 public class CouponDetailActivity extends AppCompatActivity implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
 
+    private static final int USE_COUPON = 0;
+    private static final int ADD_FAVOURITE = 1;
+
     private GoogleMap mGoogleMap;
     protected List<CouponModel> mListCoupons;
     private List<String> mLstCouponPhotos;
@@ -72,6 +75,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private Context mContext;
     private long mCouponId;
     private CouponModel mCoupon;
+    private int mCurrentSelection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +149,16 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mBtnFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mCurrentSelection = ADD_FAVOURITE;
+                String token = CommonUtils.getToken(mContext);
+
+                if(!token.equalsIgnoreCase("")) {
+                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
+                } else {
+                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+                }
+
                 isFavourite = !isFavourite;
                 if(isFavourite) {
                     mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
@@ -173,6 +187,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mBtnUseThisCoupon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mCurrentSelection = USE_COUPON;
                 String token = CommonUtils.getToken(mContext);
 
                 if(!token.equalsIgnoreCase("")) {
@@ -265,7 +281,15 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         CommonUtils.saveToken(mContext, "");
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
-                        new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderUseCoupon);
+                        switch (mCurrentSelection){
+                            case USE_COUPON:
+                                new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderProcessCoupon);
+                                break;
+                            case ADD_FAVOURITE:
+                                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderProcessCoupon);
+                                break;
+                        }
+
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -275,7 +299,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
-    private Handler mHanlderUseCoupon = new Handler(){
+    private Handler mHanlderProcessCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -284,7 +308,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK){
                         new DialogUtiils().showDialog(mContext, data.message, false);
                     } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
-                        new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), false);
+                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:

@@ -13,6 +13,7 @@ import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
+import com.hunters.pon.utils.ProgressDialogUtils;
 
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class BaseActivity extends AppCompatActivity {
     private ImageView mIvHome, mIvMyFavourite, mIvProfile, mIvBack;
     private TextView mTvTitle;
     protected Context mContext;
+
+    protected ProgressDialogUtils mProgressDialogUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +152,20 @@ public class BaseActivity extends AppCompatActivity {
                 mIvProfile.setVisibility(View.GONE);
                 mIvMyFavourite.setVisibility(View.GONE);
             }
+        }
+    }
+
+    protected void showProgressDialog(Context context) {
+
+        if(mProgressDialogUtils == null) {
+            mProgressDialogUtils = new ProgressDialogUtils(context, "", context.getString(R.string.connecting));
+        }
+        mProgressDialogUtils.show();
+    }
+
+    protected void closeDialog() {
+        if(mProgressDialogUtils != null){
+            mProgressDialogUtils.hide();
         }
     }
 }

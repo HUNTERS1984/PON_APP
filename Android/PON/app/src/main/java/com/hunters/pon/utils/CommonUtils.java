@@ -1,10 +1,13 @@
 package com.hunters.pon.utils;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.util.DisplayMetrics;
 
 import com.hunters.pon.api.APIConstants;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -60,5 +63,24 @@ public class CommonUtils {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         return px;
+    }
+
+    public static boolean isPackageInstalled(Context context, String packagename) {
+        try {
+            context.getPackageManager().getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+    public static String getFileCache(String fileName)
+    {
+//        File dir = new File(Environment.getDataDirectory() + "/PON/");
+//        if (!dir.exists()) {
+//            dir.mkdir();
+//        }
+        File dir = Environment.getDataDirectory();
+
+        return dir.getAbsolutePath() + "/" + fileName;
     }
 }

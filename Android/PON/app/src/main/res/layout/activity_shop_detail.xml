@@ -321,7 +321,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/ln_call_shop">
             <ImageView
                 android:layout_width="@dimen/icon_size_info"
                 android:layout_height="@dimen/icon_size_info"
@@ -339,7 +340,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/ln_map_shop">
             <ImageView
                 android:layout_width="@dimen/icon_size_info"
                 android:layout_height="@dimen/icon_size_info"
@@ -357,7 +359,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/ln_share_shop">
             <ImageView
                 android:layout_width="@dimen/icon_size_info"
                 android:layout_height="@dimen/icon_size_info"

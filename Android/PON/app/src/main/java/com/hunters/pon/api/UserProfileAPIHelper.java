@@ -194,21 +194,65 @@ public class UserProfileAPIHelper extends APIHelper{
 //        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
 //        map.put("file\"; filename=\"" + file.getName() + "\"", requestBody);
 
-        File file = new File(avatarPath);
-        RequestBody avatar = RequestBody.create(MediaType.parse("image/*"), file);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("avatar_url", file.getName(), avatar);
         RequestBody nameUser = RequestBody.create(MediaType.parse("text/plain"), username);
         RequestBody genderUser = RequestBody.create(MediaType.parse("text/plain"), gender);
         RequestBody addressUser = RequestBody.create(MediaType.parse("text/plain"), address);
 
-        Call<ResponseUserProfileData> response = service.updateProfile(token, nameUser, genderUser, addressUser, body);
+        Call<ResponseUserProfileData> response;
+        if(avatarPath != null) {
+            File file = new File(avatarPath);
+            RequestBody avatar = RequestBody.create(MediaType.parse("image/*"), file);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("avatar_url", file.getName(), avatar);
+            response = service.updateProfile(token, nameUser, genderUser, addressUser, body);
+        } else {
+            response = service.updateProfile(token, nameUser, genderUser, addressUser, null);
+        }
 
-        response.enqueue(new Callback<ResponseUserProfileData>() {
+        if(response != null) {
+            response.enqueue(new Callback<ResponseUserProfileData>() {
+                @Override
+                public void onResponse(Call<ResponseUserProfileData> call, Response<ResponseUserProfileData> response) {
+                    ResponseUserProfileData res = response.body();
+                    if (res == null) {
+                        res = new ResponseUserProfileData();
+                        res.code = APIConstants.REQUEST_FAILED;
+                    }
+                    res.httpCode = response.code();
+
+                    Message msg = Message.obtain();
+                    msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                    msg.obj = res;
+                    handler.sendMessage(msg);
+                    closeDialog();
+                }
+
+                @Override
+                public void onFailure(Call<ResponseUserProfileData> call, Throwable t) {
+                    handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                    closeDialog();
+                }
+            });
+        }
+    }
+
+    public void signInFacebook(Context context, String token, final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        Call<ResponseUserData> response = service.signInFacebook(token);
+
+        response.enqueue(new Callback<ResponseUserData>() {
             @Override
-            public void onResponse(Call<ResponseUserProfileData> call, Response<ResponseUserProfileData> response) {
-                ResponseUserProfileData res = response.body();
+            public void onResponse(Call<ResponseUserData> call, Response<ResponseUserData> response) {
+                ResponseUserData res = response.body();
                 if (res == null) {
-                    res = new ResponseUserProfileData();
+                    res = new ResponseUserData();
                     res.code =  APIConstants.REQUEST_FAILED;
                 }
                 res.httpCode = response.code();
@@ -221,7 +265,44 @@ public class UserProfileAPIHelper extends APIHelper{
             }
 
             @Override
-            public void onFailure(Call<ResponseUserProfileData> call, Throwable t) {
+            public void onFailure(Call<ResponseUserData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
+
+    public void signInTwitter(Context context, String accessToken, String secretToken, final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        Call<ResponseUserData> response = service.signInTwitter(accessToken, secretToken);
+
+        response.enqueue(new Callback<ResponseUserData>() {
+            @Override
+            public void onResponse(Call<ResponseUserData> call, Response<ResponseUserData> response) {
+                ResponseUserData res = response.body();
+                if (res == null) {
+                    res = new ResponseUserData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUserData> call, Throwable t) {
                 handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
                 closeDialog();
             }

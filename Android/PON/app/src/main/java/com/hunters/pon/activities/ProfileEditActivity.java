@@ -175,7 +175,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 String username = mEdtUserName.getText().toString();
                 String email = mEdtEmail.getText().toString();
                 String sex = String.valueOf(mSpnSex.getSelectedItemPosition());
-                String address = "dsds";//String.valueOf(mSpnPrefecture.getSelectedItemPosition());
+                String address = mSpnPrefecture.getSelectedItem().toString();
                 new UserProfileAPIHelper().updateProfile(mContext, username, sex, address,  mFilePath, mHanlderUpdateProfile);
             }
         });
@@ -190,17 +190,14 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         sexAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpnSex.setAdapter(sexAdapter);
 
-        mSpnSex = (Spinner)findViewById(R.id.spn_prefecture);
+        mSpnPrefecture = (Spinner)findViewById(R.id.spn_prefecture);
 
-//        List<String> prefectures = new ArrayList<String>();
         List<String> prefectures = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.prefecture)));
-//        prefectures.add("東京都");
-//        prefectures.add("大阪ジャパン");
 
         // Creating adapter for spinner
-        ArrayAdapter<String> prefectureAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, prefectures);
+        ArrayAdapter<String> prefectureAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, prefectures );
         prefectureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpnSex.setAdapter(prefectureAdapter);
+        mSpnPrefecture.setAdapter(prefectureAdapter);
 
         popularUI(mUser);
     }

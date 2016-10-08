@@ -23,4 +23,7 @@ public class Constants {
     public static final String TYPE_USED_COUPON = "4";
 
     public static final String HEADER_AUTHORIZATION = "Bearer %s";
+
+    public static final String PACKAGE_INSTAGRAM = "com.instagram.android";
+    public static final String PACKAGE_LINE = "jp.naver.line.android";
 }
