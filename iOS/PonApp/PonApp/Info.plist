@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>http://mecorp.vn</string>
+				<string>https://pon.jp/callback_url</string>
 			</array>
 		</dict>
 		<dict>
