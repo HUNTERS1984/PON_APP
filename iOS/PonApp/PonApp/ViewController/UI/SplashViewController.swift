@@ -56,7 +56,15 @@ class SplashViewController: BaseViewController {
 extension SplashViewController {
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
-
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
+            if let _ = error {
+                
+            }else {
+                print(result)
+                let accessToken = result!["token"]
+                self.signInWithFacebook(accessToken!)
+            }
+        }
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
@@ -64,9 +72,9 @@ extension SplashViewController {
             if success {
                 if let _ = result {
                     let session = result as! TWTRSession
-                    UIAlertController.present(title: "Logged In", message: "User \(session.userName) has logged in", actionTitles: ["OK"]) { (action) -> () in
-                        print(action.title)
-                    }
+                    let token = session.authToken
+                    let tokenSecret = session.authTokenSecret
+                    self.signInWithTwitter(token, tokenSecret: tokenSecret)
                 } else {
                     let error = result as! NSError
                     print("Login error: %@", error.localizedDescription);
@@ -113,7 +121,8 @@ extension SplashViewController {
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
-                            self.showActionView()                        }
+                            self.showActionView()
+                        }
                     }
                 }
             }
@@ -127,5 +136,46 @@ extension SplashViewController {
         self.loginActionView.fadeOut(0.5)
     }
     
+    fileprivate func signInWithFacebook(_ accessToken: String) {
+        self.showHUD()
+        ApiRequest.signInFacebook(accessToken) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.getUserProfile()
+                    self.setupTabbarViewController()
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
+    fileprivate func signInWithTwitter(_ token: String, tokenSecret: String) {
+        self.showHUD()
+        ApiRequest.signInTwitter(token, tokenSecret: tokenSecret) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    if let token = result?.data!["token"].string {
+                        Defaults[.token] = token
+                    }
+                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.getUserProfile()
+                    self.setupTabbarViewController()
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
     
 }

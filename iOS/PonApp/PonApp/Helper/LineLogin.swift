@@ -62,8 +62,8 @@ class LineLogin {
     }
     
     func handleLaunchOptions(_ launchOptions: [AnyHashable: Any]?) {
-        self.startObserveLineAdapterNotification()
         LineAdapter.handleLaunchOptions(launchOptions)
+        self.startObserveLineAdapterNotification()
     }
     
     func handleOpenURL(_ url: URL) {

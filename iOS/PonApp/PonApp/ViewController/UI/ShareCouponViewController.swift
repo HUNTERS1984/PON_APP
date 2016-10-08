@@ -30,6 +30,7 @@ class ShareCouponViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.view.backgroundColor = UIColor.white
         self.instagramButton.setImage(UIImage(named: "coupon_instagram_button"), for: UIControlState())
         self.facebookButton.setImage(UIImage(named: "coupon_facebook_button"), for: UIControlState())
         self.twitterButton.setImage(UIImage(named: "coupon_twitter_button"), for: UIControlState())
