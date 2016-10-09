@@ -28,6 +28,8 @@ let ClientSecret                                = "4ok2x70rlfokc8g0wws8c8kwcokw8
 
 let FacebookAppID                               = "324209427951910"
 
+let OneSignalAppID                              = "8bd3dabf-927b-4e27-8568-cf22d7a586bd"
+
 let DefaultPageSize                             = 10
 
 public enum GetType {

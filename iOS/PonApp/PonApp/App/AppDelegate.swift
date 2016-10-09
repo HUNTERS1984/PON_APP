@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        OneSignalPushNotification.initPush(with: launchOptions, appId: OneSignalAppID)
         IQKeyboardManager.shared().isEnabled = true
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
