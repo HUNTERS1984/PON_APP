@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        OneSignalPushNotification.initPush(with: launchOptions, appId: OneSignalAppID)
+        OneSignalPushNotification.initPush(with: application, launchOptions: launchOptions, appId: OneSignalAppID)
         IQKeyboardManager.shared().isEnabled = true
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setUpApplicationTheme() {
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor(hex: 0x18c0d4)
+        UINavigationBar.appearance().barTintColor = UIColor(hex: DefaultBlueTextColor)
         let navTitleTextAttributes = [
             NSFontAttributeName: UIFont.HiraginoSansW6(17),
             NSForegroundColorAttributeName:  UIColor.white
@@ -78,6 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         FacebookLogin.activateApp()
     }
-
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print("Device Token: " + token)
+    }
 }
 

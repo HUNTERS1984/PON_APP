@@ -30,6 +30,9 @@ let FacebookAppID                               = "324209427951910"
 
 let OneSignalAppID                              = "8bd3dabf-927b-4e27-8568-cf22d7a586bd"
 
+//let OneSignalAppID                              = "b3805ab7-b174-40d0-9d1c-ae30f4519316"
+//let OneSignalAppKey                             = "YWY1NDA0YmUtNjFhMS00MWZlLTgzNjUtMmY2OThjODdmODZj"
+
 let DefaultPageSize                             = 10
 
 public enum GetType {
