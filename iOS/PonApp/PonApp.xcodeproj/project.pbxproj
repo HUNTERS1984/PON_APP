@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */; };
 		4A0759441D9F3BBE00E9D6DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0759431D9F3BBE00E9D6DC /* Reachability.m */; };
+		4A136A0D1DAA24BE000610E3 /* OneSignalPushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A136A0C1DAA24BE000610E3 /* OneSignalPushNotification.swift */; };
+		4A136A0F1DAA28CF000610E3 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A136A0E1DAA28CF000610E3 /* UserNotifications.framework */; };
+		4A136A111DAA28D5000610E3 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A136A101DAA28D5000610E3 /* UserNotificationsUI.framework */; };
+		4A136A131DAA2C2E000610E3 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A136A121DAA2C2E000610E3 /* OneSignal.framework */; };
 		4A649A8C1D9BFA020080E976 /* CouponTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */; };
 		4A649A8E1D9BFEC80080E976 /* ListCouponContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */; };
 		4A649A901D9C04C60080E976 /* ShopCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A8F1D9C04C60080E976 /* ShopCountTableViewCell.swift */; };
@@ -263,6 +267,10 @@
 		38337C6ABE99B9BBDF97BFA2 /* Pods-PonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.release.xcconfig"; sourceTree = "<group>"; };
 		4A0759421D9F3BBE00E9D6DC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4A0759431D9F3BBE00E9D6DC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4A136A0C1DAA24BE000610E3 /* OneSignalPushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneSignalPushNotification.swift; sourceTree = "<group>"; };
+		4A136A0E1DAA28CF000610E3 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		4A136A101DAA28D5000610E3 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		4A136A121DAA2C2E000610E3 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OneSignal.framework; sourceTree = "<group>"; };
 		4A649A8B1D9BFA020080E976 /* CouponTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponTypeTableViewCell.swift; sourceTree = "<group>"; };
 		4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponContentViewController.swift; sourceTree = "<group>"; };
 		4A649A8F1D9C04C60080E976 /* ShopCountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCountTableViewCell.swift; sourceTree = "<group>"; };
@@ -548,11 +556,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A136A111DAA28D5000610E3 /* UserNotificationsUI.framework in Frameworks */,
+				4A136A0F1DAA28CF000610E3 /* UserNotifications.framework in Frameworks */,
 				FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */,
 				FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */,
 				4A85F3861D9ABCDD00733161 /* FBSDKLoginKit.framework in Frameworks */,
 				FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */,
 				FA405C831D9228B500D56602 /* Security.framework in Frameworks */,
+				4A136A131DAA2C2E000610E3 /* OneSignal.framework in Frameworks */,
 				FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */,
 				4A85F3891D9ABCDD00733161 /* LineAdapterLogin.framework in Frameworks */,
 				4A85F3881D9ABCDD00733161 /* LineAdapter.framework in Frameworks */,
@@ -635,6 +646,7 @@
 		4A85F2781D9ABCDD00733161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A136A121DAA2C2E000610E3 /* OneSignal.framework */,
 				4A85F2791D9ABCDD00733161 /* Bolts.framework */,
 				4A85F27A1D9ABCDD00733161 /* FBSDKCoreKit.framework */,
 				4A85F27B1D9ABCDD00733161 /* FBSDKLoginKit.framework */,
@@ -662,6 +674,7 @@
 				4A85F2851D9ABCDD00733161 /* LineLogin.swift */,
 				4A85F2861D9ABCDD00733161 /* Location.swift */,
 				4A85F2871D9ABCDD00733161 /* TwitterLogin.swift */,
+				4A136A0C1DAA24BE000610E3 /* OneSignalPushNotification.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1145,6 +1158,8 @@
 		D48EAA8D573D1FF68F8534A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A136A101DAA28D5000610E3 /* UserNotificationsUI.framework */,
+				4A136A0E1DAA28CF000610E3 /* UserNotifications.framework */,
 				FA405C881D9228CC00D56602 /* CoreText.framework */,
 				FA405C861D9228C700D56602 /* CoreGraphics.framework */,
 				FA405C841D9228BC00D56602 /* CoreTelephony.framework */,
@@ -1359,7 +1374,13 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -1621,6 +1642,7 @@
 				4A85F37B1D9ABCDD00733161 /* ApiEndpoint.swift in Sources */,
 				4A85F40B1D9ABCDD00733161 /* DefaultsKeysExtension.swift in Sources */,
 				4A85F40A1D9ABCDD00733161 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
+				4A136A0D1DAA24BE000610E3 /* OneSignalPushNotification.swift in Sources */,
 				4A85F4321D9ABCDD00733161 /* HomeMapViewController.swift in Sources */,
 				4A85F41C1D9ABCDD00733161 /* CouponBannerView.swift in Sources */,
 				4A85F3951D9ABCDD00733161 /* HLKTextField.swift in Sources */,
