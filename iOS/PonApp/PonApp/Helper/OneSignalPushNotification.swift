@@ -11,38 +11,21 @@ import OneSignal
 
 struct OneSignalPushNotification {
     
-    static func initPush(with launchOptions:[UIApplicationLaunchOptionsKey: Any]?, appId: String) {
-        OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
+    static func initPush(with application: UIApplication, launchOptions:[UIApplicationLaunchOptionsKey: Any]?, appId: String) {
+        OneSignal.setLogLevel(.LL_INFO, visualLevel: .LL_NONE)
         OneSignal.initWithLaunchOptions(launchOptions, appId: OneSignalAppID, handleNotificationReceived: { (notification) in
-                print("Received Notification - \(notification?.payload.notificationID)")
+                NotificationManager.shared.handleNotificationReceived(with: notification)
             }, handleNotificationAction: { (result) in
-                
                 // This block gets called when the user reacts to a notification received
-                let payload = result?.notification.payload
-                var fullMessage = payload?.title
+                NotificationManager.shared.handleNotificationAction(with: result)
                 
-                //Try to fetch the action selected
-                if let actionSelected = result?.action.actionID {
-                    fullMessage =  fullMessage! + "\nPressed ButtonId:\(actionSelected)"
-                }
-                
-                print(fullMessage)
-                
-            }, settings: [kOSSettingsKeyAutoPrompt : false, kOSSettingsKeyInAppAlerts : false])
-        
-        
-        // iOS 10 ONLY - Add category for the OSContentExtension
-        // Make sure to add UserNotifications framework in the Linked Frameworks & Libraries.
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().getNotificationCategories { (categories) in
-                let myAction = UNNotificationAction(identifier: "action0", title: "Hit Me!", options: .foreground)
-                let myCategory = UNNotificationCategory(identifier: "myOSContentCategory", actions: [myAction], intentIdentifiers: [], options: .customDismissAction)
-                let mySet = NSSet(array: [myCategory]).addingObjects(from: categories) as! Set<UNNotificationCategory>
-                UNUserNotificationCenter.current().setNotificationCategories(mySet)
-            }
-        }
-        
+            }, settings: [kOSSettingsKeyAutoPrompt : true, kOSSettingsKeyInAppAlerts : false])
     }
-
+    
+    static func registerForPushNotifications(application: UIApplication) {
+        let notificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
 }
  
