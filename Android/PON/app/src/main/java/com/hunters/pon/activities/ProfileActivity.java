@@ -148,7 +148,12 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
                     ResponseProfileData profile = (ResponseProfileData) msg.obj;
                     if (profile.code == APIConstants.REQUEST_OK && profile.httpCode == APIConstants.HTTP_OK) {
                         mUser = profile.data;
-                        mTvUsername.setText(mUser.getmUsername());
+                        String name = mUser.getmName();
+                        if (name != null) {
+                            mTvUsername.setText(name);
+                        } else {
+                            mTvUsername.setText(mUser.getmUsername());
+                        }
                         if(mUser.getmAvatarUrl() != null) {
                             Picasso.with(mContext).load(mUser.getmAvatarUrl())
                                     .resize(CommonUtils.dpToPx(mContext, 90), CommonUtils.dpToPx(mContext, 90))

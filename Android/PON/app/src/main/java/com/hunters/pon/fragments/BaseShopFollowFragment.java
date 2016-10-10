@@ -162,7 +162,7 @@ public class BaseShopFollowFragment extends Fragment {
                     if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
                         mAdapterShopFollow.updateData(shopFollow.data);
                     } else {
-                        new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);
+                        new DialogUtiils().showDialogLogin(getActivity(), getString(R.string.server_error));
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:

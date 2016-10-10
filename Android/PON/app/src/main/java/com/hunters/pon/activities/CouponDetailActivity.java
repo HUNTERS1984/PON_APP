@@ -159,12 +159,6 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                     new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
                 }
 
-                isFavourite = !isFavourite;
-                if(isFavourite) {
-                    mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
-                } else {
-                    mBtnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
-                }
             }
         });
 
@@ -283,10 +277,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
                         switch (mCurrentSelection){
                             case USE_COUPON:
-                                new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderProcessCoupon);
+                                new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderUseCoupon);
                                 break;
                             case ADD_FAVOURITE:
-                                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderProcessCoupon);
+                                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
                                 break;
                         }
 
@@ -299,7 +293,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
-    private Handler mHanlderProcessCoupon = new Handler(){
+    private Handler mHanlderUseCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -317,6 +311,32 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             }
         }
     };
+
+    private Handler mHanlderAddFavouriteCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon data = (ResponseCommon) msg.obj;
+                    if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK){
+                        isFavourite = !isFavourite;
+                        if(isFavourite) {
+                            mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
+                        } else {
+                            mBtnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
+                        }
+                        new DialogUtiils().showDialog(mContext, data.message, false);
+                    } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
+
     private void popularLayout(ResponseCouponDetail coupon)
     {
         mTvCouponType.setText(coupon.getmCouponType().getmName());

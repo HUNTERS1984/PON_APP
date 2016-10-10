@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.crashlytics.android.Crashlytics;
 import com.hunters.pon.R;
+import com.hunters.pon.utils.CommonUtils;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
@@ -47,6 +48,7 @@ public class SplashActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CommonUtils.saveToken(SplashActivity.this, "");
                 Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(iMainScreen);

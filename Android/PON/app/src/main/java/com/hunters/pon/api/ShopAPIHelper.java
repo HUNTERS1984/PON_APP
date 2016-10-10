@@ -30,7 +30,7 @@ public class ShopAPIHelper extends APIHelper {
         ICallServices service = retrofit.create(ICallServices.class);
 
         String token = "";
-        if(!token.equalsIgnoreCase("")) {
+        if(!CommonUtils.getToken(context).equalsIgnoreCase("")) {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 

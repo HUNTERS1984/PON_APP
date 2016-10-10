@@ -27,6 +27,7 @@ import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.ProgressDialogUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -56,6 +57,8 @@ public class BaseFragment extends Fragment {
     protected List<CouponModel> mListCoupons;
 
     protected LinearLayout mLnShopCatCoupons;
+
+    protected ProgressDialogUtils mProgressDialogUtils;
 
     public BaseFragment() {
         // Required empty public constructor
@@ -176,6 +179,21 @@ public class BaseFragment extends Fragment {
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
                     break;
             }
+//            closeDialog();
         }
     };
+
+    protected void showProgressDialog(Context context) {
+
+        if(mProgressDialogUtils == null) {
+            mProgressDialogUtils = new ProgressDialogUtils(context, "", context.getString(R.string.connecting));
+        }
+        mProgressDialogUtils.show();
+    }
+
+    protected void closeDialog() {
+        if(mProgressDialogUtils != null){
+            mProgressDialogUtils.hide();
+        }
+    }
 }
