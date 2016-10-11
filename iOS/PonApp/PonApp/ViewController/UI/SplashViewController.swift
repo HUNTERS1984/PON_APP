@@ -60,7 +60,7 @@ extension SplashViewController {
             if let _ = error {
                 
             }else {
-                print(result)
+                loggingPrint(result)
                 let accessToken = result!["token"]
                 self.signInWithFacebook(accessToken!)
             }
@@ -77,7 +77,7 @@ extension SplashViewController {
                     self.signInWithTwitter(token, tokenSecret: tokenSecret)
                 } else {
                     let error = result as! NSError
-                    print("Login error: %@", error.localizedDescription);
+                    loggingPrint("Login error: %@", error.localizedDescription);
                 }
             }else {
                 
@@ -108,7 +108,7 @@ extension SplashViewController {
     
     fileprivate func authorizeToken() {
         if let _ = Defaults[.token] {
-            print("Bearer \(Defaults[.token]!)")
+            loggingPrint("Bearer \(Defaults[.token]!)")
             self.showHUD()
             ApiRequest.authorized { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
                 self.hideHUD()

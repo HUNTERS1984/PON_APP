@@ -23,6 +23,8 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerProcessNotification()
+        self.processRemoteNotificationLauchApp()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +45,6 @@ class MainViewController: BaseViewController {
         self.tabPonButton.setImage(UIImage(named: "tabbar_pon"), for: UIControlState())
         self.tabAccountButton.setImage(UIImage(named: "tabbar_account_normal"), for: UIControlState())
         self.searchTextField.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.white])
-        
     }
     
     override func setUpComponentsOnWillAppear() {
