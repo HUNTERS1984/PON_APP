@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.hunters.pon.R;
 import com.hunters.pon.utils.CommonUtils;
 import com.twitter.sdk.android.Twitter;
@@ -25,6 +28,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Crashlytics(), new Twitter(authConfig), new TweetComposer());
         setContentView(R.layout.activity_splash);
@@ -49,6 +54,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CommonUtils.saveToken(SplashActivity.this, "");
+                LoginManager.getInstance().logOut();
                 Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(iMainScreen);

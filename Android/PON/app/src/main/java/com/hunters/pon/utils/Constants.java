@@ -26,4 +26,6 @@ public class Constants {
 
     public static final String PACKAGE_INSTAGRAM = "com.instagram.android";
     public static final String PACKAGE_LINE = "jp.naver.line.android";
+
+    public static final String NOTIFICATION_NEW_COUPON = "new_coupon";
 }

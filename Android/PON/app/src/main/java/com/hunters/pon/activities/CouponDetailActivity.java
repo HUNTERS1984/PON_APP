@@ -85,7 +85,11 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         mCouponId = getIntent().getLongExtra(Constants.EXTRA_COUPON_ID, 0);
 
-        onLoadData();
+//        onLoadData();
+        mListCoupons = new ArrayList<>();
+        mLstCouponPhotos = new ArrayList<>();
+        mLstUserPhotos = new ArrayList<>();
+
         initLayout();
     }
 
@@ -195,6 +199,12 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        onLoadData();
+    }
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -204,9 +214,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
     @Override
     public void onLoadData() {
-        mListCoupons = new ArrayList<>();
-        mLstCouponPhotos = new ArrayList<>();
-        mLstUserPhotos = new ArrayList<>();
+
         new CouponAPIHelper().getCouponDetail(mContext, mCouponId, mHanlderCouponDetail);
     }
 
@@ -217,6 +225,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponDetailData data = (ResponseCouponDetailData) msg.obj;
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
+                        mListCoupons = new ArrayList<>();
+                        mLstCouponPhotos = new ArrayList<>();
+                        mLstUserPhotos = new ArrayList<>();
+
                         ResponseCouponDetail coupon = data.data;
                         popularLayout(coupon);
 
@@ -254,6 +266,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         } else {
                             mBtnUseThisCoupon.setVisibility(View.GONE);
                         }
+                    } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), true);
                     }

@@ -10,8 +10,6 @@ import android.widget.RelativeLayout;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.hunters.pon.R;
@@ -45,8 +43,6 @@ public class SplashSelectLoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         mContext = this;
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
         mFacebookCallbackManager = CallbackManager.Factory.create();
 
         setContentView(R.layout.activity_splash_select_login);

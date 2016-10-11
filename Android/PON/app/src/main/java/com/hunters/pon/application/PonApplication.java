@@ -14,7 +14,7 @@ public class PonApplication extends Application {
     public void onCreate() {
         super.onCreate();
         OneSignal.startInit(this)
-                .setNotificationOpenedHandler(new PonNotificationOpenedHandler())
+                .setNotificationOpenedHandler(new PonNotificationOpenedHandler(getApplicationContext()))
                 .init();
 
         // Sync hashed email if you have a login system or collect it.
