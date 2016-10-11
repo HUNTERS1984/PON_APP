@@ -16,11 +16,11 @@ class BaseViewController: UIViewController {
     }
     
     //MARK: - Public
-    weak var appDelegate:AppDelegate?
+    var appDelegate:AppDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.view.backgroundColor = UIColor(hex: DefaultBackgroundColor)
         
         setUpComponentsOnLoad()

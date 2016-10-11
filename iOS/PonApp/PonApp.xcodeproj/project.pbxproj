@@ -43,7 +43,6 @@
 		4A85F3931D9ABCDD00733161 /* HLKDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2901D9ABCDD00733161 /* HLKDropDownTextField.swift */; };
 		4A85F3941D9ABCDD00733161 /* HLKLinearScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2911D9ABCDD00733161 /* HLKLinearScrollView.swift */; };
 		4A85F3951D9ABCDD00733161 /* HLKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2921D9ABCDD00733161 /* HLKTextField.swift */; };
-		4A85F3961D9ABCDD00733161 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2941D9ABCDD00733161 /* MKMapViewExtension.swift */; };
 		4A85F3981D9ABCDD00733161 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2961D9ABCDD00733161 /* StringExtension.swift */; };
 		4A85F3991D9ABCDD00733161 /* TypeConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2971D9ABCDD00733161 /* TypeConversionHelper.swift */; };
 		4A85F39A1D9ABCDD00733161 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2981D9ABCDD00733161 /* UICollectionViewExtension.swift */; };
@@ -250,6 +249,8 @@
 		FA7BAED71DA4A34A0045F126 /* coupon_category_food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7BAED61DA4A34A0045F126 /* coupon_category_food@2x.png */; };
 		FA85F1C01D9BAAA7003BE0C1 /* used_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */; };
 		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
+		FA9570F11DACA2C700C20301 /* MainVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F01DACA2C700C20301 /* MainVCNotification.swift */; };
+		FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */; };
 		FAA43A6C1D9CF5B30013BCE3 /* main_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */; };
 		FAA43A6E1D9CF6E50013BCE3 /* account_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A6D1D9CF6E50013BCE3 /* account_header_background@2x.png */; };
 		FAA43A701D9D04370013BCE3 /* ShowQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */; };
@@ -304,7 +305,6 @@
 		4A85F2901D9ABCDD00733161 /* HLKDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKDropDownTextField.swift; sourceTree = "<group>"; };
 		4A85F2911D9ABCDD00733161 /* HLKLinearScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKLinearScrollView.swift; sourceTree = "<group>"; };
 		4A85F2921D9ABCDD00733161 /* HLKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKTextField.swift; sourceTree = "<group>"; };
-		4A85F2941D9ABCDD00733161 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
 		4A85F2961D9ABCDD00733161 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		4A85F2971D9ABCDD00733161 /* TypeConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeConversionHelper.swift; sourceTree = "<group>"; };
 		4A85F2981D9ABCDD00733161 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
@@ -539,6 +539,8 @@
 		FA7BAED61DA4A34A0045F126 /* coupon_category_food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_category_food@2x.png"; sourceTree = "<group>"; };
 		FA85F1BF1D9BAAA7003BE0C1 /* used_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@2x.png"; sourceTree = "<group>"; };
 		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		FA9570F01DACA2C700C20301 /* MainVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCNotification.swift; sourceTree = "<group>"; };
+		FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
 		FAA43A6B1D9CF5B30013BCE3 /* main_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_header_background@2x.png"; sourceTree = "<group>"; };
 		FAA43A6D1D9CF6E50013BCE3 /* account_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_header_background@2x.png"; sourceTree = "<group>"; };
 		FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowQRCodeViewController.swift; sourceTree = "<group>"; };
@@ -725,7 +727,7 @@
 		4A85F2931D9ABCDD00733161 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4A85F2941D9ABCDD00733161 /* MKMapViewExtension.swift */,
+				FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */,
 				4A85F2961D9ABCDD00733161 /* StringExtension.swift */,
 				4A85F2971D9ABCDD00733161 /* TypeConversionHelper.swift */,
 				4A85F2981D9ABCDD00733161 /* UICollectionViewExtension.swift */,
@@ -1094,6 +1096,7 @@
 		4A85F3581D9ABCDD00733161 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FA9570EF1DACA2A000C20301 /* Notification */,
 				4A85F3591D9ABCDD00733161 /* Base */,
 				4A85F35D1D9ABCDD00733161 /* UI */,
 			);
@@ -1323,6 +1326,14 @@
 				FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */,
 			);
 			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		FA9570EF1DACA2A000C20301 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				FA9570F01DACA2C700C20301 /* MainVCNotification.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		FAC2D1FE1DA65199006C5722 /* ReadMoreTextView */ = {
@@ -1631,8 +1642,8 @@
 				FA76A9AC1DA3453600893584 /* ZoomAnimatedTransitioning.swift in Sources */,
 				FA76A9A71DA3453600893584 /* ImageSlideshow.swift in Sources */,
 				FA76A9C91DA3460000893584 /* DKCamera.swift in Sources */,
-				4A85F3961D9ABCDD00733161 /* MKMapViewExtension.swift in Sources */,
 				4A85F38E1D9ABCDD00733161 /* Location.swift in Sources */,
+				FA9570F11DACA2C700C20301 /* MainVCNotification.swift in Sources */,
 				4A85F3A81D9ABCDD00733161 /* Shop.swift in Sources */,
 				4A85F4021D9ABCDD00733161 /* IQTitleBarButtonItem.m in Sources */,
 				4A649A981D9C1B410080E976 /* MainCouponContentViewController.swift in Sources */,
@@ -1670,6 +1681,7 @@
 				FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */,
 				4A85F41F1D9ABCDD00733161 /* HorizontalCollectionView.swift in Sources */,
 				4A85F3F91D9ABCDD00733161 /* IQUITextFieldView+Additions.m in Sources */,
+				FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */,
 				4A85F3911D9ABCDD00733161 /* HLKSharedResources.swift in Sources */,
 				4A85F4031D9ABCDD00733161 /* IQToolbar.m in Sources */,
 				4A85F3F61D9ABCDD00733161 /* IQDropDownTextField.m in Sources */,
@@ -1846,6 +1858,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0c38f81a-6a38-420f-b2be-6950685bcd9f";
 				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1873,6 +1886,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1a339506-69a1-4bb9-b250-4a5dcb62adee";
 				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

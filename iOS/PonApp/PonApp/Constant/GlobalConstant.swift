@@ -47,3 +47,8 @@ public enum LoginState {
 }
 
 let TokenInvalidNotification                    = "TokenInvalidNotification"
+let NewCouponPushNotification                   = "NewCouponPushNotification"
+
+let SwiftyBeaverAppID                           = "2kYY7L"
+let SwiftyBeaverAppSecret                       = "nho2X40ipwihksxPit84adzwEd2fosxc"
+let SwiftyBeaverEncKey                          = "i3ihje8Z2bdKngpmv59myMbpva0zTgap"
