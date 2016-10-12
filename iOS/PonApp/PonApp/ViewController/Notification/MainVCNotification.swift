@@ -16,24 +16,20 @@ extension MainViewController {
     
     func processRemoteNotificationLauchApp() {
         if self.appDelegate.isRemoteNotification {
-            let notification = JSON(self.appDelegate.remoteNotificationData!)
-            let notificationType = notification["notification_type"].stringValue
-            if notificationType == "new_coupon" {
-                let id = notification["id"].floatValue
-                self.getCouponDetail(id)
+            let notificationType = NotificationManager.shared.notificationType
+            if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
+                self.getCouponDetail(NotificationManager.shared.dataId!)
             }
         }
     }
     
     func processRemoteNotificationBackgroundMode() {
         if self.appDelegate.isRemoteNotification {
-            let notification = JSON(self.appDelegate.remoteNotificationData!)
-            let notificationType = notification["notification_type"].stringValue
-            if notificationType == "new_coupon" {
+            let notificationType = NotificationManager.shared.notificationType
+            if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
                 self.tabBarController?.selectedIndex = 1
                 _ = self.navigationController?.popToRootViewController(animated: false)
-                let id = notification["id"].floatValue
-                self.getCouponDetail(id)
+                self.getCouponDetail(NotificationManager.shared.dataId!)
             }
         }
     }

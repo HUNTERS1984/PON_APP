@@ -32,23 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupApplication(with launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         //Handle notification
         if let _ = launchOptions {
-            if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as! [String : Any]? {
-                let aps = remoteNotification["aps"] as! [String: AnyObject]
-                loggingPrint("aps: \(aps)")
-                if let _ = aps["notification_type"] as? String {
-                    self.isRemoteNotification = true
-                    self.remoteNotificationData = aps
-                }else {
-                    self.isRemoteNotification = false
-                }
+            if let _ = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as! [String : Any]? {
+                self.isRemoteNotification = true
             }else {
                 self.isRemoteNotification = false
             }
-            self.setupStartViewController()
         }else {
             self.isRemoteNotification = false
-            self.setupStartViewController()
         }
+        self.setupStartViewController()
     }
     
     func setupApplicationData() {
@@ -111,19 +103,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        if ( application.applicationState == UIApplicationState.inactive || application.applicationState == UIApplicationState.background ){
-            loggingPrint("opened from a push notification when the app was on background")
-            let aps = userInfo["aps"] as! [String: Any]
-            if let _ = aps["notification_type"] as? String {
-                self.isRemoteNotification = true
-                self.remoteNotificationData = aps
-                NotificationCenter.default.post(name: Notification.Name("NewCouponPushNotification"), object: nil)
-            }
-        }
-    }
-    
-    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
-    }
 }
 
