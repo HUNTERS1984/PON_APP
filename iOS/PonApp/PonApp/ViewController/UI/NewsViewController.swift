@@ -25,6 +25,15 @@ class NewsViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if NotificationManager.shared.isAppResumingFromBackground {
+            self.processRemoteNotificationBackgroundMode()
+        }else {
+            self.processRemoteNotificationLauchApp()
+        }
+    }
+    
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "お知らせ 12"
@@ -40,7 +49,7 @@ class NewsViewController: BaseViewController {
     
 }
 
-extension NewsViewController: UITableViewDataSource, UICollectionViewDelegate {
+extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
@@ -53,5 +62,11 @@ extension NewsViewController: UITableViewDataSource, UICollectionViewDelegate {
         cell.contentView.layoutIfNeeded()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = NewsDetailViewController.instanceFromStoryBoard("Account") as! NewsDetailViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

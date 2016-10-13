@@ -371,7 +371,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Gi-cq-B5J" id="ifH-Mb-0jS">
-                                            <frame key="frameInset" width="375" height="132"/>
+                                            <frame key="frameInset" width="375" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ci-zvf" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
@@ -449,7 +449,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfy-wF-6HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758.5" y="309.5"/>
+            <point key="canvasLocation" x="2145" y="310"/>
+        </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="V0D-0T-bLe">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="p3i-5n-xNw" customClass="NewsDetailViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QS4-aW-sdR"/>
+                        <viewControllerLayoutGuide type="bottom" id="2jb-dT-Z2Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3se-ly-rJy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAr-Wl-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2559" y="310"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="OxB-MA-htJ">
@@ -502,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJf-68-nOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.5" y="309.5"/>
+            <point key="canvasLocation" x="1753" y="310"/>
         </scene>
     </scenes>
     <resources>

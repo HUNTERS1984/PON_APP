@@ -12,13 +12,39 @@ extension MainViewController {
     
     func registerProcessNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.processRemoteNotificationBackgroundMode), name: Notification.Name("NewCouponPushNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processRemoteNewsNotificationBackgroundMode), name: Notification.Name("NewNewsPushNotification"), object: nil)
+    }
+    
+    func processRemoteNewsNotificationLauchApp() {
+        if self.appDelegate.isRemoteNotification {
+            let notificationType = NotificationManager.shared.notificationType
+            if let _ = notificationType {
+                if notificationType! == "new_news" {
+                    self.tabBarController?.selectedIndex = 2
+                    NotificationCenter.default.addObserver(self, selector: #selector(self.processRemoteNewsNotificationBackgroundMode), name: Notification.Name("NewNewsPushNotification"), object: nil)
+                }
+            }
+        }
+    }
+    
+    func processRemoteNewsNotificationBackgroundMode() {
+        if self.appDelegate.isRemoteNotification {
+            let notificationType = NotificationManager.shared.notificationType
+            if let _ = notificationType {
+                if notificationType! == "new_news" {
+                    self.tabBarController?.selectedIndex = 2
+                }
+            }
+        }
     }
     
     func processRemoteNotificationLauchApp() {
         if self.appDelegate.isRemoteNotification {
             let notificationType = NotificationManager.shared.notificationType
-            if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
-                self.getCouponDetail(NotificationManager.shared.dataId!)
+            if let _ = notificationType {
+                if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
+                    self.getCouponDetail(NotificationManager.shared.dataId!)
+                }
             }
         }
     }
@@ -26,10 +52,12 @@ extension MainViewController {
     func processRemoteNotificationBackgroundMode() {
         if self.appDelegate.isRemoteNotification {
             let notificationType = NotificationManager.shared.notificationType
-            if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
-                self.tabBarController?.selectedIndex = 1
-                _ = self.navigationController?.popToRootViewController(animated: false)
-                self.getCouponDetail(NotificationManager.shared.dataId!)
+            if let _ = notificationType {
+                if notificationType! == "new_coupon" || notificationType! == "coupon_approved" {
+                    self.tabBarController?.selectedIndex = 1
+                    _ = self.navigationController?.popToRootViewController(animated: false)
+                    self.getCouponDetail(NotificationManager.shared.dataId!)
+                }
             }
         }
     }

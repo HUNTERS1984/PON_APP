@@ -13,7 +13,6 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var isAppResumingFromBackground = false
     var remoteNotificationData: [String: Any]?
     var isRemoteNotification = false
 

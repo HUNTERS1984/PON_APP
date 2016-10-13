@@ -11,6 +11,7 @@ import OneSignal
 
 class NotificationManager {
     
+    var isAppResumingFromBackground = false
     var notificationType: String!
     var dataId: Float!
     
@@ -33,8 +34,26 @@ class NotificationManager {
         let application = UIApplication.shared
         if ( application.applicationState == .inactive || application.applicationState == .background ){
             appDelegate.isRemoteNotification = true
-            NotificationCenter.default.post(name: Notification.Name("NewCouponPushNotification"), object: nil)
+            self.isAppResumingFromBackground = true
+            if self.notificationType == "new_coupon" {
+                NotificationCenter.default.post(name: Notification.Name("NewCouponPushNotification"), object: nil)
+            }
+            
+            if self.notificationType == "coupon_approved" {
+                NotificationCenter.default.post(name: Notification.Name("NewCouponPushNotification"), object: nil)
+            }
+            
+            if self.notificationType == "new_news" {
+                NotificationCenter.default.post(name: Notification.Name("NewNewsPushNotification"), object: nil)
+            }
+        }else {
+            self.isAppResumingFromBackground = false
         }
+    }
+    
+    func clearNotification() {
+        self.notificationType = nil
+        self.dataId = nil
     }
     
 }
