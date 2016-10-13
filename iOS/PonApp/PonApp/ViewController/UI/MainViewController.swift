@@ -24,6 +24,7 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerProcessNotification()
+        self.processRemoteNewsNotificationLauchApp()
         self.processRemoteNotificationLauchApp()
     }
     

@@ -21,6 +21,8 @@ class AccountViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerProcessNotification()
+        self.processRemoteNotificationLauchApp()
     }
     
     override func didReceiveMemoryWarning() {

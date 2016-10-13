@@ -214,6 +214,8 @@
 		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
 		FA4E8F5B1DA5041600DD2993 /* shop_detail_header_name_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */; };
+		FA55FDD01DAF312D006219D6 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */; };
+		FA55FDD51DAF3771006219D6 /* NewsVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55FDD41DAF3771006219D6 /* NewsVCNotification.swift */; };
 		FA76A9A31DA3453600893584 /* ic_cross_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA76A9911DA3453600893584 /* ic_cross_white@2x.png */; };
 		FA76A9A41DA3453600893584 /* ic_cross_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA76A9921DA3453600893584 /* ic_cross_white@3x.png */; };
 		FA76A9A61DA3453600893584 /* FullScreenSlideshowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9961DA3453600893584 /* FullScreenSlideshowViewController.swift */; };
@@ -259,6 +261,7 @@
 		FAA43A761D9D0B8F0013BCE3 /* sns_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */; };
 		FAA43A781D9D15A50013BCE3 /* shop_button_follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */; };
 		FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */; };
+		FABD93041DAF86B1005FCD02 /* AccountVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */; };
 		FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */; };
 		FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -503,6 +506,8 @@
 		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_name_background@2x.png"; sourceTree = "<group>"; };
+		FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		FA55FDD41DAF3771006219D6 /* NewsVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVCNotification.swift; sourceTree = "<group>"; };
 		FA76A9911DA3453600893584 /* ic_cross_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@2x.png"; sourceTree = "<group>"; };
 		FA76A9921DA3453600893584 /* ic_cross_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@3x.png"; sourceTree = "<group>"; };
 		FA76A9961DA3453600893584 /* FullScreenSlideshowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenSlideshowViewController.swift; sourceTree = "<group>"; };
@@ -549,6 +554,7 @@
 		FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sns_button@2x.png"; sourceTree = "<group>"; };
 		FAA43A771D9D15A50013BCE3 /* shop_button_follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_button_follow@2x.png"; sourceTree = "<group>"; };
 		FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVCNotification.swift; sourceTree = "<group>"; };
 		FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1129,7 +1135,6 @@
 				4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */,
 				4A85F36F1D9ABCDD00733161 /* MainViewController.swift */,
 				4A649A971D9C1B410080E976 /* MainCouponContentViewController.swift */,
-				4A85F3701D9ABCDD00733161 /* NewsViewController.swift */,
 				4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */,
 				4A85F3721D9ABCDD00733161 /* ScanQRCodeViewController.swift */,
 				4A85F3731D9ABCDD00733161 /* ShareCouponViewController.swift */,
@@ -1144,6 +1149,8 @@
 				FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */,
 				FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */,
 				FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */,
+				4A85F3701D9ABCDD00733161 /* NewsViewController.swift */,
+				FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1332,6 +1339,8 @@
 			isa = PBXGroup;
 			children = (
 				FA9570F01DACA2C700C20301 /* MainVCNotification.swift */,
+				FA55FDD41DAF3771006219D6 /* NewsVCNotification.swift */,
+				FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -1612,6 +1621,7 @@
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
 				FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */,
 				4A85F41A1D9ABCDD00733161 /* BottomBorderView.swift in Sources */,
+				FA55FDD01DAF312D006219D6 /* NewsDetailViewController.swift in Sources */,
 				4A85F4211D9ABCDD00733161 /* MapMarker.swift in Sources */,
 				4A85F43C1D9ABCDD00733161 /* NewsViewController.swift in Sources */,
 				4A85F43A1D9ABCDD00733161 /* ListCouponViewController.swift in Sources */,
@@ -1694,6 +1704,7 @@
 				4A85F41E1D9ABCDD00733161 /* DesignableView.swift in Sources */,
 				4A85F43B1D9ABCDD00733161 /* MainViewController.swift in Sources */,
 				4A85F39A1D9ABCDD00733161 /* UICollectionViewExtension.swift in Sources */,
+				FABD93041DAF86B1005FCD02 /* AccountVCNotification.swift in Sources */,
 				FA76A9A91DA3453600893584 /* InputSource.swift in Sources */,
 				FA76A9AB1DA3453600893584 /* UIImageView+Tools.swift in Sources */,
 				FA76A9D11DA3460000893584 /* DKImagePickerControllerDefaultUIDelegate.swift in Sources */,
@@ -1727,6 +1738,7 @@
 				4A85F4281D9ABCDD00733161 /* BaseTabBarController.swift in Sources */,
 				FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */,
 				4A85F43D1D9ABCDD00733161 /* PrivacyPolicyViewController.swift in Sources */,
+				FA55FDD51DAF3771006219D6 /* NewsVCNotification.swift in Sources */,
 				4A85F4191D9ABCDD00733161 /* AlbumCollectionView.swift in Sources */,
 				4A85F4011D9ABCDD00733161 /* IQPreviousNextView.m in Sources */,
 				FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */,
