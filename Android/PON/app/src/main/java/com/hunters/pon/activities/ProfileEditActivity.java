@@ -26,7 +26,6 @@ import com.hunters.pon.api.ResponseUserProfileData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.UserModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
-import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ImageUtils;

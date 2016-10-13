@@ -32,7 +32,6 @@ import com.hunters.pon.api.ResponseShopDetailData;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
-import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.squareup.picasso.Callback;

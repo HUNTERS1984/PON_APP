@@ -1,7 +1,5 @@
 package com.hunters.pon.activities;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 

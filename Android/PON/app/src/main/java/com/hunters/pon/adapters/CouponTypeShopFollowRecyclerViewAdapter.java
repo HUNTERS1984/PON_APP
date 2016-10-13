@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.AddShopFollowDetailActivity;
 import com.hunters.pon.models.CategoryShopFollowModel;
-import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.squareup.picasso.Picasso;
 

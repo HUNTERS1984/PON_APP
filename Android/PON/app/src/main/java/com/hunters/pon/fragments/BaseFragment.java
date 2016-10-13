@@ -25,7 +25,6 @@ import com.hunters.pon.api.ResponseCouponMainTopData;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoginClickListener;
-import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ProgressDialogUtils;
 import com.squareup.picasso.Picasso;

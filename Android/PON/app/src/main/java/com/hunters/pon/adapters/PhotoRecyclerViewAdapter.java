@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
-import com.hunters.pon.utils.CommonUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
