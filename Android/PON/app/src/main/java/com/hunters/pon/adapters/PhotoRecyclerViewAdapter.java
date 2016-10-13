@@ -45,7 +45,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     public void onBindViewHolder(final RelatedCouponRecyclerViewHolders holder, int position) {
 
         Picasso.with(mContext).load(mListCoupons.get(position)).placeholder(R.color.grey).
-                resize(CommonUtils.dpToPx(mContext, 110), CommonUtils.dpToPx(mContext, 110)).centerCrop().
+                fit().centerCrop().
                 into(holder.mPhoto, new Callback() {
             @Override
             public void onSuccess() {

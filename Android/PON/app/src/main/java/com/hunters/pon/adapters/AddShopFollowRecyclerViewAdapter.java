@@ -53,7 +53,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
     public void onBindViewHolder(final ShopSubscribeDetailRecyclerViewHolders holder, int position) {
         ShopModel shop = mLstShopFollows.get(position);
         Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
-                .resize(CommonUtils.dpToPx(mContext, 150), CommonUtils.dpToPx(mContext, 150)).centerCrop()
+                .fit().centerCrop()
                 .into(holder.mShopPhoto, new Callback() {
                     @Override
                     public void onSuccess() {

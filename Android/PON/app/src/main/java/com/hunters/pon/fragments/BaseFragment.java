@@ -157,7 +157,7 @@ public class BaseFragment extends Fragment {
 
                             tvCatName.setText(couponCat.getmName());
                             Picasso.with(getActivity()).load(couponCat.getmIcon()).
-                                    resize(CommonUtils.dpToPx(getActivity(), 20), CommonUtils.dpToPx(getActivity(), 20)).into(ivIconType);
+                                    fit().into(ivIconType);
 
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

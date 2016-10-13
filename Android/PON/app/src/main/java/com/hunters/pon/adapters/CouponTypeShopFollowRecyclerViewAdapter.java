@@ -44,7 +44,7 @@ public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapte
         CategoryShopFollowModel couponTypeShopFollow = mLstCouponTypeShopFollows.get(position);
         holder.mCouponTypeName.setText(couponTypeShopFollow.getmCouponTypeName());
         Picasso.with(mContext).load(couponTypeShopFollow.getmCouponTypeIconUrl()).
-                resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20))
+                fit()
                 .into(holder.mCouponTypeIcon);
 
         holder.mNumberOfShopFollow.setText(mLstCouponTypeShopFollows.get(position).getmShopBelongCount());

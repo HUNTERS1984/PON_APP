@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_news_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hunters.pon.activities.NewsDetailActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dark_grey" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:src="@color/light_grey"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dark_grey" />
+
+
+    <com.hunters.pon.customs.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="タイトルが入ります"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/tv_news_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.hunters.pon.customs.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="タイトルが入ります"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_short_des"
+            android:id="@+id/tv_news_short_title"/>
+
+        <com.hunters.pon.customs.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="2016.07.01"
+            android:textSize="14sp"
+            android:textColor="@color/text_description"
+            android:id="@+id/tv_news_date"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_grey_stroke_icon"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"/>
+
+    <com.hunters.pon.customs.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/shop_example_text"
+        android:textSize="14sp"
+        android:textColor="@color/text_short_des"
+        android:id="@+id/tv_news_description"/>
+
+</LinearLayout>

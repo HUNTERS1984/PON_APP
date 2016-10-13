@@ -128,7 +128,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         mFilePath = destination.getAbsolutePath();
         Picasso.with(mContext).load(destination)
-                .resize(CommonUtils.dpToPx(mContext, 60), CommonUtils.dpToPx(mContext, 60))
+                .fit()
                 .placeholder(R.drawable.ic_avarta_user)
                 .into(mIvUserPhoto);
     }
@@ -149,7 +149,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         mFilePath = ImageUtils.getPath(mContext, data.getData());
         Picasso.with(mContext).load(path)
-                .resize(CommonUtils.dpToPx(mContext, 60), CommonUtils.dpToPx(mContext, 60))
+                .fit()
                 .placeholder(R.drawable.ic_avarta_user)
                 .into(mIvUserPhoto);
 
@@ -230,7 +230,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         if(user.getmAvatarUrl() != null) {
             Picasso.with(mContext).load(user.getmAvatarUrl())
-                    .resize(CommonUtils.dpToPx(mContext, 60), CommonUtils.dpToPx(mContext, 60))
+                    .fit()
                     .into(mIvUserPhoto);
         }
     }

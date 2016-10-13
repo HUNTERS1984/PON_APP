@@ -156,7 +156,7 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
                         }
                         if(mUser.getmAvatarUrl() != null) {
                             Picasso.with(mContext).load(mUser.getmAvatarUrl())
-                                    .resize(CommonUtils.dpToPx(mContext, 90), CommonUtils.dpToPx(mContext, 90))
+                                    .fit()
                                     .into(mIvUserPhoto);
                         }
                     } else if(profile.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {

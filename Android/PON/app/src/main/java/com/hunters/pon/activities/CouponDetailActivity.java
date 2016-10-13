@@ -355,9 +355,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     {
         mTvCouponType.setText(coupon.getmCouponType().getmName());
         Picasso.with(mContext).load(coupon.getmImageUrl()).
-                resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20)).into(mIvCouponTypeIcon);
+                fit().into(mIvCouponTypeIcon);
         Picasso.with(mContext).load(coupon.getmShop().getmShopCat().getmIcon()).
-                resize(CommonUtils.dpToPx(mContext, 60), CommonUtils.dpToPx(mContext, 60)).into(mIvShopCatIcon);
+                fit().into(mIvShopCatIcon);
         mTvCouponTitle.setText(coupon.getmTitle());
         mTvCouponTypeid.setText(coupon.getmCouponType().getmName() + "・" + coupon.getmId());
         mTvCouponExpireDate.setText(getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));

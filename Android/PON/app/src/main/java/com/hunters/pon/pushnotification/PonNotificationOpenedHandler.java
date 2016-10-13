@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.hunters.pon.activities.CouponDetailActivity;
+import com.hunters.pon.activities.NewsDetailActivity;
 import com.hunters.pon.utils.Constants;
 import com.onesignal.OSNotificationAction;
 import com.onesignal.OSNotificationOpenResult;
@@ -39,6 +40,11 @@ public class PonNotificationOpenedHandler implements OneSignal.NotificationOpene
                     iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, id);
                     iCouponDetail.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(iCouponDetail);
+                } else if (notificationType.equalsIgnoreCase(Constants.NOTIFICATION_NEWS)) {
+                    Intent iNewsDetail = new Intent(mContext, NewsDetailActivity.class);
+                    iNewsDetail.putExtra(Constants.EXTRA_ID, id);
+                    iNewsDetail.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(iNewsDetail);
                 }
             }
 

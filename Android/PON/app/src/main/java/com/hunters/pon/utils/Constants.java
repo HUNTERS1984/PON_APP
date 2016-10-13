@@ -16,6 +16,7 @@ public class Constants {
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
     public static final String EXTRA_USER = "EXTRA_USER";
     public static final String EXTRA_DATA = "EXTRA_DATA";
+    public static final String EXTRA_ID = "EXTRA_ID";
 
     public static final String TYPE_POPULARITY_COUPON = "1";
     public static final String TYPE_NEWEST_COUPON = "2";
@@ -28,4 +29,5 @@ public class Constants {
     public static final String PACKAGE_LINE = "jp.naver.line.android";
 
     public static final String NOTIFICATION_NEW_COUPON = "new_coupon";
+    public static final String NOTIFICATION_NEWS = "new_news";
 }

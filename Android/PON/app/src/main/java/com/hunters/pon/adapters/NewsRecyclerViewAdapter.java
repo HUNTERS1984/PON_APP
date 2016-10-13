@@ -1,6 +1,7 @@
 package com.hunters.pon.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -9,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.NewsDetailActivity;
 import com.hunters.pon.models.NewsModel;
+import com.hunters.pon.utils.Constants;
 
 import java.util.List;
 
@@ -69,6 +72,9 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
 
+            Intent iNewsDetail = new Intent(mContext, NewsDetailActivity.class);
+            iNewsDetail.putExtra(Constants.EXTRA_ID, 1);
+            mContext.startActivity(iNewsDetail);
         }
     }
 }

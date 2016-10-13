@@ -58,7 +58,7 @@ public class PhotoCouponPagerAdapter extends PagerAdapter {
         String photo = mListUserPhotos.get(position);
 
         Picasso.with(mContext).load(photo).placeholder(R.color.color_background_pager_coupons).
-                resize(CommonUtils.dpToPx(mContext, 250),CommonUtils.dpToPx(mContext, 180)).centerCrop().into(imageView, new Callback() {
+                fit().centerCrop().into(imageView, new Callback() {
             @Override
             public void onSuccess() {
                 progressBarLoadingPhoto.setVisibility(View.GONE);

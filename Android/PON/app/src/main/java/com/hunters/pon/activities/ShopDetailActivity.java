@@ -199,7 +199,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mShopDirection = shop.getmHelpDirection();
 
         Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
-                .resize(CommonUtils.dpToPx(mContext, 220), CommonUtils.dpToPx(mContext, 200))
+                .fit()
                 .centerCrop().into(mIvShopAvatar, new Callback() {
             @Override
             public void onSuccess() {
@@ -213,7 +213,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         });
 
         Picasso.with(mContext).load(shop.getmShopCat().getmIcon())
-                .resize(CommonUtils.dpToPx(mContext, 90), CommonUtils.dpToPx(mContext, 90))
+                .fit()
                 .centerCrop().into(mIvShopLogo);
 
         mTvShopName.setText(shop.getmShopName());

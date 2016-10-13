@@ -28,34 +28,35 @@
         android:required="true" />
 
     <application
+        android:name=".application.PonApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".application.PonApplication">
-        <activity android:name="com.hunters.pon.activities.SplashActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hunters.pon.activities.MainTopActivity" />
-        <activity android:name="com.hunters.pon.activities.ShopCouponByCategoryActivity" />
-        <activity android:name="com.hunters.pon.activities.AddShopFollowActivity" />
-        <activity android:name="com.hunters.pon.activities.AddShopFollowDetailActivity" />
-        <activity android:name="com.hunters.pon.activities.CouponByCategoryDetailActivity" />
-        <activity android:name="com.hunters.pon.activities.MapShopCouponActivity" />
+        <activity android:name=".activities.MainTopActivity" />
+        <activity android:name=".activities.ShopCouponByCategoryActivity" />
+        <activity android:name=".activities.AddShopFollowActivity" />
+        <activity android:name=".activities.AddShopFollowDetailActivity" />
+        <activity android:name=".activities.CouponByCategoryDetailActivity" />
+        <activity android:name=".activities.MapShopCouponActivity" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!--Mine : AIzaSyBZP9vS85xoMyKfGJupqCO_sSwm7LkZEjg-->
-        <!--Customer : AIzaSyBPVkG6R4eBAD7XJV09z7ig3QC0zU8D2ns -->
+        <!-- Mine : AIzaSyBZP9vS85xoMyKfGJupqCO_sSwm7LkZEjg -->
+        <!-- Customer : AIzaSyBPVkG6R4eBAD7XJV09z7ig3QC0zU8D2ns -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBZP9vS85xoMyKfGJupqCO_sSwm7LkZEjg" />
@@ -67,34 +68,36 @@
             android:value="@string/facebook_app_id" />
 
         <provider
-            android:authorities="com.facebook.app.FacebookContentProvider"
             android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:authorities="com.facebook.app.FacebookContentProvider"
+            android:exported="true" />
 
-        <activity android:name="com.hunters.pon.activities.MyFavouriteActivity" />
+        <activity android:name=".activities.MyFavouriteActivity" />
         <activity
-            android:name="com.hunters.pon.activities.ProfileHistoryActivity"
+            android:name=".activities.ProfileHistoryActivity"
             android:label="@string/title_activity_history" />
-        <activity android:name="com.hunters.pon.activities.ProfileActivity" />
-        <activity android:name="com.hunters.pon.activities.ProfileEditActivity" />
-        <activity android:name="com.hunters.pon.activities.ProfileShopFollowingActivity" />
-        <activity android:name="com.hunters.pon.activities.CouponDetailActivity" />
-        <activity android:name="com.hunters.pon.activities.SplashSelectLoginActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.ProfileEditActivity" />
+        <activity android:name=".activities.ProfileShopFollowingActivity" />
+        <activity android:name=".activities.CouponDetailActivity" />
+        <activity android:name=".activities.SplashSelectLoginActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="526355f92571a6994097fe9df35fba919c2da78c" />
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
 
-        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
-
-        <activity android:name="com.hunters.pon.activities.SignInEmailActivity" />
-        <activity android:name="com.hunters.pon.activities.SignUpEmailActivity" />
-        <activity android:name="com.hunters.pon.activities.ShopDetailActivity" />
-        <activity android:name="com.hunters.pon.activities.NewsActivity" />
-        <activity android:name="com.hunters.pon.activities.PrivacyPolicyActivity" />
-        <activity android:name="com.hunters.pon.activities.SpecificTradeActivity" />
-        <activity android:name="com.hunters.pon.activities.ShareCouponActivity" />
-        <activity android:name="com.hunters.pon.activities.UseCouponActivity"></activity>
+        <activity android:name=".activities.SignInEmailActivity" />
+        <activity android:name=".activities.SignUpEmailActivity" />
+        <activity android:name=".activities.ShopDetailActivity" />
+        <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.PrivacyPolicyActivity" />
+        <activity android:name=".activities.SpecificTradeActivity" />
+        <activity android:name=".activities.ShareCouponActivity" />
+        <activity android:name=".activities.UseCouponActivity" />
+        <activity android:name=".activities.NewsDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -44,7 +44,7 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
         CategoryModel couponType = mLstCategories.get(position);
         holder.mCategoryName.setText(couponType.getmName());
         Picasso.with(mContext).load(couponType.getmIcon()).
-                resize(CommonUtils.dpToPx(mContext, 20), CommonUtils.dpToPx(mContext, 20))
+                fit()
                 .into(holder.mCategoryIcon);
         holder.mView.setTag(position);
     }
