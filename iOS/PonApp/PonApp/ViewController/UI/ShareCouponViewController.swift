@@ -68,12 +68,15 @@ extension ShareCouponViewController {
     }
     
     @IBAction func instagramButtonPressed(_ sender: AnyObject) {
+        
     }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
+        ShareCouponManager.shared.presentShareCouponToFacebook(self)
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
+        ShareCouponManager.shared.presentShareCouponToTwitter(self)
     }
     
     @IBAction func lineButtonPressed(_ sender: AnyObject) {
