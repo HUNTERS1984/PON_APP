@@ -10,7 +10,7 @@ import UIKit
 
 class CouponViewController: BaseViewController {
 
-    @IBOutlet weak var couponCategoryLabel: UILabel!
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
@@ -29,7 +29,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shopBusinessHoursLabel: UILabel!
     @IBOutlet weak var shopPhoneNumber: UILabel!
     @IBOutlet weak var detailMapView: MapView!
-    @IBOutlet weak var couponCategory: UILabel!
+    @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var categoryIcon: UIImageView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
@@ -51,6 +51,7 @@ class CouponViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        print(self.couponCategoryLabel.font.fontName)
     }
 
     override func didReceiveMemoryWarning() {
@@ -183,7 +184,7 @@ extension CouponViewController {
     }
     
     fileprivate func displayCouponDetail(_ coupon: Coupon) {
-        self.couponCategory.text = coupon.category!
+        self.couponCategoryLabel.text = coupon.category!
         self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
         self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.couponID!)"

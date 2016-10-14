@@ -72,7 +72,8 @@ public enum CAPSPageMenuOption {
     case unselectedMenuItemLabelColor(UIColor)
     case useMenuLikeSegmentedControl(Bool)
     case menuItemSeparatorRoundEdges(Bool)
-    case menuItemFont(UIFont)
+    case selectedMenuItemFont(UIFont)
+    case unselectedMenuItemFont(UIFont)
     case menuItemSeparatorPercentageHeight(CGFloat)
     case menuItemWidth(CGFloat)
     case enableHorizontalBounce(Bool)
@@ -116,7 +117,8 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     open var bottomMenuHairlineColor : UIColor = UIColor.white
     open var menuItemSeparatorColor : UIColor = UIColor.lightGray
     
-    open var menuItemFont : UIFont = UIFont.systemFont(ofSize: 15.0)
+    open var selectedMenuItemFont : UIFont = UIFont.systemFont(ofSize: 15.0)
+    open var unselectedMenuItemFont : UIFont = UIFont.systemFont(ofSize: 14.0)
     open var menuItemSeparatorPercentageHeight : CGFloat = 0.2
     open var menuItemSeparatorWidth : CGFloat = 0.5
     open var menuItemSeparatorRoundEdges : Bool = false
@@ -203,8 +205,10 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
                     useMenuLikeSegmentedControl = value
                 case let .menuItemSeparatorRoundEdges(value):
                     menuItemSeparatorRoundEdges = value
-                case let .menuItemFont(value):
-                    menuItemFont = value
+                case let .selectedMenuItemFont(value):
+                    selectedMenuItemFont = value
+                case let .unselectedMenuItemFont(value):
+                    unselectedMenuItemFont = value
                 case let .menuItemSeparatorPercentageHeight(value):
                     menuItemSeparatorPercentageHeight = value
                 case let .menuItemWidth(value):
@@ -370,7 +374,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
                 
                 let titleText : String = controllerTitle != nil ? controllerTitle! : "Menu \(Int(index) + 1)"
                 
-                let itemWidthRect : CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:menuItemFont], context: nil)
+                let itemWidthRect : CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:selectedMenuItemFont], context: nil)
                 
                 menuItemWidth = itemWidthRect.width
                 
@@ -408,10 +412,11 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             }
             
             // Configure menu item label font if font is set by user
-            menuItemView.titleLabel!.font = menuItemFont
+            menuItemView.titleLabel!.font = selectedMenuItemFont
             
             menuItemView.titleLabel!.textAlignment = NSTextAlignment.center
             menuItemView.titleLabel!.textColor = unselectedMenuItemLabelColor
+            menuItemView.titleLabel!.font = unselectedMenuItemFont
             
             //**************************拡張*************************************
             menuItemView.titleLabel!.adjustsFontSizeToFitWidth = titleTextSizeBasedOnMenuItemWidth
@@ -447,6 +452,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         if menuItems.count > 0 {
             if menuItems[currentPageIndex].titleLabel != nil {
                 menuItems[currentPageIndex].titleLabel!.textColor = selectedMenuItemLabelColor
+                menuItems[currentPageIndex].titleLabel!.font = selectedMenuItemFont
             }
         }
         
@@ -489,7 +495,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             for (index, menuItem) in menuItems.enumerated() {
                 let controllerTitle = controllerArray[index].title!
                 
-                let itemWidthRect = controllerTitle.boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:menuItemFont], context: nil)
+                let itemWidthRect = controllerTitle.boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:selectedMenuItemFont], context: nil)
                 
                 menuItemWidth = itemWidthRect.width
                 
@@ -736,7 +742,10 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
                 if self.menuItems.count > 0 {
                     if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
                         self.menuItems[self.lastPageIndex].titleLabel!.textColor = self.unselectedMenuItemLabelColor
+                        self.menuItems[self.lastPageIndex].titleLabel!.font = self.unselectedMenuItemFont
+                        
                         self.menuItems[self.currentPageIndex].titleLabel!.textColor = self.selectedMenuItemLabelColor
+                        self.menuItems[self.currentPageIndex].titleLabel!.font = self.selectedMenuItemFont
                     }
                 }
             })

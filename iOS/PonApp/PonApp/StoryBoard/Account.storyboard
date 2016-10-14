@@ -48,7 +48,7 @@
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_avatar_placehoder.png" translatesAutoresizingMaskIntoConstraints="NO" id="egv-Wn-yYU" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_profile_avatar_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="egv-Wn-yYU" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="egv-Wn-yYU" secondAttribute="height" multiplier="1:1" id="6MA-o0-1QS"/>
                                                 </constraints>
@@ -371,7 +371,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Gi-cq-B5J" id="ifH-Mb-0jS">
-                                            <frame key="frameInset" width="375" height="133"/>
+                                            <frame key="frameInset" width="375" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ci-zvf" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
@@ -525,8 +525,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="account_avatar_placehoder.png" width="85" height="84"/>
         <image name="arrow_down.png" width="14" height="11"/>
+        <image name="edit_profile_avatar_placeholder.png" width="51" height="51"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

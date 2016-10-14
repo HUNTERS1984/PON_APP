@@ -56,7 +56,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H48-5J-tdX" userLabel="Coupon Category Label">
-                                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="13"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -439,8 +439,7 @@
                         <outlet property="albumCollectionViewConstraint" destination="LhT-D2-loi" id="dCN-Hd-QB8"/>
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="categoryIcon" destination="T7u-DZ-d5c" id="nJH-BH-2KK"/>
-                        <outlet property="couponCategory" destination="H48-5J-tdX" id="8ee-zQ-a3Q"/>
-                        <outlet property="couponCategoryLabel" destination="H48-5J-tdX" id="UyJ-uJ-XU0"/>
+                        <outlet property="couponCategoryLabel" destination="H48-5J-tdX" id="qZ7-J5-lmf"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="couponTitleLabel" destination="zIf-jE-byz" id="g6c-FM-rXN"/>
                         <outlet property="couponTypeLabel" destination="2Yb-5v-dOe" id="aw2-bs-O7u"/>

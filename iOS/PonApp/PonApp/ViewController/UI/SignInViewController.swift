@@ -46,6 +46,17 @@ class SignInViewController: BaseViewController {
         self.title = "ログイン"
         self.showCloseButton()
         self.registerContainerView.alpha = 0
+        
+        //setup login form
+        self.lguserNameTextField.attributedPlaceholder = NSAttributedString(string:"メールアドレス", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+        self.lgpasswordTextField.attributedPlaceholder = NSAttributedString(string:"パスワード", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+        
+        //setup register form
+        self.userNameTextField.attributedPlaceholder = NSAttributedString(string:"ユーザーネーム", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+        self.emailTextField.attributedPlaceholder = NSAttributedString(string:"メールアドレス", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+        self.passwordTextField.attributedPlaceholder = NSAttributedString(string:"パスワード", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+        self.passConfirmationTextField.attributedPlaceholder = NSAttributedString(string:"パスワード（確認）", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultPlaceHolderColor)])
+
     }
 
 }

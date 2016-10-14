@@ -82,9 +82,9 @@ extension ListCouponViewController {
             .menuHeight(self.view.bounds.size.height * (50/667)),
             .selectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .unselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),
-            .menuItemFont(UIFont.HiraginoSansW6(17)),
+            .selectedMenuItemFont(UIFont.HiraginoSansW6(17)),
             .menuItemSeparatorRoundEdges(true),
-            .selectionIndicatorHeight(2.0),
+            .selectionIndicatorHeight(5.0),
             .menuItemSeparatorPercentageHeight(0.1)
         ]
         
