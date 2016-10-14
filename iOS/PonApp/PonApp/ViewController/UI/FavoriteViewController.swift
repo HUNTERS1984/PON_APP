@@ -221,8 +221,8 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
-        let width = (self.view.frame.size.width - 30) / 2.0
-        let height = screenHeight * (189/667)
+        let width = (self.view.frame.size.width - 22) / 2.0
+        let height = screenHeight * (188/667)
         return CGSize(width: width, height: height)
     }
     

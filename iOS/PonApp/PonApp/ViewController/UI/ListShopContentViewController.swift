@@ -161,9 +161,9 @@ extension ListShopContentViewController: UICollectionViewDelegate {
 extension ListShopContentViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let picDimension = (self.view.frame.size.width - 30) / 2.0
+        let width = (self.view.frame.size.width - 22) / 2.0
         let screenSize: CGRect = UIScreen.main.bounds
-        return CGSize(width: picDimension, height: screenSize.height * (220/667))
+        return CGSize(width: width, height: screenSize.height * (228/667))
     }
     
 }

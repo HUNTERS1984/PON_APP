@@ -32,7 +32,7 @@ class CouponBannerView: UIView {
         context?.setLineWidth(0.5)
         context?.setStrokeColor(UIColor.white.cgColor)
         context?.setFillColor(UIColor.white.cgColor)
-        let rectangle = CGRect(x: 0,y: rect.size.height * (20/95), width: rect.size.width, height: rect.size.height - (rect.size.height * (20/95)))
+        let rectangle = CGRect(x: 0,y: rect.size.height * (25/95), width: rect.size.width, height: rect.size.height - (rect.size.height * (25/95)))
         context?.addRect(rectangle)
         context?.fillPath()
         

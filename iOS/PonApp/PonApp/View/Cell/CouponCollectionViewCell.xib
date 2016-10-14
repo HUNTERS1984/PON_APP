@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -82,11 +82,18 @@
                                         <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBr-1c-QJm" userLabel="Title Label">
-                                        <string key="text">このクーポンは会員登録す
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBr-1c-QJm" userLabel="Title Label">
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">このクーポンは会員登録す
 ると、ご利用頂けます。</string>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="10"/>
-                                        <color key="textColor" red="0.47058823529411764" green="0.50980392156862742" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.47058823529411764" green="0.50980392156862742" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="10" name="HiraginoSans-W6"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9r-AN-yp1" userLabel="Register Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
@@ -118,13 +125,12 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="MBr-1c-QJm" firstAttribute="leading" secondItem="59W-Dk-gwV" secondAttribute="leading" constant="8" id="27X-T3-ukz"/>
-                                    <constraint firstItem="MBr-1c-QJm" firstAttribute="height" secondItem="59W-Dk-gwV" secondAttribute="height" multiplier="42/185" constant="-20" id="EV9-nO-SHT"/>
                                     <constraint firstItem="C4Q-Wd-pe8" firstAttribute="top" secondItem="59W-Dk-gwV" secondAttribute="top" constant="37" id="J9z-5k-Xw3"/>
                                     <constraint firstItem="d9r-AN-yp1" firstAttribute="leading" secondItem="59W-Dk-gwV" secondAttribute="leading" constant="10" id="TH5-RD-ycE"/>
                                     <constraint firstAttribute="trailing" secondItem="C4Q-Wd-pe8" secondAttribute="trailing" constant="8" id="ZVW-Cz-5ly"/>
-                                    <constraint firstItem="d9r-AN-yp1" firstAttribute="top" secondItem="MBr-1c-QJm" secondAttribute="bottom" constant="48" id="hNL-bD-K9c"/>
+                                    <constraint firstAttribute="bottom" secondItem="d9r-AN-yp1" secondAttribute="bottom" constant="24" id="ePy-O7-Iln"/>
                                     <constraint firstAttribute="trailing" secondItem="d9r-AN-yp1" secondAttribute="trailing" constant="10" id="pR2-uJ-wgY"/>
-                                    <constraint firstItem="MBr-1c-QJm" firstAttribute="top" secondItem="C4Q-Wd-pe8" secondAttribute="bottom" constant="12" id="tA6-3b-12P"/>
+                                    <constraint firstItem="MBr-1c-QJm" firstAttribute="top" secondItem="C4Q-Wd-pe8" secondAttribute="bottom" constant="7" id="tA6-3b-12P"/>
                                     <constraint firstItem="C4Q-Wd-pe8" firstAttribute="height" secondItem="59W-Dk-gwV" secondAttribute="height" multiplier="22/185" constant="-7" id="wcd-fL-Fke"/>
                                     <constraint firstItem="C4Q-Wd-pe8" firstAttribute="leading" secondItem="59W-Dk-gwV" secondAttribute="leading" constant="8" id="yH5-1C-33w"/>
                                     <constraint firstAttribute="trailing" secondItem="MBr-1c-QJm" secondAttribute="trailing" constant="8" id="zWI-A2-IvV"/>

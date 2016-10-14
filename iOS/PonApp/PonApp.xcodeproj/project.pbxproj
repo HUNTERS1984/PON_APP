@@ -195,6 +195,7 @@
 		4A85F4441D9ABCDD00733161 /* SpecifiedTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */; };
 		4A85F4451D9ABCDD00733161 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3791D9ABCDD00733161 /* SplashViewController.swift */; };
 		4A85F4461D9ABCDD00733161 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */; };
+		4A8935D21DB118C80066FE6A /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8935D11DB118C80066FE6A /* UILabelExtension.swift */; };
 		4A935F5C1DA3FF090086FD74 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */; };
 		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
@@ -496,6 +497,7 @@
 		4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecifiedTradeViewController.swift; sourceTree = "<group>"; };
 		4A85F3791D9ABCDD00733161 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		4A8935D11DB118C80066FE6A /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				4A85F29D1D9ABCDD00733161 /* UIViewControllerExtension.swift */,
 				4A85F29E1D9ABCDD00733161 /* UIViewExtension.swift */,
 				4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */,
+				4A8935D11DB118C80066FE6A /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1716,6 +1719,7 @@
 				4A85F40A1D9ABCDD00733161 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				4A136A0D1DAA24BE000610E3 /* OneSignalPushNotification.swift in Sources */,
 				4A85F4321D9ABCDD00733161 /* HomeMapViewController.swift in Sources */,
+				4A8935D21DB118C80066FE6A /* UILabelExtension.swift in Sources */,
 				4A85F41C1D9ABCDD00733161 /* CouponBannerView.swift in Sources */,
 				4A85F3951D9ABCDD00733161 /* HLKTextField.swift in Sources */,
 				4A85F43F1D9ABCDD00733161 /* ShareCouponViewController.swift in Sources */,
