@@ -12,7 +12,6 @@ class CouponViewController: BaseViewController {
 
     @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var qrCodeButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var shareButton: UIButton!
@@ -30,6 +29,8 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shopBusinessHoursLabel: UILabel!
     @IBOutlet weak var shopPhoneNumber: UILabel!
     @IBOutlet weak var detailMapView: MapView!
+    @IBOutlet weak var couponCategory: UILabel!
+    @IBOutlet weak var categoryIcon: UIImageView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
@@ -128,11 +129,6 @@ extension CouponViewController {
         self.navigationController!.popViewController(animated: true)
     }
     
-    @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
-        let vc = ScanQRCodeViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.present(vc!, animated: true)
-    }
-    
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
         let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
         self.navigationController?.present(vc!, animated: true)
@@ -186,6 +182,8 @@ extension CouponViewController {
     }
     
     fileprivate func displayCouponDetail(_ coupon: Coupon) {
+        self.couponCategory.text = coupon.category!
+        self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
         self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.couponID!)"
         if coupon.isLike! {

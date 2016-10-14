@@ -191,7 +191,6 @@
 		4A85F43B1D9ABCDD00733161 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F36F1D9ABCDD00733161 /* MainViewController.swift */; };
 		4A85F43C1D9ABCDD00733161 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3701D9ABCDD00733161 /* NewsViewController.swift */; };
 		4A85F43D1D9ABCDD00733161 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */; };
-		4A85F43E1D9ABCDD00733161 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3721D9ABCDD00733161 /* ScanQRCodeViewController.swift */; };
 		4A85F43F1D9ABCDD00733161 /* ShareCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3731D9ABCDD00733161 /* ShareCouponViewController.swift */; };
 		4A85F4401D9ABCDD00733161 /* ShopFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */; };
 		4A85F4411D9ABCDD00733161 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3751D9ABCDD00733161 /* ShopViewController.swift */; };
@@ -479,7 +478,6 @@
 		4A85F36F1D9ABCDD00733161 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A85F3701D9ABCDD00733161 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
-		4A85F3721D9ABCDD00733161 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		4A85F3731D9ABCDD00733161 /* ShareCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCouponViewController.swift; sourceTree = "<group>"; };
 		4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopFollowViewController.swift; sourceTree = "<group>"; };
 		4A85F3751D9ABCDD00733161 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -1136,7 +1134,6 @@
 				4A85F36F1D9ABCDD00733161 /* MainViewController.swift */,
 				4A649A971D9C1B410080E976 /* MainCouponContentViewController.swift */,
 				4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */,
-				4A85F3721D9ABCDD00733161 /* ScanQRCodeViewController.swift */,
 				4A85F3731D9ABCDD00733161 /* ShareCouponViewController.swift */,
 				4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */,
 				4A85F3751D9ABCDD00733161 /* ShopViewController.swift */,
@@ -1614,7 +1611,6 @@
 				4A85F4231D9ABCDD00733161 /* RightBorderView.swift in Sources */,
 				FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */,
 				FA76A9D61DA3460000893584 /* DKAssetGroupGridLayout.swift in Sources */,
-				4A85F43E1D9ABCDD00733161 /* ScanQRCodeViewController.swift in Sources */,
 				4A85F4271D9ABCDD00733161 /* BaseNavigationController.swift in Sources */,
 				FA76A9A81DA3453600893584 /* ImageSlideshowItem.swift in Sources */,
 				FA76A9CB1DA3460000893584 /* DKGroupDataManager.swift in Sources */,
