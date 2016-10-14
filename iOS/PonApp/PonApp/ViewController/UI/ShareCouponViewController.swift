@@ -10,6 +10,8 @@ import UIKit
 
 class ShareCouponViewController: BaseViewController {
 
+    public var code: String!
+    
     @IBOutlet weak var actionViewBackgroundImageView: UIImageView!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
@@ -84,7 +86,7 @@ extension ShareCouponViewController {
 extension ShareCouponViewController {
     
     func displayQRCode() {
-        self.qrCodeDisplayImageView.image = QRCode.generateImage("Hello SwiftQRCode", avatarImage: nil, avatarScale: 0.3)
+        self.qrCodeDisplayImageView.image = QRCode.generateImage(code!, avatarImage: nil, avatarScale: 0.3)
     }
     
 }
