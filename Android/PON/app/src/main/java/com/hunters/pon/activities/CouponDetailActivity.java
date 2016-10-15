@@ -367,7 +367,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mTvCouponPhone.setText(coupon.getmShop().getmPhone());
 
 
-        boolean isFavourite = CommonUtils.convertBoolean(coupon.getmIsFavourite());
+        isFavourite = CommonUtils.convertBoolean(coupon.getmIsFavourite());
         if(isFavourite) {
             mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
         } else {

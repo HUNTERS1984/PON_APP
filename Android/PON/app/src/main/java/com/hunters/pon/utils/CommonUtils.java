@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.hunters.pon.api.APIConstants;
 
@@ -81,6 +82,10 @@ public class CommonUtils {
 //        }
         File dir = Environment.getDataDirectory();
 
+        if (Environment.getExternalStorageState() != null) {
+            dir = Environment.getExternalStorageDirectory();
+        }
+        Log.d("PON",dir.getAbsolutePath() + "/" + fileName);
         return dir.getAbsolutePath() + "/" + fileName;
     }
 }

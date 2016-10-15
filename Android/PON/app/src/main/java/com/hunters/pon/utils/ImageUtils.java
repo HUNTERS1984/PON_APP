@@ -153,16 +153,16 @@ public class ImageUtils {
 
     public static Target picassoImageTarget(final Context context, final String imageName, final Handler hanlderCompleteSaveImage) {
 //        ContextWrapper cw = new ContextWrapper(context);
-//        final File directory = cw.getDir(imageDir, Context.MODE_WORLD_READABLE); // path to /data/data/yourapp/app_imageDir
+//        final File directory = cw.getDir("PON", Context.MODE_WORLD_READABLE); // path to /data/data/yourapp/app_imageDir
         return new Target() {
             @Override
             public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        //MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "share_coupon" , "share_coupon");
+//                        MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "share_coupon" , "share_coupon");
 
-//                        final File myImageFile = new File(directory, imageName); // Create image file
+//                        final File imageFile = new File(directory, imageName); // Create image file
                         final File imageFile = new File(CommonUtils.getFileCache(imageName));
                         FileOutputStream fos = null;
                         try {

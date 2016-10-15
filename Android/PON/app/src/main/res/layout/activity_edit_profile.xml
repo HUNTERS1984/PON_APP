@@ -148,10 +148,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-                    android:text="@string/male"
                     android:textColor="@color/black"
                     android:textSize="@dimen/edit_profile_value_font_size"
-                    android:textDirection="firstStrongLtr"
                     android:id="@+id/spn_sex"/>
 
             </LinearLayout>
@@ -176,7 +174,6 @@
                     android:layout_weight="1.5"
                     android:textColor="@color/black"
                     android:textSize="@dimen/edit_profile_value_font_size"
-                    android:textDirection="firstStrongLtr"
                     android:id="@+id/spn_prefecture"/>
             </LinearLayout>
             <View android:layout_width="match_parent"

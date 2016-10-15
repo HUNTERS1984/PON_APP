@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -138,12 +139,11 @@ public class ShareCouponActivity extends BaseActivity {
 
         if (ShareDialog.canShow(ShareLinkContent.class) && mCoupon != null) {
             ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                    .setContentTitle(mCoupon.getmTitle())
-                    .setContentDescription(
-                           mCoupon.getmDescription())
-                    .setContentUrl(Uri.parse("https://www.google.com.vn"))
-                    .build();
-
+    //                    .setContentTitle(mCoupon.getmTitle())
+    //                    .setContentDescription(
+    //                           mCoupon.getmDescription())
+                        .setContentUrl(Uri.parse(mCoupon.getmImageUrl()))
+                        .build();
             mShareDialog.show(linkContent);
         }
         closeDialog();
@@ -154,7 +154,7 @@ public class ShareCouponActivity extends BaseActivity {
         TweetComposer.Builder builder = null;
         try {
             builder = new TweetComposer.Builder(this)
-                    .text(mCoupon.getmTitle()).url(new URL(mCoupon.getmImageUrl()));
+                    .url(new URL(mCoupon.getmImageUrl()));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -164,9 +164,17 @@ public class ShareCouponActivity extends BaseActivity {
 
     private void shareInstagram()
     {
-        showProgressDialog(mContext);
-        Picasso.with(this).load(mCoupon.getmImageUrl())
-                .into(ImageUtils.picassoImageTarget(getApplicationContext(), "share_coupon.png", mHanlderCompletionSaveImage));
+        if (CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_INSTAGRAM)){
+            showProgressDialog(mContext);
+            Picasso.with(this).load(mCoupon.getmImageUrl())
+                    .resize(CommonUtils.dpToPx(mContext, 120), CommonUtils.dpToPx(mContext, 120))
+                    .into(ImageUtils.picassoImageTarget(getApplicationContext(), "share_coupon.jpg", mHanlderCompletionSaveImage));
+        } else {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setData(Uri.parse("market://details?id=" + Constants.PACKAGE_INSTAGRAM));
+            startActivity(intent);
+        }
 
     }
 
@@ -177,7 +185,7 @@ public class ShareCouponActivity extends BaseActivity {
             Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmImageUrl());
-            shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
+//            shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
             shareIntent.setPackage(Constants.PACKAGE_LINE);
             startActivity(shareIntent);
         } else {
@@ -197,20 +205,15 @@ public class ShareCouponActivity extends BaseActivity {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     File cacheFile = new File(CommonUtils.getFileCache("share_coupon.jpg"));
 
+                    Log.d("PON", "Shared instagram");
                     Uri file = Uri.fromFile(cacheFile);
 
-                    if (CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_INSTAGRAM)){
-                        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-                        shareIntent.setType("image/*");
-                        shareIntent.putExtra(Intent.EXTRA_STREAM, file);
-                        shareIntent.setPackage(Constants.PACKAGE_INSTAGRAM);
-                        startActivity(shareIntent);
-                    } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.setData(Uri.parse("market://details?id=" + Constants.PACKAGE_INSTAGRAM));
-                        startActivity(intent);
-                    }
+                    Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    shareIntent.setType("image/*");
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, file);
+                    shareIntent.setPackage(Constants.PACKAGE_INSTAGRAM);
+                    startActivity(shareIntent);
+
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);

@@ -29,13 +29,13 @@ public class PonNotificationOpenedHandler implements OneSignal.NotificationOpene
         OSNotificationAction.ActionType actionType = result.action.type;
         JSONObject data = result.notification.payload.additionalData;
 
-//        Log.d("HUY", data.toString());
         if (data != null) {
             String notificationType = data.optString("notification_type", null);
             long id = data.optLong("id");
 
             if (notificationType != null) {
-                if(notificationType.equalsIgnoreCase(Constants.NOTIFICATION_NEW_COUPON)){
+                if(notificationType.equalsIgnoreCase(Constants.NOTIFICATION_NEW_COUPON)
+                        || notificationType.equalsIgnoreCase(Constants.NOTIFICATION_COUPON_APPROVED)){
                     Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
                     iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, id);
                     iCouponDetail.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
