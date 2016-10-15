@@ -39,7 +39,7 @@ class TabbarView: UIView {
         
         if let ctx = UIGraphicsGetCurrentContext() {
             ctx.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
-            ctx.setLineWidth(0.5)
+            ctx.setLineWidth(1.0)
             ctx.move(to: CGPoint(x: 0, y: 10))
             ctx.addLine(to: CGPoint(x: rect.width, y: 10))
             ctx.drawPath(using: .stroke)

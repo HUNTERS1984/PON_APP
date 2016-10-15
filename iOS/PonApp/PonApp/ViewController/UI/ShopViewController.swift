@@ -9,6 +9,7 @@
 import UIKit
 
 let NavBarChangePoint: CGFloat = 50.0
+let HeaderChangePoint: CGFloat = 20.0
 
 class ShopViewController: BaseViewController {
 
@@ -32,6 +33,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var meanCountLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var detailMapView: MapView!
+    @IBOutlet weak var headerContentView: UIView!
 
     var shopCoupon = [Coupon]() {
         didSet {
@@ -154,6 +156,13 @@ extension ShopViewController: UIScrollViewDelegate {
         }else {
             let color = UIColor(hex: 0x18c0d4)
             let offsetY = scrollView.contentOffset.y
+            let alpha = min(1, 1 - ((HeaderChangePoint + 34 - offsetY) / 34))
+            if offsetY > HeaderChangePoint {
+                self.headerContentView.alpha = 1 - alpha
+            }else {
+                self.headerContentView.alpha = 1
+            }
+            
             if offsetY > NavBarChangePoint {
                 let alpha = min(1, 1 - ((NavBarChangePoint + 64 - offsetY) / 64))
                 self.navigationView.backgroundColor = color.withAlphaComponent(alpha)
@@ -193,8 +202,8 @@ extension ShopViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
         let screenWidth = UIScreen.main.bounds.width
-        let width = screenWidth * (162/375)
-        let height = screenHeight * (172/667)
+        let width = screenWidth * (164/375)
+        let height = screenHeight * (176/667)
         return CGSize(width: width, height: height)
     }
     

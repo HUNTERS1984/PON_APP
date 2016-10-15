@@ -199,6 +199,7 @@
 		4A935F5C1DA3FF090086FD74 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */; };
 		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
+		4ADEE8B01DB1B4730049BA24 /* MyOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
 		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
 		FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */; };
@@ -501,6 +502,7 @@
 		4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice.gpx; sourceTree = "<group>"; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 		4A85F26A1D9ABCDD00733161 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
+				4ADEE8AE1DB1B4730049BA24 /* GPX */,
 				FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */,
 				4A85F2781D9ABCDD00733161 /* Frameworks */,
 				4A85F2711D9ABCDD00733161 /* App */,
@@ -1180,6 +1183,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		4ADEE8AE1DB1B4730049BA24 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */,
+			);
+			path = GPX;
+			sourceTree = "<group>";
+		};
 		BB499B3834AC676546D06A4C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1487,7 @@
 				4A85F3DE1D9ABCDD00733161 /* tabbar_pon@2x.png in Resources */,
 				4A85F3DB1D9ABCDD00733161 /* tabbar_account_selected@2x.png in Resources */,
 				4A85F3C01D9ABCDD00733161 /* coupon_twitter_button@2x.png in Resources */,
+				4ADEE8B01DB1B4730049BA24 /* MyOffice.gpx in Resources */,
 				4A85F3BF1D9ABCDD00733161 /* coupon_time@2x.png in Resources */,
 				FAA43A6C1D9CF5B30013BCE3 /* main_header_background@2x.png in Resources */,
 				FA7BAED11DA499A10045F126 /* signup_button@2x.png in Resources */,

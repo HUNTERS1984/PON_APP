@@ -15,10 +15,10 @@ class BottomBorderView: UIView {
     
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        context?.setLineWidth(0.5)
+        context?.setLineWidth(1.0)
         context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
-        context?.move(to: CGPoint(x: marginLeft, y: rect.size.height))
-        context?.addLine(to: CGPoint(x: rect.size.width - marginRight, y: rect.size.height))
+        context?.move(to: CGPoint(x: marginLeft, y: rect.size.height - 1.0))
+        context?.addLine(to: CGPoint(x: rect.size.width - marginRight, y: rect.size.height - 1.0))
         context?.strokePath()
         
     }
