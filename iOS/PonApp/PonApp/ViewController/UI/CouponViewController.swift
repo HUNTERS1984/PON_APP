@@ -73,7 +73,6 @@ class CouponViewController: BaseViewController {
         self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), for: UIControlState())
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
-        self.useCouponButton.setImage(UIImage(named: "coupon_use_coupon_button"), for: UIControlState())
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         

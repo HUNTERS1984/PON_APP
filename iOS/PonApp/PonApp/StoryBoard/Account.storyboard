@@ -11,11 +11,8 @@
         <array key="HiraginoSans-W4.ttc">
             <string>HiraginoSans-W4</string>
         </array>
-        <array key="HiraginoSansGB-W3.ttf">
-            <string>HiraginoSansGB-W3</string>
-        </array>
-        <array key="HiraginoSansGB-W6.ttf">
-            <string>HiraginoSansGB-W6</string>
+        <array key="HiraginoSans-W5.ttc">
+            <string>HiraginoSans-W5</string>
         </array>
     </customFonts>
     <scenes>
@@ -66,15 +63,16 @@
                                         <constraints>
                                             <constraint firstItem="egv-Wn-yYU" firstAttribute="height" secondItem="Akg-jq-GGU" secondAttribute="height" multiplier="50/90" id="1s8-fV-2xT"/>
                                             <constraint firstAttribute="trailing" secondItem="OsC-Z2-PdI" secondAttribute="trailing" constant="8" id="EVM-d1-rlP"/>
-                                            <constraint firstAttribute="bottom" secondItem="c78-1v-zxn" secondAttribute="bottom" constant="8" id="HMp-BF-inL"/>
                                             <constraint firstItem="egv-Wn-yYU" firstAttribute="leading" secondItem="Akg-jq-GGU" secondAttribute="leading" constant="20" id="Hh5-vF-cPl"/>
                                             <constraint firstItem="OsC-Z2-PdI" firstAttribute="leading" secondItem="Akg-jq-GGU" secondAttribute="leading" constant="140" id="YvQ-mW-flc"/>
+                                            <constraint firstAttribute="bottom" secondItem="c78-1v-zxn" secondAttribute="bottom" id="ZsR-PM-aQ6"/>
                                             <constraint firstItem="egv-Wn-yYU" firstAttribute="centerY" secondItem="Akg-jq-GGU" secondAttribute="centerY" id="gSL-Qv-0jp"/>
-                                            <constraint firstAttribute="trailing" secondItem="c78-1v-zxn" secondAttribute="trailing" constant="8" id="hEo-ZD-2ab"/>
                                             <constraint firstAttribute="height" constant="90" id="iDK-qo-659"/>
+                                            <constraint firstItem="c78-1v-zxn" firstAttribute="leading" secondItem="Akg-jq-GGU" secondAttribute="leading" id="lEH-FX-MgZ"/>
                                             <constraint firstAttribute="bottom" secondItem="OsC-Z2-PdI" secondAttribute="bottom" constant="8" id="vf7-R9-fHx"/>
-                                            <constraint firstItem="c78-1v-zxn" firstAttribute="top" secondItem="Akg-jq-GGU" secondAttribute="top" constant="8" id="vgz-Mb-Bls"/>
+                                            <constraint firstItem="c78-1v-zxn" firstAttribute="top" secondItem="Akg-jq-GGU" secondAttribute="top" id="vrz-LM-yCq"/>
                                             <constraint firstItem="OsC-Z2-PdI" firstAttribute="top" secondItem="Akg-jq-GGU" secondAttribute="top" constant="8" id="w8R-AM-9mC"/>
+                                            <constraint firstAttribute="trailing" secondItem="c78-1v-zxn" secondAttribute="trailing" id="y4W-tX-E51"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
@@ -375,7 +373,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Gi-cq-B5J" id="ifH-Mb-0jS">
-                                            <frame key="frameInset" width="375" height="132"/>
+                                            <frame key="frameInset" width="375" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ci-zvf" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
@@ -386,25 +384,25 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBF-4e-0ap" userLabel="Name Label">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="KfG-X8-ev1"/>
+                                                        <constraint firstAttribute="height" constant="14" id="KfG-X8-ev1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.792156862745098" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQi-b5-Wg3" userLabel="Name Label">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="eOK-nK-XHa"/>
+                                                        <constraint firstAttribute="height" constant="15" id="eOK-nK-XHa"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="13"/>
                                                     <color key="textColor" red="0.38431372549019605" green="0.42745098039215684" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-W2-X90" customClass="ReadMoreTextView" customModule="PonApp" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-W2-X90" customClass="ReadMoreTextView" customModule="PonApp" customModuleProvider="target">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.</string>
                                                     <color key="textColor" red="0.65098039215686276" green="0.69019607843137254" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W3" family="Hiragino Sans GB" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="10"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="maximumNumberOfLines">
@@ -420,13 +418,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="yBF-4e-0ap" secondAttribute="trailing" constant="15" id="2Po-NO-Mjz"/>
                                                 <constraint firstAttribute="trailing" secondItem="pOb-W2-X90" secondAttribute="trailing" constant="15" id="4jY-LL-iLm"/>
                                                 <constraint firstItem="4gW-Ci-zvf" firstAttribute="top" secondItem="ifH-Mb-0jS" secondAttribute="top" constant="15" id="50U-bP-QKX"/>
-                                                <constraint firstItem="yBF-4e-0ap" firstAttribute="top" secondItem="ifH-Mb-0jS" secondAttribute="top" constant="7" id="KtF-fD-qKw"/>
+                                                <constraint firstItem="yBF-4e-0ap" firstAttribute="top" secondItem="ifH-Mb-0jS" secondAttribute="top" constant="16" id="KtF-fD-qKw"/>
                                                 <constraint firstItem="NQi-b5-Wg3" firstAttribute="top" secondItem="yBF-4e-0ap" secondAttribute="bottom" constant="7" id="Mmh-A2-yGZ"/>
                                                 <constraint firstItem="4gW-Ci-zvf" firstAttribute="leading" secondItem="ifH-Mb-0jS" secondAttribute="leading" constant="15" id="PoL-7F-4D0"/>
                                                 <constraint firstItem="yBF-4e-0ap" firstAttribute="leading" secondItem="4gW-Ci-zvf" secondAttribute="trailing" constant="20" id="SsV-oY-E9j"/>
-                                                <constraint firstItem="pOb-W2-X90" firstAttribute="top" secondItem="NQi-b5-Wg3" secondAttribute="bottom" constant="8" id="cyJ-AR-DVr"/>
-                                                <constraint firstItem="pOb-W2-X90" firstAttribute="leading" secondItem="NQi-b5-Wg3" secondAttribute="leading" id="fdN-re-ERr"/>
-                                                <constraint firstAttribute="bottom" secondItem="pOb-W2-X90" secondAttribute="bottom" constant="8" id="kIy-OC-qQi"/>
+                                                <constraint firstItem="pOb-W2-X90" firstAttribute="top" secondItem="NQi-b5-Wg3" secondAttribute="bottom" constant="4" id="cyJ-AR-DVr"/>
+                                                <constraint firstItem="pOb-W2-X90" firstAttribute="leading" secondItem="NQi-b5-Wg3" secondAttribute="leading" constant="-5" id="fdN-re-ERr"/>
+                                                <constraint firstAttribute="bottom" secondItem="pOb-W2-X90" secondAttribute="bottom" constant="15.5" id="kIy-OC-qQi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NQi-b5-Wg3" secondAttribute="trailing" constant="7" id="vxN-YK-2Qw"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -407,9 +407,12 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ8-Lh-a5Q">
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hBx-KA-mL1"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                <state key="normal" title="このクーポンを使う"/>
                                 <connections>
                                     <action selector="useCouponButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="qhI-9e-i7e"/>
                                 </connections>

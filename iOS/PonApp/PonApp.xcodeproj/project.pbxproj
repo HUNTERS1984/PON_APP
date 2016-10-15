@@ -200,12 +200,13 @@
 		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
 		4ADEE8B01DB1B4730049BA24 /* MyOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */; };
+		4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
 		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
 		FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
 		FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */; };
-		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; };
+		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C801D9228AE00D56602 /* Foundation.framework */; };
 		FA405C831D9228B500D56602 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C821D9228B500D56602 /* Security.framework */; };
 		FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C841D9228BC00D56602 /* CoreTelephony.framework */; };
@@ -503,6 +504,7 @@
 		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice.gpx; sourceTree = "<group>"; };
+		4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */,
 				FA46C45A1DB0BB3F004E0A81 /* AssetsLibrary.framework in Frameworks */,
 				FA46C42A1DB08D8F004E0A81 /* Social.framework in Frameworks */,
 				FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */,
@@ -629,8 +632,8 @@
 		4A85F26A1D9ABCDD00733161 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
-				4ADEE8AE1DB1B4730049BA24 /* GPX */,
 				FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */,
+				4ADEE8AE1DB1B4730049BA24 /* GPX */,
 				4A85F2781D9ABCDD00733161 /* Frameworks */,
 				4A85F2711D9ABCDD00733161 /* App */,
 				4A85F2761D9ABCDD00733161 /* Constant */,
@@ -1203,6 +1206,7 @@
 		D48EAA8D573D1FF68F8534A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */,
 				FA46C4591DB0BB3F004E0A81 /* AssetsLibrary.framework */,
 				FA46C4291DB08D8F004E0A81 /* Social.framework */,
 				4A136A101DAA28D5000610E3 /* UserNotificationsUI.framework */,
