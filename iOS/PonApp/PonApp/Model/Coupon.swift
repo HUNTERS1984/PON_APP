@@ -31,6 +31,9 @@ struct Coupon {
     var userPhotosUrl = [String]()
     var couponPhotosUrl = [String]()
     var similarCoupons = [Coupon]()
+    var category: String!
+    var categoryIcon: String!
+    var code: String!
     
     var shopCoordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
@@ -159,6 +162,18 @@ struct Coupon {
                 coupon.couponType = self.couponType
                 self.similarCoupons.append(coupon)
             }
+        }
+        
+        if let code = response!["code"].string {
+            self.code = code
+        }
+        
+        if let category = response!["shop"]["category"]["name"].string {
+            self.category = category
+        }
+        
+        if let categoryIcon = response!["shop"]["category"]["icon_url"].string {
+            self.categoryIcon = categoryIcon;
         }
     }
     

@@ -33,6 +33,10 @@ class EditAccountViewController: BaseViewController {
     
     override func setUpComponentsOnLoad() {
         super.setUpComponentsOnLoad()
+        self.nameTextField.attributedPlaceholder = NSAttributedString(string:"ユーザー名", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultDarkTextColor)])
+        self.emailTextField.attributedPlaceholder = NSAttributedString(string:"example@ex.com", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultDarkTextColor)])
+        self.genderDropdown.attributedPlaceholder = NSAttributedString(string:"男性", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultDarkTextColor)])
+        self.addressDropdown.attributedPlaceholder = NSAttributedString(string:"東京都", attributes:[NSForegroundColorAttributeName: UIColor(hex: DefaultDarkTextColor)])
     }
     
     override func setUpUserInterface() {
@@ -247,7 +251,7 @@ extension EditAccountViewController {
             let avatarUrl = URL(string: UserDataManager.sharedInstance.avatarUrl!)
             self.avatarImageView.af_setImage(withURL: avatarUrl!)
         }else {
-            self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
+            self.avatarImageView.image = UIImage(named: "edit_profile_avatar_placeholder")
         }
         
         if let _ = UserDataManager.sharedInstance.email {

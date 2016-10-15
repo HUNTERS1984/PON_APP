@@ -12,13 +12,14 @@ class RightBorderView: UIView {
     @IBInspectable var marginRight: CGFloat = 0
     
     override func draw(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        context?.setLineWidth(0.5)
-        context?.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
-        context?.move(to: CGPoint(x: rect.size.width - marginRight, y: 0))
-        context?.addLine(to: CGPoint(x: rect.size.width - marginRight, y: rect.size.height))
-        context?.strokePath()
-        
+        if let ctx = UIGraphicsGetCurrentContext() {
+            ctx.setLineWidth(1.0)
+            ctx.setStrokeColor(UIColor(hex: DefaultBorderColor).cgColor)
+            ctx.move(to: CGPoint(x: rect.size.width - marginRight - 1.0, y: 0))
+            ctx.addLine(to: CGPoint(x: rect.size.width - marginRight - 1.0, y: rect.size.height - 0.5))
+            ctx.drawPath(using: .fillStroke)
+            UIGraphicsEndImageContext()
+        }
     }
 
 }

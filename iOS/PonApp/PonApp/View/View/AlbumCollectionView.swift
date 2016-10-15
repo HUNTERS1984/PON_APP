@@ -10,6 +10,8 @@ import UIKit
 
 class AlbumCollectionView: UICollectionView {
 
+    @IBInspectable var totalMargin: CGFloat = 60
+    
     var photos = [String] ()
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,8 +77,9 @@ extension AlbumCollectionView: UICollectionViewDelegate {
 extension AlbumCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let picDimension = (self.frame.size.width - 40) / 3.0
-        return CGSize(width: picDimension, height: picDimension)
+        let screenWidth = UIScreen.main.bounds.width
+        let width = (screenWidth - totalMargin) / 3.0
+        return CGSize(width: width, height: width)
     }
     
 }

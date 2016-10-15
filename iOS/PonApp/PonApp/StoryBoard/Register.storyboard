@@ -5,8 +5,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HiraginoSansGB-W6.ttf">
-            <string>HiraginoSansGB-W6</string>
+        <array key="HiraginoSans-W5.ttc">
+            <string>HiraginoSans-W5</string>
         </array>
     </customFonts>
     <scenes>
@@ -34,16 +34,16 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DD9-40-XP7" userLabel="UserName TextField">
                                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="DD9-40-XP7" firstAttribute="top" secondItem="fdB-dq-gd5" secondAttribute="top" id="IDT-DH-s8R"/>
-                                            <constraint firstItem="DD9-40-XP7" firstAttribute="leading" secondItem="fdB-dq-gd5" secondAttribute="leading" constant="20" id="X97-JJ-t1P"/>
+                                            <constraint firstItem="DD9-40-XP7" firstAttribute="leading" secondItem="fdB-dq-gd5" secondAttribute="leading" constant="28" id="X97-JJ-t1P"/>
                                             <constraint firstAttribute="bottom" secondItem="DD9-40-XP7" secondAttribute="bottom" id="dQR-7O-9rX"/>
-                                            <constraint firstAttribute="height" constant="57" id="hg4-nz-aA8"/>
+                                            <constraint firstAttribute="height" constant="58" id="hg4-nz-aA8"/>
                                             <constraint firstAttribute="trailing" secondItem="DD9-40-XP7" secondAttribute="trailing" constant="10" id="uzh-ok-QHk"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -56,15 +56,15 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXV-oJ-yEY" userLabel="Password TextField">
                                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="JXV-oJ-yEY" firstAttribute="leading" secondItem="qtk-h3-hRS" secondAttribute="leading" constant="20" id="6U0-cj-vIR"/>
+                                            <constraint firstItem="JXV-oJ-yEY" firstAttribute="leading" secondItem="qtk-h3-hRS" secondAttribute="leading" constant="28" id="6U0-cj-vIR"/>
                                             <constraint firstItem="JXV-oJ-yEY" firstAttribute="top" secondItem="qtk-h3-hRS" secondAttribute="top" id="7oM-bx-wSh"/>
-                                            <constraint firstAttribute="height" constant="57" id="KEm-Aq-s7b"/>
+                                            <constraint firstAttribute="height" constant="58" id="KEm-Aq-s7b"/>
                                             <constraint firstAttribute="bottom" secondItem="JXV-oJ-yEY" secondAttribute="bottom" id="Ypk-ig-I2r"/>
                                             <constraint firstAttribute="trailing" secondItem="JXV-oJ-yEY" secondAttribute="trailing" constant="10" id="zmY-Yx-vqs"/>
                                         </constraints>
@@ -74,7 +74,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="lbI-IR-6la"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
                                         <state key="normal" title="ログイン"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
@@ -94,12 +94,12 @@
                                             <action selector="signInButtonPressed:" destination="xZm-qg-9bl" eventType="touchUpInside" id="jPq-Mp-kAc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-kz-Zcl" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-kz-Zcl" userLabel="SignUp Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rPz-RM-wek"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
                                         <state key="normal" title="新規会員登録"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
@@ -125,7 +125,7 @@
                                     <constraint firstAttribute="trailing" secondItem="QAu-9c-lC1" secondAttribute="trailing" constant="20" id="0FI-my-cdG"/>
                                     <constraint firstItem="qtk-h3-hRS" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" id="53F-OY-n55"/>
                                     <constraint firstAttribute="trailing" secondItem="fmH-kz-Zcl" secondAttribute="trailing" constant="20" id="6Rx-3G-Gt3"/>
-                                    <constraint firstItem="QAu-9c-lC1" firstAttribute="top" secondItem="qtk-h3-hRS" secondAttribute="bottom" constant="20" id="8JR-Ek-rWm"/>
+                                    <constraint firstItem="QAu-9c-lC1" firstAttribute="top" secondItem="qtk-h3-hRS" secondAttribute="bottom" constant="23" id="8JR-Ek-rWm"/>
                                     <constraint firstItem="QAu-9c-lC1" firstAttribute="leading" secondItem="ztg-TW-g7W" secondAttribute="leading" constant="20" id="9EN-tL-kTH"/>
                                     <constraint firstItem="i3i-UK-B0f" firstAttribute="top" secondItem="ztg-TW-g7W" secondAttribute="top" id="EIl-KH-HYH"/>
                                     <constraint firstAttribute="bottom" secondItem="fmH-kz-Zcl" secondAttribute="bottom" id="HPl-gG-0q7"/>
@@ -152,7 +152,7 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザーネーム" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-3p-lwy" userLabel="UserName TextField">
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -160,9 +160,9 @@
                                         <constraints>
                                             <constraint firstItem="4jR-3p-lwy" firstAttribute="top" secondItem="W0C-T5-QzF" secondAttribute="top" id="LCp-NB-8go"/>
                                             <constraint firstAttribute="trailing" secondItem="4jR-3p-lwy" secondAttribute="trailing" constant="10" id="PEv-Nw-ZdN"/>
-                                            <constraint firstAttribute="height" constant="57" id="VPZ-I2-2bD"/>
+                                            <constraint firstAttribute="height" constant="58" id="VPZ-I2-2bD"/>
                                             <constraint firstAttribute="bottom" secondItem="4jR-3p-lwy" secondAttribute="bottom" id="ZuY-rH-8RQ"/>
-                                            <constraint firstItem="4jR-3p-lwy" firstAttribute="leading" secondItem="W0C-T5-QzF" secondAttribute="leading" constant="20" id="j0o-4Y-T2Q"/>
+                                            <constraint firstItem="4jR-3p-lwy" firstAttribute="leading" secondItem="W0C-T5-QzF" secondAttribute="leading" constant="28" id="j0o-4Y-T2Q"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
@@ -174,16 +174,16 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Sz-Kw-lN5" userLabel="Email TextField">
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="0li-oQ-RBj"/>
+                                            <constraint firstAttribute="height" constant="58" id="0li-oQ-RBj"/>
                                             <constraint firstAttribute="bottom" secondItem="9Sz-Kw-lN5" secondAttribute="bottom" id="GYh-MH-zg5"/>
                                             <constraint firstAttribute="trailing" secondItem="9Sz-Kw-lN5" secondAttribute="trailing" constant="10" id="Z3N-A9-1tv"/>
-                                            <constraint firstItem="9Sz-Kw-lN5" firstAttribute="leading" secondItem="N3n-Tv-3iG" secondAttribute="leading" constant="20" id="uDu-uO-5YQ"/>
+                                            <constraint firstItem="9Sz-Kw-lN5" firstAttribute="leading" secondItem="N3n-Tv-3iG" secondAttribute="leading" constant="28" id="uDu-uO-5YQ"/>
                                             <constraint firstItem="9Sz-Kw-lN5" firstAttribute="top" secondItem="N3n-Tv-3iG" secondAttribute="top" id="wz9-3g-ONd"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -196,16 +196,16 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJc-su-deF" userLabel="Password TextField">
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="NoU-Tq-FBg"/>
+                                            <constraint firstAttribute="height" constant="58" id="NoU-Tq-FBg"/>
                                             <constraint firstAttribute="trailing" secondItem="vJc-su-deF" secondAttribute="trailing" constant="10" id="Xsz-uI-qhm"/>
                                             <constraint firstItem="vJc-su-deF" firstAttribute="top" secondItem="eeR-Rz-Bbd" secondAttribute="top" id="phm-CA-wSm"/>
-                                            <constraint firstItem="vJc-su-deF" firstAttribute="leading" secondItem="eeR-Rz-Bbd" secondAttribute="leading" constant="20" id="t61-63-amd"/>
+                                            <constraint firstItem="vJc-su-deF" firstAttribute="leading" secondItem="eeR-Rz-Bbd" secondAttribute="leading" constant="28" id="t61-63-amd"/>
                                             <constraint firstAttribute="bottom" secondItem="vJc-su-deF" secondAttribute="bottom" id="x2H-2w-WEA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -218,7 +218,7 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード（確認）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-0P-M0d" userLabel="Password Confirmation TextField">
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
@@ -226,8 +226,8 @@
                                         <constraints>
                                             <constraint firstItem="aZc-0P-M0d" firstAttribute="top" secondItem="Hhf-S3-nlb" secondAttribute="top" id="1xw-Uj-tLf"/>
                                             <constraint firstAttribute="trailing" secondItem="aZc-0P-M0d" secondAttribute="trailing" constant="10" id="2Gx-qO-Qgt"/>
-                                            <constraint firstAttribute="height" constant="57" id="9pj-29-SRY"/>
-                                            <constraint firstItem="aZc-0P-M0d" firstAttribute="leading" secondItem="Hhf-S3-nlb" secondAttribute="leading" constant="20" id="TQu-YO-hHz"/>
+                                            <constraint firstAttribute="height" constant="58" id="9pj-29-SRY"/>
+                                            <constraint firstItem="aZc-0P-M0d" firstAttribute="leading" secondItem="Hhf-S3-nlb" secondAttribute="leading" constant="28" id="TQu-YO-hHz"/>
                                             <constraint firstAttribute="bottom" secondItem="aZc-0P-M0d" secondAttribute="bottom" id="rP6-4x-UsH"/>
                                         </constraints>
                                     </view>
@@ -236,7 +236,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="575-4d-6Tg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
                                         <state key="normal" title="こちらの内容で登録"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
@@ -281,7 +281,7 @@
                                     <constraint firstAttribute="trailing" secondItem="eeR-Rz-Bbd" secondAttribute="trailing" id="JnY-mV-Faw"/>
                                     <constraint firstAttribute="trailing" secondItem="nEg-Md-t5p" secondAttribute="trailing" constant="16" id="K8g-xs-M83"/>
                                     <constraint firstItem="N3n-Tv-3iG" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="NUp-5H-wyz"/>
-                                    <constraint firstItem="nEg-Md-t5p" firstAttribute="top" secondItem="Hhf-S3-nlb" secondAttribute="bottom" constant="20" id="VBS-mB-5bZ"/>
+                                    <constraint firstItem="nEg-Md-t5p" firstAttribute="top" secondItem="Hhf-S3-nlb" secondAttribute="bottom" constant="23" id="VBS-mB-5bZ"/>
                                     <constraint firstItem="Hhf-S3-nlb" firstAttribute="leading" secondItem="6u8-0s-c9o" secondAttribute="leading" id="W60-0w-mDJ"/>
                                     <constraint firstAttribute="trailing" secondItem="N3n-Tv-3iG" secondAttribute="trailing" id="eyo-zx-FjO"/>
                                     <constraint firstItem="N3n-Tv-3iG" firstAttribute="top" secondItem="W0C-T5-QzF" secondAttribute="bottom" id="gBv-Cq-V1r"/>
@@ -289,7 +289,7 @@
                                     <constraint firstItem="Hhf-S3-nlb" firstAttribute="top" secondItem="eeR-Rz-Bbd" secondAttribute="bottom" id="saJ-gg-Mhq"/>
                                     <constraint firstAttribute="trailing" secondItem="s3l-Ql-ZBd" secondAttribute="trailing" id="wms-Mb-goy"/>
                                     <constraint firstAttribute="trailing" secondItem="lrH-4j-fcD" secondAttribute="trailing" constant="18" id="xMQ-rg-OOP"/>
-                                    <constraint firstItem="lrH-4j-fcD" firstAttribute="top" secondItem="nEg-Md-t5p" secondAttribute="bottom" constant="8" id="zC8-Et-IE5"/>
+                                    <constraint firstItem="lrH-4j-fcD" firstAttribute="top" secondItem="nEg-Md-t5p" secondAttribute="bottom" constant="20" id="zC8-Et-IE5"/>
                                 </constraints>
                             </view>
                         </subviews>

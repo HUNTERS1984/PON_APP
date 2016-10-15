@@ -6,8 +6,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HiraginoSansGB-W3.ttf">
-            <string>HiraginoSansGB-W3</string>
+        <array key="HiraginoSans-W5.ttc">
+            <string>HiraginoSans-W5</string>
         </array>
         <array key="HiraginoSansGB-W6.ttf">
             <string>HiraginoSansGB-W6</string>
@@ -88,12 +88,12 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-mF-mUD">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="8YU-Ht-ObW"/>
-                                            <constraint firstAttribute="width" constant="10" id="nad-LM-oTt"/>
+                                            <constraint firstAttribute="height" constant="17" id="8YU-Ht-ObW"/>
+                                            <constraint firstAttribute="width" constant="12" id="nad-LM-oTt"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在地付近でさがす" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-Fa-T0e">
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -107,15 +107,15 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="vXm-ak-pyK" secondAttribute="bottom" id="6gn-Zg-ZfZ"/>
                                     <constraint firstAttribute="trailing" secondItem="vXm-ak-pyK" secondAttribute="trailing" id="D9Y-W4-tLe"/>
-                                    <constraint firstItem="ywL-mF-mUD" firstAttribute="leading" secondItem="A4z-Fa-T0e" secondAttribute="trailing" constant="8" id="J1n-Zd-7pB"/>
+                                    <constraint firstItem="ywL-mF-mUD" firstAttribute="leading" secondItem="A4z-Fa-T0e" secondAttribute="trailing" constant="6" id="J1n-Zd-7pB"/>
                                     <constraint firstItem="Dpe-62-2iC" firstAttribute="leading" secondItem="fet-6h-Ram" secondAttribute="leading" constant="15" id="OpV-NT-ZRM"/>
-                                    <constraint firstItem="ywL-mF-mUD" firstAttribute="centerY" secondItem="fet-6h-Ram" secondAttribute="centerY" id="exa-hd-opC"/>
+                                    <constraint firstItem="ywL-mF-mUD" firstAttribute="centerY" secondItem="fet-6h-Ram" secondAttribute="centerY" constant="1" id="exa-hd-opC"/>
                                     <constraint firstAttribute="bottom" secondItem="A4z-Fa-T0e" secondAttribute="bottom" id="hhf-lJ-V6w"/>
                                     <constraint firstItem="Dpe-62-2iC" firstAttribute="centerY" secondItem="fet-6h-Ram" secondAttribute="centerY" id="iWa-yf-e5q"/>
                                     <constraint firstAttribute="height" constant="72" id="ie0-sf-iss"/>
                                     <constraint firstItem="vXm-ak-pyK" firstAttribute="top" secondItem="fet-6h-Ram" secondAttribute="top" id="moB-CI-Uao"/>
-                                    <constraint firstItem="A4z-Fa-T0e" firstAttribute="leading" secondItem="Dpe-62-2iC" secondAttribute="trailing" constant="8" id="qb8-cD-JBa"/>
                                     <constraint firstAttribute="trailing" secondItem="ywL-mF-mUD" secondAttribute="trailing" constant="15" id="rNh-zA-HqC"/>
+                                    <constraint firstItem="A4z-Fa-T0e" firstAttribute="leading" secondItem="fet-6h-Ram" secondAttribute="leading" constant="80" id="vBs-qB-71o"/>
                                     <constraint firstItem="vXm-ak-pyK" firstAttribute="leading" secondItem="fet-6h-Ram" secondAttribute="leading" id="vnx-y4-Qgj"/>
                                     <constraint firstItem="A4z-Fa-T0e" firstAttribute="top" secondItem="fet-6h-Ram" secondAttribute="top" id="yMt-ZO-NEQ"/>
                                 </constraints>
@@ -123,7 +123,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V65-kS-5B3" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g5-ZJ-kDx">
-                                        <fontDescription key="fontDescription" name="HiraginoSansGB-W3" family="Hiragino Sans GB" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="13"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -149,11 +149,11 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="0dB-zR-Vp8">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="XZB-RO-9WV"/>
-                                                        <constraint firstAttribute="height" constant="15" id="v3Z-qX-CgQ"/>
+                                                        <constraint firstAttribute="width" constant="12" id="XZB-RO-9WV"/>
+                                                        <constraint firstAttribute="height" constant="17" id="v3Z-qX-CgQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
                                                     <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -170,11 +170,11 @@
                                                 <constraint firstItem="lM3-3p-fh8" firstAttribute="top" secondItem="Z5x-gY-J7H" secondAttribute="top" id="94U-T1-B2u"/>
                                                 <constraint firstAttribute="bottom" secondItem="lM3-3p-fh8" secondAttribute="bottom" id="LUj-rT-bMI"/>
                                                 <constraint firstAttribute="trailing" secondItem="0dB-zR-Vp8" secondAttribute="trailing" constant="15" id="PnE-Un-o2F"/>
-                                                <constraint firstItem="0dB-zR-Vp8" firstAttribute="centerY" secondItem="Z5x-gY-J7H" secondAttribute="centerY" id="SSR-vJ-0e2"/>
+                                                <constraint firstItem="0dB-zR-Vp8" firstAttribute="centerY" secondItem="Z5x-gY-J7H" secondAttribute="centerY" constant="1.5" id="SSR-vJ-0e2"/>
+                                                <constraint firstItem="lM3-3p-fh8" firstAttribute="leading" secondItem="Z5x-gY-J7H" secondAttribute="leading" constant="80" id="ZpQ-UE-E2M"/>
                                                 <constraint firstItem="pDD-AW-LHB" firstAttribute="centerY" secondItem="Z5x-gY-J7H" secondAttribute="centerY" id="lLM-I9-YRg"/>
                                                 <constraint firstItem="pDD-AW-LHB" firstAttribute="leading" secondItem="Z5x-gY-J7H" secondAttribute="leading" constant="15" id="sKy-Yy-dD5"/>
-                                                <constraint firstItem="0dB-zR-Vp8" firstAttribute="leading" secondItem="lM3-3p-fh8" secondAttribute="trailing" constant="8" id="wbG-4q-2sB"/>
-                                                <constraint firstItem="lM3-3p-fh8" firstAttribute="leading" secondItem="pDD-AW-LHB" secondAttribute="trailing" constant="8" id="wu2-ZQ-CyA"/>
+                                                <constraint firstItem="0dB-zR-Vp8" firstAttribute="leading" secondItem="lM3-3p-fh8" secondAttribute="trailing" constant="6" id="wbG-4q-2sB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -250,11 +250,11 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Kk-i6-PHN">
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="WSw-9L-Jbv">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="2" id="WSw-9L-Jbv">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
                                         <connections>
@@ -376,14 +376,14 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-ec-eVn">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="Mq6-zz-far"/>
-                                                        <constraint firstAttribute="height" constant="15" id="xpn-jd-hMd"/>
+                                                        <constraint firstAttribute="width" constant="12" id="Mq6-zz-far"/>
+                                                        <constraint firstAttribute="height" constant="17" id="xpn-jd-hMd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo7-FW-9Xm" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-dR-rIy">
-                                                            <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="11"/>
                                                             <color key="textColor" red="0.0" green="0.792156862745098" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -412,22 +412,22 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-YG-R9f">
-                                                    <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="c" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-YG-R9f">
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2AY-10-yYi" firstAttribute="centerY" secondItem="rcb-68-u7w" secondAttribute="centerY" id="0Y0-YE-ufm"/>
-                                                <constraint firstItem="fo7-FW-9Xm" firstAttribute="leading" secondItem="UWt-YG-R9f" secondAttribute="trailing" constant="8" id="Ar1-fn-V6R"/>
-                                                <constraint firstItem="bpT-ec-eVn" firstAttribute="leading" secondItem="fo7-FW-9Xm" secondAttribute="trailing" constant="36" id="aay-DL-WH1"/>
+                                                <constraint firstItem="fo7-FW-9Xm" firstAttribute="leading" secondItem="UWt-YG-R9f" secondAttribute="trailing" constant="20" id="Ar1-fn-V6R"/>
+                                                <constraint firstItem="bpT-ec-eVn" firstAttribute="leading" secondItem="fo7-FW-9Xm" secondAttribute="trailing" constant="22" id="aay-DL-WH1"/>
                                                 <constraint firstItem="UWt-YG-R9f" firstAttribute="top" secondItem="rcb-68-u7w" secondAttribute="top" id="bdX-CI-u9P"/>
                                                 <constraint firstAttribute="trailing" secondItem="bpT-ec-eVn" secondAttribute="trailing" constant="15" id="djv-ZZ-1XW"/>
                                                 <constraint firstAttribute="bottom" secondItem="UWt-YG-R9f" secondAttribute="bottom" id="its-Yx-ZEn"/>
-                                                <constraint firstItem="UWt-YG-R9f" firstAttribute="leading" secondItem="2AY-10-yYi" secondAttribute="trailing" constant="8" id="q42-jC-Zsf"/>
-                                                <constraint firstItem="bpT-ec-eVn" firstAttribute="centerY" secondItem="rcb-68-u7w" secondAttribute="centerY" id="xHe-ru-cCx"/>
-                                                <constraint firstItem="2AY-10-yYi" firstAttribute="leading" secondItem="rcb-68-u7w" secondAttribute="leading" constant="15" id="xjQ-yc-Bnc"/>
+                                                <constraint firstItem="UWt-YG-R9f" firstAttribute="leading" secondItem="2AY-10-yYi" secondAttribute="trailing" constant="23" id="q42-jC-Zsf"/>
+                                                <constraint firstItem="bpT-ec-eVn" firstAttribute="centerY" secondItem="rcb-68-u7w" secondAttribute="centerY" constant="1" id="xHe-ru-cCx"/>
+                                                <constraint firstItem="2AY-10-yYi" firstAttribute="leading" secondItem="rcb-68-u7w" secondAttribute="leading" constant="12" id="xjQ-yc-Bnc"/>
                                                 <constraint firstItem="fo7-FW-9Xm" firstAttribute="centerY" secondItem="rcb-68-u7w" secondAttribute="centerY" id="zC1-0C-jZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -475,15 +475,15 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTQ-dL-Wh3">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="DZs-G4-MN1">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="DZs-G4-MN1">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="8" minY="5" maxX="8" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cE1-Ox-Rqg">
-                                        <rect key="frame" x="10" y="5" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="5" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>

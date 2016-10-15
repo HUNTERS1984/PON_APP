@@ -76,8 +76,8 @@ extension HorizontalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
         let screenWidth = UIScreen.main.bounds.width
-        let width = screenWidth * (162/375)
-        let height = screenHeight * (172/667)
+        let width = screenWidth * (166/375)
+        let height = screenHeight * (176/667)
         return CGSize(width: width, height: height)
     }
     

@@ -10,9 +10,8 @@ import UIKit
 
 class CouponViewController: BaseViewController {
 
-    @IBOutlet weak var couponCategoryLabel: UILabel!
+    
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var qrCodeButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var shareButton: UIButton!
@@ -30,6 +29,8 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var shopBusinessHoursLabel: UILabel!
     @IBOutlet weak var shopPhoneNumber: UILabel!
     @IBOutlet weak var detailMapView: MapView!
+    @IBOutlet weak var couponCategoryLabel: UILabel!
+    @IBOutlet weak var categoryIcon: UIImageView!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
@@ -50,6 +51,7 @@ class CouponViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        print(self.couponCategoryLabel.font.fontName)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +73,6 @@ class CouponViewController: BaseViewController {
         self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), for: UIControlState())
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
-        self.useCouponButton.setImage(UIImage(named: "coupon_use_coupon_button"), for: UIControlState())
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
@@ -100,8 +101,9 @@ extension CouponViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: AnyObject) {
-        let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.present(vc!, animated: true)
+        let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon") as! ShareCouponViewController
+        vc.code = coupon?.code
+        self.navigationController?.present(vc, animated: true)
     }
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
@@ -126,11 +128,6 @@ extension CouponViewController {
     
     @IBAction override func backButtonPressed(_ sender: AnyObject) {
         self.navigationController!.popViewController(animated: true)
-    }
-    
-    @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
-        let vc = ScanQRCodeViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.present(vc!, animated: true)
     }
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
@@ -186,7 +183,10 @@ extension CouponViewController {
     }
     
     fileprivate func displayCouponDetail(_ coupon: Coupon) {
+        self.couponCategoryLabel.text = coupon.category!
+        self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
+        self.couponInfoLabel.setLineHeight(lineHeight: 1.75)
         self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.couponID!)"
         if coupon.isLike! {
             self.likeButton.isUserInteractionEnabled = false
@@ -254,7 +254,7 @@ extension CouponViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
-        let width = (self.view.frame.size.width - 30) / 2.0
+        let width = (self.view.frame.size.width - 40) / 2.0
         let height = screenHeight * (189/667)
         return CGSize(width: width, height: height)
     }

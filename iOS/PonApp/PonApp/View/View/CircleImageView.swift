@@ -11,7 +11,7 @@ import UIKit
 class CircleImageView: UIImageView {
     
     @IBInspectable var imageBorderColor: UIColor = UIColor(hex: DefaultBorderColor)
-    @IBInspectable var borderSize: CGFloat = 0.5
+    @IBInspectable var borderSize: CGFloat = 1.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ class CircleImageView: UIImageView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-         self.setupImageView()
+        self.setupImageView()
     }
     
     func setupImageView() {

@@ -57,6 +57,12 @@ class ReadMoreTextView: UITextView {
     @IBInspectable
     var trimText: NSString?
     
+    @IBInspectable
+    var trimColor: UIColor = UIColor(red: 0, green: 202, blue: 220)
+    
+    @IBInspectable
+    var customFont: UIFont = UIFont.HiraginoSansW5(10)
+    
     var attributedTrimText: NSAttributedString?
     
     @IBInspectable
@@ -108,7 +114,13 @@ class ReadMoreTextView: UITextView {
             
             if let text = trimText?.mutableCopy() as? NSMutableString {
                 text.insert("\(prefix) ", at: 0)
+                let trimColorAttribute = [
+                    NSForegroundColorAttributeName: trimColor,
+                    NSFontAttributeName: customFont
+                ] as [String : Any]
                 textStorage.replaceCharacters(in: range, with: text as String)
+                textStorage.setAttributes(trimColorAttribute, range: NSMakeRange(range.location, text.length))
+                textStorage.setAttributes([NSFontAttributeName: customFont, NSForegroundColorAttributeName: UIColor(red: 166, green: 176, blue: 179)], range: NSMakeRange(0, range.location))
             }
             else if let text = attributedTrimText?.mutableCopy() as? NSMutableAttributedString {
                 text.insert(NSAttributedString(string: "\(prefix) "), at: 0)

@@ -1,79 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="HiraginoSansGB-W6.ttf">
-            <string>HiraginoSansGB-W6</string>
-            <string>HiraginoSansGB-W6</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponCollectionTableViewCell" id="zMO-eC-jN3" customClass="CouponCollectionTableViewCell" customModule="PonApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMO-eC-jN3" id="O7R-0N-Iyu">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                <frame key="frameInset" width="375" height="232"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yde-pf-DiP" userLabel="Top Bar View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9k-Q8-5d1" userLabel="More Button">
-                                <rect key="frame" x="267" y="1" width="100" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="g6k-l5-gBX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                 <state key="normal" title="もっと見る">
-                                    <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="moreButtonPressed:" destination="zMO-eC-jN3" eventType="touchUpInside" id="reh-sH-Sid"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グルメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf5-mo-ET1" userLabel="Title Label">
-                                <rect key="frame" x="43" y="0.0" width="216" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="14"/>
-                                <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="FXr-sT-etV">
-                                <rect key="frame" x="10" y="18" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ui_top_fashion_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="FXr-sT-etV">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FXr-sT-etV" secondAttribute="height" multiplier="1:1" id="fm3-qQ-qkC"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cf5-mo-ET1" firstAttribute="top" secondItem="yde-pf-DiP" secondAttribute="top" id="1Dz-8f-MZM"/>
                             <constraint firstItem="l9k-Q8-5d1" firstAttribute="leading" secondItem="cf5-mo-ET1" secondAttribute="trailing" constant="8" id="92H-Sb-skK"/>
-                            <constraint firstItem="cf5-mo-ET1" firstAttribute="leading" secondItem="FXr-sT-etV" secondAttribute="trailing" constant="8" id="ABY-Oi-yXm"/>
+                            <constraint firstItem="cf5-mo-ET1" firstAttribute="leading" secondItem="FXr-sT-etV" secondAttribute="trailing" constant="13" id="ABY-Oi-yXm"/>
                             <constraint firstAttribute="bottom" secondItem="cf5-mo-ET1" secondAttribute="bottom" id="AcD-mV-cgn"/>
-                            <constraint firstItem="FXr-sT-etV" firstAttribute="centerY" secondItem="yde-pf-DiP" secondAttribute="centerY" id="LMx-au-rec"/>
-                            <constraint firstAttribute="trailing" secondItem="l9k-Q8-5d1" secondAttribute="trailing" constant="8" id="OIw-2e-dRf"/>
+                            <constraint firstItem="FXr-sT-etV" firstAttribute="centerY" secondItem="yde-pf-DiP" secondAttribute="centerY" constant="-2" id="LMx-au-rec"/>
+                            <constraint firstAttribute="trailing" secondItem="l9k-Q8-5d1" secondAttribute="trailing" constant="12" id="OIw-2e-dRf"/>
                             <constraint firstItem="l9k-Q8-5d1" firstAttribute="top" secondItem="yde-pf-DiP" secondAttribute="top" constant="1" id="j5l-Fn-Evi"/>
-                            <constraint firstItem="FXr-sT-etV" firstAttribute="leading" secondItem="yde-pf-DiP" secondAttribute="leading" constant="10" id="s7s-YV-oo0"/>
+                            <constraint firstItem="FXr-sT-etV" firstAttribute="leading" secondItem="yde-pf-DiP" secondAttribute="leading" constant="12" id="s7s-YV-oo0"/>
                             <constraint firstAttribute="bottom" secondItem="l9k-Q8-5d1" secondAttribute="bottom" constant="1" id="sS1-nF-Cyq"/>
-                            <constraint firstItem="FXr-sT-etV" firstAttribute="height" secondItem="yde-pf-DiP" secondAttribute="height" multiplier="25/60" id="uZY-Iu-fpz"/>
+                            <constraint firstItem="FXr-sT-etV" firstAttribute="height" secondItem="yde-pf-DiP" secondAttribute="height" multiplier="25/60" constant="-5" id="uZY-Iu-fpz"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QwF-5M-8li" customClass="HorizontalCollectionView" customModule="PonApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="60" width="375" height="171"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="8he-4p-Ylr">
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8he-4p-Ylr">
                             <size key="itemSize" width="175" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <inset key="sectionInset" minX="6" minY="0.0" maxX="6" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells/>
                     </collectionView>
@@ -82,7 +71,7 @@
                     <constraint firstAttribute="trailing" secondItem="QwF-5M-8li" secondAttribute="trailing" id="C9I-Jq-bg1"/>
                     <constraint firstAttribute="bottom" secondItem="QwF-5M-8li" secondAttribute="bottom" id="IiD-FJ-TK9"/>
                     <constraint firstItem="yde-pf-DiP" firstAttribute="top" secondItem="O7R-0N-Iyu" secondAttribute="top" id="J0q-PB-0pA"/>
-                    <constraint firstItem="yde-pf-DiP" firstAttribute="height" secondItem="O7R-0N-Iyu" secondAttribute="height" multiplier="60/232" id="KfD-gM-hYA"/>
+                    <constraint firstItem="yde-pf-DiP" firstAttribute="height" secondItem="O7R-0N-Iyu" secondAttribute="height" multiplier="56/232" id="KfD-gM-hYA"/>
                     <constraint firstItem="yde-pf-DiP" firstAttribute="leading" secondItem="O7R-0N-Iyu" secondAttribute="leading" id="Rm5-ra-eGm"/>
                     <constraint firstItem="QwF-5M-8li" firstAttribute="top" secondItem="yde-pf-DiP" secondAttribute="bottom" id="feG-nm-Q5Q"/>
                     <constraint firstItem="QwF-5M-8li" firstAttribute="leading" secondItem="O7R-0N-Iyu" secondAttribute="leading" id="vN0-r6-AKB"/>
@@ -97,6 +86,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_food.png" width="55" height="55"/>
+        <image name="ui_top_fashion_icon.png" width="20" height="18"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

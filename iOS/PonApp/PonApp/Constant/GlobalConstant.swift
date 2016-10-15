@@ -15,6 +15,8 @@ let DefaultLightGrayTextColor                   = 0x82898b
 let DefaultDarkGrayTextColor                    = 0x646e72
 let DefaultPinkTextColor                        = 0xff5078
 let DefaultBlueTextColor                        = 0x18c0d4
+let DefaultPlaceHolderColor                     = 0xd2dade
+let DefaultDarkTextColor                        = 0x626D71
 
 let BaseURL                                     = "http://pon.cm/api"
 

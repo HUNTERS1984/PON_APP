@@ -121,13 +121,14 @@ extension MainViewController {
             .viewBackgroundColor(UIColor(hex: DefaultBackgroundColor)),
             .bottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .selectionIndicatorColor(UIColor(hex: 0x18c0d4)),
-            .menuItemWidth(70.0),
+            .menuItemWidth(78.0),
             .menuHeight(self.view.bounds.size.height * (50/667)),
             .selectedMenuItemLabelColor(UIColor(hex: 0x29c9c9)),
             .unselectedMenuItemLabelColor(UIColor(hex: 0xa9e9e9)),
-            .menuItemFont(UIFont.HiraginoSansW6(17)),
+            .selectedMenuItemFont(UIFont.HiraginoSansW6(13)),
+            .unselectedMenuItemFont(UIFont.HiraginoSansW3(13)),
             .menuItemSeparatorRoundEdges(true),
-            .selectionIndicatorHeight(2.0),
+            .selectionIndicatorHeight(5.0),
             .menuItemSeparatorPercentageHeight(0.1)
         ]
         // Initialize scroll menu
