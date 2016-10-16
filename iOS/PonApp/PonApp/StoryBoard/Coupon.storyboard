@@ -92,7 +92,10 @@
                                                                     <action selector="likeButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="p4E-hX-2J2"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-jE-byz" userLabel="Coupon Title Label">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入りますhg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-jE-byz" userLabel="Coupon Title Label">
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="22" id="OLG-gP-Wx5"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="16"/>
                                                                 <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -105,12 +108,11 @@
                                                             <constraint firstAttribute="trailing" secondItem="cKq-ru-Ag9" secondAttribute="trailing" constant="20" id="bP6-wp-voO"/>
                                                             <constraint firstItem="cKq-ru-Ag9" firstAttribute="height" secondItem="FTN-FK-Dyy" secondAttribute="height" multiplier="50/95" id="gJt-kx-Pmr"/>
                                                             <constraint firstItem="cKq-ru-Ag9" firstAttribute="top" secondItem="FTN-FK-Dyy" secondAttribute="top" id="gOa-6I-fhG"/>
-                                                            <constraint firstItem="zIf-jE-byz" firstAttribute="top" secondItem="FTN-FK-Dyy" secondAttribute="top" constant="61" id="jsJ-5p-OaI"/>
                                                             <constraint firstItem="mqw-Qy-ngb" firstAttribute="top" secondItem="cKq-ru-Ag9" secondAttribute="top" id="kQS-Re-Soq"/>
                                                             <constraint firstAttribute="trailing" secondItem="zIf-jE-byz" secondAttribute="trailing" constant="20" id="lNH-pG-sY7"/>
                                                             <constraint firstItem="zIf-jE-byz" firstAttribute="leading" secondItem="FTN-FK-Dyy" secondAttribute="leading" constant="20" id="lOd-Dt-DoU"/>
                                                             <constraint firstItem="cKq-ru-Ag9" firstAttribute="leading" secondItem="mqw-Qy-ngb" secondAttribute="trailing" constant="10" id="yYo-bb-aWK"/>
-                                                            <constraint firstAttribute="bottom" secondItem="zIf-jE-byz" secondAttribute="bottom" constant="16" id="zH3-By-CwG"/>
+                                                            <constraint firstAttribute="bottom" secondItem="zIf-jE-byz" secondAttribute="bottom" constant="14" id="zH3-By-CwG"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -152,7 +154,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイプが入ります・IDが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yb-5v-dOe" userLabel="Name Label">
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14" id="WUB-Zv-05F"/>
+                                                            <constraint firstAttribute="height" constant="16" id="WUB-Zv-05F"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                         <color key="textColor" red="0.50980392156862742" green="0.53725490196078429" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -160,14 +162,13 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限：2016.07.31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3h-zO-4p0" userLabel="Expiry Data Label">
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14" id="ndz-3Q-ZdR"/>
+                                                            <constraint firstAttribute="height" constant="16" id="ndz-3Q-ZdR"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                         <color key="textColor" red="1" green="0.31372549019607843" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="e2L-G1-g6k" firstAttribute="leading" secondItem="2Yb-5v-dOe" secondAttribute="trailing" constant="8" id="1Sc-H3-d0p"/>
                                                     <constraint firstItem="2Yb-5v-dOe" firstAttribute="leading" secondItem="zSE-D2-XOC" secondAttribute="leading" constant="20" id="8xF-v3-3ZK"/>
@@ -175,12 +176,12 @@
                                                     <constraint firstItem="U3h-zO-4p0" firstAttribute="leading" secondItem="zSE-D2-XOC" secondAttribute="leading" constant="20" id="Bq1-6h-shG"/>
                                                     <constraint firstAttribute="height" constant="70" id="O47-bM-bb5"/>
                                                     <constraint firstAttribute="trailing" secondItem="e2L-G1-g6k" secondAttribute="trailing" constant="20" id="RgL-Cw-bBP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="U3h-zO-4p0" secondAttribute="bottom" constant="14" id="fdr-Xw-Uhf"/>
                                                     <constraint firstItem="e2L-G1-g6k" firstAttribute="centerY" secondItem="zSE-D2-XOC" secondAttribute="centerY" id="iLk-oD-95F"/>
-                                                    <constraint firstItem="2Yb-5v-dOe" firstAttribute="top" secondItem="zSE-D2-XOC" secondAttribute="top" constant="19" id="puo-MC-J5Q"/>
+                                                    <constraint firstItem="2Yb-5v-dOe" firstAttribute="top" secondItem="zSE-D2-XOC" secondAttribute="top" constant="18" id="puo-MC-J5Q"/>
+                                                    <constraint firstItem="U3h-zO-4p0" firstAttribute="top" secondItem="2Yb-5v-dOe" secondAttribute="bottom" constant="7" id="uOO-En-DPe"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-Bt-8rA" userLabel="Info Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明がhg" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-Bt-8rA" userLabel="Info Label" customClass="PaddingLabel" customModule="PonApp" customModuleProvider="target">
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.39215686274509803" green="0.43137254901960786" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -350,7 +351,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="390" id="OSE-Cg-7Wp"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="6" id="hha-K1-m6a">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="hha-K1-m6a">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>

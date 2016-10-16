@@ -16,7 +16,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var couponInfoLabel: UILabel!
+    @IBOutlet weak var couponInfoLabel: PaddingLabel!
     @IBOutlet weak var couponTypeLabel: UILabel!
     @IBOutlet weak var albumCollectionView: AlbumCollectionView!
     @IBOutlet weak var albumCollectionViewConstraint: NSLayoutConstraint!
@@ -32,6 +32,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var categoryIcon: UIImageView!
     
+    @IBOutlet weak var testLabel: PaddingLabel!
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
         didSet {
@@ -51,7 +52,6 @@ class CouponViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        print(self.couponCategoryLabel.font.fontName)
     }
 
     override func didReceiveMemoryWarning() {
@@ -254,7 +254,7 @@ extension CouponViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
-        let width = (self.view.frame.size.width - 40) / 2.0
+        let width = (self.view.frame.size.width - 42) / 2.0
         let height = screenHeight * (189/667)
         return CGSize(width: width, height: height)
     }
