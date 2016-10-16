@@ -186,14 +186,17 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
 
-                mCurrentSelection = USE_COUPON;
-                String token = CommonUtils.getToken(mContext);
-
-                if(!token.equalsIgnoreCase("")) {
-                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
-                } else {
-                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
-                }
+                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
+                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
+                startActivity(iUseCoupon);
+//                mCurrentSelection = USE_COUPON;
+//                String token = CommonUtils.getToken(mContext);
+//
+//                if(!token.equalsIgnoreCase("")) {
+//                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
+//                } else {
+//                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+//                }
             }
         });
     }

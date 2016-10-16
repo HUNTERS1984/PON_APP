@@ -82,7 +82,8 @@
                                    android:layout_height="@dimen/icon_size"
                                    android:src="@drawable/ic_delete"
                                    android:scaleType="fitXY"
-                                   android:layout_gravity="center"/>
+                                   android:layout_gravity="center"
+                                   android:id="@+id/iv_delete_username"/>
                     </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -124,7 +125,8 @@
                             android:layout_height="@dimen/icon_size"
                             android:src="@drawable/ic_delete"
                             android:scaleType="fitXY"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            android:id="@+id/iv_delete_email"/>
                     </FrameLayout>
                 </LinearLayout>
             </LinearLayout>

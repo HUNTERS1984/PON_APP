@@ -47,7 +47,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
     private static final int TAKE_PHOTO = 0, GALLERY = 1;
 
     private Spinner mSpnSex, mSpnPrefecture;
-    private ImageView mIvUserPhoto;
+    private ImageView mIvUserPhoto, mIvDeleteUsername, mIvDeleteEmail;
 
     private EditText mEdtUserName, mEdtEmail;
     private Button mBtnUpdateProfile;
@@ -166,6 +166,22 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         mEdtUserName = (EditText) findViewById(R.id.edt_username);
         mEdtEmail = (EditText) findViewById(R.id.edt_email);
+
+        mIvDeleteUsername = (ImageView)findViewById(R.id.iv_delete_username);
+        mIvDeleteEmail = (ImageView)findViewById(R.id.iv_delete_email);
+
+        mIvDeleteEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEdtEmail.setText("");
+            }
+        });
+        mIvDeleteUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEdtUserName.setText("");
+            }
+        });
 
         mBtnUpdateProfile = (Button) findViewById(R.id.btn_update_profile);
         mBtnUpdateProfile.setOnClickListener(new View.OnClickListener() {
