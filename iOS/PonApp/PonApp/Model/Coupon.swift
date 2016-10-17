@@ -116,10 +116,10 @@ struct Coupon {
             }
         }
         
-        if let shopLatitude = response!["shop"]["lattitude"].float {
+        if let shopLatitude = response!["shop"]["latitude"].float {
             self.shopLatitude = shopLatitude
         }else {
-            if let shopLatitude = response!["shop"]["lattitude"].string {
+            if let shopLatitude = response!["shop"]["latitude"].string {
                 self.shopLatitude = shopLatitude.floatValue
             }
         }
