@@ -9,7 +9,9 @@
 import UIKit
 import Social
 
-struct ShareCouponManager {
+class ShareCouponManager: NSObject {
+    
+    private let documentInteractionController = UIDocumentInteractionController()
     
     static var shared: ShareCouponManager {
         struct Static {
@@ -47,5 +49,42 @@ struct ShareCouponManager {
             UIAlertController.present(title: "Alert", message: "Twitter Account is not available on your device", actionTitles: ["OK"])
         }
     }
+    
+    //MARK: - Instagram
+    
+    func postImageToInstagramWithCaption(imageInstagram: UIImage, instagramCaption: String, view: UIView) {
+        let kInstagramURL = "instagram://"
+        let kUTI = "com.instagram.exclusivegram"
+        let kfileNameExtension = "instagram.igo"
+        let kAlertViewTitle = "Error"
+        let kAlertViewMessage = "Please install the Instagram application"
+        
+        let instagramURL = URL(string: kInstagramURL)
+        if UIApplication.shared.canOpenURL(instagramURL!) {
+            let jpgPath = (NSTemporaryDirectory() as NSString).appendingPathComponent(kfileNameExtension)
+            do {
+                try UIImageJPEGRepresentation(imageInstagram, 1.0)!.write(to: URL(fileURLWithPath: jpgPath), options: .atomic)
+            } catch {
+                print(error)
+            }
+            let rect = CGRect.zero
+            let fileURL = NSURL.fileURL(withPath: jpgPath)
+            documentInteractionController.url = fileURL
+            documentInteractionController.delegate = self
+            documentInteractionController.uti = kUTI
+            
+            // adding caption for the image
+            documentInteractionController.annotation = ["InstagramCaption": instagramCaption]
+            documentInteractionController.presentOpenInMenu(from: rect, in: view, animated: true)
+        }
+        else {
+            // alert displayed when the instagram application is not available in the device
+            UIAlertView(title: kAlertViewTitle, message: kAlertViewMessage, delegate:nil, cancelButtonTitle:"Ok").show()
+        }
+    }
 
+}
+
+extension ShareCouponManager: UIDocumentInteractionControllerDelegate {
+    
 }

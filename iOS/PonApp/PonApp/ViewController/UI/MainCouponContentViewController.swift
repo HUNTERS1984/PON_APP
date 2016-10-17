@@ -11,6 +11,7 @@ import UIKit
 class MainCouponContentViewController: BaseViewController {
     
     var parentNavigationController : UINavigationController?
+    var parentContainerController : BaseViewController?
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var contentTableView: UITableView!
@@ -52,9 +53,9 @@ class MainCouponContentViewController: BaseViewController {
 extension MainCouponContentViewController {
     
     fileprivate func getCouponDetail(_ couponId: Float) {
-        self.showHUD()
+        parentContainerController?.showHUD()
         ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+            self.parentContainerController?.hideHUD()
             if let _ = error {
                 
             }else {
@@ -141,9 +142,9 @@ extension MainCouponContentViewController {
     }
     
     fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, pageIndex: Int) {
-        self.showHUD()
+        parentContainerController?.showHUD()
         ApiRequest.getCouponByFeature(couponFeature) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+            self.parentContainerController?.hideHUD()
             if let _ = error {
                 
             }else {
