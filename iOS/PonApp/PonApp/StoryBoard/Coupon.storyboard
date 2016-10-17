@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -443,6 +443,7 @@
                         <outlet property="albumCollectionViewConstraint" destination="LhT-D2-loi" id="dCN-Hd-QB8"/>
                         <outlet property="backButton" destination="oss-S9-3cQ" id="9hg-Yh-iOK"/>
                         <outlet property="categoryIcon" destination="T7u-DZ-d5c" id="nJH-BH-2KK"/>
+                        <outlet property="containerScrollView" destination="NMI-8u-evy" id="wRZ-pp-r6b"/>
                         <outlet property="couponCategoryLabel" destination="H48-5J-tdX" id="qZ7-J5-lmf"/>
                         <outlet property="couponInfoLabel" destination="gpK-Bt-8rA" id="Lti-pM-iVK"/>
                         <outlet property="couponTitleLabel" destination="zIf-jE-byz" id="g6c-FM-rXN"/>

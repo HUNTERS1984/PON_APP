@@ -9,8 +9,8 @@
 import UIKit
 
 class CouponViewController: BaseViewController {
-
     
+    @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
@@ -183,6 +183,7 @@ extension CouponViewController {
     }
     
     fileprivate func displayCouponDetail(_ coupon: Coupon) {
+        self.containerScrollView.scrollToTop()
         self.couponCategoryLabel.text = coupon.category!
         self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
@@ -244,7 +245,8 @@ extension CouponViewController: UICollectionViewDataSource {
 extension CouponViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let selectedCoupon = coupon!.similarCoupons[indexPath.item];
+        self.getCouponDetail(selectedCoupon.couponID)
     }
     
 }

@@ -11,8 +11,10 @@ import UIKit
 extension UIScrollView {
     
     func scrollToTop() {
-        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
-        setContentOffset(desiredOffset, animated: true)
+        DispatchQueue.main.async { () -> Void in
+            let desiredOffset = CGPoint(x: 0, y: -self.contentInset.top)
+            self.setContentOffset(desiredOffset, animated: true)
+        }
     }
     
 }
