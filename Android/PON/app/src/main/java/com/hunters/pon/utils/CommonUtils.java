@@ -18,14 +18,14 @@ import java.util.Date;
 
 public class CommonUtils {
 
-    public static boolean convertBoolean(int val)
-    {
-        return (val == APIConstants.TRUE?true:false);
-    }
-
-    public static int convertInt(boolean val) {
-        return (val?APIConstants.TRUE:APIConstants.FALSE);
-    }
+//    public static boolean convertBoolean(int val)
+//    {
+//        return (val == APIConstants.TRUE?true:false);
+//    }
+//
+//    public static int convertInt(boolean val) {
+//        return (val?APIConstants.TRUE:APIConstants.FALSE);
+//    }
 
     public static String convertDateFormat(String datetime)
     {

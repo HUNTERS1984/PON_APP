@@ -73,7 +73,12 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
                 });
 //        holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
 
-        holder.mCouponIsFavourite.setImageResource(CommonUtils.convertBoolean(mListCoupons.get(position).getmIsFavourite())?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
+        if(coupon.ismIsUsed()) {
+            holder.mIconUseCoupon.setVisibility(View.VISIBLE);
+        } else {
+            holder.mIconUseCoupon.setVisibility(View.GONE);
+        }
+        holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).getmIsFavourite()?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
         holder.mView.setTag(position);
     }
 
@@ -93,8 +98,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         public TextView mCouponTitle;
         public TextView mCouponDescription;
         public TextView mCouponExpireDate;
-        public ImageView mCouponPhoto;
-        public ImageView mCouponIsFavourite;
+        public ImageView mCouponPhoto, mCouponIsFavourite, mIconUseCoupon;
         public LinearLayout mLinearLoginRequired;
         public View mView;
         public ProgressBar mProgressBarLoadingCoupon;
@@ -104,6 +108,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
             super(itemView);
             mView = itemView;
             itemView.setOnClickListener(this);
+            mIconUseCoupon = (ImageView)itemView.findViewById(R.id.iv_use_coupon);
             mCouponTitle = (TextView)itemView.findViewById(R.id.tv_coupon_title);
             mCouponDescription = (TextView) itemView.findViewById(R.id.tv_coupon_description);
             mCouponExpireDate = (TextView) itemView.findViewById(R.id.tv_coupon_expire_date);
@@ -126,7 +131,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
             CouponModel coupon = mListCoupons.get(pos);
-            boolean isLoginRequired = CommonUtils.convertBoolean(coupon.getmIsLoginRequired());
+            boolean isLoginRequired = coupon.getmIsLoginRequired();
             if(isLoginRequired) {
                 mLinearLoginRequired.setVisibility(View.VISIBLE);
             } else {

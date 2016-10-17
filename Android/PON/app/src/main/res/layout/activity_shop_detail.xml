@@ -8,7 +8,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp">
+        android:layout_marginBottom="80dp"
+        android:id="@+id/sv_shop_detail">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -73,7 +74,7 @@
                     android:src="@drawable/ic_back"
                     android:scaleType="fitXY"
                     android:layout_margin="10dp"
-                    android:id="@+id/iv_back"/>
+                    android:id="@+id/iv_top_back"/>
             </RelativeLayout>
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -204,6 +205,12 @@
                     android:id="@+id/tv_shop_help_direction"/>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/grey"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -227,6 +234,12 @@
                     android:textColor="@color/black"
                     android:id="@+id/tv_shop_operation_time"/>
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/grey"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -307,8 +320,16 @@
                     android:textColor="@color/black"
                     android:id="@+id/tv_shop_phone"/>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/grey"/>
         </LinearLayout>
     </ScrollView>
+    <include layout="@layout/include_header_layout"
+        android:id="@+id/header_layout"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"

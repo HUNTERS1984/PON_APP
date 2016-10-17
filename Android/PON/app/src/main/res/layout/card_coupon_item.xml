@@ -39,6 +39,13 @@
                     android:src="@drawable/ic_non_favourite"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_coupon_favourite"/>
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_used_coupon"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_use_coupon"/>
             </RelativeLayout>
 
             <LinearLayout

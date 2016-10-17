@@ -66,7 +66,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
                     }
                 });
 
-        boolean isShopFollow = CommonUtils.convertBoolean(shop.getmIsShopFollow());
+        boolean isShopFollow = shop.getmIsShopFollow();
         if(isShopFollow){
             holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
             holder.mDesShopSelectStatus.setText(mContext.getString(R.string.following));
@@ -151,8 +151,8 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
                         ResponseCommon shopFollow = (ResponseCommon) msg.obj;
                         if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK){
                             ShopModel shop = mLstShopFollows.get(mPosSelection);
-                            boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
-                            mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
+                            boolean isShopFollow = shop.getmIsShopFollow();
+                            mLstShopFollows.get(mPosSelection).setmIsShopFollow(!isShopFollow);
                             notifyDataSetChanged();
                         } else {
                             new DialogUtiils().showDialog(mContext, mContext.getString(R.string.token_expried), false);

@@ -22,13 +22,13 @@ public class CouponModel implements Serializable {
     private String mExpireDate;
 
     @SerializedName("is_like")
-    private int mIsFavourite;
+    private boolean mIsFavourite;
 
     @SerializedName("need_login")
-    private int mIsLoginRequired;
+    private boolean mIsLoginRequired;
 
     @SerializedName("can_use")
-    private int mCanUse;
+    private boolean mCanUse;
 
     @SerializedName("coupon_type")
     private CouponTypeModel mCouponType;
@@ -38,6 +38,8 @@ public class CouponModel implements Serializable {
 
     @SerializedName("description")
     private String mDescription;
+
+    private boolean mIsUsed = false;
 
     public String getmImageUrl() {
         return mImageUrl;
@@ -72,27 +74,27 @@ public class CouponModel implements Serializable {
         this.mId = mId;
     }
 
-    public int getmIsFavourite() {
+    public boolean getmIsFavourite() {
         return mIsFavourite;
     }
 
-    public void setmIsFavourite(int mIsFavourite) {
+    public void setmIsFavourite(boolean mIsFavourite) {
         this.mIsFavourite = mIsFavourite;
     }
 
-    public int getmIsLoginRequired() {
+    public boolean getmIsLoginRequired() {
         return mIsLoginRequired;
     }
 
-    public void setmIsLoginRequired(int mIsLoginRequired) {
+    public void setmIsLoginRequired(boolean mIsLoginRequired) {
         this.mIsLoginRequired = mIsLoginRequired;
     }
 
-    public int getmCanUse() {
+    public boolean getmCanUse() {
         return mCanUse;
     }
 
-    public void setmCanUse(int mCanUse) {
+    public void setmCanUse(boolean mCanUse) {
         this.mCanUse = mCanUse;
     }
 
@@ -118,5 +120,13 @@ public class CouponModel implements Serializable {
 
     public void setmDescription(String mDescription) {
         this.mDescription = mDescription;
+    }
+
+    public boolean ismIsUsed() {
+        return mIsUsed;
+    }
+
+    public void setmIsUsed(boolean mIsUsed) {
+        this.mIsUsed = mIsUsed;
     }
 }

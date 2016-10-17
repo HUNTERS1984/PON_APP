@@ -11,9 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -49,15 +52,17 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
     private Context mContext;
 
     private long mShopId;
-    private double mShopLat, mShopLng;
+    private double mShopLat = 0.0, mShopLng = 0.0;
     private String mPhone, mShopName, mShopDirection;
 
     private CouponRecyclerViewAdapter mAdapterCoupon;
     private PhotoRecyclerViewAdapter mAdapterShopPhoto;
     private TextView mTvShopName, mTvShopType, mTvShopId, mTvShopAddress, mTvShopHelpDirection,
-                     mTvShopOperationTime, mTvShopCloseDate, mTvShopAvgBudget, mTvShopPhone;
+                     mTvShopOperationTime, mTvShopCloseDate, mTvShopAvgBudget, mTvShopPhone, mTvTitleShopName;
     private ImageView mIvShopAvatar, mIvShopLogo;
     private ProgressBar mProgressBarLoadingPhoto;
+    private View mViewHeader;
+    private ScrollView mSvShopDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +89,30 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mViewHeader = findViewById(R.id.header_layout);
+        mTvTitleShopName = (TextView)findViewById(R.id.tv_title);
+        ImageView ivBack = (ImageView)findViewById(R.id.iv_back);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        mSvShopDetail = (ScrollView)findViewById(R.id.sv_shop_detail);
+        mSvShopDetail.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                float y = mSvShopDetail.getScrollY();
+                Log.d("PON", "Y :" + y );
+                if(y <=0) {
+                    mViewHeader.setVisibility(View.GONE);
+                } else {
+                    mViewHeader.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         mIvShopAvatar = (ImageView) findViewById(R.id.iv_shop_avatar_photo);
         mIvShopLogo = (ImageView)findViewById(R.id.iv_shop_logo);
@@ -112,8 +141,8 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mAdapterShopPhoto = new PhotoRecyclerViewAdapter(this, mLstPhotos, false);
         rvPhotoShops.setAdapter(mAdapterShopPhoto);
 
-        ImageView ivBack = (ImageView)findViewById(R.id.iv_back);
-        ivBack.setOnClickListener(new View.OnClickListener() {
+        ImageView ivTopBack = (ImageView)findViewById(R.id.iv_top_back);
+        ivTopBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -215,6 +244,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
                 .fit()
                 .centerCrop().into(mIvShopLogo);
 
+        mTvTitleShopName.setText(shop.getmShopName());
         mTvShopName.setText(shop.getmShopName());
         mTvShopType.setText(shop.getmShopCat().getmName());
         mTvShopId.setText(String.valueOf(shop.getmId()));
@@ -233,8 +263,13 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mAdapterShopPhoto.updateData(mLstPhotos, false, "");
 
         //Show Map of Shop
-        mShopLat = Double.parseDouble(shop.getmLatitude().toString());
-        mShopLng = Double.parseDouble(shop.getmLongitude().toString());
+        String lat = shop.getmLatitude();
+        String lng = shop.getmLongitude();
+        if(lat != null && lng != null) {
+            mShopLat = Double.parseDouble(lat);
+            mShopLng = Double.parseDouble(lng);
+        }
+
         showShopMap(mShopLat, mShopLng);
     }
 

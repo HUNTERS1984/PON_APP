@@ -23,7 +23,7 @@ public class ShopModel {
     private String mOperationEndTime;
 
     @SerializedName("is_follow")
-    private int mIsShopFollow;
+    private boolean mIsShopFollow;
 
     @SerializedName("tel")
     private String mPhone;
@@ -31,7 +31,7 @@ public class ShopModel {
     @SerializedName("longitude")
     private String mLongitude;
 
-    @SerializedName("lattitude")
+    @SerializedName("latitude")
     private String mLatitude;
 
     @SerializedName("address")
@@ -89,11 +89,11 @@ public class ShopModel {
         this.mOperationEndTime = mOperationEndTime;
     }
 
-    public int getmIsShopFollow() {
+    public boolean getmIsShopFollow() {
         return mIsShopFollow;
     }
 
-    public void setmIsShopFollow(int mIsShopFollow) {
+    public void setmIsShopFollow(boolean mIsShopFollow) {
         this.mIsShopFollow = mIsShopFollow;
     }
 

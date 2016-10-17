@@ -71,7 +71,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private List<String> mLstUserPhotos;
 
     private boolean isFavourite = false;
-    private double mShopLng, mShopLat;
+    private double mShopLng = 0.0, mShopLat = 0.0;
     private Context mContext;
     private long mCouponId;
     private CouponModel mCoupon;
@@ -264,7 +264,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         mAdapterSimilarCoupon.updateData(mListCoupons);
 
                         //Show/Hide button Use this coupon
-                        if(CommonUtils.convertBoolean(coupon.getmCanUse())){
+                        if(coupon.getmCanUse()){
                             mBtnUseThisCoupon.setVisibility(View.VISIBLE);
                         } else {
                             mBtnUseThisCoupon.setVisibility(View.GONE);
@@ -370,15 +370,19 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mTvCouponPhone.setText(coupon.getmShop().getmPhone());
 
 
-        isFavourite = CommonUtils.convertBoolean(coupon.getmIsFavourite());
+        isFavourite = coupon.getmIsFavourite();
         if(isFavourite) {
             mBtnFavourite.setImageResource(R.drawable.ic_favourite_floating_button);
         } else {
             mBtnFavourite.setImageResource(R.drawable.ic_non_favourite_floating_button);
         }
 
-        mShopLat = Double.parseDouble(coupon.getmShop().getmLatitude().toString());
-        mShopLng = Double.parseDouble(coupon.getmShop().getmLongitude().toString());
+        String lat = coupon.getmShop().getmLatitude();
+        String lng = coupon.getmShop().getmLongitude();
+        if(lat != null && lng != null) {
+            mShopLat = Double.parseDouble(lat);
+            mShopLng = Double.parseDouble(lng);
+        }
         showShopMap(mShopLat, mShopLng);
     }
 

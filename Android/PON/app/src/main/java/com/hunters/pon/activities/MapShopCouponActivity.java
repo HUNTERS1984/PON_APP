@@ -105,7 +105,10 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                     if (!isShowMyLocationFirstTime) {
                         showMyLocation();
                         isShowMyLocationFirstTime = true;
-                        new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon);
+                        double lat = 10.839812;
+                        double lng = 106.780339;
+                        new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon);
+//                        new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon);
                     }
                 }
             });
@@ -255,19 +258,20 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseMapShopCouponData res = (ResponseMapShopCouponData) msg.obj;
                     if(res.code == APIConstants.REQUEST_OK && res.httpCode == APIConstants.HTTP_OK) {
+                        mBuilderShopMarker = new LatLngBounds.Builder();
                         if(res.data != null && res.data.size() > 0) {
-                            mBuilderShopMarker = new LatLngBounds.Builder();
                             for (ResponseMapShopCoupon shop : res.data) {
                                 addShopMarker(shop.getmId(), shop.getmShopName(), shop.getmAddress(), Double.parseDouble(shop.getmLatitude()), Double.parseDouble(shop.getmLongitude()));
                                 mHashMapOfShop.put(shop.getmId(), shop.getmLstCoupons());
                             }
-                            if(mGoogleMap != null) {
-                                mBuilderShopMarker.include(mUserLocation);
-                                LatLngBounds bounds = mBuilderShopMarker.build();
-                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, CommonUtils.dpToPx(mContext, 50));
-                                mGoogleMap.moveCamera(cameraUpdate);
-                            }
+
                             mAdapterCoupon.updateData(res.data.get(0).getmLstCoupons());
+                        }
+                        if(mGoogleMap != null) {
+                            mBuilderShopMarker.include(mUserLocation);
+                            LatLngBounds bounds = mBuilderShopMarker.build();
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, CommonUtils.dpToPx(mContext, 50));
+                            mGoogleMap.moveCamera(cameraUpdate);
                         }
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);

@@ -97,6 +97,7 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
                             model.setmCanUse(coupon.getmCanUse());
                             model.setmCouponType(coupon.getmCouponType());
                             model.setmIsLoginRequired(coupon.getmIsLoginRequired());
+                            model.setmIsUsed(true);
                             mListCoupons.add(model);
                         }
                         mAdapterCoupon.updateData(mListCoupons);
