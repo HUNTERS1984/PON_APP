@@ -12,7 +12,7 @@ extension UIScrollView {
     
     func scrollToTop() {
         DispatchQueue.main.async { () -> Void in
-            let desiredOffset = CGPoint(x: 0, y: -self.contentInset.top)
+            let desiredOffset = CGPoint(x: 0, y: 0)
             self.setContentOffset(desiredOffset, animated: true)
         }
     }
