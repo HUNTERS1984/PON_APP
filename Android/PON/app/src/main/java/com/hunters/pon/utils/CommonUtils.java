@@ -6,8 +6,6 @@ import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.hunters.pon.api.APIConstants;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
