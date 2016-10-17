@@ -59,10 +59,10 @@ struct Shop {
             }
         }
         
-        if let shopLatitude = response!["lattitude"].float {
+        if let shopLatitude = response!["latitude"].float {
             self.shopLatitude = shopLatitude
         }else {
-            if let shopLatitude = response!["lattitude"].string {
+            if let shopLatitude = response!["latitude"].string {
                 self.shopLatitude = shopLatitude.floatValue
             }
         }

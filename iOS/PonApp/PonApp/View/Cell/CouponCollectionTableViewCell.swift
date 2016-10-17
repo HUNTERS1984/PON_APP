@@ -46,6 +46,7 @@ class CouponCollectionTableViewCell: UITableViewCell {
         self.headerLabel.text = couponListData.categoryName
         self.couponCollectionView.handler = delegate
         self.couponCollectionView.coupons = couponListData.coupons
+        self.thumbImageView.af_setImage(withURL: URL(string: couponListData.categoryIconUrl)!)
     }
     
     @IBAction func moreButtonPressed(_ sender: AnyObject) {
