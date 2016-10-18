@@ -211,6 +211,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="6Ne-j0-Bye" secondAttribute="trailing" constant="20" id="kFu-1s-jRT"/>
                                                             <constraint firstItem="jPe-fl-JwZ" firstAttribute="leading" secondItem="Cm1-bg-zen" secondAttribute="leading" id="rk9-Ik-t0Q"/>
                                                             <constraint firstItem="jPe-fl-JwZ" firstAttribute="height" secondItem="Cm1-bg-zen" secondAttribute="height" id="rlN-Gc-u3r"/>
+                                                            <constraint firstAttribute="height" constant="65" id="vj8-rl-dVH"/>
                                                             <constraint firstItem="6Ne-j0-Bye" firstAttribute="top" secondItem="Cm1-bg-zen" secondAttribute="top" id="wOm-40-K7M"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -235,6 +236,7 @@
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="nmb-88-SyL" secondAttribute="bottom" id="Dhn-ea-1xN"/>
+                                                            <constraint firstAttribute="height" constant="65" id="Igm-Pg-SR1"/>
                                                             <constraint firstAttribute="trailing" secondItem="nmb-88-SyL" secondAttribute="trailing" constant="20" id="LDe-IJ-iBs"/>
                                                             <constraint firstAttribute="bottom" secondItem="vv2-Tj-J8a" secondAttribute="bottom" id="Pdz-AZ-Lpj"/>
                                                             <constraint firstItem="vv2-Tj-J8a" firstAttribute="height" secondItem="IZL-Vb-gsL" secondAttribute="height" id="RGP-IZ-Btw"/>
@@ -271,6 +273,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="hoY-ov-15O" secondAttribute="bottom" id="MNX-jP-jaW"/>
                                                             <constraint firstItem="H7q-Pt-cNf" firstAttribute="top" secondItem="aMb-px-LVI" secondAttribute="top" id="XlH-fL-0TY"/>
                                                             <constraint firstAttribute="bottom" secondItem="H7q-Pt-cNf" secondAttribute="bottom" id="p1y-Nk-noF"/>
+                                                            <constraint firstAttribute="height" constant="65" id="pII-i0-wly"/>
                                                             <constraint firstItem="H7q-Pt-cNf" firstAttribute="height" secondItem="aMb-px-LVI" secondAttribute="height" id="rKQ-fW-hQ5"/>
                                                         </constraints>
                                                     </view>
@@ -280,15 +283,13 @@
                                                     <constraint firstItem="aMb-px-LVI" firstAttribute="top" secondItem="IZL-Vb-gsL" secondAttribute="bottom" id="MYJ-JL-qml"/>
                                                     <constraint firstItem="IZL-Vb-gsL" firstAttribute="leading" secondItem="94o-0j-5hZ" secondAttribute="leading" id="N6B-Mq-MWP"/>
                                                     <constraint firstItem="Cm1-bg-zen" firstAttribute="leading" secondItem="94o-0j-5hZ" secondAttribute="leading" id="NXY-Bh-Mqa"/>
-                                                    <constraint firstItem="Cm1-bg-zen" firstAttribute="height" secondItem="94o-0j-5hZ" secondAttribute="height" multiplier="1/3" id="QnZ-z1-HEZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="aMb-px-LVI" secondAttribute="trailing" id="Sh3-8U-MXy"/>
                                                     <constraint firstAttribute="trailing" secondItem="Cm1-bg-zen" secondAttribute="trailing" id="gHz-xx-Ie7"/>
                                                     <constraint firstAttribute="trailing" secondItem="IZL-Vb-gsL" secondAttribute="trailing" id="gvC-Ih-DTT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="aMb-px-LVI" secondAttribute="bottom" id="j3v-vz-KW9"/>
                                                     <constraint firstItem="aMb-px-LVI" firstAttribute="leading" secondItem="94o-0j-5hZ" secondAttribute="leading" id="p6x-ok-igd"/>
-                                                    <constraint firstItem="IZL-Vb-gsL" firstAttribute="height" secondItem="Cm1-bg-zen" secondAttribute="height" id="rCx-8v-4DA"/>
                                                     <constraint firstItem="IZL-Vb-gsL" firstAttribute="top" secondItem="Cm1-bg-zen" secondAttribute="bottom" id="slh-vq-oMs"/>
                                                     <constraint firstItem="Cm1-bg-zen" firstAttribute="top" secondItem="94o-0j-5hZ" secondAttribute="top" id="w75-ip-hW3"/>
-                                                    <constraint firstItem="aMb-px-LVI" firstAttribute="height" secondItem="IZL-Vb-gsL" secondAttribute="height" id="wZc-dG-gQ8"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-zt-gcD" userLabel="Photo Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
@@ -423,7 +424,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NMI-8u-evy" secondAttribute="trailing" id="3wH-71-rrm"/>
                             <constraint firstItem="arB-n3-ct6" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="270/667" id="Ar6-gx-GtR"/>
-                            <constraint firstItem="94o-0j-5hZ" firstAttribute="height" secondItem="H9K-lI-VXd" secondAttribute="height" multiplier="195/667" id="D0X-KK-ueM"/>
                             <constraint firstItem="6o9-m9-gkq" firstAttribute="top" secondItem="eJ8-Lh-a5Q" secondAttribute="bottom" id="EN5-93-7zA"/>
                             <constraint firstItem="eJ8-Lh-a5Q" firstAttribute="top" secondItem="NMI-8u-evy" secondAttribute="bottom" id="K29-KX-RL4"/>
                             <constraint firstItem="NMI-8u-evy" firstAttribute="leading" secondItem="H9K-lI-VXd" secondAttribute="leading" id="O36-jD-yjZ"/>

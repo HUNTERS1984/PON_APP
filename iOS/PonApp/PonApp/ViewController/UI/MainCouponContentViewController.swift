@@ -71,6 +71,12 @@ extension MainCouponContentViewController {
         }
     }
     
+    fileprivate func showMoreCouponViewController(_ categoryID: Float) {
+        let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
+        vc.couponCategoryID = Int(categoryID)
+        self.parentNavigationController!.pushViewController(vc, animated: true)
+    }
+    
 }
 
 //MARK: - UITableViewDataSource
@@ -82,8 +88,8 @@ extension MainCouponContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCollectionTableViewCell", for: indexPath) as! CouponCollectionTableViewCell
-        cell.moreButtonCallback = {(sender) -> Void in
-            
+        cell.moreButtonCallback = {(sender, categoryId) -> Void in
+            self.showMoreCouponViewController(categoryId)
         }
         return cell
     }

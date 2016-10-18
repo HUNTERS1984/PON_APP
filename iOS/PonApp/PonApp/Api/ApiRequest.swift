@@ -52,7 +52,7 @@ public struct ApiRequest {
     }
     
     static func getCouponDetail(_ couponId: Float, hasAuth: Bool, completion: @escaping (ApiCompletion)) {
-        let endpoint = String(format:CouponDetail, couponId)
+        let endpoint = String(format:CouponDetail, Int(couponId))
         ApiManager.processRequest(endpoint, method: .GET, hasAuth: hasAuth, completion: completion)
     }
     
