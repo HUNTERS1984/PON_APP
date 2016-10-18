@@ -22,7 +22,7 @@ public class ResponseCouponDetail extends  CouponModel {
     @SerializedName("user_photo_url")
     List<String> mLstPhotoUsers;
 
-    @SerializedName("similar_coupon")
+    @SerializedName("similar_coupons")
     List<CouponModel> mLstSimilarCoupons;
 
     public ShopModel getmShop() {

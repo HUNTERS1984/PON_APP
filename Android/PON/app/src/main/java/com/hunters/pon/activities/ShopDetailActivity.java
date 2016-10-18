@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -105,7 +104,6 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
             @Override
             public void onScrollChanged() {
                 float y = mSvShopDetail.getScrollY();
-                Log.d("PON", "Y :" + y );
                 if(y <=0) {
                     mViewHeader.setVisibility(View.GONE);
                 } else {

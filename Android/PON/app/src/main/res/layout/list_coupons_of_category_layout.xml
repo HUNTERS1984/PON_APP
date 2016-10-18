@@ -37,7 +37,8 @@
             android:layout_alignParentRight="true"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary"
-            android:text="@string/view_more" />
+            android:text="@string/view_more"
+            android:id="@+id/tv_view_more"/>
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

@@ -15,7 +15,6 @@
     <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="History"
         android:textColor="@color/white"
         android:textSize="@dimen/title_font_size"
         android:layout_centerInParent="true"

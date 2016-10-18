@@ -17,14 +17,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.CouponByCategoryDetailActivity;
 import com.hunters.pon.activities.SplashSelectLoginActivity;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponMainTop;
 import com.hunters.pon.api.ResponseCouponMainTopData;
 import com.hunters.pon.models.CouponModel;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoginClickListener;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ProgressDialogUtils;
 import com.squareup.picasso.Picasso;
@@ -153,10 +156,26 @@ public class BaseFragment extends Fragment {
                             RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
                             TextView tvCatName = (TextView) vCatCoupons.findViewById(R.id.tv_coupon_category_name);
                             ImageView ivIconType = (ImageView) vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
+                            TextView tvViewMore = (TextView) vCatCoupons.findViewById(R.id.tv_view_more);
 
                             tvCatName.setText(couponCat.getmName());
                             Picasso.with(getActivity()).load(couponCat.getmIcon()).
                                     fit().into(ivIconType);
+
+                            ExtraDataModel extra = new ExtraDataModel();
+                            extra.setmId(couponCat.getmId());
+                            extra.setmTitle(couponCat.getmName());
+                            tvViewMore.setTag(extra);
+                            tvViewMore.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    ExtraDataModel data = (ExtraDataModel)v.getTag();
+                                    Intent iCouponByCategory = new Intent(getActivity(), CouponByCategoryDetailActivity.class);
+                                    iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, data.getmId());
+                                    iCouponByCategory.putExtra(Constants.EXTRA_TITLE, data.getmTitle());
+                                    startActivity(iCouponByCategory);
+                                }
+                            });
 
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
