@@ -40,7 +40,8 @@ class AddShopViewController: BaseViewController {
 extension AddShopViewController {
     
     @IBAction func searchBarButtonPressed(_ sender: AnyObject) {
-        
+        let vc = HomeSearchViewController.instanceFromStoryBoard("MainMenu")
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 }

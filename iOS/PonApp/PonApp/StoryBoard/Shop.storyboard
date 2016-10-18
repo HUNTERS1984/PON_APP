@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -247,6 +247,7 @@
                                                         <constraints>
                                                             <constraint firstItem="DoS-Qf-SV1" firstAttribute="leading" secondItem="1ly-Bk-Azm" secondAttribute="leading" constant="142" id="3zc-Q8-HiG"/>
                                                             <constraint firstItem="DoS-Qf-SV1" firstAttribute="top" secondItem="1ly-Bk-Azm" secondAttribute="top" id="Frs-sT-HMN"/>
+                                                            <constraint firstAttribute="height" constant="50" id="KRX-dt-sWs"/>
                                                             <constraint firstAttribute="trailing" secondItem="DoS-Qf-SV1" secondAttribute="trailing" constant="10" id="U6b-kb-pKD"/>
                                                             <constraint firstItem="dGq-qC-XCm" firstAttribute="leading" secondItem="1ly-Bk-Azm" secondAttribute="leading" constant="25" id="ZGa-IR-MNe"/>
                                                             <constraint firstAttribute="bottom" secondItem="dGq-qC-XCm" secondAttribute="bottom" id="sS4-9v-uFV"/>
@@ -267,7 +268,7 @@
                                                                 <color key="textColor" red="0.38431372549019605" green="0.42745098039215684" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="愛知県名古屋市中区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD1-lY-Uwr" userLabel="Value Label">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="愛知県名古屋市中区" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD1-lY-Uwr" userLabel="Value Label" customClass="PaddingLabel" customModule="PonApp" customModuleProvider="target">
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.30196078431372547" green="0.34509803921568627" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -276,9 +277,10 @@
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="096-cV-gkR" firstAttribute="top" secondItem="Fai-1i-ZRQ" secondAttribute="top" id="2lL-yv-6W1"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="5K1-2I-0OC"/>
                                                             <constraint firstItem="nD1-lY-Uwr" firstAttribute="leading" secondItem="Fai-1i-ZRQ" secondAttribute="leading" constant="142" id="9M1-1X-xRM"/>
                                                             <constraint firstItem="096-cV-gkR" firstAttribute="leading" secondItem="Fai-1i-ZRQ" secondAttribute="leading" constant="25" id="ARR-x1-mZd"/>
-                                                            <constraint firstAttribute="bottom" secondItem="nD1-lY-Uwr" secondAttribute="bottom" id="Esb-tr-BSb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="nD1-lY-Uwr" secondAttribute="bottom" constant="15" id="Esb-tr-BSb"/>
                                                             <constraint firstAttribute="trailing" secondItem="nD1-lY-Uwr" secondAttribute="trailing" constant="10" id="H0c-p9-RBz"/>
                                                             <constraint firstItem="096-cV-gkR" firstAttribute="width" secondItem="Fai-1i-ZRQ" secondAttribute="width" multiplier="100/375" id="HkK-sl-WdN"/>
                                                             <constraint firstItem="nD1-lY-Uwr" firstAttribute="top" secondItem="Fai-1i-ZRQ" secondAttribute="top" id="mMH-l4-emL"/>
@@ -297,7 +299,7 @@
                                                                 <color key="textColor" red="0.38431372549019605" green="0.42745098039215684" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◎線◎◎駅降りて徒歩2分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USr-DX-Cju" userLabel="Value Label">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◎線◎◎駅降りて徒歩2分" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USr-DX-Cju" userLabel="Value Label" customClass="PaddingLabel" customModule="PonApp" customModuleProvider="target">
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.30196078431372547" green="0.34509803921568627" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -307,7 +309,8 @@
                                                         <constraints>
                                                             <constraint firstItem="USr-DX-Cju" firstAttribute="top" secondItem="gsk-Ef-rl9" secondAttribute="top" id="Ftt-lH-tGn"/>
                                                             <constraint firstItem="5I7-sH-mAb" firstAttribute="leading" secondItem="gsk-Ef-rl9" secondAttribute="leading" constant="25" id="Fv0-MT-BQh"/>
-                                                            <constraint firstAttribute="bottom" secondItem="USr-DX-Cju" secondAttribute="bottom" id="GJe-aB-RCm"/>
+                                                            <constraint firstAttribute="bottom" secondItem="USr-DX-Cju" secondAttribute="bottom" constant="15" id="GJe-aB-RCm"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="LU2-ju-Aeh"/>
                                                             <constraint firstItem="5I7-sH-mAb" firstAttribute="width" secondItem="gsk-Ef-rl9" secondAttribute="width" multiplier="100/375" id="bJX-Di-YoC"/>
                                                             <constraint firstAttribute="trailing" secondItem="USr-DX-Cju" secondAttribute="trailing" constant="10" id="eEf-m3-Xhk"/>
                                                             <constraint firstAttribute="bottom" secondItem="5I7-sH-mAb" secondAttribute="bottom" id="ggf-45-tP5"/>
@@ -451,15 +454,13 @@
                                                     <constraint firstAttribute="trailing" secondItem="G9H-Td-i5i" secondAttribute="trailing" id="Asi-Pb-ngo"/>
                                                     <constraint firstItem="G9H-Td-i5i" firstAttribute="leading" secondItem="Di8-2o-da4" secondAttribute="leading" id="B1k-tC-kDH"/>
                                                     <constraint firstItem="qHG-O7-Mxb" firstAttribute="top" secondItem="fWI-E9-LED" secondAttribute="bottom" id="BlZ-qQ-LoV"/>
-                                                    <constraint firstItem="1ly-Bk-Azm" firstAttribute="height" secondItem="Di8-2o-da4" secondAttribute="height" multiplier="1/7" id="Buc-lc-g22"/>
-                                                    <constraint firstItem="Fai-1i-ZRQ" firstAttribute="height" secondItem="1ly-Bk-Azm" secondAttribute="height" id="EKg-p7-bFn"/>
                                                     <constraint firstItem="1ly-Bk-Azm" firstAttribute="leading" secondItem="Di8-2o-da4" secondAttribute="leading" id="Fap-6I-7nd"/>
                                                     <constraint firstItem="fDz-YT-UBJ" firstAttribute="top" secondItem="G9H-Td-i5i" secondAttribute="bottom" id="IbB-UI-CWg"/>
                                                     <constraint firstAttribute="trailing" secondItem="fWI-E9-LED" secondAttribute="trailing" id="L4b-2Z-la0"/>
                                                     <constraint firstAttribute="trailing" secondItem="gsk-Ef-rl9" secondAttribute="trailing" id="L4u-vW-PY6"/>
                                                     <constraint firstItem="fWI-E9-LED" firstAttribute="top" secondItem="fDz-YT-UBJ" secondAttribute="bottom" id="ODc-2c-hio"/>
                                                     <constraint firstItem="1ly-Bk-Azm" firstAttribute="top" secondItem="Di8-2o-da4" secondAttribute="top" id="QVF-ys-3AL"/>
-                                                    <constraint firstItem="gsk-Ef-rl9" firstAttribute="height" secondItem="1ly-Bk-Azm" secondAttribute="height" id="RTs-kv-paa"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qHG-O7-Mxb" secondAttribute="bottom" id="YN3-IM-Hvd"/>
                                                     <constraint firstItem="gsk-Ef-rl9" firstAttribute="leading" secondItem="Di8-2o-da4" secondAttribute="leading" id="cOU-wL-0lF"/>
                                                     <constraint firstItem="qHG-O7-Mxb" firstAttribute="height" secondItem="1ly-Bk-Azm" secondAttribute="height" id="e7B-DZ-6QX"/>
                                                     <constraint firstItem="G9H-Td-i5i" firstAttribute="height" secondItem="1ly-Bk-Azm" secondAttribute="height" id="g3c-Ma-9cX"/>
@@ -566,7 +567,6 @@
                             <constraint firstItem="or9-sN-Ozs" firstAttribute="width" secondItem="wdr-qw-uch" secondAttribute="width" id="mcl-Lz-5N2"/>
                             <constraint firstItem="or9-sN-Ozs" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" priority="250" constant="1000" id="pqU-nd-giM"/>
                             <constraint firstItem="Obt-pX-oxe" firstAttribute="leading" secondItem="wdr-qw-uch" secondAttribute="leading" id="tyd-gC-7gg"/>
-                            <constraint firstItem="Di8-2o-da4" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="350/667" id="yFb-rX-Ioc"/>
                             <constraint firstItem="PFx-eH-CJy" firstAttribute="height" secondItem="wdr-qw-uch" secondAttribute="height" multiplier="60/667" id="yaB-7V-Tjw"/>
                         </constraints>
                     </view>

@@ -156,7 +156,7 @@ struct Coupon {
             }
         }
         
-        if let similarCoupons = response!["similar_coupon"].array {
+        if let similarCoupons = response!["similar_coupons"].array {
             for couponData in similarCoupons {
                 var coupon = Coupon(response: couponData)
                 coupon.couponType = self.couponType

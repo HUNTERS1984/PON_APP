@@ -32,7 +32,6 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var categoryIcon: UIImageView!
     
-    @IBOutlet weak var testLabel: PaddingLabel!
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
         didSet {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 let NavBarChangePoint: CGFloat = 50.0
 let HeaderChangePoint: CGFloat = 20.0
@@ -26,8 +27,8 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var couponCollectionView: UICollectionView!
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var shopId: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var accessLabel: UILabel!
+    @IBOutlet weak var addressLabel: PaddingLabel!
+    @IBOutlet weak var accessLabel: PaddingLabel!
     @IBOutlet weak var industriTime: UILabel!
     @IBOutlet weak var holidayLabel: UILabel!
     @IBOutlet weak var meanCountLabel: UILabel!
@@ -82,15 +83,16 @@ class ShopViewController: BaseViewController {
 extension ShopViewController {
     
     @IBAction func phoneButtonPressed(_ sender: AnyObject) {
-        
+        self.callNumber(phoneNumber: self.shop!.shopPhonenumber)
     }
     
     @IBAction func locationButtonPressed(_ sender: AnyObject) {
-        
+        self.directionToShop(self.shop!.coordinate, self.shop!.shopAddress)
     }
     
     @IBAction func shareButtonPressed(_ sender: AnyObject) {
-    
+        let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon") as! ShareCouponViewController
+        self.navigationController?.present(vc, animated: true)
     }
     
     @IBAction override func backButtonPressed(_ sender: AnyObject) {
@@ -102,13 +104,36 @@ extension ShopViewController {
 //MARK: - Private
 extension ShopViewController {
     
+    fileprivate func directionToShop(_ coordinate: CLLocationCoordinate2D, _ address: String) {
+        let currentLocation = MKMapItem.forCurrentLocation()
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let destinationLocation = MKMapItem(placemark: placemark)
+        destinationLocation.name = address
+        let options = [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+        ]
+        let openMapsWithItems = [currentLocation, destinationLocation]
+        MKMapItem.openMaps(with: openMapsWithItems, launchOptions: options)
+    }
+    
+    fileprivate func callNumber(phoneNumber:String) {
+        if let phoneCallURL = URL(string:"tel://\(phoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.openURL(phoneCallURL);
+            }
+        }
+    }
+    
     fileprivate func displayShopDetail(_ shop: Shop) {
         self.shopAvatar.af_setImage(withURL: URL(string: shop.avatarUrl)!)
         self.shopNameLabel.text = shop.title
         self.navTitleLabel.text = shop.title
         shopId.text = "\(shop.shopID!)"
         addressLabel.text = shop.shopAddress
+        self.addressLabel.setLineHeight(lineHeight: 1.75)
         accessLabel.text = shop.shopDirection
+        self.accessLabel.setLineHeight(lineHeight: 1.75)
         industriTime.text = "\(shop.shopStartTime!)~\(shop.shopEndTime!)"
         holidayLabel.text = shop.regularHoliday
         meanCountLabel.text = "~\(shop.shopAvegerBill!)円"

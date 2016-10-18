@@ -8,9 +8,10 @@
 
 import UIKit
 
-typealias MoreButtonPressed = (_ sender: AnyObject) -> ()
+typealias MoreButtonPressed = (_ sender: AnyObject, _ categoryId: Float) -> ()
 
 class CouponCollectionTableViewCell: UITableViewCell {
+    var categoryId: Float!
     
     @IBOutlet weak var couponCollectionView: HorizontalCollectionView!
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -43,6 +44,7 @@ class CouponCollectionTableViewCell: UITableViewCell {
     }
     
     func setCollectionViewDelegate(delegate: HorizontalCollectionViewDelegate, index: NSInteger, couponListData: CouponListData) {
+        self.categoryId = couponListData.categoryId
         self.headerLabel.text = couponListData.categoryName
         self.couponCollectionView.handler = delegate
         self.couponCollectionView.coupons = couponListData.coupons
@@ -51,7 +53,7 @@ class CouponCollectionTableViewCell: UITableViewCell {
     
     @IBAction func moreButtonPressed(_ sender: AnyObject) {
         if let _ = moreButtonCallback {
-            moreButtonCallback!(sender)
+            moreButtonCallback!(sender, self.categoryId)
         }
     }
 

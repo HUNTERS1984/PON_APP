@@ -204,6 +204,7 @@
 		4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA0450B71DB466BC00C41EC4 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
+		FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */; };
 		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
 		FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
@@ -282,6 +283,7 @@
 		FABD93041DAF86B1005FCD02 /* AccountVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */; };
 		FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */; };
 		FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */; };
+		FAFE74E71DB5F7B30047AD04 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFE74E61DB5F7B30047AD04 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -513,6 +515,7 @@
 		FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonApp.entitlements; sourceTree = "<group>"; };
+		FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_coupon_02-02.png"; sourceTree = "<group>"; };
 		FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_map_detail_icon@2x.png"; sourceTree = "<group>"; };
@@ -593,6 +596,7 @@
 		FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVCNotification.swift; sourceTree = "<group>"; };
 		FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		FAFE74E61DB5F7B30047AD04 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -600,6 +604,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFE74E71DB5F7B30047AD04 /* MapKit.framework in Frameworks */,
 				4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */,
 				FA46C45A1DB0BB3F004E0A81 /* AssetsLibrary.framework in Frameworks */,
 				FA46C42A1DB08D8F004E0A81 /* Social.framework in Frameworks */,
@@ -1195,6 +1200,7 @@
 		4ADEE8AE1DB1B4730049BA24 /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */,
 				4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */,
 			);
 			path = GPX;
@@ -1212,6 +1218,7 @@
 		D48EAA8D573D1FF68F8534A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAFE74E61DB5F7B30047AD04 /* MapKit.framework */,
 				4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */,
 				FA46C4591DB0BB3F004E0A81 /* AssetsLibrary.framework */,
 				FA46C4291DB08D8F004E0A81 /* Social.framework */,
@@ -1554,6 +1561,7 @@
 				4A85F3CF1D9ABCDD00733161 /* shop_detail_button_share@2x.png in Resources */,
 				FA7BAED01DA499A10045F126 /* signup_already_button@2x.png in Resources */,
 				4A85F3B51D9ABCDD00733161 /* coupon_button_qrcode@2x.png in Resources */,
+				FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */,
 				FA76A9A31DA3453600893584 /* ic_cross_white@2x.png in Resources */,
 				4A85F3EE1D9ABCDD00733161 /* Main.storyboard in Resources */,
 				4A85F3C41D9ABCDD00733161 /* map_icon_location@2x.png in Resources */,
