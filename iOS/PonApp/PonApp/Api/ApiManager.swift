@@ -161,13 +161,8 @@ public struct ApiManager {
         let json = JSON(data: (resultString?.data(using: String.Encoding.utf8))!)
         print("RESPONSE JSON: \(json)")
         
-        if json != nil {
-            let response = ApiResponse(response: json)
-            completion(urlRequest, response, nil)
-        }else {
-            let error = NSError(domain: "PON", code: 1, userInfo: ["error":"PON Api Error"])
-            completion(nil, nil, error)
-        }
+        let response = ApiResponse(response: json)
+        completion(urlRequest, response, nil)
     }
     
     //MARK: - FAILURE RESPONSE

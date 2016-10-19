@@ -31,6 +31,11 @@ class HomeMenuViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "ショップの追加"

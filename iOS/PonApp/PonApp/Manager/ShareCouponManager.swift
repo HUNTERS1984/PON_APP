@@ -79,8 +79,14 @@ class ShareCouponManager: NSObject {
         }
         else {
             // alert displayed when the instagram application is not available in the device
-            UIAlertView(title: kAlertViewTitle, message: kAlertViewMessage, delegate:nil, cancelButtonTitle:"Ok").show()
+            UIAlertController.present(title: kAlertViewTitle, message: kAlertViewMessage, actionTitles: ["OK"])
         }
+    }
+    
+    //MARK: LINE
+    func shareLine() {
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"line://msg/text/%@", [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+        UIApplication.shared.openURL(URL(string: "line://msg/text/con chim non")!)
     }
 
 }

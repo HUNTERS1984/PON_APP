@@ -46,8 +46,17 @@ extension AlbumCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as! AlbumCollectionViewCell
-        let URL = Foundation.URL(string: self.photos[(indexPath as NSIndexPath).item])!
-        cell.thumbImageView.af_setImage(withURL: URL)
+        let imageURL = self.photos[indexPath.item]
+        
+        if self.photos.count > 9 {
+            if indexPath.item < 9 {
+                cell.setImage(withURL: imageURL)
+            }else {
+                cell.setImage(withURL: imageURL, true, self.photos.count - 9)
+            }
+        }else {
+            cell.setImage(withURL: imageURL)
+        }
         return cell
         
     }

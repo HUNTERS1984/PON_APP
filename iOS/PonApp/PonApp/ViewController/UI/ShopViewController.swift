@@ -91,8 +91,7 @@ extension ShopViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: AnyObject) {
-        let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon") as! ShareCouponViewController
-        self.navigationController?.present(vc, animated: true)
+
     }
     
     @IBAction override func backButtonPressed(_ sender: AnyObject) {
