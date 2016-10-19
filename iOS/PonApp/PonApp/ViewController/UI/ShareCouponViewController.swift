@@ -80,7 +80,7 @@ extension ShareCouponViewController {
     }
     
     @IBAction func lineButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.shareLine()
+        //ShareCouponManager.shared.shareLine()
     }
     
 }
