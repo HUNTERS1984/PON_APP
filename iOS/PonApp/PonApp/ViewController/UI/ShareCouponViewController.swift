@@ -68,7 +68,7 @@ extension ShareCouponViewController {
     }
     
     @IBAction func instagramButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "account_header_background")!, instagramCaption: "Cu Con", view: self.view)
+        ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "account_header_background")!, instagramCaption: "PON Test", view: self.view)
     }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
