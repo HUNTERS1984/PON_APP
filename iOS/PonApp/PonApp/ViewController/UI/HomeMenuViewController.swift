@@ -99,6 +99,7 @@ extension HomeMenuViewController: UITableViewDelegate {
         let selectedType = self.categories[(indexPath as NSIndexPath).row]
         let vc = ListShopViewController.instanceFromStoryBoard("ListShop") as! ListShopViewController
         vc.couponCategoryID = selectedType.categoryID
+        vc.categoryName = selectedType.categoryName
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

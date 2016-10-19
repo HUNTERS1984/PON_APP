@@ -12,6 +12,7 @@ class ListShopViewController: BaseViewController {
     
     var pageMenu : CAPSPageMenu?
     var couponCategoryID: Int?
+    var categoryName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ListShopViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "グルメ"
+        self.title = self.categoryName
         self.showBackButton()
         let barButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .plain, target: self, action: #selector(self.searchBarButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = barButton
