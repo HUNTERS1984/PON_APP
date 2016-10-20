@@ -77,7 +77,6 @@
 		4A85F3BB1D9ABCDD00733161 /* coupon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2BF1D9ABCDD00733161 /* coupon_location@2x.png */; };
 		4A85F3BC1D9ABCDD00733161 /* coupon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C01D9ABCDD00733161 /* coupon_normal@2x.png */; };
 		4A85F3BD1D9ABCDD00733161 /* coupon_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C11D9ABCDD00733161 /* coupon_phone@2x.png */; };
-		4A85F3BE1D9ABCDD00733161 /* coupon_qr@2xpng.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C21D9ABCDD00733161 /* coupon_qr@2xpng.png */; };
 		4A85F3BF1D9ABCDD00733161 /* coupon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C31D9ABCDD00733161 /* coupon_time@2x.png */; };
 		4A85F3C01D9ABCDD00733161 /* coupon_twitter_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C41D9ABCDD00733161 /* coupon_twitter_button@2x.png */; };
 		4A85F3C11D9ABCDD00733161 /* icon_food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2C51D9ABCDD00733161 /* icon_food@2x.png */; };
@@ -97,7 +96,6 @@
 		4A85F3CF1D9ABCDD00733161 /* shop_detail_button_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D31D9ABCDD00733161 /* shop_detail_button_share@2x.png */; };
 		4A85F3D01D9ABCDD00733161 /* shop_detail_header_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D41D9ABCDD00733161 /* shop_detail_header_background@2x.png */; };
 		4A85F3D11D9ABCDD00733161 /* shop_detail_header_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D51D9ABCDD00733161 /* shop_detail_header_bar@2x.png */; };
-		4A85F3D21D9ABCDD00733161 /* shop_detail_header_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D61D9ABCDD00733161 /* shop_detail_header_icon@2x.png */; };
 		4A85F3D31D9ABCDD00733161 /* splash_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D71D9ABCDD00733161 /* splash_background@2x.png */; };
 		4A85F3D41D9ABCDD00733161 /* splash_button_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D81D9ABCDD00733161 /* splash_button_email@2x.png */; };
 		4A85F3D51D9ABCDD00733161 /* splash_button_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2D91D9ABCDD00733161 /* splash_button_facebook@2x.png */; };
@@ -113,7 +111,6 @@
 		4A85F3DF1D9ABCDD00733161 /* top_button_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2E31D9ABCDD00733161 /* top_button_add@2x.png */; };
 		4A85F3E01D9ABCDD00733161 /* top_button_direction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2E41D9ABCDD00733161 /* top_button_direction@2x.png */; };
 		4A85F3E11D9ABCDD00733161 /* top_button_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2E51D9ABCDD00733161 /* top_button_location@2x.png */; };
-		4A85F3E21D9ABCDD00733161 /* top_searchbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2E61D9ABCDD00733161 /* top_searchbox@2x.png */; };
 		4A85F3E81D9ABCDD00733161 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2ED1D9ABCDD00733161 /* Account.storyboard */; };
 		4A85F3E91D9ABCDD00733161 /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2EE1D9ABCDD00733161 /* Coupon.storyboard */; };
 		4A85F3EA1D9ABCDD00733161 /* CouponList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F2EF1D9ABCDD00733161 /* CouponList.storyboard */; };
@@ -205,7 +202,6 @@
 		FA0450B71DB466BC00C41EC4 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
 		FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */; };
-		FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */; };
 		FA3687681D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
 		FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */; };
@@ -230,8 +226,6 @@
 		FA46C4561DB0BA38004E0A81 /* edit_profile_avatar_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA46C4551DB0BA38004E0A81 /* edit_profile_avatar_placeholder@2x.png */; };
 		FA46C4581DB0BA93004E0A81 /* HiraginoSansUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46C4571DB0BA93004E0A81 /* HiraginoSansUIFont.swift */; };
 		FA46C45A1DB0BB3F004E0A81 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46C4591DB0BB3F004E0A81 /* AssetsLibrary.framework */; };
-		FA46C45D1DB0D45F004E0A81 /* ui_top_fashion_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA46C45B1DB0D45F004E0A81 /* ui_top_fashion_icon@2x.png */; };
-		FA46C45E1DB0D45F004E0A81 /* ui_top_food_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA46C45C1DB0D45F004E0A81 /* ui_top_food_icon@2x.png */; };
 		FA4E8F5B1DA5041600DD2993 /* shop_detail_header_name_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */; };
 		FA55FDD01DAF312D006219D6 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */; };
 		FA55FDD51DAF3771006219D6 /* NewsVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55FDD41DAF3771006219D6 /* NewsVCNotification.swift */; };
@@ -362,7 +356,6 @@
 		4A85F2BF1D9ABCDD00733161 /* coupon_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_location@2x.png"; sourceTree = "<group>"; };
 		4A85F2C01D9ABCDD00733161 /* coupon_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_normal@2x.png"; sourceTree = "<group>"; };
 		4A85F2C11D9ABCDD00733161 /* coupon_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_phone@2x.png"; sourceTree = "<group>"; };
-		4A85F2C21D9ABCDD00733161 /* coupon_qr@2xpng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr@2xpng.png"; sourceTree = "<group>"; };
 		4A85F2C31D9ABCDD00733161 /* coupon_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_time@2x.png"; sourceTree = "<group>"; };
 		4A85F2C41D9ABCDD00733161 /* coupon_twitter_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_twitter_button@2x.png"; sourceTree = "<group>"; };
 		4A85F2C51D9ABCDD00733161 /* icon_food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_food@2x.png"; sourceTree = "<group>"; };
@@ -382,7 +375,6 @@
 		4A85F2D31D9ABCDD00733161 /* shop_detail_button_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_button_share@2x.png"; sourceTree = "<group>"; };
 		4A85F2D41D9ABCDD00733161 /* shop_detail_header_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_background@2x.png"; sourceTree = "<group>"; };
 		4A85F2D51D9ABCDD00733161 /* shop_detail_header_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_bar@2x.png"; sourceTree = "<group>"; };
-		4A85F2D61D9ABCDD00733161 /* shop_detail_header_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_icon@2x.png"; sourceTree = "<group>"; };
 		4A85F2D71D9ABCDD00733161 /* splash_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash_background@2x.png"; sourceTree = "<group>"; };
 		4A85F2D81D9ABCDD00733161 /* splash_button_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash_button_email@2x.png"; sourceTree = "<group>"; };
 		4A85F2D91D9ABCDD00733161 /* splash_button_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash_button_facebook@2x.png"; sourceTree = "<group>"; };
@@ -398,7 +390,6 @@
 		4A85F2E31D9ABCDD00733161 /* top_button_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_button_add@2x.png"; sourceTree = "<group>"; };
 		4A85F2E41D9ABCDD00733161 /* top_button_direction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_button_direction@2x.png"; sourceTree = "<group>"; };
 		4A85F2E51D9ABCDD00733161 /* top_button_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_button_location@2x.png"; sourceTree = "<group>"; };
-		4A85F2E61D9ABCDD00733161 /* top_searchbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_searchbox@2x.png"; sourceTree = "<group>"; };
 		4A85F2ED1D9ABCDD00733161 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		4A85F2EE1D9ABCDD00733161 /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Coupon.storyboard; sourceTree = "<group>"; };
 		4A85F2EF1D9ABCDD00733161 /* CouponList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CouponList.storyboard; sourceTree = "<group>"; };
@@ -517,7 +508,6 @@
 		FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonApp.entitlements; sourceTree = "<group>"; };
 		FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_coupon_02-02.png"; sourceTree = "<group>"; };
 		FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_map_detail_icon@2x.png"; sourceTree = "<group>"; };
 		FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopViewController.swift; sourceTree = "<group>"; };
 		FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopContentViewController.swift; sourceTree = "<group>"; };
@@ -542,8 +532,6 @@
 		FA46C4551DB0BA38004E0A81 /* edit_profile_avatar_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_profile_avatar_placeholder@2x.png"; sourceTree = "<group>"; };
 		FA46C4571DB0BA93004E0A81 /* HiraginoSansUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraginoSansUIFont.swift; sourceTree = "<group>"; };
 		FA46C4591DB0BB3F004E0A81 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		FA46C45B1DB0D45F004E0A81 /* ui_top_fashion_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_fashion_icon@2x.png"; sourceTree = "<group>"; };
-		FA46C45C1DB0D45F004E0A81 /* ui_top_food_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui_top_food_icon@2x.png"; sourceTree = "<group>"; };
 		FA4E8F5A1DA5041600DD2993 /* shop_detail_header_name_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_detail_header_name_background@2x.png"; sourceTree = "<group>"; };
 		FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		FA55FDD41DAF3771006219D6 /* NewsVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVCNotification.swift; sourceTree = "<group>"; };
@@ -839,11 +827,8 @@
 		4A85F2AF1D9ABCDD00733161 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				FA46C45B1DB0D45F004E0A81 /* ui_top_fashion_icon@2x.png */,
-				FA46C45C1DB0D45F004E0A81 /* ui_top_food_icon@2x.png */,
 				FA46C4551DB0BA38004E0A81 /* edit_profile_avatar_placeholder@2x.png */,
 				FA3687671D9E0E0C000CCC13 /* coupon_map_detail_icon@2x.png */,
-				FA3687651D9E0B48000CCC13 /* ui_coupon_02-02.png */,
 				FAA43A711D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png */,
 				FAA43A721D9D0B8F0013BCE3 /* qr_code_button@2x.png */,
 				FAA43A731D9D0B8F0013BCE3 /* sns_button@2x.png */,
@@ -868,7 +853,6 @@
 				4A85F2BF1D9ABCDD00733161 /* coupon_location@2x.png */,
 				4A85F2C01D9ABCDD00733161 /* coupon_normal@2x.png */,
 				4A85F2C11D9ABCDD00733161 /* coupon_phone@2x.png */,
-				4A85F2C21D9ABCDD00733161 /* coupon_qr@2xpng.png */,
 				4A85F2C31D9ABCDD00733161 /* coupon_time@2x.png */,
 				FA7BAED41DA49E120045F126 /* coupon_category_background@2x.png */,
 				4A85F2C41D9ABCDD00733161 /* coupon_twitter_button@2x.png */,
@@ -895,7 +879,6 @@
 				4A85F2D31D9ABCDD00733161 /* shop_detail_button_share@2x.png */,
 				4A85F2D41D9ABCDD00733161 /* shop_detail_header_background@2x.png */,
 				4A85F2D51D9ABCDD00733161 /* shop_detail_header_bar@2x.png */,
-				4A85F2D61D9ABCDD00733161 /* shop_detail_header_icon@2x.png */,
 				4A85F2D71D9ABCDD00733161 /* splash_background@2x.png */,
 				4A85F2D81D9ABCDD00733161 /* splash_button_email@2x.png */,
 				4A85F2D91D9ABCDD00733161 /* splash_button_facebook@2x.png */,
@@ -911,7 +894,6 @@
 				4A85F2E31D9ABCDD00733161 /* top_button_add@2x.png */,
 				4A85F2E41D9ABCDD00733161 /* top_button_direction@2x.png */,
 				4A85F2E51D9ABCDD00733161 /* top_button_location@2x.png */,
-				4A85F2E61D9ABCDD00733161 /* top_searchbox@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1510,14 +1492,12 @@
 				FA7BAED11DA499A10045F126 /* signup_button@2x.png in Resources */,
 				4A85F3D01D9ABCDD00733161 /* shop_detail_header_background@2x.png in Resources */,
 				4A85F38A1D9ABCDD00733161 /* LineAdapterUI.bundle in Resources */,
-				4A85F3BE1D9ABCDD00733161 /* coupon_qr@2xpng.png in Resources */,
 				FA46C4501DB0B4DD004E0A81 /* HiraginoSans-W5.ttc in Resources */,
 				4A85F3DF1D9ABCDD00733161 /* top_button_add@2x.png in Resources */,
 				FA46C44B1DB0B4DD004E0A81 /* HiraginoSans-W0.ttc in Resources */,
 				4A85F3BB1D9ABCDD00733161 /* coupon_location@2x.png in Resources */,
 				4A85F3A21D9ABCDD00733161 /* LineAdapter.plist in Resources */,
 				FA46C4521DB0B4DD004E0A81 /* HiraginoSans-W7.ttc in Resources */,
-				FA3687661D9E0B48000CCC13 /* ui_coupon_02-02.png in Resources */,
 				4A85F3CC1D9ABCDD00733161 /* shop_button_followed@2x.png in Resources */,
 				4A85F3EA1D9ABCDD00733161 /* CouponList.storyboard in Resources */,
 				4A85F3E81D9ABCDD00733161 /* Account.storyboard in Resources */,
@@ -1549,11 +1529,9 @@
 				4A85F3811D9ABCDD00733161 /* Assets.xcassets in Resources */,
 				FAA43A741D9D0B8F0013BCE3 /* coupon_use_coupon_button@2x.png in Resources */,
 				4A85F3DD1D9ABCDD00733161 /* tabbar_favorite_selected@2x.png in Resources */,
-				4A85F3E21D9ABCDD00733161 /* top_searchbox@2x.png in Resources */,
 				4A85F3B11D9ABCDD00733161 /* arrow_down@2x.png in Resources */,
 				FA7BAED71DA4A34A0045F126 /* coupon_category_food@2x.png in Resources */,
 				FA76A9CA1DA3460000893584 /* DKCameraResource.bundle in Resources */,
-				4A85F3D21D9ABCDD00733161 /* shop_detail_header_icon@2x.png in Resources */,
 				4A85F3C91D9ABCDD00733161 /* nav_close_blue@2x.png in Resources */,
 				4A85F3BC1D9ABCDD00733161 /* coupon_normal@2x.png in Resources */,
 				4A85F3D71D9ABCDD00733161 /* splash_button_skip@2x.png in Resources */,
@@ -1571,7 +1549,6 @@
 				FA46C4541DB0B4DD004E0A81 /* HiraginoSans-W9.ttc in Resources */,
 				4A85F3B21D9ABCDD00733161 /* arrow_right@2x.png in Resources */,
 				FA76A9D41DA3460000893584 /* Info.plist in Resources */,
-				FA46C45D1DB0D45F004E0A81 /* ui_top_fashion_icon@2x.png in Resources */,
 				4A85F3C31D9ABCDD00733161 /* map_icon_down@2x.png in Resources */,
 				4A85F4111D9ABCDD00733161 /* AlbumCollectionViewCell.xib in Resources */,
 				4A85F3821D9ABCDD00733161 /* LaunchScreen.storyboard in Resources */,
@@ -1609,7 +1586,6 @@
 				4A85F3B41D9ABCDD00733161 /* coupon_button_liked@2x.png in Resources */,
 				4A85F3CB1D9ABCDD00733161 /* nav_search@2x.png in Resources */,
 				4A85F3B01D9ABCDD00733161 /* account_setting_button@2x.png in Resources */,
-				FA46C45E1DB0D45F004E0A81 /* ui_top_food_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
