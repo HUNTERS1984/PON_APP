@@ -31,6 +31,11 @@ class HomeMenuViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.title = "ショップの追加"
@@ -94,6 +99,7 @@ extension HomeMenuViewController: UITableViewDelegate {
         let selectedType = self.categories[(indexPath as NSIndexPath).row]
         let vc = ListShopViewController.instanceFromStoryBoard("ListShop") as! ListShopViewController
         vc.couponCategoryID = selectedType.categoryID
+        vc.categoryName = selectedType.categoryName
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

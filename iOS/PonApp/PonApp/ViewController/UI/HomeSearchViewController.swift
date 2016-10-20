@@ -73,9 +73,9 @@ extension HomeSearchViewController {
         let searchBox = UITextField(frame: CGRect(x: 0, y: 0, width: screenWidth - 60, height: 30))
         searchBox.backgroundColor = UIColor.clear
         searchBox.textColor = UIColor.white
-        searchBox.font = UIFont.HiraginoSansW6(17)
+        searchBox.font = UIFont.HiraginoSansW6(14)
         searchBox.placeholder = "地名/ショップ名を入力"
-        searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor.white])
+        searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor(hex: 0xd1f2f6)])
         searchBox.borderStyle = .none
         searchBox.autoresizingMask = .flexibleWidth
 
@@ -136,6 +136,7 @@ extension HomeSearchViewController: UITableViewDelegate {
         let selectedType = self.couponTypes[(indexPath as NSIndexPath).row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
         vc.couponCategoryID = selectedType.categoryID
+        vc.categoryName = selectedType.categoryName
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

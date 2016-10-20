@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1005</string>
+	<string>1007</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -79,6 +79,7 @@
 		<string>lineauth</string>
 		<string>line3rdp.$(APP_IDENTIFIER)</string>
 		<string>instagram</string>
+		<string>line</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -145,18 +146,9 @@
 	<string>I need camera</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>HiraginoSansGB-W3.ttf</string>
-		<string>HiraginoSansGB-W6.ttf</string>
-		<string>HiraginoSans-W0.ttc</string>
-		<string>HiraginoSans-W1.ttc</string>
-		<string>HiraginoSans-W2.ttc</string>
-		<string>HiraginoSans-W3.ttc</string>
 		<string>HiraginoSans-W4.ttc</string>
 		<string>HiraginoSans-W5.ttc</string>
 		<string>HiraginoSans-W6.ttc</string>
-		<string>HiraginoSans-W7.ttc</string>
-		<string>HiraginoSans-W8.ttc</string>
-		<string>HiraginoSans-W9.ttc</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

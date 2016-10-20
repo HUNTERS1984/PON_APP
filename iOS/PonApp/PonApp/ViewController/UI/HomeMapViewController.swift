@@ -21,10 +21,9 @@ class HomeMapViewController: BaseViewController {
     @IBOutlet weak var offersCollectionView:UICollectionView!
     
     var offerShowed: Bool = false
-    var coupons = [Coupon]() {
-        didSet {
-        }
-    }
+    var coupons = [Coupon]()
+    var shopes = [Shop]()
+    
     var previousSelectedIndexPath: IndexPath? = nil
     
     override func viewDidLoad() {
@@ -76,8 +75,11 @@ extension HomeMapViewController {
     }
     
     @IBAction func menuButtonPressed(_ sender: AnyObject) {
-        let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        var shopCoupons = [Coupon]()
+        for shop in shopes {
+            shopCoupons.append(contentsOf: shop.shopCoupons)
+        }
+        self.showOfferView(shopCoupons)
     }
     
     @IBAction func hideOfferButtonPressed(_ sender: AnyObject) {
@@ -142,6 +144,7 @@ extension HomeMapViewController {
                             let shop = Shop(response: shopData)
                             responseShop.append(shop)
                         }
+                        self.shopes = responseShop
                         self.displayShop(responseShop, lattitude: lattitude, longitude: longitude, type: .new)
                     }
                 }else {
@@ -303,7 +306,7 @@ extension HomeMapViewController: MapViewDelegate {
     }
     
     func mapView(_ mapView: MapView!, didTapMarker marker: MapMarker!) {
-        self.showOfferView(marker.shop.shopCoupons)
+        
     }
     
     func mapView(_ mapView: MapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {

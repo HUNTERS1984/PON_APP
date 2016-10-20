@@ -79,9 +79,8 @@ extension MainViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: AnyObject) {
-        let vc = AddShopViewController.instanceFromStoryBoard("MainMenu") as! AddShopViewController
-        vc.couponType = 1
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 

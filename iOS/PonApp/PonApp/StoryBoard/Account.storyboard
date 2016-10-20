@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -160,8 +160,8 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="frh-lX-bZq">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="Uap-A6-8KT"/>
-                                                            <constraint firstAttribute="height" constant="11" id="vl2-Xp-SKp"/>
+                                                            <constraint firstAttribute="width" constant="11" id="Uap-A6-8KT"/>
+                                                            <constraint firstAttribute="height" constant="7" id="vl2-Xp-SKp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-WW-6Ph" customClass="IQDropDownTextField">
@@ -213,8 +213,8 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="dga-ZY-NlV">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="Npk-Z2-XuQ"/>
-                                                            <constraint firstAttribute="height" constant="11" id="nki-Mf-awT"/>
+                                                            <constraint firstAttribute="width" constant="11" id="Npk-Z2-XuQ"/>
+                                                            <constraint firstAttribute="height" constant="7" id="nki-Mf-awT"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jx0-Ir-I4d" customClass="IQDropDownTextField">
@@ -373,7 +373,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Gi-cq-B5J" id="ifH-Mb-0jS">
-                                            <frame key="frameInset" width="375" height="133"/>
+                                            <frame key="frameInset" width="375" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ci-zvf" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
@@ -527,7 +527,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_down.png" width="14" height="11"/>
+        <image name="arrow_down.png" width="11" height="7"/>
         <image name="edit_profile_avatar_placeholder.png" width="51" height="51"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -118,6 +118,24 @@ extension ListShopContentViewController {
         }
     }
     
+    fileprivate func followShop(_ shopId: Float, index: Int) {
+        self.showHUD()
+        ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.shops[index].isFollow = true
+                    self.collectionView.reloadData()
+                    self.presentAlert(with: "Message", message: (result?.message)!)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -131,6 +149,12 @@ extension ListShopContentViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
         cell.shop = self.shops[(indexPath as NSIndexPath).item]
+        cell.index = (indexPath as NSIndexPath).item
+        cell.completionHandler = { (shopID: Float?, index: Int) in
+            if let _ = shopID {
+                self.followShop(shopID!, index: index)
+            }
+        }
         return cell
         
     }

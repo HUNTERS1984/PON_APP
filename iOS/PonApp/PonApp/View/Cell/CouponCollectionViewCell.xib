@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -118,10 +118,14 @@
                                     </label>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_liked.png" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-59-ogd">
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="fGw-59-ogd" secondAttribute="height" multiplier="1:1" id="PFL-Ua-GcD"/>
+                                            <constraint firstAttribute="width" secondItem="fGw-59-ogd" secondAttribute="height" multiplier="6:5" id="qPa-eC-0ej"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="used_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPM-J1-n8a"/>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="used_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPM-J1-n8a">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oPM-J1-n8a" secondAttribute="height" multiplier="1:1" id="fuL-LP-Q4b"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-xw-l8g">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -140,17 +144,14 @@
                                     <constraint firstItem="b9u-k8-0BW" firstAttribute="top" secondItem="rSh-eI-Iub" secondAttribute="bottom" id="3hF-Lo-UHs"/>
                                     <constraint firstItem="rSh-eI-Iub" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="7bE-gl-g8b"/>
                                     <constraint firstItem="GsB-xw-l8g" firstAttribute="top" secondItem="b9u-k8-0BW" secondAttribute="bottom" id="AQg-Ik-KXW"/>
-                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="-1" id="E0n-EM-xm1"/>
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="102/182" id="K5P-5Q-t39"/>
                                     <constraint firstAttribute="trailing" secondItem="kWW-Kx-2Mp" secondAttribute="trailing" constant="10" id="Lfc-Fm-wzp"/>
                                     <constraint firstItem="rSh-eI-Iub" firstAttribute="top" secondItem="d1d-Ym-ZIW" secondAttribute="bottom" id="M2r-iR-RVf"/>
                                     <constraint firstItem="igO-bC-mdZ" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="PFF-dD-k6L"/>
-                                    <constraint firstAttribute="trailing" secondItem="fGw-59-ogd" secondAttribute="trailing" id="PyG-dd-1Nx"/>
                                     <constraint firstItem="kWW-Kx-2Mp" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="Q14-Za-dvQ"/>
-                                    <constraint firstItem="fGw-59-ogd" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="38/175" id="Rjh-lp-9Zw"/>
                                     <constraint firstItem="igO-bC-mdZ" firstAttribute="top" secondItem="kWW-Kx-2Mp" secondAttribute="bottom" id="SoO-8V-8py"/>
-                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="45/185" id="Uue-qh-p4a"/>
-                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="60/175" id="XTw-Dc-QZv"/>
+                                    <constraint firstAttribute="trailing" secondItem="fGw-59-ogd" secondAttribute="trailing" constant="10" id="USQ-5l-nR0"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" constant="-1" id="X5y-a2-MdA"/>
                                     <constraint firstAttribute="trailing" secondItem="igO-bC-mdZ" secondAttribute="trailing" constant="10" id="Xq9-hk-zLE"/>
                                     <constraint firstAttribute="trailing" secondItem="JbL-gi-TQb" secondAttribute="trailing" constant="10" id="Y7E-Zj-BcA"/>
                                     <constraint firstItem="GsB-xw-l8g" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="8/182" id="YaG-Kq-x0F"/>
@@ -158,14 +159,16 @@
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" id="ZaY-ay-ptR"/>
                                     <constraint firstItem="d1d-Ym-ZIW" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" id="bWo-MY-MC1"/>
                                     <constraint firstAttribute="trailing" secondItem="rSh-eI-Iub" secondAttribute="trailing" constant="10" id="crT-Be-4GY"/>
+                                    <constraint firstItem="fGw-59-ogd" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" constant="10" id="g2s-Vc-J5Z"/>
                                     <constraint firstItem="JbL-gi-TQb" firstAttribute="top" secondItem="GsB-xw-l8g" secondAttribute="bottom" id="gCD-87-UcG"/>
                                     <constraint firstItem="GsB-xw-l8g" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="iEE-kB-lTW"/>
                                     <constraint firstItem="b9u-k8-0BW" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" constant="10" id="iQB-DY-NLR"/>
-                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" constant="-1" id="lUA-fe-EJo"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="leading" secondItem="8Tr-jn-9EP" secondAttribute="leading" multiplier="61/172" constant="-1" id="kO5-cL-7YO"/>
                                     <constraint firstAttribute="trailing" secondItem="GsB-xw-l8g" secondAttribute="trailing" constant="10" id="mkk-zs-cYt"/>
                                     <constraint firstAttribute="trailing" secondItem="b9u-k8-0BW" secondAttribute="trailing" constant="10" id="oZx-bd-VmQ"/>
-                                    <constraint firstItem="fGw-59-ogd" firstAttribute="top" secondItem="8Tr-jn-9EP" secondAttribute="top" id="pQE-Iw-ody"/>
+                                    <constraint firstItem="fGw-59-ogd" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="18/172" id="rpL-kc-XbA"/>
                                     <constraint firstItem="kWW-Kx-2Mp" firstAttribute="height" secondItem="8Tr-jn-9EP" secondAttribute="height" multiplier="3/182" id="ryf-WQ-0ew"/>
+                                    <constraint firstItem="oPM-J1-n8a" firstAttribute="width" secondItem="8Tr-jn-9EP" secondAttribute="width" multiplier="61/172" id="yrR-UV-DN8"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
@@ -215,8 +218,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="coupon_liked.png" width="39" height="38"/>
-        <image name="used_coupon.png" width="61" height="45"/>
+        <image name="coupon_liked.png" width="18" height="17"/>
+        <image name="used_coupon.png" width="60" height="61"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

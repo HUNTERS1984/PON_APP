@@ -9,7 +9,7 @@
 import UIKit
 
 class ListCouponViewController: BaseViewController {
-    
+    var categoryName: String = ""
     var pageMenu : CAPSPageMenu?
     var couponCategoryID: Int?
     
@@ -28,7 +28,7 @@ class ListCouponViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "グルメでさがす"
+        self.title = self.categoryName
         self.showBackButton()
         self.setupScrollMenu()
     }

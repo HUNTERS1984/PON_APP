@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,26 +15,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38h-qq-BJV" userLabel="Container View" customClass="ShadowView" customModule="PonApp" customModuleProvider="target">
-                        <rect key="frame" x="2" y="2" width="146" height="146"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="goU-Zp-frw">
-                                <rect key="frame" x="3" y="3" width="140" height="140"/>
-                                <color key="backgroundColor" red="0.7843137255" green="0.82352941180000006" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.82352941180000006" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7R-ht-kSc">
+                                <string key="text">もっと見る
++40</string>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="b7R-ht-kSc" secondAttribute="bottom" constant="3" id="862-bp-GZq"/>
+                            <constraint firstAttribute="trailing" secondItem="b7R-ht-kSc" secondAttribute="trailing" constant="3" id="H75-Pc-zew"/>
                             <constraint firstItem="goU-Zp-frw" firstAttribute="top" secondItem="38h-qq-BJV" secondAttribute="top" constant="3" id="HIW-bU-8u6"/>
+                            <constraint firstItem="b7R-ht-kSc" firstAttribute="top" secondItem="38h-qq-BJV" secondAttribute="top" constant="3" id="MiT-8D-rd8"/>
                             <constraint firstAttribute="bottom" secondItem="goU-Zp-frw" secondAttribute="bottom" constant="3" id="cEI-kb-1mA"/>
                             <constraint firstAttribute="trailing" secondItem="goU-Zp-frw" secondAttribute="trailing" constant="3" id="j2z-ab-4dY"/>
                             <constraint firstItem="goU-Zp-frw" firstAttribute="leading" secondItem="38h-qq-BJV" secondAttribute="leading" constant="3" id="u9m-Yz-7vm"/>
+                            <constraint firstItem="b7R-ht-kSc" firstAttribute="leading" secondItem="38h-qq-BJV" secondAttribute="leading" constant="3" id="yWo-BU-eKi"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="38h-qq-BJV" firstAttribute="leading" secondItem="XjJ-e4-Q1D" secondAttribute="leading" constant="2" id="HmC-bS-Ha8"/>
@@ -44,9 +52,15 @@
             </constraints>
             <size key="customSize" width="129" height="117"/>
             <connections>
+                <outlet property="moreLabel" destination="b7R-ht-kSc" id="KQt-Ob-Ek8"/>
                 <outlet property="thumbImageView" destination="goU-Zp-frw" id="XKh-6f-PNc"/>
             </connections>
             <point key="canvasLocation" x="281" y="227"/>
         </collectionViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
