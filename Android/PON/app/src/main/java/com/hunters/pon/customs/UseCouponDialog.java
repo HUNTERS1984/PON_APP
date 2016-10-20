@@ -2,12 +2,13 @@ package com.hunters.pon.customs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.Point;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.hunters.pon.R;
@@ -26,7 +27,6 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
         super(context);
         mContext = context;
         mCode = code;
-        getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(mContext, R.color.transparent)));
     }
 
     @Override
@@ -34,6 +34,15 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_use_coupon);
+
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+        getWindow().setBackgroundDrawableResource(R.drawable.background_rectangle_use_coupon);
+        getWindow().setLayout((int) (width * 0.8), ViewGroup.LayoutParams.WRAP_CONTENT);
 
         ImageView ivQRCode = (ImageView)findViewById(R.id.iv_qr_code);
         ImageView ivBack = (ImageView)findViewById(R.id.iv_back);

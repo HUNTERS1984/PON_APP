@@ -70,10 +70,11 @@ public class QRCodeEncoder {
 
         Map<EncodeHintType, Object> hints = null;
         String encoding = guessAppropriateEncoding(contents);
-        if (encoding != null) {
+//        if (encoding != null) {
             hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
-            hints.put(EncodeHintType.CHARACTER_SET, encoding);
-        }
+//            hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+            hints.put(EncodeHintType.MARGIN, 1);
+//        }
         MultiFormatWriter writer = new MultiFormatWriter();
         BitMatrix result = writer.encode(contents, format, dimension, dimension, hints);
         int width = result.getWidth();

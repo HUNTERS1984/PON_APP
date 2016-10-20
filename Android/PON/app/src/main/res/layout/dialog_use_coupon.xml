@@ -1,20 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_use_coupon"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparent"
     android:orientation="vertical"
     tools:context="com.hunters.pon.activities.UseCouponActivity">
 
 
     <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:id="@+id/iv_qr_code"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:src="@drawable/dotted"/>
+
+    <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:id="@+id/iv_qr_code"/>
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:textColor="#6DDCDC"
+        android:text="@string/use_promotion_code"/>
+
+    <com.hunters.pon.customs.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:text="40% OFF"/>
+
+    <com.hunters.pon.customs.CustomButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_rectangle_white"
+        android:textColor="#14C8C8"
+        android:textSize="16sp"
+        android:text="@string/use_coupon"
+        android:id="@+id/btn_use_coupon"/>
 
     <ImageView
         android:layout_width="80dp"

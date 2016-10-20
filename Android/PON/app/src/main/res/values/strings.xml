@@ -135,4 +135,8 @@
 
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>
+
+    <!--Use Coupon -->
+    <string name="use_promotion_code">USE PROMOTION CODE</string>
+    <string name="use_coupon">USE COUPON</string>
 </resources>
