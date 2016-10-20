@@ -34,6 +34,7 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.api.ResponseCouponDetailData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.customs.UseCouponDialog;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
@@ -186,9 +187,11 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
 
-                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
-                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
-                startActivity(iUseCoupon);
+                UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode());
+                dialog.show();
+//                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
+//                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
+//                startActivity(iUseCoupon);
 //                mCurrentSelection = USE_COUPON;
 //                String token = CommonUtils.getToken(mContext);
 //
