@@ -88,8 +88,8 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-mF-mUD">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="8YU-Ht-ObW"/>
-                                            <constraint firstAttribute="width" constant="12" id="nad-LM-oTt"/>
+                                            <constraint firstAttribute="height" constant="18" id="8YU-Ht-ObW"/>
+                                            <constraint firstAttribute="width" constant="10" id="nad-LM-oTt"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在地付近でさがす" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-Fa-T0e">
@@ -149,8 +149,8 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="0dB-zR-Vp8">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="XZB-RO-9WV"/>
-                                                        <constraint firstAttribute="height" constant="17" id="v3Z-qX-CgQ"/>
+                                                        <constraint firstAttribute="width" constant="10" id="XZB-RO-9WV"/>
+                                                        <constraint firstAttribute="height" constant="18" id="v3Z-qX-CgQ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
@@ -263,6 +263,7 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="0Kk-i6-PHN" secondAttribute="bottom" id="Fb0-3G-qyj"/>
                                     <constraint firstItem="0Kk-i6-PHN" firstAttribute="top" secondItem="U4J-Mj-a9C" secondAttribute="top" constant="10" id="O7c-z2-knf"/>
@@ -300,7 +301,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="p44-Wh-30y" firstAttribute="leading" secondItem="UGA-Xz-Riv" secondAttribute="leading" id="Bze-zb-mTS"/>
                                     <constraint firstAttribute="height" constant="130" id="Bzk-8h-L50"/>
@@ -376,8 +377,8 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-ec-eVn">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="Mq6-zz-far"/>
-                                                        <constraint firstAttribute="height" constant="17" id="xpn-jd-hMd"/>
+                                                        <constraint firstAttribute="width" constant="10" id="Mq6-zz-far"/>
+                                                        <constraint firstAttribute="height" constant="18" id="xpn-jd-hMd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo7-FW-9Xm" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
@@ -516,8 +517,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_right.png" width="12" height="19"/>
-        <image name="icon_location.png" width="47" height="47"/>
+        <image name="arrow_right.png" width="10" height="17"/>
+        <image name="icon_location.png" width="45" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

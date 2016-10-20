@@ -753,11 +753,11 @@
     </scenes>
     <resources>
         <image name="coupon_category_background.png" width="113" height="33"/>
-        <image name="coupon_location.png" width="29" height="29"/>
-        <image name="coupon_phone.png" width="29" height="29"/>
-        <image name="coupon_time.png" width="29" height="29"/>
-        <image name="nav_close_blue.png" width="16" height="15"/>
-        <image name="sns_button.png" width="337" height="46"/>
+        <image name="coupon_location.png" width="21" height="21"/>
+        <image name="coupon_phone.png" width="21" height="19"/>
+        <image name="coupon_time.png" width="21" height="21"/>
+        <image name="nav_close_blue.png" width="14" height="14"/>
+        <image name="sns_button.png" width="334" height="44"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
