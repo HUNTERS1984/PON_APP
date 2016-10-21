@@ -135,6 +135,13 @@ extension BaseViewController {
         mainTabbarViewController?.tabBar.isHidden = true
         self.appDelegate?.window?.rootViewController = mainTabbarViewController!
     }
+    
+    func openSignUp() {
+        let vc = SplashViewController.instanceFromStoryBoard("Main")
+        let nav = BaseNavigationController(rootViewController: vc!)
+        self.appDelegate?.window?.rootViewController = nav
+    }
+
 }
 
 //MARK: - IBAction 
