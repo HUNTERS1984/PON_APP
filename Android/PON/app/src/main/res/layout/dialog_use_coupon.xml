@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context="com.hunters.pon.activities.UseCouponActivity">
-
 
     <ImageView
         android:layout_width="150dp"
@@ -14,10 +14,12 @@
         android:layout_margin="20dp"
         android:id="@+id/iv_qr_code"/>
 
-    <ImageView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:src="@drawable/dotted"/>
+        android:layout_height="2dp"
+        android:layout_margin="20dp"
+        android:layerType="software"
+        android:background="@drawable/dotted"/>
 
     <com.hunters.pon.customs.CustomTextView
         android:layout_width="wrap_content"
@@ -50,12 +52,4 @@
         android:text="@string/use_coupon"
         android:id="@+id/btn_use_coupon"/>
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_delete"
-        android:scaleType="fitXY"
-        android:id="@+id/iv_back"/>
 </LinearLayout>

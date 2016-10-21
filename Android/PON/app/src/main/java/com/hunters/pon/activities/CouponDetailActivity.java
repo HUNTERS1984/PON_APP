@@ -159,7 +159,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 String token = CommonUtils.getToken(mContext);
 
                 if(!token.equalsIgnoreCase("")) {
-                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
+                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
                 } else {
                     new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
                 }
@@ -187,19 +187,18 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
 
-                UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode());
-                dialog.show();
+
 //                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
 //                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
 //                startActivity(iUseCoupon);
-//                mCurrentSelection = USE_COUPON;
-//                String token = CommonUtils.getToken(mContext);
-//
-//                if(!token.equalsIgnoreCase("")) {
-//                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHanlderCheckValidToken);
-//                } else {
-//                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
-//                }
+                mCurrentSelection = USE_COUPON;
+                String token = CommonUtils.getToken(mContext);
+
+                if(!token.equalsIgnoreCase("")) {
+                    new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
+                } else {
+                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+                }
             }
         });
     }
@@ -288,7 +287,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
-    private Handler mHanlderCheckValidToken = new Handler(){
+    private Handler mHandlerCheckValidToken = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -300,7 +299,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
                         switch (mCurrentSelection){
                             case USE_COUPON:
-                                new CouponAPIHelper().useCoupon(mContext, mCouponId, mHanlderUseCoupon);
+                                UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode(), mHandlerUseCouponRequest);
+                                dialog.show();
                                 break;
                             case ADD_FAVOURITE:
                                 new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
@@ -316,7 +316,15 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
-    private Handler mHanlderUseCoupon = new Handler(){
+    private Handler mHandlerUseCouponRequest = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            String staffName = msg.obj.toString();
+            new CouponAPIHelper().useCoupon(mContext, mCouponId, mHandlerUseCouponResponse);
+        }
+    };
+
+    private Handler mHandlerUseCouponResponse = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
