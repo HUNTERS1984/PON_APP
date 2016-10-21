@@ -142,12 +142,7 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
 //MARK: - Private
 extension MainCouponContentViewController {
     
-    fileprivate func openSignUp() {
-        let vc = SignInViewController.instanceFromStoryBoard("Register")
-        let nav = UINavigationController.init(rootViewController: vc!)
-        self.parentNavigationController!.present(nav, animated: true)
-    }
-    
+
     fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, pageIndex: Int) {
         parentContainerController?.showHUD()
         ApiRequest.getCouponByFeature(couponFeature) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in

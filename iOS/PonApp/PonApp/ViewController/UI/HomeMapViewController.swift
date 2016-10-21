@@ -207,13 +207,15 @@ extension HomeMapViewController {
         }
     }
     
-    fileprivate func openSignUp() {
+/*
+    override func openSignUp() {
         self.resetCollectionView()
         let vc = SignInViewController.instanceFromStoryBoard("Register") as! SignInViewController
         vc.loginState = .qick
         let nav = UINavigationController.init(rootViewController: vc)
         self.navigationController!.present(nav, animated: true)
     }
+*/
     
 }
 
