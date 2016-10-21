@@ -10,7 +10,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CategoryRecyclerViewAdapter;
@@ -19,7 +21,9 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCategoryData;
 import com.hunters.pon.models.CategoryModel;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.KeyboardUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +32,7 @@ public class ShopCouponByCategoryActivity extends Activity {
 
     private List<CategoryModel> mLstCategories;
     private CategoryRecyclerViewAdapter mAdapterCategory;
+    private EditText mEdtSearch;
 
     private Context mContext;
 
@@ -53,6 +58,20 @@ public class ShopCouponByCategoryActivity extends Activity {
             public void onClick(View view) {
                 Intent iShopLocation = new Intent(ShopCouponByCategoryActivity.this, MapShopCouponActivity.class);
                 startActivity(iShopLocation);
+            }
+        });
+
+        mEdtSearch = (EditText)findViewById(R.id.edt_search);
+
+        TextView tvSearch = (TextView)findViewById(R.id.tv_search);
+        tvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new KeyboardUtils().hideKeyboard(mContext);
+                String query = mEdtSearch.getText().toString();
+                Intent iSearch = new Intent(ShopCouponByCategoryActivity.this, SearchActivity.class);
+                iSearch.putExtra(Constants.EXTRA_DATA, query);
+                startActivity(iSearch);
             }
         });
 

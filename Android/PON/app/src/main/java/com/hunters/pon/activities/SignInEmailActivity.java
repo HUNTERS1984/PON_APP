@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +17,7 @@ import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.KeyboardUtils;
 
 public class SignInEmailActivity extends BaseActivity {
 
@@ -67,7 +67,7 @@ public class SignInEmailActivity extends BaseActivity {
     private Handler mHanlderSignIn = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            hideKeyboard();
+            new KeyboardUtils().hideKeyboard(mContext);
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseUserData user = (ResponseUserData) msg.obj;
@@ -96,15 +96,6 @@ public class SignInEmailActivity extends BaseActivity {
                 String username = data.getStringExtra(Constants.EXTRA_USER_NAME);
                 mEdtUsername.setText(username);
             }
-        }
-    }
-
-    private void hideKeyboard()
-    {
-        View view = getCurrentFocus();
-        if(view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(mContext.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 }

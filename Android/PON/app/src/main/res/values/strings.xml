@@ -139,4 +139,7 @@
     <!--Use Coupon -->
     <string name="use_promotion_code">USE PROMOTION CODE</string>
     <string name="use_coupon">USE COUPON</string>
+
+    <!--Search -->
+    <string name="no_record_found">No records found</string>
 </resources>

@@ -36,27 +36,33 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SplashActivity"
-                  android:screenOrientation="portrait">
-
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainTopActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ShopCouponByCategoryActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.AddShopFollowActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.AddShopFollowDetailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.CouponByCategoryDetailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.MapShopCouponActivity"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.MainTopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShopCouponByCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddShopFollowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddShopFollowDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CouponByCategoryDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MapShopCouponActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -80,22 +86,28 @@
             android:authorities="com.facebook.app.FacebookContentProvider"
             android:exported="true" />
 
-        <activity android:name=".activities.MyFavouriteActivity"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.MyFavouriteActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ProfileHistoryActivity"
             android:label="@string/title_activity_history"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ProfileActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ProfileEditActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ProfileShopFollowingActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.CouponDetailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.SplashSelectLoginActivity"
-                  android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProfileEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProfileShopFollowingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CouponDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SplashSelectLoginActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -104,24 +116,34 @@
             android:name="com.onesignal.NotificationOpened.DEFAULT"
             android:value="DISABLE" />
 
-        <activity android:name=".activities.SignInEmailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.SignUpEmailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ShopDetailActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.NewsActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.PrivacyPolicyActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.SpecificTradeActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ShareCouponActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.UseCouponActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.NewsDetailActivity"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.SignInEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignUpEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShopDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PrivacyPolicyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SpecificTradeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShareCouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.UseCouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NewsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.SearchActivity"></activity>
     </application>
 
 </manifest>

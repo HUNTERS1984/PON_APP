@@ -397,4 +397,47 @@ public class CouponAPIHelper extends APIHelper {
             }
         });
     }
+
+    public void searchCoupon(Context context, String query, String pageIndex , final Handler handler)
+    {
+        showProgressDialog(context);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(HOST_NAME)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ICallServices service = retrofit.create(ICallServices.class);
+
+        String token = "";
+
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
+
+        Call<ResponseSearchCouponData> response = service.searchCoupon(token, query, "20", pageIndex);
+
+        response.enqueue(new Callback<ResponseSearchCouponData>() {
+            @Override
+            public void onResponse(Call<ResponseSearchCouponData> call, Response<ResponseSearchCouponData> response) {
+                ResponseSearchCouponData res = response.body();
+                if (res == null) {
+                    res = new ResponseSearchCouponData();
+                    res.code =  APIConstants.REQUEST_FAILED;
+                }
+                res.httpCode = response.code();
+
+                Message msg = Message.obtain();
+                msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                msg.obj = res;
+                handler.sendMessage(msg);
+                closeDialog();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseSearchCouponData> call, Throwable t) {
+                handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                closeDialog();
+            }
+        });
+    }
 }

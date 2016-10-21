@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="8dp"
+    android:layout_marginBottom="16dp">
+
+    <FrameLayout
+        android:layout_width="170dp"
+        android:layout_height="230dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_coupon_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@color/light_grey_stroke_icon"
+                    android:scaleType="fitXY" />
+                <ProgressBar
+                    android:id="@+id/progress_bar_loading_coupon"
+                    style="?android:attr/progressBarStyleInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_non_favourite"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_coupon_favourite"/>
+                <ImageView
+                    android:layout_width="@dimen/icon_size_menu"
+                    android:layout_height="@dimen/icon_size_menu"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_used_coupon"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_use_coupon"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:layout_marginLeft="@dimen/layout_margin"
+                android:orientation="vertical">
+
+                <com.hunters.pon.customs.CustomTextView
+                    android:id="@+id/tv_coupon_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Coupon Title"/>
+
+                <com.hunters.pon.customs.CustomTextView
+                    android:id="@+id/tv_shop_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Shop Name"/>
+
+                <com.hunters.pon.customs.CustomTextView
+                    android:id="@+id/tv_coupon_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/grey"
+                    android:text="Coupon Description"/>
+
+                <com.hunters.pon.customs.CustomTextView
+                    android:id="@+id/tv_coupon_expire_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/pink"
+                    android:text="Date : 2016.07.31"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/ln_login_required">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <com.hunters.pon.customs.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/member_only_coupons"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"/>
+                <com.hunters.pon.customs.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/membership_coupons_required_1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"/>
+                <com.hunters.pon.customs.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/membership_coupons_required_2"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"/>
+                <com.hunters.pon.customs.CustomButton
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/background_rectangle_highlight"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="@string/new_member_registration"
+                    android:id="@+id/btn_login"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</android.support.v7.widget.CardView>
