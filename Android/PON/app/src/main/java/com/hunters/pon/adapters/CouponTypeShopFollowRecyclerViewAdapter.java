@@ -13,6 +13,7 @@ import com.hunters.pon.R;
 import com.hunters.pon.activities.AddShopFollowDetailActivity;
 import com.hunters.pon.models.CategoryShopFollowModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.viewholders.LoadingViewHolder;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/4/2016.
  */
-public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<CouponTypeShopFollowRecyclerViewAdapter.ListCouponTypeRecyclerViewHolders> {
+public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<CategoryShopFollowModel> mLstCouponTypeShopFollows;
     private Context mContext;
@@ -31,28 +32,44 @@ public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapte
     }
 
     @Override
-    public ListCouponTypeRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coupons_type_shop_follow_item, null);
-        ListCouponTypeRecyclerViewHolders holders = new ListCouponTypeRecyclerViewHolders(view);
-        return holders;
+    public int getItemViewType(int position) {
+        return mLstCouponTypeShopFollows.get(position) == null ? Constants.VIEW_TYPE_LOADING : Constants.VIEW_TYPE_ITEM;
+    }
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == Constants.VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coupons_type_shop_follow_item, null);
+            ListCouponTypeRecyclerViewHolders holders = new ListCouponTypeRecyclerViewHolders(view);
+            return holders;
+        } else if (viewType == Constants.VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, null);
+            LoadingViewHolder holders = new LoadingViewHolder(view);
+            return holders;
+        }
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(ListCouponTypeRecyclerViewHolders holder, int position) {
-        CategoryShopFollowModel couponTypeShopFollow = mLstCouponTypeShopFollows.get(position);
-        holder.mCouponTypeName.setText(couponTypeShopFollow.getmCouponTypeName());
-        Picasso.with(mContext).load(couponTypeShopFollow.getmCouponTypeIconUrl()).
-                fit()
-                .into(holder.mCouponTypeIcon);
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ListCouponTypeRecyclerViewHolders) {
+            ListCouponTypeRecyclerViewHolders couponTypeHolder = (ListCouponTypeRecyclerViewHolders)holder;
+            CategoryShopFollowModel couponTypeShopFollow = mLstCouponTypeShopFollows.get(position);
+            couponTypeHolder.mCouponTypeName.setText(couponTypeShopFollow.getmCouponTypeName());
+            Picasso.with(mContext).load(couponTypeShopFollow.getmCouponTypeIconUrl()).
+                    fit()
+                    .into(couponTypeHolder.mCouponTypeIcon);
 
-        holder.mNumberOfShopFollow.setText(mLstCouponTypeShopFollows.get(position).getmShopBelongCount());
-        holder.mView.setTag(position);
+            couponTypeHolder.mNumberOfShopFollow.setText(mLstCouponTypeShopFollows.get(position).getmShopBelongCount());
+            couponTypeHolder.mView.setTag(position);
+        } else if (holder instanceof LoadingViewHolder) {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.mProgressBar.setIndeterminate(true);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return this.mLstCouponTypeShopFollows.size();
+        return this.mLstCouponTypeShopFollows == null ? 0 : this.mLstCouponTypeShopFollows.size();
     }
 
     public void updateData(List<CategoryShopFollowModel> lstCouponTypeShopFollows)

@@ -13,6 +13,7 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.api.ResponseSearchCouponData;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.Constants;
@@ -24,8 +25,15 @@ import java.util.List;
 public class SearchActivity extends BaseActivity implements OnLoadDataListener {
 
     private SearchCouponRecyclerViewAdapter mAdapterCoupon;
+    private RecyclerView mRecyclerViewCoupon;;
 
     private String mQuery = "";
+
+//    private boolean mIsLoading;
+//    private int mLastVisibleItem, mTotalItemCount;
+    private List<ResponseCouponDetail> mLstSearchCoupons;
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+    private int mPageTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,35 +45,105 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
 
         setTitle(mQuery);
 
-        RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_search);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerViewCoupon = (RecyclerView)findViewById(R.id.recycler_search);
+        final GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        mRecyclerViewCoupon.setLayoutManager(layoutManager);
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                mLstSearchCoupons.add(null);
+                mAdapterCoupon.notifyItemInserted(mLstSearchCoupons.size() - 1);
 
-        List<ResponseCouponDetail> lstSearchCoupon = new ArrayList<>();
-        mAdapterCoupon = new SearchCouponRecyclerViewAdapter(mContext, lstSearchCoupon, new OnLoginClickListener() {
+                if(page < mPageTotal) {
+                    new CouponAPIHelper().searchCoupon(mContext, mQuery, String.valueOf(page + 1), mHanlderSearchCoupon);
+                }
+            }
+        };
+        mRecyclerViewCoupon.addOnScrollListener(mScrollLoadMoreData);
+
+//        mRecyclerViewCoupon.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//
+//                mTotalItemCount = layoutManager.getItemCount();
+//                mLastVisibleItem = layoutManager.findLastVisibleItemPosition();
+//
+////                if (mTotalItemCount < mPreviousTotalItemCount) {
+////                    this.mCurrentPage = this.startingPageIndex;
+////                    this.mPreviousTotalItemCount = mTotalItemCount;
+////                    if (mTotalItemCount == 0) {
+////                        this.loading = true;
+////                    }
+////                }
+////                // If it’s still loading, we check to see if the dataset count has
+////                // changed, if so we conclude it has finished loading and update the current page
+////                // number and total item count.
+////                if (mIsLoading && (mTotalItemCount > mPreviousTotalItemCount)) {
+////                    mIsLoading = false;
+////                    mPreviousTotalItemCount = mTotalItemCount;
+////                }
+
+//                if (!mIsLoading && mTotalItemCount <= (mLastVisibleItem + Constants.VISIBLE_THRESHOLD)) {
+////                    mCurrentPage++;
+//                    onLoadMore();
+//                    mIsLoading = true;
+//                }
+//            }
+//        });
+
+
+        mLstSearchCoupons = new ArrayList<>();
+        mAdapterCoupon = new SearchCouponRecyclerViewAdapter(mContext, mLstSearchCoupons, new OnLoginClickListener() {
             @Override
             public void onLoginClick() {
-                startActivity(new Intent(mContext, SplashSelectLoginActivity.class));
+                startActivity(new Intent(mContext, SplashActivity.class));
             }
         });
-        rv.setAdapter(mAdapterCoupon);
+        mRecyclerViewCoupon.setAdapter(mAdapterCoupon);
+
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch(mAdapterCoupon.getItemViewType(position)){
+                    case Constants.VIEW_TYPE_ITEM:
+                        return 1;
+                    case Constants.VIEW_TYPE_LOADING:
+                        return 2; //number of columns of the grid
+                    default:
+                        return -1;
+                }
+            }
+        });
+
+
     }
 
     @Override
     public void onLoadData() {
-
         new CouponAPIHelper().searchCoupon(mContext, mQuery, "1", mHanlderSearchCoupon);
-
     }
+
+//    @Override
+//    public void onLoadMore() {
+//
+//    }
 
     private Handler mHanlderSearchCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mLstSearchCoupons.size() > 0 && mLstSearchCoupons.get(mLstSearchCoupons.size() - 1) == null) {
+                mLstSearchCoupons.remove(mLstSearchCoupons.size() - 1);
+                mAdapterCoupon.notifyItemRemoved(mLstSearchCoupons.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseSearchCouponData couponData = (ResponseSearchCouponData) msg.obj;
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
                         if(couponData.data != null && couponData.data.size() > 0) {
-                            mAdapterCoupon.updateData(couponData.data);
+                            mPageTotal = couponData.pagination.getmPageTotal();
+                            mLstSearchCoupons.addAll(couponData.data);
+                            mAdapterCoupon.updateData(mLstSearchCoupons);
                         } else {
                             new DialogUtiils().showDialog(mContext, getString(R.string.no_record_found), true);
                         }
@@ -74,9 +152,13 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
+
+
 }

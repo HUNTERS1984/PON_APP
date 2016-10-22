@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.hunters.pon.R;
-import com.hunters.pon.activities.SplashSelectLoginActivity;
+import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
 
 import java.util.List;
@@ -77,7 +77,7 @@ public class DialogUtiils {
                 }).setPositiveButton(R.string.login, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent iLogin = new Intent(context, SplashSelectLoginActivity.class);
+                        Intent iLogin = new Intent(context, SplashActivity.class);
                         iLogin.putExtra(Constants.EXTRA_DATA, false);
                         context.startActivity(iLogin);
                     }

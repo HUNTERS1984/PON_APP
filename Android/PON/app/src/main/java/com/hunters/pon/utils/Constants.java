@@ -31,4 +31,9 @@ public class Constants {
     public static final String NOTIFICATION_NEW_COUPON = "new_coupon";
     public static final String NOTIFICATION_NEWS = "new_news";
     public static final String NOTIFICATION_COUPON_APPROVED = "coupon_approved";
+
+    public static final int VIEW_TYPE_ITEM = 0;
+    public static final int VIEW_TYPE_LOADING = 1;
+
+    public static final int VISIBLE_THRESHOLD = 5;
 }

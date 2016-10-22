@@ -80,16 +80,6 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
         mLstStaffs.add("Handa");
         mLstStaffs.add("Kasugai");
         mLstStaffs.add("Touchimn");
-        mLstStaffs.add("Nagoya");
-        mLstStaffs.add("Toyohashi");
-        mLstStaffs.add("Handa");
-        mLstStaffs.add("Kasugai");
-        mLstStaffs.add("Touchimn");
-        mLstStaffs.add("Nagoya");
-        mLstStaffs.add("Toyohashi");
-        mLstStaffs.add("Handa");
-        mLstStaffs.add("Kasugai");
-        mLstStaffs.add("Touchimn");
     }
 
     private Handler mHandlerChooseStaff = new Handler() {

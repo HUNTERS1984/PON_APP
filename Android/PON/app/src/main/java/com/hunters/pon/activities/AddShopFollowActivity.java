@@ -13,6 +13,7 @@ import com.hunters.pon.adapters.DividerItemDecoration;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCategoryShopFollowData;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CategoryShopFollowModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.DialogUtiils;
@@ -24,6 +25,9 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
 
     private List<CategoryShopFollowModel> mLstCouponTypeShopFollow;
     private CouponTypeShopFollowRecyclerViewAdapter mAdapterCouponTypeShopFollow;
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+
+    private int mPageTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,21 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
         setIconBack(R.drawable.ic_close);
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_shop_subscribe);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rv.setLayoutManager(layoutManager);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                mLstCouponTypeShopFollow.add(null);
+                mAdapterCouponTypeShopFollow.notifyItemInserted(mLstCouponTypeShopFollow.size() - 1);
+
+                if(page < mPageTotal) {
+                    new CouponAPIHelper().getCatShopFollow(mContext, String.valueOf(page + 1), mHanlderGetCouponTypeShopFollow);
+                }
+            }
+        };
+        rv.addOnScrollListener(mScrollLoadMoreData);
 
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
@@ -60,19 +78,27 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
     protected Handler mHanlderGetCouponTypeShopFollow = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mLstCouponTypeShopFollow.size() > 0 && mLstCouponTypeShopFollow.get(mLstCouponTypeShopFollow.size() - 1) == null) {
+                mLstCouponTypeShopFollow.remove(mLstCouponTypeShopFollow.size() - 1);
+                mAdapterCouponTypeShopFollow.notifyItemRemoved(mLstCouponTypeShopFollow.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCategoryShopFollowData couponTypeShopFollow = (ResponseCategoryShopFollowData) msg.obj;
                     if (couponTypeShopFollow.code == APIConstants.REQUEST_OK && couponTypeShopFollow.httpCode == APIConstants.HTTP_OK) {
-                        mAdapterCouponTypeShopFollow.updateData(couponTypeShopFollow.data);
+                        mPageTotal = couponTypeShopFollow.pagination.getmPageTotal();
+                        mLstCouponTypeShopFollow.addAll(couponTypeShopFollow.data);
+                        mAdapterCouponTypeShopFollow.updateData(mLstCouponTypeShopFollow);
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 }
