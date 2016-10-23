@@ -20,6 +20,7 @@ import com.hunters.pon.adapters.DividerItemDecoration;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCategoryData;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CategoryModel;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -33,7 +34,9 @@ public class ShopCouponByCategoryActivity extends Activity {
     private List<CategoryModel> mLstCategories;
     private CategoryRecyclerViewAdapter mAdapterCategory;
     private EditText mEdtSearch;
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
 
+    private int mPageTotal;
     private Context mContext;
 
     @Override
@@ -45,12 +48,25 @@ public class ShopCouponByCategoryActivity extends Activity {
         initData();
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_coupon_type);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rv.setLayoutManager(layoutManager);
 
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
         mAdapterCategory = new CategoryRecyclerViewAdapter(this, mLstCategories);
         rv.setAdapter(mAdapterCategory);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                if(page < mPageTotal) {
+                    mLstCategories.add(null);
+                    mAdapterCategory.notifyItemInserted(mLstCategories.size() - 1);
+                    new CouponAPIHelper().getCategory(mContext, String.valueOf(page + 1), mHanlderGetCategory);
+                }
+            }
+        };
+        rv.addOnScrollListener(mScrollLoadMoreData);
 
         RelativeLayout rlShopLocation = (RelativeLayout)findViewById(R.id.rl_shop_location);
         rlShopLocation.setOnClickListener(new View.OnClickListener() {
@@ -80,28 +96,34 @@ public class ShopCouponByCategoryActivity extends Activity {
     private void initData()
     {
         mLstCategories = new ArrayList<>();
-
         new CouponAPIHelper().getCategory(mContext, "1", mHanlderGetCategory);
-
 
     }
 
     private Handler mHanlderGetCategory = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mLstCategories.size() > 0 && mLstCategories.get(mLstCategories.size() - 1) == null) {
+                mLstCategories.remove(mLstCategories.size() - 1);
+                mAdapterCategory.notifyItemRemoved(mLstCategories.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCategoryData couponType = (ResponseCategoryData) msg.obj;
                     if (couponType.code == APIConstants.REQUEST_OK && couponType.httpCode == APIConstants.HTTP_OK) {
-                        mAdapterCategory.updateData(couponType.data);
+                        mPageTotal = couponType.pagination.getmPageTotal();
+                        mLstCategories.addAll(couponType.data);
+                        mAdapterCategory.updateData(mLstCategories);
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 }

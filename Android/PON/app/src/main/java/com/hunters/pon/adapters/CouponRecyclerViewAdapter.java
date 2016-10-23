@@ -18,6 +18,7 @@ import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.viewholders.LoadingViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -26,7 +27,7 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/2/2016.
  */
-public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecyclerViewAdapter.CouponRecyclerViewHolders> {
+public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<CouponModel> mListCoupons;
     private Context mContext;
@@ -44,47 +45,64 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
     }
 
     @Override
-    public CouponRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_coupon_item, null);
-        CouponRecyclerViewHolders holders = new CouponRecyclerViewHolders(view);
-        return holders;
+    public int getItemViewType(int position) {
+        return mListCoupons.get(position) == null ? Constants.VIEW_TYPE_LOADING : Constants.VIEW_TYPE_ITEM;
     }
 
     @Override
-    public void onBindViewHolder(final CouponRecyclerViewHolders holder, int position) {
-        CouponModel coupon = mListCoupons.get(position);
-        holder.mCouponTitle.setText(coupon.getmTitle());
-        holder.mCouponDescription.setText(coupon.getmCouponType().getmName());
-        holder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
-        Picasso.with(mContext).load(coupon.getmImageUrl()).placeholder(R.color.light_grey_stroke_icon).
-                fit().centerCrop().
-                into(holder.mCouponPhoto,  new Callback() {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == Constants.VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_coupon_item, null);
+            CouponRecyclerViewHolders holders = new CouponRecyclerViewHolders(view);
+            return holders;
+        }  else if (viewType == Constants.VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, parent, false);
+            LoadingViewHolder holders = new LoadingViewHolder(view);
+            return holders;
+        }
+        return null;
+    }
 
-                    @Override
-                    public void onSuccess() {
-                        holder.mProgressBarLoadingCoupon.setVisibility(View.INVISIBLE);
-                    }
+    @Override
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof CouponRecyclerViewHolders) {
+            final CouponRecyclerViewHolders couponHolder = (CouponRecyclerViewHolders)holder;
+            CouponModel coupon = mListCoupons.get(position);
+            couponHolder.mCouponTitle.setText(coupon.getmTitle());
+            couponHolder.mCouponDescription.setText(coupon.getmCouponType().getmName());
+            couponHolder.mCouponExpireDate.setText(mContext.getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
+            Picasso.with(mContext).load(coupon.getmImageUrl()).placeholder(R.color.light_grey_stroke_icon).
+                    fit().centerCrop().
+                    into(couponHolder.mCouponPhoto, new Callback() {
 
-                    @Override
-                    public void onError() {
-                        holder.mProgressBarLoadingCoupon.setVisibility(View.VISIBLE);
-                    }
-                });
+                        @Override
+                        public void onSuccess() {
+                            couponHolder.mProgressBarLoadingCoupon.setVisibility(View.INVISIBLE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            couponHolder.mProgressBarLoadingCoupon.setVisibility(View.VISIBLE);
+                        }
+                    });
 //        holder.mCouponPhoto.setBackgroundColor(ContextCompat.getColor(mContext, R.color.light_grey_stroke_icon));
 
-        if(coupon.ismIsUsed()) {
-            holder.mIconUseCoupon.setVisibility(View.VISIBLE);
-        } else {
-            holder.mIconUseCoupon.setVisibility(View.GONE);
+            if (coupon.ismIsUsed()) {
+                couponHolder.mIconUseCoupon.setVisibility(View.VISIBLE);
+            } else {
+                couponHolder.mIconUseCoupon.setVisibility(View.GONE);
+            }
+            couponHolder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).getmIsFavourite() ? R.drawable.ic_favourite : R.drawable.ic_non_favourite);
+            couponHolder.mView.setTag(position);
+        } else if (holder instanceof LoadingViewHolder) {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.mProgressBar.setIndeterminate(true);
         }
-        holder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).getmIsFavourite()?R.drawable.ic_favourite:R.drawable.ic_non_favourite);
-        holder.mView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
-        return this.mListCoupons.size();
+        return this.mListCoupons == null ? 0 :this.mListCoupons.size();
     }
 
     public void updateData(List<CouponModel> lstCoupons)

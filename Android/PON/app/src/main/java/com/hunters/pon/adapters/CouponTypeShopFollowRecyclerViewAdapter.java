@@ -35,6 +35,7 @@ public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapte
     public int getItemViewType(int position) {
         return mLstCouponTypeShopFollows.get(position) == null ? Constants.VIEW_TYPE_LOADING : Constants.VIEW_TYPE_ITEM;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == Constants.VIEW_TYPE_ITEM) {
@@ -42,7 +43,7 @@ public class CouponTypeShopFollowRecyclerViewAdapter extends RecyclerView.Adapte
             ListCouponTypeRecyclerViewHolders holders = new ListCouponTypeRecyclerViewHolders(view);
             return holders;
         } else if (viewType == Constants.VIEW_TYPE_LOADING) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, parent, false);
             LoadingViewHolder holders = new LoadingViewHolder(view);
             return holders;
         }

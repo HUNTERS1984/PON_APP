@@ -52,10 +52,9 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
         mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-                mLstCouponTypeShopFollow.add(null);
-                mAdapterCouponTypeShopFollow.notifyItemInserted(mLstCouponTypeShopFollow.size() - 1);
-
                 if(page < mPageTotal) {
+                    mLstCouponTypeShopFollow.add(null);
+                    mAdapterCouponTypeShopFollow.notifyItemInserted(mLstCouponTypeShopFollow.size() - 1);
                     new CouponAPIHelper().getCatShopFollow(mContext, String.valueOf(page + 1), mHanlderGetCouponTypeShopFollow);
                 }
             }

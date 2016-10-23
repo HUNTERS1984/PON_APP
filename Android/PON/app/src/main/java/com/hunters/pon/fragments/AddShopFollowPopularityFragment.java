@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
 
-public class AddShopFollowPopularityFragment extends BaseShopFollowFragment implements OnLoadDataListener {
+import java.util.ArrayList;
+
+public class AddShopFollowPopularityFragment extends BaseShopFollowFragment implements OnLoadDataListener, OnLoadMoreListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String CAT_ID = "CatId";
@@ -45,11 +48,19 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
         }
 
         mDataListener = this;
+        mLoadMoreData = this;
     }
 
     @Override
     public void onLoadData() {
+        mLstShopFollows = new ArrayList<>();
         new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "1", mHanlderShopFollow);
+    }
+
+    @Override
+    public void onLoadMoreData(int page) {
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, String.valueOf(page + 1), mHanlderShopFollow);
+
     }
 
 //    @Override

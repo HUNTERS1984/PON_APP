@@ -5,5 +5,5 @@ package com.hunters.pon.protocols;
  */
 
 public interface OnLoadMoreListener {
-    void onLoadMore();
+    void onLoadMoreData(int page);
 }

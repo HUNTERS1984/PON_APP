@@ -13,6 +13,7 @@ import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponByCategoryDetailActivity;
 import com.hunters.pon.models.CategoryModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.viewholders.LoadingViewHolder;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/4/2016.
  */
-public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.CategoryRecyclerViewHolders> {
+public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<CategoryModel> mLstCategories;
     private Context mContext;
@@ -31,26 +32,43 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     }
 
     @Override
-    public CategoryRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item, null);
-        CategoryRecyclerViewHolders holders = new CategoryRecyclerViewHolders(view);
-        return holders;
+    public int getItemViewType(int position) {
+        return mLstCategories.get(position) == null ? Constants.VIEW_TYPE_LOADING : Constants.VIEW_TYPE_ITEM;
     }
 
     @Override
-    public void onBindViewHolder(CategoryRecyclerViewHolders holder, int position) {
-        CategoryModel couponType = mLstCategories.get(position);
-        holder.mCategoryName.setText(couponType.getmName());
-        Picasso.with(mContext).load(couponType.getmIcon()).
-                fit()
-                .into(holder.mCategoryIcon);
-        holder.mView.setTag(position);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == Constants.VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item, null);
+            CategoryRecyclerViewHolders holders = new CategoryRecyclerViewHolders(view);
+            return holders;
+        } else if (viewType == Constants.VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, parent, false);
+            LoadingViewHolder holders = new LoadingViewHolder(view);
+            return holders;
+        }
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof CategoryRecyclerViewHolders) {
+            final CategoryRecyclerViewHolders categoryHolder = (CategoryRecyclerViewHolders) holder;
+            CategoryModel couponType = mLstCategories.get(position);
+            categoryHolder.mCategoryName.setText(couponType.getmName());
+            Picasso.with(mContext).load(couponType.getmIcon()).
+                    fit()
+                    .into(categoryHolder.mCategoryIcon);
+            categoryHolder.mView.setTag(position);
+        } else if (holder instanceof LoadingViewHolder) {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.mProgressBar.setIndeterminate(true);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return this.mLstCategories.size();
+        return this.mLstCategories == null ? 0 : this.mLstCategories.size();
     }
 
     public void updateData(List<CategoryModel> lstCategories) {

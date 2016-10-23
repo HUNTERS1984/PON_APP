@@ -14,9 +14,11 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseMyFavourite;
 import com.hunters.pon.api.ResponseMyFavouriteData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
@@ -24,6 +26,9 @@ import java.util.ArrayList;
 public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListener{
 
     private CouponRecyclerViewAdapter mAdapterCoupon;
+
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+    private int mPageTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +59,34 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
         activeMyFavourite();
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_my_favourite);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        rv.setLayoutManager(layoutManager);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                if(page < mPageTotal) {
+                    mListCoupons.add(null);
+                    mAdapterCoupon.notifyItemInserted(mListCoupons.size() - 1);
+                    new CouponAPIHelper().getFavouriteCoupon(mContext, String.valueOf(page + 1), mHanlderFavouriteCoupon);
+                }
+            }
+        };
+
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch(mAdapterCoupon.getItemViewType(position)){
+                    case Constants.VIEW_TYPE_ITEM:
+                        return 1;
+                    case Constants.VIEW_TYPE_LOADING:
+                        return 2; //number of columns of the grid
+                    default:
+                        return -1;
+                }
+            }
+        });
+        rv.addOnScrollListener(mScrollLoadMoreData);
 
         mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
         rv.setAdapter(mAdapterCoupon);
@@ -84,6 +116,10 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
     private Handler mHanlderFavouriteCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mListCoupons.size() > 0 && mListCoupons.get(mListCoupons.size() - 1) == null) {
+                mListCoupons.remove(mListCoupons.size() - 1);
+                mAdapterCoupon.notifyItemRemoved(mListCoupons.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseMyFavouriteData couponData = (ResponseMyFavouriteData) msg.obj;
@@ -99,15 +135,18 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
                             model.setmIsLoginRequired(coupon.getmIsLoginRequired());
                             mListCoupons.add(model);
                         }
+                        mPageTotal = couponData.pagination.getmPageTotal();
                         mAdapterCoupon.updateData(mListCoupons);
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 }

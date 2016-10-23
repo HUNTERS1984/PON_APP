@@ -23,6 +23,7 @@ import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.viewholders.LoadingViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/4/2016.
  */
-public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddShopFollowRecyclerViewAdapter.ShopSubscribeDetailRecyclerViewHolders> {
+public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<ShopModel> mLstShopFollows;
     private Context mContext;
@@ -42,49 +43,66 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
     }
 
     @Override
-    public ShopSubscribeDetailRecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.shop_follow_detail_item, null);
-        ShopSubscribeDetailRecyclerViewHolders holders = new ShopSubscribeDetailRecyclerViewHolders(view);
-        return holders;
+    public int getItemViewType(int position) {
+        return mLstShopFollows.get(position) == null ? Constants.VIEW_TYPE_LOADING : Constants.VIEW_TYPE_ITEM;
     }
 
     @Override
-    public void onBindViewHolder(final ShopSubscribeDetailRecyclerViewHolders holder, int position) {
-        ShopModel shop = mLstShopFollows.get(position);
-        Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
-                .fit().centerCrop()
-                .into(holder.mShopPhoto, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        holder.mProgressBarLoadingShopPhoto.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onError() {
-                        holder.mProgressBarLoadingShopPhoto.setVisibility(View.VISIBLE);
-                    }
-                });
-
-        boolean isShopFollow = shop.getmIsShopFollow();
-        if(isShopFollow){
-            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
-            holder.mDesShopSelectStatus.setText(mContext.getString(R.string.following));
-            holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.white));
-            holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_tick);
-        } else {
-            holder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_non_highlight);
-            holder.mDesShopSelectStatus.setText(mContext.getString(R.string.follow));
-            holder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.shop_subscribe_select));
-            holder.mIconShopSelectStatus.setImageResource(R.drawable.ic_add_follow_shop);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == Constants.VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.shop_follow_detail_item, null);
+            ShopFollowDetailRecyclerViewHolders holders = new ShopFollowDetailRecyclerViewHolders(view);
+            return holders;
+        } else if (viewType == Constants.VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item_layout, parent, false);
+            LoadingViewHolder holders = new LoadingViewHolder(view);
+            return holders;
         }
-        holder.mBackgroundShopSelectStatus.setTag(position);
-        holder.mView.setTag(position);
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ShopFollowDetailRecyclerViewHolders) {
+            final ShopFollowDetailRecyclerViewHolders shopHolder = (ShopFollowDetailRecyclerViewHolders)holder;
+            ShopModel shop = mLstShopFollows.get(position);
+            Picasso.with(mContext).load(shop.getmShopPhotoAvarta())
+                    .fit().centerCrop()
+                    .into(shopHolder.mShopPhoto, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            shopHolder.mProgressBarLoadingShopPhoto.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            shopHolder.mProgressBarLoadingShopPhoto.setVisibility(View.VISIBLE);
+                        }
+                    });
+
+            boolean isShopFollow = shop.getmIsShopFollow();
+            if (isShopFollow) {
+                shopHolder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_highlight);
+                shopHolder.mDesShopSelectStatus.setText(mContext.getString(R.string.following));
+                shopHolder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.white));
+                shopHolder.mIconShopSelectStatus.setImageResource(R.drawable.ic_tick);
+            } else {
+                shopHolder.mBackgroundShopSelectStatus.setBackgroundResource(R.drawable.background_rectangle_non_highlight);
+                shopHolder.mDesShopSelectStatus.setText(mContext.getString(R.string.follow));
+                shopHolder.mDesShopSelectStatus.setTextColor(ContextCompat.getColor(mContext, R.color.shop_subscribe_select));
+                shopHolder.mIconShopSelectStatus.setImageResource(R.drawable.ic_add_follow_shop);
+            }
+            shopHolder.mBackgroundShopSelectStatus.setTag(position);
+            shopHolder.mView.setTag(position);
+        } else if (holder instanceof LoadingViewHolder) {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.mProgressBar.setIndeterminate(true);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return this.mLstShopFollows.size();
+        return this.mLstShopFollows == null ? 0 : this.mLstShopFollows.size();
     }
 
     public void updateData(List<ShopModel> lstShopFollows)
@@ -93,7 +111,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
         notifyDataSetChanged();
     }
 
-    public class ShopSubscribeDetailRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ShopFollowDetailRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public View mView;
         public ImageView mShopPhoto;
@@ -104,7 +122,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<AddSh
 
         private int mPosSelection;
 
-        public ShopSubscribeDetailRecyclerViewHolders(View itemView) {
+        public ShopFollowDetailRecyclerViewHolders(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             mView = itemView;

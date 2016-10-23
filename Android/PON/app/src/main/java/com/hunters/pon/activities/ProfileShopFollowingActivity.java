@@ -11,17 +11,19 @@ import com.hunters.pon.adapters.AddShopFollowRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseShopFollowData;
 import com.hunters.pon.api.ShopAPIHelper;
-import com.hunters.pon.models.ShopModel;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProfileShopFollowingActivity extends BaseActivity implements OnLoadDataListener {
 
-    private List<ShopModel> mListShops;
+//    private List<ShopModel> mListShops;
     private AddShopFollowRecyclerViewAdapter mAdapterShopFollow;
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+    private int mPageTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,34 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
     private void initLayout()
     {
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_profile_shop_following);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        rv.setLayoutManager(layoutManager);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                if(page < mPageTotal) {
+                    mListShops.add(null);
+                    mAdapterShopFollow.notifyItemInserted(mListShops.size() - 1);
+                    new ShopAPIHelper().getShopFollow(mContext, String.valueOf(page + 1), mHanlderShopFollow);
+                }
+            }
+        };
+
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch(mAdapterShopFollow.getItemViewType(position)){
+                    case Constants.VIEW_TYPE_ITEM:
+                        return 1;
+                    case Constants.VIEW_TYPE_LOADING:
+                        return 2; //number of columns of the grid
+                    default:
+                        return -1;
+                }
+            }
+        });
+        rv.addOnScrollListener(mScrollLoadMoreData);
 
         mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(this, mListShops);
         rv.setAdapter(mAdapterShopFollow);
@@ -58,11 +87,17 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
     private Handler mHanlderShopFollow = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mListShops.size() > 0 && mListShops.get(mListShops.size() - 1) == null) {
+                mListShops.remove(mListShops.size() - 1);
+                mAdapterShopFollow.notifyItemRemoved(mListShops.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseShopFollowData shopFollow = (ResponseShopFollowData) msg.obj;
                     if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
-                        mAdapterShopFollow.updateData(shopFollow.data);
+                        mPageTotal = shopFollow.pagination.getmPageTotal();
+                        mListShops.addAll(shopFollow.data);
+                        mAdapterShopFollow.updateData(mListShops);
                     } else if (shopFollow.httpCode == APIConstants.HTTP_UN_AUTHORIZATION){
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else {
@@ -70,9 +105,11 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 }

@@ -51,10 +51,10 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
         mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-                mLstSearchCoupons.add(null);
-                mAdapterCoupon.notifyItemInserted(mLstSearchCoupons.size() - 1);
 
                 if(page < mPageTotal) {
+                    mLstSearchCoupons.add(null);
+                    mAdapterCoupon.notifyItemInserted(mLstSearchCoupons.size() - 1);
                     new CouponAPIHelper().searchCoupon(mContext, mQuery, String.valueOf(page + 1), mHanlderSearchCoupon);
                 }
             }

@@ -17,8 +17,11 @@ import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponByCategory;
 import com.hunters.pon.api.ResponseCouponByCategoryData;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.protocols.OnLoadMoreListener;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.List;
@@ -46,6 +49,9 @@ public class BaseCouponByCategoryFragment extends Fragment {
     private CouponRecyclerViewAdapter mAdapterCouponByCategory;
 
     protected List<CouponModel> mListCoupons;
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+    private int mPageTotal;
+    protected OnLoadMoreListener mLoadMoreData;
 
     public BaseCouponByCategoryFragment() {
         // Required empty public constructor
@@ -87,7 +93,36 @@ public class BaseCouponByCategoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_shop_coupons_grid_view, container, false);
         RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_coupon_filter);
-        rv.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+        GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(), 2);
+        rv.setLayoutManager(layoutManager);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                if(page < mPageTotal) {
+                    mListCoupons.add(null);
+                    mAdapterCouponByCategory.notifyItemInserted(mListCoupons.size() - 1);
+                    if(mLoadMoreData != null) {
+                        mLoadMoreData.onLoadMoreData(page);
+                    }
+                }
+            }
+        };
+
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch(mAdapterCouponByCategory.getItemViewType(position)){
+                    case Constants.VIEW_TYPE_ITEM:
+                        return 1;
+                    case Constants.VIEW_TYPE_LOADING:
+                        return 2; //number of columns of the grid
+                    default:
+                        return -1;
+                }
+            }
+        });
+        rv.addOnScrollListener(mScrollLoadMoreData);
 
         mAdapterCouponByCategory = new CouponRecyclerViewAdapter(view.getContext(), mListCoupons);
         rv.setAdapter(mAdapterCouponByCategory);
@@ -133,20 +168,28 @@ public class BaseCouponByCategoryFragment extends Fragment {
     protected Handler mHanlderGetCouponByCategory = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mListCoupons.size() > 0 && mListCoupons.get(mListCoupons.size() - 1) == null) {
+                mListCoupons.remove(mListCoupons.size() - 1);
+                mAdapterCouponByCategory.notifyItemRemoved(mListCoupons.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponByCategoryData couponByCategoryData = (ResponseCouponByCategoryData) msg.obj;
                     if (couponByCategoryData.code == APIConstants.REQUEST_OK && couponByCategoryData.httpCode == APIConstants.HTTP_OK) {
+                        mPageTotal = couponByCategoryData.pagination.getmPageTotal();
                         ResponseCouponByCategory couponByCategory = couponByCategoryData.data;
-                        mAdapterCouponByCategory.updateData(couponByCategory.getmLstCoupons());
+                        mListCoupons.addAll(couponByCategory.getmLstCoupons());
+                        mAdapterCouponByCategory.updateData(mListCoupons);
                     } else {
                         new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 }
