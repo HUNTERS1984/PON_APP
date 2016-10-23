@@ -105,9 +105,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCatShopFollow(Context context, String pageIndex , final Handler handler)
+    public void getCatShopFollow(Context context, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -144,9 +146,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCategory(Context context, String pageIndex , final Handler handler)
+    public void getCategory(Context context, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -183,9 +187,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCouponByCategory(Context context, String type, long catId, String pageIndex , final Handler handler)
+    public void getCouponByCategory(Context context, String type, long catId, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -226,9 +232,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getFavouriteCoupon(Context context, String pageIndex , final Handler handler)
+    public void getFavouriteCoupon(Context context, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -269,9 +277,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getHistoryCoupon(Context context, String pageIndex , final Handler handler)
+    public void getHistoryCoupon(Context context, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -398,9 +408,11 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void searchCoupon(Context context, String query, String pageIndex , final Handler handler)
+    public void searchCoupon(Context context, String query, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())

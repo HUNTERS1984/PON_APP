@@ -48,7 +48,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
                 if(page < mPageTotal) {
                     mListShops.add(null);
                     mAdapterShopFollow.notifyItemInserted(mListShops.size() - 1);
-                    new ShopAPIHelper().getShopFollow(mContext, String.valueOf(page + 1), mHanlderShopFollow);
+                    new ShopAPIHelper().getShopFollow(mContext, String.valueOf(page + 1), mHanlderShopFollow, false);
                 }
             }
         };
@@ -76,7 +76,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
     public void onLoadData() {
         mListShops = new ArrayList<>();
 
-        new ShopAPIHelper().getShopFollow(mContext, "1", mHanlderShopFollow);
+        new ShopAPIHelper().getShopFollow(mContext, "1", mHanlderShopFollow, true);
 //        for(int i=0; i<4;i++){
 //            ShopModel shop =new ShopModel();
 //            shop.setmIsShopFollow(1);

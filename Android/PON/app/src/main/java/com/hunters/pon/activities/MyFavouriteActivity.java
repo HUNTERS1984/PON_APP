@@ -68,7 +68,7 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
                 if(page < mPageTotal) {
                     mListCoupons.add(null);
                     mAdapterCoupon.notifyItemInserted(mListCoupons.size() - 1);
-                    new CouponAPIHelper().getFavouriteCoupon(mContext, String.valueOf(page + 1), mHanlderFavouriteCoupon);
+                    new CouponAPIHelper().getFavouriteCoupon(mContext, String.valueOf(page + 1), mHanlderFavouriteCoupon, false);
                 }
             }
         };
@@ -103,7 +103,7 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
                         checkToUpdateButtonLogin();
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
-                        new CouponAPIHelper().getFavouriteCoupon(mContext, "1", mHanlderFavouriteCoupon);
+                        new CouponAPIHelper().getFavouriteCoupon(mContext, "1", mHanlderFavouriteCoupon, true);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:

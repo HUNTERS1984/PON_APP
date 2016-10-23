@@ -61,7 +61,7 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
     public void onLoadData() {
         mListCoupons = new ArrayList<>();
 
-        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, "1", mHanlderGetCouponByCategory);
+        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, "1", mHanlderGetCouponByCategory, true);
 //        for(int i=0; i<5; i++) {
 //            CouponModel coupon = new CouponModel();
 //            coupon.setmTitle("タイトルが入ります");
@@ -74,6 +74,6 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
 
     @Override
     public void onLoadMoreData(int page) {
-        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(page + 1), mHanlderGetCouponByCategory);
+        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(page + 1), mHanlderGetCouponByCategory, false);
     }
 }

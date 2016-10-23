@@ -104,9 +104,11 @@ public class ShopAPIHelper extends APIHelper {
         });
     }
 
-    public void getShopFollowCategory(Context context, String featureType, long catId, String pageIndex , final Handler handler)
+    public void getShopFollowCategory(Context context, String featureType, long catId, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -116,7 +118,7 @@ public class ShopAPIHelper extends APIHelper {
 
 //        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, "1", pageIndex);
+        Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseShopFollowCategoryData>() {
             @Override
@@ -143,9 +145,11 @@ public class ShopAPIHelper extends APIHelper {
         });
     }
 
-    public void getMapShopCoupon(Context context, double lat, double lng, String pageIndex , final Handler handler)
+    public void getMapShopCoupon(Context context, double lat, double lng, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -155,7 +159,7 @@ public class ShopAPIHelper extends APIHelper {
 
 //        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(lat, lng, "1", pageIndex);
+        Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(lat, lng, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseMapShopCouponData>() {
             @Override
@@ -182,9 +186,11 @@ public class ShopAPIHelper extends APIHelper {
         });
     }
 
-    public void getShopFollow(Context context, String pageIndex , final Handler handler)
+    public void getShopFollow(Context context, String pageIndex , final Handler handler, boolean isShowProgress)
     {
-        showProgressDialog(context);
+        if(isShowProgress) {
+            showProgressDialog(context);
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(HOST_NAME)
                 .addConverterFactory(GsonConverterFactory.create())

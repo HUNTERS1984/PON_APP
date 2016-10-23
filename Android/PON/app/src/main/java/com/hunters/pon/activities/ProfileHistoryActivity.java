@@ -47,7 +47,7 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
                 if(page < mPageTotal) {
                     mListCoupons.add(null);
                     mAdapterCoupon.notifyItemInserted(mListCoupons.size() - 1);
-                    new CouponAPIHelper().getHistoryCoupon(mContext, String.valueOf(page + 1), mHanlderHistoryCoupon);
+                    new CouponAPIHelper().getHistoryCoupon(mContext, String.valueOf(page + 1), mHanlderHistoryCoupon, false);
                 }
             }
         };
@@ -102,7 +102,7 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
                         checkToUpdateButtonLogin();
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
-                        new CouponAPIHelper().getHistoryCoupon(mContext, "1", mHanlderHistoryCoupon);
+                        new CouponAPIHelper().getHistoryCoupon(mContext, "1", mHanlderHistoryCoupon, true);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:

@@ -69,7 +69,7 @@ public interface ICallServices {
     Call<ResponseCommon> useCoupon(@Header("Authorization") String token, @Query("id") long id);
 
     @POST("/api/v1/like/coupons/{id}")
-    Call<ResponseCommon> addFavouriteCoupon(@Header("Authorization") String token, @Query("id") String id);
+    Call<ResponseCommon> addFavouriteCoupon(@Header("Authorization") String token, @Path("id") String id);
 
     @GET("/api/v1/search/coupons")
     Call<ResponseSearchCouponData> searchCoupon(@Header("Authorization") String token, @Query("query") String query, @Query("page_size") String size, @Query("page_index") String index);

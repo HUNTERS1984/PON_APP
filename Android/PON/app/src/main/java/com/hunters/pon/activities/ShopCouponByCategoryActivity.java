@@ -62,7 +62,7 @@ public class ShopCouponByCategoryActivity extends Activity {
                 if(page < mPageTotal) {
                     mLstCategories.add(null);
                     mAdapterCategory.notifyItemInserted(mLstCategories.size() - 1);
-                    new CouponAPIHelper().getCategory(mContext, String.valueOf(page + 1), mHanlderGetCategory);
+                    new CouponAPIHelper().getCategory(mContext, String.valueOf(page + 1), mHanlderGetCategory, false);
                 }
             }
         };
@@ -96,7 +96,7 @@ public class ShopCouponByCategoryActivity extends Activity {
     private void initData()
     {
         mLstCategories = new ArrayList<>();
-        new CouponAPIHelper().getCategory(mContext, "1", mHanlderGetCategory);
+        new CouponAPIHelper().getCategory(mContext, "1", mHanlderGetCategory, true);
 
     }
 

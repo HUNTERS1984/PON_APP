@@ -161,7 +161,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 if(!token.equalsIgnoreCase("")) {
                     new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
                 } else {
-                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+                    new DialogUtiils().showDialogLogin(mContext, getString(R.string.need_login));
                 }
 
             }
@@ -197,7 +197,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 if(!token.equalsIgnoreCase("")) {
                     new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
                 } else {
-                    new DialogUtiils().showDialog(mContext, getString(R.string.need_login), false);
+                    new DialogUtiils().showDialogLogin(mContext, getString(R.string.need_login));
                 }
             }
         });
@@ -359,6 +359,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         new DialogUtiils().showDialog(mContext, data.message, false);
                     } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
                         new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
+                    } else {
+                        if(data.message != null) {
+                            new DialogUtiils().showDialog(mContext, data.message, false);
+                        }
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:

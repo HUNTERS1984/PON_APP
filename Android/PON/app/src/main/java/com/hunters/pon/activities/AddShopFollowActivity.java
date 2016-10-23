@@ -55,7 +55,7 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
                 if(page < mPageTotal) {
                     mLstCouponTypeShopFollow.add(null);
                     mAdapterCouponTypeShopFollow.notifyItemInserted(mLstCouponTypeShopFollow.size() - 1);
-                    new CouponAPIHelper().getCatShopFollow(mContext, String.valueOf(page + 1), mHanlderGetCouponTypeShopFollow);
+                    new CouponAPIHelper().getCatShopFollow(mContext, String.valueOf(page + 1), mHanlderGetCouponTypeShopFollow, false);
                 }
             }
         };
@@ -71,7 +71,7 @@ public class AddShopFollowActivity extends BaseActivity implements OnLoadDataLis
     public void onLoadData() {
         mLstCouponTypeShopFollow = new ArrayList<>();
 
-        new CouponAPIHelper().getCatShopFollow(mContext, "1", mHanlderGetCouponTypeShopFollow);
+        new CouponAPIHelper().getCatShopFollow(mContext, "1", mHanlderGetCouponTypeShopFollow, true);
 
     }
     protected Handler mHanlderGetCouponTypeShopFollow = new Handler(){

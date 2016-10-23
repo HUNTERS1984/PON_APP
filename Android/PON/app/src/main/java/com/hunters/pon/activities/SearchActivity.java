@@ -55,7 +55,7 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
                 if(page < mPageTotal) {
                     mLstSearchCoupons.add(null);
                     mAdapterCoupon.notifyItemInserted(mLstSearchCoupons.size() - 1);
-                    new CouponAPIHelper().searchCoupon(mContext, mQuery, String.valueOf(page + 1), mHanlderSearchCoupon);
+                    new CouponAPIHelper().searchCoupon(mContext, mQuery, String.valueOf(page + 1), mHanlderSearchCoupon, false);
                 }
             }
         };
@@ -121,7 +121,7 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
 
     @Override
     public void onLoadData() {
-        new CouponAPIHelper().searchCoupon(mContext, mQuery, "1", mHanlderSearchCoupon);
+        new CouponAPIHelper().searchCoupon(mContext, mQuery, "1", mHanlderSearchCoupon, true);
     }
 
 //    @Override
