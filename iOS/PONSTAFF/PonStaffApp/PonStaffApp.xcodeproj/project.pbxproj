@@ -1,0 +1,738 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		614B3343D721050FFFA749DB /* Pods_PonStaffApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */; };
+		FA730CC71DBDE88B003CD52E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CC61DBDE88B003CD52E /* ViewController.swift */; };
+		FA730CCC1DBDE88B003CD52E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA730CCB1DBDE88B003CD52E /* Assets.xcassets */; };
+		FA730CCF1DBDE88B003CD52E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA730CCD1DBDE88B003CD52E /* LaunchScreen.storyboard */; };
+		FA730CE51DBDFA03003CD52E /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDB1DBDFA03003CD52E /* ApiEndpoint.swift */; };
+		FA730CE61DBDFA03003CD52E /* ApiFileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDC1DBDFA03003CD52E /* ApiFileUpload.swift */; };
+		FA730CE71DBDFA03003CD52E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDD1DBDFA03003CD52E /* ApiManager.swift */; };
+		FA730CE81DBDFA03003CD52E /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDE1DBDFA03003CD52E /* ApiRequest.swift */; };
+		FA730CE91DBDFA03003CD52E /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDF1DBDFA03003CD52E /* ApiResponse.swift */; };
+		FA730CEA1DBDFA03003CD52E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CE11DBDFA03003CD52E /* ErrorMessage.swift */; };
+		FA730CEB1DBDFA03003CD52E /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CE21DBDFA03003CD52E /* GlobalConstant.swift */; };
+		FA730D891DBDFA6D003CD52E /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D451DBDFA6D003CD52E /* QRCode.swift */; };
+		FA730D8A1DBDFA6D003CD52E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FA730D481DBDFA6D003CD52E /* Reachability.m */; };
+		FA730D901DBDFA6D003CD52E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D561DBDFA6D003CD52E /* SwiftyJSON.swift */; };
+		FA730D911DBDFA6D003CD52E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D581DBDFA6D003CD52E /* DefaultsKeysExtension.swift */; };
+		FA730D921DBDFA6D003CD52E /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D591DBDFA6D003CD52E /* SwiftyUserDefaults.swift */; };
+		FA730D9B1DBDFAD0003CD52E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D961DBDFAD0003CD52E /* ReachabilityManager.swift */; };
+		FA730D9D1DBDFAD0003CD52E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D981DBDFAD0003CD52E /* UserDataManager.swift */; };
+		FA730DC41DBDFB00003CD52E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DA01DBDFB00003CD52E /* BaseNavigationController.swift */; };
+		FA730DC51DBDFB00003CD52E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DA11DBDFB00003CD52E /* BaseTabBarController.swift */; };
+		FA730DC61DBDFB00003CD52E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DA21DBDFB00003CD52E /* BaseViewController.swift */; };
+		FA730DFF1DBDFB3E003CD52E /* HLKSharedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DEA1DBDFB3E003CD52E /* HLKSharedResources.swift */; };
+		FA730E001DBDFB3E003CD52E /* HLKDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DEC1DBDFB3E003CD52E /* HLKDropDownTextField.swift */; };
+		FA730E011DBDFB3E003CD52E /* HLKLinearScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DED1DBDFB3E003CD52E /* HLKLinearScrollView.swift */; };
+		FA730E021DBDFB3E003CD52E /* HLKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DEE1DBDFB3E003CD52E /* HLKTextField.swift */; };
+		FA730E031DBDFB3E003CD52E /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF01DBDFB3E003CD52E /* MKMapViewExtension.swift */; };
+		FA730E041DBDFB3E003CD52E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF11DBDFB3E003CD52E /* StringExtension.swift */; };
+		FA730E051DBDFB3E003CD52E /* TypeConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF21DBDFB3E003CD52E /* TypeConversionHelper.swift */; };
+		FA730E061DBDFB3E003CD52E /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF31DBDFB3E003CD52E /* UIAlertControllerExtension.swift */; };
+		FA730E071DBDFB3E003CD52E /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF41DBDFB3E003CD52E /* UICollectionViewExtension.swift */; };
+		FA730E081DBDFB3E003CD52E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF51DBDFB3E003CD52E /* UIColorExtension.swift */; };
+		FA730E091DBDFB3E003CD52E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF61DBDFB3E003CD52E /* UIImageExtension.swift */; };
+		FA730E0A1DBDFB3E003CD52E /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF71DBDFB3E003CD52E /* UILabelExtension.swift */; };
+		FA730E0B1DBDFB3E003CD52E /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF81DBDFB3E003CD52E /* UINavigationControllerExtension.swift */; };
+		FA730E0C1DBDFB3E003CD52E /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DF91DBDFB3E003CD52E /* UIScrollViewExtension.swift */; };
+		FA730E0D1DBDFB3E003CD52E /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DFA1DBDFB3E003CD52E /* UITableViewExtension.swift */; };
+		FA730E0E1DBDFB3E003CD52E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DFB1DBDFB3E003CD52E /* UIViewControllerExtension.swift */; };
+		FA730E0F1DBDFB3E003CD52E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DFC1DBDFB3E003CD52E /* UIViewExtension.swift */; };
+		FA730E101DBDFB3E003CD52E /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730DFE1DBDFB3E003CD52E /* LoggingPrint.swift */; };
+		FA730E191DBDFB6B003CD52E /* HiraginoSansUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730E131DBDFB6B003CD52E /* HiraginoSansUIFont.swift */; };
+		FA730EA01DBDFB92003CD52E /* HiraginoSans-W4.ttc in Resources */ = {isa = PBXBuildFile; fileRef = FA730E201DBDFB92003CD52E /* HiraginoSans-W4.ttc */; };
+		FA730EA11DBDFB92003CD52E /* HiraginoSans-W5.ttc in Resources */ = {isa = PBXBuildFile; fileRef = FA730E211DBDFB92003CD52E /* HiraginoSans-W5.ttc */; };
+		FA730EA21DBDFB92003CD52E /* HiraginoSans-W6.ttc in Resources */ = {isa = PBXBuildFile; fileRef = FA730E221DBDFB92003CD52E /* HiraginoSans-W6.ttc */; };
+		FA730F221DBDFC03003CD52E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730F211DBDFC03003CD52E /* AppDelegate.swift */; };
+		FA730F251DBDFC72003CD52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA730F241DBDFC72003CD52E /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonStaffApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F778D7426D7EF973DD94775 /* Pods-PonStaffApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonStaffApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp.release.xcconfig"; sourceTree = "<group>"; };
+		E9F47E1E113F2A33123C0B24 /* Pods-PonStaffApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonStaffApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA730CC11DBDE88B003CD52E /* PonStaffApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonStaffApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA730CC61DBDE88B003CD52E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA730CCB1DBDE88B003CD52E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA730CCE1DBDE88B003CD52E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA730CD01DBDE88B003CD52E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA730CDB1DBDFA03003CD52E /* ApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		FA730CDC1DBDFA03003CD52E /* ApiFileUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFileUpload.swift; sourceTree = "<group>"; };
+		FA730CDD1DBDFA03003CD52E /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FA730CDE1DBDFA03003CD52E /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		FA730CDF1DBDFA03003CD52E /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		FA730CE11DBDFA03003CD52E /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		FA730CE21DBDFA03003CD52E /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
+		FA730CE41DBDFA03003CD52E /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
+		FA730D451DBDFA6D003CD52E /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		FA730D471DBDFA6D003CD52E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FA730D481DBDFA6D003CD52E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FA730D561DBDFA6D003CD52E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		FA730D581DBDFA6D003CD52E /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
+		FA730D591DBDFA6D003CD52E /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
+		FA730D961DBDFAD0003CD52E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		FA730D981DBDFAD0003CD52E /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		FA730DA01DBDFB00003CD52E /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		FA730DA11DBDFB00003CD52E /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		FA730DA21DBDFB00003CD52E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FA730DEA1DBDFB3E003CD52E /* HLKSharedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKSharedResources.swift; sourceTree = "<group>"; };
+		FA730DEC1DBDFB3E003CD52E /* HLKDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKDropDownTextField.swift; sourceTree = "<group>"; };
+		FA730DED1DBDFB3E003CD52E /* HLKLinearScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKLinearScrollView.swift; sourceTree = "<group>"; };
+		FA730DEE1DBDFB3E003CD52E /* HLKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKTextField.swift; sourceTree = "<group>"; };
+		FA730DF01DBDFB3E003CD52E /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		FA730DF11DBDFB3E003CD52E /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FA730DF21DBDFB3E003CD52E /* TypeConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeConversionHelper.swift; sourceTree = "<group>"; };
+		FA730DF31DBDFB3E003CD52E /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		FA730DF41DBDFB3E003CD52E /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		FA730DF51DBDFB3E003CD52E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		FA730DF61DBDFB3E003CD52E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		FA730DF71DBDFB3E003CD52E /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		FA730DF81DBDFB3E003CD52E /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		FA730DF91DBDFB3E003CD52E /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		FA730DFA1DBDFB3E003CD52E /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		FA730DFB1DBDFB3E003CD52E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		FA730DFC1DBDFB3E003CD52E /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		FA730DFE1DBDFB3E003CD52E /* LoggingPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
+		FA730E131DBDFB6B003CD52E /* HiraginoSansUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraginoSansUIFont.swift; sourceTree = "<group>"; };
+		FA730E201DBDFB92003CD52E /* HiraginoSans-W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSans-W4.ttc"; sourceTree = "<group>"; };
+		FA730E211DBDFB92003CD52E /* HiraginoSans-W5.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSans-W5.ttc"; sourceTree = "<group>"; };
+		FA730E221DBDFB92003CD52E /* HiraginoSans-W6.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSans-W6.ttc"; sourceTree = "<group>"; };
+		FA730F211DBDFC03003CD52E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA730F241DBDFC72003CD52E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA730CBE1DBDE88B003CD52E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614B3343D721050FFFA749DB /* Pods_PonStaffApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1423107335FEF6610EA092B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D631AA9B32078B2ADDAC0503 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9F47E1E113F2A33123C0B24 /* Pods-PonStaffApp.debug.xcconfig */,
+				9F778D7426D7EF973DD94775 /* Pods-PonStaffApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA730CB81DBDE88B003CD52E = {
+			isa = PBXGroup;
+			children = (
+				FA730CC31DBDE88B003CD52E /* PonStaffApp */,
+				FA730CC21DBDE88B003CD52E /* Products */,
+				D631AA9B32078B2ADDAC0503 /* Pods */,
+				1423107335FEF6610EA092B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA730CC21DBDE88B003CD52E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA730CC11DBDE88B003CD52E /* PonStaffApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA730CC31DBDE88B003CD52E /* PonStaffApp */ = {
+			isa = PBXGroup;
+			children = (
+				FA730F231DBDFC63003CD52E /* StoryBoard */,
+				FA730F201DBDFC03003CD52E /* App */,
+				FA730E1E1DBDFB92003CD52E /* Resources */,
+				FA730E111DBDFB6B003CD52E /* Helper */,
+				FA730DE61DBDFB3E003CD52E /* Libraries */,
+				FA730D9E1DBDFB00003CD52E /* ViewController */,
+				FA730D931DBDFAD0003CD52E /* Manager */,
+				FA730CEC1DBDFA6D003CD52E /* Vendor */,
+				FA730CDA1DBDFA03003CD52E /* Api */,
+				FA730CE01DBDFA03003CD52E /* Constant */,
+				FA730CE31DBDFA03003CD52E /* Header */,
+				FA730CC61DBDE88B003CD52E /* ViewController.swift */,
+				FA730CCB1DBDE88B003CD52E /* Assets.xcassets */,
+				FA730CCD1DBDE88B003CD52E /* LaunchScreen.storyboard */,
+				FA730CD01DBDE88B003CD52E /* Info.plist */,
+			);
+			path = PonStaffApp;
+			sourceTree = "<group>";
+		};
+		FA730CDA1DBDFA03003CD52E /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				FA730CDB1DBDFA03003CD52E /* ApiEndpoint.swift */,
+				FA730CDC1DBDFA03003CD52E /* ApiFileUpload.swift */,
+				FA730CDD1DBDFA03003CD52E /* ApiManager.swift */,
+				FA730CDE1DBDFA03003CD52E /* ApiRequest.swift */,
+				FA730CDF1DBDFA03003CD52E /* ApiResponse.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		FA730CE01DBDFA03003CD52E /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				FA730CE11DBDFA03003CD52E /* ErrorMessage.swift */,
+				FA730CE21DBDFA03003CD52E /* GlobalConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		FA730CE31DBDFA03003CD52E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				FA730CE41DBDFA03003CD52E /* ObjC-Header.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		FA730CEC1DBDFA6D003CD52E /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D441DBDFA6D003CD52E /* QRCode */,
+				FA730D461DBDFA6D003CD52E /* Reachability */,
+				FA730D551DBDFA6D003CD52E /* SwiftyJSON */,
+				FA730D571DBDFA6D003CD52E /* SwiftyUserDefaults */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		FA730D441DBDFA6D003CD52E /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D451DBDFA6D003CD52E /* QRCode.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		FA730D461DBDFA6D003CD52E /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D471DBDFA6D003CD52E /* Reachability.h */,
+				FA730D481DBDFA6D003CD52E /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		FA730D551DBDFA6D003CD52E /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D561DBDFA6D003CD52E /* SwiftyJSON.swift */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		FA730D571DBDFA6D003CD52E /* SwiftyUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D581DBDFA6D003CD52E /* DefaultsKeysExtension.swift */,
+				FA730D591DBDFA6D003CD52E /* SwiftyUserDefaults.swift */,
+			);
+			path = SwiftyUserDefaults;
+			sourceTree = "<group>";
+		};
+		FA730D931DBDFAD0003CD52E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D961DBDFAD0003CD52E /* ReachabilityManager.swift */,
+				FA730D981DBDFAD0003CD52E /* UserDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FA730D9E1DBDFB00003CD52E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA730D9F1DBDFB00003CD52E /* Base */,
+				FA730DA71DBDFB00003CD52E /* UI */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FA730D9F1DBDFB00003CD52E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DA01DBDFB00003CD52E /* BaseNavigationController.swift */,
+				FA730DA11DBDFB00003CD52E /* BaseTabBarController.swift */,
+				FA730DA21DBDFB00003CD52E /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FA730DA71DBDFB00003CD52E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FA730DE61DBDFB3E003CD52E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DE71DBDFB3E003CD52E /* HLKit */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		FA730DE71DBDFB3E003CD52E /* HLKit */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DE81DBDFB3E003CD52E /* Customs */,
+				FA730DEF1DBDFB3E003CD52E /* Extensions */,
+				FA730DFD1DBDFB3E003CD52E /* Helpers */,
+			);
+			path = HLKit;
+			sourceTree = "<group>";
+		};
+		FA730DE81DBDFB3E003CD52E /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DE91DBDFB3E003CD52E /* Foundation */,
+				FA730DEB1DBDFB3E003CD52E /* UI */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+		FA730DE91DBDFB3E003CD52E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DEA1DBDFB3E003CD52E /* HLKSharedResources.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		FA730DEB1DBDFB3E003CD52E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DEC1DBDFB3E003CD52E /* HLKDropDownTextField.swift */,
+				FA730DED1DBDFB3E003CD52E /* HLKLinearScrollView.swift */,
+				FA730DEE1DBDFB3E003CD52E /* HLKTextField.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FA730DEF1DBDFB3E003CD52E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DF01DBDFB3E003CD52E /* MKMapViewExtension.swift */,
+				FA730DF11DBDFB3E003CD52E /* StringExtension.swift */,
+				FA730DF21DBDFB3E003CD52E /* TypeConversionHelper.swift */,
+				FA730DF31DBDFB3E003CD52E /* UIAlertControllerExtension.swift */,
+				FA730DF41DBDFB3E003CD52E /* UICollectionViewExtension.swift */,
+				FA730DF51DBDFB3E003CD52E /* UIColorExtension.swift */,
+				FA730DF61DBDFB3E003CD52E /* UIImageExtension.swift */,
+				FA730DF71DBDFB3E003CD52E /* UILabelExtension.swift */,
+				FA730DF81DBDFB3E003CD52E /* UINavigationControllerExtension.swift */,
+				FA730DF91DBDFB3E003CD52E /* UIScrollViewExtension.swift */,
+				FA730DFA1DBDFB3E003CD52E /* UITableViewExtension.swift */,
+				FA730DFB1DBDFB3E003CD52E /* UIViewControllerExtension.swift */,
+				FA730DFC1DBDFB3E003CD52E /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA730DFD1DBDFB3E003CD52E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA730DFE1DBDFB3E003CD52E /* LoggingPrint.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA730E111DBDFB6B003CD52E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FA730E131DBDFB6B003CD52E /* HiraginoSansUIFont.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FA730E1E1DBDFB92003CD52E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA730E1F1DBDFB92003CD52E /* HiraginoSans */,
+				FA730E231DBDFB92003CD52E /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA730E1F1DBDFB92003CD52E /* HiraginoSans */ = {
+			isa = PBXGroup;
+			children = (
+				FA730E201DBDFB92003CD52E /* HiraginoSans-W4.ttc */,
+				FA730E211DBDFB92003CD52E /* HiraginoSans-W5.ttc */,
+				FA730E221DBDFB92003CD52E /* HiraginoSans-W6.ttc */,
+			);
+			path = HiraginoSans;
+			sourceTree = "<group>";
+		};
+		FA730E231DBDFB92003CD52E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		FA730F201DBDFC03003CD52E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA730F211DBDFC03003CD52E /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FA730F231DBDFC63003CD52E /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				FA730F241DBDFC72003CD52E /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA730CC01DBDE88B003CD52E /* PonStaffApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA730CD31DBDE88B003CD52E /* Build configuration list for PBXNativeTarget "PonStaffApp" */;
+			buildPhases = (
+				8417F927D6F9022C90E4CCEC /* [CP] Check Pods Manifest.lock */,
+				FA730CBD1DBDE88B003CD52E /* Sources */,
+				FA730CBE1DBDE88B003CD52E /* Frameworks */,
+				FA730CBF1DBDE88B003CD52E /* Resources */,
+				62C18C7AE3484820CA2B711C /* [CP] Embed Pods Frameworks */,
+				91A9D71172754C0B915920DA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PonStaffApp;
+			productName = PonStaffApp;
+			productReference = FA730CC11DBDE88B003CD52E /* PonStaffApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA730CB91DBDE88B003CD52E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = HaoLe;
+				TargetAttributes = {
+					FA730CC01DBDE88B003CD52E = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = FA730CBC1DBDE88B003CD52E /* Build configuration list for PBXProject "PonStaffApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA730CB81DBDE88B003CD52E;
+			productRefGroup = FA730CC21DBDE88B003CD52E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA730CC01DBDE88B003CD52E /* PonStaffApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA730CBF1DBDE88B003CD52E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA730F251DBDFC72003CD52E /* Main.storyboard in Resources */,
+				FA730CCF1DBDE88B003CD52E /* LaunchScreen.storyboard in Resources */,
+				FA730CCC1DBDE88B003CD52E /* Assets.xcassets in Resources */,
+				FA730EA21DBDFB92003CD52E /* HiraginoSans-W6.ttc in Resources */,
+				FA730EA01DBDFB92003CD52E /* HiraginoSans-W4.ttc in Resources */,
+				FA730EA11DBDFB92003CD52E /* HiraginoSans-W5.ttc in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62C18C7AE3484820CA2B711C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8417F927D6F9022C90E4CCEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91A9D71172754C0B915920DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA730CBD1DBDE88B003CD52E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA730CEB1DBDFA03003CD52E /* GlobalConstant.swift in Sources */,
+				FA730D9B1DBDFAD0003CD52E /* ReachabilityManager.swift in Sources */,
+				FA730DC51DBDFB00003CD52E /* BaseTabBarController.swift in Sources */,
+				FA730CC71DBDE88B003CD52E /* ViewController.swift in Sources */,
+				FA730DC61DBDFB00003CD52E /* BaseViewController.swift in Sources */,
+				FA730D921DBDFA6D003CD52E /* SwiftyUserDefaults.swift in Sources */,
+				FA730E0F1DBDFB3E003CD52E /* UIViewExtension.swift in Sources */,
+				FA730E011DBDFB3E003CD52E /* HLKLinearScrollView.swift in Sources */,
+				FA730E041DBDFB3E003CD52E /* StringExtension.swift in Sources */,
+				FA730E101DBDFB3E003CD52E /* LoggingPrint.swift in Sources */,
+				FA730CE61DBDFA03003CD52E /* ApiFileUpload.swift in Sources */,
+				FA730CE81DBDFA03003CD52E /* ApiRequest.swift in Sources */,
+				FA730E031DBDFB3E003CD52E /* MKMapViewExtension.swift in Sources */,
+				FA730D8A1DBDFA6D003CD52E /* Reachability.m in Sources */,
+				FA730E0E1DBDFB3E003CD52E /* UIViewControllerExtension.swift in Sources */,
+				FA730D911DBDFA6D003CD52E /* DefaultsKeysExtension.swift in Sources */,
+				FA730CE91DBDFA03003CD52E /* ApiResponse.swift in Sources */,
+				FA730CEA1DBDFA03003CD52E /* ErrorMessage.swift in Sources */,
+				FA730E0B1DBDFB3E003CD52E /* UINavigationControllerExtension.swift in Sources */,
+				FA730E051DBDFB3E003CD52E /* TypeConversionHelper.swift in Sources */,
+				FA730E071DBDFB3E003CD52E /* UICollectionViewExtension.swift in Sources */,
+				FA730F221DBDFC03003CD52E /* AppDelegate.swift in Sources */,
+				FA730CE71DBDFA03003CD52E /* ApiManager.swift in Sources */,
+				FA730E191DBDFB6B003CD52E /* HiraginoSansUIFont.swift in Sources */,
+				FA730D9D1DBDFAD0003CD52E /* UserDataManager.swift in Sources */,
+				FA730D891DBDFA6D003CD52E /* QRCode.swift in Sources */,
+				FA730E001DBDFB3E003CD52E /* HLKDropDownTextField.swift in Sources */,
+				FA730E081DBDFB3E003CD52E /* UIColorExtension.swift in Sources */,
+				FA730E091DBDFB3E003CD52E /* UIImageExtension.swift in Sources */,
+				FA730E0D1DBDFB3E003CD52E /* UITableViewExtension.swift in Sources */,
+				FA730DFF1DBDFB3E003CD52E /* HLKSharedResources.swift in Sources */,
+				FA730E0C1DBDFB3E003CD52E /* UIScrollViewExtension.swift in Sources */,
+				FA730DC41DBDFB00003CD52E /* BaseNavigationController.swift in Sources */,
+				FA730E061DBDFB3E003CD52E /* UIAlertControllerExtension.swift in Sources */,
+				FA730E021DBDFB3E003CD52E /* HLKTextField.swift in Sources */,
+				FA730E0A1DBDFB3E003CD52E /* UILabelExtension.swift in Sources */,
+				FA730CE51DBDFA03003CD52E /* ApiEndpoint.swift in Sources */,
+				FA730D901DBDFA6D003CD52E /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA730CCD1DBDE88B003CD52E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA730CCE1DBDE88B003CD52E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA730CD11DBDE88B003CD52E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA730CD21DBDE88B003CD52E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA730CD41DBDE88B003CD52E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F47E1E113F2A33123C0B24 /* Pods-PonStaffApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PonStaffApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonStaffApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./PonStaffApp/Header/ObjC-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FA730CD51DBDE88B003CD52E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F778D7426D7EF973DD94775 /* Pods-PonStaffApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PonStaffApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonStaffApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./PonStaffApp/Header/ObjC-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA730CBC1DBDE88B003CD52E /* Build configuration list for PBXProject "PonStaffApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA730CD11DBDE88B003CD52E /* Debug */,
+				FA730CD21DBDE88B003CD52E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA730CD31DBDE88B003CD52E /* Build configuration list for PBXNativeTarget "PonStaffApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA730CD41DBDE88B003CD52E /* Debug */,
+				FA730CD51DBDE88B003CD52E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA730CB91DBDE88B003CD52E /* Project object */;
+}
