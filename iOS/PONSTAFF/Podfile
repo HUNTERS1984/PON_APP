@@ -1,0 +1,10 @@
+xcodeproj 'PonStaffApp/PonStaffApp.xcodeproj'
+platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'PonStaffApp' do
+ 	use_frameworks!
+ 	pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'Alamofire', '~> 4.0'
+    pod 'AlamofireImage', '~> 3.1.0'
+end
