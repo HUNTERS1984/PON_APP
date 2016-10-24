@@ -11,6 +11,7 @@ import UIKit
 class CouponViewController: BaseViewController {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
+    @IBOutlet weak var qrCodeButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var useCouponButton: UIButton!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
@@ -69,6 +70,7 @@ class CouponViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        self.qrCodeButton.setImage(UIImage(named: "coupon_qr_code"), for: UIControlState())
         self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), for: UIControlState())
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
@@ -133,6 +135,12 @@ extension CouponViewController {
         let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
         self.navigationController?.present(vc!, animated: true)
     }
+    
+    @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
+        let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
+        self.navigationController?.present(vc!, animated: true)
+    }
+    
 }
 
 //MARK: - Private methods
