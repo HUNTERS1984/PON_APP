@@ -5,4 +5,5 @@
 
     <dimen name="icon_size">40dp</dimen>
     <dimen name="button_margin">15dp</dimen>
+    <dimen name="title_font_size">20sp</dimen>
 </resources>
