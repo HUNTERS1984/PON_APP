@@ -179,7 +179,6 @@ public struct ApiManager {
     
     fileprivate static func processInvalidToken() {
         Defaults[.token] = nil
-        NotificationCenter.default.post(name: Notification.Name(rawValue: TokenInvalidNotification), object: nil)
     }
     
 }

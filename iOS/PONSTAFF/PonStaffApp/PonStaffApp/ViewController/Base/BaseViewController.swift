@@ -108,12 +108,9 @@ extension BaseViewController {
         self.navigationItem.leftBarButtonItem = button
     }
     
-    func setupTabbarViewController() {
-
-    }
-    
-    func openSignUp() {
-
+    func showMenuButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "nav_menu"), style: .plain, target: self, action: #selector(self.menuButtonPressed(_: )))
+        self.navigationItem.leftBarButtonItem = button
     }
 
 }
@@ -131,6 +128,11 @@ extension BaseViewController {
     
     @IBAction func navCloseButtonPressed(_ sender: AnyObject) {
         self.navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func menuButtonPressed(_ sender: AnyObject) {
+        let tabbar = self.tabBarController as! BaseTabBarController
+        tabbar.displayMenu()
     }
     
 }

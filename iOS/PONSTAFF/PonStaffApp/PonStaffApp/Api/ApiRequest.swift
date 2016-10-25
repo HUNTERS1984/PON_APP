@@ -27,9 +27,7 @@ public struct ApiRequest {
         let parameters: [String: String?] = [
             "username": userName,
             "password": password,
-            "grant_type": password,
-            "client_id": ClientId,
-            "client_secret":ClientSecret
+            "grant_type": password
         ]
         ApiManager.processRequest(SignIn, method: .POST, parameters: parameters, completion: completion)
     }
