@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, QRReaderActivity.class));
+                mContext.startActivity(new Intent(mContext, MainActivity.class));
             }
         });
     }

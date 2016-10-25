@@ -3,4 +3,15 @@
 
     <!-- Sign In screen -->
     <string name="sign_in">SIGN IN</string>
+
+    <string name="permision_available_camera">Camera Permission has been granted. Preview can now be opened.</string>
+    <string name="permision_available_contacts">Contacts Permissions have been granted. Contacts screen can now be opened.</string>
+    <string name="permissions_not_granted">Permissions were not granted.</string>
+    <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

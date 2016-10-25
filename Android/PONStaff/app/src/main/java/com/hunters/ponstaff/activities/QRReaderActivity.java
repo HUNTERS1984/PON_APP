@@ -1,9 +1,15 @@
 package com.hunters.ponstaff.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.google.zxing.Result;
@@ -11,21 +17,21 @@ import com.hunters.ponstaff.R;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class QRReaderActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class QRReaderActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler,  ActivityCompat.OnRequestPermissionsResultCallback {
+
+    private static final int REQUEST_CAMERA = 0;
 
     private ZXingScannerView mScannerView;
+    private View mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrreader);
 
-        FrameLayout qrReader = (FrameLayout)findViewById(R.id.qr_reader);
-        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
-        qrReader.addView(mScannerView);
+        mLayout = findViewById(R.id.activity_qrreader);
 
-        mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
-        mScannerView.startCamera();
+        showCamera();
     }
 
     @Override
@@ -44,5 +50,66 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
         // If you would like to resume scanning, call this method below:
         // mScannerView.resumeCameraPreview(this);
+    }
+
+    public void showCamera() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestCameraPermission();
+
+        } else {
+            showCameraPreview();
+        }
+
+    }
+
+    private void showCameraPreview()
+    {
+        FrameLayout qrReader = (FrameLayout) findViewById(R.id.qr_reader);
+        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
+        qrReader.addView(mScannerView);
+
+        mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
+        mScannerView.startCamera();
+    }
+    private void requestCameraPermission() {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.CAMERA)) {
+            Snackbar.make(mLayout, R.string.permission_camera_rationale,
+                    Snackbar.LENGTH_INDEFINITE)
+                    .setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ActivityCompat.requestPermissions(QRReaderActivity.this,
+                                    new String[]{Manifest.permission.CAMERA},
+                                    REQUEST_CAMERA);
+                        }
+                    })
+                    .show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},
+                    REQUEST_CAMERA);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+
+        if (requestCode == REQUEST_CAMERA) {
+            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Snackbar.make(mLayout, R.string.permision_available_camera,
+                        Snackbar.LENGTH_SHORT).show();
+                showCamera();
+            } else {
+                Snackbar.make(mLayout, R.string.permissions_not_granted,
+                        Snackbar.LENGTH_SHORT).show();
+                showCamera();
+            }
+
+        }  else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }
