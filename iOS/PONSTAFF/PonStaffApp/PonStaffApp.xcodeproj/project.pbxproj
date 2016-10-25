@@ -8,7 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		614B3343D721050FFFA749DB /* Pods_PonStaffApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */; };
-		FA730CC71DBDE88B003CD52E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CC61DBDE88B003CD52E /* ViewController.swift */; };
+		FA0403891DBF0F940001B63F /* BottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04037A1DBF0F940001B63F /* BottomBorderView.swift */; };
+		FA04038A1DBF0F940001B63F /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04037B1DBF0F940001B63F /* CircleImageView.swift */; };
+		FA04038C1DBF0F940001B63F /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04037D1DBF0F940001B63F /* DesignableImageView.swift */; };
+		FA04038D1DBF0F940001B63F /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04037E1DBF0F940001B63F /* DesignableView.swift */; };
+		FA04038F1DBF0F940001B63F /* LeftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403801DBF0F940001B63F /* LeftBorderView.swift */; };
+		FA0403921DBF0F940001B63F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403831DBF0F940001B63F /* PaddingLabel.swift */; };
+		FA0403931DBF0F940001B63F /* RightBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403841DBF0F940001B63F /* RightBorderView.swift */; };
+		FA0403941DBF0F940001B63F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403851DBF0F940001B63F /* ShadowView.swift */; };
+		FA0403961DBF0F940001B63F /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403871DBF0F940001B63F /* TopBorderView.swift */; };
+		FA0403981DBF10650001B63F /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403971DBF10650001B63F /* DesignableButton.swift */; };
+		FA06E8121DBF546800256312 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06E8111DBF546800256312 /* QRCode.swift */; };
+		FA12FF291DBEEA20002D0B11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF281DBEEA20002D0B11 /* SignInViewController.swift */; };
+		FA12FF2D1DBEF344002D0B11 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF2C1DBEF344002D0B11 /* SideMenuView.swift */; };
+		FA12FF2F1DBEF478002D0B11 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA12FF2E1DBEF478002D0B11 /* SideMenuView.xib */; };
+		FA12FF311DBEF79F002D0B11 /* RequestCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF301DBEF79F002D0B11 /* RequestCouponViewController.swift */; };
+		FA12FF331DBEF826002D0B11 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF321DBEF826002D0B11 /* PointViewController.swift */; };
+		FA36E8611DBF26A800BE2D0F /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E85D1DBF26A800BE2D0F /* nav_back@2x.png */; };
+		FA36E8621DBF26A800BE2D0F /* nav_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E85E1DBF26A800BE2D0F /* nav_menu@2x.png */; };
+		FA36E8631DBF26A800BE2D0F /* nav_qr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E85F1DBF26A800BE2D0F /* nav_qr@2x.png */; };
+		FA36E8641DBF26A800BE2D0F /* request_coupon_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8601DBF26A800BE2D0F /* request_coupon_icon@2x.png */; };
+		FA36E8671DBF36A400BE2D0F /* login_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8651DBF36A400BE2D0F /* login_password@2x.png */; };
+		FA36E8681DBF36A400BE2D0F /* login_username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8661DBF36A400BE2D0F /* login_username@2x.png */; };
+		FA36E8771DBF4D6900BE2D0F /* RequestCouponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E8761DBF4D6900BE2D0F /* RequestCouponCell.swift */; };
+		FA36E8791DBF500E00BE2D0F /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E8781DBF500E00BE2D0F /* QRCodeReaderViewController.swift */; };
 		FA730CCC1DBDE88B003CD52E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA730CCB1DBDE88B003CD52E /* Assets.xcassets */; };
 		FA730CCF1DBDE88B003CD52E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA730CCD1DBDE88B003CD52E /* LaunchScreen.storyboard */; };
 		FA730CE51DBDFA03003CD52E /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDB1DBDFA03003CD52E /* ApiEndpoint.swift */; };
@@ -18,7 +41,6 @@
 		FA730CE91DBDFA03003CD52E /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CDF1DBDFA03003CD52E /* ApiResponse.swift */; };
 		FA730CEA1DBDFA03003CD52E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CE11DBDFA03003CD52E /* ErrorMessage.swift */; };
 		FA730CEB1DBDFA03003CD52E /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730CE21DBDFA03003CD52E /* GlobalConstant.swift */; };
-		FA730D891DBDFA6D003CD52E /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D451DBDFA6D003CD52E /* QRCode.swift */; };
 		FA730D8A1DBDFA6D003CD52E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FA730D481DBDFA6D003CD52E /* Reachability.m */; };
 		FA730D901DBDFA6D003CD52E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D561DBDFA6D003CD52E /* SwiftyJSON.swift */; };
 		FA730D911DBDFA6D003CD52E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730D581DBDFA6D003CD52E /* DefaultsKeysExtension.swift */; };
@@ -58,8 +80,31 @@
 		47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonStaffApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F778D7426D7EF973DD94775 /* Pods-PonStaffApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonStaffApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp.release.xcconfig"; sourceTree = "<group>"; };
 		E9F47E1E113F2A33123C0B24 /* Pods-PonStaffApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonStaffApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonStaffApp/Pods-PonStaffApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA04037A1DBF0F940001B63F /* BottomBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderView.swift; sourceTree = "<group>"; };
+		FA04037B1DBF0F940001B63F /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		FA04037D1DBF0F940001B63F /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		FA04037E1DBF0F940001B63F /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		FA0403801DBF0F940001B63F /* LeftBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBorderView.swift; sourceTree = "<group>"; };
+		FA0403831DBF0F940001B63F /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FA0403841DBF0F940001B63F /* RightBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBorderView.swift; sourceTree = "<group>"; };
+		FA0403851DBF0F940001B63F /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		FA0403871DBF0F940001B63F /* TopBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
+		FA0403971DBF10650001B63F /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		FA06E8111DBF546800256312 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		FA12FF281DBEEA20002D0B11 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FA12FF2C1DBEF344002D0B11 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		FA12FF2E1DBEF478002D0B11 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
+		FA12FF301DBEF79F002D0B11 /* RequestCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCouponViewController.swift; sourceTree = "<group>"; };
+		FA12FF321DBEF826002D0B11 /* PointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
+		FA36E85D1DBF26A800BE2D0F /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
+		FA36E85E1DBF26A800BE2D0F /* nav_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_menu@2x.png"; sourceTree = "<group>"; };
+		FA36E85F1DBF26A800BE2D0F /* nav_qr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_qr@2x.png"; sourceTree = "<group>"; };
+		FA36E8601DBF26A800BE2D0F /* request_coupon_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "request_coupon_icon@2x.png"; sourceTree = "<group>"; };
+		FA36E8651DBF36A400BE2D0F /* login_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_password@2x.png"; sourceTree = "<group>"; };
+		FA36E8661DBF36A400BE2D0F /* login_username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_username@2x.png"; sourceTree = "<group>"; };
+		FA36E8761DBF4D6900BE2D0F /* RequestCouponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCouponCell.swift; sourceTree = "<group>"; };
+		FA36E8781DBF500E00BE2D0F /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		FA730CC11DBDE88B003CD52E /* PonStaffApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonStaffApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA730CC61DBDE88B003CD52E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA730CCB1DBDE88B003CD52E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA730CCE1DBDE88B003CD52E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA730CD01DBDE88B003CD52E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,7 +116,6 @@
 		FA730CE11DBDFA03003CD52E /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		FA730CE21DBDFA03003CD52E /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		FA730CE41DBDFA03003CD52E /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
-		FA730D451DBDFA6D003CD52E /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		FA730D471DBDFA6D003CD52E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FA730D481DBDFA6D003CD52E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FA730D561DBDFA6D003CD52E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -137,6 +181,58 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA0403781DBF0F940001B63F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA04037A1DBF0F940001B63F /* BottomBorderView.swift */,
+				FA04037B1DBF0F940001B63F /* CircleImageView.swift */,
+				FA04037D1DBF0F940001B63F /* DesignableImageView.swift */,
+				FA04037E1DBF0F940001B63F /* DesignableView.swift */,
+				FA0403801DBF0F940001B63F /* LeftBorderView.swift */,
+				FA0403831DBF0F940001B63F /* PaddingLabel.swift */,
+				FA0403841DBF0F940001B63F /* RightBorderView.swift */,
+				FA0403851DBF0F940001B63F /* ShadowView.swift */,
+				FA0403871DBF0F940001B63F /* TopBorderView.swift */,
+				FA0403971DBF10650001B63F /* DesignableButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA06E8101DBF546800256312 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				FA06E8111DBF546800256312 /* QRCode.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		FA12FF2A1DBEF2D3002D0B11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA36E8691DBF428900BE2D0F /* Cell */,
+				FA0403781DBF0F940001B63F /* View */,
+				FA12FF2B1DBEF323002D0B11 /* SideMenuView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA12FF2B1DBEF323002D0B11 /* SideMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				FA12FF2C1DBEF344002D0B11 /* SideMenuView.swift */,
+				FA12FF2E1DBEF478002D0B11 /* SideMenuView.xib */,
+			);
+			path = SideMenuView;
+			sourceTree = "<group>";
+		};
+		FA36E8691DBF428900BE2D0F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA36E8761DBF4D6900BE2D0F /* RequestCouponCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		FA730CB81DBDE88B003CD52E = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +254,7 @@
 		FA730CC31DBDE88B003CD52E /* PonStaffApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA12FF2A1DBEF2D3002D0B11 /* View */,
 				FA730F231DBDFC63003CD52E /* StoryBoard */,
 				FA730F201DBDFC03003CD52E /* App */,
 				FA730E1E1DBDFB92003CD52E /* Resources */,
@@ -169,7 +266,6 @@
 				FA730CDA1DBDFA03003CD52E /* Api */,
 				FA730CE01DBDFA03003CD52E /* Constant */,
 				FA730CE31DBDFA03003CD52E /* Header */,
-				FA730CC61DBDE88B003CD52E /* ViewController.swift */,
 				FA730CCB1DBDE88B003CD52E /* Assets.xcassets */,
 				FA730CCD1DBDE88B003CD52E /* LaunchScreen.storyboard */,
 				FA730CD01DBDE88B003CD52E /* Info.plist */,
@@ -209,20 +305,12 @@
 		FA730CEC1DBDFA6D003CD52E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				FA730D441DBDFA6D003CD52E /* QRCode */,
+				FA06E8101DBF546800256312 /* QRCode */,
 				FA730D461DBDFA6D003CD52E /* Reachability */,
 				FA730D551DBDFA6D003CD52E /* SwiftyJSON */,
 				FA730D571DBDFA6D003CD52E /* SwiftyUserDefaults */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		FA730D441DBDFA6D003CD52E /* QRCode */ = {
-			isa = PBXGroup;
-			children = (
-				FA730D451DBDFA6D003CD52E /* QRCode.swift */,
-			);
-			path = QRCode;
 			sourceTree = "<group>";
 		};
 		FA730D461DBDFA6D003CD52E /* Reachability */ = {
@@ -282,6 +370,10 @@
 		FA730DA71DBDFB00003CD52E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FA12FF281DBEEA20002D0B11 /* SignInViewController.swift */,
+				FA12FF301DBEF79F002D0B11 /* RequestCouponViewController.swift */,
+				FA12FF321DBEF826002D0B11 /* PointViewController.swift */,
+				FA36E8781DBF500E00BE2D0F /* QRCodeReaderViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -389,6 +481,12 @@
 		FA730E231DBDFB92003CD52E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA36E8651DBF36A400BE2D0F /* login_password@2x.png */,
+				FA36E8661DBF36A400BE2D0F /* login_username@2x.png */,
+				FA36E85D1DBF26A800BE2D0F /* nav_back@2x.png */,
+				FA36E85E1DBF26A800BE2D0F /* nav_menu@2x.png */,
+				FA36E85F1DBF26A800BE2D0F /* nav_qr@2x.png */,
+				FA36E8601DBF26A800BE2D0F /* request_coupon_icon@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -444,7 +542,8 @@
 				TargetAttributes = {
 					FA730CC01DBDE88B003CD52E = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = M8AF2Y2268;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -472,10 +571,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA730F251DBDFC72003CD52E /* Main.storyboard in Resources */,
+				FA36E8631DBF26A800BE2D0F /* nav_qr@2x.png in Resources */,
+				FA36E8611DBF26A800BE2D0F /* nav_back@2x.png in Resources */,
 				FA730CCF1DBDE88B003CD52E /* LaunchScreen.storyboard in Resources */,
+				FA12FF2F1DBEF478002D0B11 /* SideMenuView.xib in Resources */,
+				FA36E8671DBF36A400BE2D0F /* login_password@2x.png in Resources */,
 				FA730CCC1DBDE88B003CD52E /* Assets.xcassets in Resources */,
 				FA730EA21DBDFB92003CD52E /* HiraginoSans-W6.ttc in Resources */,
+				FA36E8641DBF26A800BE2D0F /* request_coupon_icon@2x.png in Resources */,
 				FA730EA01DBDFB92003CD52E /* HiraginoSans-W4.ttc in Resources */,
+				FA36E8681DBF36A400BE2D0F /* login_username@2x.png in Resources */,
+				FA36E8621DBF26A800BE2D0F /* nav_menu@2x.png in Resources */,
 				FA730EA11DBDFB92003CD52E /* HiraginoSans-W5.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,13 +641,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA06E8121DBF546800256312 /* QRCode.swift in Sources */,
+				FA04038A1DBF0F940001B63F /* CircleImageView.swift in Sources */,
 				FA730CEB1DBDFA03003CD52E /* GlobalConstant.swift in Sources */,
 				FA730D9B1DBDFAD0003CD52E /* ReachabilityManager.swift in Sources */,
 				FA730DC51DBDFB00003CD52E /* BaseTabBarController.swift in Sources */,
-				FA730CC71DBDE88B003CD52E /* ViewController.swift in Sources */,
+				FA12FF2D1DBEF344002D0B11 /* SideMenuView.swift in Sources */,
 				FA730DC61DBDFB00003CD52E /* BaseViewController.swift in Sources */,
+				FA12FF291DBEEA20002D0B11 /* SignInViewController.swift in Sources */,
 				FA730D921DBDFA6D003CD52E /* SwiftyUserDefaults.swift in Sources */,
 				FA730E0F1DBDFB3E003CD52E /* UIViewExtension.swift in Sources */,
+				FA0403961DBF0F940001B63F /* TopBorderView.swift in Sources */,
 				FA730E011DBDFB3E003CD52E /* HLKLinearScrollView.swift in Sources */,
 				FA730E041DBDFB3E003CD52E /* StringExtension.swift in Sources */,
 				FA730E101DBDFB3E003CD52E /* LoggingPrint.swift in Sources */,
@@ -549,30 +659,41 @@
 				FA730CE81DBDFA03003CD52E /* ApiRequest.swift in Sources */,
 				FA730E031DBDFB3E003CD52E /* MKMapViewExtension.swift in Sources */,
 				FA730D8A1DBDFA6D003CD52E /* Reachability.m in Sources */,
+				FA0403981DBF10650001B63F /* DesignableButton.swift in Sources */,
 				FA730E0E1DBDFB3E003CD52E /* UIViewControllerExtension.swift in Sources */,
 				FA730D911DBDFA6D003CD52E /* DefaultsKeysExtension.swift in Sources */,
 				FA730CE91DBDFA03003CD52E /* ApiResponse.swift in Sources */,
+				FA04038C1DBF0F940001B63F /* DesignableImageView.swift in Sources */,
 				FA730CEA1DBDFA03003CD52E /* ErrorMessage.swift in Sources */,
 				FA730E0B1DBDFB3E003CD52E /* UINavigationControllerExtension.swift in Sources */,
 				FA730E051DBDFB3E003CD52E /* TypeConversionHelper.swift in Sources */,
 				FA730E071DBDFB3E003CD52E /* UICollectionViewExtension.swift in Sources */,
 				FA730F221DBDFC03003CD52E /* AppDelegate.swift in Sources */,
 				FA730CE71DBDFA03003CD52E /* ApiManager.swift in Sources */,
+				FA0403891DBF0F940001B63F /* BottomBorderView.swift in Sources */,
+				FA12FF311DBEF79F002D0B11 /* RequestCouponViewController.swift in Sources */,
+				FA04038F1DBF0F940001B63F /* LeftBorderView.swift in Sources */,
 				FA730E191DBDFB6B003CD52E /* HiraginoSansUIFont.swift in Sources */,
 				FA730D9D1DBDFAD0003CD52E /* UserDataManager.swift in Sources */,
-				FA730D891DBDFA6D003CD52E /* QRCode.swift in Sources */,
 				FA730E001DBDFB3E003CD52E /* HLKDropDownTextField.swift in Sources */,
+				FA0403941DBF0F940001B63F /* ShadowView.swift in Sources */,
+				FA0403921DBF0F940001B63F /* PaddingLabel.swift in Sources */,
 				FA730E081DBDFB3E003CD52E /* UIColorExtension.swift in Sources */,
 				FA730E091DBDFB3E003CD52E /* UIImageExtension.swift in Sources */,
 				FA730E0D1DBDFB3E003CD52E /* UITableViewExtension.swift in Sources */,
 				FA730DFF1DBDFB3E003CD52E /* HLKSharedResources.swift in Sources */,
 				FA730E0C1DBDFB3E003CD52E /* UIScrollViewExtension.swift in Sources */,
 				FA730DC41DBDFB00003CD52E /* BaseNavigationController.swift in Sources */,
+				FA36E8771DBF4D6900BE2D0F /* RequestCouponCell.swift in Sources */,
+				FA04038D1DBF0F940001B63F /* DesignableView.swift in Sources */,
 				FA730E061DBDFB3E003CD52E /* UIAlertControllerExtension.swift in Sources */,
 				FA730E021DBDFB3E003CD52E /* HLKTextField.swift in Sources */,
 				FA730E0A1DBDFB3E003CD52E /* UILabelExtension.swift in Sources */,
 				FA730CE51DBDFA03003CD52E /* ApiEndpoint.swift in Sources */,
 				FA730D901DBDFA6D003CD52E /* SwiftyJSON.swift in Sources */,
+				FA36E8791DBF500E00BE2D0F /* QRCodeReaderViewController.swift in Sources */,
+				FA0403931DBF0F940001B63F /* RightBorderView.swift in Sources */,
+				FA12FF331DBEF826002D0B11 /* PointViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,10 +807,13 @@
 			baseConfigurationReference = E9F47E1E113F2A33123C0B24 /* Pods-PonStaffApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PonStaffApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonStaffApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.ponstaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonStaffApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -701,10 +825,13 @@
 			baseConfigurationReference = 9F778D7426D7EF973DD94775 /* Pods-PonStaffApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PonStaffApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoLe.PonStaffApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.ponstaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonStaffApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
