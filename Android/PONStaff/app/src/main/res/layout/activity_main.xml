@@ -12,13 +12,44 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- The ActionBar displayed at the top -->
-        <include
-            layout="@layout/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:background="@color/white">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_menu"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_menu"/>
 
-        <!-- The main content view where fragments are loaded -->
+            <com.hunters.ponstaff.customs.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_font_size"
+                android:text="@string/coupon_request"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_title"/>
+
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_qrcode_cam"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/iv_qr_cam"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_header"/>
+
         <FrameLayout
             android:id="@+id/flContent"
             android:layout_width="match_parent"

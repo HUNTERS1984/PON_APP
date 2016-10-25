@@ -8,20 +8,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#247882"
     tools:context="com.hunters.ponstaff.activities.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_rectangle_white"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,39 +36,46 @@
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size" />
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_username"
+                    android:scaleType="fitXY"/>
                 <com.hunters.ponstaff.customs.CustomEditText
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:hint="Username"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_grey"
+                    android:textColor="@color/dark_grey"
                     android:textSize="16sp"
                     android:background="@color/transparent"
                     android:id="@+id/edt_username"/>
             </LinearLayout>
             <View android:layout_width="match_parent"
                   android:layout_height="1dp"
-                  android:layout_marginLeft="40dp"
-                  android:layout_marginRight="20dp"
-                  android:background="@color/colorAccent"/>
+                  android:layout_marginLeft="60dp"
+                  android:layout_marginRight="15dp"
+                  android:background="@color/light_grey"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size" />
+                    android:layout_height="@dimen/icon_size"
+                    android:src="@drawable/ic_password"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"/>
                 <com.hunters.ponstaff.customs.CustomEditText
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
+                    android:inputType="textPassword"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:hint="Password"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_grey"
+                    android:textColor="@color/dark_grey"
                     android:textSize="16sp"
                     android:background="@color/transparent"
                     android:id="@+id/edt_password"/>

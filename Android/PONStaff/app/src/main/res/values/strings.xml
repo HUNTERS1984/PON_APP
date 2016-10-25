@@ -14,4 +14,6 @@
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="coupon_request">COUPON REQUEST</string>
+    <string name="qr_reader">QR READER</string>
 </resources>

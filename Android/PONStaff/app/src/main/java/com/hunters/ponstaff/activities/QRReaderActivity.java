@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.Result;
 import com.hunters.ponstaff.R;
@@ -31,7 +33,22 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
         mLayout = findViewById(R.id.activity_qrreader);
 
+        initLayout();
+
         showCamera();
+    }
+
+    private void initLayout()
+    {
+        TextView tvTitle = (TextView)findViewById(R.id.tv_title);
+        tvTitle.setText(getString(R.string.qr_reader));
+        ImageView ivBack = (ImageView)findViewById(R.id.iv_back);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override

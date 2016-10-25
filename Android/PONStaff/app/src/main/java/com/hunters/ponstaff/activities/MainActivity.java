@@ -1,5 +1,6 @@
 package com.hunters.ponstaff.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -8,8 +9,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.hunters.ponstaff.R;
 import com.hunters.ponstaff.fragments.CouponRequestFragment;
@@ -17,7 +19,6 @@ import com.hunters.ponstaff.fragments.CouponRequestFragment;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
-    private Toolbar toolbar;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
 
@@ -26,22 +27,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        initLayout();
+
+        openScreen(CouponRequestFragment.class);
+//        drawerToggle = setupDrawerToggle();
+
+        // Tie DrawerLayout events to the ActionBarToggle
+//        mDrawer.addDrawerListener(drawerToggle);
+    }
+
+//    private ActionBarDrawerToggle setupDrawerToggle() {
+//        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+//    }
+
+    private void initLayout()
+    {
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
 
-        drawerToggle = setupDrawerToggle();
+        ImageView ivMenu = (ImageView)findViewById(R.id.iv_menu);
+        ivMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDrawer.openDrawer(GravityCompat.START);
+            }
+        });
 
-        // Tie DrawerLayout events to the ActionBarToggle
-        mDrawer.addDrawerListener(drawerToggle);
-    }
-
-    private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        ImageView ivQRCam = (ImageView)findViewById(R.id.iv_qr_cam);
+        ivQRCam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, QRReaderActivity.class));
+            }
+        });
     }
 
     @Override
@@ -85,8 +106,15 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = CouponRequestFragment.class;
         }
 
+
+        mDrawer.closeDrawers();
+    }
+
+    private void openScreen (Class screen)
+    {
+        Fragment fragment = null;
         try {
-            fragment = (Fragment) fragmentClass.newInstance();
+            fragment = (Fragment) screen.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,10 +124,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
         // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
+//        menuItem.setChecked(true);
         // Set action bar title
-        setTitle(menuItem.getTitle());
+//        setTitle(menuItem.getTitle());
         // Close the navigation drawer
-        mDrawer.closeDrawers();
     }
 }
