@@ -16,4 +16,12 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="coupon_request">COUPON REQUEST</string>
     <string name="qr_reader">QR READER</string>
+    <string name="coupon_request_text_1">Vinyl Banners With Its Different Types</string>
+    <string name="coupon_request_text_2">Kinds And Applications</string>
+    <string name="request_use_coupon">Request use coupon</string>
+    <string name="accept">ACCEPT</string>
+    <string name="reject">REJECT</string>
+    <string name="thank_you_my_love">Thank you my love</string>
+    <string name="sorry_my_partner">Sorry my partner</string>
+    <string name="done">DONE</string>
 </resources>

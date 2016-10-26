@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hunters.ponstaff.R;
+import com.hunters.ponstaff.customs.RequestCouponDialog;
 import com.hunters.ponstaff.models.CouponRequestModel;
 import com.hunters.ponstaff.utils.Constants;
 import com.hunters.ponstaff.viewholders.LoadingViewHolder;
@@ -90,6 +91,7 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
             CouponRequestModel cat = mLstCouponRequests.get(pos);
+            new RequestCouponDialog(mContext).show();
 //            Intent iCouponByCategory = new Intent(mContext, CouponByCategoryDetailActivity.class);
 //            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, cat.getmId());
 //            iCouponByCategory.putExtra(Constants.EXTRA_TITLE, cat.getmName());
