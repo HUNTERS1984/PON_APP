@@ -71,15 +71,19 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
         switch (v.getId()){
             case R.id.btn_accept:
                 mTvMessage.setText(mContext.getString(R.string.thank_you_my_love));
+                mIvRequestIcon.setImageResource(R.drawable.ic_heart);
                 mBtnAccept.setVisibility(View.GONE);
                 mBtnReject.setVisibility(View.GONE);
                 mBtnDone.setVisibility(View.VISIBLE);
                 break;
             case R.id.btn_reject:
                 mTvMessage.setText(mContext.getString(R.string.sorry_my_partner));
+                mIvRequestIcon.setImageResource(R.drawable.ic_sad);
+                mIvRequestIcon.setBackgroundResource(R.drawable.circle_stroke_pink_border);
                 mBtnAccept.setVisibility(View.GONE);
                 mBtnReject.setVisibility(View.GONE);
                 mBtnDone.setVisibility(View.VISIBLE);
+                mBtnDone.setBackgroundResource(R.drawable.background_rectangle_pink);
                 break;
             case R.id.btn_done:
             default:
