@@ -4,8 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hunters.ponstaff.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by hle59 on 10/20/2016.
