@@ -13,8 +13,8 @@ class ListShopContentViewController: BaseViewController {
     @IBOutlet weak var collectionView:UICollectionView!
     
     var parentNavigationController : UINavigationController?
-    var couponFeature:CouponFeature?
-    var couponCategoryID: Int?
+    var feature:CouponFeature?
+    var categoryID: Int?
     
     var shops = [Shop]()
     
@@ -36,7 +36,7 @@ class ListShopContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
-        self.getShopByFeatureAndCategory(1)
+        self.getShop(self.feature!, category: self.categoryID!, pageIndex: 1)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -57,9 +57,25 @@ extension ListShopContentViewController {
 //MARK: - Private
 extension ListShopContentViewController {
     
-    fileprivate func getShopByFeatureAndCategory(_ pageIndex: Int) {
+    fileprivate func getShop(_ feature: CouponFeature, category: Int, pageIndex: Int) {
+        if feature == .near {
+            self.showHUD()
+            LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+                self.hideHUD()
+                if let _ = error {
+                    
+                }else {
+                    self.getShopByFeatureAndCategory(feature, category:category, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
+                }
+            }
+        }else {
+            self.getShopByFeatureAndCategory(feature, category:category, pageIndex: pageIndex)
+        }
+    }
+    
+    fileprivate func getShopByFeatureAndCategory(_ feature: CouponFeature, category: Int, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndCategory(self.couponFeature!, couponType: self.couponCategoryID!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeatureAndCategory(feature, category: category, longitude: longitude, lattitude: lattitude, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

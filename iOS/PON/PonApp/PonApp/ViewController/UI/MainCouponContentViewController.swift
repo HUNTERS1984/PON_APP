@@ -44,7 +44,7 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.isScrollEnabled = false
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .none
-        self.getCouponByFeature(self.couponFeature!, pageIndex: 1)
+        self.getCoupon(self.couponFeature!, pageIndex: 1)
     }
     
 }
@@ -143,31 +143,19 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
 extension MainCouponContentViewController {
     
 
-    fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, pageIndex: Int) {
-        parentContainerController?.showHUD()
-        ApiRequest.getCouponByFeature(couponFeature) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.parentContainerController?.hideHUD()
-            if let _ = error {
-                
-            }else {
-                if result?.code == SuccessCode {
-                    var responseData = [CouponListData]()
-                    let couponsArray = result?.data?.array
-                    if let _ = couponsArray {
-                        for couponData in couponsArray! {
-                            let data = CouponListData(response: couponData)
-                            responseData.append(data)
-                        }
-                        if pageIndex == 1 {
-                            self.displayData(responseData, type: .new)
-                        }else {
-                            self.displayData(responseData, type: .loadMore)
-                        }
-                    }
+    fileprivate func getCoupon(_ couponFeature: CouponFeature, pageIndex: Int) {
+        if couponFeature == .near {
+            self.showHUD()
+            LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+                self.hideHUD()
+                if let _ = error {
+                    
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    self.getCouponByFeature(couponFeature, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
                 }
             }
+        }else {
+            self.getCouponByFeature(couponFeature, pageIndex: pageIndex)
         }
     }
     
@@ -190,6 +178,36 @@ extension MainCouponContentViewController {
             break
         case .reload:
             break
+        }
+    }
+    
+    fileprivate func getCouponByFeature(_ couponFeature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
+        self.showHUD()
+        ApiRequest.getCouponByFeature(couponFeature, hasAuth: UserDataManager.isLoggedIn(), longitude: longitude, lattitude: lattitude, pageIndex: pageIndex) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    var responseData = [CouponListData]()
+                    let couponsArray = result?.data?.array
+                    if let _ = couponsArray {
+                        for couponData in couponsArray! {
+                            if couponData["coupons"].array!.count > 0 {
+                                let data = CouponListData(response: couponData)
+                                responseData.append(data)
+                            }
+                        }
+                        if pageIndex == 1 {
+                            self.displayData(responseData, type: .new)
+                        }else {
+                            self.displayData(responseData, type: .loadMore)
+                        }
+                    }
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
         }
     }
     

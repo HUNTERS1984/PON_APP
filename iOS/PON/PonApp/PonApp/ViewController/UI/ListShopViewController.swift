@@ -54,22 +54,22 @@ extension ListShopViewController {
         
         let popular = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         popular.parentNavigationController = self.navigationController
-        popular.couponFeature = .popularity
-        popular.couponCategoryID = self.couponCategoryID
+        popular.feature = .popularity
+        popular.categoryID = self.couponCategoryID
         popular.title = "人気"
         controllerArray.append(popular)
         
         let newest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         newest.parentNavigationController = self.navigationController
-        newest.couponFeature = .new
-        newest.couponCategoryID = self.couponCategoryID
+        newest.feature = .new
+        newest.categoryID = self.couponCategoryID
         newest.title = "新着"
         controllerArray.append(newest)
         
         let nearest = ListShopContentViewController.instanceFromStoryBoard("ListShop") as! ListShopContentViewController
         nearest.parentNavigationController = self.navigationController
-        nearest.couponFeature = .near
-        nearest.couponCategoryID = self.couponCategoryID
+        nearest.feature = .near
+        nearest.categoryID = self.couponCategoryID
         nearest.title = "近く"
         controllerArray.append(nearest)
         

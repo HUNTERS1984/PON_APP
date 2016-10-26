@@ -46,29 +46,29 @@ extension ListCouponViewController {
         
         let popular = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         popular.parentNavigationController = self.navigationController
-        popular.couponFeature = .popularity
-        popular.couponCategoryID = self.couponCategoryID
+        popular.feature = .popularity
+        popular.categoryID = self.couponCategoryID
         popular.title = "人気"
         controllerArray.append(popular)
         
         let newest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         newest.parentNavigationController = self.navigationController
-        newest.couponFeature = .new
-        newest.couponCategoryID = self.couponCategoryID
+        newest.feature = .new
+        newest.categoryID = self.couponCategoryID
         newest.title = "新着"
         controllerArray.append(newest)
         
         let nearest = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         nearest.parentNavigationController = self.navigationController
-        nearest.couponFeature = .near
-        nearest.couponCategoryID = self.couponCategoryID
+        nearest.feature = .near
+        nearest.categoryID = self.couponCategoryID
         nearest.title = "近く"
         controllerArray.append(nearest)
         
         let deal = ListCouponContentViewController.instanceFromStoryBoard("CouponList") as! ListCouponContentViewController
         deal.parentNavigationController = self.navigationController
-        deal.couponFeature = .deal
-        deal.couponCategoryID = self.couponCategoryID
+        deal.feature = .deal
+        deal.categoryID = self.couponCategoryID
         deal.title = "お得"
         controllerArray.append(deal)
         

@@ -13,9 +13,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import "UINavigationBar+Awesome.h"
 
-#import <LineAdapter/LineAdapter.h>
-#import <LineAdapterLogin/LineAdapterLogin.h>
-#import <LineAdapterUI/LineAdapterUI.h>
+#import <LineAdapter/LineSDK.h>
 
 #import "IQNSArray+Sort.h"
 #import "IQUIScrollView+Additions.h"

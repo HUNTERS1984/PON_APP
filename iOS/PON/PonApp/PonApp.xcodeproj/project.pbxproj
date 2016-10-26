@@ -32,10 +32,6 @@
 		4A85F3851D9ABCDD00733161 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F27A1D9ABCDD00733161 /* FBSDKCoreKit.framework */; };
 		4A85F3861D9ABCDD00733161 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F27B1D9ABCDD00733161 /* FBSDKLoginKit.framework */; };
 		4A85F3871D9ABCDD00733161 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F27C1D9ABCDD00733161 /* FBSDKShareKit.framework */; };
-		4A85F3881D9ABCDD00733161 /* LineAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F27D1D9ABCDD00733161 /* LineAdapter.framework */; };
-		4A85F3891D9ABCDD00733161 /* LineAdapterLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F27E1D9ABCDD00733161 /* LineAdapterLogin.framework */; };
-		4A85F38A1D9ABCDD00733161 /* LineAdapterUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F27F1D9ABCDD00733161 /* LineAdapterUI.bundle */; };
-		4A85F38B1D9ABCDD00733161 /* LineAdapterUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85F2801D9ABCDD00733161 /* LineAdapterUI.framework */; };
 		4A85F38C1D9ABCDD00733161 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2841D9ABCDD00733161 /* FacebookLogin.swift */; };
 		4A85F38D1D9ABCDD00733161 /* LineLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2851D9ABCDD00733161 /* LineLogin.swift */; };
 		4A85F38E1D9ABCDD00733161 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F2861D9ABCDD00733161 /* Location.swift */; };
@@ -202,6 +198,8 @@
 		FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */; };
 		FAA43A701D9D04370013BCE3 /* ShowQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */; };
 		FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */; };
+		FAAB82BF1DC042230060E859 /* LineAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAB82BD1DC042230060E859 /* LineAdapter.framework */; };
+		FAAB82C01DC042230060E859 /* LineAdapterUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FAAB82BE1DC042230060E859 /* LineAdapterUI.bundle */; };
 		FABD93041DAF86B1005FCD02 /* AccountVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */; };
 		FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */; };
 		FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */; };
@@ -359,10 +357,6 @@
 		4A85F27A1D9ABCDD00733161 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4A85F27B1D9ABCDD00733161 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		4A85F27C1D9ABCDD00733161 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		4A85F27D1D9ABCDD00733161 /* LineAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapter.framework; sourceTree = "<group>"; };
-		4A85F27E1D9ABCDD00733161 /* LineAdapterLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapterLogin.framework; sourceTree = "<group>"; };
-		4A85F27F1D9ABCDD00733161 /* LineAdapterUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LineAdapterUI.bundle; sourceTree = "<group>"; };
-		4A85F2801D9ABCDD00733161 /* LineAdapterUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapterUI.framework; sourceTree = "<group>"; };
 		4A85F2821D9ABCDD00733161 /* ObjC-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjC-Header.h"; sourceTree = "<group>"; };
 		4A85F2841D9ABCDD00733161 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		4A85F2851D9ABCDD00733161 /* LineLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLogin.swift; sourceTree = "<group>"; };
@@ -559,6 +553,8 @@
 		FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
 		FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowQRCodeViewController.swift; sourceTree = "<group>"; };
 		FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		FAAB82BD1DC042230060E859 /* LineAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapter.framework; sourceTree = "<group>"; };
+		FAAB82BE1DC042230060E859 /* LineAdapterUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LineAdapterUI.bundle; sourceTree = "<group>"; };
 		FABD93031DAF86B1005FCD02 /* AccountVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVCNotification.swift; sourceTree = "<group>"; };
 		FAC2D1FF1DA65199006C5722 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		FAC2D2011DA65273006C5722 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -703,10 +699,8 @@
 				FA405C831D9228B500D56602 /* Security.framework in Frameworks */,
 				4A136A131DAA2C2E000610E3 /* OneSignal.framework in Frameworks */,
 				FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */,
-				4A85F3891D9ABCDD00733161 /* LineAdapterLogin.framework in Frameworks */,
-				4A85F3881D9ABCDD00733161 /* LineAdapter.framework in Frameworks */,
-				4A85F38B1D9ABCDD00733161 /* LineAdapterUI.framework in Frameworks */,
 				4A85F3871D9ABCDD00733161 /* FBSDKShareKit.framework in Frameworks */,
+				FAAB82BF1DC042230060E859 /* LineAdapter.framework in Frameworks */,
 				FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */,
 				27ADCFEED443850CC9937CC9 /* Pods_PonApp.framework in Frameworks */,
 				4A85F3851D9ABCDD00733161 /* FBSDKCoreKit.framework in Frameworks */,
@@ -785,15 +779,13 @@
 		4A85F2781D9ABCDD00733161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAAB82BD1DC042230060E859 /* LineAdapter.framework */,
+				FAAB82BE1DC042230060E859 /* LineAdapterUI.bundle */,
 				4A136A121DAA2C2E000610E3 /* OneSignal.framework */,
 				4A85F2791D9ABCDD00733161 /* Bolts.framework */,
 				4A85F27A1D9ABCDD00733161 /* FBSDKCoreKit.framework */,
 				4A85F27B1D9ABCDD00733161 /* FBSDKLoginKit.framework */,
 				4A85F27C1D9ABCDD00733161 /* FBSDKShareKit.framework */,
-				4A85F27D1D9ABCDD00733161 /* LineAdapter.framework */,
-				4A85F27E1D9ABCDD00733161 /* LineAdapterLogin.framework */,
-				4A85F27F1D9ABCDD00733161 /* LineAdapterUI.bundle */,
-				4A85F2801D9ABCDD00733161 /* LineAdapterUI.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -1595,7 +1587,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M8AF2Y2268;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1648,7 +1640,6 @@
 				FACF587F1DB8C6D0000FB266 /* coupon_map_detail_icon@2x.png in Resources */,
 				FACF58C51DB8C6D0000FB266 /* tabbar_account_normal@2x.png in Resources */,
 				FACF58931DB8C6D0000FB266 /* map_icon_marker@3x.png in Resources */,
-				4A85F38A1D9ABCDD00733161 /* LineAdapterUI.bundle in Resources */,
 				FACF58AF1DB8C6D0000FB266 /* shop_detail_more_image_button@2x.png in Resources */,
 				FACF586A1DB8C6D0000FB266 /* arrow_down@3x.png in Resources */,
 				FACF58611DB8C6D0000FB266 /* account_icon_history@2x.png in Resources */,
@@ -1733,6 +1724,7 @@
 				4A85F4111D9ABCDD00733161 /* AlbumCollectionViewCell.xib in Resources */,
 				FACF58BC1DB8C6D0000FB266 /* splash_button_facebook@3x.png in Resources */,
 				FACF58B41DB8C6D0000FB266 /* signup_button@3x.png in Resources */,
+				FAAB82C01DC042230060E859 /* LineAdapterUI.bundle in Resources */,
 				4A85F3821D9ABCDD00733161 /* LaunchScreen.storyboard in Resources */,
 				4A85F3EB1D9ABCDD00733161 /* Follow.storyboard in Resources */,
 				FACF586D1DB8C6D0000FB266 /* coupon_button_like@2x.png in Resources */,
@@ -2120,8 +2112,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
-				DEVELOPMENT_TEAM = M8AF2Y2268;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2132,8 +2124,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0c38f81a-6a38-420f-b2be-6950685bcd9f";
-				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -2148,8 +2140,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Le (GX55Z9383C)";
-				DEVELOPMENT_TEAM = M8AF2Y2268;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2160,8 +2152,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1a339506-69a1-4bb9-b250-4a5dcb62adee";
-				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;

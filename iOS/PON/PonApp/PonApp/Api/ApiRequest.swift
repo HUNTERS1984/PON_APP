@@ -38,9 +38,17 @@ public struct ApiRequest {
         ApiManager.processRequest(SignOut, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func getCouponByFeature(_ couponFeature: CouponFeature, completion: @escaping (ApiCompletion)) {
+    static func getCouponByFeature(_ couponFeature: CouponFeature, hasAuth: Bool, longitude: Double? = nil, lattitude: Double? = nil, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let endpoint = String(format:CouponByFeature, couponFeature.rawValue)
-        ApiManager.processRequest(endpoint, method: .GET, completion: completion)
+        var parameters: [String: String?] = [
+            "page_size": "\(pageSize)",
+            "page_index": "\(pageIndex)"
+        ]
+        if let _ = longitude, let _ = lattitude {
+            parameters["longitude"] = "\(longitude)"
+            parameters["latitude"] = "\(lattitude)"
+        }
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
     }
     
     static func getFavoriteCoupon(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
@@ -115,29 +123,41 @@ public struct ApiRequest {
         ApiManager.processRequest(GetNumberOfShopByCategory, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getCouponByFeatureAndType(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
-        let parameters: [String: String?] = [
+    static func getCouponByFeatureAndType(_ feature: CouponFeature, category: Int, hasAuth: Bool, longitude: Double? = nil, lattitude: Double? = nil, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+        var parameters: [String: String?] = [
             "page_size": "\(pageSize)",
             "page_index": "\(pageIndex)"
         ]
-        let endpoint = String(format:GetCouponByFeatureAndType, feature.rawValue, couponType)
+        if let _ = longitude, let _ = lattitude {
+            parameters["longitude"] = "\(longitude)"
+            parameters["latitude"] = "\(lattitude)"
+        }
+        let endpoint = String(format:GetCouponByFeatureAndCategory, feature.rawValue, category)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
+    }
+    
+    static func getShopByFeatureAndCategory(_ feature: CouponFeature, category: Int, longitude: Double? = nil, lattitude: Double? = nil, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+        var parameters: [String: String?] = [
+            "page_size": "\(pageSize)",
+            "page_index": "\(pageIndex)"
+        ]
+        if let _ = longitude, let _ = lattitude {
+            parameters["longitude"] = "\(longitude)"
+            parameters["latitude"] = "\(lattitude)"
+        }
+        let endpoint = String(format:GetShopByFeatureAndCategory, feature.rawValue, category)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }
     
-    static func getShopByFeatureAndCategory(_ feature: CouponFeature, couponType: Int, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
-        let parameters: [String: String?] = [
+    static func getShopByFeature(_ feature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+        var parameters: [String: String?] = [
             "page_size": "\(pageSize)",
             "page_index": "\(pageIndex)"
         ]
-        let endpoint = String(format:GetShopByFeatureAndCategory, feature.rawValue, couponType)
-        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
-    }
-    
-    static func getShopByFeature(_ feature: CouponFeature, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
-        let parameters: [String: String?] = [
-            "page_size": "\(pageSize)",
-            "page_index": "\(pageIndex)"
-        ]
+        if let _ = longitude, let _ = lattitude {
+            parameters["longitude"] = "\(longitude)"
+            parameters["latitude"] = "\(lattitude)"
+        }
         let endpoint = String(format:GetShopByFeature, feature.rawValue)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
     }

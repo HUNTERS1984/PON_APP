@@ -36,7 +36,7 @@ class AddShopContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
-        self.getShopByFeature(1)
+        self.getShop(self.couponFeature!, pageIndex: 1)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -57,9 +57,25 @@ extension AddShopContentViewController {
 //MARK: - Private
 extension AddShopContentViewController {
     
-    fileprivate func getShopByFeature(_ pageIndex: Int) {
+    fileprivate func getShop(_ feature: CouponFeature, pageIndex: Int) {
+        if couponFeature == .near {
+            self.showHUD()
+            LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+                self.hideHUD()
+                if let _ = error {
+                    
+                }else {
+                    self.getShopByFeature(feature, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
+                }
+            }
+        }else {
+            self.getShopByFeature(feature, pageIndex: pageIndex)
+        }
+    }
+    
+    fileprivate func getShopByFeature(_ feature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeature(self.couponFeature!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeature(feature, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

@@ -10,7 +10,7 @@ import UIKit
 
 class LineLogin {
     
-    fileprivate let adapter = LineAdapter.withConfigFile()
+    fileprivate let adapter = LineAdapter.default()
     
     class var sharedInstance: LineLogin {
         struct Static {

@@ -13,8 +13,8 @@ class ListCouponContentViewController: BaseViewController {
     @IBOutlet weak var collectionView:UICollectionView!
     
     var parentNavigationController : UINavigationController?
-    var couponFeature:CouponFeature?
-    var couponCategoryID: Int?
+    var feature: CouponFeature?
+    var categoryID: Int?
     
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
@@ -37,7 +37,7 @@ class ListCouponContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
 
-        self.getCouponByFeatureAndType(1)
+        self.getCoupon(self.feature!, category: self.categoryID!, pageIndex: 1)
     }
     
 }
@@ -45,16 +45,32 @@ class ListCouponContentViewController: BaseViewController {
 //MARK: - Private
 extension ListCouponContentViewController {
     
-    fileprivate func getCouponByFeatureAndType(_ pageIndex: Int) {
+    fileprivate func getCoupon(_ feature:CouponFeature, category: Int, pageIndex: Int) {
+        if feature == .near {
+            self.showHUD()
+            LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+                self.hideHUD()
+                if let _ = error {
+                    
+                }else {
+                    self.getCouponByFeatureAndType(feature, category:category, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
+                }
+            }
+        }else {
+            self.getCouponByFeatureAndType(feature, category:category, pageIndex: pageIndex)
+        }
+    }
+    
+    fileprivate func getCouponByFeatureAndType(_ feature:CouponFeature, category: Int, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponByFeatureAndType(self.couponFeature!, couponType: self.couponCategoryID!, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponByFeatureAndType(feature, category: category, hasAuth: UserDataManager.isLoggedIn(), longitude: longitude, lattitude: lattitude, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
                     var responseCoupon = [Coupon]()
-                    let couponsArray = result?.data?["coupons"].array
+                    let couponsArray = result?.data?.array
                     if let _ = couponsArray {
                         for couponData in couponsArray! {
                             let coupon = Coupon(response: couponData)

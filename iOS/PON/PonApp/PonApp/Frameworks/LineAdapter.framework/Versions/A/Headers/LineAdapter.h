@@ -8,23 +8,25 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "LineApiClient.h"
 
-extern NSString *LineAdapterOtpIsReadyNotification;
-extern NSString *LineAdapterAuthorizationDidChangeNotification;
+@class LineApiClient;
+
+extern NSString *const LineAdapterOtpIsReadyNotification;
+extern NSString *const LineAdapterAuthorizationDidChangeNotification;
 extern NSString *const kLineAdapterVersion;
 
-typedef enum LineAdapterPhase
-{
-    kLineBeta,
-    kLineRC,
-    kLineReal
-} LineAdapterPhase;
+typedef NS_ENUM(NSUInteger, LineAdapterPhase) {
+    LineAdapterPhaseBeta,
+    LineAdapterPhaseRC,
+    LineAdapterPhaseReal,
 
+    // Deprecated
+    kLineBeta DEPRECATED_MSG_ATTRIBUTE("use LineAdapterPhaseBeta") NS_SWIFT_UNAVAILABLE("use LineAdapterPhase.Beta") = LineAdapterPhaseBeta,
+    kLineRC DEPRECATED_MSG_ATTRIBUTE("use LineAdapterPhaseRC") NS_SWIFT_UNAVAILABLE("use LineAdapterPhase.RC")       = LineAdapterPhaseRC,
+    kLineReal DEPRECATED_MSG_ATTRIBUTE("use LineAdapterPhaseReal") NS_SWIFT_UNAVAILABLE("use LineAdapterPhase.Real") = LineAdapterPhaseReal
+};
 
 @interface LineAdapter : NSObject
-
 
 @property(nonatomic, readonly)                       BOOL      canAuthorizeUsingLineApp;
 
@@ -34,13 +36,14 @@ typedef enum LineAdapterPhase
 @property(nonatomic, readonly, getter=isAuthorizing) BOOL      authorizing;
 @property(nonatomic, readonly, getter=isAuthorized)  BOOL      authorized;
 
++ (instancetype)defaultAdapter;
++ (instancetype)adapterWithConfigFile NS_SWIFT_UNAVAILABLE("Use +defaultAdapter class method") DEPRECATED_MSG_ATTRIBUTE("Use +defaultAdapter class method");
+- (instancetype)initWithConfigFile NS_SWIFT_UNAVAILABLE("Use +defaultAdapter class method") DEPRECATED_MSG_ATTRIBUTE("Use +defaultAdapter class method");
+- (instancetype)init NS_UNAVAILABLE;
+
 // A2A認証 ユーザーの操作結果が返ってきたときに実行されるべきメソッドです
 + (BOOL)handleLaunchOptions:(NSDictionary *)aLaunchOptions;
 + (BOOL)handleOpenURL:(NSURL *)aURL;
-
-// 同じChannel ID, 同じPhaseの場合は同じインスタンスを返します
-+ (instancetype)adapterWithConfigFile;
-- (instancetype)initWithConfigFile;
 
 - (void)installLineApp;
 - (void)setPhase:(LineAdapterPhase)aPhase;
@@ -50,15 +53,10 @@ typedef enum LineAdapterPhase
 - (void)authorizeWeb; // for login
 - (void)clearLocalLoginInfo;
 
-//- (void)cancel;
-
 - (BOOL)handleLaunchOptions:(NSDictionary *)aLaunchOptions;
 - (BOOL)handleOpenURL:(NSURL *)aURL;
 
 - (LineApiClient *)getLineApiClient;
-
-- (NSURLRequest *)requestWithPath:(NSString *)aPath HTTPMethod:(NSString *)aHTTPMethod parameters:(NSDictionary *)aParameters;
-- (NSURLRequest *)requestForWebView;
 
 
 @end

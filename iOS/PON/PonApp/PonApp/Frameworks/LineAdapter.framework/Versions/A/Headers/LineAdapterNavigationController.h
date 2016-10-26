@@ -12,9 +12,7 @@
 
 @interface LineAdapterNavigationController : UINavigationController
 
-
 + (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)aImage target:(id)aTarget action:(SEL)aAction;
 + (UIBarButtonItem *)barButtonItemWithTitle:(NSString *)aTitle target:(id)aTarget action:(SEL)aAction;
-
 
 @end

@@ -108,7 +108,6 @@ extension CouponViewController {
     }
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
-        
         UIAlertController.present(title: "Error", message: LikeCouponConfirmation, actionTitles: ["OK", "Cancel"]) { (action) -> () in
             if action.title == "OK" {
                 ApiRequest.likeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
@@ -118,6 +117,7 @@ extension CouponViewController {
                         if result!.code == SuccessCode {
                             self.likeButton.isUserInteractionEnabled = false
                             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
+                            NotificationCenter.default.post(name: Notification.Name(LikeCouponNotification), object: nil)
                         }else {
                             self.presentAlert(message: (result?.message)!)
                         }

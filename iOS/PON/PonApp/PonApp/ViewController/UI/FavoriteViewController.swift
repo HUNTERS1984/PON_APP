@@ -43,6 +43,7 @@ class FavoriteViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
+        self.registerNotification()
         
         self.loadFavoriteCoupon(1)
     }
@@ -143,6 +144,14 @@ extension FavoriteViewController {
             collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
             self.previousSelectedIndexPath = nil
         }
+    }
+    
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processLikeCouponNotification), name: Notification.Name(LikeCouponNotification), object: nil)
+    }
+    
+    @objc fileprivate func processLikeCouponNotification() {
+        self.loadFavoriteCoupon(1)
     }
     
 }
