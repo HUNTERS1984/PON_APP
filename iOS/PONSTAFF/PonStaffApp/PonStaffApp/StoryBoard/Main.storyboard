@@ -42,7 +42,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJG-GO-gml" customClass="BottomBorderView" customModule="PonStaffApp" customModuleProvider="target">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_username.png" translatesAutoresizingMaskIntoConstraints="NO" id="evi-6S-M3E">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_account.png" translatesAutoresizingMaskIntoConstraints="NO" id="evi-6S-M3E">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="DDW-kY-fnb"/>
                                                     <constraint firstAttribute="width" constant="24" id="ajP-tD-3Xx"/>
@@ -74,7 +74,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxk-aQ-75Y">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password.png" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-Qj-qoK">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password.png" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-Qj-qoK">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="WFQ-Ke-ZDd"/>
                                                     <constraint firstAttribute="height" constant="25" id="agm-T9-DUO"/>
@@ -271,17 +271,30 @@
                                     <constraint firstAttribute="width" secondItem="Ejb-yk-QOb" secondAttribute="height" multiplier="1:1" id="h3e-WG-yg8"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZj-dC-MTt">
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.74117647060000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="D6S-Qo-2aU"/>
+                                    <constraint firstAttribute="height" constant="45" id="Eji-s4-bEp"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="flashlightButtonPressed:" destination="Ipt-C8-ahk" eventType="touchUpInside" id="MfU-h0-M3f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ejb-yk-QOb" secondAttribute="trailing" constant="60" id="1oa-lN-bPN"/>
                             <constraint firstItem="Ejb-yk-QOb" firstAttribute="leading" secondItem="OGI-QL-WM3" secondAttribute="leading" constant="60" id="66y-3X-Fvy"/>
+                            <constraint firstItem="YZj-dC-MTt" firstAttribute="centerX" secondItem="OGI-QL-WM3" secondAttribute="centerX" id="DaB-lI-7d0"/>
                             <constraint firstItem="Ejb-yk-QOb" firstAttribute="top" secondItem="dte-7P-0dr" secondAttribute="bottom" constant="155" id="FfK-uk-EdV"/>
                             <constraint firstItem="Ejb-yk-QOb" firstAttribute="width" secondItem="Ejb-yk-QOb" secondAttribute="height" multiplier="1:1" id="GFo-os-GmS"/>
+                            <constraint firstItem="ZDg-oZ-1Bj" firstAttribute="top" secondItem="YZj-dC-MTt" secondAttribute="bottom" constant="25" id="ach-gk-Pu9"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="flashlightButton" destination="YZj-dC-MTt" id="TTu-i4-zn4"/>
                         <outlet property="focusView" destination="Ejb-yk-QOb" id="xuH-1i-z3T"/>
                     </connections>
                 </viewController>
@@ -291,8 +304,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="login_password.png" width="23" height="23"/>
-        <image name="login_username.png" width="23" height="23"/>
+        <image name="ic_account.png" width="22" height="22"/>
+        <image name="ic_password.png" width="24" height="24"/>
         <image name="request_coupon_icon.png" width="45" height="45"/>
     </resources>
 </document>

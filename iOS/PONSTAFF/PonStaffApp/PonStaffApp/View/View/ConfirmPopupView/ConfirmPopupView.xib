@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ConfirmPopupView" customModule="PonStaffApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8x-Wb-peE" customClass="PopupBackgroundView" customModule="PonStaffApp" customModuleProvider="target">
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qf2-xQ-cqZ" customClass="DesignableView" customModule="PonStaffApp" customModuleProvider="target">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCh-S9-8mZ" customClass="DesignableView" customModule="PonStaffApp" customModuleProvider="target">
+                                    <color key="backgroundColor" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="74" id="BwB-to-YTc"/>
+                                        <constraint firstAttribute="height" constant="74" id="T1L-Gd-Mp6"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                            <color key="value" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                            <color key="value" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                            <color key="value" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                            <real key="value" value="37"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_plane_paper.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cgf-if-b0s">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="IXX-ZC-5nI"/>
+                                        <constraint firstAttribute="width" constant="28" id="nou-BK-ARu"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.8862745098" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Cgf-if-b0s" firstAttribute="centerY" secondItem="qf2-xQ-cqZ" secondAttribute="centerY" id="0yd-o4-rMQ"/>
+                                <constraint firstItem="eCh-S9-8mZ" firstAttribute="centerY" secondItem="qf2-xQ-cqZ" secondAttribute="centerY" id="3dm-qh-Cd1"/>
+                                <constraint firstItem="eCh-S9-8mZ" firstAttribute="centerX" secondItem="qf2-xQ-cqZ" secondAttribute="centerX" id="9Pz-lQ-yli"/>
+                                <constraint firstAttribute="height" constant="90" id="mu9-h6-Nqs"/>
+                                <constraint firstAttribute="width" constant="90" id="mvS-Mn-55B"/>
+                                <constraint firstItem="Cgf-if-b0s" firstAttribute="centerX" secondItem="qf2-xQ-cqZ" secondAttribute="centerX" id="zqm-hS-pnu"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                    <color key="value" red="0.8862745098" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                    <color key="value" red="0.8862745098" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                    <color key="value" red="0.8862745098" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                    <real key="value" value="45"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKf-Xo-x8a">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cED-wa-474" customClass="DesignableButton" customModule="PonStaffApp" customModuleProvider="target">
+                                    <color key="backgroundColor" red="0.078431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="ACCEPT"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="acceptButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ROW-JQ-lQG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-Km-GpP" customClass="DesignableButton" customModule="PonStaffApp" customModuleProvider="target">
+                                    <color key="backgroundColor" red="0.88627450980392153" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="REJECT">
+                                        <color key="titleColor" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="rejectButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="fgF-1U-TRQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="cED-wa-474" firstAttribute="leading" secondItem="qKf-Xo-x8a" secondAttribute="leading" id="0tz-dR-5Nc"/>
+                                <constraint firstAttribute="bottom" secondItem="cED-wa-474" secondAttribute="bottom" id="32r-0a-8Rx"/>
+                                <constraint firstItem="cED-wa-474" firstAttribute="top" secondItem="qKf-Xo-x8a" secondAttribute="top" id="3Cc-oU-Pgd"/>
+                                <constraint firstAttribute="bottom" secondItem="D7g-Km-GpP" secondAttribute="bottom" id="7Ki-I8-zR0"/>
+                                <constraint firstItem="D7g-Km-GpP" firstAttribute="top" secondItem="qKf-Xo-x8a" secondAttribute="top" id="B9F-0h-Pyx"/>
+                                <constraint firstAttribute="trailing" secondItem="D7g-Km-GpP" secondAttribute="trailing" id="C1M-Lt-sCJ"/>
+                                <constraint firstAttribute="height" constant="44" id="Uj8-Kc-OJZ"/>
+                                <constraint firstItem="cED-wa-474" firstAttribute="width" secondItem="qKf-Xo-x8a" secondAttribute="width" multiplier="0.48" id="fbO-xD-ZVl"/>
+                                <constraint firstItem="D7g-Km-GpP" firstAttribute="width" secondItem="cED-wa-474" secondAttribute="width" id="vHb-AH-qXD"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request use coupon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-hz-wnb">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="2cF-zY-pdz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <color key="textColor" red="0.23529411759999999" green="0.27450980390000002" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vinyl Banners With It Different Types Kinds And Applications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSH-Km-Xmu">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.72549019609999998" green="0.74117647060000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="qf2-xQ-cqZ" firstAttribute="centerX" secondItem="e8x-Wb-peE" secondAttribute="centerX" id="2RL-1D-2tQ"/>
+                        <constraint firstAttribute="trailing" secondItem="eSH-Km-Xmu" secondAttribute="trailing" constant="15" id="7Sl-1b-4MP"/>
+                        <constraint firstAttribute="width" constant="290" id="LJy-Bk-ZfL"/>
+                        <constraint firstItem="qKf-Xo-x8a" firstAttribute="leading" secondItem="e8x-Wb-peE" secondAttribute="leading" constant="15" id="LN7-fJ-byB"/>
+                        <constraint firstAttribute="trailing" secondItem="Oad-hz-wnb" secondAttribute="trailing" constant="15" id="Lg3-4n-rrv"/>
+                        <constraint firstItem="eSH-Km-Xmu" firstAttribute="top" secondItem="Oad-hz-wnb" secondAttribute="bottom" constant="8" id="OGx-Hx-EQM"/>
+                        <constraint firstItem="Oad-hz-wnb" firstAttribute="top" secondItem="qf2-xQ-cqZ" secondAttribute="bottom" constant="15" id="Y3y-cy-8zG"/>
+                        <constraint firstAttribute="height" constant="275" id="YzD-QE-eAu"/>
+                        <constraint firstItem="qf2-xQ-cqZ" firstAttribute="top" secondItem="e8x-Wb-peE" secondAttribute="top" constant="15" id="Zai-8M-XS5"/>
+                        <constraint firstItem="qKf-Xo-x8a" firstAttribute="top" secondItem="eSH-Km-Xmu" secondAttribute="bottom" constant="8" id="am7-AD-CwS"/>
+                        <constraint firstItem="eSH-Km-Xmu" firstAttribute="leading" secondItem="e8x-Wb-peE" secondAttribute="leading" constant="15" id="e4y-cv-os1"/>
+                        <constraint firstAttribute="trailing" secondItem="qKf-Xo-x8a" secondAttribute="trailing" constant="15" id="exg-Cz-700"/>
+                        <constraint firstAttribute="bottom" secondItem="qKf-Xo-x8a" secondAttribute="bottom" constant="15" id="iKX-NN-KHb"/>
+                        <constraint firstItem="Oad-hz-wnb" firstAttribute="leading" secondItem="e8x-Wb-peE" secondAttribute="leading" constant="15" id="sFG-xc-0hQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="e8x-Wb-peE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6eF-RN-w1o"/>
+                <constraint firstItem="e8x-Wb-peE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LQn-e3-5RX"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="90.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_plane_paper.png" width="25" height="24"/>
+    </resources>
+</document>
