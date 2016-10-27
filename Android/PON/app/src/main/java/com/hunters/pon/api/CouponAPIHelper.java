@@ -78,7 +78,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "1", pageIndex);
+        Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseCouponMainTopData>() {
             @Override
@@ -205,7 +205,7 @@ public class CouponAPIHelper extends APIHelper {
 //            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 //        }
 
-        Call<ResponseCouponByCategoryData> response = service.getCouponByCategory(type, catId,  "1", pageIndex);
+        Call<ResponseCouponByCategoryData> response = service.getCouponByCategory(type, catId,  "20", pageIndex);
 
         response.enqueue(new Callback<ResponseCouponByCategoryData>() {
             @Override
@@ -250,7 +250,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseMyFavouriteData> response = service.getFavouriteCoupons(token, "1", pageIndex);
+        Call<ResponseMyFavouriteData> response = service.getFavouriteCoupons(token, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseMyFavouriteData>() {
             @Override
@@ -295,7 +295,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseHistoryCouponData> response = service.getHistoryCoupon(token, "1", pageIndex);
+        Call<ResponseHistoryCouponData> response = service.getHistoryCoupon(token, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseHistoryCouponData>() {
             @Override

@@ -204,7 +204,7 @@ public class ShopAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseShopFollowData> response = service.getShopFollow(token, "1", pageIndex);
+        Call<ResponseShopFollowData> response = service.getShopFollow(token, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseShopFollowData>() {
             @Override

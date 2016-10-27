@@ -142,4 +142,12 @@
 
     <!--Search -->
     <string name="no_record_found">No records found</string>
+
+    <!-- Permisson explain -->
+    <string name="location_request">Please turn on Location Service to use this function</string>
+    <string name="storage_request">Please grant storage permission to use this function</string>
+    <string name="location_denie">You have denied Location permission to use this function. Please grant it and try again!</string>
+
+    <!--Common-->
+    <string name="open">開く</string>
 </resources>

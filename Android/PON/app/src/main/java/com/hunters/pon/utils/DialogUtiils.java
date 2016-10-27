@@ -63,6 +63,29 @@ public class DialogUtiils {
 
     }
 
+    public void showOptionDialog(final Context context, String message, String btnPositiveCaption, String btnNegativeCaption, final OnDialogButtonConfirm buttonConfirm)
+    {
+
+        mAlertDialog = new AlertDialog.Builder(context)
+                .setTitle(context.getString(R.string.title_alert_dialog))
+                .setMessage(message)
+                .setPositiveButton(btnPositiveCaption, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        buttonConfirm.onDialogButtonConfirm();
+                        dialog.dismiss();
+
+                    }
+                })
+                .setNegativeButton(btnNegativeCaption, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+
+                    }
+                })
+                .show();
+
+    }
+
     public void showDialogLogin(final Context context, String message)
     {
 

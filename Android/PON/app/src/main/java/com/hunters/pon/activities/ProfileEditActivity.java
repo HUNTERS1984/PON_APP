@@ -75,7 +75,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-            case PermissionUtils.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
+            case PermissionUtils.REQUEST_WRITE_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if(mUserChoosenTask == TAKE_PHOTO)
                         cameraIntent();
@@ -259,7 +259,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                boolean result = PermissionUtils.checkPermission(mContext);
+                boolean result = PermissionUtils.newInstance().isGrantStoragePermission((Activity)mContext);
 
                 if (items[item].equals(getString(R.string.take_photo))) {
                     mUserChoosenTask = TAKE_PHOTO;

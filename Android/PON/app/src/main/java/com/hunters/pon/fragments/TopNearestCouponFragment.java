@@ -1,8 +1,11 @@
 package com.hunters.pon.fragments;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
@@ -16,6 +19,7 @@ import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.PermissionUtils;
 
 import java.util.ArrayList;
 
@@ -27,7 +31,8 @@ import java.util.ArrayList;
  * Use the {@link TopNearestCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TopNearestCouponFragment extends BaseFragment implements OnLoadDataListener {
+public class TopNearestCouponFragment extends BaseFragment implements OnLoadDataListener,
+        ActivityCompat.OnRequestPermissionsResultCallback {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -70,6 +75,7 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
         }
 
         mDataListener = this;
+        checkPermission();
     }
 
     @Override
@@ -106,5 +112,23 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
             }
         }
     };
+
+    private void checkPermission(){
+        if (!PermissionUtils.newInstance().isGrantLocationPermission(getActivity())) {
+            PermissionUtils.newInstance().requestLocationPermission(getActivity());
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PermissionUtils.REQUEST_LOCATION) {
+            if(grantResults[0] == PackageManager.PERMISSION_DENIED ) {
+                new DialogUtiils().showDialog(getActivity(), getString(R.string.location_denie), true);
+            } else {
+
+            }
+        }
+    }
 
 }

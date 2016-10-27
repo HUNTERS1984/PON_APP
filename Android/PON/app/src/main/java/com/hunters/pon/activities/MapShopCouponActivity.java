@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -35,6 +34,7 @@ import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.LocationUtils;
 import com.hunters.pon.utils.PermissionUtils;
 
 import java.util.ArrayList;
@@ -45,10 +45,6 @@ import java.util.Map;
 public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnMyLocationButtonClickListener,
         OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
-
-    private static final long MIN_TIME = 400;
-    private static final float MIN_DISTANCE = 100;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private GoogleMap mGoogleMap;
     private List<CouponModel> mListCoupons;
@@ -196,14 +192,16 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     }
 
     private void enableMyLocation() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission to access the location is missing.
-            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                    Manifest.permission.ACCESS_FINE_LOCATION, true);
+        if (!PermissionUtils.newInstance().isGrantLocationPermission(this)) {
+            PermissionUtils.newInstance().requestLocationPermission(this);
         } else if (mGoogleMap != null) {
-            // Access to the location has been granted to the app.
-            mGoogleMap.setMyLocationEnabled(true);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mGoogleMap.setMyLocationEnabled(true);
+            }
+
+            new LocationUtils().enableLocation(this);
         }
     }
 
@@ -219,37 +217,15 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
-            return;
-        }
-
-        if (PermissionUtils.isPermissionGranted(permissions, grantResults,
-                Manifest.permission.ACCESS_FINE_LOCATION)) {
-            // Enable the my location layer if the permission has been granted.
-            enableMyLocation();
-        } else {
-            // Display the missing permission error dialog when the fragments resume.
-            mPermissionDenied = true;
+        if (requestCode == PermissionUtils.REQUEST_LOCATION) {
+            if(grantResults[0] == PackageManager.PERMISSION_DENIED ) {
+                new DialogUtiils().showDialog(this, getString(R.string.location_denie), true);
+            } else {
+                new LocationUtils().enableLocation(this);
+            }
         }
     }
 
-    @Override
-    protected void onResumeFragments() {
-        super.onResumeFragments();
-        if (mPermissionDenied) {
-            // Permission was not granted, display error dialog.
-            showMissingPermissionError();
-            mPermissionDenied = false;
-        }
-    }
-
-    /**
-     * Displays a dialog with error message explaining that the location permission is missing.
-     */
-    private void showMissingPermissionError() {
-        PermissionUtils.PermissionDeniedDialog
-                .newInstance(true).show(getSupportFragmentManager(), "dialog");
-    }
 
     private Handler mHanlderGetMapShopCoupon = new Handler(){
         @Override
