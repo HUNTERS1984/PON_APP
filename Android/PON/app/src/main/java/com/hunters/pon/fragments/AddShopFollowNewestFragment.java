@@ -72,7 +72,7 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
     @Override
     public void onLoadData() {
         mLstShopFollows = new ArrayList<>();
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, "1", mHanlderShopFollow, true);
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, "", "", "1", mHanlderShopFollow, true);
 //        mListShops = new ArrayList<>();
 //
 //        for(int i=0; i<8;i++){
@@ -85,6 +85,6 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
 
     @Override
     public void onLoadMoreData(int page) {
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, String.valueOf(page + 1), mHanlderShopFollow, false);
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, "", "", String.valueOf(page + 1), mHanlderShopFollow, false);
     }
 }

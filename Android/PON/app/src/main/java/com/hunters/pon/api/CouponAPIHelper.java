@@ -62,7 +62,7 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCouponMainTop(Context context, String type, String pageIndex , final Handler handler)
+    public void getCouponMainTop(Context context, String type, String lat, String lng, String pageIndex , final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -78,7 +78,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, "20", pageIndex);
+        Call<ResponseCouponMainTopData> response = service.getCouponMainTop(token, type, lat, lng, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseCouponMainTopData>() {
             @Override
@@ -160,7 +160,7 @@ public class CouponAPIHelper extends APIHelper {
 
 //        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseCategoryData> response = service.getCategory("1", pageIndex);
+        Call<ResponseCategoryData> response = service.getCategory("20", pageIndex);
 
         response.enqueue(new Callback<ResponseCategoryData>() {
             @Override
@@ -187,7 +187,7 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void getCouponByCategory(Context context, String type, long catId, String pageIndex , final Handler handler, boolean isShowProgress)
+    public void getCouponByCategory(Context context, String type, long catId, String lat, String lng, String pageIndex , final Handler handler, boolean isShowProgress)
     {
         if(isShowProgress) {
             showProgressDialog(context);
@@ -199,13 +199,13 @@ public class CouponAPIHelper extends APIHelper {
 
         ICallServices service = retrofit.create(ICallServices.class);
 
-//        String token = "";
-//
-//        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
-//            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
-//        }
+        String token = "";
 
-        Call<ResponseCouponByCategoryData> response = service.getCouponByCategory(type, catId,  "20", pageIndex);
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
+
+        Call<ResponseCouponByCategoryData> response = service.getCouponByCategory(token, type, catId, lat, lng,  "20", pageIndex);
 
         response.enqueue(new Callback<ResponseCouponByCategoryData>() {
             @Override

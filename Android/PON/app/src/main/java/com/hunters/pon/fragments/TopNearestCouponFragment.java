@@ -1,24 +1,28 @@
 package com.hunters.pon.fragments;
 
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.MainTopActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
-import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.LocationUtils;
 import com.hunters.pon.utils.PermissionUtils;
 
 import java.util.ArrayList;
@@ -31,8 +35,9 @@ import java.util.ArrayList;
  * Use the {@link TopNearestCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TopNearestCouponFragment extends BaseFragment implements OnLoadDataListener,
-        ActivityCompat.OnRequestPermissionsResultCallback {
+public class TopNearestCouponFragment extends BaseFragment implements
+        ActivityCompat.OnRequestPermissionsResultCallback,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,6 +48,8 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private LocationUtils mLocationUtils;
+    private Location mUserLocation;
 
     public TopNearestCouponFragment() {
         // Required empty public constructor
@@ -74,19 +81,33 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        mDataListener = this;
+        mLocationUtils = new LocationUtils();
+        mLocationUtils.buildGoogleApiClient(getContext(), this, this);
+        showProgressDialog(getActivity());
         checkPermission();
     }
 
     @Override
-    public void onLoadData() {
+    public void onStart() {
+        super.onStart();
+        mLocationUtils.connect();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mLocationUtils.disconnect();
+    }
+
+    public void loadData() {
         mListCoupons = new ArrayList<>();
         String token = CommonUtils.getToken(getActivity());
 
         if(!token.equalsIgnoreCase("")) {
             new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
         } else {
-            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
+            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON,
+                    String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderGetCoupon);
         }
 
     }
@@ -104,7 +125,7 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
                             ((MainTopActivity)activity).checkToUpdateButtonLogin();
                         }
                     }
-                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "1", mHanlderGetCoupon);
+                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "", "", "1", mHanlderGetCoupon);
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
@@ -124,11 +145,30 @@ public class TopNearestCouponFragment extends BaseFragment implements OnLoadData
                                            @NonNull int[] grantResults) {
         if (requestCode == PermissionUtils.REQUEST_LOCATION) {
             if(grantResults[0] == PackageManager.PERMISSION_DENIED ) {
-                new DialogUtiils().showDialog(getActivity(), getString(R.string.location_denie), true);
-            } else {
-
+                new DialogUtiils().showDialog(getActivity(), getString(R.string.location_denie), false);
+                closeDialog();
             }
         }
     }
 
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        mUserLocation = mLocationUtils.getUserLocation(getContext());
+        closeDialog();
+        loadData();
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        new DialogUtiils().showDialog(getContext(), getString(R.string.cannot_get_user_location), false);
+        closeDialog();
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        new DialogUtiils().showDialog(getContext(), getString(R.string.cannot_get_user_location), false);
+        closeDialog();
+    }
 }

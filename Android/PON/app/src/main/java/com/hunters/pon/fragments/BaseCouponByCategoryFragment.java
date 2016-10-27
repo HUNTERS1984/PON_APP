@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
-import com.hunters.pon.api.ResponseCouponByCategory;
 import com.hunters.pon.api.ResponseCouponByCategoryData;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
@@ -23,6 +22,7 @@ import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.ProgressDialogUtils;
 
 import java.util.List;
 
@@ -50,8 +50,9 @@ public class BaseCouponByCategoryFragment extends Fragment {
 
     protected List<CouponModel> mListCoupons;
     private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
-    private int mPageTotal;
+    private int mPageTotal = 0;
     protected OnLoadMoreListener mLoadMoreData;
+    protected ProgressDialogUtils mProgressDialogUtils;
 
     public BaseCouponByCategoryFragment() {
         // Required empty public constructor
@@ -176,10 +177,14 @@ public class BaseCouponByCategoryFragment extends Fragment {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponByCategoryData couponByCategoryData = (ResponseCouponByCategoryData) msg.obj;
                     if (couponByCategoryData.code == APIConstants.REQUEST_OK && couponByCategoryData.httpCode == APIConstants.HTTP_OK) {
-                        mPageTotal = couponByCategoryData.pagination.getmPageTotal();
-                        ResponseCouponByCategory couponByCategory = couponByCategoryData.data;
-                        mListCoupons.addAll(couponByCategory.getmLstCoupons());
-                        mAdapterCouponByCategory.updateData(mListCoupons);
+                        if(couponByCategoryData.pagination != null) {
+                            mPageTotal = couponByCategoryData.pagination.getmPageTotal();
+                        }
+                        List<CouponModel> lstCoupons = couponByCategoryData.data;
+                        if(lstCoupons != null) {
+                            mListCoupons.addAll(lstCoupons);
+                            mAdapterCouponByCategory.updateData(mListCoupons);
+                        }
                     } else {
                         new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);
                     }
@@ -192,4 +197,18 @@ public class BaseCouponByCategoryFragment extends Fragment {
             mScrollLoadMoreData.setLoaded();
         }
     };
+
+    protected void showProgressDialog(Context context) {
+
+        if(mProgressDialogUtils == null) {
+            mProgressDialogUtils = new ProgressDialogUtils(context, "", context.getString(R.string.connecting));
+        }
+        mProgressDialogUtils.show();
+    }
+
+    protected void closeDialog() {
+        if(mProgressDialogUtils != null){
+            mProgressDialogUtils.hide();
+        }
+    }
 }

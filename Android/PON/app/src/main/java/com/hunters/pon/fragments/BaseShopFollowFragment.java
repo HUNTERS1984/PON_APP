@@ -22,6 +22,7 @@ import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.ProgressDialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,7 @@ public class BaseShopFollowFragment extends Fragment {
     protected OnLoadMoreListener mLoadMoreData;
 
     protected List<ShopModel> mLstShopFollows;
+    protected ProgressDialogUtils mProgressDialogUtils;
 
     public BaseShopFollowFragment() {
         // Required empty public constructor
@@ -202,9 +204,13 @@ public class BaseShopFollowFragment extends Fragment {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseShopFollowCategoryData shopFollow = (ResponseShopFollowCategoryData) msg.obj;
                     if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
-                        mPageTotal = shopFollow.pagination.getmPageTotal();
-                        mLstShopFollows.addAll(shopFollow.data);
-                        mAdapterShopFollow.updateData(mLstShopFollows);
+                        if(shopFollow.pagination != null) {
+                            mPageTotal = shopFollow.pagination.getmPageTotal();
+                        }
+                        if(shopFollow.data != null) {
+                            mLstShopFollows.addAll(shopFollow.data);
+                            mAdapterShopFollow.updateData(mLstShopFollows);
+                        }
                     } else {
                         new DialogUtiils().showDialogLogin(getActivity(), getString(R.string.server_error));
                     }
@@ -217,4 +223,18 @@ public class BaseShopFollowFragment extends Fragment {
             mScrollLoadMoreData.setLoaded();
         }
     };
+
+    protected void showProgressDialog(Context context) {
+
+        if(mProgressDialogUtils == null) {
+            mProgressDialogUtils = new ProgressDialogUtils(context, "", context.getString(R.string.connecting));
+        }
+        mProgressDialogUtils.show();
+    }
+
+    protected void closeDialog() {
+        if(mProgressDialogUtils != null){
+            mProgressDialogUtils.hide();
+        }
+    }
 }

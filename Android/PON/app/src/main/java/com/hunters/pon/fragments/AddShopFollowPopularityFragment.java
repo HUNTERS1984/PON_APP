@@ -54,12 +54,12 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
     @Override
     public void onLoadData() {
         mLstShopFollows = new ArrayList<>();
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "1", mHanlderShopFollow, true);
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "", "", "1", mHanlderShopFollow, true);
     }
 
     @Override
     public void onLoadMoreData(int page) {
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, String.valueOf(page + 1), mHanlderShopFollow, false);
+        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "", "", String.valueOf(page + 1), mHanlderShopFollow, false);
 
     }
 

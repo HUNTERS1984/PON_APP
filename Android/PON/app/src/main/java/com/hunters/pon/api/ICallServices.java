@@ -51,13 +51,13 @@ public interface ICallServices {
     Call<ResponseCouponDetailData> getCouponDetail(@Header("Authorization") String token, @Path("id") long id);
 
     @GET("/api/v1/featured/{type}/coupons")
-    Call<ResponseCouponMainTopData> getCouponMainTop(@Header("Authorization") String token, @Path("type") String type, @Query("page_size") String size, @Query("page_index") String index);
+    Call<ResponseCouponMainTopData> getCouponMainTop(@Header("Authorization") String token, @Path("type") String type, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
 
     @GET("/api/v1/categories")
     Call<ResponseCategoryData> getCategory(@Query("page_size") String size, @Query("page_index") String index);
 
     @GET("/api/v1/featured/{type}/category/{category}/coupons")
-    Call<ResponseCouponByCategoryData> getCouponByCategory(@Path("type") String type, @Path("category") long categoryId, @Query("page_size") String size, @Query("page_index") String index);
+    Call<ResponseCouponByCategoryData> getCouponByCategory(@Header("Authorization") String token, @Path("type") String type, @Path("category") long categoryId, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
 
     @GET("/api/v1/favorite/coupons")
     Call<ResponseMyFavouriteData> getFavouriteCoupons(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
@@ -80,7 +80,7 @@ public interface ICallServices {
 
 
     @GET("/api/v1/featured/{type}/shops/{category}")
-    Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Path("type") String featureType, @Path("category") long typeId, @Query("page_size") String size, @Query("page_index") String index);
+    Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Path("type") String featureType, @Path("category") long typeId, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
 
     @POST("/api/v1/follow/shops/{id}")
     Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") long shopId);

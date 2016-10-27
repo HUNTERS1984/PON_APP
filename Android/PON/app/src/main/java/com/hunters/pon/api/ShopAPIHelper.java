@@ -104,7 +104,7 @@ public class ShopAPIHelper extends APIHelper {
         });
     }
 
-    public void getShopFollowCategory(Context context, String featureType, long catId, String pageIndex , final Handler handler, boolean isShowProgress)
+    public void getShopFollowCategory(Context context, String featureType, long catId, String lat, String lng, String pageIndex , final Handler handler, boolean isShowProgress)
     {
         if(isShowProgress) {
             showProgressDialog(context);
@@ -118,7 +118,7 @@ public class ShopAPIHelper extends APIHelper {
 
 //        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-        Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, "20", pageIndex);
+        Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, lat, lng, "20", pageIndex);
 
         response.enqueue(new Callback<ResponseShopFollowCategoryData>() {
             @Override

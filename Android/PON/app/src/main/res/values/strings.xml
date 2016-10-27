@@ -132,7 +132,7 @@
     <string name="token_expried">Token Expired. Please login again!</string>
     <string name="server_error">Got error. Please try again!</string>
     <string name="need_login">Please login to use this function</string>
-
+    <string name="cannot_get_user_location">Cannot get your location now. Please try again!</string>
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>
 
@@ -150,4 +150,5 @@
 
     <!--Common-->
     <string name="open">開く</string>
+
 </resources>
