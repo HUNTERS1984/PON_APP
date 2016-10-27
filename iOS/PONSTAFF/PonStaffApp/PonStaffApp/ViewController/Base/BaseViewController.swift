@@ -93,7 +93,7 @@ extension BaseViewController {
     }
     
     func showBackButton() {
-        let button = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .plain, target: self, action: #selector(self.backButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "ic_back"), style: .plain, target: self, action: #selector(self.backButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
     }
     
@@ -109,7 +109,7 @@ extension BaseViewController {
     }
     
     func showMenuButton() {
-        let button = UIBarButtonItem(image: UIImage(named: "nav_menu"), style: .plain, target: self, action: #selector(self.menuButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "ic_menu"), style: .plain, target: self, action: #selector(self.menuButtonPressed(_: )))
         self.navigationItem.leftBarButtonItem = button
     }
 

@@ -12,15 +12,16 @@ class RequestCouponViewController: BaseViewController {
 
     @IBOutlet weak var couponListView: UITableView!
     
+    var confirmPopup: ConfirmPopupView!
+    var acceptPopup: AcceptPopupView!
+    var rejectPopup: RejectPopupView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func setUpUserInterface() {
@@ -29,6 +30,9 @@ class RequestCouponViewController: BaseViewController {
         self.showQRButton()
         self.title = "COUPON REQUEST"
         couponListView.estimatedRowHeight = 75
+        self.setupConfirmPopupView()
+        self.setupRejectPopupView()
+        self.setupAcceptPopupView()
     }
 
 }
@@ -36,7 +40,7 @@ class RequestCouponViewController: BaseViewController {
 extension RequestCouponViewController {
     
     func showQRButton() {
-        let button = UIBarButtonItem(image: UIImage(named: "nav_qr"), style: .plain, target: self, action: #selector(self.qrCodeButtonPressed(_: )))
+        let button = UIBarButtonItem(image: UIImage(named: "ic_qrcode_cam"), style: .plain, target: self, action: #selector(self.qrCodeButtonPressed(_: )))
         self.navigationItem.rightBarButtonItem = button
     }
 }
@@ -52,6 +56,68 @@ extension RequestCouponViewController {
     
 }
 
+//MARK: Private
+
+extension RequestCouponViewController {
+    
+    func setupConfirmPopupView() {
+        self.confirmPopup = ConfirmPopupView.create()
+        
+        self.confirmPopup.popupDidShowCallback = {
+            
+        }
+        
+        self.confirmPopup.popupDidHideCallback = {
+            
+        }
+        
+        self.confirmPopup.acceptButtonPressed = {
+            self.confirmPopup.hidePopup()
+            self.acceptPopup.showPopup(inView: self.view, animated: true)
+        }
+        
+        self.confirmPopup.rejectButtonPressed = {
+            self.confirmPopup.hidePopup()
+            self.rejectPopup.showPopup(inView: self.view, animated: true)
+        }
+    }
+    
+    func setupAcceptPopupView() {
+        self.acceptPopup = AcceptPopupView.create()
+        
+        self.acceptPopup.popupDidShowCallback = {
+            
+        }
+        
+        self.acceptPopup.popupDidHideCallback = {
+            
+        }
+        
+        self.acceptPopup.doneButtonPressed = {
+            self.acceptPopup.hidePopup()
+        }
+    }
+    
+    func setupRejectPopupView() {
+        self.rejectPopup = RejectPopupView.create()
+        
+        self.rejectPopup.popupDidShowCallback = {
+            
+        }
+        
+        self.rejectPopup.popupDidHideCallback = {
+            
+        }
+        
+        self.rejectPopup.doneButtonPressed = {
+            self.rejectPopup.hidePopup()
+        }
+    }
+    
+}
+
+//MARK: UITableViewDataSource, UITableViewDelegate
+
 extension RequestCouponViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,5 +131,6 @@ extension RequestCouponViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.confirmPopup.showPopup(inView: self.view, animated: true)
     }
 }

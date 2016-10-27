@@ -5,8 +5,8 @@
     android:padding="20dp"
     android:gravity="center">
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:padding="30dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/circle_stroke_blue_border"
@@ -20,7 +20,8 @@
         android:layout_marginBottom="10dp"
         android:text="@string/request_use_coupon"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textSize="17sp"
         android:id="@+id/tv_message"/>
     <com.hunters.ponstaff.customs.CustomTextView
         android:layout_width="match_parent"
@@ -28,14 +29,14 @@
         android:gravity="center"
         android:text="@string/coupon_request_text_1"
         android:textColor="@color/grey"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
     <com.hunters.ponstaff.customs.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/coupon_request_text_2"
         android:textColor="@color/grey"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -63,8 +64,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:text="@string/reject"
-                android:background="@drawable/background_rectangle_highlight"
-                android:textColor="@color/white"
+                android:background="@drawable/background_rectangle_unhighlight"
+                android:textColor="@color/blue_sky"
                 android:textSize="18sp"
                 android:id="@+id/btn_reject"/>
         </LinearLayout>

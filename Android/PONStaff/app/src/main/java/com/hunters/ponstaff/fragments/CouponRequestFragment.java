@@ -131,8 +131,8 @@ public class CouponRequestFragment extends Fragment {
         mLstCouponRequests = new ArrayList<>();
         for(int i=0; i< 10; i++) {
             CouponRequestModel model = new CouponRequestModel();
-            model.setmTitle("Title");
-            model.setmDes("Des");
+            model.setmTitle("Joel Rivera");
+            model.setmDes("Sale 40% Beer");
             model.setmTimeRequest("1 minute ago");
             mLstCouponRequests.add(model);
         }
