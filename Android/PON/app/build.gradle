@@ -27,7 +27,7 @@ android {
                                 onesignal_app_id: "8bd3dabf-927b-4e27-8568-cf22d7a586bd",
                                 onesignal_google_project_number: "1057789470807"]
         minSdkVersion 16
-        targetSdkVersion 16
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -50,7 +50,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.google.android.gms:play-services-maps:9.6.1'
-//    compile 'com.google.android.gms:play-services-location:9.6.1'
+    //    compile 'com.google.android.gms:play-services-location:9.6.1'
     compile project(':ViewPagerIndiicator')
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile('com.twitter.sdk.android:twitter:2.0.0@aar') {
@@ -65,6 +65,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.onesignal:OneSignal:3.+@aar'
     compile 'com.google.android.gms:play-services-gcm:+'
-    compile "com.google.android.gms:play-services-location:+"
+    compile 'com.google.android.gms:play-services-location:+'
     compile 'com.google.android.gms:play-services-analytics:+'
 }
