@@ -133,6 +133,9 @@
     <string name="server_error">Got error. Please try again!</string>
     <string name="need_login">Please login to use this function</string>
     <string name="cannot_get_user_location">Cannot get your location now. Please try again!</string>
+    <string name="line_install">Please install Line application on Google Play before sharing</string>
+    <string name="instagram_install">Please install Instagram application on Google Play before sharing</string>
+
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>
 
@@ -145,9 +148,11 @@
 
     <!-- Permisson explain -->
     <string name="location_request">Please turn on Location Service to use this function</string>
-    <string name="storage_request">Please grant storage permission to use this function</string>
+    <string name="storage_request">Please grant Storage permission to use this function</string>
+    <string name="camera_request">Please grant Camera permission to use this function</string>
     <string name="location_denie">You have denied Location permission to use this function. Please grant it and try again!</string>
-
+    <string name="storage_denie">You have denied Storage permission to use this function. Please grant it and try again!</string>
+    <string name="camera_denie">You have denied Camera permission to use this function. Please grant it and try again!</string>
     <!--Common-->
     <string name="open">開く</string>
 

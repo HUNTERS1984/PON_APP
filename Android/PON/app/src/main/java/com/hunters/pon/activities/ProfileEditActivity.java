@@ -11,6 +11,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,7 +43,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProfileEditActivity extends BaseActivity implements OnLoadDataListener {
+public class ProfileEditActivity extends BaseActivity implements OnLoadDataListener,
+        ActivityCompat.OnRequestPermissionsResultCallback {
 
     private static final int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     private static final int TAKE_PHOTO = 0, GALLERY = 1;
@@ -73,18 +76,26 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case PermissionUtils.REQUEST_WRITE_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(mUserChoosenTask == TAKE_PHOTO)
-                        cameraIntent();
-                    else if(mUserChoosenTask == GALLERY)
-                        galleryIntent();
+                   if(mUserChoosenTask == GALLERY) {
+                       galleryIntent();
+                   }
                 } else {
-                    //code for deny
+                    new DialogUtiils().showDialog(mContext, getString(R.string.storage_denie), false);
                 }
                 break;
+            case PermissionUtils.REQUEST_CAMERA:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if(mUserChoosenTask == TAKE_PHOTO) {
+                        cameraIntent();
+                    }
+                } else {
+                    new DialogUtiils().showDialog(mContext, getString(R.string.camera_denie), false);
+                }
+                    break;
         }
     }
 
@@ -259,17 +270,21 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                boolean result = PermissionUtils.newInstance().isGrantStoragePermission((Activity)mContext);
 
                 if (items[item].equals(getString(R.string.take_photo))) {
                     mUserChoosenTask = TAKE_PHOTO;
-                    if(result)
+                    if(PermissionUtils.newInstance().isGrantCameraPermission((Activity)mContext)) {
                         cameraIntent();
-
+                    } else {
+                        PermissionUtils.newInstance().requestCameraPermission((Activity)mContext);
+                    }
                 } else if (items[item].equals(getString(R.string.photo_from_gallery))) {
                     mUserChoosenTask = GALLERY;
-                    if(result)
+                    if(PermissionUtils.newInstance().isGrantStoragePermission((Activity)mContext)) {
                         galleryIntent();
+                    } else {
+                        PermissionUtils.newInstance().requestStoragePermission((Activity)mContext);
+                    }
 
                 } else if (items[item].equals(getString(R.string.cancel))) {
                     dialog.dismiss();

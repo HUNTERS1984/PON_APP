@@ -61,7 +61,6 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
      * Flag indicating whether a requested permission has been denied after returning in
      * {@link #onRequestPermissionsResult(int, String[], int[])}.
      */
-    private boolean mPermissionDenied = false;
     private boolean isShowMyLocationFirstTime = false;
 
 
@@ -103,19 +102,19 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                         isShowMyLocationFirstTime = true;
 //                        double lat = 10.839812;
 //                        double lng = 106.780339;
-//                        new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon);
+//                        new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon, true);
                         new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon, true);
                     }
                 }
             });
-            mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(Marker marker) {
-                    long shopId = Long.parseLong(marker.getTag().toString());
-                    mAdapterCoupon.updateData(mHashMapOfShop.get(shopId));
-                    return false;
-                }
-            });
+//            mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+//                @Override
+//                public boolean onMarkerClick(Marker marker) {
+//                    long shopId = Long.parseLong(marker.getTag().toString());
+//                    mAdapterCoupon.updateData(mHashMapOfShop.get(shopId));
+//                    return false;
+//                }
+//            });
         }
     }
 
@@ -238,10 +237,12 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                         if(res.data != null && res.data.size() > 0) {
                             for (ResponseMapShopCoupon shop : res.data) {
                                 addShopMarker(shop.getmId(), shop.getmShopName(), shop.getmAddress(), Double.parseDouble(shop.getmLatitude()), Double.parseDouble(shop.getmLongitude()));
-                                mHashMapOfShop.put(shop.getmId(), shop.getmLstCoupons());
+//                                mHashMapOfShop.put(shop.getmId(), shop.getmLstCoupons());
+                                mListCoupons.addAll(shop.getmLstCoupons());
                             }
 
-                            mAdapterCoupon.updateData(res.data.get(0).getmLstCoupons());
+//                            mAdapterCoupon.updateData(res.data.get(0).getmLstCoupons());
+                            mAdapterCoupon.updateData(mListCoupons);
                         }
                         if(mGoogleMap != null) {
                             mBuilderShopMarker.include(mUserLocation);

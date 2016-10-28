@@ -15,6 +15,7 @@ public class PermissionUtils {
 
     public static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     public static final int REQUEST_LOCATION = 2;
+    public static final int REQUEST_CAMERA = 3;
 
     private static PermissionUtils instance;
 
@@ -83,6 +84,34 @@ public class PermissionUtils {
         } else {
             ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     REQUEST_WRITE_EXTERNAL_STORAGE);
+        }
+    }
+
+    public boolean isGrantCameraPermission(Activity context)
+    {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void requestCameraPermission(final Activity context) {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(context,Manifest.permission.CAMERA)) {
+
+            new DialogUtiils().showDialog(context, context.getString(R.string.camera_request), new OnDialogButtonConfirm() {
+
+                @Override
+                public void onDialogButtonConfirm() {
+                    ActivityCompat.requestPermissions(context,
+                            new String[]{Manifest.permission.CAMERA},
+                            REQUEST_CAMERA);
+                }
+            });
+        } else {
+            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CAMERA},
+                    REQUEST_CAMERA);
         }
     }
 }
