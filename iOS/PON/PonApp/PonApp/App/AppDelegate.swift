@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnabled = true
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
-        LineLogin.sharedInstance.handleLaunchOptions(launchOptions)
+        LineLogin.shared.handleLaunchOptions(launchOptions)
         self.setupApplicationData()
         self.setUpApplicationTheme()
         self.setupApplication(with: launchOptions)
@@ -81,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         FacebookLogin.application(app, openURL: url, options: options)
-        LineLogin.sharedInstance.handleOpenURL(url)
+        LineLogin.shared.handleOpenURL(url)
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         FacebookLogin.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation as AnyObject)
-        LineLogin.sharedInstance.handleOpenURL(url)
+        LineLogin.shared.handleOpenURL(url)
         return true
     }
 

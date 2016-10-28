@@ -10,9 +10,10 @@ import UIKit
 
 class LineLogin {
     
-    fileprivate let adapter = LineAdapter.default()
+    private let adapter = LineAdapter.default()!
+    private var lineAdapterWebViewController: LineAdapterWebViewController?
     
-    class var sharedInstance: LineLogin {
+    class var shared: LineLogin {
         struct Static {
             static let instance = LineLogin()
         }
@@ -28,32 +29,60 @@ class LineLogin {
     
     @objc func authorizationDidChange(_ notification: Notification) {
         let adapter = notification.object as! LineAdapter
+        
         if adapter.isAuthorized {
+            self.getMyProfile()
+            if let _ = lineAdapterWebViewController {
+                lineAdapterWebViewController!.dismiss(animated: true, completion: nil)
+            }
             alert("Login success!", message: "")
             return
         }
-        
-        if let error = (notification as NSNotification).userInfo?["error"] as? NSError {
+        if let error = notification.userInfo?["error"] as? NSError {
+            if let _ = lineAdapterWebViewController {
+                lineAdapterWebViewController!.dismiss(animated: true, completion: nil)
+            }
             alert("Login error!", message: error.localizedDescription)
         }
         
     }
     
     func loginWithLine() {
-        if (adapter?.isAuthorized)! {
+        if (adapter.isAuthorized) {
             alert("Already authorized", message: "")
             return
         }
         
-        if !(adapter?.canAuthorizeUsingLineApp)! {
+        if !(adapter.canAuthorizeUsingLineApp) {
             alert("LINE is not installed", message: "")
             return
         }
-        adapter?.authorize()
+        adapter.authorize()
     }
     
+    func loginInApp(_ aViewController: UIViewController) {
+        if adapter.isAuthorized {
+            alert("Already authorized", message: "")
+            getMyProfile()
+            tryPostEventApi()
+            //uploadProfileImage()
+            return
+        }
+        
+        lineAdapterWebViewController = LineAdapterWebViewController(adapter: adapter, with: LineAdapterWebViewOrientation.all)
+        lineAdapterWebViewController?.navigationItem.leftBarButtonItem = LineAdapterNavigationController.barButtonItem(withTitle: "Cancel", target: self, action: #selector(self.cancel(_:)))
+        let navigationController = LineAdapterNavigationController(rootViewController: lineAdapterWebViewController!)
+        aViewController.present(navigationController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func cancel(_ sender: AnyObject) {
+        lineAdapterWebViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func logout() {
-        adapter?.unauthorize()
+        adapter.unauthorize()
         alert("Logged out", message: "")
     }
     
@@ -69,4 +98,61 @@ class LineLogin {
     func handleOpenURL(_ url: URL) {
         LineAdapter.handleOpen(url)
     }
+    
+    //MARK: - API
+    func getMyProfile() {
+        if !adapter.isAuthorized {
+            alert("Login first!", message: "")
+            return
+        }
+        
+        adapter.getLineApiClient().getMyProfile {[unowned self] (profile, error) -> Void in
+            if let error = error {
+                self.alert("Error occured!", message: error.localizedDescription)
+                return
+            }
+            print(profile)
+            //let displayName = profile?["displayName"] as! String
+            //self.alert("Your name is \(displayName)", message: "")
+        }
+    }
+    
+    func tryPostEventApi() {
+        if !adapter.isAuthorized {
+            alert("Login first!", message: "")
+            return
+        }
+        let content = [
+            "apiVer" : 2,
+            "cmd": "create",
+            "device" : "iphone:5.1",
+            "region" : "JP",
+            "postText" : "I Love this App!",
+            "feedNo" : 1,
+            "test" : true,
+            ] as [String : Any]
+        
+        adapter.getLineApiClient().postEvent(to: ["u882c0d08d8e6862f1281afab27a758f9"], toChannel: "1481487113", eventType: "134068900600015603", content: content, push: nil) { [unowned self] (profile, error) -> Void in
+            if let error = error {
+                self.alert("Error occured!", message: error.localizedDescription)
+                print(error)
+                return
+            }
+            print(profile)
+        }
+    }
+    
+    func uploadProfileImage() {
+        adapter.getLineApiClient().uploadProfileImage(UIImage(named:"main_header_background"), lowQuality: false) { [unowned self] (result, error) -> Void in
+            if let error = error {
+                self.alert("Error occured!", message: error.localizedDescription)
+                print(error)
+                return
+            }
+            print(result)
+        }
+    }
+    
 }
+
+

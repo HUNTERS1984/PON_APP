@@ -79,7 +79,6 @@
 		<string>lineauth</string>
 		<string>line3rdp.$(APP_IDENTIFIER)</string>
 		<string>instagram</string>
-		<string>line</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -89,13 +88,12 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>access.line.me</key>
+			<key>obs.line-apps.com</key>
 			<dict>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>api.line.me</key>
-			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
@@ -120,16 +118,17 @@
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
-			<key>obs.line-apps.com</key>
+			<key>scdn.line-apps.com</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
-			<key>scdn.line-apps.com</key>
+			<key>access.line.me</key>
+			<dict>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>api.line.me</key>
 			<dict>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
@@ -164,5 +163,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>LineAdapterConfig</key>
+	<dict>
+		<key>ChannelId</key>
+		<string>1481487113</string>
+	</dict>
 </dict>
 </plist>
