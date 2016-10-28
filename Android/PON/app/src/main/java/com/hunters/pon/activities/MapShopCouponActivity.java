@@ -125,7 +125,7 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvCoupons.setLayoutManager(layoutManager);
-        mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
+        mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons, false);
         rvCoupons.setAdapter(mAdapterCoupon);
 
         mIvShowMyLocation1 = (ImageView)findViewById(R.id.iv_my_location_1);

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponDetailActivity;
+import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
@@ -32,16 +33,23 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     private List<CouponModel> mListCoupons;
     private Context mContext;
     private OnLoginClickListener mLoginClick;
+    private boolean mIsToMainTop;
 
-    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, OnLoginClickListener loginClick) {
+//    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, OnLoginClickListener loginClick) {
+//        this.mListCoupons = lstCoupons;
+//        this.mContext = context;
+//        mLoginClick = loginClick;
+//    }
+
+//    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons) {
+//        this.mListCoupons = lstCoupons;
+//        this.mContext = context;
+//    }
+
+    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, boolean isToMainTop) {
         this.mListCoupons = lstCoupons;
         this.mContext = context;
-        mLoginClick = loginClick;
-    }
-
-    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons) {
-        this.mListCoupons = lstCoupons;
-        this.mContext = context;
+        mIsToMainTop = isToMainTop;
     }
 
     @Override
@@ -138,9 +146,12 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
             mBtnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (mLoginClick != null) {
-                        mLoginClick.onLoginClick();
-                    }
+//                    if (mLoginClick != null) {
+//                        mLoginClick.onLoginClick();
+//                    }
+                    Intent iLogin = new Intent(mContext, SplashActivity.class);
+                    iLogin.putExtra(Constants.EXTRA_DATA, mIsToMainTop);
+                    mContext.startActivity(iLogin);
                 }
             });
         }

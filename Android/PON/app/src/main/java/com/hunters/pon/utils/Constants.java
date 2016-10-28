@@ -35,5 +35,9 @@ public class Constants {
     public static final int VIEW_TYPE_ITEM = 0;
     public static final int VIEW_TYPE_LOADING = 1;
 
-    public static final int VISIBLE_THRESHOLD = 5;
+    public static final String EXTRA_ADD_FAVOURITE = "ADD_FAVOURITE";
+    public static final String EXTRA_VIEW_COUPON_DETAIL = "VIEW_COUPON_DETAIL";
+    public static final String EXTRA_FOLLOW_SHOP = "FOLLOW_SHOP";
+
+
 }

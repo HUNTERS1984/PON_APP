@@ -14,6 +14,7 @@ import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseUserData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -27,12 +28,18 @@ public class SignInEmailActivity extends BaseActivity {
     private EditText mEdtUsername, mEdtPassword;
     private TextView mTvNewMemberRegistration;
 
+    private boolean isToMainTop = true;
+
+    private ExtraDataModel mDataExtra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         mContext = this;
         setContentView(R.layout.activity_sign_in_email);
         super.onCreate(savedInstanceState);
+
+        isToMainTop = getIntent().getBooleanExtra(Constants.EXTRA_DATA, true);
 
         initLayout();
     }
@@ -73,9 +80,13 @@ public class SignInEmailActivity extends BaseActivity {
                     ResponseUserData user = (ResponseUserData) msg.obj;
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                         CommonUtils.saveToken(mContext, user.data.token);
-                        Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
-                        iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(iMainScreen);
+                        if(isToMainTop) {
+                            Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
+                            iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(iMainScreen);
+                        } else {
+                            setResult(Activity.RESULT_OK);
+                        }
                         finish();
                     } else {
                         new DialogUtiils().showDialog(mContext, user.message, false);

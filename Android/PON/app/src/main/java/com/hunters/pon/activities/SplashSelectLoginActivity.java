@@ -1,5 +1,6 @@
 package com.hunters.pon.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +17,7 @@ import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseUserData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -28,7 +30,7 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 public class SplashSelectLoginActivity extends BaseActivity {
 
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    public static final int REQUEST_CODE = 1001;
 
     private CallbackManager mFacebookCallbackManager;
     private LoginButton mFacebookSignInButton;
@@ -36,7 +38,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
     private TwitterLoginButton mTwitterSignInButton;
 
     private RelativeLayout mRlFacebookLogin, mRlTwitterLogin, mRlEmailLogin;
-    private boolean isToMainTop = true;
+    private ExtraDataModel mDataExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
 
         setContentView(R.layout.activity_splash_select_login);
 
-        isToMainTop = getIntent().getBooleanExtra(Constants.EXTRA_DATA, true);
+        mDataExtra = (ExtraDataModel)getIntent().getSerializableExtra(Constants.EXTRA_DATA);
 
         initLayout();
 
@@ -63,6 +65,12 @@ public class SplashSelectLoginActivity extends BaseActivity {
         if(TwitterAuthConfig.DEFAULT_AUTH_REQUEST_CODE == requestCode) {
             mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
         }
+
+        if(requestCode == REQUEST_CODE) {
+            if(resultCode == Activity.RESULT_OK){
+                finish();
+            }
+        }
     }
 
     private void initLayout()
@@ -74,7 +82,13 @@ public class SplashSelectLoginActivity extends BaseActivity {
         mRlEmailLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(SplashSelectLoginActivity.this, SignInEmailActivity.class, true);
+                Intent iEmailLogin = new Intent(SplashSelectLoginActivity.this, SignInEmailActivity.class);
+                iEmailLogin.putExtra(Constants.EXTRA_DATA, mDataExtra);
+                if(mDataExtra == null) {
+                    startActivity(iEmailLogin);
+                } else {
+                    startActivityForResult(iEmailLogin, REQUEST_CODE);
+                }
             }
         });
 
@@ -147,7 +161,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                         if(user.data != null) {
                             CommonUtils.saveToken(mContext, user.data.token);
-                            if(isToMainTop) {
+                            if(mDataExtra == null) {
                                 Intent iMainScreen = new Intent(SplashSelectLoginActivity.this, MainTopActivity.class);
                                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(iMainScreen);

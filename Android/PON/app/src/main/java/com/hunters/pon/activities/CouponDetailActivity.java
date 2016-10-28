@@ -49,12 +49,14 @@ import java.util.List;
 public class CouponDetailActivity extends AppCompatActivity implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
 
+    private static final int NUM_OF_PHOTO_VISIBLE = 3;
     private static final int USE_COUPON = 0;
     private static final int ADD_FAVOURITE = 1;
 
     private GoogleMap mGoogleMap;
-    protected List<CouponModel> mListCoupons;
+    private List<CouponModel> mLstCoupons;
     private List<String> mLstCouponPhotos;
+    private List<String> mLstVisibleCouponPhotos;
 
     private TextView mTvCouponTitle, mTvCouponTypeid, mTvCouponDescription, mTvCouponExpireDate, mTvCouponAddress,
                      mTvCouponOperationTime, mTvCouponPhone, mTvCouponType;
@@ -87,11 +89,14 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mCouponId = getIntent().getLongExtra(Constants.EXTRA_COUPON_ID, 0);
 
 //        onLoadData();
-        mListCoupons = new ArrayList<>();
+        mLstCoupons = new ArrayList<>();
+        mLstVisibleCouponPhotos = new ArrayList<>();
         mLstCouponPhotos = new ArrayList<>();
         mLstUserPhotos = new ArrayList<>();
 
         initLayout();
+
+        onLoadData();
     }
 
     private void initLayout()
@@ -137,7 +142,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.rv_list_related_coupons);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         rvCoupons.setLayoutManager(layoutManager);
-        mCouponPhotoAdapter = new PhotoRecyclerViewAdapter(this, mLstCouponPhotos, true);
+        mCouponPhotoAdapter = new PhotoRecyclerViewAdapter(this, mLstVisibleCouponPhotos, mLstCouponPhotos, true);
         rvCoupons.setAdapter(mCouponPhotoAdapter);
 
         mBtnShare = (FloatingActionButton)findViewById(R.id.fab_share);
@@ -169,7 +174,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         mRvSimilarCoupons = (RecyclerView)findViewById(R.id.rv_list_coupons_other_shops);
         mRvSimilarCoupons.setLayoutManager(new GridLayoutManager(this, 2));
-        mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
+        mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mLstCoupons, false);
         mRvSimilarCoupons.setAdapter(mAdapterSimilarCoupon);
 
         Button btnUseCoupons = (Button)findViewById(R.id.btn_qr_code_coupon);
@@ -206,7 +211,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     @Override
     protected void onResume() {
         super.onResume();
-        onLoadData();
+//        onLoadData();
     }
 
     @Override
@@ -220,6 +225,11 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     @Override
     public void onLoadData() {
 
+        mLstCoupons = new ArrayList<>();
+        mLstVisibleCouponPhotos = new ArrayList<>();
+        mLstCouponPhotos = new ArrayList<>();
+        mLstUserPhotos = new ArrayList<>();
+
         new CouponAPIHelper().getCouponDetail(mContext, mCouponId, mHanlderCouponDetail);
     }
 
@@ -230,7 +240,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponDetailData data = (ResponseCouponDetailData) msg.obj;
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
-                        mListCoupons = new ArrayList<>();
+                        mLstCoupons = new ArrayList<>();
                         mLstCouponPhotos = new ArrayList<>();
                         mLstUserPhotos = new ArrayList<>();
 
@@ -248,13 +258,15 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
-                            if(lstCouponPhotos.size() > 8) {
-                                mLstCouponPhotos.addAll(lstCouponPhotos.subList(0, 9));
-                                mCouponPhotoAdapter.updateData(mLstCouponPhotos, true, String.valueOf(lstCouponPhotos.size() - 8));
+                            mLstCouponPhotos.addAll(lstCouponPhotos);
+                            if(lstCouponPhotos.size() > NUM_OF_PHOTO_VISIBLE) {
+                                mLstVisibleCouponPhotos.addAll(lstCouponPhotos.subList(0, NUM_OF_PHOTO_VISIBLE + 1));
+                                mCouponPhotoAdapter.updateData(mLstVisibleCouponPhotos, mLstCouponPhotos, true, String.valueOf(lstCouponPhotos.size() - NUM_OF_PHOTO_VISIBLE));
                             } else {
-                                mLstCouponPhotos.addAll(lstCouponPhotos);
-                                mCouponPhotoAdapter.updateData(mLstCouponPhotos, false, "");
+                                mLstVisibleCouponPhotos.addAll(lstCouponPhotos);
+                                mCouponPhotoAdapter.updateData(mLstVisibleCouponPhotos, mLstCouponPhotos, false, "");
                             }
+
                         }
 
                         List<String> lstUserPhotos = coupon.getmLstPhotoUsers();
@@ -263,9 +275,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                             mUserPhotoPagerAdapter.updatePhotos(mLstUserPhotos);
                         }
 
-                        mListCoupons = coupon.getmLstSimilarCoupons();
-                        if(mListCoupons != null) {
-                            mAdapterSimilarCoupon.updateData(mListCoupons);
+                        mLstCoupons = coupon.getmLstSimilarCoupons();
+                        if(mLstCoupons != null) {
+                            mAdapterSimilarCoupon.updateData(mLstCoupons);
                         }
 
                         //Show/Hide button Use this coupon

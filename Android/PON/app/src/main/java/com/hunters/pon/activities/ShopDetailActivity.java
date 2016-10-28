@@ -1,12 +1,17 @@
 package com.hunters.pon.activities;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,6 +41,8 @@ import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.LocationUtils;
+import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -61,7 +68,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
     private ImageView mIvShopAvatar, mIvShopLogo;
     private ProgressBar mProgressBarLoadingPhoto;
     private View mViewHeader;
-    private ScrollView mSvShopDetail;
+    private NestedScrollView mSvShopDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +106,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
             }
         });
 
-        mSvShopDetail = (ScrollView)findViewById(R.id.sv_shop_detail);
+        mSvShopDetail = (NestedScrollView)findViewById(R.id.sv_shop_detail);
         mSvShopDetail.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {
@@ -136,7 +143,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         RecyclerView rvPhotoShops = (RecyclerView) findViewById(R.id.recycler_view_photo_of_shop);
         GridLayoutManager lmShop = new GridLayoutManager(this, 3);
         rvPhotoShops.setLayoutManager(lmShop);
-        mAdapterShopPhoto = new PhotoRecyclerViewAdapter(this, mLstPhotos, false);
+        mAdapterShopPhoto = new PhotoRecyclerViewAdapter(this, mLstPhotos, null, false);
         rvPhotoShops.setAdapter(mAdapterShopPhoto);
 
         ImageView ivTopBack = (ImageView)findViewById(R.id.iv_top_back);
@@ -151,8 +158,9 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         callShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mPhone));
-                startActivity(intent);
+                if(!startCall()){
+                    PermissionUtils.newInstance().requestPhoneCallPermission((Activity)mContext);
+                }
             }
         });
 
@@ -198,6 +206,18 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         new ShopAPIHelper().getShopDetail(mContext, mShopId, mHanlderShopDetail);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PermissionUtils.REQUEST_PHONE_CALL) {
+            if(grantResults[0] == PackageManager.PERMISSION_DENIED ) {
+                new DialogUtiils().showDialog(this, getString(R.string.phone_call_request), false);
+            } else {
+                startCall();
+            }
+        }
+    }
+
     private Handler mHanlderShopDetail = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -217,6 +237,16 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
             }
         }
     };
+
+    private boolean startCall()
+    {
+        if(ActivityCompat.checkSelfPermission(mContext, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mPhone));
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
 
     private void popularLayout(ResponseShopDetail shop)
     {
@@ -258,7 +288,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
 
         //Show List Photo Of Shop
         mLstPhotos = shop.getmLstShopPhoto();
-        mAdapterShopPhoto.updateData(mLstPhotos, false, "");
+        mAdapterShopPhoto.updateData(mLstPhotos, null, false, "");
 
         //Show Map of Shop
         String lat = shop.getmLatitude();

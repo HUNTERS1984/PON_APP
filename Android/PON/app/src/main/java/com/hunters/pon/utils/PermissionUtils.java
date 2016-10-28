@@ -16,6 +16,7 @@ public class PermissionUtils {
     public static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     public static final int REQUEST_LOCATION = 2;
     public static final int REQUEST_CAMERA = 3;
+    public static final int REQUEST_PHONE_CALL = 3;
 
     private static PermissionUtils instance;
 
@@ -112,6 +113,34 @@ public class PermissionUtils {
         } else {
             ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CAMERA},
                     REQUEST_CAMERA);
+        }
+    }
+
+    public boolean isGrantPhoneCallPermission(Activity context)
+    {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void requestPhoneCallPermission(final Activity context) {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(context,Manifest.permission.CALL_PHONE)) {
+
+            new DialogUtiils().showDialog(context, context.getString(R.string.phone_call_request), new OnDialogButtonConfirm() {
+
+                @Override
+                public void onDialogButtonConfirm() {
+                    ActivityCompat.requestPermissions(context,
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            REQUEST_PHONE_CALL);
+                }
+            });
+        } else {
+            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CALL_PHONE},
+                    REQUEST_PHONE_CALL);
         }
     }
 }

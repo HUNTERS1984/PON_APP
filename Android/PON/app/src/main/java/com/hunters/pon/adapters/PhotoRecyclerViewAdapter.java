@@ -1,6 +1,7 @@
 package com.hunters.pon.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
+import com.hunters.pon.activities.PhotoActivity;
+import com.hunters.pon.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,13 +24,14 @@ import java.util.List;
  */
 public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecyclerViewAdapter.RelatedCouponRecyclerViewHolders> {
 
-    private List<String> mListCoupons;
+    private List<String> mLstVisiblePhotos, mLstPhotos;
     private Context mContext;
     private boolean mIsShowMore;
     private String mMorePhotoNumber;
 
-    public PhotoRecyclerViewAdapter(Context context, List<String> lstPhotos, boolean isShowMore) {
-        this.mListCoupons = lstPhotos;
+    public PhotoRecyclerViewAdapter(Context context, List<String> lstVisiblePhotos, List<String> lstPhotos, boolean isShowMore) {
+        this.mLstPhotos = lstPhotos;
+        this.mLstVisiblePhotos = lstVisiblePhotos;
         this.mContext = context;
         mIsShowMore = isShowMore;
         mMorePhotoNumber = "";
@@ -43,7 +48,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
     @Override
     public void onBindViewHolder(final RelatedCouponRecyclerViewHolders holder, int position) {
 
-        Picasso.with(mContext).load(mListCoupons.get(position)).placeholder(R.color.grey).
+        Picasso.with(mContext).load(mLstVisiblePhotos.get(position)).placeholder(R.color.grey).
                 fit().centerCrop().
                 into(holder.mPhoto, new Callback() {
             @Override
@@ -58,7 +63,7 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
         });
 
         if(mIsShowMore) {
-            if (position != (mListCoupons.size() - 1)) {
+            if (position != (mLstVisiblePhotos.size() - 1)) {
                 holder.mPhoto.setVisibility(View.VISIBLE);
                 holder.mTvMore.setVisibility(View.INVISIBLE);
             } else {
@@ -76,12 +81,13 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
 
     @Override
     public int getItemCount() {
-        return this.mListCoupons.size();
+        return this.mLstVisiblePhotos.size();
     }
 
-    public void updateData(List<String> lstCouponPhotos, boolean isShowMore, String moreNumber)
+    public void updateData(List<String> lstVisiblePhotos, List<String> lstPhotos, boolean isShowMore, String moreNumber)
     {
-        mListCoupons = lstCouponPhotos;
+        mLstVisiblePhotos = lstVisiblePhotos;
+        mLstPhotos = lstPhotos;
         mIsShowMore = isShowMore;
         mMorePhotoNumber = moreNumber;
         notifyDataSetChanged();
@@ -97,16 +103,26 @@ public class PhotoRecyclerViewAdapter extends RecyclerView.Adapter<PhotoRecycler
         public RelatedCouponRecyclerViewHolders(View itemView) {
             super(itemView);
             mView = itemView;
-            itemView.setOnClickListener(this);
+//            itemView.setOnClickListener(this);
             mPhoto = (ImageView) itemView.findViewById(R.id.iv_photo);
             mTvMore = (TextView) itemView.findViewById(R.id.tv_view_more);
             mProgressBarLoadingCoupon = (ProgressBar) itemView.findViewById(R.id.progress_bar_loading_coupon_photo);
+
+            mTvMore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mLstPhotos != null) {
+                        Intent iPhoto = new Intent(mContext, PhotoActivity.class);
+                        iPhoto.putStringArrayListExtra(Constants.EXTRA_DATA, (ArrayList<String>) mLstPhotos);
+                        mContext.startActivity(iPhoto);
+                    }
+                }
+            });
         }
 
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
-
         }
     }
 }

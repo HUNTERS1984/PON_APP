@@ -10,14 +10,11 @@ public class ProgressDialogUtils {
 
     private ProgressDialog mProgressDialog;
 
-    public ProgressDialogUtils() {
-
-    }
-
     public ProgressDialogUtils(Context context, String title, String message) {
         mProgressDialog = new ProgressDialog(context);
         mProgressDialog.setTitle(title);
         mProgressDialog.setMessage(message);
+        mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
     }
 
