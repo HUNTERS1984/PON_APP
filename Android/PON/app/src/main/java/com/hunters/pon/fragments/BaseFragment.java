@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponByCategoryDetailActivity;
-import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponMainTop;
@@ -26,7 +25,6 @@ import com.hunters.pon.api.ResponseCouponMainTopData;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
-import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ProgressDialogUtils;
@@ -42,7 +40,7 @@ import java.util.List;
  * Use the {@link BaseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BaseFragment extends Fragment {
+public abstract  class BaseFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,23 +64,23 @@ public class BaseFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BaseFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BaseFragment newInstance(String param1, String param2) {
-        BaseFragment fragment = new BaseFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    /**
+//     * Use this factory method to create a new instance of
+//     * this fragment using the provided parameters.
+//     *
+//     * @param param1 Parameter 1.
+//     * @param param2 Parameter 2.
+//     * @return A new instance of fragment BaseFragment.
+//     */
+//    // TODO: Rename and change types and number of parameters
+//    public static BaseFragment newInstance(String param1, String param2) {
+//        BaseFragment fragment = new BaseFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +110,11 @@ public class BaseFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -180,12 +183,7 @@ public class BaseFragment extends Fragment {
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                             rvCoupons.setLayoutManager(layoutManager);
-                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons(), new OnLoginClickListener() {
-                                @Override
-                                public void onLoginClick() {
-                                    startActivity(new Intent(getActivity(), SplashActivity.class));
-                                }
-                            });
+                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
                             rvCoupons.setAdapter(adapter);
                             mLnShopCatCoupons.addView(vCatCoupons);
                         }
@@ -214,4 +212,6 @@ public class BaseFragment extends Fragment {
             mProgressDialogUtils.hide();
         }
     }
+
+    public abstract void refreshData();
 }

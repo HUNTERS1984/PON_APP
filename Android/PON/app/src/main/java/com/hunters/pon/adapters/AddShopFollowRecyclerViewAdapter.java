@@ -1,5 +1,6 @@
 package com.hunters.pon.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -19,6 +20,7 @@ import com.hunters.pon.activities.ShopDetailActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
@@ -144,7 +146,11 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
                 case R.id.rl_back_ground_shop_select_status:
                     String token = CommonUtils.getToken(mContext);
                     if(token.equalsIgnoreCase("")) {
-                        new DialogUtiils().showDialog(mContext, mContext.getString(R.string.need_login), false );
+                        ExtraDataModel extra = new ExtraDataModel();
+                        extra.setmTitle(Constants.EXTRA_FOLLOW_SHOP);
+                        extra.setmId(shopId);
+                        extra.setmArg(mPosSelection);
+                        new DialogUtiils().showDialogLogin((Activity)mContext, mContext.getString(R.string.need_login), extra );
                     } else {
                         new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
                     }

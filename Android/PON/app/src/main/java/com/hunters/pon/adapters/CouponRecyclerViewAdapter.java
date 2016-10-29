@@ -1,6 +1,6 @@
 package com.hunters.pon.adapters;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +16,7 @@ import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponDetailActivity;
 import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.models.CouponModel;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
@@ -31,7 +32,7 @@ import java.util.List;
 public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<CouponModel> mListCoupons;
-    private Context mContext;
+    private Activity mContext;
     private OnLoginClickListener mLoginClick;
     private boolean mIsToMainTop;
 
@@ -46,10 +47,10 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 //        this.mContext = context;
 //    }
 
-    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, boolean isToMainTop) {
+    public CouponRecyclerViewAdapter(Activity context, List<CouponModel> lstCoupons) {
         this.mListCoupons = lstCoupons;
         this.mContext = context;
-        mIsToMainTop = isToMainTop;
+//        mIsToMainTop = isToMainTop;
     }
 
     @Override
@@ -102,6 +103,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
             }
             couponHolder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).getmIsFavourite() ? R.drawable.ic_favourite : R.drawable.ic_non_favourite);
             couponHolder.mView.setTag(position);
+            couponHolder.mBtnLogin.setTag(position);
         } else if (holder instanceof LoadingViewHolder) {
             LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
             loadingViewHolder.mProgressBar.setIndeterminate(true);
@@ -149,9 +151,15 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 //                    if (mLoginClick != null) {
 //                        mLoginClick.onLoginClick();
 //                    }
+                    mLinearLoginRequired.setVisibility(View.GONE);
+                    int pos = Integer.parseInt(view.getTag().toString());
+                    CouponModel coupon = mListCoupons.get(pos);
                     Intent iLogin = new Intent(mContext, SplashActivity.class);
-                    iLogin.putExtra(Constants.EXTRA_DATA, mIsToMainTop);
-                    mContext.startActivity(iLogin);
+                    ExtraDataModel extraData = new ExtraDataModel();
+                    extraData.setmId(coupon.getmId());
+                    extraData.setmTitle(Constants.EXTRA_VIEW_COUPON_DETAIL);
+                    iLogin.putExtra(Constants.EXTRA_DATA, extraData);
+                    mContext.startActivityForResult(iLogin, Constants.REQUEST_CODE_COUPON_DETAIL);
                 }
             });
         }

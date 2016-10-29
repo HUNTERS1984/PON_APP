@@ -92,7 +92,11 @@ public class BaseActivity extends AppCompatActivity {
         if(mDataListener != null) {
             mDataListener.onLoadData();
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         checkToUpdateButtonLogin();
     }
 

@@ -1,5 +1,6 @@
 package com.hunters.pon.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ import com.hunters.pon.api.ResponseCouponDetailData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.customs.UseCouponDialog;
 import com.hunters.pon.models.CouponModel;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
@@ -49,7 +51,7 @@ import java.util.List;
 public class CouponDetailActivity extends AppCompatActivity implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
 
-    private static final int NUM_OF_PHOTO_VISIBLE = 3;
+    private static final int NUM_OF_PHOTO_VISIBLE = 8;
     private static final int USE_COUPON = 0;
     private static final int ADD_FAVOURITE = 1;
 
@@ -166,7 +168,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 if(!token.equalsIgnoreCase("")) {
                     new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
                 } else {
-                    new DialogUtiils().showDialogLogin(mContext, getString(R.string.need_login));
+                    ExtraDataModel data = new ExtraDataModel();
+                    data.setmTitle(Constants.EXTRA_ADD_FAVOURITE);
+                    data.setmId(mCouponId);
+                    new DialogUtiils().showDialogLogin((Activity)mContext, getString(R.string.need_login), data);
                 }
 
             }
@@ -174,7 +179,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
         mRvSimilarCoupons = (RecyclerView)findViewById(R.id.rv_list_coupons_other_shops);
         mRvSimilarCoupons.setLayoutManager(new GridLayoutManager(this, 2));
-        mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mLstCoupons, false);
+        mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mLstCoupons);
         mRvSimilarCoupons.setAdapter(mAdapterSimilarCoupon);
 
         Button btnUseCoupons = (Button)findViewById(R.id.btn_qr_code_coupon);
@@ -202,7 +207,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 if(!token.equalsIgnoreCase("")) {
                     new UserProfileAPIHelper().checkValidToken(mContext, token, mHandlerCheckValidToken);
                 } else {
-                    new DialogUtiils().showDialogLogin(mContext, getString(R.string.need_login));
+                    ExtraDataModel data = new ExtraDataModel();
+                    data.setmTitle(Constants.EXTRA_USE_COUPON);
+                    data.setmId(mCouponId);
+                    new DialogUtiils().showDialogLogin((Activity)mContext, getString(R.string.need_login), data);
                 }
             }
         });
@@ -212,6 +220,30 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     protected void onResume() {
         super.onResume();
 //        onLoadData();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL) {
+            if (resultCode == Activity.RESULT_OK) {
+                ExtraDataModel extra = (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
+                mCouponId = extra.getmId();
+                onLoadData();
+            }
+        } else if(requestCode == Constants.REQUEST_CODE_ADD_FAVOURITE) {
+            if (resultCode == Activity.RESULT_OK) {
+                ExtraDataModel extra = (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
+                mCouponId = extra.getmId();
+                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+            }
+        } else if(requestCode == Constants.REQUEST_CODE_USE_COUPON) {
+            if (resultCode == Activity.RESULT_OK) {
+                UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode(), mHandlerUseCouponRequest);
+                dialog.show();
+            }
+        }
     }
 
     @Override
@@ -287,7 +319,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                             mBtnUseThisCoupon.setVisibility(View.GONE);
                         }
                     } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
-                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
+                        ExtraDataModel extra = new ExtraDataModel();
+                        extra.setmTitle(Constants.EXTRA_VIEW_COUPON_DETAIL);
+                        extra.setmId(mCouponId);
+                        new DialogUtiils().showDialogLogin((Activity)mContext, getString(R.string.token_expried), extra);
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), true);
                     }
@@ -345,7 +380,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK){
                         new DialogUtiils().showDialog(mContext, data.message, false);
                     } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
-                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
+                        ExtraDataModel extra = new ExtraDataModel();
+                        extra.setmTitle(Constants.EXTRA_USE_COUPON);
+                        extra.setmId(mCouponId);
+                        new DialogUtiils().showDialogLogin((Activity)mContext, getString(R.string.token_expried), extra);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -370,7 +408,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         }
                         new DialogUtiils().showDialog(mContext, data.message, false);
                     } else if(data.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
-                        new DialogUtiils().showDialogLogin(mContext, getString(R.string.token_expried));
+                        ExtraDataModel extra = new ExtraDataModel();
+                        extra.setmTitle(Constants.EXTRA_ADD_FAVOURITE);
+                        extra.setmId(mCouponId);
+                        new DialogUtiils().showDialogLogin((Activity)mContext, getString(R.string.token_expried), extra);
                     } else {
                         if(data.message != null) {
                             new DialogUtiils().showDialog(mContext, data.message, false);

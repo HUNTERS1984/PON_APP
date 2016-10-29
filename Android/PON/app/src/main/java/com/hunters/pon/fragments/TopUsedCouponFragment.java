@@ -68,6 +68,7 @@ public class TopUsedCouponFragment extends BaseFragment implements OnLoadDataLis
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        ((MainTopActivity)getActivity()).mFragmentActive = this;
         mDataListener = this;
     }
 
@@ -81,6 +82,11 @@ public class TopUsedCouponFragment extends BaseFragment implements OnLoadDataLis
         } else {
             new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_USED_COUPON, "", "", "1", mHanlderGetCoupon);
         }
+    }
+
+    @Override
+    public void refreshData() {
+        onLoadData();
     }
 
     private Handler mHanlderCheckValidToken = new Handler(){

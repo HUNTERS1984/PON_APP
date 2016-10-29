@@ -125,7 +125,7 @@ public class BaseCouponByCategoryFragment extends Fragment {
         });
         rv.addOnScrollListener(mScrollLoadMoreData);
 
-        mAdapterCouponByCategory = new CouponRecyclerViewAdapter(view.getContext(), mListCoupons);
+        mAdapterCouponByCategory = new CouponRecyclerViewAdapter(getActivity(), mListCoupons);
         rv.setAdapter(mAdapterCouponByCategory);
         return view;
     }

@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class ExtraDataModel implements Serializable {
 
     private long mId = -1;
+    private Object mArg;
     private String mTitle;
 
     public long getmId() {
@@ -17,6 +18,14 @@ public class ExtraDataModel implements Serializable {
 
     public void setmId(long mId) {
         this.mId = mId;
+    }
+
+    public Object getmArg() {
+        return mArg;
+    }
+
+    public void setmArg(Object mArg) {
+        this.mArg = mArg;
     }
 
     public String getmTitle() {

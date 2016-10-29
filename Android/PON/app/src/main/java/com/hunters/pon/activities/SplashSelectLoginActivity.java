@@ -30,8 +30,6 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 public class SplashSelectLoginActivity extends BaseActivity {
 
-    public static final int REQUEST_CODE = 1001;
-
     private CallbackManager mFacebookCallbackManager;
     private LoginButton mFacebookSignInButton;
 
@@ -66,8 +64,12 @@ public class SplashSelectLoginActivity extends BaseActivity {
             mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
         }
 
-        if(requestCode == REQUEST_CODE) {
-            if(resultCode == Activity.RESULT_OK){
+        if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL || requestCode == Constants.REQUEST_CODE_ADD_FAVOURITE
+                || requestCode == Constants.REQUEST_CODE_FOLLOW_SHOP || requestCode == Constants.REQUEST_CODE_USE_COUPON ) {
+            if (resultCode == Activity.RESULT_OK) {
+                Intent intent = new Intent();
+                intent.putExtra(Constants.EXTRA_DATA, mDataExtra);
+                setResult(Activity.RESULT_OK, intent);
                 finish();
             }
         }
@@ -87,7 +89,15 @@ public class SplashSelectLoginActivity extends BaseActivity {
                 if(mDataExtra == null) {
                     startActivity(iEmailLogin);
                 } else {
-                    startActivityForResult(iEmailLogin, REQUEST_CODE);
+                    if(mDataExtra.getmTitle().equalsIgnoreCase(Constants.EXTRA_ADD_FAVOURITE)){
+                        startActivityForResult(iEmailLogin, Constants.REQUEST_CODE_ADD_FAVOURITE);
+                    } else if(mDataExtra.getmTitle().equalsIgnoreCase(Constants.EXTRA_FOLLOW_SHOP)){
+                        startActivityForResult(iEmailLogin, Constants.REQUEST_CODE_FOLLOW_SHOP);
+                    } else if(mDataExtra.getmTitle().equalsIgnoreCase(Constants.EXTRA_VIEW_COUPON_DETAIL)){
+                        startActivityForResult(iEmailLogin, Constants.REQUEST_CODE_COUPON_DETAIL);
+                    } else if(mDataExtra.getmTitle().equalsIgnoreCase(Constants.EXTRA_USE_COUPON)){
+                        startActivityForResult(iEmailLogin, Constants.REQUEST_CODE_USE_COUPON);
+                    }
                 }
             }
         });
@@ -165,6 +175,10 @@ public class SplashSelectLoginActivity extends BaseActivity {
                                 Intent iMainScreen = new Intent(SplashSelectLoginActivity.this, MainTopActivity.class);
                                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(iMainScreen);
+                            } else {
+                                Intent intent = new Intent();
+                                intent.putExtra(Constants.EXTRA_DATA, mDataExtra);
+                                setResult(Activity.RESULT_OK, intent);
                             }
                             finish();
                         } else {

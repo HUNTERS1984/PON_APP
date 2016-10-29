@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -41,7 +40,6 @@ import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
-import com.hunters.pon.utils.LocationUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

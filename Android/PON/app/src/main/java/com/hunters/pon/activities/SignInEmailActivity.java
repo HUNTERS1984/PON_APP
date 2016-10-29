@@ -39,7 +39,7 @@ public class SignInEmailActivity extends BaseActivity {
         setContentView(R.layout.activity_sign_in_email);
         super.onCreate(savedInstanceState);
 
-        isToMainTop = getIntent().getBooleanExtra(Constants.EXTRA_DATA, true);
+        mDataExtra = (ExtraDataModel)getIntent().getSerializableExtra(Constants.EXTRA_DATA);
 
         initLayout();
     }
@@ -80,7 +80,7 @@ public class SignInEmailActivity extends BaseActivity {
                     ResponseUserData user = (ResponseUserData) msg.obj;
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                         CommonUtils.saveToken(mContext, user.data.token);
-                        if(isToMainTop) {
+                        if(mDataExtra == null) {
                             Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
                             iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(iMainScreen);

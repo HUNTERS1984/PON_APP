@@ -38,6 +38,11 @@ public class Constants {
     public static final String EXTRA_ADD_FAVOURITE = "ADD_FAVOURITE";
     public static final String EXTRA_VIEW_COUPON_DETAIL = "VIEW_COUPON_DETAIL";
     public static final String EXTRA_FOLLOW_SHOP = "FOLLOW_SHOP";
+    public static final String EXTRA_USE_COUPON = "USE_COUPON";
 
+    public static final int REQUEST_CODE_COUPON_DETAIL = 1001;
+    public static final int REQUEST_CODE_ADD_FAVOURITE = 1002;
+    public static final int REQUEST_CODE_FOLLOW_SHOP = 1003;
+    public static final int REQUEST_CODE_USE_COUPON = 1004;
 
 }

@@ -68,7 +68,13 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        ((MainTopActivity)getActivity()).mFragmentActive = this;
         mDataListener = this;
+    }
+
+    @Override
+    public void refreshData() {
+        onLoadData();
     }
 
 
@@ -108,6 +114,4 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
             }
         }
     };
-
-
 }

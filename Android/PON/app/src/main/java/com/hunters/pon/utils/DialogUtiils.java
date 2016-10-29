@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.activities.SplashActivity;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
 
 import java.util.List;
@@ -86,7 +87,7 @@ public class DialogUtiils {
 
     }
 
-    public void showDialogLogin(final Context context, String message)
+    public void showDialogLogin(final Activity context, String message, final ExtraDataModel data)
     {
 
         mAlertDialog = new AlertDialog.Builder(context)
@@ -101,8 +102,18 @@ public class DialogUtiils {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent iLogin = new Intent(context, SplashActivity.class);
-                        iLogin.putExtra(Constants.EXTRA_DATA, false);
-                        context.startActivity(iLogin);
+                        iLogin.putExtra(Constants.EXTRA_DATA, data);
+                        int requestCode = -1;
+                        if(data.getmTitle().equalsIgnoreCase(Constants.EXTRA_VIEW_COUPON_DETAIL)) {
+                            requestCode = Constants.REQUEST_CODE_COUPON_DETAIL;
+                        } else if(data.getmTitle().equalsIgnoreCase(Constants.EXTRA_ADD_FAVOURITE)) {
+                            requestCode = Constants.REQUEST_CODE_ADD_FAVOURITE;
+                        } else if(data.getmTitle().equalsIgnoreCase(Constants.EXTRA_FOLLOW_SHOP)){
+                            requestCode = Constants.REQUEST_CODE_FOLLOW_SHOP;
+                        } else if(data.getmTitle().equalsIgnoreCase(Constants.EXTRA_USE_COUPON)) {
+                            requestCode = Constants.REQUEST_CODE_USE_COUPON;
+                        }
+                        context.startActivityForResult(iLogin, requestCode);
                     }
                 })
                 .show();

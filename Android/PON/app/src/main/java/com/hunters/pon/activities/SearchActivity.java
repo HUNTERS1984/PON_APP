@@ -1,5 +1,6 @@
 package com.hunters.pon.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,8 +15,8 @@ import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.api.ResponseSearchCouponData;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
-import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
@@ -94,12 +95,7 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
 
 
         mLstSearchCoupons = new ArrayList<>();
-        mAdapterCoupon = new SearchCouponRecyclerViewAdapter(mContext, mLstSearchCoupons, new OnLoginClickListener() {
-            @Override
-            public void onLoginClick() {
-                startActivity(new Intent(mContext, SplashActivity.class));
-            }
-        });
+        mAdapterCoupon = new SearchCouponRecyclerViewAdapter((Activity)mContext, mLstSearchCoupons);
         mRecyclerViewCoupon.setAdapter(mAdapterCoupon);
 
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -124,7 +120,22 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
         new CouponAPIHelper().searchCoupon(mContext, mQuery, "1", mHanlderSearchCoupon, true);
     }
 
-//    @Override
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL) {
+            if (resultCode == Activity.RESULT_OK) {
+                checkToUpdateButtonLogin();
+                ExtraDataModel extra =  (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
+                Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
+                iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, extra.getmId());
+                mContext.startActivity(iCouponDetail);
+            }
+        }
+    }
+
+    //    @Override
 //    public void onLoadMore() {
 //
 //    }

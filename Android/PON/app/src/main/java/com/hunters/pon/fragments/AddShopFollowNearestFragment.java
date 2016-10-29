@@ -11,7 +11,9 @@ import android.support.v4.app.Fragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hunters.pon.R;
+import com.hunters.pon.activities.AddShopFollowDetailActivity;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -69,6 +71,8 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
         if (getArguments() != null) {
             mCatId = getArguments().getLong(CAT_ID);
         }
+        ((AddShopFollowDetailActivity)getActivity()).mFragmentActive = this;
+
         mLoadMoreData = this;
 
         mLocationUtils = new LocationUtils();
@@ -99,6 +103,17 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
     public void onStop() {
         super.onStop();
         mLocationUtils.disconnect();
+    }
+
+    @Override
+    public void updateStatusFollowShop(int position)
+    {
+        if(mLstShopFollows != null) {
+            ShopModel shop = mLstShopFollows.get(position);
+            boolean isShopFollow = shop.getmIsShopFollow();
+            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
+            mAdapterShopFollow.notifyDataSetChanged();
+        }
     }
 
     public void loadData() {

@@ -1,5 +1,7 @@
 package com.hunters.pon.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -8,10 +10,15 @@ import android.widget.ImageView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CouponPagerAdapter;
+import com.hunters.pon.fragments.BaseFragment;
+import com.hunters.pon.models.ExtraDataModel;
+import com.hunters.pon.utils.Constants;
 
 public class MainTopActivity extends BaseActivity {
 
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
+
+    public BaseFragment mFragmentActive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +79,22 @@ public class MainTopActivity extends BaseActivity {
                 startActivity(MainTopActivity.this, AddShopFollowActivity.class, false);
             }
         });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL) {
+            if (resultCode == Activity.RESULT_OK) {
+                mFragmentActive.refreshData();
+                checkToUpdateButtonLogin();
+                ExtraDataModel extra =  (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
+                Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
+                iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, extra.getmId());
+                mContext.startActivity(iCouponDetail);
+            }
+        }
     }
 }

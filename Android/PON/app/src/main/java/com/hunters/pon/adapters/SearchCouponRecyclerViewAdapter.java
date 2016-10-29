@@ -1,6 +1,6 @@
 package com.hunters.pon.adapters;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +14,10 @@ import android.widget.TextView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.activities.CouponDetailActivity;
+import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.models.CouponModel;
-import com.hunters.pon.protocols.OnLoginClickListener;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.viewholders.LoadingViewHolder;
@@ -31,13 +32,11 @@ import java.util.List;
 public class SearchCouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<ResponseCouponDetail> mListCoupons;
-    private Context mContext;
-    private OnLoginClickListener mLoginClick;
+    private Activity mContext;
 
-    public SearchCouponRecyclerViewAdapter(Context context, List<ResponseCouponDetail> lstCoupons, OnLoginClickListener loginClick) {
+    public SearchCouponRecyclerViewAdapter(Activity context, List<ResponseCouponDetail> lstCoupons) {
         this.mListCoupons = lstCoupons;
         this.mContext = context;
-        mLoginClick = loginClick;
     }
 
     @Override
@@ -91,6 +90,7 @@ public class SearchCouponRecyclerViewAdapter extends RecyclerView.Adapter<Recycl
             }
             searchHolder.mCouponIsFavourite.setImageResource(mListCoupons.get(position).getmIsFavourite() ? R.drawable.ic_favourite : R.drawable.ic_non_favourite);
             searchHolder.mView.setTag(position);
+            searchHolder.mBtnLogin.setTag(position);
         } else if (holder instanceof LoadingViewHolder) {
             LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
             loadingViewHolder.mProgressBar.setIndeterminate(true);
@@ -137,9 +137,18 @@ public class SearchCouponRecyclerViewAdapter extends RecyclerView.Adapter<Recycl
             mBtnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (mLoginClick != null) {
-                        mLoginClick.onLoginClick();
-                    }
+//                    if (mLoginClick != null) {
+//                        mLoginClick.onLoginClick();
+//                    }
+                    mLinearLoginRequired.setVisibility(View.GONE);
+                    int pos = Integer.parseInt(view.getTag().toString());
+                    CouponModel coupon = mListCoupons.get(pos);
+                    Intent iLogin = new Intent(mContext, SplashActivity.class);
+                    ExtraDataModel extraData = new ExtraDataModel();
+                    extraData.setmId(coupon.getmId());
+                    extraData.setmTitle(Constants.EXTRA_VIEW_COUPON_DETAIL);
+                    iLogin.putExtra(Constants.EXTRA_DATA, extraData);
+                    mContext.startActivityForResult(iLogin, Constants.REQUEST_CODE_COUPON_DETAIL);
                 }
             });
         }

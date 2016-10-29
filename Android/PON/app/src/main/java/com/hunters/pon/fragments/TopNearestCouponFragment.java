@@ -81,6 +81,8 @@ public class TopNearestCouponFragment extends BaseFragment implements
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        ((MainTopActivity)getActivity()).mFragmentActive = this;
+
         mLocationUtils = new LocationUtils();
         mLocationUtils.buildGoogleApiClient(getContext(), this, this);
         showProgressDialog(getActivity());
@@ -110,6 +112,14 @@ public class TopNearestCouponFragment extends BaseFragment implements
                     String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderGetCoupon);
         }
 
+    }
+
+    @Override
+    public void refreshData()
+    {
+        if(mUserLocation != null) {
+            loadData();
+        }
     }
 
     private Handler mHanlderCheckValidToken = new Handler(){
