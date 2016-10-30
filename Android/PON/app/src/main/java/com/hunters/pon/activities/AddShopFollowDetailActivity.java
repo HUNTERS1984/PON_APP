@@ -15,6 +15,9 @@ import com.hunters.pon.adapters.ShopFollowPagerAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.fragments.AddShopFollowNearestFragment;
+import com.hunters.pon.fragments.AddShopFollowNewestFragment;
+import com.hunters.pon.fragments.AddShopFollowPopularityFragment;
 import com.hunters.pon.fragments.BaseShopFollowFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
@@ -24,14 +27,16 @@ public class AddShopFollowDetailActivity extends BaseActivity {
 
     private long mTypeId;
 
-    public Fragment mFragmentActive;
+    private Fragment mFragmentActive;
     private Object mArg;
+    private ShopFollowPagerAdapter mShopAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.activity_shop_follow_detail);
-        super.onCreate(savedInstanceState);
+
 
         mTypeId = getIntent().getLongExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
 
@@ -46,35 +51,62 @@ public class AddShopFollowDetailActivity extends BaseActivity {
         });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+//        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
+//        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
+//        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
+//        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final ShopFollowPagerAdapter adapter = new ShopFollowPagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount(), mTypeId);
-        viewPager.setAdapter(adapter);
-//        tabLayout.setupWithViewPager(viewPager);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onPageSelected(int position) {
+                mFragmentActive = mShopAdapter.getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
+//        final ShopFollowPagerAdapter adapter = new ShopFollowPagerAdapter
+//                (getSupportFragmentManager(), tabLayout.getTabCount(), mTypeId);
+//        viewPager.setAdapter(adapter);
+//        tabLayout.setupWithViewPager(viewPager);
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                viewPager.setCurrentItem(tab.getPosition());
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
     }
+    //.newInstance(mTypeId)
 
+    private void setupViewPager(ViewPager viewPager) {
+        mShopAdapter = new ShopFollowPagerAdapter(getSupportFragmentManager());
+        mShopAdapter.addFrag(AddShopFollowPopularityFragment.newInstance(mTypeId), getString(R.string.popularity));
+        mShopAdapter.addFrag(AddShopFollowNewestFragment.newInstance(mTypeId), getString(R.string.newest));
+        mShopAdapter.addFrag(AddShopFollowNearestFragment.newInstance(mTypeId), getString(R.string.near));
+        viewPager.setAdapter(mShopAdapter);
+        mFragmentActive = mShopAdapter.getItem(0);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

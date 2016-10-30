@@ -11,7 +11,6 @@ import android.support.v4.app.Fragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hunters.pon.R;
-import com.hunters.pon.activities.AddShopFollowDetailActivity;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadMoreListener;
@@ -71,7 +70,7 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
         if (getArguments() != null) {
             mCatId = getArguments().getLong(CAT_ID);
         }
-        ((AddShopFollowDetailActivity)getActivity()).mFragmentActive = this;
+
 
         mLoadMoreData = this;
 
@@ -81,7 +80,12 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
         checkPermission();
     }
 
-//    @Override
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        View view = inflater.inflate(R.layout.fragment_nearest_shop_subscribe, container, false);

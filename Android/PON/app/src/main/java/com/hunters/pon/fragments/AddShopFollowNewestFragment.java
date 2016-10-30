@@ -3,7 +3,6 @@ package com.hunters.pon.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.hunters.pon.activities.AddShopFollowDetailActivity;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
@@ -55,11 +54,15 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
         if (getArguments() != null) {
             mCatId = getArguments().getLong(CAT_ID);
         }
-        ((AddShopFollowDetailActivity)getActivity()).mFragmentActive = this;
+
         mDataListener = this;
         mLoadMoreData = this;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
