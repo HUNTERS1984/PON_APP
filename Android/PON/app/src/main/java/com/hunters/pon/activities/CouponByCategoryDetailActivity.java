@@ -5,13 +5,19 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.hunters.pon.R;
-import com.hunters.pon.adapters.CouponByCategoryPager;
+import com.hunters.pon.adapters.PagerAdapter;
+import com.hunters.pon.fragments.CouponByCategoryNearestFragment;
+import com.hunters.pon.fragments.CouponByCategoryNewestFragment;
+import com.hunters.pon.fragments.CouponByCategoryPopularityFragment;
+import com.hunters.pon.fragments.CouponByCategoryUsedFragment;
 import com.hunters.pon.utils.Constants;
 
 public class CouponByCategoryDetailActivity extends BaseActivity {
 
     private long mCatId;
     private String mTitle;
+
+    private PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,32 +35,18 @@ public class CouponByCategoryDetailActivity extends BaseActivity {
     {
         setTitle(mTitle);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.deals)));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final CouponByCategoryPager adapter = new CouponByCategoryPager
-                (getSupportFragmentManager(), tabLayout.getTabCount(), mCatId);
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+    }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+    private void setupViewPager(ViewPager viewPager) {
+        mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        mPagerAdapter.addFrag(CouponByCategoryPopularityFragment.newInstance(mCatId), getString(R.string.popularity));
+        mPagerAdapter.addFrag(CouponByCategoryNewestFragment.newInstance(mCatId), getString(R.string.newest));
+        mPagerAdapter.addFrag(CouponByCategoryNearestFragment.newInstance(mCatId), getString(R.string.near));
+        mPagerAdapter.addFrag(CouponByCategoryUsedFragment.newInstance(mCatId), getString(R.string.deals));
+        viewPager.setAdapter(mPagerAdapter);
     }
 }

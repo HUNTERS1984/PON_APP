@@ -9,8 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.hunters.pon.R;
-import com.hunters.pon.adapters.CouponPagerAdapter;
+import com.hunters.pon.adapters.PagerAdapter;
 import com.hunters.pon.fragments.BaseFragment;
+import com.hunters.pon.fragments.TopNearestCouponFragment;
+import com.hunters.pon.fragments.TopNewestCouponFragment;
+import com.hunters.pon.fragments.TopPopularCouponFragment;
+import com.hunters.pon.fragments.TopUsedCouponFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
 
@@ -19,6 +23,8 @@ public class MainTopActivity extends BaseActivity {
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
 
     public BaseFragment mFragmentActive;
+
+    private PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,34 +43,10 @@ public class MainTopActivity extends BaseActivity {
         mBtnShopLocation = (ImageView)findViewById(R.id.iv_shop_location);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.popularity)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newest)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.near)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.deals)));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final CouponPagerAdapter adapter = new CouponPagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
 
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +61,15 @@ public class MainTopActivity extends BaseActivity {
                 startActivity(MainTopActivity.this, AddShopFollowActivity.class, false);
             }
         });
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        mPagerAdapter.addFrag(new TopPopularCouponFragment(), getString(R.string.popularity));
+        mPagerAdapter.addFrag(new TopNewestCouponFragment(), getString(R.string.newest));
+        mPagerAdapter.addFrag(new TopNearestCouponFragment(), getString(R.string.near));
+        mPagerAdapter.addFrag(new TopUsedCouponFragment(), getString(R.string.deals));
+        viewPager.setAdapter(mPagerAdapter);
     }
 
 

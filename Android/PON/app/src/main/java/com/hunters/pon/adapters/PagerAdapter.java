@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Created by LENOVO on 9/1/2016.
  */
-public class ShopFollowPagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    public ShopFollowPagerAdapter(FragmentManager manager) {
+    public PagerAdapter(FragmentManager manager) {
         super(manager);
     }
 
@@ -38,26 +38,4 @@ public class ShopFollowPagerAdapter extends FragmentPagerAdapter {
         return mFragmentTitleList.get(position);
     }
 
-//    @Override
-//    public Fragment getItem(int position) {
-//
-//        switch (position) {
-//            case 0:
-//                AddShopFollowPopularityFragment popular = AddShopFollowPopularityFragment.newInstance(mCouponTypeId);
-//                return popular;
-//            case 1:
-//                AddShopFollowNewestFragment newest = AddShopFollowNewestFragment.newInstance(mCouponTypeId);
-//                return newest;
-//            case 2:
-//                AddShopFollowNearestFragment nearest = AddShopFollowNearestFragment.newInstance(mCouponTypeId);
-//                return nearest;
-//            default:
-//                return null;
-//        }
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return mNumOfTabs;
-//    }
 }
