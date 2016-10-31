@@ -10,15 +10,28 @@ import UIKit
 
 class RequestCouponCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    var coupon: Coupon! {
+        didSet {
+            self.setDataForCell(self.coupon)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setDataForCell(_ coupon: Coupon) {
+        self.titleLabel.text = coupon.user.userName
+        self.detailsLabel.text = coupon.title
+        self.timeLabel.text = coupon.expiryDate
     }
 
 }
