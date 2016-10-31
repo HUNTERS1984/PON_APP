@@ -82,18 +82,24 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LineAdapterConfig</key>
+	<dict>
+		<key>ChannelId</key>
+		<string>1486368034</string>
+	</dict>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>obs.line-apps.com</key>
+			<key>access.line.me</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>api.line.me</key>
+			<dict>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
@@ -118,17 +124,16 @@
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
+			<key>obs.line-apps.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 			<key>scdn.line-apps.com</key>
-			<dict>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>access.line.me</key>
-			<dict>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>api.line.me</key>
 			<dict>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
@@ -163,10 +168,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>LineAdapterConfig</key>
-	<dict>
-		<key>ChannelId</key>
-		<string>1481487113</string>
-	</dict>
 </dict>
 </plist>

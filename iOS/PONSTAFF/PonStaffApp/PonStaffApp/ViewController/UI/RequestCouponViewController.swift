@@ -15,6 +15,8 @@ class RequestCouponViewController: BaseViewController {
     var confirmPopup: ConfirmPopupView!
     var acceptPopup: AcceptPopupView!
     var rejectPopup: RejectPopupView!
+    var coupons = [Coupon]()
+    var selectedCoupon: Coupon?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,11 @@ class RequestCouponViewController: BaseViewController {
         self.showQRButton()
         self.title = "COUPON REQUEST"
         couponListView.estimatedRowHeight = 75
+        couponListView.tableFooterView = UIView()
         self.setupConfirmPopupView()
         self.setupRejectPopupView()
         self.setupAcceptPopupView()
+        self.getRequestCouponList(withPage: 1)
     }
 
 }
@@ -62,37 +66,23 @@ extension RequestCouponViewController {
     
     func setupConfirmPopupView() {
         self.confirmPopup = ConfirmPopupView.create()
-        
-        self.confirmPopup.popupDidShowCallback = {
-            
-        }
-        
-        self.confirmPopup.popupDidHideCallback = {
-            
-        }
-        
         self.confirmPopup.acceptButtonPressed = {
             self.confirmPopup.hidePopup()
-            self.acceptPopup.showPopup(inView: self.view, animated: true)
+            if let _ = self.selectedCoupon {
+                self.acceptCoupon(self.selectedCoupon!.couponID, userName: self.selectedCoupon!.user.userName!)
+            }
         }
         
         self.confirmPopup.rejectButtonPressed = {
             self.confirmPopup.hidePopup()
-            self.rejectPopup.showPopup(inView: self.view, animated: true)
+            if let _ = self.selectedCoupon {
+                self.rejectCoupon(self.selectedCoupon!.couponID, userName: self.selectedCoupon!.user.userName!)
+            }
         }
     }
     
     func setupAcceptPopupView() {
         self.acceptPopup = AcceptPopupView.create()
-        
-        self.acceptPopup.popupDidShowCallback = {
-            
-        }
-        
-        self.acceptPopup.popupDidHideCallback = {
-            
-        }
-        
         self.acceptPopup.doneButtonPressed = {
             self.acceptPopup.hidePopup()
         }
@@ -100,17 +90,90 @@ extension RequestCouponViewController {
     
     func setupRejectPopupView() {
         self.rejectPopup = RejectPopupView.create()
-        
-        self.rejectPopup.popupDidShowCallback = {
-            
-        }
-        
-        self.rejectPopup.popupDidHideCallback = {
-            
-        }
-        
         self.rejectPopup.doneButtonPressed = {
             self.rejectPopup.hidePopup()
+        }
+    }
+    
+    fileprivate func getRequestCouponList(withPage pageIndex:Int) {
+        self.showHUD()
+        ApiRequest.getRequestCoupon(pageIndex: pageIndex) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        var responseCoupon = [Coupon]()
+                        let couponsArray = result?.data?.array
+                        if let _ = couponsArray {
+                            for couponData in couponsArray! {
+                                let coupon = Coupon(response: couponData)
+                                responseCoupon.append(coupon)
+                            }
+                            if pageIndex == 1 {
+                                self.displayCoupon(responseCoupon, type: .new)
+                            }else {
+                                self.displayCoupon(responseCoupon, type: .loadMore)
+                            }
+                        }
+                    }else {
+
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func displayCoupon(_ coupons: [Coupon], type: GetType) {
+        switch type {
+        case .new:
+            self.coupons.removeAll()
+            self.coupons = coupons
+            self.couponListView.reloadData()
+            break
+        case .loadMore:
+            self.coupons.append(contentsOf: coupons)
+            self.couponListView.reloadData()
+            break
+        case .reload:
+            break
+        }
+    }
+    
+    fileprivate func acceptCoupon(_ couponId: Float, userName: String) {
+        self.showHUD()
+        ApiRequest.acceptCoupon(couponId, userName: userName) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.acceptPopup.showPopup(inView: self.view, animated: true)
+                    }else {
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func rejectCoupon(_ couponId: Float, userName: String) {
+        self.showHUD()
+        ApiRequest.rejectCoupon(couponId, userName: userName) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.rejectPopup.showPopup(inView: self.view, animated: true)
+                    }else {
+                        
+                    }
+                }
+            }
         }
     }
     
@@ -121,16 +184,19 @@ extension RequestCouponViewController {
 extension RequestCouponViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.coupons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCouponCell") as! RequestCouponCell
+        let coupon = self.coupons[indexPath.row]
+        cell.coupon = coupon
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedCoupon = self.coupons[indexPath.row]
         self.confirmPopup.showPopup(inView: self.view, animated: true)
     }
 }

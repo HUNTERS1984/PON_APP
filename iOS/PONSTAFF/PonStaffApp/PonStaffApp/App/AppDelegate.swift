@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setupApplicationData()
         setUpApplicationTheme()
         setupStartViewController()
         return true
@@ -34,6 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupStartViewController() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
+        
+        let vc = SignInViewController.instanceFromStoryBoard("Main")
+        self.window?.rootViewController = vc
+    }
+    
+    func setupApplicationData() {
+        ReachabilityManager.sharedInstance.initReachabilityManager()
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.receivedTokenInvalidNotification(_:)), name:NSNotification.Name(rawValue: TokenInvalidNotification), object: nil)
+    }
+    
+    func receivedTokenInvalidNotification(_ notification: Notification){
+        UIAlertController.present(title: "Error", message: "Access token invalid", actionTitles: ["OK"]) { (action) -> () in
+            loggingPrint(action.title)
+        }
         
         let vc = SignInViewController.instanceFromStoryBoard("Main")
         self.window?.rootViewController = vc

@@ -19,6 +19,9 @@
 		FA0403961DBF0F940001B63F /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403871DBF0F940001B63F /* TopBorderView.swift */; };
 		FA0403981DBF10650001B63F /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0403971DBF10650001B63F /* DesignableButton.swift */; };
 		FA06E8121DBF546800256312 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06E8111DBF546800256312 /* QRCode.swift */; };
+		FA07F8EA1DC6EFE200E88DFC /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07F8E61DC6EFE200E88DFC /* Coupon.swift */; };
+		FA07F8EE1DC6EFFF00E88DFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07F8ED1DC6EFFF00E88DFC /* MapKit.framework */; };
+		FA07F8F31DC6FA9C00E88DFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07F8F21DC6FA9C00E88DFC /* User.swift */; };
 		FA12FF291DBEEA20002D0B11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF281DBEEA20002D0B11 /* SignInViewController.swift */; };
 		FA12FF2D1DBEF344002D0B11 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12FF2C1DBEF344002D0B11 /* SideMenuView.swift */; };
 		FA12FF2F1DBEF478002D0B11 /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA12FF2E1DBEF478002D0B11 /* SideMenuView.xib */; };
@@ -146,6 +149,9 @@
 		FA0403871DBF0F940001B63F /* TopBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
 		FA0403971DBF10650001B63F /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		FA06E8111DBF546800256312 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		FA07F8E61DC6EFE200E88DFC /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
+		FA07F8ED1DC6EFFF00E88DFC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FA07F8F21DC6FA9C00E88DFC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA12FF281DBEEA20002D0B11 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA12FF2C1DBEF344002D0B11 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		FA12FF2E1DBEF478002D0B11 /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA07F8EE1DC6EFFF00E88DFC /* MapKit.framework in Frameworks */,
 				FADC34DF1DC1ED2300E10E3F /* AVFoundation.framework in Frameworks */,
 				614B3343D721050FFFA749DB /* Pods_PonStaffApp.framework in Frameworks */,
 			);
@@ -294,6 +301,7 @@
 		1423107335FEF6610EA092B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA07F8ED1DC6EFFF00E88DFC /* MapKit.framework */,
 				FADC34DE1DC1ED2300E10E3F /* AVFoundation.framework */,
 				47F350BEA86070BCFF1C3E04 /* Pods_PonStaffApp.framework */,
 			);
@@ -336,6 +344,15 @@
 				FA06E8111DBF546800256312 /* QRCode.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		FA07F8E41DC6EFE200E88DFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA07F8E61DC6EFE200E88DFC /* Coupon.swift */,
+				FA07F8F21DC6FA9C00E88DFC /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FA12FF2A1DBEF2D3002D0B11 /* View */ = {
@@ -422,6 +439,7 @@
 				FA730D9E1DBDFB00003CD52E /* ViewController */,
 				FA730D931DBDFAD0003CD52E /* Manager */,
 				FA730CEC1DBDFA6D003CD52E /* Vendor */,
+				FA07F8E41DC6EFE200E88DFC /* Model */,
 				FA730CDA1DBDFA03003CD52E /* Api */,
 				FA730CE01DBDFA03003CD52E /* Constant */,
 				FA730CE31DBDFA03003CD52E /* Header */,
@@ -822,6 +840,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = M8AF2Y2268;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1014,6 +1037,7 @@
 				FA730E091DBDFB3E003CD52E /* UIImageExtension.swift in Sources */,
 				FA730E0D1DBDFB3E003CD52E /* UITableViewExtension.swift in Sources */,
 				FA730DFF1DBDFB3E003CD52E /* HLKSharedResources.swift in Sources */,
+				FA07F8F31DC6FA9C00E88DFC /* User.swift in Sources */,
 				FA730E0C1DBDFB3E003CD52E /* UIScrollViewExtension.swift in Sources */,
 				FA730DC41DBDFB00003CD52E /* BaseNavigationController.swift in Sources */,
 				FA36E8771DBF4D6900BE2D0F /* RequestCouponCell.swift in Sources */,
@@ -1024,6 +1048,7 @@
 				FA730CE51DBDFA03003CD52E /* ApiEndpoint.swift in Sources */,
 				FA730D901DBDFA6D003CD52E /* SwiftyJSON.swift in Sources */,
 				FA36E8791DBF500E00BE2D0F /* QRCodeReaderViewController.swift in Sources */,
+				FA07F8EA1DC6EFE200E88DFC /* Coupon.swift in Sources */,
 				FA0403931DBF0F940001B63F /* RightBorderView.swift in Sources */,
 				FA12FF331DBEF826002D0B11 /* PointViewController.swift in Sources */,
 			);
