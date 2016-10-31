@@ -117,9 +117,9 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
                         Snackbar.LENGTH_SHORT).show();
                 showCamera();
             } else {
-                Snackbar.make(mLayout, R.string.permissions_not_granted,
+                Snackbar.make(mLayout, R.string.camera_permissions_not_granted,
                         Snackbar.LENGTH_SHORT).show();
-                showCamera();
+//                showCamera();
             }
 
         }  else {
