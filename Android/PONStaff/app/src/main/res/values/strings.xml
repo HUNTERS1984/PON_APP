@@ -24,4 +24,10 @@
     <string name="thank_you_my_love">Thank you my love</string>
     <string name="sorry_my_partner">Sorry my partner</string>
     <string name="done">DONE</string>
+
+    <!-- Dialog -->
+    <string name="connecting">ローディング...</string>
+    <string name="title_alert_dialog">アラート</string>
+    <string name="connection_failed">Server failed to request</string>
+
 </resources>

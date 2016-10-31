@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hunters.ponstaff.R;
+import com.hunters.ponstaff.api.APIConstants;
+import com.hunters.ponstaff.api.CouponAPIHelper;
+import com.hunters.ponstaff.api.ResponseCommon;
+import com.hunters.ponstaff.utils.DialogUtiils;
 
 /**
  * Created by hle59 on 10/20/2016.
@@ -27,9 +33,13 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
     private Button mBtnAccept, mBtnReject, mBtnDone;
     private TextView mTvMessage;
 
-    public RequestCouponDialog(Context context) {
+    private String mCouponId, mUsername;
+
+    public RequestCouponDialog(Context context, String id, String username) {
         super(context);
         mContext = context;
+        mCouponId = id;
+        mUsername = username;
     }
 
     @Override
@@ -70,24 +80,62 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_accept:
-                mTvMessage.setText(mContext.getString(R.string.thank_you_my_love));
-                mIvRequestIcon.setImageResource(R.drawable.ic_heart);
-                mBtnAccept.setVisibility(View.GONE);
-                mBtnReject.setVisibility(View.GONE);
-                mBtnDone.setVisibility(View.VISIBLE);
+                new CouponAPIHelper().acceptRequestCoupon(mContext, mCouponId, mUsername, mHanlderAcceptRequestCoupon);
                 break;
             case R.id.btn_reject:
-                mTvMessage.setText(mContext.getString(R.string.sorry_my_partner));
-                mIvRequestIcon.setImageResource(R.drawable.ic_sad);
-                mIvRequestIcon.setBackgroundResource(R.drawable.circle_stroke_pink_border);
-                mBtnAccept.setVisibility(View.GONE);
-                mBtnReject.setVisibility(View.GONE);
-                mBtnDone.setVisibility(View.VISIBLE);
-                mBtnDone.setBackgroundResource(R.drawable.background_rectangle_pink);
+                new CouponAPIHelper().declineRequestCoupon(mContext, mCouponId, mUsername, mHanlderDeclineRequestCoupon);
                 break;
             case R.id.btn_done:
             default:
                 dismiss();
         }
     }
+
+    private Handler mHanlderAcceptRequestCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon data = (ResponseCommon) msg.obj;
+                    if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
+                        mTvMessage.setText(mContext.getString(R.string.thank_you_my_love));
+                        mIvRequestIcon.setImageResource(R.drawable.ic_heart);
+                        mBtnAccept.setVisibility(View.GONE);
+                        mBtnReject.setVisibility(View.GONE);
+                        mBtnDone.setVisibility(View.VISIBLE);
+                    } else {
+                        new DialogUtiils().showDialog(mContext, data.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
+
+    private Handler mHanlderDeclineRequestCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon data = (ResponseCommon) msg.obj;
+                    if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
+                        mTvMessage.setText(mContext.getString(R.string.sorry_my_partner));
+                        mIvRequestIcon.setImageResource(R.drawable.ic_sad);
+                        mIvRequestIcon.setBackgroundResource(R.drawable.circle_stroke_pink_border);
+                        mBtnAccept.setVisibility(View.GONE);
+                        mBtnReject.setVisibility(View.GONE);
+                        mBtnDone.setVisibility(View.VISIBLE);
+                        mBtnDone.setBackgroundResource(R.drawable.background_rectangle_pink);
+                    } else {
+                        new DialogUtiils().showDialog(mContext, data.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
 }

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hunters.ponstaff.R;
+import com.hunters.ponstaff.api.ResponseCouponRequest;
 import com.hunters.ponstaff.customs.RequestCouponDialog;
-import com.hunters.ponstaff.models.CouponRequestModel;
 import com.hunters.ponstaff.utils.Constants;
 import com.hunters.ponstaff.viewholders.LoadingViewHolder;
 
@@ -20,10 +20,10 @@ import java.util.List;
  */
 public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<CouponRequestModel> mLstCouponRequests;
+    private List<ResponseCouponRequest> mLstCouponRequests;
     private Context mContext;
 
-    public CouponRequestRecyclerViewAdapter(Context context, List<CouponRequestModel> lstCouponRequests) {
+    public CouponRequestRecyclerViewAdapter(Context context, List<ResponseCouponRequest> lstCouponRequests) {
         this.mLstCouponRequests = lstCouponRequests;
         this.mContext = context;
     }
@@ -51,10 +51,10 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof CouponRequestRecyclerViewHolders) {
             final CouponRequestRecyclerViewHolders requestHolder = (CouponRequestRecyclerViewHolders) holder;
-            CouponRequestModel request = mLstCouponRequests.get(position);
-            requestHolder.mTitle.setText(request.getmTitle());
-            requestHolder.mDescription.setText(request.getmDes());
-            requestHolder.mTimeRequest.setText(request.getmTimeRequest());
+            ResponseCouponRequest request = mLstCouponRequests.get(position);
+            requestHolder.mTitle.setText(request.getmUser().get(0).getmUsername());
+            requestHolder.mDescription.setText(request.getmTitle());
+            requestHolder.mTimeRequest.setText(request.getmExpireDate());
 
             requestHolder.mView.setTag(position);
         } else if (holder instanceof LoadingViewHolder) {
@@ -68,7 +68,7 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         return this.mLstCouponRequests == null ? 0 : this.mLstCouponRequests.size();
     }
 
-    public void updateData(List<CouponRequestModel> lstCouponRequests) {
+    public void updateData(List<ResponseCouponRequest> lstCouponRequests) {
         mLstCouponRequests = lstCouponRequests;
         notifyDataSetChanged();
     }
@@ -90,8 +90,10 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
-            CouponRequestModel cat = mLstCouponRequests.get(pos);
-            new RequestCouponDialog(mContext).show();
+            ResponseCouponRequest cat = mLstCouponRequests.get(pos);
+            String couponId = String.valueOf(cat.getmId());
+            String username = cat.getmUser().get(0).getmUsername();
+            new RequestCouponDialog(mContext, couponId, username).show();
 //            Intent iCouponByCategory = new Intent(mContext, CouponByCategoryDetailActivity.class);
 //            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, cat.getmId());
 //            iCouponByCategory.putExtra(Constants.EXTRA_TITLE, cat.getmName());

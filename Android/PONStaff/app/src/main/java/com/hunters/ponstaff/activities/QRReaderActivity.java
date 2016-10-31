@@ -53,7 +53,6 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
     @Override
     public void handleResult(Result rawResult) {
-        // Do something with the result here
 
         Log.e("handler", rawResult.getText()); // Prints scan results
         Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
@@ -65,8 +64,6 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
         AlertDialog alert1 = builder.create();
         alert1.show();
 
-        // If you would like to resume scanning, call this method below:
-        // mScannerView.resumeCameraPreview(this);
     }
 
     public void showCamera() {

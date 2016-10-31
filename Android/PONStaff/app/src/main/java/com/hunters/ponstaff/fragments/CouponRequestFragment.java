@@ -3,6 +3,8 @@ package com.hunters.ponstaff.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,8 +16,12 @@ import android.view.ViewGroup;
 import com.hunters.ponstaff.R;
 import com.hunters.ponstaff.adapters.CouponRequestRecyclerViewAdapter;
 import com.hunters.ponstaff.adapters.DividerItemDecoration;
+import com.hunters.ponstaff.api.APIConstants;
+import com.hunters.ponstaff.api.CouponAPIHelper;
+import com.hunters.ponstaff.api.ResponseCouponRequest;
+import com.hunters.ponstaff.api.ResponseCouponRequestData;
 import com.hunters.ponstaff.customs.EndlessRecyclerViewScrollListener;
-import com.hunters.ponstaff.models.CouponRequestModel;
+import com.hunters.ponstaff.utils.DialogUtiils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +49,7 @@ public class CouponRequestFragment extends Fragment {
 
     private Context mContext;
     private CouponRequestRecyclerViewAdapter mCouponRequestAdapter;
-    private List<CouponRequestModel> mLstCouponRequests;
+    private List<ResponseCouponRequest> mLstCouponRequests;
     private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
     private int mPageTotal;
 
@@ -100,9 +106,9 @@ public class CouponRequestFragment extends Fragment {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
                 if(page < mPageTotal) {
-//                    mLstCouponRequests.add(null);
-//                    mAdapterCategory.notifyItemInserted(mLstCategories.size() - 1);
-//                    new CouponAPIHelper().getCategory(mContext, String.valueOf(page + 1), mHanlderGetCategory, false);
+                    mLstCouponRequests.add(null);
+                    mCouponRequestAdapter.notifyItemInserted(mLstCouponRequests.size() - 1);
+                    new CouponAPIHelper().getRequestCoupon(mContext, String.valueOf(page + 1), mHanlderRequestCoupon);
                 }
             }
         };
@@ -129,12 +135,41 @@ public class CouponRequestFragment extends Fragment {
     private void initData()
     {
         mLstCouponRequests = new ArrayList<>();
-        for(int i=0; i< 10; i++) {
-            CouponRequestModel model = new CouponRequestModel();
-            model.setmTitle("Joel Rivera");
-            model.setmDes("Sale 40% Beer");
-            model.setmTimeRequest("1 minute ago");
-            mLstCouponRequests.add(model);
-        }
+
+        new CouponAPIHelper().getRequestCoupon(mContext, "1", mHanlderRequestCoupon);
+
+//        for(int i=0; i< 10; i++) {
+//            CouponRequestModel model = new CouponRequestModel();
+//            model.setmTitle("Joel Rivera");
+//            model.setmDes("Sale 40% Beer");
+//            model.setmTimeRequest("1 minute ago");
+//            mLstCouponRequests.add(model);
+//        }
     }
+
+    private Handler mHanlderRequestCoupon = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(mLstCouponRequests.size() > 0 && mLstCouponRequests.get(mLstCouponRequests.size() - 1) == null) {
+                mLstCouponRequests.remove(mLstCouponRequests.size() - 1);
+                mCouponRequestAdapter.notifyItemRemoved(mLstCouponRequests.size());
+            }
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCouponRequestData couponData = (ResponseCouponRequestData) msg.obj;
+                    if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
+                        mLstCouponRequests.addAll(couponData.data);
+                        mCouponRequestAdapter.updateData(mLstCouponRequests);
+                    } else {
+                        new DialogUtiils().showDialog(mContext, couponData.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+            mScrollLoadMoreData.setLoaded();
+        }
+    };
 }
