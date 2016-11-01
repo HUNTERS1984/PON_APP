@@ -15,7 +15,7 @@ import com.hunters.ponstaff.api.APIConstants;
 import com.hunters.ponstaff.api.ResponseUserData;
 import com.hunters.ponstaff.api.UserProfileAPIHelper;
 import com.hunters.ponstaff.utils.CommonUtils;
-import com.hunters.ponstaff.utils.DialogUtiils;
+import com.hunters.ponstaff.utils.DialogUtils;
 import com.hunters.ponstaff.utils.KeyboardUtils;
 
 public class LoginActivity extends AppCompatActivity {
@@ -71,11 +71,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         finish();
                     } else {
-                        new DialogUtiils().showDialog(mContext, user.message, false);
+                        new DialogUtils().showDialog(mContext, user.message, false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
-                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    new DialogUtils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
         }

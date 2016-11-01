@@ -19,7 +19,7 @@ import com.hunters.ponstaff.R;
 import com.hunters.ponstaff.api.APIConstants;
 import com.hunters.ponstaff.api.CouponAPIHelper;
 import com.hunters.ponstaff.api.ResponseCommon;
-import com.hunters.ponstaff.utils.DialogUtiils;
+import com.hunters.ponstaff.utils.DialogUtils;
 
 /**
  * Created by hle59 on 10/20/2016.
@@ -104,11 +104,11 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                         mBtnReject.setVisibility(View.GONE);
                         mBtnDone.setVisibility(View.VISIBLE);
                     } else {
-                        new DialogUtiils().showDialog(mContext, data.message, false);
+                        new DialogUtils().showDialog(mContext, data.message, false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
-                    new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                    new DialogUtils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
                     break;
             }
         }
@@ -129,11 +129,11 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                         mBtnDone.setVisibility(View.VISIBLE);
                         mBtnDone.setBackgroundResource(R.drawable.background_rectangle_pink);
                     } else {
-                        new DialogUtiils().showDialog(mContext, data.message, false);
+                        new DialogUtils().showDialog(mContext, data.message, false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
-                    new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                    new DialogUtils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
                     break;
             }
         }

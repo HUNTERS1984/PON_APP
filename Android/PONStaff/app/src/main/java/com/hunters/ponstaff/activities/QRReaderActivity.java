@@ -2,6 +2,7 @@ package com.hunters.ponstaff.activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import com.google.zxing.Result;
 import com.hunters.ponstaff.R;
+import com.hunters.ponstaff.protocols.OnDialogButtonConfirm;
+import com.hunters.ponstaff.utils.DialogUtils;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -23,6 +26,7 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
     private static final int REQUEST_CAMERA = 0;
 
+    private Context mContext;
     private ZXingScannerView mScannerView;
     private View mLayout;
 
@@ -30,7 +34,7 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrreader);
-
+        mContext = this;
         mLayout = findViewById(R.id.activity_qrreader);
 
         initLayout();
@@ -90,17 +94,14 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.CAMERA)) {
-            Snackbar.make(mLayout, R.string.permission_camera_rationale,
-                    Snackbar.LENGTH_INDEFINITE)
-                    .setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            ActivityCompat.requestPermissions(QRReaderActivity.this,
-                                    new String[]{Manifest.permission.CAMERA},
-                                    REQUEST_CAMERA);
-                        }
-                    })
-                    .show();
+            new DialogUtils().showDialog(mContext, getString(R.string.permission_camera_rationale), new OnDialogButtonConfirm() {
+                @Override
+                public void onDialogButtonConfirm() {
+                    ActivityCompat.requestPermissions(QRReaderActivity.this,
+                            new String[]{Manifest.permission.CAMERA},
+                            REQUEST_CAMERA);
+                }
+            });
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},
                     REQUEST_CAMERA);
@@ -113,12 +114,9 @@ public class QRReaderActivity extends AppCompatActivity implements ZXingScannerV
 
         if (requestCode == REQUEST_CAMERA) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Snackbar.make(mLayout, R.string.permision_available_camera,
-                        Snackbar.LENGTH_SHORT).show();
                 showCamera();
             } else {
-                Snackbar.make(mLayout, R.string.camera_permissions_not_granted,
-                        Snackbar.LENGTH_SHORT).show();
+                new DialogUtils().showDialog(mContext, getString(R.string.camera_permissions_not_granted), false);
 //                showCamera();
             }
 

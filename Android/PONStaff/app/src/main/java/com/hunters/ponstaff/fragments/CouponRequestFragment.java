@@ -21,7 +21,7 @@ import com.hunters.ponstaff.api.CouponAPIHelper;
 import com.hunters.ponstaff.api.ResponseCouponRequest;
 import com.hunters.ponstaff.api.ResponseCouponRequestData;
 import com.hunters.ponstaff.customs.EndlessRecyclerViewScrollListener;
-import com.hunters.ponstaff.utils.DialogUtiils;
+import com.hunters.ponstaff.utils.DialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -161,12 +161,12 @@ public class CouponRequestFragment extends Fragment {
                         mLstCouponRequests.addAll(couponData.data);
                         mCouponRequestAdapter.updateData(mLstCouponRequests);
                     } else {
-                        new DialogUtiils().showDialog(mContext, couponData.message, false);
+                        new DialogUtils().showDialog(mContext, couponData.message, false);
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     mScrollLoadMoreData.adjustCurrentPage();
-                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    new DialogUtils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
             mScrollLoadMoreData.setLoaded();
