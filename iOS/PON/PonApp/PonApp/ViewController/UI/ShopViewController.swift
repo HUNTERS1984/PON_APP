@@ -209,7 +209,7 @@ extension ShopViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        cell.coupon = self.shopCoupon[(indexPath as NSIndexPath).item]
+        cell.coupon = self.shopCoupon[indexPath.item]
         return cell
         
     }
@@ -237,21 +237,21 @@ extension ShopViewController: UICollectionViewDataSource {
 extension ShopViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCoupon = self.shopCoupon[(indexPath as NSIndexPath).item]
+        let selectedCoupon = self.shopCoupon[indexPath.item]
         if let _ = selectedCoupon.needLogin {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
                     self.getCouponDetail(selectedCoupon.couponID)
                 }else {
                     if let _ = self.previousSelectedIndexPath {
-                        self.shopCoupon[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        self.shopCoupon[self.previousSelectedIndexPath!.item].showConfirmView = false
                         collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                         
-                        self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.shopCoupon[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }else {
-                        self.shopCoupon[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.shopCoupon[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }

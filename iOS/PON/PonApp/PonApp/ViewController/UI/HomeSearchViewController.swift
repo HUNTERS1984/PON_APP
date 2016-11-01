@@ -111,7 +111,7 @@ extension HomeSearchViewController {
     
 }
 
-extension HomeSearchViewController: UITableViewDataSource {
+extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.couponTypes.count
@@ -119,21 +119,17 @@ extension HomeSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTypeTableViewCell") as! CouponTypeTableViewCell
-        cell.setDataForCell(self.couponTypes[(indexPath as NSIndexPath).row])
+        cell.setDataForCell(self.couponTypes[indexPath.row])
         return cell
     }
     
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
     
-}
-
-extension HomeSearchViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedType = self.couponTypes[(indexPath as NSIndexPath).row]
+        let selectedType = self.couponTypes[indexPath.row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
         vc.couponCategoryID = selectedType.categoryID
         vc.categoryName = selectedType.categoryName

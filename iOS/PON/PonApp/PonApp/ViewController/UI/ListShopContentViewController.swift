@@ -164,8 +164,8 @@ extension ListShopContentViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
-        cell.shop = self.shops[(indexPath as NSIndexPath).item]
-        cell.index = (indexPath as NSIndexPath).item
+        cell.shop = self.shops[indexPath.item]
+        cell.index = indexPath.item
         cell.completionHandler = { (shopID: Float?, index: Int) in
             if let _ = shopID {
                 self.followShop(shopID!, index: index)
