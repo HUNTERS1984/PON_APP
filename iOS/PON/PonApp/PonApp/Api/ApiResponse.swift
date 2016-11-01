@@ -15,6 +15,10 @@ struct ApiResponse {
     var code: Int!
     var originalResponse: JSON!
     
+    var totalPage: Int!
+    var currentPage: Int!
+    var nextPage: Int!
+    
     init(message: String, data: JSON?, code: Int) {
         self.message = message
         self.data = data
@@ -40,6 +44,19 @@ struct ApiResponse {
             self.code = code
 
         }
+        
+        if let totalPage = response!["pagination"]["page_total"].int {
+            self.totalPage = totalPage
+        }
+        
+        if let currentPage = response!["pagination"]["current_page"].int {
+            self.currentPage = currentPage
+        }
+        
+        if let nextPage = response!["pagination"]["next_page"].int {
+            self.nextPage = nextPage
+        }
+        
         self.originalResponse = response
     }
     

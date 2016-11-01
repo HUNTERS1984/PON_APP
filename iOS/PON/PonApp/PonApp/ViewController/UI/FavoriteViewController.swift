@@ -17,6 +17,12 @@ class FavoriteViewController: BaseViewController {
     
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
+    var canLoadMore: Bool = true
+    
+    //paging
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +51,7 @@ class FavoriteViewController: BaseViewController {
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         self.registerNotification()
         
-        self.loadFavoriteCoupon(1)
+        self.loadFavoriteCoupon(self.currentPage)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -85,6 +91,10 @@ extension FavoriteViewController {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseCoupon = [Coupon]()
                     let couponsArray = result?.data?.array
                     if let _ = couponsArray {
@@ -95,6 +105,7 @@ extension FavoriteViewController {
                         if pageIndex == 1 {
                             self.displayCoupon(responseCoupon, type: .new)
                         }else {
+                            self.canLoadMore = true
                             self.displayCoupon(responseCoupon, type: .loadMore)
                         }
                     }
@@ -233,6 +244,24 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
         let width = (self.view.frame.size.width - 22) / 2.0
         let height = screenHeight * (188/667)
         return CGSize(width: width, height: height)
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension FavoriteViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.loadFavoriteCoupon(self.nextPage)
+        }
     }
     
 }
