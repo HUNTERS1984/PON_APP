@@ -81,7 +81,7 @@ extension MainCouponContentViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension MainCouponContentViewController: UITableViewDataSource {
+extension MainCouponContentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return couponListData.count
@@ -95,22 +95,17 @@ extension MainCouponContentViewController: UITableViewDataSource {
         return cell
     }
     
-    @objc(tableView:willDisplayCell:forRowAtIndexPath:) func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
-        collectionCell.couponCollectionView.index = (indexPath as NSIndexPath).row
-        collectionCell.setCollectionViewDelegate(delegate: self, index: (indexPath as NSIndexPath).row, couponListData: self.couponListData[(indexPath as NSIndexPath).row])
+        collectionCell.couponCollectionView.index = indexPath.row
+        collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, couponListData: self.couponListData[indexPath.row])
     }
     
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let screenHeight = UIScreen.main.bounds.height
         let height = screenHeight * (234/667)
         return height
     }
-    
-}
-
-//MARK: - UITableViewDelegate
-extension MainCouponContentViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

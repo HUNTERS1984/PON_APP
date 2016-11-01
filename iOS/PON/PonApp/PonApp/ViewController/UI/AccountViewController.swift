@@ -123,7 +123,7 @@ extension AccountViewController {
 
 
 //MARK: - UITableViewDataSource
-extension AccountViewController: UITableViewDataSource {
+extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.getListFunction().count
@@ -135,15 +135,10 @@ extension AccountViewController: UITableViewDataSource {
         return cell
     }
 
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let screenHeight = UIScreen.main.bounds.height
         return screenHeight * (60/667)
     }
-    
-}
-
-//MARK: - UITableViewDelegate
-extension AccountViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)

@@ -111,7 +111,7 @@ extension HomeSearchViewController {
     
 }
 
-extension HomeSearchViewController: UITableViewDataSource {
+extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.couponTypes.count
@@ -123,13 +123,9 @@ extension HomeSearchViewController: UITableViewDataSource {
         return cell
     }
     
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
-    
-}
-
-extension HomeSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
