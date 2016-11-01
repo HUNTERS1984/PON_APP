@@ -119,7 +119,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTypeTableViewCell") as! CouponTypeTableViewCell
-        cell.setDataForCell(self.couponTypes[(indexPath as NSIndexPath).row])
+        cell.setDataForCell(self.couponTypes[indexPath.row])
         return cell
     }
     
@@ -129,7 +129,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedType = self.couponTypes[(indexPath as NSIndexPath).row]
+        let selectedType = self.couponTypes[indexPath.row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
         vc.couponCategoryID = selectedType.categoryID
         vc.categoryName = selectedType.categoryName

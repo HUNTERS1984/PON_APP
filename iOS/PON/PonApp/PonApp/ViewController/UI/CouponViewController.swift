@@ -231,7 +231,7 @@ extension CouponViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        cell.coupon = self.similarCoupon[(indexPath as NSIndexPath).item]
+        cell.coupon = self.similarCoupon[indexPath.item]
         return cell
         
     }

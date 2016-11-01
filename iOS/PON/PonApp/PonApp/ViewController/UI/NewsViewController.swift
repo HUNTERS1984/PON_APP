@@ -57,10 +57,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
-        
         cell.contentView.setNeedsLayout()
         cell.contentView.layoutIfNeeded()
-        
         return cell
     }
     

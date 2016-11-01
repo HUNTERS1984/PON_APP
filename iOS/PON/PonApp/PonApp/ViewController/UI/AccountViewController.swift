@@ -131,7 +131,7 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as! AccountTableViewCell
-        cell.titleLabel.text = self.getListFunction()[(indexPath as NSIndexPath).row]
+        cell.titleLabel.text = self.getListFunction()[indexPath.row]
         return cell
     }
 
@@ -142,7 +142,7 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        switch (indexPath as NSIndexPath).row {
+        switch indexPath.row {
         case 0:
             let vc = TermsOfServiceViewController.instanceFromStoryBoard("Account")
             self.navigationController?.pushViewController(vc!, animated: true)

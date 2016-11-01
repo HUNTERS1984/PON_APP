@@ -87,7 +87,7 @@ extension HorizontalCollectionView: UICollectionViewDataSource {
 extension HorizontalCollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
+        let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.needLogin {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
@@ -98,14 +98,14 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
                         if indexPath == self.previousSelectedIndexPath! {
                             return
                         }
-                        self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                         collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                         
-                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }else {
-                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }

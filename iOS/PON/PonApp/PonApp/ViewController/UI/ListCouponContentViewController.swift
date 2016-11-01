@@ -124,7 +124,7 @@ extension ListCouponContentViewController {
     
     fileprivate func resetCollectionView() {
         if let _ = self.previousSelectedIndexPath {
-            self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
             collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
             self.previousSelectedIndexPath = nil
         }
@@ -140,11 +140,10 @@ extension ListCouponContentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
-        let couponTest = self.coupons[(indexPath as NSIndexPath).item]
+        let couponTest = self.coupons[indexPath.item]
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async(execute: {
                 cell.coupon = couponTest
@@ -169,7 +168,7 @@ extension ListCouponContentViewController: UICollectionViewDataSource {
 extension ListCouponContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
+        let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
                 self.resetCollectionView()
@@ -179,14 +178,14 @@ extension ListCouponContentViewController: UICollectionViewDelegate {
                     if indexPath == self.previousSelectedIndexPath! {
                         return
                     }
-                    self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                    self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                     collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                     
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                    self.coupons[indexPath.item].showConfirmView = true
                     collectionView.reloadItems(at: [indexPath])
                     self.previousSelectedIndexPath = indexPath
                 }else {
-                    self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                    self.coupons[indexPath.item].showConfirmView = true
                     collectionView.reloadItems(at: [indexPath])
                     self.previousSelectedIndexPath = indexPath
                 }
