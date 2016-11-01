@@ -20,6 +20,8 @@ class MainCouponContentViewController: BaseViewController {
     var couponFeature:CouponFeature?
     var couponListData = [CouponListData]()
     var previousCollectionView: HorizontalCollectionView? = nil
+    var selectedCouponIndex: Int?
+    var selectedRowIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,8 @@ class MainCouponContentViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,12 +47,33 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .none
         self.getCoupon(self.couponFeature!, pageIndex: 1)
+        self.registerLikeCouponNotification()
     }
     
 }
 
 //MARK: - Private
 extension MainCouponContentViewController {
+    
+    fileprivate func registerLikeCouponNotification() {
+        self.removeLikeCouponNotification()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processLikeCouponNotification), name: Notification.Name(LikeCouponNotification), object: nil)
+    }
+    
+    fileprivate func removeLikeCouponNotification() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(LikeCouponNotification), object: nil)
+    }
+    
+    func processLikeCouponNotification(notification:NSNotification) {
+        guard let userInfo = notification.userInfo, let rowIndex = userInfo["row_index"] as? Int, let couponIndex = userInfo["coupon_index"] as? Int else {
+                return
+        }
+        if self.couponListData.count == 0 || self.couponListData[rowIndex].coupons.count == 0 {
+            return
+        }
+        self.couponListData[rowIndex].coupons[couponIndex].isLike = true
+        self.contentTableView.reloadRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
+    }
     
     fileprivate func getCouponDetail(_ couponId: Float) {
         parentContainerController?.showHUD()
@@ -63,6 +86,8 @@ extension MainCouponContentViewController {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
+                    vc.selectedCouponIndex = self.selectedCouponIndex
+                    vc.selectedRowIndex = self.selectedRowIndex
                     self.parentNavigationController?.pushViewController(vc, animated: true)
                 }else {
                     self.presentAlert(message: (result?.message)!)
@@ -97,7 +122,7 @@ extension MainCouponContentViewController: UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let collectionCell = cell as! CouponCollectionTableViewCell
-        collectionCell.couponCollectionView.index = indexPath.row
+        collectionCell.couponCollectionView.rowIndex = indexPath.row
         collectionCell.setCollectionViewDelegate(delegate: self, index: indexPath.row, couponListData: self.couponListData[indexPath.row])
     }
     
@@ -113,18 +138,21 @@ extension MainCouponContentViewController: UITableViewDataSource, UITableViewDel
     
 }
 
+//MARK: - HorizontalCollectionViewDelegate
 extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
     
-    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: IndexPath) {
+    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCouponAtIndex index: Int, inRowIndex rowIndex:Int) {
+        self.selectedRowIndex = rowIndex
+        self.selectedCouponIndex = index
+        
+        let coupon = self.couponListData[rowIndex].coupons[index]
         if let _ = self.previousCollectionView {
             if self.previousCollectionView! != collectionView {
                 self.previousCollectionView!.resetCollectionView()
             }
         }
         self.previousCollectionView = collectionView
-        if let _ = coupon {
-            self.getCouponDetail(coupon!.couponID)
-        }
+        self.getCouponDetail(coupon.couponID)
     }
     
     func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didPressSignUpButton button: AnyObject?) {
@@ -136,7 +164,6 @@ extension MainCouponContentViewController: HorizontalCollectionViewDelegate {
 
 //MARK: - Private
 extension MainCouponContentViewController {
-    
 
     fileprivate func getCoupon(_ couponFeature: CouponFeature, pageIndex: Int) {
         if couponFeature == .near {

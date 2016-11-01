@@ -10,12 +10,12 @@ import UIKit
 
 protocol HorizontalCollectionViewDelegate: class {
     
-    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCoupon coupon: Coupon?, atIndexPath indexPath: IndexPath)
+    func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didSelectCouponAtIndex index: Int, inRowIndex rowIndex:Int)
     func horizontalCollectionView(_ collectionView: HorizontalCollectionView, didPressSignUpButton button: AnyObject?)
 }
 
 class HorizontalCollectionView: UICollectionView {
-    var index: Int!
+    var rowIndex: Int!
     weak var handler: HorizontalCollectionViewDelegate? = nil
     var previousSelectedIndexPath: IndexPath? = nil
     
@@ -92,7 +92,7 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
                     self.resetCollectionView()
-                    self.handler?.horizontalCollectionView(self, didSelectCoupon: selectedCoupon, atIndexPath: indexPath)
+                    self.handler?.horizontalCollectionView(self, didSelectCouponAtIndex: indexPath.item, inRowIndex: self.rowIndex)
                 }else {
                     if let _ = self.previousSelectedIndexPath {
                         if indexPath == self.previousSelectedIndexPath! {
@@ -109,11 +109,11 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }
-                    self.handler?.horizontalCollectionView(self, didSelectCoupon: nil, atIndexPath: indexPath)
+                    self.handler?.horizontalCollectionView(self, didSelectCouponAtIndex: indexPath.item, inRowIndex: self.rowIndex)
                 }
             }else {
                 self.resetCollectionView()
-                self.handler?.horizontalCollectionView(self, didSelectCoupon: selectedCoupon, atIndexPath: indexPath)
+                self.handler?.horizontalCollectionView(self, didSelectCouponAtIndex: indexPath.item, inRowIndex: self.rowIndex)
             }
         }
     }

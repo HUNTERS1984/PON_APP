@@ -48,6 +48,8 @@ class CouponViewController: BaseViewController {
         }
     }
     var coupon: Coupon? = nil
+    var selectedCouponIndex: Int?
+    var selectedRowIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,14 +112,16 @@ extension CouponViewController {
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
         UIAlertController.present(title: "Error", message: LikeCouponConfirmation, actionTitles: ["OK", "Cancel"]) { (action) -> () in
             if action.title == "OK" {
+                self.showHUD()
                 ApiRequest.likeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
                     if let _ = error {
                         
                     }else {
                         if result!.code == SuccessCode {
                             self.likeButton.isUserInteractionEnabled = false
                             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
-                            NotificationCenter.default.post(name: Notification.Name(LikeCouponNotification), object: nil)
+                            self.updateLikeCouponStatus()
                         }else {
                             self.presentAlert(message: (result?.message)!)
                         }
@@ -213,6 +217,16 @@ extension CouponViewController {
         self.shopPhoneNumber.text = coupon.shopPhonenumber
         self.setupPhotoCollectionView(coupon.userPhotosUrl)
         self.similarCoupon = coupon.similarCoupons
+    }
+    
+    fileprivate func updateLikeCouponStatus() {
+        if let _ = self.selectedCouponIndex, let _ = self.selectedRowIndex {
+            NotificationCenter.default.post(name:Notification.Name(LikeCouponNotification),
+                                            object: nil,
+                                            userInfo:[
+                                                "row_index":self.selectedRowIndex!,
+                                                "coupon_index":self.selectedCouponIndex!])
+        }
     }
     
 }
