@@ -10,6 +10,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -81,12 +84,18 @@ public class TopNearestCouponFragment extends BaseFragment implements
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        ((MainTopActivity)getActivity()).mFragmentActive = this;
+//        ((MainTopActivity)getActivity()).mFragmentActive = this;
 
         mLocationUtils = new LocationUtils();
         mLocationUtils.buildGoogleApiClient(getContext(), this, this);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         showProgressDialog(getActivity());
         checkPermission();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -165,7 +174,7 @@ public class TopNearestCouponFragment extends BaseFragment implements
     public void onConnected(@Nullable Bundle bundle) {
         mUserLocation = mLocationUtils.getUserLocation(getContext());
         closeDialog();
-        loadData();
+        refreshData();
 
     }
 

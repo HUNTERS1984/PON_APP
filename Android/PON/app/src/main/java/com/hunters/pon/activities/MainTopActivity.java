@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ public class MainTopActivity extends BaseActivity {
 
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
 
-    public BaseFragment mFragmentActive;
+    public Fragment mFragmentActive;
 
     private PagerAdapter mPagerAdapter;
 
@@ -47,6 +48,22 @@ public class MainTopActivity extends BaseActivity {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mFragmentActive = mPagerAdapter.getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +87,7 @@ public class MainTopActivity extends BaseActivity {
         mPagerAdapter.addFrag(new TopNearestCouponFragment(), getString(R.string.near));
         mPagerAdapter.addFrag(new TopUsedCouponFragment(), getString(R.string.deals));
         viewPager.setAdapter(mPagerAdapter);
+        mFragmentActive = mPagerAdapter.getItem(0);
     }
 
 
@@ -79,7 +97,7 @@ public class MainTopActivity extends BaseActivity {
 
         if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL) {
             if (resultCode == Activity.RESULT_OK) {
-                mFragmentActive.refreshData();
+                ((BaseFragment)mFragmentActive).refreshData();
                 checkToUpdateButtonLogin();
                 ExtraDataModel extra =  (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
                 Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
