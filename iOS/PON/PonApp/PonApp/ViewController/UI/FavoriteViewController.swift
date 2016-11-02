@@ -17,9 +17,9 @@ class FavoriteViewController: BaseViewController {
     
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
-    var canLoadMore: Bool = true
     
     //paging
+    var canLoadMore: Bool = true
     var currentPage: Int = 1
     var totalPage: Int!
     var nextPage: Int!

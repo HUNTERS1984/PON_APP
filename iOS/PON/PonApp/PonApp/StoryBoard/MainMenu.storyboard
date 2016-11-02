@@ -45,6 +45,9 @@
                                     <constraint firstAttribute="bottom" secondItem="61g-V7-cyA" secondAttribute="bottom" constant="10" id="WnG-Mj-R2M"/>
                                     <constraint firstAttribute="trailing" secondItem="61g-V7-cyA" secondAttribute="trailing" id="k8b-Lr-kb5"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Iod-Rd-hKm" id="Dbi-nu-OHF"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,7 +208,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
-                        <outlet property="couponTypeTableView" destination="74G-w9-8lz" id="Kiq-KO-M0F"/>
+                        <outlet property="categoryTableView" destination="74G-w9-8lz" id="yH9-9L-rS5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2K6-BO-6kB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -455,7 +458,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
-                        <outlet property="couponTypeTableView" destination="uHy-8T-Y1n" id="y6u-3u-b3a"/>
+                        <outlet property="categoryTableView" destination="uHy-8T-Y1n" id="K2v-ZQ-0Ez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFA-d0-fBc" userLabel="First Responder" sceneMemberID="firstResponder"/>

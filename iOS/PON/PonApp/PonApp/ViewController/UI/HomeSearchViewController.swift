@@ -10,18 +10,15 @@ import UIKit
 
 class HomeSearchViewController: BaseViewController {
 
-    @IBOutlet weak var couponTypeTableView: UITableView!
+    @IBOutlet weak var categoryTableView: UITableView!
     
-    var couponTypes = [Category]() {
-        didSet {
-            self.couponTypeTableView.reloadData()
-            if couponTypes.count > 0 {
-                self.couponTypeTableView.isHidden = false
-            }else {
-                self.couponTypeTableView.isHidden = true
-            }
-        }
-    }
+    var categories = [Category]()
+    
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +39,8 @@ class HomeSearchViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem = leftBarButton
         self.showSearchBox()
         self.showRightBarButtonWithTitle("キャンセル")
-        self.couponTypeTableView.isHidden = true
-        self.getCouponType(1)
+        self.categoryTableView.tableFooterView = UIView()
+        self.getCouponCategory(currentPage)
     }
 
 }
@@ -85,14 +82,18 @@ extension HomeSearchViewController {
         self.navigationItem.titleView = searchBox
     }
     
-    fileprivate func getCouponType(_ pageIndex: Int) {
+    fileprivate func getCouponCategory(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getCouponCategory(pageIndex: 1) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getCouponCategory(pageIndex: pageIndex) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseCategory = [Category]()
                     let categoryArray = result?.data?.array
                     if let _ = categoryArray {
@@ -100,7 +101,12 @@ extension HomeSearchViewController {
                             let category = Category(response: categoryData)
                             responseCategory.append(category)
                         }
-                        self.couponTypes = responseCategory
+                        if pageIndex == 1 {
+                            self.displayCategory(responseCategory, type: .new)
+                        }else {
+                            self.canLoadMore = true
+                            self.displayCategory(responseCategory, type: .loadMore)
+                        }
                     }
                 }else {
                     self.presentAlert(message: (result?.message)!)
@@ -109,17 +115,33 @@ extension HomeSearchViewController {
         }
     }
     
+    fileprivate func displayCategory(_ categories: [Category], type: GetType) {
+        switch type {
+        case .new:
+            self.categories.removeAll()
+            self.categories = categories
+            self.categoryTableView.reloadData()
+            break
+        case .loadMore:
+            self.categories.append(contentsOf: categories)
+            self.categoryTableView.reloadData()
+            break
+        case .reload:
+            break
+        }
+    }
+    
 }
 
 extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.couponTypes.count
+        return self.categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTypeTableViewCell") as! CouponTypeTableViewCell
-        cell.setDataForCell(self.couponTypes[indexPath.row])
+        cell.setDataForCell(self.categories[indexPath.row])
         return cell
     }
     
@@ -129,11 +151,29 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedType = self.couponTypes[indexPath.row]
+        let selectedType = self.categories[indexPath.row]
         let vc = ListCouponViewController.instanceFromStoryBoard("CouponList") as! ListCouponViewController
         vc.couponCategoryID = selectedType.categoryID
         vc.categoryName = selectedType.categoryName
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension HomeSearchViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getCouponCategory(self.nextPage)
+        }
     }
     
 }

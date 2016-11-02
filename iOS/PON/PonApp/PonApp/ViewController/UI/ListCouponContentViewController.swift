@@ -19,6 +19,12 @@ class ListCouponContentViewController: BaseViewController {
     var coupons = [Coupon]()
     var previousSelectedIndexPath: IndexPath? = nil
     
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,7 +43,7 @@ class ListCouponContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
 
-        self.getCoupon(self.feature!, category: self.categoryID!, pageIndex: 1)
+        self.getCoupon(self.feature!, category: self.categoryID!, pageIndex: currentPage)
     }
     
 }
@@ -69,6 +75,10 @@ extension ListCouponContentViewController {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseCoupon = [Coupon]()
                     let couponsArray = result?.data?.array
                     if let _ = couponsArray {
@@ -203,6 +213,24 @@ extension ListCouponContentViewController: UICollectionViewDelegateFlowLayout {
         let width = (self.view.frame.size.width - 22) / 2.0
         let height = screenHeight * (188/667)
         return CGSize(width: width, height: height)
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension ListCouponContentViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getCoupon(self.feature!, category: self.categoryID!, pageIndex: self.nextPage)
+        }
     }
     
 }

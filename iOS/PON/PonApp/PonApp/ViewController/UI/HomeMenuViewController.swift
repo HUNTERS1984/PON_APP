@@ -10,18 +10,15 @@ import UIKit
 
 class HomeMenuViewController: BaseViewController {
 
-    @IBOutlet weak var couponTypeTableView: UITableView!
+    @IBOutlet weak var categoryTableView: UITableView!
     
-    var categories = [Category]() {
-        didSet {
-            self.couponTypeTableView.reloadData()
-            if categories.count > 0 {
-                self.couponTypeTableView.isHidden = false
-            }else {
-                self.couponTypeTableView.isHidden = true
-            }
-        }
-    }
+    var categories = [Category]()
+    
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,30 +37,41 @@ class HomeMenuViewController: BaseViewController {
         super.setUpUserInterface()
         self.title = "ショップの追加"
         self.showCloseButton()
-        self.couponTypeTableView.isHidden = true
-        self.getNumberOfShopByCouponType(1)
+        self.categoryTableView.tableFooterView = UIView()
+        self.getNumberOfShopByCouponType(currentPage)
     }
 
 }
+
+//MARK: - Private
 
 extension HomeMenuViewController {
     
     fileprivate func getNumberOfShopByCouponType(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getNumberOfShopByCategory(pageIndex: 1) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getNumberOfShopByCategory(pageIndex: pageIndex) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
-                    var responseCouponType = [Category]()
-                    let couponTypeArray = result?.data?.array
-                    if let _ = couponTypeArray {
-                        for couponTypeData in couponTypeArray! {
-                            let couponType = Category(response: couponTypeData)
-                            responseCouponType.append(couponType)
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
+                    var categoryType = [Category]()
+                    let categoryArray = result?.data?.array
+                    if let _ = categoryArray {
+                        for category in categoryArray! {
+                            let couponType = Category(response: category)
+                            categoryType.append(couponType)
                         }
-                        self.categories = responseCouponType
+                        if pageIndex == 1 {
+                            self.displayCategory(categoryType, type: .new)
+                        }else {
+                            self.canLoadMore = true
+                            self.displayCategory(categoryType, type: .loadMore)
+                        }
                     }
                 }else {
                     self.presentAlert(message: (result?.message)!)
@@ -72,9 +80,26 @@ extension HomeMenuViewController {
         }
     }
     
+    fileprivate func displayCategory(_ categories: [Category], type: GetType) {
+        switch type {
+        case .new:
+            self.categories.removeAll()
+            self.categories = categories
+            self.categoryTableView.reloadData()
+            break
+        case .loadMore:
+            self.categories.append(contentsOf: categories)
+            self.categoryTableView.reloadData()
+            break
+        case .reload:
+            break
+        }
+    }
+    
 }
 
-extension HomeMenuViewController: UITableViewDataSource {
+//MARK: - UITableViewDataSource, UITableViewDelegate
+extension HomeMenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.categories.count
@@ -82,17 +107,13 @@ extension HomeMenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShopCountTableViewCell") as! ShopCountTableViewCell
-        cell.setDataForCell(self.categories[(indexPath as NSIndexPath).row])
+        cell.setDataForCell(self.categories[indexPath.row])
         return cell
     }
     
-    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
-    
-}
-
-extension HomeMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -101,7 +122,24 @@ extension HomeMenuViewController: UITableViewDelegate {
         vc.couponCategoryID = selectedType.categoryID
         vc.categoryName = selectedType.categoryName
         self.navigationController?.pushViewController(vc, animated: true)
-        
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension HomeMenuViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getNumberOfShopByCouponType(self.nextPage)
+        }
     }
     
 }
