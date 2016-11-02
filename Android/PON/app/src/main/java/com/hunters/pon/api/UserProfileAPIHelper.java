@@ -176,7 +176,7 @@ public class UserProfileAPIHelper extends APIHelper{
         });
     }
 
-    public void updateProfile(Context context, String username, String gender, String address, String avatarPath, final Handler handler)
+    public void updateProfile(Context context, String username, String email, String gender, String address, String avatarPath, final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -195,6 +195,7 @@ public class UserProfileAPIHelper extends APIHelper{
 //        map.put("file\"; filename=\"" + file.getName() + "\"", requestBody);
 
         RequestBody nameUser = RequestBody.create(MediaType.parse("text/plain"), username);
+        RequestBody emailUser = RequestBody.create(MediaType.parse("text/plain"), email);
         RequestBody genderUser = RequestBody.create(MediaType.parse("text/plain"), gender);
         RequestBody addressUser = RequestBody.create(MediaType.parse("text/plain"), address);
 
@@ -203,9 +204,9 @@ public class UserProfileAPIHelper extends APIHelper{
             File file = new File(avatarPath);
             RequestBody avatar = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part body = MultipartBody.Part.createFormData("avatar_url", file.getName(), avatar);
-            response = service.updateProfile(token, nameUser, genderUser, addressUser, body);
+            response = service.updateProfile(token, nameUser, emailUser, genderUser, addressUser, body);
         } else {
-            response = service.updateProfile(token, nameUser, genderUser, addressUser, null);
+            response = service.updateProfile(token, nameUser, emailUser, genderUser, addressUser, null);
         }
 
         if(response != null) {

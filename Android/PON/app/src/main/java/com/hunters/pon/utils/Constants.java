@@ -8,6 +8,13 @@ public class Constants {
 
     public static final String PREF_NAME = "PREF_PON";
     public static final String PREF_TOKEN = "token";
+    public static final String PREF_PROFILE_USERNAME = "profile_username";
+    public static final String PREF_PROFILE_FULLNAME = "profile_fullname";
+    public static final String PREF_PROFILE_EMAIL = "profile_email";
+    public static final String PREF_PROFILE_GENDER = "profile_gender";
+    public static final String PREF_PROFILE_ADDRESS = "profile_address";
+    public static final String PREF_PROFILE_AVATAR = "profile_avatar";
+    public static final String PREF_PROFILE_ID = "profile_id";
 
     public static final String EXTRA_USER_NAME = "EXTRA_USER_NAME";
     public static final String EXTRA_COUPON_ID = "EXTRA_COUPON_ID";

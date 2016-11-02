@@ -15,7 +15,7 @@ public class PermissionUtils {
 
     public static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     public static final int REQUEST_LOCATION = 2;
-    public static final int REQUEST_CAMERA = 3;
+    public static final int REQUEST_CAMERA_AND_STORAGE = 3;
     public static final int REQUEST_PHONE_CALL = 3;
 
     private static PermissionUtils instance;
@@ -88,31 +88,33 @@ public class PermissionUtils {
         }
     }
 
-    public boolean isGrantCameraPermission(Activity context)
+    public boolean isGrantCameraAndStoragePermission(Activity context)
     {
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if ((ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                || ActivityCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             return false;
         }
 
         return true;
     }
 
-    public void requestCameraPermission(final Activity context) {
+    public void requestCameraAndStoragePermission(final Activity context) {
 
-        if (ActivityCompat.shouldShowRequestPermissionRationale(context,Manifest.permission.CAMERA)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(context,Manifest.permission.CAMERA) ||
+                ActivityCompat.shouldShowRequestPermissionRationale(context,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-            new DialogUtiils().showDialog(context, context.getString(R.string.camera_request), new OnDialogButtonConfirm() {
+            new DialogUtiils().showDialog(context, context.getString(R.string.camera_and_storage_request), new OnDialogButtonConfirm() {
 
                 @Override
                 public void onDialogButtonConfirm() {
                     ActivityCompat.requestPermissions(context,
-                            new String[]{Manifest.permission.CAMERA},
-                            REQUEST_CAMERA);
+                            new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            REQUEST_CAMERA_AND_STORAGE);
                 }
             });
         } else {
-            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CAMERA},
-                    REQUEST_CAMERA);
+            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_CAMERA_AND_STORAGE);
         }
     }
 

@@ -22,7 +22,7 @@ public class UserModel implements Serializable {
     private String mEmail;
 
     @SerializedName("gender")
-    private Object mGender;
+    private int mGender;
 
     @SerializedName("address")
     private String mAddress;
@@ -46,11 +46,11 @@ public class UserModel implements Serializable {
         this.mName = mName;
     }
 
-    public Object getmGender() {
+    public int getmGender() {
         return mGender;
     }
 
-    public void setmGender(Object mGender) {
+    public void setmGender(int mGender) {
         this.mGender = mGender;
     }
 

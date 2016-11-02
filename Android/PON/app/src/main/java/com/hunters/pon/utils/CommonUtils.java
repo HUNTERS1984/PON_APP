@@ -6,6 +6,8 @@ import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.hunters.pon.models.UserModel;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -85,5 +87,29 @@ public class CommonUtils {
         }
         Log.d("PON",dir.getAbsolutePath() + "/" + fileName);
         return dir.getAbsolutePath() + "/" + fileName;
+    }
+
+    public static UserModel getProfile(Context context)
+    {
+        UserModel user = new UserModel();
+        user.setmAddress(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_ADDRESS));
+        user.setmAvatarUrl(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_AVATAR));
+        user.setmEmail(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_EMAIL));
+        user.setmGender(SharedPreferenceUtils.getInt(context, Constants.PREF_PROFILE_GENDER));
+        user.setmName(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_FULLNAME));
+        user.setmUsername(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_USERNAME));
+        user.setmId(SharedPreferenceUtils.getInt(context, Constants.PREF_PROFILE_ID));
+        return user;
+    }
+
+    public static void saveProfile(Context context, UserModel user)
+    {
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_ADDRESS, user.getmAddress());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_AVATAR, user.getmAvatarUrl());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_EMAIL, user.getmEmail());
+        SharedPreferenceUtils.saveInt(context, Constants.PREF_PROFILE_GENDER, user.getmGender());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_FULLNAME, user.getmName());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_USERNAME, user.getmUsername());
+        SharedPreferenceUtils.saveInt(context, Constants.PREF_PROFILE_ID, user.getmId());
     }
 }

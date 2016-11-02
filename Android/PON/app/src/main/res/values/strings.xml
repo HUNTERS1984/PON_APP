@@ -149,11 +149,11 @@
     <!-- Permisson explain -->
     <string name="location_request">Please turn on Location Service to use this function</string>
     <string name="storage_request">Please grant Storage permission to use this function</string>
-    <string name="camera_request">Please grant Camera permission to use this function</string>
+    <string name="camera_and_storage_request">Please grant Camera and Storage permission to use this function</string>
     <string name="phone_call_request">Please grant Phone permission to use this function</string>
     <string name="location_denie">You have denied Location permission to use this function. Please grant it and try again!</string>
     <string name="storage_denie">You have denied Storage permission to use this function. Please grant it and try again!</string>
-    <string name="camera_denie">You have denied Camera permission to use this function. Please grant it and try again!</string>
+    <string name="camera_and_storage_denie">You have denied Camera and Storage permission to use this function. Please grant it and try again!</string>
     <string name="phone_call_denie">You have denied Phone permission to use this function. Please grant it and try again!</string>
 
     <!--Common-->

@@ -28,7 +28,7 @@ import com.hunters.pon.api.ResponseUserProfileData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.UserModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
-import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ImageUtils;
 import com.hunters.pon.utils.PermissionUtils;
@@ -57,6 +57,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
     private UserModel mUser;
     private String mFilePath;
+    private List<String> mPrefectures;
 
     private int mUserChoosenTask;
 
@@ -71,7 +72,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         super.onCreate(savedInstanceState);
         setTitle(getResources().getString(R.string.edit_profile));
 
-        mUser = (UserModel) getIntent().getSerializableExtra(Constants.EXTRA_USER);
+        mUser = CommonUtils.getProfile(mContext);//UserModel) getIntent().getSerializableExtra(Constants.EXTRA_USER);
         initLayout();
     }
 
@@ -87,13 +88,14 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                     new DialogUtiils().showDialog(mContext, getString(R.string.storage_denie), false);
                 }
                 break;
-            case PermissionUtils.REQUEST_CAMERA:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            case PermissionUtils.REQUEST_CAMERA_AND_STORAGE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     if(mUserChoosenTask == TAKE_PHOTO) {
                         cameraIntent();
                     }
                 } else {
-                    new DialogUtiils().showDialog(mContext, getString(R.string.camera_denie), false);
+                    new DialogUtiils().showDialog(mContext, getString(R.string.camera_and_storage_denie), false);
                 }
                     break;
         }
@@ -202,7 +204,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 String email = mEdtEmail.getText().toString();
                 String sex = String.valueOf(mSpnSex.getSelectedItemPosition());
                 String address = mSpnPrefecture.getSelectedItem().toString();
-                new UserProfileAPIHelper().updateProfile(mContext, username, sex, address,  mFilePath, mHanlderUpdateProfile);
+                new UserProfileAPIHelper().updateProfile(mContext, username, email, sex, address,  mFilePath, mHanlderUpdateProfile);
             }
         });
 
@@ -218,10 +220,10 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         mSpnPrefecture = (Spinner)findViewById(R.id.spn_prefecture);
 
-        List<String> prefectures = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.prefecture)));
+        mPrefectures = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.prefecture)));
 
         // Creating adapter for spinner
-        ArrayAdapter<String> prefectureAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, prefectures );
+        ArrayAdapter<String> prefectureAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mPrefectures );
         prefectureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpnPrefecture.setAdapter(prefectureAdapter);
 
@@ -238,8 +240,18 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                     if (profile.code == APIConstants.REQUEST_OK && profile.httpCode == APIConstants.HTTP_OK) {
 //                        UserModel user = profile.data;
 //                        popularUI(user);
+                        CommonUtils.saveProfile(mContext, profile.data);
+                        if(profile.message != null) {
+                            new DialogUtiils().showDialog(mContext, profile.message, false);
+                        }
+                    } else if(profile.code == APIConstants.HTTP_UN_AUTHORIZATION){
+                        new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else {
-
+                        if(profile.message != null) {
+                            new DialogUtiils().showDialog(mContext, profile.message, false);
+                        } else {
+                            new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
+                        }
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -251,14 +263,18 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
     private void popularUI(UserModel user)
     {
-        mEdtUserName.setText(user.getmUsername());
+        mEdtUserName.setText(user.getmName());
         mEdtEmail.setText(user.getmEmail());
 
-        if(user.getmAvatarUrl() != null) {
+        if(user.getmAvatarUrl() != null && !user.getmAvatarUrl().equalsIgnoreCase("")) {
             Picasso.with(mContext).load(user.getmAvatarUrl())
                     .fit()
                     .into(mIvUserPhoto);
         }
+
+        mSpnSex.setSelection(user.getmGender());
+        int position = mPrefectures.indexOf(user.getmAddress());
+        mSpnPrefecture.setSelection(position);
     }
 
     private void selectImage() {
@@ -273,10 +289,10 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
                 if (items[item].equals(getString(R.string.take_photo))) {
                     mUserChoosenTask = TAKE_PHOTO;
-                    if(PermissionUtils.newInstance().isGrantCameraPermission((Activity)mContext)) {
+                    if(PermissionUtils.newInstance().isGrantCameraAndStoragePermission((Activity)mContext)) {
                         cameraIntent();
                     } else {
-                        PermissionUtils.newInstance().requestCameraPermission((Activity)mContext);
+                        PermissionUtils.newInstance().requestCameraAndStoragePermission((Activity)mContext);
                     }
                 } else if (items[item].equals(getString(R.string.photo_from_gallery))) {
                     mUserChoosenTask = GALLERY;

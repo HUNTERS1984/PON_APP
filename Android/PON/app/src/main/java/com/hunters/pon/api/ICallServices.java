@@ -35,7 +35,7 @@ public interface ICallServices {
 
     @Multipart
     @POST("/api/v1/profile")
-    Call<ResponseUserProfileData> updateProfile(@Header("Authorization") String token,  @Part("name") RequestBody username,  @Part("gender") RequestBody gender, @Part("address") RequestBody address, @Part MultipartBody.Part image);
+    Call<ResponseUserProfileData> updateProfile(@Header("Authorization") String token,  @Part("name") RequestBody username, @Part("email") RequestBody email,  @Part("gender") RequestBody gender, @Part("address") RequestBody address, @Part MultipartBody.Part image);
 
     @FormUrlEncoded
     @POST("/api/v1/facebook/signin")

@@ -66,7 +66,12 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         }
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mUser = CommonUtils.getProfile(mContext);
+        popularUI();
+    }
 
     private void initLayout()
     {
@@ -148,17 +153,8 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
                     ResponseProfileData profile = (ResponseProfileData) msg.obj;
                     if (profile.code == APIConstants.REQUEST_OK && profile.httpCode == APIConstants.HTTP_OK) {
                         mUser = profile.data;
-                        String name = mUser.getmName();
-                        if (name != null) {
-                            mTvUsername.setText(name);
-                        } else {
-                            mTvUsername.setText(mUser.getmUsername());
-                        }
-                        if(mUser.getmAvatarUrl() != null) {
-                            Picasso.with(mContext).load(mUser.getmAvatarUrl())
-                                    .fit()
-                                    .into(mIvUserPhoto);
-                        }
+                        popularUI();
+                        CommonUtils.saveProfile(mContext, mUser);
                     } else if(profile.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
                         new DialogUtiils().showDialog(mContext, getString(R.string.token_expried), true);
                     } else {
@@ -171,4 +167,18 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
             }
         }
     };
+
+    private void popularUI()
+    {
+        if (mUser.getmName() != null) {
+            mTvUsername.setText(mUser.getmName());
+        } else if(mUser.getmUsername() != null) {
+            mTvUsername.setText(mUser.getmUsername());
+        }
+        if(mUser.getmAvatarUrl() != null && !mUser.getmAvatarUrl().equalsIgnoreCase("")) {
+            Picasso.with(mContext).load(mUser.getmAvatarUrl())
+                    .fit()
+                    .into(mIvUserPhoto);
+        }
+    }
 }
