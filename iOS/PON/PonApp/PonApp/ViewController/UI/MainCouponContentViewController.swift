@@ -23,6 +23,12 @@ class MainCouponContentViewController: BaseViewController {
     var selectedCouponIndex: Int?
     var selectedRowIndex: Int?
     
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -211,6 +217,10 @@ extension MainCouponContentViewController {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseData = [CouponListData]()
                     let couponsArray = result?.data?.array
                     if let _ = couponsArray {
@@ -230,6 +240,24 @@ extension MainCouponContentViewController {
                     self.presentAlert(message: (result?.message)!)
                 }
             }
+        }
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension MainCouponContentViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getCoupon(self.couponFeature!, pageIndex: self.nextPage)
         }
     }
     
