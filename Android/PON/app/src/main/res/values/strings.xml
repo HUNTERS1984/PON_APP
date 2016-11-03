@@ -119,7 +119,7 @@
     <string name="use_coupon_1">QRコードをスタッフに見せて、</string>
     <string name="use_coupon_2">ご利用ください。</string>
     <string name="connecting">ローディング...</string>
-    <string name="password_not_match">Password does not match the confirm password</string>
+
 
     <!--Dialog-->
     <string name="title_alert_dialog">アラート</string>
@@ -130,12 +130,17 @@
     <string name="network_not_avaiable">ネットワークがなくてチェックしてください。</string>
 
     <!-- Error -->
-    <string name="token_expried">Token was expired. Please login again!</string>
+    <string name="token_expried">Access Token 制限時間になります。再度ログインしてください。</string>
     <string name="server_error">Got error. Please try again!</string>
-    <string name="need_login">Please login to use this function</string>
+    <string name="need_login">貴方はログインしていない。続けるようにログインしてください。</string>
     <string name="cannot_get_user_location">Cannot get your location now. Please try again!</string>
     <string name="line_install">Please install Line application on Google Play before sharing</string>
     <string name="instagram_install">Please install Instagram application on Google Play before sharing</string>
+    <string name="input_username">IDを入力してください</string>
+    <string name="input_password">パスワードを入力してください。</string>
+    <string name="input_email">メールを入力してください。</string>
+    <string name="password_not_match">パスワードが違います。</string>
+    <string name="email_invalid">メールアドレスが違います。</string>
 
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>

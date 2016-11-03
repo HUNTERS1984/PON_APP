@@ -112,4 +112,8 @@ public class CommonUtils {
         SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_USERNAME, user.getmUsername());
         SharedPreferenceUtils.saveInt(context, Constants.PREF_PROFILE_ID, user.getmId());
     }
+
+    public static boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
 }

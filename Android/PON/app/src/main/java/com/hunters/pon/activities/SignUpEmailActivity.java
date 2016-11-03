@@ -16,6 +16,7 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
+import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
@@ -45,16 +46,33 @@ public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonC
         mBtnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String username = mEdtUsername.getText().toString();
+                String email = mEdtEmail.getText().toString();
+                if(username.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
+                    return;
+                }
+                if(email.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_email), false);
+                    return;
+                }
+                if(!CommonUtils.isEmailValid(email)){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
+                    return;
+                }
                 String password = mEdtPassword.getText().toString();
                 String confirmPass = mEdtPasswordConfirm.getText().toString();
 
+                if(password.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_password), false);
+                    return;
+                }
                 if (!password.equalsIgnoreCase(confirmPass)) {
                     new DialogUtiils().showDialog(mContext, getString(R.string.password_not_match), false);
                     return;
                 }
 
-                String username = mEdtUsername.getText().toString();
-                String email = mEdtEmail.getText().toString();
                 new UserProfileAPIHelper().signUp(mContext, username, email, password, mHanlderSignUp);
             }
         });

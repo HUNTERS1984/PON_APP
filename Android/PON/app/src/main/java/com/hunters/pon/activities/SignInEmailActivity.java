@@ -58,6 +58,15 @@ public class SignInEmailActivity extends BaseActivity {
             public void onClick(View view) {
                 String username = mEdtUsername.getText().toString();
                 String password = mEdtPassword.getText().toString();
+                if(username.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
+                    return;
+                }
+                if(password.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_password), false);
+                    return;
+                }
+
                 new UserProfileAPIHelper().signIn(mContext, username, password, mHanlderSignIn);
             }
         });

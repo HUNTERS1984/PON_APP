@@ -7,6 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -98,6 +101,13 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
 //    }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        showProgressDialog(getActivity());
+        checkPermission();
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         mLocationUtils.connect();
@@ -121,8 +131,10 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
     }
 
     public void loadData() {
-        mLstShopFollows = new ArrayList<>();
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderShopFollow, true);
+        if(mUserLocation != null) {
+            mLstShopFollows = new ArrayList<>();
+            new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderShopFollow, true);
+        }
     }
 
     @Override

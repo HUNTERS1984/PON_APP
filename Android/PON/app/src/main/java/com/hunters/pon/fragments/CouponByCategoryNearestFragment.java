@@ -7,6 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -79,6 +82,13 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        showProgressDialog(getActivity());
+        checkPermission();
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         mLocationUtils.connect();
@@ -91,9 +101,11 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
     }
 
     public void loadData() {
-        mListCoupons = new ArrayList<>();
+        if(mUserLocation != null) {
+            mListCoupons = new ArrayList<>();
 
-        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderGetCouponByCategory, true);
+            new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderGetCouponByCategory, true);
+        }
 //        for(int i=0; i<5; i++) {
 //            CouponModel coupon = new CouponModel();
 //            coupon.setmTitle("タイトルが入ります");

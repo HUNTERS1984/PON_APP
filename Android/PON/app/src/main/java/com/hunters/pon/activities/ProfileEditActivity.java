@@ -204,6 +204,18 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 String email = mEdtEmail.getText().toString();
                 String sex = String.valueOf(mSpnSex.getSelectedItemPosition());
                 String address = mSpnPrefecture.getSelectedItem().toString();
+                if(username.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
+                    return;
+                }
+                if(email.equalsIgnoreCase("")){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_email), false);
+                    return;
+                }
+                if(!CommonUtils.isEmailValid(email)){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
+                    return;
+                }
                 new UserProfileAPIHelper().updateProfile(mContext, username, email, sex, address,  mFilePath, mHanlderUpdateProfile);
             }
         });
