@@ -75,11 +75,7 @@ extension HomeMapViewController {
     }
     
     @IBAction func menuButtonPressed(_ sender: AnyObject) {
-        var shopCoupons = [Coupon]()
-        for shop in shopes {
-            shopCoupons.append(contentsOf: shop.shopCoupons)
-        }
-        self.showOfferView(shopCoupons)
+        self.showOfferView()
     }
     
     @IBAction func hideOfferButtonPressed(_ sender: AnyObject) {
@@ -95,22 +91,29 @@ extension HomeMapViewController {
 //MARK: - Private Methods
 extension HomeMapViewController {
     
-    fileprivate func showOfferView(_ coupons: [Coupon]) {
-        self.coupons = coupons
-        self.offersCollectionView.reloadData {
-            if self.offerShowed {
-                return
-            }else {
-                self.offerShowed = true
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.offerViewBottomConstraint.constant = 0
-                    self.hideOfferButton.isHidden = false
-                    self.offerView.fadeIn(0.4)
-                    self.menuButton.isHidden = true
-                    self.offerView.backgroundColor = UIColor(hex3: 0xfff, alpha: 0.5)
-                    self.view.layoutIfNeeded()
-                }) 
-            }
+    fileprivate func displayCoupon() {
+        var shopCoupons = [Coupon]()
+        for shop in shopes {
+            shopCoupons.append(contentsOf: shop.shopCoupons)
+        }
+        self.coupons.removeAll()
+        self.coupons = shopCoupons
+        self.offersCollectionView.reloadData()
+    }
+    
+    fileprivate func showOfferView() {
+        if self.offerShowed {
+            return
+        }else {
+            self.offerShowed = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.offerViewBottomConstraint.constant = 0
+                self.hideOfferButton.isHidden = false
+                self.offerView.fadeIn(0.4)
+                self.menuButton.isHidden = true
+                self.offerView.backgroundColor = UIColor(hex3: 0xfff, alpha: 0.5)
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
@@ -159,6 +162,7 @@ extension HomeMapViewController {
         case .new:
             self.mapView.moveCameraToLocation(CLLocationCoordinate2D(latitude: lattitude, longitude: longitude))
             self.mapView.shops = shops
+            self.displayCoupon()
             break
         case .loadMore:
             break
@@ -201,7 +205,7 @@ extension HomeMapViewController {
     
     fileprivate func resetCollectionView() {
         if let _ = self.previousSelectedIndexPath {
-            self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
             offersCollectionView.reloadItems(at: [self.previousSelectedIndexPath!])
             self.previousSelectedIndexPath = nil
         }
@@ -230,12 +234,8 @@ extension HomeMapViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
-        let couponData = self.coupons[(indexPath as NSIndexPath).item]
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async(execute: {
-                cell.coupon = couponData
-            })
-        }
+        let couponData = self.coupons[indexPath.item]
+        cell.coupon = couponData
         cell.completionHandler = {
             self.openSignUp()
         }
@@ -252,7 +252,7 @@ extension HomeMapViewController: UICollectionViewDataSource {
 extension HomeMapViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCoupon = self.coupons[(indexPath as NSIndexPath).item]
+        let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.needLogin {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
@@ -263,14 +263,14 @@ extension HomeMapViewController: UICollectionViewDelegate {
                         if indexPath == self.previousSelectedIndexPath! {
                             return
                         }
-                        self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+                        self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                         collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                         
-                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }else {
-                        self.coupons[(indexPath as NSIndexPath).item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }

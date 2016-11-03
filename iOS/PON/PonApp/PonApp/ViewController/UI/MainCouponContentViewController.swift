@@ -71,10 +71,17 @@ extension MainCouponContentViewController {
     }
     
     func processLikeCouponNotification(notification:NSNotification) {
-        guard let userInfo = notification.userInfo, let rowIndex = userInfo["row_index"] as? Int, let couponIndex = userInfo["coupon_index"] as? Int else {
+        guard let userInfo = notification.userInfo,
+            let rowIndex = userInfo["row_index"] as? Int,
+            let couponIndex = userInfo["coupon_index"] as? Int,
+            let couponId = userInfo["coupon_id"] as? Float else {
                 return
         }
         if self.couponListData.count == 0 || self.couponListData[rowIndex].coupons.count == 0 {
+            return
+        }
+        let coupon = self.couponListData[rowIndex].coupons[couponIndex]
+        if coupon.couponID != couponId {
             return
         }
         self.couponListData[rowIndex].coupons[couponIndex].isLike = true

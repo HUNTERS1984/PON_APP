@@ -111,24 +111,10 @@ extension CouponViewController {
     }
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
-        UIAlertController.present(title: "Error", message: LikeCouponConfirmation, actionTitles: ["OK", "Cancel"]) { (action) -> () in
-            if action.title == "OK" {
-                self.showHUD()
-                ApiRequest.likeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-                    self.hideHUD()
-                    if let _ = error {
-                        
-                    }else {
-                        if result!.code == SuccessCode {
-                            self.likeButton.isUserInteractionEnabled = false
-                            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
-                            self.updateLikeCouponStatus()
-                        }else {
-                            self.presentAlert(message: (result?.message)!)
-                        }
-                    }
-                }
-            }
+        if UserDataManager.isLoggedIn() {
+            self.likeCoupon()
+        }else {
+            self.presentAlert(message: UserNotLoggedIn)
         }
     }
     
@@ -150,6 +136,28 @@ extension CouponViewController {
 
 //MARK: - Private methods
 extension CouponViewController {
+    
+    fileprivate func likeCoupon() {
+        UIAlertController.present(title: "", message: LikeCouponConfirmation, actionTitles: [OK, Cancel]) { (action) -> () in
+            if action.title == "OK" {
+                self.showHUD()
+                ApiRequest.likeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
+                    if let _ = error {
+                        
+                    }else {
+                        if result!.code == SuccessCode {
+                            self.likeButton.isUserInteractionEnabled = false
+                            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
+                            self.updateLikeCouponStatus()
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     fileprivate func setupImageSlideShow(_ urls: [String]) {
         var alamofireSource = [AlamofireSource]()
@@ -226,7 +234,8 @@ extension CouponViewController {
                                             object: nil,
                                             userInfo:[
                                                 "row_index":self.selectedRowIndex!,
-                                                "coupon_index":self.selectedCouponIndex!])
+                                                "coupon_index":self.selectedCouponIndex!,
+                                                "coupon_id":self.coupon!.couponID])
         }
     }
     
