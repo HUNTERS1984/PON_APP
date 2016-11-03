@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func receivedTokenInvalidNotification(_ notification: Notification){
-        UIAlertController.present(title: "Error", message: "Access token invalid", actionTitles: ["OK"]) { (action) -> () in
+        UIAlertController.present(title: "Error", message: AccessTokenExpiry, actionTitles: [OK]) { (action) -> () in
             loggingPrint(action.title)
         }
         
