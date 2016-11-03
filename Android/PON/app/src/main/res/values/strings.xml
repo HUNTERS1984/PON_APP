@@ -124,12 +124,13 @@
     <!--Dialog-->
     <string name="title_alert_dialog">アラート</string>
     <string name="deadline">期限：</string>
-    <string name="connection_failed">Server failed to request</string>
+    <string name="connection_failed">Server was failed to request</string>
     <string name="permission_title">Permission necessary</string>
     <string name="permission_external">External storage permission is necessary</string>
+    <string name="network_not_avaiable">ネットワークがなくてチェックしてください。</string>
 
     <!-- Error -->
-    <string name="token_expried">Token Expired. Please login again!</string>
+    <string name="token_expried">Token was expired. Please login again!</string>
     <string name="server_error">Got error. Please try again!</string>
     <string name="need_login">Please login to use this function</string>
     <string name="cannot_get_user_location">Cannot get your location now. Please try again!</string>
@@ -150,11 +151,11 @@
     <string name="location_request">Please turn on Location Service to use this function</string>
     <string name="storage_request">Please grant Storage permission to use this function</string>
     <string name="camera_and_storage_request">Please grant Camera and Storage permission to use this function</string>
-    <string name="phone_call_request">Please grant Phone permission to use this function</string>
+    <string name="phone_call_request">Please grant Phone Call permission to use this function</string>
     <string name="location_denie">You have denied Location permission to use this function. Please grant it and try again!</string>
     <string name="storage_denie">You have denied Storage permission to use this function. Please grant it and try again!</string>
     <string name="camera_and_storage_denie">You have denied Camera and Storage permission to use this function. Please grant it and try again!</string>
-    <string name="phone_call_denie">You have denied Phone permission to use this function. Please grant it and try again!</string>
+    <string name="phone_call_denie">You have denied Phone Call permission to use this function. Please grant it and try again!</string>
 
     <!--Common-->
     <string name="open">開く</string>
