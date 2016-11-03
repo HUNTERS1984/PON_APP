@@ -97,6 +97,7 @@ extension ListCouponViewController {
     
 }
 
+//MARK: - CAPSPageMenuDelegate
 extension ListCouponViewController: CAPSPageMenuDelegate {
     
     func didMoveToPage(_ controller: UIViewController, index: Int) {
@@ -108,3 +109,5 @@ extension ListCouponViewController: CAPSPageMenuDelegate {
     }
     
 }
+
+

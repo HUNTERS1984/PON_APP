@@ -113,7 +113,7 @@ extension ListCouponContentViewController {
         }
     }
     
-    fileprivate func getCouponDetail(_ couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float, selectedCouponIndex: Int? = nil) {
         self.showHUD()
         ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -123,6 +123,8 @@ extension ListCouponContentViewController {
                 if result?.code == SuccessCode {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
+                    vc.selectedCouponIndex = selectedCouponIndex
+                    vc.handler = self
                     vc.coupon = coupon
                     self.parentNavigationController?.pushViewController(vc, animated: true)
                 }else {
@@ -167,11 +169,6 @@ extension ListCouponContentViewController: UICollectionViewDataSource {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        return commentView
-    }
-    
 }
 
 //MARK: - UICollectionViewDelegate
@@ -182,7 +179,7 @@ extension ListCouponContentViewController: UICollectionViewDelegate {
         if let _ = selectedCoupon.canUse {
             if selectedCoupon.canUse! {
                 self.resetCollectionView()
-                self.getCouponDetail(selectedCoupon.couponID)
+                self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
             }else {
                 if let _ = self.previousSelectedIndexPath {
                     if indexPath == self.previousSelectedIndexPath! {
@@ -197,7 +194,7 @@ extension ListCouponContentViewController: UICollectionViewDelegate {
                 }else {
                     self.coupons[indexPath.item].showConfirmView = true
                     collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
+                    self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
                 }
             }
         }
@@ -230,6 +227,22 @@ extension ListCouponContentViewController: UIScrollViewDelegate {
         if distanceFromBottom < height && canLoadMore {
             canLoadMore = false
             self.getCoupon(self.feature!, category: self.categoryID!, pageIndex: self.nextPage)
+        }
+    }
+    
+}
+
+//MARK: - CouponViewControllerDelegate
+extension ListCouponContentViewController: CouponViewControllerDelegate {
+    
+    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+        guard let couponId = couponId,
+            let index = index else {
+                return
+        }
+        if self.coupons[index].couponID == couponId {
+            self.coupons[index].isLike = true
+            self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
         }
     }
     

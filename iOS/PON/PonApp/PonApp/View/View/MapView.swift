@@ -43,12 +43,12 @@ class MapView: GMSMapView {
     }
     
     func moveToCurentLocation() {
-        LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+        LocationManager.sharedInstance.currentLocation { [weak self] (location: CLLocationCoordinate2D?, error: NSError?) -> () in
             if let _ = error {
                 
             }else {
                 let cameraPos = GMSCameraPosition.camera( withLatitude: Double((location?.latitude)!), longitude: Double((location?.longitude)!), zoom: 15.0)
-                self.camera = cameraPos
+                self?.camera = cameraPos
             }
         }
     }

@@ -22,7 +22,7 @@ class HomeMapViewController: BaseViewController {
     
     var offerShowed: Bool = false
     var coupons = [Coupon]()
-    var shopes = [Shop]()
+    var shops = [Shop]()
     
     var previousSelectedIndexPath: IndexPath? = nil
     
@@ -37,12 +37,10 @@ class HomeMapViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        //self.removeLikeCouponNotification()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //self.registerLikeCouponNotification()
     }
     
     override func setUpUserInterface() {
@@ -65,6 +63,7 @@ class HomeMapViewController: BaseViewController {
         let screenHeight = UIScreen.main.bounds.height
         self.offerViewBottomConstraint.constant -= (screenHeight * (196/667) - 20)
         self.getShopNearMyLocation()
+        //self.getShopByLattitudeAndLongitude(10.839812, longitude: 106.780339)
     }
 }
 
@@ -94,8 +93,8 @@ extension HomeMapViewController {
     
     fileprivate func displayCoupon() {
         var shopCoupons = [Coupon]()
-        for shop in shopes {
-            shopCoupons.append(contentsOf: shop.shopCoupons)
+        for shop in shops {
+            shopCoupons.append(contentsOf: shop.coupons)
         }
         self.coupons.removeAll()
         self.coupons = shopCoupons
@@ -135,8 +134,8 @@ extension HomeMapViewController {
     
     fileprivate func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double) {
         self.showHUD()
-        ApiRequest.getShopByLattitudeAndLongitude(lattitude, longitude: longitude, pageIndex: 1) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+        ApiRequest.getShopByLattitudeAndLongitude(lattitude, longitude: longitude, pageIndex: 1) {[weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self?.hideHUD()
             if let _ = error {
                 
             }else {
@@ -148,11 +147,10 @@ extension HomeMapViewController {
                             let shop = Shop(response: shopData)
                             responseShop.append(shop)
                         }
-                        self.shopes = responseShop
-                        self.displayShop(responseShop, lattitude: lattitude, longitude: longitude, type: .new)
+                        self?.displayShop(responseShop, lattitude: lattitude, longitude: longitude, type: .new)
                     }
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    self?.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -161,8 +159,10 @@ extension HomeMapViewController {
     fileprivate func displayShop(_ shops: [Shop], lattitude: Double, longitude: Double, type: GetType) {
         switch type {
         case .new:
+            self.shops.removeAll()
             self.mapView.moveCameraToLocation(CLLocationCoordinate2D(latitude: lattitude, longitude: longitude))
             self.mapView.shops = shops
+            self.shops = shops
             self.displayCoupon()
             break
         case .loadMore:
@@ -174,18 +174,18 @@ extension HomeMapViewController {
     
     fileprivate func getShopNearMyLocation() {
         self.showHUD()
-        LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
-            self.hideHUD()
+        LocationManager.sharedInstance.currentLocation { [weak self] (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+            self?.hideHUD()
             if let _ = error {
                 
             }else {
-                self.mapView.moveCameraToLocation(location!)
-                self.getShopByLattitudeAndLongitude(location!.latitude, longitude: location!.longitude)
+                self?.mapView.moveCameraToLocation(location!)
+                self?.getShopByLattitudeAndLongitude(location!.latitude, longitude: location!.longitude)
             }
         }
     }
     
-    fileprivate func getCouponDetail(_ couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float, selectedCouponIndex: Int? = nil) {
         self.showHUD()
         ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -196,6 +196,7 @@ extension HomeMapViewController {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
+                    vc.selectedCouponIndex = selectedCouponIndex
                     vc.handler = self
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else {
@@ -213,29 +214,6 @@ extension HomeMapViewController {
         }
     }
     
-    fileprivate func registerLikeCouponNotification() {
-        self.removeLikeCouponNotification()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.processLikeCouponNotification), name: Notification.Name(LikeCouponNotification), object: nil)
-    }
-    
-    fileprivate func removeLikeCouponNotification() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name(LikeCouponNotification), object: nil)
-    }
-    
-    func processLikeCouponNotification(notification:NSNotification) {
-        guard let userInfo = notification.userInfo,
-            let couponId = userInfo["coupon_id"] as? Float else {
-                return
-        }
-        for index in 0..<self.coupons.count {
-            if self.coupons[index].couponID == couponId {
-                self.coupons[index].isLike = true
-                break
-            }
-        }
-        self.offersCollectionView.reloadData()
-    }
-    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -251,8 +229,8 @@ extension HomeMapViewController: UICollectionViewDataSource {
         cell.layer.rasterizationScale = UIScreen.main.scale
         let couponData = self.coupons[indexPath.item]
         cell.coupon = couponData
-        cell.completionHandler = {
-            self.openSignUp()
+        cell.completionHandler = { [weak self] in
+            self?.openSignUp()
         }
         return cell
     }
@@ -272,7 +250,7 @@ extension HomeMapViewController: UICollectionViewDelegate {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
                     self.resetCollectionView()
-                    self.getCouponDetail(selectedCoupon.couponID)
+                    self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
                 }else {
                     if let _ = self.previousSelectedIndexPath {
                         if indexPath == self.previousSelectedIndexPath! {
@@ -292,7 +270,7 @@ extension HomeMapViewController: UICollectionViewDelegate {
                 }
             }else {
                 self.resetCollectionView()
-                self.getCouponDetail(selectedCoupon.couponID)
+                self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
             }
         }
     }
@@ -332,18 +310,18 @@ extension HomeMapViewController: MapViewDelegate {
     
 }
 
+//MARK: - CouponViewControllerDelegate
 extension HomeMapViewController: CouponViewControllerDelegate {
     
     func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
-        guard let couponId = couponId else {
+        guard let couponId = couponId,
+        let index = index else {
                 return
         }
-        for index in 0..<self.coupons.count {
-            if self.coupons[index].couponID == couponId {
-                self.coupons[index].isLike = true
-                break
-            }
+        if self.coupons[index].couponID == couponId {
+            self.coupons[index].isLike = true
+            self.offersCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
         }
-        self.offersCollectionView.reloadData()
     }
+    
 }

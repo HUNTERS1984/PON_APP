@@ -18,7 +18,7 @@ struct Shop {
     var shopAddress: String!
     var shopPhonenumber: String!
     var shopPhotosUrl = [String]()
-    var shopCoupons = [Coupon]()
+    var coupons = [Coupon]()
     var shopAvegerBill: Float!
     var regularHoliday: String!
     var shopDirection: String!
@@ -87,7 +87,7 @@ struct Shop {
         
         if let similarCoupons = response!["coupons"].array {
             for couponData in similarCoupons {
-                self.shopCoupons.append(Coupon(response: couponData))
+                self.coupons.append(Coupon(response: couponData))
             }
         }
         

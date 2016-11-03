@@ -36,7 +36,7 @@ class ShopViewController: BaseViewController {
     @IBOutlet weak var detailMapView: MapView!
     @IBOutlet weak var headerContentView: UIView!
 
-    var shopCoupon = [Coupon]() {
+    var coupons = [Coupon]() {
         didSet {
             self.couponCollectionView.reloadData()
         }
@@ -137,7 +137,7 @@ extension ShopViewController {
         holidayLabel.text = shop.regularHoliday
         meanCountLabel.text = "~\(shop.shopAvegerBill!)円"
         phoneNumberLabel.text = shop.shopPhonenumber
-        self.shopCoupon = shop.shopCoupons
+        self.coupons = shop.coupons
         self.setupPhotoCollectionView(shop.shopPhotosUrl)
         self.detailMapView.createShopMarker(shop.coordinate)
     }
@@ -150,7 +150,7 @@ extension ShopViewController {
         }
     }
     
-    fileprivate func getCouponDetail(_ couponId: Float) {
+    fileprivate func getCouponDetail(_ couponId: Float, selectedCouponIndex: Int? = nil) {
         self.showHUD()
         ApiRequest.getCouponDetail(couponId, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
@@ -161,6 +161,8 @@ extension ShopViewController {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
+                    vc.handler = self
+                    vc.selectedCouponIndex = selectedCouponIndex
                     self.navigationController!.pushViewController(vc, animated: true)
                 }else {
                     self.presentAlert(message: (result?.message)!)
@@ -204,12 +206,12 @@ extension ShopViewController: UIScrollViewDelegate {
 extension ShopViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.shopCoupon.count
+        return self.coupons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        cell.coupon = self.shopCoupon[indexPath.item]
+        cell.coupon = self.coupons[indexPath.item]
         return cell
         
     }
@@ -237,29 +239,46 @@ extension ShopViewController: UICollectionViewDataSource {
 extension ShopViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCoupon = self.shopCoupon[indexPath.item]
+        let selectedCoupon = self.coupons[indexPath.item]
         if let _ = selectedCoupon.needLogin {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
-                    self.getCouponDetail(selectedCoupon.couponID)
+                    self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
                 }else {
                     if let _ = self.previousSelectedIndexPath {
-                        self.shopCoupon[self.previousSelectedIndexPath!.item].showConfirmView = false
+                        self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                         collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                         
-                        self.shopCoupon[indexPath.item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }else {
-                        self.shopCoupon[indexPath.item].showConfirmView = true
+                        self.coupons[indexPath.item].showConfirmView = true
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }
                 }
             }else {
-                self.getCouponDetail(selectedCoupon.couponID)
+                self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
             }
         }
     }
     
+}
+
+
+//MARK: - CouponViewControllerDelegate
+extension ShopViewController: CouponViewControllerDelegate {
+    
+    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+        guard let couponId = couponId,
+            let index = index else {
+                return
+        }
+        if self.coupons[index].couponID == couponId {
+            self.coupons[index].isLike = true
+            self.couponCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+        }
+        
+    }
 }

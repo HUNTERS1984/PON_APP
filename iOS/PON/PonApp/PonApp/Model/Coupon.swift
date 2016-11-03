@@ -41,6 +41,9 @@ struct Coupon {
     
     var showConfirmView: Bool = false
     
+    init() {
+    }
+    
     init(response: JSON?) {
         if let couponID = response!["id"].float {
             self.couponID = couponID

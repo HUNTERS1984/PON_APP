@@ -53,40 +53,12 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .none
         self.getCoupon(self.couponFeature!, pageIndex: 1)
-        self.registerLikeCouponNotification()
     }
     
 }
 
 //MARK: - Private
 extension MainCouponContentViewController {
-    
-    fileprivate func registerLikeCouponNotification() {
-        self.removeLikeCouponNotification()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.processLikeCouponNotification), name: Notification.Name(LikeCouponNotification), object: nil)
-    }
-    
-    fileprivate func removeLikeCouponNotification() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name(LikeCouponNotification), object: nil)
-    }
-    
-    func processLikeCouponNotification(notification:NSNotification) {
-        guard let userInfo = notification.userInfo,
-            let rowIndex = userInfo["row_index"] as? Int,
-            let couponIndex = userInfo["coupon_index"] as? Int,
-            let couponId = userInfo["coupon_id"] as? Float else {
-                return
-        }
-        if self.couponListData.count == 0 || self.couponListData[rowIndex].coupons.count == 0 {
-            return
-        }
-        let coupon = self.couponListData[rowIndex].coupons[couponIndex]
-        if coupon.couponID != couponId {
-            return
-        }
-        self.couponListData[rowIndex].coupons[couponIndex].isLike = true
-        self.contentTableView.reloadRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
-    }
     
     fileprivate func getCouponDetail(_ couponId: Float) {
         parentContainerController?.showHUD()
@@ -99,6 +71,7 @@ extension MainCouponContentViewController {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
+                    vc.handler = self
                     vc.selectedCouponIndex = self.selectedCouponIndex
                     vc.selectedRowIndex = self.selectedRowIndex
                     self.parentNavigationController?.pushViewController(vc, animated: true)
@@ -127,8 +100,8 @@ extension MainCouponContentViewController: UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCollectionTableViewCell", for: indexPath) as! CouponCollectionTableViewCell
-        cell.moreButtonCallback = {(sender, categoryId, categoryName) -> Void in
-            self.showMoreCouponViewController(categoryId, categoryName)
+        cell.moreButtonCallback = { [weak self] (sender, categoryId, categoryName) -> Void in
+            self?.showMoreCouponViewController(categoryId, categoryName)
         }
         return cell
     }
@@ -268,4 +241,26 @@ extension MainCouponContentViewController: UIScrollViewDelegate {
         }
     }
     
+}
+
+
+//MARK: - CouponViewControllerDelegate
+extension MainCouponContentViewController: CouponViewControllerDelegate {
+    
+    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+        guard let rowIndex = rowIndex,
+            let couponIndex = index,
+            let couponId = couponId else {
+                return
+        }
+        if self.couponListData.count == 0 || self.couponListData[rowIndex].coupons.count == 0 {
+            return
+        }
+        let coupon = self.couponListData[rowIndex].coupons[couponIndex]
+        if coupon.couponID != couponId {
+            return
+        }
+        self.couponListData[rowIndex].coupons[couponIndex].isLike = true
+        self.contentTableView.reloadRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
+    }
 }

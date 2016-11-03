@@ -14,7 +14,7 @@ typealias LocationManagerCompletionHandler = (_ location: CLLocationCoordinate2D
 class LocationManager: NSObject {
 
     var locateManage = CLLocationManager()
-    var handler: LocationManagerCompletionHandler? = nil
+     var handler: LocationManagerCompletionHandler? = nil
     var currentCoordinate: CLLocationCoordinate2D?
     
     class var sharedInstance: LocationManager {
@@ -42,7 +42,7 @@ extension LocationManager {
         self.locateManage.startUpdatingLocation()
     }
     
-    func currentLocation(_ completionHandler: @escaping LocationManagerCompletionHandler) {
+    func currentLocation(_ completionHandler: @escaping (LocationManagerCompletionHandler)) {
         self.handler = completionHandler
         self.startUpdatingLocation()
     }
