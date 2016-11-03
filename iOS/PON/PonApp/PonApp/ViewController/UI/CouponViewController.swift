@@ -290,7 +290,7 @@ extension CouponViewController: UICollectionViewDelegateFlowLayout {
 extension CouponViewController: AlbumCollectionViewDelegate {
     
     func albumCollectionView(_ collectionView: AlbumCollectionView, didSelectImageAtIndex index: Int, imageUrl url:String) {
-        let ctr = FullScreenPhotoViewController()
+        let ctr = PhotoViewerViewController()
         ctr.setImageUrl(url: url)
         self.present(ctr, animated: true)
     }

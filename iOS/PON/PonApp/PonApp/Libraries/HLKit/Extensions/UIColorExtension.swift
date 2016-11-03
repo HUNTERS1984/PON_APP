@@ -78,53 +78,6 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    /**
-     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, throws error.
-     
-     - parameter rgba: String value.
-     */
-    public convenience init(rgba_throws rgba: String) throws {
-        guard rgba.hasPrefix("#") else {
-            throw UIColorInputError.missingHashMarkAsPrefix
-        }
-        
-        guard let hexString: String = rgba.substring(from: rgba.characters.index(rgba.startIndex, offsetBy: 1)),
-            var   hexValue:  UInt32 = 0
-            , Scanner(string: hexString).scanHexInt32(&hexValue) else {
-                throw UIColorInputError.unableToScanHexValue
-        }
-        
-        guard hexString.characters.count  == 3
-            || hexString.characters.count == 4
-            || hexString.characters.count == 6
-            || hexString.characters.count == 8 else {
-                throw UIColorInputError.mismatchedHexStringLength
-        }
-        
-        switch (hexString.characters.count) {
-        case 3:
-            self.init(hex3: UInt16(hexValue))
-        case 4:
-            self.init(hex4: UInt16(hexValue))
-        case 6:
-            self.init(hex6: hexValue)
-        default:
-            self.init(hex8: hexValue)
-        }
-    }
-    
-    /**
-     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, fails to default color.
-     
-     - parameter rgba: String value.
-     */
-    public convenience init(rgba: String, defaultColor: UIColor = UIColor.clear) {
-        guard let color = try? UIColor(rgba_throws: rgba) else {
-            self.init(cgColor: defaultColor.cgColor)
-            return
-        }
-        self.init(cgColor: color.cgColor)
-    }
     
     /**
      Hex string of a UIColor instance.

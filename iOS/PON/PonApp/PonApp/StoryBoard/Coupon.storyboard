@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -32,30 +29,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-8u-evy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-vM-f2C" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1655"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arB-n3-ct6" userLabel="Header View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-2M-KHV" userLabel="Slide View" customClass="ImageSlideshow" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-iZ-EHW">
-                                                        <rect key="frame" x="284" y="30" width="81" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="TlH-Bk-rUY"/>
-                                                            <constraint firstAttribute="width" constant="81" id="iVX-b8-vvs"/>
+                                                            <constraint firstAttribute="width" constant="81" id="UJN-Ts-Ekd"/>
+                                                            <constraint firstAttribute="height" constant="30" id="p2P-ow-kIC"/>
                                                         </constraints>
                                                         <connections>
                                                             <action selector="qrCodeButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="beI-YC-SeZ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oss-S9-3cQ" userLabel="Back Button">
-                                                        <rect key="frame" x="0.0" y="23" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="5YH-NB-K7q"/>
                                                             <constraint firstAttribute="width" constant="40" id="IhI-3Y-Gn1"/>
@@ -65,20 +56,15 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGJ-mU-eUy" userLabel="Category View">
-                                                        <rect key="frame" x="-1" y="142" width="113" height="33"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_category_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTf-yb-abn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113" height="33"/>
-                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_category_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTf-yb-abn"/>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T7u-DZ-d5c" userLabel="Coupon Category Image">
-                                                                <rect key="frame" x="15" y="5.5" width="22" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="KzK-iI-XLR"/>
                                                                     <constraint firstAttribute="width" constant="22" id="mhn-2h-MBC"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H48-5J-tdX" userLabel="Coupon Category Label">
-                                                                <rect key="frame" x="42" y="0.0" width="67" height="33"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -101,16 +87,13 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTN-FK-Dyy" userLabel="Banner View" customClass="CouponBannerView" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="175" width="375" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqw-Qy-ngb" userLabel="Share Button">
-                                                                <rect key="frame" x="245" y="0.0" width="50" height="50"/>
                                                                 <connections>
                                                                     <action selector="shareButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="ePw-p2-slD"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-ru-Ag9" userLabel="Like Button">
-                                                                <rect key="frame" x="305" y="0.0" width="50" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="cKq-ru-Ag9" secondAttribute="height" multiplier="1:1" id="3pF-jC-Ohx"/>
                                                                 </constraints>
@@ -119,7 +102,6 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルが入りますhg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-jE-byz" userLabel="Coupon Title Label">
-                                                                <rect key="frame" x="20" y="59" width="335" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="OLG-gP-Wx5"/>
                                                                 </constraints>
@@ -147,10 +129,10 @@
                                                 <constraints>
                                                     <constraint firstItem="oss-S9-3cQ" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" constant="23" id="1IT-J0-PiA"/>
                                                     <constraint firstItem="W7w-2M-KHV" firstAttribute="height" secondItem="arB-n3-ct6" secondAttribute="height" multiplier="200/270" id="1lN-cS-ODE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wV6-iZ-EHW" secondAttribute="trailing" constant="10" id="3Is-dL-Wdb"/>
+                                                    <constraint firstItem="wV6-iZ-EHW" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" constant="30" id="6Zv-JL-YZJ"/>
                                                     <constraint firstItem="oss-S9-3cQ" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" id="C88-2Q-mT0"/>
-                                                    <constraint firstItem="wV6-iZ-EHW" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" constant="30" id="GSy-hf-xJj"/>
                                                     <constraint firstAttribute="trailing" secondItem="W7w-2M-KHV" secondAttribute="trailing" id="Mg5-E2-G7c"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wV6-iZ-EHW" secondAttribute="trailing" constant="10" id="Pm0-jb-Tqq"/>
                                                     <constraint firstItem="W7w-2M-KHV" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" id="Tz6-oH-L8B"/>
                                                     <constraint firstAttribute="trailing" secondItem="FTN-FK-Dyy" secondAttribute="trailing" id="XSJ-DO-Lai"/>
                                                     <constraint firstAttribute="bottom" secondItem="FTN-FK-Dyy" secondAttribute="bottom" id="XzQ-cj-BfH"/>
@@ -162,10 +144,8 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-D2-XOC" userLabel="Info View">
-                                                <rect key="frame" x="0.0" y="270" width="375" height="70"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e2L-G1-g6k" customClass="DesignableImageView" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="305" y="10" width="50" height="50"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="1uX-gz-6AM"/>
@@ -184,7 +164,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイプが入ります・IDが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yb-5v-dOe" userLabel="Name Label">
-                                                        <rect key="frame" x="20" y="18" width="277" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="WUB-Zv-05F"/>
                                                         </constraints>
@@ -193,7 +172,6 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限：2016.07.31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3h-zO-4p0" userLabel="Expiry Data Label">
-                                                        <rect key="frame" x="20" y="41" width="277" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="ndz-3Q-ZdR"/>
                                                         </constraints>
@@ -215,28 +193,21 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明がhg" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-Bt-8rA" userLabel="Info Label" customClass="PaddingLabel" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="345" width="335" height="24"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.39215686274509803" green="0.43137254901960786" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-RS-uS6" userLabel="Map View" customClass="MapView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="399" width="375" height="140"/>
-                                            </view>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-RS-uS6" userLabel="Map View" customClass="MapView" customModule="PonApp" customModuleProvider="target"/>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94o-0j-5hZ" userLabel="Action View">
-                                                <rect key="frame" x="0.0" y="539" width="375" height="195"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-bg-zen" userLabel="Location View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="jPe-fl-JwZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="jPe-fl-JwZ" secondAttribute="height" multiplier="1:1" id="dqP-Di-OJk"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所が入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ne-j0-Bye" userLabel="Address Label">
-                                                                <rect key="frame" x="65" y="0.0" width="290" height="65"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                                 <color key="textColor" red="0.39215686274509803" green="0.43137254901960786" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -261,16 +232,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-Vb-gsL" userLabel="Time View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="65" width="375" height="65"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="vv2-Tj-J8a">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="vv2-Tj-J8a" secondAttribute="height" multiplier="1:1" id="NdF-55-Un0"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="営業時間が入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmb-88-SyL" userLabel="Time Label">
-                                                                <rect key="frame" x="65" y="0.0" width="290" height="65"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -295,16 +263,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMb-px-LVI" userLabel="Phone View">
-                                                        <rect key="frame" x="0.0" y="130" width="375" height="65"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupon_phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="H7q-Pt-cNf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="H7q-Pt-cNf" secondAttribute="height" multiplier="1:1" id="D6I-Y4-Vgz"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話番号が入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoY-ov-15O" userLabel="Phone Label">
-                                                                <rect key="frame" x="65" y="0.0" width="290" height="65"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -339,10 +304,8 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-zt-gcD" userLabel="Photo Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="749" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このクーポンのユーザー投稿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSt-kF-V8e" userLabel="Photo Title Label">
-                                                        <rect key="frame" x="20" y="0.0" width="335" height="50"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -362,7 +325,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zxh-As-GZH" customClass="AlbumCollectionView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="799" width="375" height="375"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="375" id="LhT-D2-loi"/>
@@ -376,10 +338,8 @@
                                                 <cells/>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-fP-qKO" userLabel="Similar Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1179" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このクーポンのユーザー投稿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IH-2q-Yfj" userLabel="Photo Title Label">
-                                                        <rect key="frame" x="20" y="0.0" width="335" height="50"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -399,7 +359,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-Tz-ZAZ" userLabel="Similar Coupon Collection View">
-                                                <rect key="frame" x="0.0" y="1229" width="375" height="390"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="390" id="OSE-Cg-7Wp"/>
@@ -461,7 +420,6 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ8-Lh-a5Q">
-                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hBx-KA-mL1"/>
@@ -539,7 +497,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-lA-mf9">
-                                <rect key="frame" x="0.0" y="22" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lBl-zU-98b"/>
                                     <constraint firstAttribute="width" constant="40" id="y8e-Lw-OUT"/>
@@ -550,7 +507,6 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yte-gP-ZA8" userLabel="Name Label">
-                                <rect key="frame" x="20" y="57" width="335" height="42"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">このクーポンを使うためには、
@@ -565,19 +521,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-MM-SZ8" userLabel="Action View">
-                                <rect key="frame" x="15" y="140" width="345" height="45"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sns_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-4P-iZ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sns_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-4P-iZ3"/>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxb-ru-IMj" userLabel="SNS Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="45"/>
                                         <connections>
                                             <action selector="snsButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Rez-lQ-NsI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoZ-Vn-wYi" userLabel="QR Button">
-                                        <rect key="frame" x="172.5" y="0.0" width="172.5" height="45"/>
                                         <connections>
                                             <action selector="qrCodeButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="vdz-FV-dss"/>
                                         </connections>
@@ -601,10 +552,8 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLJ-44-e0B" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="240" width="320" height="320"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BpR-xY-fWL">
-                                        <rect key="frame" x="78" y="78" width="164" height="164"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BpR-xY-fWL" secondAttribute="height" multiplier="1:1" id="MtZ-dz-IHu"/>
                                         </constraints>
@@ -636,31 +585,26 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi8-nP-Jli" userLabel="Share Action View">
-                                <rect key="frame" x="10" y="240" width="355" height="268"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJo-D7-aoO" userLabel="Instagram Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="instagramButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="D7y-NH-qtg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WD-9G-ghu" userLabel="Facebook Button">
-                                        <rect key="frame" x="0.0" y="72" width="355" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="facebookButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="exF-nL-v6u"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkx-9S-TqV" userLabel="Twitter Button">
-                                        <rect key="frame" x="0.0" y="144" width="355" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="twitterButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="oSf-er-0eF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-A4-3wt" userLabel="Line Button">
-                                        <rect key="frame" x="0.0" y="216" width="355" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="lineButtonPressed:" destination="4Xy-8H-7kC" eventType="touchUpInside" id="Ibs-hr-ZAD"/>
@@ -737,7 +681,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCF-Xv-KQV">
-                                <rect key="frame" x="0.0" y="22" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="6FK-iZ-ayU"/>
                                     <constraint firstAttribute="height" constant="40" id="FKq-00-UVt"/>
@@ -748,7 +691,6 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9y-yx-48a" userLabel="Name Label">
-                                <rect key="frame" x="16" y="57" width="343" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="3bx-UM-6pK"/>
                                 </constraints>
@@ -766,10 +708,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQK-yp-x8d" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="160" width="320" height="320"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-kF-MR7">
-                                        <rect key="frame" x="78" y="78" width="164" height="164"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Tir-kF-MR7" secondAttribute="height" multiplier="1:1" id="glR-HS-lWR"/>
                                         </constraints>

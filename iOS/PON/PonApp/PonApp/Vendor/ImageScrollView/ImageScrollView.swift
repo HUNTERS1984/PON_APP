@@ -131,7 +131,7 @@ open class ImageScrollView: UIScrollView {
     }
 
     // MARK: - Display image
-    
+
     open func display(_ image: UIImage) {
 
         if let zoomView = zoomView {
@@ -148,15 +148,27 @@ open class ImageScrollView: UIScrollView {
         
         configureImageForSize(image.size)
     }
-    
+
     open func display(imageUrl url: String?) {
         if let _ = url {
-            let urlRequest = URLRequest(url: URL(string: url!)!)
-            downloader.download(urlRequest) { response in
-                if let image = response.result.value {
-                    self.display(image)
-                }
+            if let zoomView = zoomView {
+                zoomView.removeFromSuperview()
             }
+            
+            zoomView = UIImageView()
+            zoomView!.isUserInteractionEnabled = true
+            addSubview(zoomView!)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageScrollView.doubleTapGestureRecognizer(_:)))
+            tapGesture.numberOfTapsRequired = 2
+            zoomView!.addGestureRecognizer(tapGesture)
+            zoomView?.af_setImage(withURL: URL(string: url!)!, completion: { response in
+                if let image = response.result.value {
+                    self.zoomView!.image = image
+                    self.zoomView!.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    self.configureImageForSize(image.size)
+                }
+            })
         }
     }
     
