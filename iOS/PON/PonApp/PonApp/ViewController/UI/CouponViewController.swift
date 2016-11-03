@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CouponViewControllerDelegate: class {
+    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?)
+}
+
 class CouponViewController: BaseViewController {
+    
+    weak var handler: CouponViewControllerDelegate? = nil
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var qrCodeButton: UIButton!
@@ -229,14 +235,19 @@ extension CouponViewController {
     }
     
     fileprivate func updateLikeCouponStatus() {
-        if let _ = self.selectedCouponIndex, let _ = self.selectedRowIndex {
-            NotificationCenter.default.post(name:Notification.Name(LikeCouponNotification),
-                                            object: nil,
-                                            userInfo:[
-                                                "row_index":self.selectedRowIndex!,
-                                                "coupon_index":self.selectedCouponIndex!,
-                                                "coupon_id":self.coupon!.couponID])
+        self.handler?.couponViewController(self, didLikeCouponAtIndex: self.selectedCouponIndex, rowIndex: self.selectedRowIndex, couponId: self.coupon!.couponID)
+        
+        var userInfo = [String: Any]()
+        userInfo["coupon_id"] = self.coupon!.couponID
+        if let _ = self.selectedCouponIndex{
+            userInfo["coupon_index"] = self.selectedCouponIndex!
         }
+        if  let _ = self.selectedRowIndex {
+            userInfo["row_index"] = self.selectedRowIndex!
+        }
+        NotificationCenter.default.post(name:Notification.Name(LikeCouponNotification),
+                                        object: nil,
+                                        userInfo:userInfo)
     }
     
 }

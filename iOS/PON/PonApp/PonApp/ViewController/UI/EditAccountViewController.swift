@@ -102,8 +102,9 @@ extension EditAccountViewController {
         genderDropdown.keyboardDistanceFromTextField = 50
         genderDropdown.delegate = self
         genderDropdown.itemList = [
-            "男性",
-            "女人"
+            "男",
+            "女",
+            "LGBT"
         ]
     }
     
@@ -163,12 +164,15 @@ extension EditAccountViewController {
     
     fileprivate func getGender(_ gender: String?) -> Int {
         if let _ = gender {
-            if gender! == "男性" {
+            if gender! == "男" {
                 return 1
             }
             
-            if gender! == "女人" {
+            if gender! == "女" {
                 return 2
+            }
+            if gender! == "LGBT" {
+                return 3
             }
         }
         return 0
@@ -177,11 +181,15 @@ extension EditAccountViewController {
     fileprivate func converGender(_ gender: Int?) -> String {
         if let _ = gender {
             if gender! == 1 {
-                return "男性"
+                return "男"
             }
             
             if gender! == 2 {
-                return "女人"
+                return "女"
+            }
+            
+            if gender! == 3 {
+                return "LGBT"
             }
         }
         return ""
@@ -275,7 +283,7 @@ extension EditAccountViewController {
     
 }
 
-//MARK: - HLKDropDownTextFieldDelegate
+//MARK: - IQDropDownTextFieldDelegate
 extension EditAccountViewController: IQDropDownTextFieldDelegate {
     
     func textField(_ textField: IQDropDownTextField!, didSelectItem item: String!) {

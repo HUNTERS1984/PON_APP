@@ -37,11 +37,12 @@ class HomeMapViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        //self.removeLikeCouponNotification()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //self.registerLikeCouponNotification()
     }
     
     override func setUpUserInterface() {
@@ -195,6 +196,7 @@ extension HomeMapViewController {
                     let coupon = Coupon(response: result?.data)
                     let vc = CouponViewController.instanceFromStoryBoard("Coupon") as! CouponViewController
                     vc.coupon = coupon
+                    vc.handler = self
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else {
                     self.presentAlert(message: (result?.message)!)
@@ -211,15 +213,28 @@ extension HomeMapViewController {
         }
     }
     
-/*
-    override func openSignUp() {
-        self.resetCollectionView()
-        let vc = SignInViewController.instanceFromStoryBoard("Register") as! SignInViewController
-        vc.loginState = .qick
-        let nav = UINavigationController.init(rootViewController: vc)
-        self.navigationController!.present(nav, animated: true)
+    fileprivate func registerLikeCouponNotification() {
+        self.removeLikeCouponNotification()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processLikeCouponNotification), name: Notification.Name(LikeCouponNotification), object: nil)
     }
-*/
+    
+    fileprivate func removeLikeCouponNotification() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(LikeCouponNotification), object: nil)
+    }
+    
+    func processLikeCouponNotification(notification:NSNotification) {
+        guard let userInfo = notification.userInfo,
+            let couponId = userInfo["coupon_id"] as? Float else {
+                return
+        }
+        for index in 0..<self.coupons.count {
+            if self.coupons[index].couponID == couponId {
+                self.coupons[index].isLike = true
+                break
+            }
+        }
+        self.offersCollectionView.reloadData()
+    }
     
 }
 
@@ -315,4 +330,20 @@ extension HomeMapViewController: MapViewDelegate {
         self.hideOfferView()
     }
     
+}
+
+extension HomeMapViewController: CouponViewControllerDelegate {
+    
+    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+        guard let couponId = couponId else {
+                return
+        }
+        for index in 0..<self.coupons.count {
+            if self.coupons[index].couponID == couponId {
+                self.coupons[index].isLike = true
+                break
+            }
+        }
+        self.offersCollectionView.reloadData()
+    }
 }
