@@ -81,7 +81,6 @@
 		4A85F4031D9ABCDD00733161 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3251D9ABCDD00733161 /* IQToolbar.m */; };
 		4A85F4041D9ABCDD00733161 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3271D9ABCDD00733161 /* IQUIView+IQKeyboardToolbar.m */; };
 		4A85F4051D9ABCDD00733161 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A85F3291D9ABCDD00733161 /* IQKeyboardManager.bundle */; };
-		4A85F4061D9ABCDD00733161 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F32C1D9ABCDD00733161 /* UINavigationBar+Awesome.m */; };
 		4A85F4071D9ABCDD00733161 /* SPGooglePlacesAutocompletePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3301D9ABCDD00733161 /* SPGooglePlacesAutocompletePlace.m */; };
 		4A85F4081D9ABCDD00733161 /* SPGooglePlacesAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3321D9ABCDD00733161 /* SPGooglePlacesAutocompleteQuery.m */; };
 		4A85F4091D9ABCDD00733161 /* SPGooglePlacesAutocompleteUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F3341D9ABCDD00733161 /* SPGooglePlacesAutocompleteUtilities.m */; };
@@ -148,6 +147,8 @@
 		FA0C23511DBDBC9D00F9D988 /* coupon_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */; };
 		FA0C23521DBDBC9D00F9D988 /* coupon_qr_code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */; };
 		FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */; };
+		FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */; };
+		FA2BA6C61DC9E8AE0016FF91 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
 		FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */; };
 		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -425,8 +426,6 @@
 		4A85F3261D9ABCDD00733161 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		4A85F3271D9ABCDD00733161 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		4A85F3291D9ABCDD00733161 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		4A85F32B1D9ABCDD00733161 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
-		4A85F32C1D9ABCDD00733161 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		4A85F32E1D9ABCDD00733161 /* SPGooglePlacesAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocomplete.h; sourceTree = "<group>"; };
 		4A85F32F1D9ABCDD00733161 /* SPGooglePlacesAutocompletePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGooglePlacesAutocompletePlace.h; sourceTree = "<group>"; };
 		4A85F3301D9ABCDD00733161 /* SPGooglePlacesAutocompletePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGooglePlacesAutocompletePlace.m; sourceTree = "<group>"; };
@@ -501,6 +500,8 @@
 		FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@2x.png"; sourceTree = "<group>"; };
 		FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@3x.png"; sourceTree = "<group>"; };
 		FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
+		FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopViewController.swift; sourceTree = "<group>"; };
 		FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopContentViewController.swift; sourceTree = "<group>"; };
@@ -936,6 +937,7 @@
 		4A85F2F71D9ABCDD00733161 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FA2BA6C41DC9E8AE0016FF91 /* ImageScrollView */,
 				FAC2D1FE1DA65199006C5722 /* ReadMoreTextView */,
 				FA8A83F81DA3982E0035E48D /* SwiftyJSON */,
 				FA76A9DE1DA34D8D00893584 /* QRCode */,
@@ -945,7 +947,6 @@
 				4A85F2F81D9ABCDD00733161 /* CAPSPageMenu */,
 				4A85F3021D9ABCDD00733161 /* IQDropDownTextField */,
 				4A85F3051D9ABCDD00733161 /* IQKeyboardManager */,
-				4A85F32A1D9ABCDD00733161 /* LTNavigationBar */,
 				4A85F32D1D9ABCDD00733161 /* SPGooglePlacesAutocomplete */,
 				4A85F3371D9ABCDD00733161 /* SwiftyUserDefaults */,
 			);
@@ -1045,15 +1046,6 @@
 				4A85F3291D9ABCDD00733161 /* IQKeyboardManager.bundle */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		4A85F32A1D9ABCDD00733161 /* LTNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				4A85F32B1D9ABCDD00733161 /* UINavigationBar+Awesome.h */,
-				4A85F32C1D9ABCDD00733161 /* UINavigationBar+Awesome.m */,
-			);
-			path = LTNavigationBar;
 			sourceTree = "<group>";
 		};
 		4A85F32D1D9ABCDD00733161 /* SPGooglePlacesAutocomplete */ = {
@@ -1193,6 +1185,7 @@
 				FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */,
 				4A85F3701D9ABCDD00733161 /* NewsViewController.swift */,
 				FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */,
+				FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1233,6 +1226,14 @@
 				86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA2BA6C41DC9E8AE0016FF91 /* ImageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */,
+			);
+			path = ImageScrollView;
 			sourceTree = "<group>";
 		};
 		FA33FCDF1D77BFDA0048EF73 = {
@@ -1587,7 +1588,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M8AF2Y2268;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1879,6 +1880,7 @@
 				4A85F4211D9ABCDD00733161 /* MapMarker.swift in Sources */,
 				4A85F43C1D9ABCDD00733161 /* NewsViewController.swift in Sources */,
 				4A85F43A1D9ABCDD00733161 /* ListCouponViewController.swift in Sources */,
+				FA2BA6C61DC9E8AE0016FF91 /* ImageScrollView.swift in Sources */,
 				4A85F3A41D9ABCDD00733161 /* LocationManager.swift in Sources */,
 				4A85F4161D9ABCDD00733161 /* ListCouponCollectionViewCell.swift in Sources */,
 				4A649A8E1D9BFEC80080E976 /* ListCouponContentViewController.swift in Sources */,
@@ -1914,6 +1916,7 @@
 				4AA865641DA0F47B00A09831 /* Category.swift in Sources */,
 				4A85F42F1D9ABCDD00733161 /* EditAccountViewController.swift in Sources */,
 				4A85F37B1D9ABCDD00733161 /* ApiEndpoint.swift in Sources */,
+				FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */,
 				4A85F40B1D9ABCDD00733161 /* DefaultsKeysExtension.swift in Sources */,
 				4A85F40A1D9ABCDD00733161 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				4A136A0D1DAA24BE000610E3 /* OneSignalPushNotification.swift in Sources */,
@@ -1924,7 +1927,6 @@
 				4A85F43F1D9ABCDD00733161 /* ShareCouponViewController.swift in Sources */,
 				4A85F4371D9ABCDD00733161 /* HomeSearchViewController.swift in Sources */,
 				4A85F38F1D9ABCDD00733161 /* TwitterLogin.swift in Sources */,
-				4A85F4061D9ABCDD00733161 /* UINavigationBar+Awesome.m in Sources */,
 				4A85F4251D9ABCDD00733161 /* TabbarView.swift in Sources */,
 				FA76A9D31DA3460000893584 /* DKPopoverViewController.swift in Sources */,
 				FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */,
@@ -2113,7 +2115,7 @@
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2124,8 +2126,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a9516e93-4621-41a1-ba2e-1391b26f2860";
+				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -2141,7 +2143,7 @@
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M8AF2Y2268;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2152,8 +2154,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a9516e93-4621-41a1-ba2e-1391b26f2860";
+				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;

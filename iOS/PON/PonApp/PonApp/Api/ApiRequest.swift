@@ -45,8 +45,8 @@ public struct ApiRequest {
             "page_index": "\(pageIndex)"
         ]
         if let _ = longitude, let _ = lattitude {
-            parameters["longitude"] = "\(longitude)"
-            parameters["latitude"] = "\(lattitude)"
+            parameters["longitude"] = "\(longitude!)"
+            parameters["latitude"] = "\(lattitude!)"
         }
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
     }
@@ -129,8 +129,8 @@ public struct ApiRequest {
             "page_index": "\(pageIndex)"
         ]
         if let _ = longitude, let _ = lattitude {
-            parameters["longitude"] = "\(longitude)"
-            parameters["latitude"] = "\(lattitude)"
+            parameters["longitude"] = "\(longitude!)"
+            parameters["latitude"] = "\(lattitude!)"
         }
         let endpoint = String(format:GetCouponByFeatureAndCategory, feature.rawValue, category)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
@@ -142,8 +142,8 @@ public struct ApiRequest {
             "page_index": "\(pageIndex)"
         ]
         if let _ = longitude, let _ = lattitude {
-            parameters["longitude"] = "\(longitude)"
-            parameters["latitude"] = "\(lattitude)"
+            parameters["longitude"] = "\(longitude!)"
+            parameters["latitude"] = "\(lattitude!)"
         }
         let endpoint = String(format:GetShopByFeatureAndCategory, feature.rawValue, category)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
@@ -155,8 +155,8 @@ public struct ApiRequest {
             "page_index": "\(pageIndex)"
         ]
         if let _ = longitude, let _ = lattitude {
-            parameters["longitude"] = "\(longitude)"
-            parameters["latitude"] = "\(lattitude)"
+            parameters["longitude"] = "\(longitude!)"
+            parameters["latitude"] = "\(lattitude!)"
         }
         let endpoint = String(format:GetShopByFeature, feature.rawValue)
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)

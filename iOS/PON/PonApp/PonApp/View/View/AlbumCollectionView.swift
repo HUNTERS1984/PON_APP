@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol AlbumCollectionViewDelegate: class {
+    func albumCollectionView(_ collectionView: AlbumCollectionView, didSelectImageAtIndex index: Int, imageUrl url:String)
+}
+
 class AlbumCollectionView: UICollectionView {
 
     @IBInspectable var totalMargin: CGFloat = 60
     
     var photos = [String] ()
+    weak var handler: AlbumCollectionViewDelegate? = nil
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -76,7 +81,7 @@ extension AlbumCollectionView: UICollectionViewDataSource {
 extension AlbumCollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        self.handler?.albumCollectionView(self, didSelectImageAtIndex: indexPath.item, imageUrl: self.photos[indexPath.item])
     }
     
 }

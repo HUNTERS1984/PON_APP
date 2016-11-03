@@ -11,7 +11,6 @@
 
 #import "SPGooglePlacesAutocomplete.h"
 #import <CommonCrypto/CommonCrypto.h>
-#import "UINavigationBar+Awesome.h"
 
 #import <LineAdapter/LineSDK.h>
 

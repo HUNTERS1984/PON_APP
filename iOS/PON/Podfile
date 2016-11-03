@@ -12,4 +12,5 @@ target 'PonApp' do
     pod 'InstagramKit', '~> 3.0'
     pod 'Fabric'
     pod 'TwitterKit'
+    pod 'SnapKit', '~> 3.0'
 end

@@ -8,17 +8,21 @@
 
 import UIKit
 
-let UserNotLoggedIn                             = "Not logged in, please log in to continue"
-let UserNameNotValid                            = "Username not valid"
-let UserNameBlank                               = "Please enter your username"
-let GenderBlank                                 = "Please enter your gender"
-let AddressBlank                                = "Please select your city"
-let PasswordNotValid                            = "Password not valid"
-let EmailNotValid                               = "Email Address not valid"
-let EmailBlank                                  = "Please enter your email address"
-let PasswordBlank                               = "Please enter your password"
-let PasswordRange                               = "Your password must be 6 or more characters"
-let LocationDisable                             = "Your Location service is turned off"
-let PasswordNotMatch                            = "Password is not match"
-let NotConnectInternet                          = "Not connected to internet"
-let LikeCouponConfirmation                      = "Are you sure you want to like this coupon"
+let OK                                          = "OK"
+let Cancel                                      = "キャンセル"
+let Error                                       = "エラー"
+
+let UserNotLoggedIn                             = "貴方はログインしていない。続けるようにログインしてください。"//Bạn chưa đăng nhập, vui lòng đăng nhập để tiếp tục
+let UserNameNotValid                            = "IDやパスワードが違います。"//Tên đăng nhập không hợp lệ
+let UserNameBlank                               = "IDを入力してください。"//Vui lòng nhập tên đăng nhập
+let GenderBlank                                 = "性別を選択してください。"//Vui lòng chọn giới tính
+let AddressBlank                                = "住所を選択してください。"//Vui lòng chọn địa chỉ của bạn (thành phố)
+let EmailNotValid                               = "メールアドレスが違います。"//Địa chỉ email không hợp lệ
+let EmailBlank                                  = "メールを入力してください。"//Vui lòng nhập địa chỉ email của bạn
+let PasswordBlank                               = "パスワードを入力してください。"//Vui lòng nhập mật khẩu của bạn
+let PasswordRange                               = "パスワードは６記号以降と特別記号を入力しない。"//Mật khẩu phải lớn hơn hoặc bằng 6 kí tự và không chứa kí tự đặt biệt
+let LocationDisable                             = "貴方のlocation servicesはオフーにしています。この性能を使用する為オンにしてください。"//Location services của bạn đang tắt vui lòng bật để sử dụng tính năng này
+let PasswordNotMatch                            = "パスワードが違います。"//Mât khẩu không trùng nhau
+let NotConnectInternet                          = "ネットワークがなくてチェックしてください。"//Không có kết nối mạng vui lòng kiểm tra lại
+let LikeCouponConfirmation                      = "このクーポンを”like”にしますか。"//Bạn có chắc bạn muốn like coupon này
+let AccessTokenExpiry                           = "Access Token 制限時間になります。再度ログインしてください。"

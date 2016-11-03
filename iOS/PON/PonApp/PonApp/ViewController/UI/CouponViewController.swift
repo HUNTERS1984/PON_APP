@@ -76,6 +76,7 @@ class CouponViewController: BaseViewController {
         self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
         self.shareButton.setImage(UIImage(named: "coupon_button_share"), for: UIControlState())
         self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
+        self.albumCollectionView.handler = self
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         
@@ -167,8 +168,8 @@ extension CouponViewController {
         imageSlideshow.pageControl.pageIndicatorTintColor = UIColor.white
         imageSlideshow.contentScaleMode = .scaleToFill
         imageSlideshow.pageControlPosition = .InsideScrollView
-//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
-//        imageSlideshow.addGestureRecognizer(recognizer)
+        //let recognizer = UITapGestureRecognizer(target: self, action: #selector(CouponViewController.clickOnImageSlideShow))
+        //imageSlideshow.addGestureRecognizer(recognizer)
         imageSlideshow.setImageInputs(inputs: alamofireSource)
     }
     
@@ -282,4 +283,15 @@ extension CouponViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
     
+}
+
+//MARK: - AlbumCollectionViewDelegate
+
+extension CouponViewController: AlbumCollectionViewDelegate {
+    
+    func albumCollectionView(_ collectionView: AlbumCollectionView, didSelectImageAtIndex index: Int, imageUrl url:String) {
+        let ctr = PhotoViewerViewController()
+        ctr.setImageUrl(url: url)
+        self.present(ctr, animated: true)
+    }
 }

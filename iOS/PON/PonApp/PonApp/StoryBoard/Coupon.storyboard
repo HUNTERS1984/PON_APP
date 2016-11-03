@@ -37,9 +37,11 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-2M-KHV" userLabel="Slide View" customClass="ImageSlideshow" customModule="PonApp" customModuleProvider="target">
                                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-iZ-EHW">
-                                                        <frame key="frameInset" minX="284" minY="30" width="81" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-iZ-EHW">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="81" id="UJN-Ts-Ekd"/>
+                                                            <constraint firstAttribute="height" constant="30" id="p2P-ow-kIC"/>
+                                                        </constraints>
                                                         <connections>
                                                             <action selector="qrCodeButtonPressed:" destination="hwF-WD-6FX" eventType="touchUpInside" id="beI-YC-SeZ"/>
                                                         </connections>
@@ -127,6 +129,8 @@
                                                 <constraints>
                                                     <constraint firstItem="oss-S9-3cQ" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" constant="23" id="1IT-J0-PiA"/>
                                                     <constraint firstItem="W7w-2M-KHV" firstAttribute="height" secondItem="arB-n3-ct6" secondAttribute="height" multiplier="200/270" id="1lN-cS-ODE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wV6-iZ-EHW" secondAttribute="trailing" constant="10" id="3Is-dL-Wdb"/>
+                                                    <constraint firstItem="wV6-iZ-EHW" firstAttribute="top" secondItem="arB-n3-ct6" secondAttribute="top" constant="30" id="6Zv-JL-YZJ"/>
                                                     <constraint firstItem="oss-S9-3cQ" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" id="C88-2Q-mT0"/>
                                                     <constraint firstAttribute="trailing" secondItem="W7w-2M-KHV" secondAttribute="trailing" id="Mg5-E2-G7c"/>
                                                     <constraint firstItem="W7w-2M-KHV" firstAttribute="leading" secondItem="arB-n3-ct6" secondAttribute="leading" id="Tz6-oH-L8B"/>
@@ -761,11 +765,11 @@
     </scenes>
     <resources>
         <image name="coupon_category_background.png" width="113" height="33"/>
-        <image name="coupon_location.png" width="21" height="21"/>
-        <image name="coupon_phone.png" width="21" height="19"/>
+        <image name="coupon_location.png" width="21" height="22"/>
+        <image name="coupon_phone.png" width="21" height="20"/>
         <image name="coupon_time.png" width="21" height="21"/>
-        <image name="nav_close_blue.png" width="14" height="14"/>
-        <image name="sns_button.png" width="334" height="44"/>
+        <image name="nav_close_blue.png" width="15" height="15"/>
+        <image name="sns_button.png" width="335" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
