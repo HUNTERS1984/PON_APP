@@ -129,8 +129,15 @@ extension CouponViewController {
     }
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
-        let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon")
-        self.navigationController?.present(vc!, animated: true)
+        if UserDataManager.isLoggedIn() {
+            if let _ = self.coupon?.code {
+                let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
+                vc.code = coupon?.code
+                self.navigationController?.present(vc, animated: true)
+            }
+        }else {
+            self.presentAlert(message: UserNotLoggedIn)
+        }
     }
     
     @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {

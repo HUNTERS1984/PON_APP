@@ -156,10 +156,9 @@ extension ListCouponContentViewController: UICollectionViewDataSource {
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
         let couponTest = self.coupons[indexPath.item]
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async(execute: {
-                cell.coupon = couponTest
-            })
+        cell.coupon = couponTest
+        cell.completionHandler = { [weak self] in
+            self?.openSignUp()
         }
         return cell
         
@@ -176,26 +175,31 @@ extension ListCouponContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCoupon = self.coupons[indexPath.item]
-        if let _ = selectedCoupon.canUse {
-            if selectedCoupon.canUse! {
+        if let _ = selectedCoupon.needLogin {
+            if selectedCoupon.needLogin! {
+                if UserDataManager.isLoggedIn() {
+                    self.resetCollectionView()
+                    self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
+                }else {
+                    if let _ = self.previousSelectedIndexPath {
+                        if indexPath == self.previousSelectedIndexPath! {
+                            return
+                        }
+                        self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+                        collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+                        
+                        self.coupons[indexPath.item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }else {
+                        self.coupons[indexPath.item].showConfirmView = true
+                        collectionView.reloadItems(at: [indexPath])
+                        self.previousSelectedIndexPath = indexPath
+                    }
+                }
+            }else {
                 self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
-            }else {
-                if let _ = self.previousSelectedIndexPath {
-                    if indexPath == self.previousSelectedIndexPath! {
-                        return
-                    }
-                    self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
-                    collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
-                    
-                    self.coupons[indexPath.item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.previousSelectedIndexPath = indexPath
-                }else {
-                    self.coupons[indexPath.item].showConfirmView = true
-                    collectionView.reloadItems(at: [indexPath])
-                    self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
-                }
             }
         }
     }

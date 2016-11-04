@@ -15,8 +15,13 @@ class ListShopContentViewController: BaseViewController {
     open weak var parentNavigationController : UINavigationController?
     var feature:CouponFeature?
     var categoryID: Int?
-    
     var shops = [Shop]()
+    
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,7 @@ class ListShopContentViewController: BaseViewController {
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "ShopFollowCollectionViewCell")
         
-        self.getShop(self.feature!, category: self.categoryID!, pageIndex: 1)
+        self.getShop(self.feature!, category: self.categoryID!, pageIndex: currentPage)
     }
     
     override func setUpComponentsOnWillAppear() {
@@ -75,12 +80,16 @@ extension ListShopContentViewController {
     
     fileprivate func getShopByFeatureAndCategory(_ feature: CouponFeature, category: Int, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndCategory(feature, category: category, longitude: longitude, lattitude: lattitude, pageIndex: 1) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeatureAndCategory(feature, category: category, longitude: longitude, lattitude: lattitude, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseShop = [Shop]()
                     let shopArray = result?.data?.array
                     if let _ = shopArray {
@@ -135,20 +144,24 @@ extension ListShopContentViewController {
     }
     
     fileprivate func followShop(_ shopId: Float, index: Int) {
-        self.showHUD()
-        ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
-            if let _ = error {
-                
-            }else {
-                if result?.code == SuccessCode {
-                    self.shops[index].isFollow = true
-                    self.collectionView.reloadData()
-                    self.presentAlert(with: "Message", message: (result?.message)!)
+        if UserDataManager.isLoggedIn() {
+            self.showHUD()
+            ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                self.hideHUD()
+                if let _ = error {
+                    
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    if result?.code == SuccessCode {
+                        self.shops[index].isFollow = true
+                        self.collectionView.reloadData()
+                        self.presentAlert(with: "Message", message: (result?.message)!)
+                    }else {
+                        self.presentAlert(message: (result?.message)!)
+                    }
                 }
             }
+        }else {
+            self.presentAlert(message: UserNotLoggedIn)
         }
     }
     
@@ -204,6 +217,24 @@ extension ListShopContentViewController: UICollectionViewDelegateFlowLayout {
         let width = (self.view.frame.size.width - 22) / 2.0
         let screenSize: CGRect = UIScreen.main.bounds
         return CGSize(width: width, height: screenSize.height * (228/667))
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension ListShopContentViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getShop(self.feature!, category: self.categoryID!, pageIndex: self.nextPage)
+        }
     }
     
 }
