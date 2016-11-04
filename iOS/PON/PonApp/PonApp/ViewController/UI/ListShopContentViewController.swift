@@ -60,12 +60,12 @@ extension ListShopContentViewController {
     fileprivate func getShop(_ feature: CouponFeature, category: Int, pageIndex: Int) {
         if feature == .near {
             self.showHUD()
-            LocationManager.sharedInstance.currentLocation { (location: CLLocationCoordinate2D?, error: NSError?) -> () in
-                self.hideHUD()
+            LocationManager.sharedInstance.currentLocation { [weak self] (location: CLLocationCoordinate2D?, error: NSError?) -> () in
+                self?.hideHUD()
                 if let _ = error {
                     
                 }else {
-                    self.getShopByFeatureAndCategory(feature, category:category, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
+                    self?.getShopByFeatureAndCategory(feature, category:category, longitude: location!.longitude, lattitude: location!.latitude, pageIndex: pageIndex)
                 }
             }
         }else {
@@ -166,9 +166,9 @@ extension ListShopContentViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
         cell.shop = self.shops[indexPath.item]
         cell.index = indexPath.item
-        cell.completionHandler = { (shopID: Float?, index: Int) in
+        cell.completionHandler = { [weak self] (shopID: Float?, index: Int) in
             if let _ = shopID {
-                self.followShop(shopID!, index: index)
+                self?.followShop(shopID!, index: index)
             }
         }
         return cell
