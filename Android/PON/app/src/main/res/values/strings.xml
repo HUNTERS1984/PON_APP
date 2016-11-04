@@ -153,7 +153,7 @@
     <string name="no_record_found">No records found</string>
 
     <!-- Permisson explain -->
-    <string name="location_request">Please turn on Location Service to use this function</string>
+    <string name="location_request">貴方のlocation servicesはオフーにしています。この性能を使用する為オンにしてください。</string>
     <string name="storage_request">Please grant Storage permission to use this function</string>
     <string name="camera_and_storage_request">Please grant Camera and Storage permission to use this function</string>
     <string name="phone_call_request">Please grant Phone Call permission to use this function</string>
