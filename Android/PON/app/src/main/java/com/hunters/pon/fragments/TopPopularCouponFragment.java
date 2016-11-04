@@ -85,10 +85,10 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
 
         String token = CommonUtils.getToken(getActivity());
 
-        if(!token.equalsIgnoreCase("")) {
+        if (!token.equalsIgnoreCase("")) {
             new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
         } else {
-            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_POPULARITY_COUPON, "", "", "1", mHanlderGetCoupon);
+            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_POPULARITY_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
         }
 
     }
@@ -114,4 +114,5 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
             }
         }
     };
+
 }

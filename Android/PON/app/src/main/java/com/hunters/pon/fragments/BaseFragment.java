@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
@@ -22,9 +23,11 @@ import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCouponMainTop;
 import com.hunters.pon.api.ResponseCouponMainTopData;
+import com.hunters.pon.customs.CustomScrollView;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.protocols.ScrollViewListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ProgressDialogUtils;
@@ -59,6 +62,12 @@ public abstract  class BaseFragment extends Fragment {
     protected LinearLayout mLnShopCatCoupons;
 
     protected ProgressDialogUtils mProgressDialogUtils;
+    private View mLoadingView;
+    private CustomScrollView mSvMain;
+
+    private boolean mIsLoadingMore = false;
+    protected int mNextPage = 1;
+    protected int mTotalPage = 1;
 
     public BaseFragment() {
         // Required empty public constructor
@@ -99,9 +108,42 @@ public abstract  class BaseFragment extends Fragment {
         View mainView = inflater.inflate(R.layout.fragment_category_top_coupon, container, false);
         mLnShopCatCoupons = (LinearLayout) mainView.findViewById(R.id.ln_list_shop_category_coupon);
 
+        mSvMain = (CustomScrollView)mainView.findViewById(R.id.sv_main);
         if(mDataListener != null) {
             mDataListener.onLoadData();
         }
+
+        mSvMain.setScrollViewListener(new ScrollViewListener() {
+            @Override
+            public void onScrollChanged(final ScrollView scrollView, int x, int y, int oldx, int oldy) {
+                View view = (View) scrollView.getChildAt(scrollView.getChildCount() - 1);
+                int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
+
+                if (diff == 0) {
+                    if(mNextPage <= mTotalPage) {
+                        if (!mIsLoadingMore) {
+                            mIsLoadingMore = true;
+                            if (mLoadingView == null) {
+                                mLoadingView = LayoutInflater.from(scrollView.getContext()).inflate(R.layout.loading_item_layout, scrollView, false);
+                            }
+                            mLnShopCatCoupons.removeView(mLoadingView);
+                            mLnShopCatCoupons.addView(mLoadingView);
+
+                            scrollView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                                }
+                            });
+                            if (mDataListener != null) {
+                                mDataListener.onLoadData();
+                            }
+                        }
+                    }
+                }
+
+            }
+        });
         return mainView;
     }
 
@@ -149,6 +191,8 @@ public abstract  class BaseFragment extends Fragment {
     protected Handler mHanlderGetCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            mLnShopCatCoupons.removeView(mLoadingView);
+            mIsLoadingMore = false;
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseCouponMainTopData couponData = (ResponseCouponMainTopData) msg.obj;
@@ -187,6 +231,8 @@ public abstract  class BaseFragment extends Fragment {
                             rvCoupons.setAdapter(adapter);
                             mLnShopCatCoupons.addView(vCatCoupons);
                         }
+                        mNextPage++;
+                        mTotalPage = couponData.pagination.getmPageTotal();
                     } else {
                         new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);
                     }
