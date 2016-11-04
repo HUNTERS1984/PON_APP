@@ -14,6 +14,7 @@ class ShowQRCodeViewController: BaseViewController {
     @IBOutlet weak var qrCodeDisplayImageView: UIImageView!
     
     let scanner = QRCode()
+    open var code: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,9 @@ class ShowQRCodeViewController: BaseViewController {
     override func setUpUserInterface() {
         self.view.backgroundColor = UIColor.white
         super.setUpUserInterface()
-        self.qrCodeDisplayImageView.image = QRCode.generateImage("Hello SwiftQRCode", avatarImage: nil, avatarScale: 0.3)
+        if let _ = self.code {
+            self.qrCodeDisplayImageView.image = QRCode.generateImage(self.code!, avatarImage: nil, avatarScale: 0.3)
+        }
     }
     
 }

@@ -10,6 +10,10 @@ import UIKit
 
 class BaseNavigationController: UINavigationController {
     
+    deinit {
+        loggingPrint("\(self.classForCoder) deinit")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

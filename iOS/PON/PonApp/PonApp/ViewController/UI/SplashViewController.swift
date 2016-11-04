@@ -92,7 +92,7 @@ extension SplashViewController {
     }
     
     @IBAction func skipButtonPressed(_ sender: AnyObject) {
-        UserDataManager.sharedInstance.loggedIn = false
+        UserDataManager.shared.loggedIn = false
         self.setupTabbarViewController()
     }
     
@@ -117,7 +117,7 @@ extension SplashViewController {
                 }else {
                     if let _ = result {
                         if result!.code == SuccessCode {
-                            UserDataManager.sharedInstance.loggedIn = true
+                            UserDataManager.shared.loggedIn = true
                             UserDataManager.getUserProfile()
                             self.setupTabbarViewController()
                         }else {
@@ -147,7 +147,7 @@ extension SplashViewController {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
-                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.shared.loggedIn = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
@@ -168,7 +168,7 @@ extension SplashViewController {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
-                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.shared.loggedIn = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {

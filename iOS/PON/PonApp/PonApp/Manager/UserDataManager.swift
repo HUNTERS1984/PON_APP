@@ -10,7 +10,7 @@ import UIKit
 
 class UserDataManager {
     
-    class var sharedInstance: UserDataManager {
+    class var shared: UserDataManager {
         struct Static {
             static let instance = UserDataManager()
         }
@@ -31,40 +31,48 @@ class UserDataManager {
                 
             }else {
                 if result?.code == SuccessCode {
-                    if let username = result?.data!["username"].string {
-                        self.username = username
-                    }
-                    
-                    if let name = result?.data!["name"].string {
-                        self.name = name
-                    }
-                    
-                    if let email = result?.data!["email"].string {
-                        self.email = email
-                    }
-                    
-                    if let address = result?.data!["address"].string {
-                        self.address = address
-                    }
-                    
-                    if let avatarUrl = result?.data!["avatar_url"].string {
-                        self.avatarUrl = avatarUrl
-                    }
-                    
-                    if let gender = result?.data!["gender"].int {
-                        self.gender = gender
-                    }
+                    self.setUserData(result?.data)
                 }
             }
         }
     }
     
+    func setUserData(_ data: JSON?) {
+        if let username = data!["username"].string {
+            self.username = username
+        }
+        
+        if let name = data!["name"].string {
+            self.name = name
+        }
+        
+        if let email = data!["email"].string {
+            self.email = email
+        }
+        
+        if let address = data!["address"].string {
+            self.address = address
+        }
+        
+        if let avatarUrl = data!["avatar_url"].string {
+            self.avatarUrl = avatarUrl
+        }
+        
+        if let gender = data!["gender"].int {
+            self.gender = gender
+        }
+    }
+    
     static func getUserProfile() {
-        UserDataManager.sharedInstance.getUserProfile()
+        UserDataManager.shared.getUserProfile()
     }
     
     static func isLoggedIn() -> Bool {
-        return UserDataManager.sharedInstance.loggedIn
+        return UserDataManager.shared.loggedIn
+    }
+    
+    static func setUserData(_ data: JSON?) {
+        return UserDataManager.shared.setUserData(data)
     }
     
 }

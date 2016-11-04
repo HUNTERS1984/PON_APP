@@ -12,7 +12,7 @@ class AddShopContentViewController: BaseViewController {
     
     @IBOutlet weak var collectionView:UICollectionView!
     
-    var parentNavigationController : UINavigationController?
+    open weak var parentNavigationController : UINavigationController?
     var couponFeature:CouponFeature?
     var couponType: Int?
     

@@ -49,6 +49,7 @@ class MainViewController: BaseViewController {
     }
     
     override func setUpComponentsOnWillAppear() {
+        super.setUpComponentsOnWillAppear()
         self.setupTabbar()
     }
     
@@ -82,6 +83,7 @@ extension MainViewController {
         let vc = HomeMenuViewController.instanceFromStoryBoard("MainMenu")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+
 }
 
 //MARK: - Private methods

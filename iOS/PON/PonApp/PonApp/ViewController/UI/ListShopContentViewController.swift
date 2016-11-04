@@ -12,7 +12,7 @@ class ListShopContentViewController: BaseViewController {
     
     @IBOutlet weak var collectionView:UICollectionView!
     
-    var parentNavigationController : UINavigationController?
+    open weak var parentNavigationController : UINavigationController?
     var feature:CouponFeature?
     var categoryID: Int?
     

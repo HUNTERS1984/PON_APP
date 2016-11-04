@@ -139,26 +139,27 @@ extension SignInViewController {
     
     fileprivate func signIn(_ userName: String, password: String) {
         self.showHUD()
-        ApiRequest.signIn(userName, password: password) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+        ApiRequest.signIn(userName, password: password) { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self?.hideHUD()
             if let _ = error {
                 let message = error!.userInfo["error"] as? String
                 if let _ = message {
-                    self.presentAlert(message: message!)
+                    self?.presentAlert(message: message!)
                 }
             }else {
                 if result?.code == SuccessCode {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
-                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.shared.loggedIn = true
+                    UserDataManager.shared.setUserData(result?.data)
                     UserDataManager.getUserProfile()
-                    if self.loginState == .normal {
-                        self.setupTabbarViewController()
+                    if self?.loginState == .normal {
+                        self?.setupTabbarViewController()
                     }
-                    self.dismiss(animated: true)
+                    self?.dismiss(animated: true)
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    self?.presentAlert(message: (result?.message)!)
                 }
             }
         }
@@ -210,8 +211,8 @@ extension SignInViewController {
 
     fileprivate func registerUser(_ userName: String, email: String, password: String) {
         self.showHUD()
-        ApiRequest.signUp(userName, email: email, password: password) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+        ApiRequest.signUp(userName, email: email, password: password) { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self?.hideHUD()
             if let _ = error {
                 
             }else {
@@ -219,14 +220,15 @@ extension SignInViewController {
                     if let token = result?.data!["token"].string {
                         Defaults[.token] = token
                     }
-                    UserDataManager.sharedInstance.loggedIn = true
+                    UserDataManager.shared.loggedIn = true
+                    UserDataManager.shared.setUserData(result?.data)
                     UserDataManager.getUserProfile()
-                    if self.loginState == .normal {
-                        self.setupTabbarViewController()
-                        self.dismiss(animated: true)
+                    if self?.loginState == .normal {
+                        self?.setupTabbarViewController()
+                        self?.dismiss(animated: true)
                     }
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    self?.presentAlert(message: (result?.message)!)
                 }
             }
         }
