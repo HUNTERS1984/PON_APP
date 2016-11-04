@@ -110,26 +110,43 @@ extension SignInViewController {
     
     fileprivate func showLoginForm() {
         self.title = "ログイン"
+        
+        lguserNameTextField.text = ""
+        lgpasswordTextField.text = ""
+        
+
         self.registerContainerView.fadeOut(0.5)
         self.loginContainerView.fadeIn(0.5)
     }
     
     fileprivate func showSignUpForm() {
         self.title = "新規会員登録"
+        
+        userNameTextField.text = ""
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        passConfirmationTextField.text = ""
+        
         self.registerContainerView.fadeIn(0.5)
         self.loginContainerView.fadeOut(0.5)
     }
     
     fileprivate func validSignInInfomation(_ userName: String?, password: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
         if let _ = userName {
-            
+            if userName!.characters.count == 0 {
+                completion(false, UserNameBlank)
+                return
+            }
         }else {
             completion(false, UserNameBlank)
             return
         }
         
         if let _ = password {
-
+            if password!.characters.count == 0 {
+                completion(false, PasswordBlank)
+                return
+            }
         }else {
             completion(false, PasswordBlank)
             return
