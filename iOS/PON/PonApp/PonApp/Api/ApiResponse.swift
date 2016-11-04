@@ -47,14 +47,20 @@ struct ApiResponse {
         
         if let totalPage = response!["pagination"]["page_total"].int {
             self.totalPage = totalPage
+        }else {
+            self.totalPage = 0
         }
         
         if let currentPage = response!["pagination"]["current_page"].int {
             self.currentPage = currentPage
+        }else {
+            self.currentPage = 0
         }
         
         if let nextPage = response!["pagination"]["next_page"].int {
             self.nextPage = nextPage
+        }else {
+            self.nextPage = 0
         }
         
         self.originalResponse = response
