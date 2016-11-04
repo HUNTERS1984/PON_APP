@@ -12,7 +12,7 @@ class AddShopContentViewController: BaseViewController {
     
     @IBOutlet weak var collectionView:UICollectionView!
     
-    var parentNavigationController : UINavigationController?
+    open weak var parentNavigationController : UINavigationController?
     var couponFeature:CouponFeature?
     var couponType: Int?
     
@@ -137,20 +137,24 @@ extension AddShopContentViewController {
     }
     
     fileprivate func followShop(_ shopId: Float, index: Int) {
-        self.showHUD()
-        ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
-            if let _ = error {
-                
-            }else {
-                if result?.code == SuccessCode {
-                    self.shops[index].isFollow = true
-                    self.collectionView.reloadData()
-                    self.presentAlert(with: "Message", message: (result?.message)!)
+        if UserDataManager.isLoggedIn() {
+            self.showHUD()
+            ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                self.hideHUD()
+                if let _ = error {
+                    
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    if result?.code == SuccessCode {
+                        self.shops[index].isFollow = true
+                        self.collectionView.reloadData()
+                        self.presentAlert(with: "Message", message: (result?.message)!)
+                    }else {
+                        self.presentAlert(message: (result?.message)!)
+                    }
                 }
             }
+        }else {
+            self.presentAlert(message: UserNotLoggedIn)
         }
     }
     

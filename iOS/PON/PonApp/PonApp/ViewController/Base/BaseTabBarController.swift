@@ -10,6 +10,10 @@ import UIKit
 
 class BaseTabBarController: UITabBarController {
     
+    deinit {
+        loggingPrint("\(self.classForCoder) deinit")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

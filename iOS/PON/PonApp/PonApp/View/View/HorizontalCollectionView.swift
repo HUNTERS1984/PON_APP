@@ -44,7 +44,7 @@ class HorizontalCollectionView: UICollectionView {
     
     func resetCollectionView() {
         if let _ = self.previousSelectedIndexPath {
-            self.coupons[(self.previousSelectedIndexPath! as NSIndexPath).item].showConfirmView = false
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
             self.reloadItems(at: [self.previousSelectedIndexPath!])
             self.previousSelectedIndexPath = nil
         }
@@ -61,9 +61,9 @@ extension HorizontalCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        cell.coupon = self.coupons[(indexPath as NSIndexPath).item]
-        cell.completionHandler = {
-            self.handler?.horizontalCollectionView(self, didPressSignUpButton: nil)
+        cell.coupon = self.coupons[indexPath.item]
+        cell.completionHandler = { [weak self] in
+            self?.handler?.horizontalCollectionView(self!, didPressSignUpButton: nil)
         }
         return cell
     }
@@ -109,7 +109,6 @@ extension HorizontalCollectionView: UICollectionViewDelegate {
                         collectionView.reloadItems(at: [indexPath])
                         self.previousSelectedIndexPath = indexPath
                     }
-                    self.handler?.horizontalCollectionView(self, didSelectCouponAtIndex: indexPath.item, inRowIndex: self.rowIndex)
                 }
             }else {
                 self.resetCollectionView()

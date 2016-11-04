@@ -171,6 +171,13 @@ extension ShopViewController {
         }
     }
     
+    fileprivate func resetCollectionView() {
+        if let _ = self.previousSelectedIndexPath {
+            self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
+            couponCollectionView.reloadItems(at: [self.previousSelectedIndexPath!])
+            self.previousSelectedIndexPath = nil
+        }
+    }
 }
 
 //MARK: - UIScrollViewDelegate
@@ -180,7 +187,7 @@ extension ShopViewController: UIScrollViewDelegate {
         if scrollView.isKind(of: UICollectionView.classForCoder()) {
             return
         }else {
-            let color = UIColor(hex: 0x18c0d4)
+            let color = UIColor(hex: DefaultBlueTextColor)
             let offsetY = scrollView.contentOffset.y
             let alpha = min(1, 1 - ((HeaderChangePoint + 34 - offsetY) / 34))
             if offsetY > HeaderChangePoint {
@@ -212,17 +219,15 @@ extension ShopViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
         cell.coupon = self.coupons[indexPath.item]
+        cell.completionHandler = { [weak self] in
+            self?.openSignUp()
+        }
         return cell
         
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let commentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CouponCollectionViewCell", for: indexPath) as! CouponCollectionViewCell
-        return commentView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
@@ -243,9 +248,13 @@ extension ShopViewController: UICollectionViewDelegate {
         if let _ = selectedCoupon.needLogin {
             if selectedCoupon.needLogin! {
                 if UserDataManager.isLoggedIn() {
+                    self.resetCollectionView()
                     self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
                 }else {
                     if let _ = self.previousSelectedIndexPath {
+                        if indexPath == self.previousSelectedIndexPath! {
+                            return
+                        }
                         self.coupons[self.previousSelectedIndexPath!.item].showConfirmView = false
                         collectionView.reloadItems(at: [self.previousSelectedIndexPath!])
                         
@@ -259,6 +268,7 @@ extension ShopViewController: UICollectionViewDelegate {
                     }
                 }
             }else {
+                self.resetCollectionView()
                 self.getCouponDetail(selectedCoupon.couponID, selectedCouponIndex: indexPath.item)
             }
         }

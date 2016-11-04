@@ -49,15 +49,15 @@ extension HomeMenuViewController {
     
     fileprivate func getNumberOfShopByCouponType(_ pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getNumberOfShopByCategory(pageIndex: pageIndex) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self.hideHUD()
+        ApiRequest.getNumberOfShopByCategory(pageIndex: pageIndex) { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self?.hideHUD()
             if let _ = error {
                 
             }else {
                 if result?.code == SuccessCode {
-                    self.nextPage = result!.nextPage
-                    self.totalPage = result!.totalPage
-                    self.currentPage = result!.currentPage
+                    self?.nextPage = result!.nextPage
+                    self?.totalPage = result!.totalPage
+                    self?.currentPage = result!.currentPage
                     
                     var categoryType = [Category]()
                     let categoryArray = result?.data?.array
@@ -67,14 +67,14 @@ extension HomeMenuViewController {
                             categoryType.append(couponType)
                         }
                         if pageIndex == 1 {
-                            self.displayCategory(categoryType, type: .new)
+                            self?.displayCategory(categoryType, type: .new)
                         }else {
-                            self.canLoadMore = true
-                            self.displayCategory(categoryType, type: .loadMore)
+                            self?.canLoadMore = true
+                            self?.displayCategory(categoryType, type: .loadMore)
                         }
                     }
                 }else {
-                    self.presentAlert(message: (result?.message)!)
+                    self?.presentAlert(message: (result?.message)!)
                 }
             }
         }

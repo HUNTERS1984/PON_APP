@@ -10,8 +10,8 @@ import UIKit
 
 class MainCouponContentViewController: BaseViewController {
     
-    var parentNavigationController : UINavigationController?
-    var parentContainerController : BaseViewController?
+    open weak var parentNavigationController : UINavigationController?
+    open weak var parentContainerController : BaseViewController?
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var contentTableView: UITableView!
@@ -52,7 +52,7 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.isScrollEnabled = false
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .none
-        self.getCoupon(self.couponFeature!, pageIndex: 1)
+        self.getCoupon(self.couponFeature!, pageIndex: currentPage)
     }
     
 }

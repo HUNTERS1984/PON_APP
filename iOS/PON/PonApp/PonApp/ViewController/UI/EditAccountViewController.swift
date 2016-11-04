@@ -249,33 +249,33 @@ extension EditAccountViewController {
     }
     
     fileprivate func displayUserInfo() {
-        if let _ = UserDataManager.sharedInstance.name {
-            self.nameTextField.text = UserDataManager.sharedInstance.name!
+        if let _ = UserDataManager.shared.name {
+            self.nameTextField.text = UserDataManager.shared.name!
         }else {
             self.nameTextField.text = ""
         }
         
-        if let _ = UserDataManager.sharedInstance.avatarUrl {
-            let avatarUrl = URL(string: UserDataManager.sharedInstance.avatarUrl!)
+        if let _ = UserDataManager.shared.avatarUrl {
+            let avatarUrl = URL(string: UserDataManager.shared.avatarUrl!)
             self.avatarImageView.af_setImage(withURL: avatarUrl!)
         }else {
             self.avatarImageView.image = UIImage(named: "edit_profile_avatar_placeholder")
         }
         
-        if let _ = UserDataManager.sharedInstance.email {
-            self.emailTextField.text = UserDataManager.sharedInstance.email!
+        if let _ = UserDataManager.shared.email {
+            self.emailTextField.text = UserDataManager.shared.email!
         }else {
             self.emailTextField.text = ""
         }
         
-        if let _ = UserDataManager.sharedInstance.gender {
-            self.genderDropdown.text = self.converGender(UserDataManager.sharedInstance.gender!)
+        if let _ = UserDataManager.shared.gender {
+            self.genderDropdown.text = self.converGender(UserDataManager.shared.gender!)
         }else {
             self.genderDropdown.text = ""
         }
         
-        if let _ = UserDataManager.sharedInstance.address {
-            self.addressDropdown.text = UserDataManager.sharedInstance.address!
+        if let _ = UserDataManager.shared.address {
+            self.addressDropdown.text = UserDataManager.shared.address!
         }else {
             self.addressDropdown.text = ""
         }
