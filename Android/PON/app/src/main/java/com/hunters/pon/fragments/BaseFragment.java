@@ -120,7 +120,7 @@ public abstract  class BaseFragment extends Fragment {
                 int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
 
                 if (diff == 0) {
-                    if(mNextPage <= mTotalPage) {
+                    if(mNextPage < mTotalPage) {
                         if (!mIsLoadingMore) {
                             mIsLoadingMore = true;
                             if (mLoadingView == null) {
@@ -136,6 +136,7 @@ public abstract  class BaseFragment extends Fragment {
                                 }
                             });
                             if (mDataListener != null) {
+                                mNextPage++;
                                 mDataListener.onLoadData();
                             }
                         }
@@ -231,7 +232,6 @@ public abstract  class BaseFragment extends Fragment {
                             rvCoupons.setAdapter(adapter);
                             mLnShopCatCoupons.addView(vCatCoupons);
                         }
-                        mNextPage++;
                         mTotalPage = couponData.pagination.getmPageTotal();
                     } else {
                         new DialogUtiils().showDialog(getActivity(), getString(R.string.server_error), false);

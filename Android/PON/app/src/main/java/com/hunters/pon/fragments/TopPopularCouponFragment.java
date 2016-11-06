@@ -106,7 +106,7 @@ public class TopPopularCouponFragment extends BaseFragment implements OnLoadData
                             ((MainTopActivity)activity).checkToUpdateButtonLogin();
                         }
                     }
-                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_POPULARITY_COUPON, "", "", "1", mHanlderGetCoupon);
+                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_POPULARITY_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);

@@ -80,7 +80,7 @@ public class TopUsedCouponFragment extends BaseFragment implements OnLoadDataLis
         if(!token.equalsIgnoreCase("")) {
             new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
         } else {
-            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_USED_COUPON, "", "", "1", mHanlderGetCoupon);
+            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_USED_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
         }
     }
 
@@ -102,7 +102,7 @@ public class TopUsedCouponFragment extends BaseFragment implements OnLoadDataLis
                             ((MainTopActivity)activity).checkToUpdateButtonLogin();
                         }
                     }
-                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_USED_COUPON, "", "", "1", mHanlderGetCoupon);
+                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_USED_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);

@@ -22,6 +22,7 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -39,6 +40,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class TopNearestCouponFragment extends BaseFragment implements
+        OnLoadDataListener,
         ActivityCompat.OnRequestPermissionsResultCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
     // TODO: Rename parameter arguments, choose names that match
@@ -84,18 +86,18 @@ public class TopNearestCouponFragment extends BaseFragment implements
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-//        ((MainTopActivity)getActivity()).mFragmentActive = this;
-
-        mLocationUtils = new LocationUtils();
-        mLocationUtils.buildGoogleApiClient(getContext(), this, this);
-
+        mDataListener = this;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         showProgressDialog(getActivity());
         checkPermission();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+
+        mLocationUtils = new LocationUtils();
+        mLocationUtils.buildGoogleApiClient(getContext(), this, this);
+        return view;
     }
 
     @Override
@@ -110,15 +112,18 @@ public class TopNearestCouponFragment extends BaseFragment implements
         mLocationUtils.disconnect();
     }
 
-    public void loadData() {
-        mListCoupons = new ArrayList<>();
-        String token = CommonUtils.getToken(getActivity());
+    @Override
+    public void onLoadData() {
+        if(mUserLocation != null) {
+            mListCoupons = new ArrayList<>();
+            String token = CommonUtils.getToken(getActivity());
 
-        if(!token.equalsIgnoreCase("")) {
-            new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
-        } else {
-            new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON,
-                    String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), "1", mHanlderGetCoupon);
+            if (!token.equalsIgnoreCase("")) {
+                new UserProfileAPIHelper().checkValidToken(getActivity(), token, mHanlderCheckValidToken);
+            } else {
+                new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON,
+                        String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(mNextPage), mHanlderGetCoupon);
+            }
         }
 
     }
@@ -126,9 +131,7 @@ public class TopNearestCouponFragment extends BaseFragment implements
     @Override
     public void refreshData()
     {
-        if(mUserLocation != null) {
-            loadData();
-        }
+        onLoadData();
     }
 
     private Handler mHanlderCheckValidToken = new Handler(){
@@ -144,7 +147,7 @@ public class TopNearestCouponFragment extends BaseFragment implements
                             ((MainTopActivity)activity).checkToUpdateButtonLogin();
                         }
                     }
-                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "", "", "1", mHanlderGetCoupon);
+                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
@@ -174,7 +177,7 @@ public class TopNearestCouponFragment extends BaseFragment implements
     public void onConnected(@Nullable Bundle bundle) {
         mUserLocation = mLocationUtils.getUserLocation(getContext());
         closeDialog();
-        refreshData();
+        onLoadData();
 
     }
 
