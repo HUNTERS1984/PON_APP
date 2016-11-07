@@ -156,7 +156,6 @@ extension ListShopContentViewController {
                     if result?.code == SuccessCode {
                         self.shops[index].isFollow = true
                         self.collectionView.reloadData()
-                        self.presentAlert(with: "Message", message: (result?.message)!)
                     }else {
                         self.presentAlert(message: (result?.message)!)
                     }
