@@ -29,9 +29,9 @@ class RequestCouponCell: UITableViewCell {
     }
     
     func setDataForCell(_ coupon: Coupon) {
-        self.titleLabel.text = coupon.user.userName
+        self.titleLabel.text = coupon.username
         self.detailsLabel.text = coupon.title
-        self.timeLabel.text = coupon.expiryDate
+        self.timeLabel.text = coupon.time
     }
 
 }

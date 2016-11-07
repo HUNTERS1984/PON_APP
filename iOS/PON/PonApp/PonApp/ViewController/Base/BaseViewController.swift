@@ -83,7 +83,7 @@ extension BaseViewController {
     
     func presentAlert(with title: String = Error, message: String) {
         UIAlertController.present(title: title, message: message, actionTitles: [OK]) { (action) -> () in
-            print(action.title)
+            print(action.title as Any)
         }
     }
     
