@@ -25,9 +25,9 @@ public interface ICallServices {
     @GET("/api/v1/request/coupons")
     Call<ResponseCouponRequestData> getRequestCoupon(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
 
-    @POST("/api/v1/decline/coupons/{id}/user/{username}")
-    Call<ResponseCommon> declineRequestCoupon(@Header("Authorization") String token, @Path("id") String id, @Path("username") String username);
+    @POST("/api/v1/decline/coupons/{code}")
+    Call<ResponseCommon> declineRequestCoupon(@Header("Authorization") String token, @Path("code") String code);
 
-    @POST("/api/v1/accept/coupons/{id}/user/{username}")
-    Call<ResponseCommon> acceptRequestCoupon(@Header("Authorization") String token, @Path("id") String id, @Path("username") String username);
+    @POST("/api/v1/accept/coupons/{code}")
+    Call<ResponseCommon> acceptRequestCoupon(@Header("Authorization") String token, @Path("code") String code);
 }

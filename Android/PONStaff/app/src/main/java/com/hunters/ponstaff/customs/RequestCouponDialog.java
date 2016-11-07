@@ -33,13 +33,12 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
     private Button mBtnAccept, mBtnReject, mBtnDone;
     private TextView mTvMessage;
 
-    private String mCouponId, mUsername;
+    private String mCouponCode;
 
-    public RequestCouponDialog(Context context, String id, String username) {
+    public RequestCouponDialog(Context context, String code) {
         super(context);
         mContext = context;
-        mCouponId = id;
-        mUsername = username;
+        mCouponCode = code;
     }
 
     @Override
@@ -80,10 +79,10 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_accept:
-                new CouponAPIHelper().acceptRequestCoupon(mContext, mCouponId, mUsername, mHanlderAcceptRequestCoupon);
+                new CouponAPIHelper().acceptRequestCoupon(mContext, mCouponCode, mHanlderAcceptRequestCoupon);
                 break;
             case R.id.btn_reject:
-                new CouponAPIHelper().declineRequestCoupon(mContext, mCouponId, mUsername, mHanlderDeclineRequestCoupon);
+                new CouponAPIHelper().declineRequestCoupon(mContext, mCouponCode, mHanlderDeclineRequestCoupon);
                 break;
             case R.id.btn_done:
             default:

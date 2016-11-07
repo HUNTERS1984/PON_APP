@@ -91,9 +91,8 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
             ResponseCouponRequest cat = mLstCouponRequests.get(pos);
-            String couponId = String.valueOf(cat.getmId());
-            String username = cat.getmUser().get(0).getmUsername();
-            new RequestCouponDialog(mContext, couponId, username).show();
+            String code = cat.getmCode();
+            new RequestCouponDialog(mContext, code).show();
 //            Intent iCouponByCategory = new Intent(mContext, CouponByCategoryDetailActivity.class);
 //            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, cat.getmId());
 //            iCouponByCategory.putExtra(Constants.EXTRA_TITLE, cat.getmName());

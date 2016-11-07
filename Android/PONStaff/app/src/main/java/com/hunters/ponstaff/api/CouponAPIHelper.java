@@ -62,7 +62,7 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void declineRequestCoupon(Context context, String id , String username, final Handler handler)
+    public void declineRequestCoupon(Context context, String code, final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -78,7 +78,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseCommon> response = service.declineRequestCoupon(token, id, username);
+        Call<ResponseCommon> response = service.declineRequestCoupon(token, code);
 
         response.enqueue(new Callback<ResponseCommon>() {
             @Override
@@ -105,7 +105,7 @@ public class CouponAPIHelper extends APIHelper {
         });
     }
 
-    public void acceptRequestCoupon(Context context, String id , String username, final Handler handler)
+    public void acceptRequestCoupon(Context context, String code, final Handler handler)
     {
         showProgressDialog(context);
         Retrofit retrofit = new Retrofit.Builder()
@@ -121,7 +121,7 @@ public class CouponAPIHelper extends APIHelper {
             token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
         }
 
-        Call<ResponseCommon> response = service.acceptRequestCoupon(token, id, username);
+        Call<ResponseCommon> response = service.acceptRequestCoupon(token, code);
 
         response.enqueue(new Callback<ResponseCommon>() {
             @Override
