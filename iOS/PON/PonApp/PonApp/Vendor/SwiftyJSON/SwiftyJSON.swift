@@ -19,11 +19,9 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-
 import Foundation
 
 // MARK: - Error
-
 ///Error domain
 public let ErrorDomain: String = "SwiftyJSONErrorDomain"
 
@@ -35,7 +33,6 @@ public let ErrorNotExist: Int = 500
 public let ErrorInvalidJSON: Int = 490
 
 // MARK: - JSON Type
-
 /**
  JSON's type definitions.
  
@@ -295,7 +292,6 @@ extension JSON: Collection
 }
 
 // MARK: - Subscript
-
 /**
  *  To mark both String and Int can be used in subscript.
  */
@@ -439,7 +435,6 @@ extension JSON {
 }
 
 // MARK: - LiteralConvertible
-
 extension JSON: Swift.ExpressibleByStringLiteral {
     
     public init(stringLiteral value: StringLiteralType) {
@@ -532,7 +527,6 @@ extension JSON: Swift.ExpressibleByNilLiteral {
 }
 
 // MARK: - Raw
-
 extension JSON: Swift.RawRepresentable {
     
     public init?(rawValue: Any) {
@@ -579,7 +573,6 @@ extension JSON: Swift.RawRepresentable {
 }
 
 // MARK: - Printable, DebugPrintable
-
 extension JSON: Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
     
     public var description: String {
@@ -596,7 +589,6 @@ extension JSON: Swift.CustomStringConvertible, Swift.CustomDebugStringConvertibl
 }
 
 // MARK: - Array
-
 extension JSON {
     
     //Optional [JSON]
@@ -638,7 +630,6 @@ extension JSON {
 }
 
 // MARK: - Dictionary
-
 extension JSON {
     
     //Optional [String : JSON]
@@ -680,7 +671,6 @@ extension JSON {
 }
 
 // MARK: - Bool
-
 extension JSON { // : Swift.Bool
     
     //Optional bool
@@ -711,7 +701,9 @@ extension JSON { // : Swift.Bool
             case .number:
                 return self.rawNumber.boolValue
             case .string:
-                return self.rawString.caseInsensitiveCompare("true") == .orderedSame
+                return ["true", "y", "t"].contains() { (truthyString) in
+                    return self.rawString.caseInsensitiveCompare(truthyString) == .orderedSame
+                }
             default:
                 return false
             }
@@ -723,7 +715,6 @@ extension JSON { // : Swift.Bool
 }
 
 // MARK: - String
-
 extension JSON {
     
     //Optional string
@@ -854,13 +845,12 @@ extension JSON {
             }
         }
         set {
-            self.object = newValue?.absoluteString
+            self.object = newValue?.absoluteString ?? NSNull()
         }
     }
 }
 
 // MARK: - Int, Double, Float, Int8, Int16, Int32, Int64
-
 extension JSON {
     
     public var double: Double? {
@@ -1226,7 +1216,6 @@ private let trueObjCType = String(cString: trueNumber.objCType)
 private let falseObjCType = String(cString: falseNumber.objCType)
 
 // MARK: - NSNumber: Comparable
-
 extension NSNumber {
     var isBool:Bool {
         get {
