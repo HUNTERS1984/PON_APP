@@ -38,20 +38,14 @@ public struct ApiRequest {
         ApiManager.processRequest(UserProfile, method: .GET, hasAuth: true, completion: completion)
     }
     
-    static func acceptCoupon(_ couponId: Float, userName: String, completion: @escaping(ApiCompletion)) {
-        let parameters: [String: String?] = [
-            "username": userName
-        ]
-        let endpoint = String(format:AcceptCoupon, Int(couponId), userName)
-        ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    static func acceptCoupon(_ code: String, completion: @escaping(ApiCompletion)) {
+        let endpoint = String(format:AcceptCoupon, code)
+        ApiManager.processRequest(endpoint, method: .POST, hasAuth: true, completion: completion)
     }
     
-    static func rejectCoupon(_ couponId: Float, userName: String, completion: @escaping(ApiCompletion)) {
-        let parameters: [String: String?] = [
-            "username": userName
-        ]
-        let endpoint = String(format:RejectCoupon, Int(couponId), userName)
-        ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    static func rejectCoupon(_ code: String, completion: @escaping(ApiCompletion)) {
+        let endpoint = String(format:RejectCoupon,  code)
+        ApiManager.processRequest(endpoint, method: .POST, hasAuth: true, completion: completion)
     }
 
 }

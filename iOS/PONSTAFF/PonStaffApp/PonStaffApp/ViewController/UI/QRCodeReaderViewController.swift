@@ -15,6 +15,7 @@ class QRCodeReaderViewController: BaseViewController {
     var confirmPopup: ConfirmPopupView!
     var acceptPopup: AcceptPopupView!
     var rejectPopup: RejectPopupView!
+    var code: String? = nil
     
     @IBOutlet weak var focusView: UIView!
     @IBOutlet weak var flashlightButton: UIButton!
@@ -46,7 +47,6 @@ class QRCodeReaderViewController: BaseViewController {
         self.flashlightButton.setImage(UIImage(named: "ic_flash"), for: .normal)
     }
     
-    
 }
 
 extension QRCodeReaderViewController {
@@ -57,9 +57,10 @@ extension QRCodeReaderViewController {
         self.focusView.layer.borderColor = UIColor.white.cgColor
         self.focusView.layer.borderWidth = 10.0
         
-        scanner.prepareScan(view) { (stringValue) -> () in
+        scanner.prepareScan(view) { [weak self] stringValue in
             print(stringValue)
-            self.confirmPopup.showPopup(inView: self.view, animated: true)
+            self?.code = stringValue
+            self?.confirmPopup.showPopup(inView: self!.view, animated: true)
         }
         scanner.scanFrame = view.bounds
     }
@@ -110,54 +111,69 @@ extension QRCodeReaderViewController {
     func setupConfirmPopupView() {
         self.confirmPopup = ConfirmPopupView.create()
         
-        self.confirmPopup.popupDidShowCallback = {
-            
+        self.confirmPopup.acceptButtonPressed = { [weak self] in
+            self?.confirmPopup.hidePopup()
+            if let _ = self?.code {
+                self?.acceptCoupon(self!.code!)
+            }
         }
         
-        self.confirmPopup.popupDidHideCallback = {
-            
-        }
-        
-        self.confirmPopup.acceptButtonPressed = {
-            self.confirmPopup.hidePopup()
-            self.acceptPopup.showPopup(inView: self.view, animated: true)
-        }
-        
-        self.confirmPopup.rejectButtonPressed = {
-            self.confirmPopup.hidePopup()
-            self.rejectPopup.showPopup(inView: self.view, animated: true)
+        self.confirmPopup.rejectButtonPressed = { [weak self] in
+            self?.confirmPopup.hidePopup()
+            if let _ = self?.code {
+                self?.rejectCoupon(self!.code!)
+            }
         }
     }
     
     func setupAcceptPopupView() {
         self.acceptPopup = AcceptPopupView.create()
-        
-        self.acceptPopup.popupDidShowCallback = {
-            
-        }
-        
-        self.acceptPopup.popupDidHideCallback = {
-            
-        }
-        
-        self.acceptPopup.doneButtonPressed = {
-            self.acceptPopup.hidePopup()
+        self.acceptPopup.doneButtonPressed = { [weak self] in
+            self?.acceptPopup.hidePopup()
         }
     }
     
     func setupRejectPopupView() {
         self.rejectPopup = RejectPopupView.create()
         
-        self.rejectPopup.popupDidShowCallback = {
-            
+        self.rejectPopup.doneButtonPressed = { [weak self] in
+            self?.rejectPopup.hidePopup()
         }
-        
-        self.rejectPopup.popupDidHideCallback = {
-            
+    }
+    
+    fileprivate func acceptCoupon(_ code: String) {
+        self.showHUD()
+        ApiRequest.acceptCoupon(code) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.acceptPopup.showPopup(inView: self.view, animated: true)
+                    }else {
+                        self.presentAlert(message: (result?.message)!)
+                    }
+                }
+            }
         }
-        
-        self.rejectPopup.doneButtonPressed = {
-            self.rejectPopup.hidePopup()
+    }
+    
+    fileprivate func rejectCoupon(_ code: String) {
+        self.showHUD()
+        ApiRequest.rejectCoupon(code) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if let _ = result {
+                    if result!.code == SuccessCode {
+                        self.rejectPopup.showPopup(inView: self.view, animated: true)
+                    }else {
+                        self.presentAlert(message: (result?.message)!)
+                    }
+                }
+            }
         }
     }
     

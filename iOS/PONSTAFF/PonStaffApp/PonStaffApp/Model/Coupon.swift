@@ -9,64 +9,28 @@
 import UIKit
 
 struct Coupon {
-    var couponID: Float!
-    var imageURL: String!
     var title: String!
-    var expiryDate: String!
-    var shopAvatarUrl: String!
-    var couponType: String!
-    var couponTypeIconUrl: String!
-    var category: String!
-    var categoryIcon: String!
-    var user: User!
+    var username: String!
+    var userId: String!
+    var code: String!
+    var time: String = ""
     
     init(response: JSON?) {
-        if let couponID = response!["id"].float {
-            self.couponID = couponID
-        }else {
-            if let couponID = response!["id"].string {
-                self.couponID = couponID.floatValue
-            }
-        }
         
-        if let imageUrl = response!["image_url"].string {
-            self.imageURL = imageUrl
-        }else {
-            self.imageURL = ""
-        }
-        
-        if let title = response!["title"].string {
+        if let title = response!["coupon"]["title"].string {
             self.title = title
-        }else {
-            self.title = ""
         }
         
-        if let expiryDate = response!["expired_time"].string {
-            self.expiryDate = "期限 : \(String.convertDateFormater(expiryDate))"
+        if let username = response!["user"]["name"].string {
+            self.username = username
         }
         
-        if let shopAvatarUrl = response!["shop"]["avatar_url"].string {
-            self.shopAvatarUrl = shopAvatarUrl
+        if let userId = response!["user"]["username"].string {
+            self.userId = userId
         }
         
-        if let couponType = response!["coupon_type"]["name"].string {
-            self.couponType = couponType
-        }
-        
-        if let couponTypeIconUrl = response!["coupon_type"]["icon_url"].string {
-            self.couponTypeIconUrl = couponTypeIconUrl
-        }
-        
-        if let category = response!["shop"]["category"]["name"].string {
-            self.category = category
-        }
-        
-        if let categoryIcon = response!["shop"]["category"]["icon_url"].string {
-            self.categoryIcon = categoryIcon;
-        }
-        
-        if let users = response!["users"].array {
-            self.user = User(response: users[0])
+        if let code = response!["code"].string {
+            self.code = code;
         }
     }
     

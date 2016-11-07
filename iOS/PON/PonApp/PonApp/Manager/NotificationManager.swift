@@ -27,7 +27,7 @@ class NotificationManager {
     }
     
     func handleNotificationAction(with notification: OSNotificationOpenedResult?) {
-        let additionalData = JSON(notification?.notification.payload.additionalData)
+        let additionalData = JSON(notification?.notification.payload.additionalData as Any)
         self.notificationType = additionalData["notification_type"].stringValue
         self.dataId = additionalData["id"].floatValue
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

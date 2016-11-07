@@ -135,10 +135,12 @@ extension ListShopContentViewController {
             if let _ = error {
                 
             }else {
-                let shop = Shop(response: result?.data)
-                let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
-                vc.shop = shop
-                self.parentNavigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let shop = Shop(response: result?.data)
+                    let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
+                    vc.shop = shop
+                    self.parentNavigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
@@ -154,7 +156,6 @@ extension ListShopContentViewController {
                     if result?.code == SuccessCode {
                         self.shops[index].isFollow = true
                         self.collectionView.reloadData()
-                        self.presentAlert(with: "Message", message: (result?.message)!)
                     }else {
                         self.presentAlert(message: (result?.message)!)
                     }
@@ -204,7 +205,7 @@ extension ListShopContentViewController: UICollectionViewDataSource {
 extension ListShopContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedShopId = self.shops[(indexPath as NSIndexPath).item].shopID
+        let selectedShopId = self.shops[indexPath.item].shopID
         self.getShopDetail(selectedShopId!)
     }
     

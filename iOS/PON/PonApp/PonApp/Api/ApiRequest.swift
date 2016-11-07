@@ -73,7 +73,7 @@ public struct ApiRequest {
     }
     
     static func getShopDetail(_ shopId: Float, completion: @escaping (ApiCompletion)) {
-        let endpoint = String(format:ShopDetail, shopId)
+        let endpoint = String(format:ShopDetail, Int(shopId))
         ApiManager.processRequest(endpoint, method: .GET, completion: completion)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DesignableView: UIView {
+class DesignableView: IQPreviousNextView {
 
     // IBInspectable properties for the gradient colors
     @IBInspectable var bottomColor: UIColor = UIColor.white

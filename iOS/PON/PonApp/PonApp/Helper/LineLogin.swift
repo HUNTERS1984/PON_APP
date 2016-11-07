@@ -111,7 +111,7 @@ class LineLogin {
                 self.alert("Error occured!", message: error.localizedDescription)
                 return
             }
-            print(profile)
+            print(profile as Any)
             //let displayName = profile?["displayName"] as! String
             //self.alert("Your name is \(displayName)", message: "")
         }
@@ -138,7 +138,7 @@ class LineLogin {
                 print(error)
                 return
             }
-            print(profile)
+            print(profile as Any)
         }
     }
     
@@ -149,7 +149,7 @@ class LineLogin {
                 print(error)
                 return
             }
-            print(result)
+            print(result as Any)
         }
     }
     

@@ -18,6 +18,12 @@ class RequestCouponViewController: BaseViewController {
     var coupons = [Coupon]()
     var selectedCoupon: Coupon?
     
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,7 +42,7 @@ class RequestCouponViewController: BaseViewController {
         self.setupConfirmPopupView()
         self.setupRejectPopupView()
         self.setupAcceptPopupView()
-        self.getRequestCouponList(withPage: 1)
+        self.getRequestCouponList(withPage: currentPage)
     }
 
 }
@@ -66,32 +72,32 @@ extension RequestCouponViewController {
     
     func setupConfirmPopupView() {
         self.confirmPopup = ConfirmPopupView.create()
-        self.confirmPopup.acceptButtonPressed = {
-            self.confirmPopup.hidePopup()
-            if let _ = self.selectedCoupon {
-                self.acceptCoupon(self.selectedCoupon!.couponID, userName: self.selectedCoupon!.user.userName!)
+        self.confirmPopup.acceptButtonPressed = { [weak self] in
+            self?.confirmPopup.hidePopup()
+            if let _ = self?.selectedCoupon {
+                self?.acceptCoupon(self!.selectedCoupon!.code)
             }
         }
         
-        self.confirmPopup.rejectButtonPressed = {
-            self.confirmPopup.hidePopup()
-            if let _ = self.selectedCoupon {
-                self.rejectCoupon(self.selectedCoupon!.couponID, userName: self.selectedCoupon!.user.userName!)
+        self.confirmPopup.rejectButtonPressed = { [weak self] in
+            self?.confirmPopup.hidePopup()
+            if let _ = self?.selectedCoupon {
+                self?.rejectCoupon(self!.selectedCoupon!.code)
             }
         }
     }
     
     func setupAcceptPopupView() {
         self.acceptPopup = AcceptPopupView.create()
-        self.acceptPopup.doneButtonPressed = {
-            self.acceptPopup.hidePopup()
+        self.acceptPopup.doneButtonPressed = { [weak self] in
+            self?.acceptPopup.hidePopup()
         }
     }
     
     func setupRejectPopupView() {
         self.rejectPopup = RejectPopupView.create()
-        self.rejectPopup.doneButtonPressed = {
-            self.rejectPopup.hidePopup()
+        self.rejectPopup.doneButtonPressed = { [weak self] in
+            self?.rejectPopup.hidePopup()
         }
     }
     
@@ -104,6 +110,10 @@ extension RequestCouponViewController {
             }else {
                 if let _ = result {
                     if result!.code == SuccessCode {
+                        self.nextPage = result!.nextPage
+                        self.totalPage = result!.totalPage
+                        self.currentPage = result!.currentPage
+                        
                         var responseCoupon = [Coupon]()
                         let couponsArray = result?.data?.array
                         if let _ = couponsArray {
@@ -141,9 +151,9 @@ extension RequestCouponViewController {
         }
     }
     
-    fileprivate func acceptCoupon(_ couponId: Float, userName: String) {
+    fileprivate func acceptCoupon(_ code: String) {
         self.showHUD()
-        ApiRequest.acceptCoupon(couponId, userName: userName) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.acceptCoupon(code) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -152,16 +162,16 @@ extension RequestCouponViewController {
                     if result!.code == SuccessCode {
                         self.acceptPopup.showPopup(inView: self.view, animated: true)
                     }else {
-                        
+                        self.presentAlert(message: (result?.message)!)
                     }
                 }
             }
         }
     }
     
-    fileprivate func rejectCoupon(_ couponId: Float, userName: String) {
+    fileprivate func rejectCoupon(_ code: String) {
         self.showHUD()
-        ApiRequest.rejectCoupon(couponId, userName: userName) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.rejectCoupon(code) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -170,7 +180,7 @@ extension RequestCouponViewController {
                     if result!.code == SuccessCode {
                         self.rejectPopup.showPopup(inView: self.view, animated: true)
                     }else {
-                        
+                        self.presentAlert(message: (result?.message)!)
                     }
                 }
             }
@@ -200,3 +210,22 @@ extension RequestCouponViewController: UITableViewDataSource, UITableViewDelegat
         self.confirmPopup.showPopup(inView: self.view, animated: true)
     }
 }
+
+//MARK: - UIScrollViewDelegate
+extension RequestCouponViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.getRequestCouponList(withPage: self.nextPage)
+        }
+    }
+    
+}
+
