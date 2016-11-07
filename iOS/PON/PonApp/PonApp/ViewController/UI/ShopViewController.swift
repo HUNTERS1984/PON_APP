@@ -128,7 +128,7 @@ extension ShopViewController {
         self.shopAvatar.af_setImage(withURL: URL(string: shop.avatarUrl)!)
         self.shopNameLabel.text = shop.title
         self.navTitleLabel.text = shop.title
-        shopId.text = "\(shop.shopID!)"
+        shopId.text = "\(Int(shop.shopID!))"
         addressLabel.text = shop.shopAddress
         self.addressLabel.setLineHeight(lineHeight: 1.75)
         accessLabel.text = shop.shopDirection
