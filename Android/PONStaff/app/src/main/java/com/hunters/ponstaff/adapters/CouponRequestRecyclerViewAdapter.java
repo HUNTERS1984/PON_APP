@@ -52,9 +52,9 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         if (holder instanceof CouponRequestRecyclerViewHolders) {
             final CouponRequestRecyclerViewHolders requestHolder = (CouponRequestRecyclerViewHolders) holder;
             ResponseCouponRequest request = mLstCouponRequests.get(position);
-            requestHolder.mTitle.setText(request.getmUser().get(0).getmUsername());
-            requestHolder.mDescription.setText(request.getmTitle());
-            requestHolder.mTimeRequest.setText(request.getmExpireDate());
+            requestHolder.mTitle.setText(request.getmUser().getmName());
+            requestHolder.mDescription.setText(request.getmCouponRequest().getmTitle());
+            requestHolder.mTimeRequest.setText(request.getmCode());
 
             requestHolder.mView.setTag(position);
         } else if (holder instanceof LoadingViewHolder) {
