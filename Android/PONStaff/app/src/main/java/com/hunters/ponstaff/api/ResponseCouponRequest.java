@@ -10,12 +10,26 @@ import java.util.List;
  * Created by hle59 on 10/31/2016.
  */
 
-public class ResponseCouponRequest extends CouponModel {
+public class ResponseCouponRequest {
 
-    @SerializedName("users")
-    private List<UserModel> mUser;
+    @SerializedName("user")
+    private UserModel mUser;
 
-    public List<UserModel> getmUser() {
+    @SerializedName("coupon")
+    private CouponModel mCouponRequest;
+
+    @SerializedName("code")
+    private String mCode;
+
+    public UserModel getmUser() {
         return mUser;
+    }
+
+    public CouponModel getmCouponRequest() {
+        return mCouponRequest;
+    }
+
+    public String getmCode() {
+        return mCode;
     }
 }
