@@ -116,4 +116,13 @@ public class CommonUtils {
     public static boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
+    public static long getFileSize(String path)
+    {
+        File file = new File(path);
+
+        long fileSizeInMB = (file.length() / 1024) / 1024;
+
+        return fileSizeInMB;
+    }
 }

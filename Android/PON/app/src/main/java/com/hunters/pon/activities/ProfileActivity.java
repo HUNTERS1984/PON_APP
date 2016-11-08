@@ -176,7 +176,10 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
             mTvUsername.setText(mUser.getmUsername());
         }
         if(mUser.getmAvatarUrl() != null && !mUser.getmAvatarUrl().equalsIgnoreCase("")) {
-            Picasso.with(mContext).load(mUser.getmAvatarUrl())
+            Picasso p = Picasso.with(mContext);
+            p.invalidate(mUser.getmAvatarUrl());
+            p.load(mUser.getmAvatarUrl())
+                    .placeholder(R.drawable.ic_avarta_user)
                     .fit()
                     .into(mIvUserPhoto);
         }
