@@ -131,7 +131,7 @@ public class CouponAPIHelper extends APIHelper {
 
 //        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
 
-            Call<ResponseCategoryShopFollowData> response = service.getCatShopFollow("1", pageIndex);
+            Call<ResponseCategoryShopFollowData> response = service.getCatShopFollow("20", pageIndex);
 
             response.enqueue(new Callback<ResponseCategoryShopFollowData>() {
                 @Override
