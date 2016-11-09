@@ -39,6 +39,9 @@ public class SplashActivity extends AppCompatActivity {
 
         mExtraData = (ExtraDataModel)getIntent().getSerializableExtra(Constants.EXTRA_DATA);
         initLayout();
+
+        CommonUtils.saveToken(SplashActivity.this, "");
+        LoginManager.getInstance().logOut();
     }
 
     @Override
@@ -87,8 +90,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mExtraData == null) {
-                    CommonUtils.saveToken(SplashActivity.this, "");
-                    LoginManager.getInstance().logOut();
                     Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                     iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(iMainScreen);

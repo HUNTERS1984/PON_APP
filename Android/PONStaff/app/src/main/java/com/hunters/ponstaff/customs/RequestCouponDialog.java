@@ -34,11 +34,13 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
     private TextView mTvMessage;
 
     private String mCouponCode;
+    private Handler mHandler;
 
-    public RequestCouponDialog(Context context, String code) {
+    public RequestCouponDialog(Context context, String code, Handler handler) {
         super(context);
         mContext = context;
         mCouponCode = code;
+        mHandler = handler;
     }
 
     @Override
@@ -102,6 +104,7 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                         mBtnAccept.setVisibility(View.GONE);
                         mBtnReject.setVisibility(View.GONE);
                         mBtnDone.setVisibility(View.VISIBLE);
+                        mHandler.sendEmptyMessage(0);
                     } else {
                         new DialogUtils().showDialog(mContext, data.message, false);
                     }
@@ -127,6 +130,7 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                         mBtnReject.setVisibility(View.GONE);
                         mBtnDone.setVisibility(View.VISIBLE);
                         mBtnDone.setBackgroundResource(R.drawable.background_rectangle_pink);
+                        mHandler.sendEmptyMessage(0);
                     } else {
                         new DialogUtils().showDialog(mContext, data.message, false);
                     }

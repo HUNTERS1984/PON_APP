@@ -1,6 +1,8 @@
 package com.hunters.ponstaff.adapters;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +56,7 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
             ResponseCouponRequest request = mLstCouponRequests.get(position);
             requestHolder.mTitle.setText(request.getmUser().getmName());
             requestHolder.mDescription.setText(request.getmCouponRequest().getmTitle());
-            requestHolder.mTimeRequest.setText(request.getmCode());
+            requestHolder.mTimeRequest.setText(request.getmTimeRequest());
 
             requestHolder.mView.setTag(position);
         } else if (holder instanceof LoadingViewHolder) {
@@ -77,6 +79,7 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
         public TextView mTitle, mDescription, mTimeRequest;
         public View mView;
+        private int mPos;
 
         public CouponRequestRecyclerViewHolders(View itemView) {
             super(itemView);
@@ -89,14 +92,24 @@ public class CouponRequestRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
         @Override
         public void onClick(View view) {
-            int pos = Integer.parseInt(view.getTag().toString());
-            ResponseCouponRequest cat = mLstCouponRequests.get(pos);
+            mPos = Integer.parseInt(view.getTag().toString());
+            ResponseCouponRequest cat = mLstCouponRequests.get(mPos);
             String code = cat.getmCode();
-            new RequestCouponDialog(mContext, code).show();
+            new RequestCouponDialog(mContext, code, mHanlderUpdateRequestCoupon).show();
+
 //            Intent iCouponByCategory = new Intent(mContext, CouponByCategoryDetailActivity.class);
 //            iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, cat.getmId());
 //            iCouponByCategory.putExtra(Constants.EXTRA_TITLE, cat.getmName());
 //            mContext.startActivity(iCouponByCategory);
         }
+
+        private Handler mHanlderUpdateRequestCoupon = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                mLstCouponRequests.remove(mPos);
+                notifyDataSetChanged();
+            }
+        };
     }
+
 }

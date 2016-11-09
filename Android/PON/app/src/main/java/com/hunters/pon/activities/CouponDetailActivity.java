@@ -287,7 +287,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         mCoupon.setmImageUrl(coupon.getmImageUrl());
                         mCoupon.setmCode(coupon.getmCode());
                         mCoupon.setmDescription(coupon.getmDescription());
-                        
+
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
                             mLstCouponPhotos.addAll(lstCouponPhotos);
@@ -313,7 +313,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         }
 
                         //Show/Hide button Use this coupon
-                        if(coupon.getmCanUse()){
+                        if(coupon.getmCanUse() && coupon.getmCode() != null){
                             mBtnUseThisCoupon.setVisibility(View.VISIBLE);
                         } else {
                             mBtnUseThisCoupon.setVisibility(View.GONE);

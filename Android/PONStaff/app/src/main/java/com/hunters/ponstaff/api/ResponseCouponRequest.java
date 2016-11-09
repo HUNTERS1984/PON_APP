@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import com.hunters.ponstaff.models.CouponModel;
 import com.hunters.ponstaff.models.UserModel;
 
-import java.util.List;
-
 /**
  * Created by hle59 on 10/31/2016.
  */
@@ -21,6 +19,9 @@ public class ResponseCouponRequest {
     @SerializedName("code")
     private String mCode;
 
+    @SerializedName("requested_at")
+    private String mTimeRequest;
+
     public UserModel getmUser() {
         return mUser;
     }
@@ -31,5 +32,9 @@ public class ResponseCouponRequest {
 
     public String getmCode() {
         return mCode;
+    }
+
+    public String getmTimeRequest() {
+        return mTimeRequest;
     }
 }
