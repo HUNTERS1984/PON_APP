@@ -240,8 +240,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             }
         } else if(requestCode == Constants.REQUEST_CODE_USE_COUPON) {
             if (resultCode == Activity.RESULT_OK) {
-                UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode(), mHandlerUseCouponRequest);
-                dialog.show();
+                if(mCoupon != null) {
+                    UseCouponDialog dialog = new UseCouponDialog(mContext, mCoupon.getmCode(), mHandlerUseCouponRequest);
+                    dialog.show();
+                }
             }
         }
     }
@@ -285,9 +287,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         mCoupon.setmImageUrl(coupon.getmImageUrl());
                         mCoupon.setmCode(coupon.getmCode());
                         mCoupon.setmDescription(coupon.getmDescription());
-
-
-
+                        
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
                             mLstCouponPhotos.addAll(lstCouponPhotos);
@@ -367,7 +367,9 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         @Override
         public void handleMessage(Message msg) {
             String staffName = msg.obj.toString();
-            new CouponAPIHelper().useCoupon(mContext, mCouponId, mHandlerUseCouponResponse);
+            if(mCoupon != null) {
+                new CouponAPIHelper().requestUseCoupon(mContext, mCoupon.getmCode(), mHandlerUseCouponResponse);
+            }
         }
     };
 

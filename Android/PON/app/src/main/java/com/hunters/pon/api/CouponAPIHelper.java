@@ -353,7 +353,7 @@ public class CouponAPIHelper extends APIHelper {
         }
     }
 
-    public void useCoupon(Context context, long id , final Handler handler)
+    public void requestUseCoupon(Context context, String code , final Handler handler)
     {
         if(NetworkUtils.isNetworkAvailable(context)) {
             showProgressDialog(context);
@@ -370,7 +370,7 @@ public class CouponAPIHelper extends APIHelper {
                 token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
             }
 
-            Call<ResponseCommon> response = service.useCoupon(token, id);
+            Call<ResponseCommon> response = service.requestUseCoupon(token, code);
 
             response.enqueue(new Callback<ResponseCommon>() {
                 @Override

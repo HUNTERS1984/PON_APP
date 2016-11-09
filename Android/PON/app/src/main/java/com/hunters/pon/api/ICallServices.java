@@ -65,8 +65,8 @@ public interface ICallServices {
     @GET("/api/v1/used/coupons")
     Call<ResponseHistoryCouponData> getHistoryCoupon(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
 
-    @POST("/api/v1/use/coupons/{id}")
-    Call<ResponseCommon> useCoupon(@Header("Authorization") String token, @Query("id") long id);
+    @POST("/api/v1/request/coupons/{code}")
+    Call<ResponseCommon> requestUseCoupon(@Header("Authorization") String token, @Query("code") String code);
 
     @POST("/api/v1/like/coupons/{id}")
     Call<ResponseCommon> addFavouriteCoupon(@Header("Authorization") String token, @Path("id") String id);
