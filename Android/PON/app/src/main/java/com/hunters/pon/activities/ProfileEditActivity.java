@@ -13,6 +13,7 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -160,6 +161,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         }
 
         mFilePath = ImageUtils.getPath(mContext, data.getData());
+        Log.d("HUY", "File size :" + CommonUtils.getFileSize(mFilePath));
         Picasso.with(mContext).load(path)
                 .fit()
                 .placeholder(R.drawable.ic_avarta_user)
