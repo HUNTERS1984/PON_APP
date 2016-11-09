@@ -165,14 +165,14 @@ extension EditAccountViewController {
     fileprivate func getGender(_ gender: String?) -> Int {
         if let _ = gender {
             if gender! == "男" {
-                return 1
+                return 0
             }
             
             if gender! == "女" {
-                return 2
+                return 1
             }
             if gender! == "LGBT" {
-                return 3
+                return 2
             }
         }
         return 0
@@ -180,15 +180,15 @@ extension EditAccountViewController {
     
     fileprivate func converGender(_ gender: Int?) -> String {
         if let _ = gender {
-            if gender! == 1 {
+            if gender! == 0 {
                 return "男"
             }
             
-            if gender! == 2 {
+            if gender! == 1 {
                 return "女"
             }
             
-            if gender! == 3 {
+            if gender! == 2 {
                 return "LGBT"
             }
         }
