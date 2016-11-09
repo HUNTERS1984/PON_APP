@@ -38,6 +38,7 @@ class CouponViewController: BaseViewController {
     @IBOutlet weak var detailMapView: MapView!
     @IBOutlet weak var couponCategoryLabel: UILabel!
     @IBOutlet weak var categoryIcon: UIImageView!
+    @IBOutlet weak var requestUseCouponButtonConstrait: NSLayoutConstraint!
     
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     var similarCoupon = [Coupon]() {
@@ -85,7 +86,7 @@ class CouponViewController: BaseViewController {
         self.albumCollectionView.handler = self
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
-        
+        self.requestUseCouponButtonConstrait.constant = 0
         if let _ = self.coupon {
             self.displayCouponDetail(self.coupon!)
         }
@@ -130,11 +131,7 @@ extension CouponViewController {
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
         if UserDataManager.isLoggedIn() {
-            if let _ = self.coupon?.code {
-                let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
-                vc.code = coupon?.code
-                self.navigationController?.present(vc, animated: true)
-            }
+            self.requestUseCoupon()
         }else {
             self.presentAlert(message: UserNotLoggedIn)
         }
@@ -246,6 +243,9 @@ extension CouponViewController {
         self.shopPhoneNumber.text = coupon.shopPhonenumber
         self.setupPhotoCollectionView(coupon.userPhotosUrl)
         self.similarCoupon = coupon.similarCoupons
+        if coupon.canUse! {
+            self.requestUseCouponButtonConstrait.constant = 45
+        }
     }
     
     fileprivate func updateLikeCouponStatus() {
@@ -262,6 +262,20 @@ extension CouponViewController {
         NotificationCenter.default.post(name:Notification.Name(LikeCouponNotification),
                                         object: nil,
                                         userInfo:userInfo)
+    }
+    
+    fileprivate func requestUseCoupon() {
+        self.showHUD()
+        ApiRequest.requestUseCoupon(self.coupon!.code!) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.presentAlert(message: result!.message)
+                }
+            }
+        }
     }
     
 }
