@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func receivedTokenInvalidNotification(_ notification: Notification){
-        UserDataManager.shared.loggedIn = false
+        UserDataManager.clearUserData()
         UIAlertController.present(title: Error, message: AccessTokenExpiry, actionTitles: [OK]) { (action) -> () in
             loggingPrint(action.title)
         }

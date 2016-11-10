@@ -68,6 +68,8 @@ class UserDataManager {
         return self.avatarImage
     }
     
+    //MARK: - Static Method
+    
     static func getUserProfile() {
         UserDataManager.shared.getUserProfile()
     }
@@ -82,6 +84,18 @@ class UserDataManager {
     
     static func getAvatarImage() -> UIImage? {
         return UserDataManager.shared.getAvatarImage()
+    }
+    
+    static func clearUserData() {
+        UserDataManager.shared.username = nil
+        UserDataManager.shared.name = nil
+        UserDataManager.shared.email = nil
+        UserDataManager.shared.address = nil
+        UserDataManager.shared.avatarUrl = nil
+        UserDataManager.shared.avatarImage = nil
+        UserDataManager.shared.loggedIn = false
+        UserDataManager.shared.gender = nil
+        
     }
     
 }
