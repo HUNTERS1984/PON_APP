@@ -149,7 +149,7 @@ public struct ApiRequest {
         ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
     }
     
-    static func getShopByFeature(_ feature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+    static func getShopByFeature(_ feature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, hasAuth: Bool, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         var parameters: [String: String?] = [
             "page_size": "\(pageSize)",
             "page_index": "\(pageIndex)"
@@ -159,16 +159,16 @@ public struct ApiRequest {
             parameters["latitude"] = "\(lattitude!)"
         }
         let endpoint = String(format:GetShopByFeature, feature.rawValue)
-        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth:hasAuth, completion: completion)
     }
     
-    static func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+    static func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double, hasAuth: Bool, pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
         let parameters: [String: String?] = [
             "page_size": "\(pageSize)",
             "page_index": "\(pageIndex)"
         ]
         let endpoint = String(format:GetShopByLattitudeAndLongitude, lattitude, longitude)
-        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, completion: completion)
+        ApiManager.processRequest(endpoint, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
     }
     
     static func likeCoupon(_ couponId: Float, completion: @escaping (ApiCompletion)) {
@@ -183,7 +183,7 @@ public struct ApiRequest {
         let parameters: [String: String?] = [
             "id": "\(Int(shopId))"
         ]
-        let endpoint = String(format:LikeCoupon, Int(shopId))
+        let endpoint = String(format:FollowShop, Int(shopId))
         ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }
     

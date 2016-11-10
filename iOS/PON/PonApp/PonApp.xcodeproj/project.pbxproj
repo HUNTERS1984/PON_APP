@@ -149,6 +149,7 @@
 		FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */; };
 		FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */; };
 		FA2BA6C61DC9E8AE0016FF91 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */; };
+		FA33A0EF1DD48E89003BEBA3 /* MyOffice1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
 		FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */; };
 		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -502,6 +503,7 @@
 		FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
 		FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
+		FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice1.gpx; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopViewController.swift; sourceTree = "<group>"; };
 		FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopContentViewController.swift; sourceTree = "<group>"; };
@@ -1193,6 +1195,7 @@
 		4ADEE8AE1DB1B4730049BA24 /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */,
 				FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */,
 				4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */,
 			);
@@ -1723,6 +1726,7 @@
 				FA76A9D41DA3460000893584 /* Info.plist in Resources */,
 				FACF58BD1DB8C6D0000FB266 /* splash_button_login@2x.png in Resources */,
 				4A85F4111D9ABCDD00733161 /* AlbumCollectionViewCell.xib in Resources */,
+				FA33A0EF1DD48E89003BEBA3 /* MyOffice1.gpx in Resources */,
 				FACF58BC1DB8C6D0000FB266 /* splash_button_facebook@3x.png in Resources */,
 				FACF58B41DB8C6D0000FB266 /* signup_button@3x.png in Resources */,
 				FAAB82C01DC042230060E859 /* LineAdapterUI.bundle in Resources */,

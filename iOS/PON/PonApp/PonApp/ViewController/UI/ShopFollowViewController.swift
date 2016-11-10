@@ -14,6 +14,12 @@ class ShopFollowViewController: BaseViewController {
     
     var shops = [Shop]()
     
+    //paging
+    var canLoadMore: Bool = true
+    var currentPage: Int = 1
+    var totalPage: Int!
+    var nextPage: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -51,6 +57,10 @@ extension ShopFollowViewController {
                 
             }else {
                 if result?.code == SuccessCode {
+                    self.nextPage = result!.nextPage
+                    self.totalPage = result!.totalPage
+                    self.currentPage = result!.currentPage
+                    
                     var responseShop = [Shop]()
                     let shopArray = result?.data?.array
                     if let _ = shopArray {
@@ -94,10 +104,12 @@ extension ShopFollowViewController {
             if let _ = error {
                 
             }else {
-                let shop = Shop(response: result?.data)
-                let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
-                vc.shop = shop
-                self.navigationController?.pushViewController(vc, animated: true)
+                if result?.code == SuccessCode {
+                    let shop = Shop(response: result?.data)
+                    let vc = ShopViewController.instanceFromStoryBoard("Shop") as! ShopViewController
+                    vc.shop = shop
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
@@ -148,6 +160,24 @@ extension ShopFollowViewController: UICollectionViewDelegateFlowLayout {
             let width = (self.view.frame.size.width - 22) / 2.0
             let screenSize: CGRect = UIScreen.main.bounds
             return CGSize(width: width, height: screenSize.height * (228/667))
+    }
+    
+}
+
+//MARK: - UIScrollViewDelegate
+extension ShopFollowViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.currentPage == self.totalPage {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && canLoadMore {
+            canLoadMore = false
+            self.loadFollowedShop(self.nextPage)
+        }
     }
     
 }

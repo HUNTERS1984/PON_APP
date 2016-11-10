@@ -134,7 +134,7 @@ extension HomeMapViewController {
     
     fileprivate func getShopByLattitudeAndLongitude(_ lattitude: Double, longitude: Double) {
         self.showHUD()
-        ApiRequest.getShopByLattitudeAndLongitude(lattitude, longitude: longitude, pageIndex: 1) {[weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByLattitudeAndLongitude(lattitude, longitude: longitude, hasAuth: UserDataManager.isLoggedIn(), pageIndex: 1) {[weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self?.hideHUD()
             if let _ = error {
                 

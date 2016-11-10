@@ -75,7 +75,7 @@ extension AddShopContentViewController {
     
     fileprivate func getShopByFeature(_ feature: CouponFeature, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeature(feature, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeature(feature, hasAuth: UserDataManager.isLoggedIn(), pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 
@@ -173,7 +173,11 @@ extension AddShopContentViewController: UICollectionViewDataSource {
         cell.index = indexPath.item
         cell.completionHandler = { (shopID: Float?, index: Int) in
             if let _ = shopID {
-                self.followShop(shopID!, index: index)
+                if UserDataManager.isLoggedIn() {
+                    self.followShop(shopID!, index: index)
+                }else {
+                    self.presentAlert(message: UserNotLoggedIn)
+                }
             }
         }
         return cell
