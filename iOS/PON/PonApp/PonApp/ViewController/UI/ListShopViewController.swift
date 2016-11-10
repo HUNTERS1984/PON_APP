@@ -33,6 +33,7 @@ class ListShopViewController: BaseViewController {
         self.showBackButton()
         let barButton = UIBarButtonItem(image: UIImage(named: "nav_search"), style: .plain, target: self, action: #selector(self.searchBarButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = barButton
+        self.view.backgroundColor = UIColor(hex: DefaultBackgroundColor)
         self.setupScrollMenu()
     }
 }
@@ -76,7 +77,7 @@ extension ListShopViewController {
         let parameters: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(4.3),
             .scrollMenuBackgroundColor(UIColor.white),
-            .viewBackgroundColor(UIColor.white),
+            .viewBackgroundColor(UIColor(hex: DefaultBackgroundColor)),
             .bottomMenuHairlineColor(UIColor(hex: 0xe1e3e5)),
             .selectionIndicatorColor(UIColor(hex: 0x18c0d4)),
             .menuItemWidth(78.0),

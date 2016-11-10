@@ -22,6 +22,7 @@ class UserDataManager {
     var email: String?
     var address: String?
     var avatarUrl: String?
+    var avatarImage: UIImage?
     var loggedIn: Bool = false
     var gender: Int?
     
@@ -63,6 +64,10 @@ class UserDataManager {
         }
     }
     
+    func getAvatarImage() -> UIImage? {
+        return self.avatarImage
+    }
+    
     static func getUserProfile() {
         UserDataManager.shared.getUserProfile()
     }
@@ -73,6 +78,10 @@ class UserDataManager {
     
     static func setUserData(_ data: JSON?) {
         return UserDataManager.shared.setUserData(data)
+    }
+    
+    static func getAvatarImage() -> UIImage? {
+        return UserDataManager.shared.getAvatarImage()
     }
     
 }
