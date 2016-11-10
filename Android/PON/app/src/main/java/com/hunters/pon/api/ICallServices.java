@@ -89,7 +89,7 @@ public interface ICallServices {
     Call<ResponseShopDetailData> getShopDetail(@Path("id") long shopId);
 
     @GET("/api/v1/map/{latitude}/{longitude}/shops")
-    Call<ResponseMapShopCouponData> getMapShopCoupon(@Path("latitude") double lat, @Path("longitude") double lng, @Query("page_size") String size, @Query("page_index") String index);
+    Call<ResponseMapShopCouponData> getMapShopCoupon(@Header("Authorization") String token, @Path("latitude") double lat, @Path("longitude") double lng, @Query("page_size") String size, @Query("page_index") String index);
 
     @GET("/api/v1/follow/shops")
     Call<ResponseShopFollowData> getShopFollow(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);

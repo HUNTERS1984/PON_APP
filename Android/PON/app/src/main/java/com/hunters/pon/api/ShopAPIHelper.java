@@ -173,9 +173,13 @@ public class ShopAPIHelper extends APIHelper {
 
             ICallServices service = retrofit.create(ICallServices.class);
 
-//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+            String token = "";
 
-            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(lat, lng, "20", pageIndex);
+            if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+                token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+            }
+
+            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(token, lat, lng, "20", pageIndex);
 
             response.enqueue(new Callback<ResponseMapShopCouponData>() {
                 @Override

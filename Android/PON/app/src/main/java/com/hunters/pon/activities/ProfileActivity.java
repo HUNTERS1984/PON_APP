@@ -181,6 +181,7 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
             p.load(mUser.getmAvatarUrl())
                     .placeholder(R.drawable.ic_avarta_user)
                     .fit()
+                    .centerCrop()
                     .into(mIvUserPhoto);
         }
     }

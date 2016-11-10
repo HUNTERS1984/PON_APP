@@ -117,12 +117,12 @@ public class CommonUtils {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public static long getFileSize(String path)
-    {
-        File file = new File(path);
-
-        long fileSizeInMB = (file.length() / 1024) / 1024;
-
-        return fileSizeInMB;
-    }
+//    public static long getFileSize(String path)
+//    {
+//        File file = new File(path);
+//
+//        long fileSizeInMB = (file.length() / 1024) / 1024;
+//
+//        return fileSizeInMB;
+//    }
 }

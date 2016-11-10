@@ -1,6 +1,8 @@
 package com.hunters.pon.activities;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -31,8 +33,9 @@ import com.hunters.pon.api.ResponseMapShopCoupon;
 import com.hunters.pon.api.ResponseMapShopCouponData;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.models.CouponModel;
-import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.LocationUtils;
 import com.hunters.pon.utils.PermissionUtils;
@@ -44,7 +47,7 @@ import java.util.Map;
 
 public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnMyLocationButtonClickListener,
         OnMapReadyCallback,
-        ActivityCompat.OnRequestPermissionsResultCallback, OnLoadDataListener {
+        ActivityCompat.OnRequestPermissionsResultCallback {
 
     private GoogleMap mGoogleMap;
     private List<CouponModel> mListCoupons;
@@ -67,7 +70,6 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
-        mDataListener = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_shop_coupon);
         initCommonLayout();
@@ -82,6 +84,7 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         } catch (Exception e) {
             e.printStackTrace();
         }
+        initData();
         initLayout();
     }
 
@@ -100,10 +103,11 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                     if (!isShowMyLocationFirstTime) {
                         showMyLocation();
                         isShowMyLocationFirstTime = true;
+                        loadData();
 //                        double lat = 10.839812;
 //                        double lng = 106.780339;
 //                        new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon, true);
-                        new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon, true);
+//                        new ShopAPIHelper().getMapShopCoupon(mContext, location.getLatitude(), location.getLongitude(), "1", mHanlderGetMapShopCoupon, true);
                     }
                 }
             });
@@ -118,6 +122,21 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == Constants.REQUEST_CODE_COUPON_DETAIL) {
+            if (resultCode == Activity.RESULT_OK) {
+                initData();
+                loadData();
+                ExtraDataModel extra =  (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
+                Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
+                iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, extra.getmId());
+                mContext.startActivity(iCouponDetail);
+            }
+        }
+    }
 
     private void initLayout()
     {
@@ -169,7 +188,7 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         });
     }
 
-    public void onLoadData() {
+    private void initData() {
         mListCoupons = new ArrayList<>();
         mHashMapOfShop = new HashMap<>();
 //        for(int i=0; i<5; i++) {
@@ -180,6 +199,16 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
 //            coupon.setmIsLoginRequired((i%2==0?1:0));
 //            mListCoupons.add(coupon);
 //        }
+    }
+
+    private void loadData()
+    {
+        if(mUserLocation != null) {
+//            double lat = 10.839812;
+//            double lng = 106.780339;
+//            new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon, true);
+            new ShopAPIHelper().getMapShopCoupon(mContext, mUserLocation.latitude, mUserLocation.longitude, "1", mHanlderGetMapShopCoupon, true);
+        }
     }
 
     private void showMyLocation()
