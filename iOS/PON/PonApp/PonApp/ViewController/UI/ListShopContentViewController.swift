@@ -80,7 +80,7 @@ extension ListShopContentViewController {
     
     fileprivate func getShopByFeatureAndCategory(_ feature: CouponFeature, category: Int, longitude: Double? = nil, lattitude: Double? = nil, pageIndex: Int) {
         self.showHUD()
-        ApiRequest.getShopByFeatureAndCategory(feature, category: category, longitude: longitude, lattitude: lattitude, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getShopByFeatureAndCategory(feature, category: category, hasAuth: UserDataManager.isLoggedIn(),longitude: longitude, lattitude: lattitude, pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self.hideHUD()
             if let _ = error {
                 

@@ -70,6 +70,8 @@ extension EditAccountViewController {
                         
                     }else {
                         if result?.code == SuccessCode {
+                            UserDataManager.setUserData(result?.data)
+                            UserDataManager.shared.avatarImage = avatar
                             self.navigationController!.popViewController(animated: true)
                         }else {
                             self.presentAlert(message: (result?.message)!)

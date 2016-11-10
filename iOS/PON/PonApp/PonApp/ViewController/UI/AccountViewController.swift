@@ -105,17 +105,21 @@ extension AccountViewController {
     }
     
     fileprivate func displayUserInfo() {
-        if let _ = UserDataManager.shared.username {
-            self.usernamLabel.text = UserDataManager.shared.username!
+        if let _ = UserDataManager.shared.name {
+            self.usernamLabel.text = UserDataManager.shared.name!
         }else {
-            self.usernamLabel.text = ""
+            self.usernamLabel.text = "ユーザーネーム"
         }
         
-        if let _ = UserDataManager.shared.avatarUrl {
-            let avatarUrl = URL(string: UserDataManager.shared.avatarUrl!)
-            self.avatarImageView.af_setImage(withURL: avatarUrl!)
+        if let _ = UserDataManager.getAvatarImage() {
+            self.avatarImageView.image = UserDataManager.getAvatarImage()!
         }else {
-            self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
+            if let _ = UserDataManager.shared.avatarUrl {
+                let avatarUrl = URL(string: UserDataManager.shared.avatarUrl!)
+                self.avatarImageView.af_setImage(withURL: avatarUrl!)
+            }else {
+                self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
+            }
         }
     }
     
