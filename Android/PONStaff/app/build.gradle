@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [onesignal_app_id: "66c9a098-1505-482e-accd-3aad077824b5",
+                                // Project number pulled from dashboard, local value is ignored.
+                                onesignal_google_project_number: "299893727112"]
     }
     buildTypes {
         release {
@@ -35,5 +38,8 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0+'
+    compile 'com.onesignal:OneSignal:3.+@aar'
+    compile 'com.google.android.gms:play-services-gcm:+'
+    compile "com.google.android.gms:play-services-location:+"
     testCompile 'junit:junit:4.12'
 }
