@@ -146,23 +146,23 @@ extension ListShopContentViewController {
     }
     
     fileprivate func followShop(_ shopId: Float, index: Int) {
-        if UserDataManager.isLoggedIn() {
-            self.showHUD()
-            ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-                self.hideHUD()
-                if let _ = error {
-                    
-                }else {
-                    if result?.code == SuccessCode {
-                        self.shops[index].isFollow = true
-                        self.collectionView.reloadData()
+        UIAlertController.present(title: "", message: FollowShopConfirmation, actionTitles: [OK, Cancel]) { (action) -> () in
+            if action.title == "OK" {
+                self.showHUD()
+                ApiRequest.followShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
+                    if let _ = error {
+                        
                     }else {
-                        self.presentAlert(message: (result?.message)!)
+                        if result?.code == SuccessCode {
+                            self.shops[index].isFollow = true
+                            self.collectionView.reloadData()
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
+                        }
                     }
                 }
             }
-        }else {
-            self.presentAlert(message: UserNotLoggedIn)
         }
     }
     
@@ -182,7 +182,11 @@ extension ListShopContentViewController: UICollectionViewDataSource {
         cell.index = indexPath.item
         cell.completionHandler = { [weak self] (shopID: Float?, index: Int) in
             if let _ = shopID {
-                self?.followShop(shopID!, index: index)
+                if UserDataManager.isLoggedIn() {
+                    self?.followShop(shopID!, index: index)
+                }else {
+                    self?.presentAlert(message: UserNotLoggedIn)
+                }
             }
         }
         return cell

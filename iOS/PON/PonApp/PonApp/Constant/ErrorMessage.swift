@@ -26,3 +26,4 @@ let PasswordNotMatch                            = "パスワードが違いま�
 let NotConnectInternet                          = "ネットワークがなくてチェックしてください。"//Không có kết nối mạng vui lòng kiểm tra lại
 let LikeCouponConfirmation                      = "このクーポンを”like”にしますか。"//Bạn có chắc bạn muốn like coupon này
 let AccessTokenExpiry                           = "Access Token 制限時間になります。再度ログインしてください。"
+let FollowShopConfirmation                      = "このショップをフォローにしますか。"//Bạn có chắc bạn muốn follow shop này

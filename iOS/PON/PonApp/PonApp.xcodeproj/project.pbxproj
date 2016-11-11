@@ -140,18 +140,18 @@
 		4A935F5C1DA3FF090086FD74 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */; };
 		4AA865641DA0F47B00A09831 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA865631DA0F47B00A09831 /* Category.swift */; };
 		4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */; };
-		4ADEE8B01DB1B4730049BA24 /* MyOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */; };
 		4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA0450B71DB466BC00C41EC4 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
 		FA0C23511DBDBC9D00F9D988 /* coupon_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */; };
 		FA0C23521DBDBC9D00F9D988 /* coupon_qr_code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */; };
-		FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */; };
 		FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */; };
 		FA2BA6C61DC9E8AE0016FF91 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */; };
-		FA33A0EF1DD48E89003BEBA3 /* MyOffice1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */; };
 		FA36876A1D9E1F10000CCC13 /* AddShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */; };
 		FA36876C1D9E1F27000CCC13 /* AddShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */; };
+		FA3761231DD564A7008EF623 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */; };
+		FA3761241DD564A7008EF623 /* MyHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761211DD564A7008EF623 /* MyHouse.gpx */; };
+		FA3761251DD564A7008EF623 /* MyOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761221DD564A7008EF623 /* MyOffice.gpx */; };
 		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C801D9228AE00D56602 /* Foundation.framework */; };
 		FA405C831D9228B500D56602 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C821D9228B500D56602 /* Security.framework */; };
@@ -491,7 +491,6 @@
 		4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		4AA865631DA0F47B00A09831 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice.gpx; sourceTree = "<group>"; };
 		4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		551B33E5087C1F2EFAC2E559 /* Pods-PonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonApp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PonApp/Pods-PonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86471CFA7335B8B136C7EE3E /* Pods_PonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -500,13 +499,14 @@
 		FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonApp.entitlements; sourceTree = "<group>"; };
 		FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@2x.png"; sourceTree = "<group>"; };
 		FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@3x.png"; sourceTree = "<group>"; };
-		FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
 		FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
-		FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice1.gpx; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3687691D9E1F10000CCC13 /* AddShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopViewController.swift; sourceTree = "<group>"; };
 		FA36876B1D9E1F27000CCC13 /* AddShopContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShopContentViewController.swift; sourceTree = "<group>"; };
+		FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
+		FA3761211DD564A7008EF623 /* MyHouse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyHouse.gpx; sourceTree = "<group>"; };
+		FA3761221DD564A7008EF623 /* MyOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice.gpx; sourceTree = "<group>"; };
 		FA405C7E1D9228A700D56602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA405C801D9228AE00D56602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA405C821D9228B500D56602 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -727,7 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */,
-				4ADEE8AE1DB1B4730049BA24 /* GPX */,
+				FA37611F1DD564A7008EF623 /* GPX */,
 				4A85F2781D9ABCDD00733161 /* Frameworks */,
 				4A85F2711D9ABCDD00733161 /* App */,
 				4A85F2761D9ABCDD00733161 /* Constant */,
@@ -1192,16 +1192,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		4ADEE8AE1DB1B4730049BA24 /* GPX */ = {
-			isa = PBXGroup;
-			children = (
-				FA33A0EE1DD48E89003BEBA3 /* MyOffice1.gpx */,
-				FA1DD5BF1DB5DE7400C73A81 /* MrQuanOffice.gpx */,
-				4ADEE8AF1DB1B4730049BA24 /* MyOffice.gpx */,
-			);
-			path = GPX;
-			sourceTree = "<group>";
-		};
 		BB499B3834AC676546D06A4C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,6 +1245,16 @@
 				FA33FCE81D77BFDA0048EF73 /* PonApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FA37611F1DD564A7008EF623 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */,
+				FA3761211DD564A7008EF623 /* MyHouse.gpx */,
+				FA3761221DD564A7008EF623 /* MyOffice.gpx */,
+			);
+			path = GPX;
 			sourceTree = "<group>";
 		};
 		FA46C4401DB0B4DD004E0A81 /* HiraginoSans */ = {
@@ -1639,12 +1639,13 @@
 				FACF58D51DB8C6D0000FB266 /* used_coupon@2x.png in Resources */,
 				FACF58BA1DB8C6D0000FB266 /* splash_button_email@3x.png in Resources */,
 				FACF58741DB8C6D0000FB266 /* coupon_category_background@3x.png in Resources */,
+				FA3761241DD564A7008EF623 /* MyHouse.gpx in Resources */,
 				FACF58701DB8C6D0000FB266 /* coupon_button_liked@3x.png in Resources */,
-				4ADEE8B01DB1B4730049BA24 /* MyOffice.gpx in Resources */,
 				FACF587F1DB8C6D0000FB266 /* coupon_map_detail_icon@2x.png in Resources */,
 				FACF58C51DB8C6D0000FB266 /* tabbar_account_normal@2x.png in Resources */,
 				FACF58931DB8C6D0000FB266 /* map_icon_marker@3x.png in Resources */,
 				FACF58AF1DB8C6D0000FB266 /* shop_detail_more_image_button@2x.png in Resources */,
+				FA3761231DD564A7008EF623 /* MrQuanOffice.gpx in Resources */,
 				FACF586A1DB8C6D0000FB266 /* arrow_down@3x.png in Resources */,
 				FACF58611DB8C6D0000FB266 /* account_icon_history@2x.png in Resources */,
 				FACF585F1DB8C6D0000FB266 /* account_header_background@2x.png in Resources */,
@@ -1700,7 +1701,6 @@
 				FACF58971DB8C6D0000FB266 /* nav_add@3x.png in Resources */,
 				FACF58881DB8C6D0000FB266 /* edit_profile_avatar_placeholder@2x.png in Resources */,
 				FA76A9CA1DA3460000893584 /* DKCameraResource.bundle in Resources */,
-				FA1DD5C01DB5DE7400C73A81 /* MrQuanOffice.gpx in Resources */,
 				FA76A9A31DA3453600893584 /* ic_cross_white@2x.png in Resources */,
 				FACF58CA1DB8C6D0000FB266 /* tabbar_favorite_normal@3x.png in Resources */,
 				FACF58D11DB8C6D0000FB266 /* top_button_direction@2x.png in Resources */,
@@ -1726,7 +1726,6 @@
 				FA76A9D41DA3460000893584 /* Info.plist in Resources */,
 				FACF58BD1DB8C6D0000FB266 /* splash_button_login@2x.png in Resources */,
 				4A85F4111D9ABCDD00733161 /* AlbumCollectionViewCell.xib in Resources */,
-				FA33A0EF1DD48E89003BEBA3 /* MyOffice1.gpx in Resources */,
 				FACF58BC1DB8C6D0000FB266 /* splash_button_facebook@3x.png in Resources */,
 				FACF58B41DB8C6D0000FB266 /* signup_button@3x.png in Resources */,
 				FAAB82C01DC042230060E859 /* LineAdapterUI.bundle in Resources */,
@@ -1769,6 +1768,7 @@
 				4A85F3F01D9ABCDD00733161 /* Register.storyboard in Resources */,
 				FACF58821DB8C6D0000FB266 /* coupon_phone@2x.png in Resources */,
 				FACF58621DB8C6D0000FB266 /* account_icon_history@3x.png in Resources */,
+				FA3761251DD564A7008EF623 /* MyOffice.gpx in Resources */,
 				FACF585E1DB8C6D0000FB266 /* account_avatar_placehoder@3x.png in Resources */,
 				FACF588D1DB8C6D0000FB266 /* main_header_background@3x.png in Resources */,
 				FACF587C1DB8C6D0000FB266 /* coupon_line_button@3x.png in Resources */,
