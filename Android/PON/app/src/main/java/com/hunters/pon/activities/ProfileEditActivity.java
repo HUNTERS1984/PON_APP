@@ -142,6 +142,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         Picasso.with(mContext).load(destination)
                 .fit()
                 .centerCrop()
+                .noFade()
                 .placeholder(R.drawable.ic_avarta_user)
                 .into(mIvUserPhoto);
     }
@@ -164,6 +165,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         Picasso.with(mContext).load(path)
                 .fit()
                 .centerCrop()
+                .noFade()
                 .placeholder(R.drawable.ic_avarta_user)
                 .into(mIvUserPhoto);
 
@@ -284,6 +286,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
             Picasso.with(mContext).load(user.getmAvatarUrl())
                     .fit()
                     .centerCrop()
+                    .noFade()
                     .into(mIvUserPhoto);
         }
 

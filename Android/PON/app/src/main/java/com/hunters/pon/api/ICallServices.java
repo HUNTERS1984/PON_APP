@@ -94,4 +94,10 @@ public interface ICallServices {
     @GET("/api/v1/follow/shops")
     Call<ResponseShopFollowData> getShopFollow(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
 
+    @GET("/api/v1/news")
+    Call<ResponseNewsData> getNews(@Header("Authorization") String token, @Query("page_size") String size, @Query("page_index") String index);
+
+    @GET("/api/v1/news/{id}")
+    Call<ResponseNewsDetailData> getNewsDetail(@Path("id") long id);
+
 }

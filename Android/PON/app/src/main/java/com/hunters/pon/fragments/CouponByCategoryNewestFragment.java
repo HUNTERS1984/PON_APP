@@ -77,4 +77,9 @@ public class CouponByCategoryNewestFragment extends BaseCouponByCategoryFragment
     public void onLoadMoreData(int page) {
         new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEWEST_COUPON, mCatId, "", "", String.valueOf(page + 1), mHanlderGetCouponByCategory, false);
     }
+
+    @Override
+    public void refreshData(){
+        onLoadData();
+    }
 }

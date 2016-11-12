@@ -34,7 +34,7 @@ import java.util.List;
  * Use the {@link BaseCouponByCategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BaseCouponByCategoryFragment extends Fragment {
+public abstract class BaseCouponByCategoryFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,14 +67,14 @@ public class BaseCouponByCategoryFragment extends Fragment {
      * @return A new instance of fragment BaseCouponByCategoryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BaseCouponByCategoryFragment newInstance(String param1, String param2) {
-        BaseCouponByCategoryFragment fragment = new BaseCouponByCategoryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static BaseCouponByCategoryFragment newInstance(String param1, String param2) {
+//        BaseCouponByCategoryFragment fragment = new BaseCouponByCategoryFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -211,4 +211,6 @@ public class BaseCouponByCategoryFragment extends Fragment {
             mProgressDialogUtils.hide();
         }
     }
+
+    public abstract void refreshData();
 }

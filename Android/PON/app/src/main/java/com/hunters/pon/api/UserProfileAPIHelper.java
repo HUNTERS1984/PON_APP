@@ -340,4 +340,98 @@ public class UserProfileAPIHelper extends APIHelper{
             new DialogUtiils().showDialog(context, context.getString(R.string.network_not_avaiable), false);
         }
     }
+
+    public void getNews(Context context, String pageIndex, final Handler handler)
+    {
+        if(NetworkUtils.isNetworkAvailable(context)) {
+            showProgressDialog(context);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(HOST_NAME)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            ICallServices service = retrofit.create(ICallServices.class);
+
+            String token = "";
+
+            if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+                token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+            }
+
+            Call<ResponseNewsData> response = service.getNews(token, "20", pageIndex);
+
+            response.enqueue(new Callback<ResponseNewsData>() {
+                @Override
+                public void onResponse(Call<ResponseNewsData> call, Response<ResponseNewsData> response) {
+                    ResponseNewsData res = response.body();
+                    if (res == null) {
+                        res = new ResponseNewsData();
+                        res.code = APIConstants.REQUEST_FAILED;
+                    }
+                    res.httpCode = response.code();
+
+                    Message msg = Message.obtain();
+                    msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                    msg.obj = res;
+                    handler.sendMessage(msg);
+                    closeDialog();
+                }
+
+                @Override
+                public void onFailure(Call<ResponseNewsData> call, Throwable t) {
+                    handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                    closeDialog();
+                }
+            });
+        } else {
+            new DialogUtiils().showDialog(context, context.getString(R.string.network_not_avaiable), false);
+        }
+    }
+
+    public void getNewsDetail(Context context, long id, final Handler handler)
+    {
+        if(NetworkUtils.isNetworkAvailable(context)) {
+            showProgressDialog(context);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(HOST_NAME)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            ICallServices service = retrofit.create(ICallServices.class);
+
+//            String token = "";
+//
+//            if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+//                token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+//            }
+
+            Call<ResponseNewsDetailData> response = service.getNewsDetail(id);
+
+            response.enqueue(new Callback<ResponseNewsDetailData>() {
+                @Override
+                public void onResponse(Call<ResponseNewsDetailData> call, Response<ResponseNewsDetailData> response) {
+                    ResponseNewsDetailData res = response.body();
+                    if (res == null) {
+                        res = new ResponseNewsDetailData();
+                        res.code = APIConstants.REQUEST_FAILED;
+                    }
+                    res.httpCode = response.code();
+
+                    Message msg = Message.obtain();
+                    msg.what = APIConstants.HANDLER_REQUEST_SERVER_SUCCESS;
+                    msg.obj = res;
+                    handler.sendMessage(msg);
+                    closeDialog();
+                }
+
+                @Override
+                public void onFailure(Call<ResponseNewsDetailData> call, Throwable t) {
+                    handler.sendEmptyMessage(APIConstants.HANDLER_REQUEST_SERVER_FAILED);
+                    closeDialog();
+                }
+            });
+        } else {
+            new DialogUtiils().showDialog(context, context.getString(R.string.network_not_avaiable), false);
+        }
+    }
 }

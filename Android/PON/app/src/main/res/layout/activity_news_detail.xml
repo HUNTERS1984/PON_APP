@@ -14,11 +14,27 @@
         android:layout_height="2dp"
         android:background="@color/dark_grey" />
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:scaleType="fitXY"
-        android:src="@color/light_grey"/>
+        android:layout_height="@dimen/slide_image_height"
+        android:id="@+id/rl_news_photo">
+
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/pager_news_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/page_indicator_news_photo"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
@@ -31,11 +47,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="タイトルが入ります"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
-        android:id="@+id/tv_news_title"/>
+        android:id="@+id/tv_news_cat"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -46,11 +61,10 @@
         <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="タイトルが入ります"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/text_short_des"
-            android:id="@+id/tv_news_short_title"/>
+            android:id="@+id/tv_news_title"/>
 
         <com.hunters.pon.customs.CustomTextView
             android:layout_width="wrap_content"
@@ -77,9 +91,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/shop_example_text"
         android:textSize="14sp"
         android:textColor="@color/text_short_des"
-        android:id="@+id/tv_news_description"/>
+        android:id="@+id/tv_news_description" />
 
 </LinearLayout>

@@ -268,7 +268,9 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
 
         Picasso.with(mContext).load(shop.getmShopCat().getmIcon())
                 .fit()
-                .centerCrop().into(mIvShopLogo);
+                .noFade()
+                .centerCrop()
+                .into(mIvShopLogo);
 
         mTvTitleShopName.setText(shop.getmShopName());
         mTvShopName.setText(shop.getmShopName());

@@ -7,12 +7,14 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
 import com.hunters.pon.activities.NewsDetailActivity;
-import com.hunters.pon.models.NewsModel;
+import com.hunters.pon.api.ResponseNews;
 import com.hunters.pon.utils.Constants;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,10 +23,10 @@ import java.util.List;
  */
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.NewsRecyclerViewHolders> {
 
-    private List<NewsModel> mListNews;
+    private List<ResponseNews> mListNews;
     private Context mContext;
 
-    public NewsRecyclerViewAdapter(Context context, List<NewsModel> lstNews) {
+    public NewsRecyclerViewAdapter(Context context, List<ResponseNews> lstNews) {
         this.mListNews = lstNews;
         this.mContext = context;
     }
@@ -39,12 +41,24 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
 
     @Override
     public void onBindViewHolder(NewsRecyclerViewHolders holder, int position) {
-        holder.mNewsTitle.setText(mListNews.get(position).getmTitle());
-        String description = mListNews.get(position).getmDescriprion();
-        String des = description.substring(0, (description.length() < 71?description.length()-1:70)) + "...<font color=#18C0D4>もっと見る</font>";
-        holder.mNewsDescription.setText(Html.fromHtml(des));
-        holder.mNewsShortTitle.setText(mListNews.get(position).getmShortTitle());
+        ResponseNews news = mListNews.get(position);
+        holder.mNewsCat.setText(news.getmCategory().getmName());
+        String introduction = news.getmIntroduction();
+        String intro = introduction.substring(0, (introduction.length() < 51?introduction.length()-1:50)) + "...<font color=#18C0D4>もっと見る</font>";
+        holder.mNewsIntroduction.setText(Html.fromHtml(intro));
+        holder.mNewsTitle.setText(news.getmTitle());
+        Picasso.with(mContext)
+                .load(news.getmUrlImage())
+                .noFade()
+                .fit()
+                .into(holder.mNewsImage);
         holder.mView.setTag(position);
+    }
+
+    public void updateData(List<ResponseNews> lstNews)
+    {
+        mListNews = lstNews;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -54,26 +68,28 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
 
     public class NewsRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
+        public TextView mNewsCat;
         public TextView mNewsTitle;
-        public TextView mNewsShortTitle;
-        public TextView mNewsDescription;
+        public TextView mNewsIntroduction;
+        public ImageView mNewsImage;
         public View mView;
 
         public NewsRecyclerViewHolders(View itemView) {
             super(itemView);
             mView = itemView;
             itemView.setOnClickListener(this);
-            mNewsTitle = (TextView)itemView.findViewById(R.id.tv_news_title);
-            mNewsShortTitle = (TextView) itemView.findViewById(R.id.tv_news_short_title);
-            mNewsDescription = (TextView) itemView.findViewById(R.id.tv_news_description);
+            mNewsCat = (TextView)itemView.findViewById(R.id.tv_news_cat);
+            mNewsTitle = (TextView) itemView.findViewById(R.id.tv_news_title);
+            mNewsIntroduction = (TextView) itemView.findViewById(R.id.tv_news_introduction);
+            mNewsImage = (ImageView) itemView.findViewById(R.id.iv_news_image);
         }
 
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
-
+            ResponseNews news = mListNews.get(pos);
             Intent iNewsDetail = new Intent(mContext, NewsDetailActivity.class);
-            iNewsDetail.putExtra(Constants.EXTRA_ID, 1);
+            iNewsDetail.putExtra(Constants.EXTRA_ID, news.getmId());
             mContext.startActivity(iNewsDetail);
         }
     }

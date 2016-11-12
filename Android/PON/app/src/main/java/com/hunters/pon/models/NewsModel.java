@@ -1,34 +1,60 @@
 package com.hunters.pon.models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 /**
  * Created by LENOVO on 9/18/2016.
  */
 public class NewsModel {
+
+    @SerializedName("id")
+    private long mId;
+
+    @SerializedName("title")
     private String mTitle;
-    private String mShortTitle;
-    private String mDescriprion;
+
+    @SerializedName("introduction")
+    private String mIntroduction;
+
+    @SerializedName("image_url")
+    private String mUrlImage;
+
+    @SerializedName("created_at")
+    private String mTime;
+
+    @SerializedName("description")
+    private String mDescription;
+
+    @SerializedName("news_photo_url")
+    private List<String> mLstNewPhotos;
+
+    public long getmId() {
+        return mId;
+    }
 
     public String getmTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public String getmIntroduction() {
+        return mIntroduction;
     }
 
-    public String getmShortTitle() {
-        return mShortTitle;
+    public String getmUrlImage() {
+        return mUrlImage;
     }
 
-    public void setmShortTitle(String mShortTitle) {
-        this.mShortTitle = mShortTitle;
+    public String getmTime() {
+        return mTime;
     }
 
-    public String getmDescriprion() {
-        return mDescriprion;
+    public String getmDescription() {
+        return mDescription;
     }
 
-    public void setmDescriprion(String mDescriprion) {
-        this.mDescriprion = mDescriprion;
+    public List<String> getmLstNewPhotos() {
+        return mLstNewPhotos;
     }
 }

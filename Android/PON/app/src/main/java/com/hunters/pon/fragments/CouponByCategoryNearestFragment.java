@@ -121,6 +121,11 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
         new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(page + 1), mHanlderGetCouponByCategory, false);
     }
 
+    @Override
+    public void refreshData(){
+        loadData();
+    }
+
     private void checkPermission(){
         if (!PermissionUtils.newInstance().isGrantLocationPermission(getActivity())) {
             PermissionUtils.newInstance().requestLocationPermission(getActivity());
