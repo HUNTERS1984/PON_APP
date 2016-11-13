@@ -118,7 +118,9 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
 
     @Override
     public void onLoadMoreData(int page) {
-        new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(page + 1), mHanlderGetCouponByCategory, false);
+        if(mUserLocation != null) {
+            new CouponAPIHelper().getCouponByCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(page + 1), mHanlderGetCouponByCategory, false);
+        }
     }
 
     @Override

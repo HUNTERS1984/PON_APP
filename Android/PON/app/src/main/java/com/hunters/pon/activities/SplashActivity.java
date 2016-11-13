@@ -81,6 +81,7 @@ public class SplashActivity extends AppCompatActivity {
                     }
                 } else {
                     startActivity(iLoginScreen);
+                    finish();
                 }
 
             }
@@ -93,10 +94,9 @@ public class SplashActivity extends AppCompatActivity {
                     Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                     iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(iMainScreen);
-                    finish();
-                } else {
-                    finish();
+
                 }
+                finish();
             }
         });
     }

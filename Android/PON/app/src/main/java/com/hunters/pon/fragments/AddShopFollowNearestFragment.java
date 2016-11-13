@@ -139,7 +139,9 @@ public class AddShopFollowNearestFragment extends BaseShopFollowFragment impleme
 
     @Override
     public void onLoadMoreData(int page) {
-        new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(page + 1), mHanlderShopFollow, false);
+        if(mUserLocation != null) {
+            new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_NEAREST_COUPON, mCatId, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(page + 1), mHanlderShopFollow, false);
+        }
     }
 
     private void checkPermission(){

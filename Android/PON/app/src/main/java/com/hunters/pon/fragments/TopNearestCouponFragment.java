@@ -147,7 +147,9 @@ public class TopNearestCouponFragment extends BaseFragment implements
                             ((MainTopActivity)activity).checkToUpdateButtonLogin();
                         }
                     }
-                    new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, "", "", String.valueOf(mNextPage), mHanlderGetCoupon);
+                    if(mUserLocation != null) {
+                        new CouponAPIHelper().getCouponMainTop(getActivity(), Constants.TYPE_NEAREST_COUPON, String.valueOf(mUserLocation.getLatitude()), String.valueOf(mUserLocation.getLongitude()), String.valueOf(mNextPage), mHanlderGetCoupon);
+                    }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     new DialogUtiils().showDialog(getActivity(), getString(R.string.connection_failed), false);
