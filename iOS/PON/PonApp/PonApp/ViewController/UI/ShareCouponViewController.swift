@@ -43,7 +43,7 @@ class ShareCouponViewController: BaseViewController {
         self.twitterButton.setImage(UIImage(named: "coupon_twitter_button"), for: UIControlState())
         self.lineButton.setImage(UIImage(named: "coupon_line_button"), for: UIControlState())
         self.qrCodeContainView.alpha = 0.0
-        self.lineButton.isHidden = true
+        //self.lineButton.isHidden = true
         self.displayQRCode()
     }
 
@@ -81,7 +81,7 @@ extension ShareCouponViewController {
     }
     
     @IBAction func lineButtonPressed(_ sender: AnyObject) {
-        LineLogin.shared.loginInApp(self)
+        self.shareLINE()
     }
     
 }
@@ -93,6 +93,30 @@ extension ShareCouponViewController {
         if let _ = code {
             self.qrCodeDisplayImageView.image = QRCode.generateImage(code!, avatarImage: nil, avatarScale: 0.3)
         }
+    }
+    
+    fileprivate func shareLINE() {
+        self.view.endEditing(true)
+        if SNSShare.isLineInstalled() {
+            let images = [UIImage]()
+            let urls = [
+                URL(string: "http://pon.cm/")!,
+                ]
+            let shareText = "Giảm giá 20% cho tất cả các sản phẩm tại PON trong hai ngày cuối tuần"
+            
+            let data = SNSShareData(text: shareText, images: images, urls: urls)
+            SNSShare.post(type: .line, data: data, controller: self, completion: { result in
+                switch result {
+                case .success:
+                    print("Posted!!")
+                case .failure(let et):
+                    print(et)
+                }
+            })
+        }else {
+            UIAlertController.present(title: "", message: InstallLine, actionTitles: [OK])
+        }
+        
     }
     
 }

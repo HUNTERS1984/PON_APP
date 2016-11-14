@@ -196,6 +196,7 @@
 		FA76A9E01DA34D8D00893584 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9DF1DA34D8D00893584 /* QRCode.swift */; };
 		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
 		FA81EE001DD94CA700992B0A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81EDFF1DD94CA700992B0A /* News.swift */; };
+		FA81EE481DD9AB3200992B0A /* SNSShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81EE471DD9AB3200992B0A /* SNSShare.swift */; };
 		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
 		FA9570F11DACA2C700C20301 /* MainVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F01DACA2C700C20301 /* MainVCNotification.swift */; };
 		FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */; };
@@ -553,6 +554,7 @@
 		FA76A9DF1DA34D8D00893584 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		FA81EDFF1DD94CA700992B0A /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		FA81EE471DD9AB3200992B0A /* SNSShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSShare.swift; sourceTree = "<group>"; };
 		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FA9570F01DACA2C700C20301 /* MainVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCNotification.swift; sourceTree = "<group>"; };
 		FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 		4A85F2831D9ABCDD00733161 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FA81EE471DD9AB3200992B0A /* SNSShare.swift */,
 				FA46C4571DB0BA93004E0A81 /* HiraginoSansUIFont.swift */,
 				4A85F2841D9ABCDD00733161 /* FacebookLogin.swift */,
 				4A85F2851D9ABCDD00733161 /* LineLogin.swift */,
@@ -1858,6 +1861,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA81EE481DD9AB3200992B0A /* SNSShare.swift in Sources */,
 				4A85F3801D9ABCDD00733161 /* AppDelegate.swift in Sources */,
 				FA46C4281DB08CDB004E0A81 /* ShareCouponManager.swift in Sources */,
 				4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */,

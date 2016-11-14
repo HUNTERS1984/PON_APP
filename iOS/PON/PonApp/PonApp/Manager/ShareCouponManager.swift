@@ -31,7 +31,7 @@ class ShareCouponManager: NSObject {
             }
             viewControllerToPresent.present(controller!, animated: true)
         }else {
-            UIAlertController.present(title: "Alert", message: "Facebook Account is not available on your device", actionTitles: ["OK"])
+            UIAlertController.present(title: "Alert", message: FBAcountNotAvailable, actionTitles: [OK])
         }
     }
     
@@ -46,7 +46,7 @@ class ShareCouponManager: NSObject {
             }
             viewControllerToPresent.present(controller!, animated: true)
         }else {
-            UIAlertController.present(title: "Alert", message: "Twitter Account is not available on your device", actionTitles: ["OK"])
+            UIAlertController.present(title: "Alert", message: TwitterAccountNotAvailable, actionTitles: [OK])
         }
     }
     
@@ -79,14 +79,13 @@ class ShareCouponManager: NSObject {
         }
         else {
             // alert displayed when the instagram application is not available in the device
-            UIAlertController.present(title: kAlertViewTitle, message: kAlertViewMessage, actionTitles: ["OK"])
+            UIAlertController.present(title: kAlertViewTitle, message: kAlertViewMessage, actionTitles: [OK])
         }
     }
     
     //MARK: LINE
     func shareLine() {
-        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"line://msg/text/%@", [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
-        UIApplication.shared.openURL(URL(string: "line://msg/text/con chim non")!)
+
     }
 
 }
