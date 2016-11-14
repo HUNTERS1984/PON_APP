@@ -43,6 +43,7 @@ class ShareCouponViewController: BaseViewController {
         self.twitterButton.setImage(UIImage(named: "coupon_twitter_button"), for: UIControlState())
         self.lineButton.setImage(UIImage(named: "coupon_line_button"), for: UIControlState())
         self.qrCodeContainView.alpha = 0.0
+        self.lineButton.isHidden = true
         self.displayQRCode()
     }
 

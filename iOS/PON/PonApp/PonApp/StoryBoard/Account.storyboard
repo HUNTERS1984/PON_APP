@@ -458,6 +458,12 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="NQi-b5-Wg3" secondAttribute="trailing" constant="7" id="vxN-YK-2Qw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="pOb-W2-X90" id="HcG-RP-HcI"/>
+                                            <outlet property="iconImageView" destination="4gW-Ci-zvf" id="ZVw-nd-ubh"/>
+                                            <outlet property="titleLabel" destination="NQi-b5-Wg3" id="bFk-zV-lIG"/>
+                                            <outlet property="typeLabel" destination="yBF-4e-0ap" id="maD-7y-2fs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

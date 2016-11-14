@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var iconImageView: CircleImageView!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: ReadMoreTextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    var news: News! {
+        didSet {
+            self.setDataForCell(self.news)
+        }
+    }
+    
+    func setDataForCell(_ news: News) {
+        iconImageView.af_setImage(withURL: URL(string: news.imageUrl)!)
+        titleLabel.text = news.title
+        descriptionLabel.text = news.introduction
     }
 
 }
