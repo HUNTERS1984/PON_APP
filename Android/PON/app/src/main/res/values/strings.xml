@@ -49,6 +49,7 @@
     <string name="new_member_registration">が新規会員登録</string>
     <string name="start_free">無料ではじめる</string>
     <string name="login">ログイン</string>
+    <string name="logout">ログアウト</string>
 
     <!--Profile screen -->
     <string name="follow">フォロー</string>

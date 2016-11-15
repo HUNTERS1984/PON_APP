@@ -81,7 +81,6 @@ public class SplashActivity extends AppCompatActivity {
                     }
                 } else {
                     startActivity(iLoginScreen);
-                    finish();
                 }
 
             }
@@ -96,7 +95,6 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(iMainScreen);
 
                 }
-                finish();
             }
         });
     }

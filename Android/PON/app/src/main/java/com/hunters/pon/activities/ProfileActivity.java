@@ -56,6 +56,7 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         mListMenuNames.add(getString(R.string.specific_trade));
         mListMenuNames.add(getString(R.string.contact_us));
         mListMenuNames.add(getString(R.string.post_hope_of_shop_like));
+        mListMenuNames.add(getString(R.string.logout));
 
         String token = CommonUtils.getToken(mContext);
 

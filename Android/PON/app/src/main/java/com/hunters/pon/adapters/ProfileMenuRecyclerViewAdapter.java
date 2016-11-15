@@ -1,5 +1,6 @@
 package com.hunters.pon.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.PrivacyPolicyActivity;
 import com.hunters.pon.activities.SpecificTradeActivity;
+import com.hunters.pon.activities.SplashActivity;
 
 import java.util.List;
 
@@ -70,6 +72,12 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                     break;
                 case 2:
                     mContext.startActivity(new Intent(mContext, SpecificTradeActivity.class));
+                    break;
+                case 5://Logout
+                    Intent iLogout = new Intent(mContext, SplashActivity.class);
+                    iLogout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    mContext.startActivity(iLogout);
+                    ((Activity)mContext).finish();
                     break;
             }
         }
