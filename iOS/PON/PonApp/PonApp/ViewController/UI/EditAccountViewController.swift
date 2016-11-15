@@ -64,17 +64,17 @@ extension EditAccountViewController {
         self.validInfomation(username, gender: gender, address: address) { (successed: Bool, message: String) in
             if successed {
                 self.showHUD()
-                ApiRequest.updateUserProfile(username, gender:self.getGender(gender), address: address, avatar: avatar, completion: { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-                    self.hideHUD()
+                ApiRequest.updateUserProfile(username, gender:self.getGender(gender), address: address, avatar: avatar, completion: { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self?.hideHUD()
                     if let _ = error {
                         
                     }else {
                         if result?.code == SuccessCode {
                             UserDataManager.setUserData(result?.data)
                             UserDataManager.shared.avatarImage = avatar
-                            self.navigationController!.popViewController(animated: true)
+                            self?.navigationController!.popViewController(animated: true)
                         }else {
-                            self.presentAlert(message: (result?.message)!)
+                            self?.presentAlert(message: (result?.message)!)
                         }
                     }
                 })

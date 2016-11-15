@@ -27,3 +27,7 @@ let NotConnectInternet                          = "ネットワークがなく�
 let LikeCouponConfirmation                      = "このクーポンを”like”にしますか。"//Bạn có chắc bạn muốn like coupon này
 let AccessTokenExpiry                           = "Access Token 制限時間になります。再度ログインしてください。"
 let FollowShopConfirmation                      = "このショップをフォローにしますか。"//Bạn có chắc bạn muốn follow shop này
+let FBAcountNotAvailable                        = "貴方のデバイスには Facebook が適用していない。"//Facebook Account is not available on your device
+let TwitterAccountNotAvailable                  = "貴方のデバイスには Twitter が適用していない。"//Twitter Account is not available on your device
+let InstallInstagram                            = "続けるように Instagram をインストールしてください。"//Vui lòng cài ứng dụng instagram để tiếp tục
+let InstallLine                                 = "続けるように Line をインストールしてください。"//Vui lòng cài ứng dụng Line để tiếp tục

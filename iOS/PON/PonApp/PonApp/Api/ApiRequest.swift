@@ -209,5 +209,18 @@ public struct ApiRequest {
         let endpoint = RequestUseCoupon + couponId
         ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }
+    
+    static func getNews(_ pageSize:Int = DefaultPageSize, pageIndex: Int, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "page_size": "\(pageSize)",
+            "page_index": "\(pageIndex)"
+        ]
+        ApiManager.processRequest(GetNews, method: .GET, parameters: parameters, hasAuth:true, completion: completion)
+    }
+    
+    static func getNewsDetails(_ newsId: Float, completion: @escaping (ApiCompletion)) {
+        let endpoint = String(format:GetNewsDetails, Int(newsId))
+        ApiManager.processRequest(endpoint, method: .GET, hasAuth:true, completion: completion)
+    }
 
 }

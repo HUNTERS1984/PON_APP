@@ -195,6 +195,8 @@
 		FA76A9D81DA3460000893584 /* DKPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9C81DA3460000893584 /* DKPermissionView.swift */; };
 		FA76A9E01DA34D8D00893584 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A9DF1DA34D8D00893584 /* QRCode.swift */; };
 		FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */; };
+		FA81EE001DD94CA700992B0A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81EDFF1DD94CA700992B0A /* News.swift */; };
+		FA81EE481DD9AB3200992B0A /* SNSShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81EE471DD9AB3200992B0A /* SNSShare.swift */; };
 		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
 		FA9570F11DACA2C700C20301 /* MainVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F01DACA2C700C20301 /* MainVCNotification.swift */; };
 		FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */; };
@@ -551,6 +553,8 @@
 		FA76A9C81DA3460000893584 /* DKPermissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKPermissionView.swift; sourceTree = "<group>"; };
 		FA76A9DF1DA34D8D00893584 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		FA81EDFF1DD94CA700992B0A /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		FA81EE471DD9AB3200992B0A /* SNSShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSShare.swift; sourceTree = "<group>"; };
 		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FA9570F01DACA2C700C20301 /* MainVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCNotification.swift; sourceTree = "<group>"; };
 		FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
@@ -804,6 +808,7 @@
 		4A85F2831D9ABCDD00733161 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FA81EE471DD9AB3200992B0A /* SNSShare.swift */,
 				FA46C4571DB0BA93004E0A81 /* HiraginoSansUIFont.swift */,
 				4A85F2841D9ABCDD00733161 /* FacebookLogin.swift */,
 				4A85F2851D9ABCDD00733161 /* LineLogin.swift */,
@@ -906,6 +911,7 @@
 				4A85F2A81D9ABCDD00733161 /* CouponListData.swift */,
 				4A85F2A91D9ABCDD00733161 /* Shop.swift */,
 				4AA865631DA0F47B00A09831 /* Category.swift */,
+				FA81EDFF1DD94CA700992B0A /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1855,6 +1861,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA81EE481DD9AB3200992B0A /* SNSShare.swift in Sources */,
 				4A85F3801D9ABCDD00733161 /* AppDelegate.swift in Sources */,
 				FA46C4281DB08CDB004E0A81 /* ShareCouponManager.swift in Sources */,
 				4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */,
@@ -1875,6 +1882,7 @@
 				FA7A7DE41D9B5F20008A817B /* UserDataManager.swift in Sources */,
 				FA76A9D61DA3460000893584 /* DKAssetGroupGridLayout.swift in Sources */,
 				4A85F4271D9ABCDD00733161 /* BaseNavigationController.swift in Sources */,
+				FA81EE001DD94CA700992B0A /* News.swift in Sources */,
 				FA76A9A81DA3453600893584 /* ImageSlideshowItem.swift in Sources */,
 				FA76A9CB1DA3460000893584 /* DKGroupDataManager.swift in Sources */,
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
@@ -2130,7 +2138,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9516e93-4621-41a1-ba2e-1391b26f2860";
+				PROVISIONING_PROFILE = "acd719d6-7232-468a-a756-cf5e6fbbe92e";
 				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";

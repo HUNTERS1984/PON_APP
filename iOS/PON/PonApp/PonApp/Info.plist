@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1014</string>
+	<string>1016</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -79,6 +79,7 @@
 		<string>lineauth</string>
 		<string>line3rdp.$(APP_IDENTIFIER)</string>
 		<string>instagram</string>
+		<string>line</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
