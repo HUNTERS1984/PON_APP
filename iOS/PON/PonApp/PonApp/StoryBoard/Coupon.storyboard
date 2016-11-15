@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-vM-f2C" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1659"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1655"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arB-n3-ct6" userLabel="Header View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
@@ -215,16 +215,16 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明が入ります 説明がhg" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-Bt-8rA" userLabel="Info Label" customClass="PaddingLabel" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="345" width="335" height="28"/>
+                                                <rect key="frame" x="20" y="345" width="335" height="24"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.39215686274509803" green="0.43137254901960786" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-RS-uS6" userLabel="Map View" customClass="MapView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="403" width="375" height="140"/>
+                                                <rect key="frame" x="0.0" y="399" width="375" height="140"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94o-0j-5hZ" userLabel="Action View">
-                                                <rect key="frame" x="0.0" y="543" width="375" height="195"/>
+                                                <rect key="frame" x="0.0" y="539" width="375" height="195"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-bg-zen" userLabel="Location View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -339,7 +339,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-zt-gcD" userLabel="Photo Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="753" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="749" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このクーポンのユーザー投稿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSt-kF-V8e" userLabel="Photo Title Label">
                                                         <rect key="frame" x="20" y="0.0" width="335" height="50"/>
@@ -362,7 +362,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zxh-As-GZH" customClass="AlbumCollectionView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="803" width="375" height="375"/>
+                                                <rect key="frame" x="0.0" y="799" width="375" height="375"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="375" id="LhT-D2-loi"/>
@@ -376,7 +376,7 @@
                                                 <cells/>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-fP-qKO" userLabel="Similar Title View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1183" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1179" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このクーポンのユーザー投稿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IH-2q-Yfj" userLabel="Photo Title Label">
                                                         <rect key="frame" x="20" y="0.0" width="335" height="50"/>
@@ -399,7 +399,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-Tz-ZAZ" userLabel="Similar Coupon Collection View">
-                                                <rect key="frame" x="0.0" y="1233" width="375" height="390"/>
+                                                <rect key="frame" x="0.0" y="1229" width="375" height="390"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="390" id="OSE-Cg-7Wp"/>

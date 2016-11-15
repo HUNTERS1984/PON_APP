@@ -13,6 +13,7 @@ import TwitterKit
 class SplashViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var loginActionView: UIView!
     @IBOutlet weak var actionView: UIView!
     @IBOutlet weak var sloganLabel: UILabel!
@@ -39,6 +40,7 @@ class SplashViewController: BaseViewController {
         super.setUpUserInterface()
         self.backgroundImageView.image = UIImage(named: "splash_background")
         self.view.sendSubview(toBack: self.backgroundImageView)
+        self.backButton.setImage(UIImage(named: "nav_back"), for: UIControlState())
         self.facebookButton.setImage(UIImage(named: "splash_button_facebook"), for: UIControlState())
         self.twitterButton.setImage(UIImage(named: "splash_button_twitter"), for: UIControlState())
         self.mailButton.setImage(UIImage(named: "splash_button_email"), for: UIControlState())
@@ -47,6 +49,7 @@ class SplashViewController: BaseViewController {
         
         self.loginActionView.alpha = 0
         self.actionView.alpha = 0
+        self.backButton.alpha = 0
         self.authorizeToken()
     }
     
@@ -54,6 +57,12 @@ class SplashViewController: BaseViewController {
 
 //MARK: - IBAction
 extension SplashViewController {
+    
+    @IBAction override func backButtonPressed(_ sender: AnyObject) {
+        self.backButton.alpha = 0
+        self.actionView.fadeIn(0.5)
+        self.loginActionView.fadeOut(0.5)
+    }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
         FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
@@ -97,6 +106,7 @@ extension SplashViewController {
     }
     
     @IBAction func loginActionButtonPressed(_ sender: AnyObject) {
+        self.backButton.alpha = 1.0
         self.actionView.fadeOut(0.5)
         self.loginActionView.fadeIn(0.5)
     }

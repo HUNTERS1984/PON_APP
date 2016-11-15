@@ -93,7 +93,8 @@ extension AccountViewController {
             "プライバシーポリシー",//privacy policy
             "特定商取引",//specified trade
             "お問い合わせ",//contact us
-            "掲載希望のショップ様"//news
+            "掲載希望のショップ様",//news
+            "ログアウト"//logout
         ]
     }
     
@@ -121,6 +122,16 @@ extension AccountViewController {
                 self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
             }
         }
+    }
+    
+    fileprivate func logout() {
+        ApiRequest.signOut { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        }
+        UserDataManager.clearUserData()
+        Defaults[.token] = nil
+        let vc = SplashViewController.instanceFromStoryBoard("Main")
+        let nav = BaseNavigationController(rootViewController: vc!)
+        self.appDelegate.window?.rootViewController = nav
     }
     
 }
@@ -162,6 +173,9 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         case 3:
             break;
         case 4:
+            break;
+        case 5:
+            self.logout()
             break;
         default:
             break;
