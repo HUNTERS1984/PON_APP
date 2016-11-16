@@ -27,7 +27,7 @@ class MainCouponContentViewController: BaseViewController {
     var canLoadMore: Bool = true
     var currentPage: Int = 1
     var totalPage: Int!
-    var nextPage: Int!
+    var nextPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()

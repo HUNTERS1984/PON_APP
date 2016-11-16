@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,8 +30,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="sYn-Fa-Upu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="222" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="61g-V7-cyA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="667" id="HCs-MC-OAG"/>
@@ -82,25 +87,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fet-6h-Ram" userLabel="Header Content View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dpe-62-2iC">
+                                        <rect key="frame" x="15" y="13.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="3hN-y9-baK"/>
                                             <constraint firstAttribute="height" constant="45" id="QAm-je-9MZ"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-mF-mUD">
+                                        <rect key="frame" x="350" y="28" width="10" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="8YU-Ht-ObW"/>
                                             <constraint firstAttribute="width" constant="10" id="nad-LM-oTt"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在地付近でさがす" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-Fa-T0e">
+                                        <rect key="frame" x="80" y="0.0" width="264" height="72"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXm-ak-pyK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                         <connections>
                                             <action selector="locationButtonPressed:" destination="8jd-bA-9dg" eventType="touchUpInside" id="3zb-rq-EwI"/>
                                         </connections>
@@ -124,8 +134,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V65-kS-5B3" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g5-ZJ-kDx">
+                                        <rect key="frame" x="15" y="0.0" width="352" height="40"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="13"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -141,27 +153,31 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="74G-w9-8lz">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponTypeTableViewCell" rowHeight="72" id="MOz-q2-uzW" customClass="CouponTypeTableViewCell" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOz-q2-uzW" id="Z5x-gY-J7H">
-                                            <frame key="frameInset" width="375" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="0dB-zR-Vp8">
+                                                    <rect key="frame" x="350" y="28.5" width="10" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="XZB-RO-9WV"/>
                                                         <constraint firstAttribute="height" constant="18" id="v3Z-qX-CgQ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-3p-fh8">
+                                                    <rect key="frame" x="80" y="0.0" width="264" height="71.5"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSansGB-W6" family="Hiragino Sans GB" pointSize="17"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pDD-AW-LHB" userLabel="Thumb Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="13.5" width="45" height="45"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="mjr-w2-YVe"/>
@@ -215,25 +231,6 @@
             </objects>
             <point key="canvasLocation" x="-62.5" y="1304.5"/>
         </scene>
-        <!--Add Shop View Controller-->
-        <scene sceneID="2Wa-Wk-sJ0">
-            <objects>
-                <viewController storyboardIdentifier="AddShopViewController" id="eUt-lG-Ade" customClass="AddShopViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TZB-ya-kKW"/>
-                        <viewControllerLayoutGuide type="bottom" id="cl9-bw-haF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0MR-6R-lyF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ce-fR-Qgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-62.5" y="2033.5"/>
-        </scene>
         <!--Home Map View Controller-->
         <scene sceneID="qVa-7n-78v">
             <objects>
@@ -247,11 +244,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-ZZ-F4K" userLabel="Map View" customClass="MapView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-Mj-a9C" userLabel="Offer Content View">
+                                <rect key="frame" x="0.0" y="471" width="375" height="196"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Kk-i6-PHN">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="186"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="2" id="WSw-9L-Jbv">
                                             <size key="itemSize" width="50" height="50"/>
@@ -275,8 +275,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Xz-Riv" userLabel="Menu View">
+                                <rect key="frame" x="295" y="351" width="60" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bz-gB-eRe" userLabel="Location Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="SHu-mi-AbH"/>
                                             <constraint firstAttribute="width" constant="60" id="rAo-I5-TM6"/>
@@ -286,6 +288,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vev-fz-Koh" userLabel="Menu Button">
+                                        <rect key="frame" x="0.0" y="70" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="0be-Im-AIy"/>
                                             <constraint firstAttribute="height" constant="60" id="nzN-KM-FAQ"/>
@@ -295,6 +298,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p44-Wh-30y" userLabel="Hide Offer Button">
+                                        <rect key="frame" x="0.0" y="70" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="fa5-rn-Lym"/>
                                             <constraint firstAttribute="width" constant="60" id="sdg-Nl-AN1"/>
@@ -362,16 +366,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uHy-8T-Y1n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShopCountTableViewCell" rowHeight="72" id="ku1-2S-HPc" customClass="ShopCountTableViewCell" customModule="PonApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ku1-2S-HPc" id="rcb-68-u7w">
-                                            <frame key="frameInset" width="375" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-10-yYi" userLabel="Thumb Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="13.5" width="45" height="45"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="lS2-tI-2Vl"/>
@@ -379,14 +385,17 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-ec-eVn">
+                                                    <rect key="frame" x="350" y="28" width="10" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="Mq6-zz-far"/>
                                                         <constraint firstAttribute="height" constant="18" id="xpn-jd-hMd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo7-FW-9Xm" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="298" y="21" width="30" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-dR-rIy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="11"/>
                                                             <color key="textColor" red="0.0" green="0.792156862745098" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -417,6 +426,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="c" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-YG-R9f">
+                                                    <rect key="frame" x="80" y="0.0" width="198" height="71.5"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -465,63 +475,10 @@
             </objects>
             <point key="canvasLocation" x="777.5" y="1304.5"/>
         </scene>
-        <!--Add Shop Content View Controller-->
-        <scene sceneID="Llc-D6-HyI">
-            <objects>
-                <viewController storyboardIdentifier="AddShopContentViewController" id="3nP-2R-HJD" customClass="AddShopContentViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lEt-k5-Tyy"/>
-                        <viewControllerLayoutGuide type="bottom" id="LS3-xB-Jpv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="k4E-1T-5VR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTQ-dL-Wh3">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="DZs-G4-MN1">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="8" minY="5" maxX="8" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cE1-Ox-Rqg">
-                                        <rect key="frame" x="8" y="5" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="3nP-2R-HJD" id="6Y9-ZU-U4J"/>
-                                    <outlet property="delegate" destination="3nP-2R-HJD" id="4VK-li-psv"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="YTQ-dL-Wh3" secondAttribute="trailing" id="Cl8-Hh-50z"/>
-                            <constraint firstItem="YTQ-dL-Wh3" firstAttribute="top" secondItem="k4E-1T-5VR" secondAttribute="top" id="P7N-hx-dbS"/>
-                            <constraint firstItem="LS3-xB-Jpv" firstAttribute="top" secondItem="YTQ-dL-Wh3" secondAttribute="bottom" id="QHp-Ni-N21"/>
-                            <constraint firstItem="YTQ-dL-Wh3" firstAttribute="leading" secondItem="k4E-1T-5VR" secondAttribute="leading" id="QRQ-Pt-kVj"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <connections>
-                        <outlet property="collectionView" destination="YTQ-dL-Wh3" id="IT7-sX-4TF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ay-wp-h9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="377.5" y="2033.5"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="arrow_right.png" width="10" height="17"/>
-        <image name="icon_location.png" width="45" height="45"/>
+        <image name="arrow_right.png" width="9" height="16"/>
+        <image name="icon_location.png" width="46" height="46"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
