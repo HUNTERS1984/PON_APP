@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.hunters.pon.activities.ProfileEditActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -239,7 +242,15 @@
                 android:layout_marginBottom="5dp"
                 android:visibility="gone"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_share_instagram"
+            android:id="@+id/rl_instagram_login"/>
     </LinearLayout>
+    </ScrollView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"

@@ -1,2 +1,3 @@
-include ':app', ':ViewPagerIndiicator'
+include ':app', ':ViewPagerIndiicator', ':AndroidInstagramOauth'
 project(':ViewPagerIndiicator').projectDir = new File('app/libs/ViewPagerIndiicator')
+project(':AndroidInstagramOauth').projectDir = new File('app/libs/androidinstagramoauth')

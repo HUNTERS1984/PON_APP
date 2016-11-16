@@ -20,10 +20,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseUserData;
 import com.hunters.pon.api.ResponseUserProfileData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.UserModel;
@@ -33,6 +37,12 @@ import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ImageUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Picasso;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -43,14 +53,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.dina.oauth.instagram.InstagramApp;
+
 public class ProfileEditActivity extends BaseActivity implements OnLoadDataListener,
         ActivityCompat.OnRequestPermissionsResultCallback {
+
+    private static final String INSTAGRAM_CLIENT_ID = "";
+    private static final String INSTAGRAM_CLIENT_SECRET = "";
+    private static final String INSTAGRAM_CALLBACK_URL = "";
 
     private static final int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     private static final int TAKE_PHOTO = 0, GALLERY = 1;
 
     private Spinner mSpnSex, mSpnPrefecture;
     private ImageView mIvUserPhoto, mIvDeleteUsername, mIvDeleteEmail;
+
+    private CallbackManager mFacebookCallbackManager;
+    private LoginButton mFacebookSignInButton;
+    private TwitterLoginButton mTwitterSignInButton;
+    private InstagramApp mApp;
 
     private EditText mEdtUserName, mEdtEmail;
     private Button mBtnUpdateProfile;
@@ -63,8 +84,8 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
 
         setContentView(R.layout.activity_edit_profile);
         mContext = this;
@@ -72,6 +93,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         super.onCreate(savedInstanceState);
         setTitle(getResources().getString(R.string.edit_profile));
 
+        mFacebookCallbackManager = CallbackManager.Factory.create();
         mUser = CommonUtils.getProfile(mContext);//UserModel) getIntent().getSerializableExtra(Constants.EXTRA_USER);
         initLayout();
     }
@@ -115,6 +137,12 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 onSelectFromGalleryResult(data);
             else if (requestCode == REQUEST_CAMERA)
                 onCaptureImageResult(data);
+        }
+
+        mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+        if(TwitterAuthConfig.DEFAULT_AUTH_REQUEST_CODE == requestCode) {
+            mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -244,7 +272,139 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         mSpnPrefecture.setAdapter(prefectureAdapter);
 
         popularUI(mUser);
+
+        //Social SignIn
+
+        View vFacebookSignIn = findViewById(R.id.rl_facebook_login);
+        View vTwitterSignIn = findViewById(R.id.rl_twitter_login);
+        View vInstagramSignIn = findViewById(R.id.rl_instagram_login);
+
+        vFacebookSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFacebookSignInButton.performClick();
+            }
+        });
+
+        vTwitterSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTwitterSignInButton.performClick();
+            }
+        });
+
+        vInstagramSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mApp.hasAccessToken()) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(
+                            mContext);
+                    builder.setMessage("Disconnect from Instagram?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(
+                                                DialogInterface dialog, int id) {
+                                            mApp.resetAccessToken();
+
+                                        }
+                                    })
+                            .setNegativeButton("No",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(
+                                                DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
+                                    });
+                    final AlertDialog alert = builder.create();
+                    alert.show();
+                } else {
+                    mApp.authorize();
+                }
+            }
+        });
+
+        mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
+        mFacebookSignInButton.setReadPermissions("email");
+        mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(final LoginResult loginResult) {
+                        String token = loginResult.getAccessToken().getToken();
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    }
+                }
+        );
+
+        mTwitterSignInButton = (TwitterLoginButton) findViewById(R.id.twitter_sign_in_button);
+        mTwitterSignInButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                // The TwitterSession is also available through:
+                // Twitter.getInstance().core.getSessionManager().getActiveSession()
+                TwitterSession session = result.data;
+                String accessToken = session.getAuthToken().token;
+                String secrectToken = session.getAuthToken().secret;
+
+                //new UserProfileAPIHelper().signInTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
+            }
+            @Override
+            public void failure(TwitterException exception) {
+                new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                exception.printStackTrace();
+            }
+        });
+
+        mApp = new InstagramApp(this, INSTAGRAM_CLIENT_ID,
+                INSTAGRAM_CLIENT_SECRET, INSTAGRAM_CALLBACK_URL);
+        mApp.setListener(listener);
     }
+
+    private InstagramApp.OAuthAuthenticationListener listener = new InstagramApp.OAuthAuthenticationListener() {
+
+        @Override
+        public void onSuccess() {
+            mApp.getmAccessToken();
+
+        }
+
+        @Override
+        public void onFail(String error) {
+
+        }
+    };
+    private Handler mHanlderSignIn = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseUserData user = (ResponseUserData) msg.obj;
+                    if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
+                        if(user.data != null) {
+
+                        } else {
+                            new DialogUtiils().showDialog(mContext, user.message, false);
+                        }
+                    } else {
+                        new DialogUtiils().showDialog(mContext, user.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
 
     private Handler mHanlderUpdateProfile = new Handler(){
         @Override
