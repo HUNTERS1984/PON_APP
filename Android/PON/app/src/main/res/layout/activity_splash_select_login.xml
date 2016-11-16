@@ -7,6 +7,14 @@
     tools:context=".activities.SplashSelectLoginActivity"
     android:background="@drawable/splash_background">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_back"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:id="@+id/iv_back"/>
+
     <include layout="@layout/include_splash_title"/>
 
     <LinearLayout

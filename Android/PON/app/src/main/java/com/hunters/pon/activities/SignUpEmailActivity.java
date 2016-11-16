@@ -68,6 +68,10 @@ public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonC
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_password), false);
                     return;
                 }
+                if(password.length() < 6){
+                    new DialogUtiils().showDialog(mContext, getString(R.string.invalid_password), false);
+                    return;
+                }
                 if (!password.equalsIgnoreCase(confirmPass)) {
                     new DialogUtiils().showDialog(mContext, getString(R.string.password_not_match), false);
                     return;

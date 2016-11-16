@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.facebook.CallbackManager;
@@ -77,6 +78,14 @@ public class SplashSelectLoginActivity extends BaseActivity {
 
     private void initLayout()
     {
+        ImageView ivBack = (ImageView)findViewById(R.id.iv_back);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         mRlFacebookLogin = (RelativeLayout)findViewById(R.id.rl_facebook_login);
         mRlTwitterLogin = (RelativeLayout)findViewById(R.id.rl_twitter_login);
         mRlEmailLogin = (RelativeLayout)findViewById(R.id.rl_email_login);

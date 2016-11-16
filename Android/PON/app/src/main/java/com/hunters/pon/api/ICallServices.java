@@ -27,6 +27,9 @@ public interface ICallServices {
     @POST("/api/v1/signin")
     Call<ResponseUserData> signIn(@Field("username") String username, @Field("password") String password);
 
+    @GET("/api/v1/signout")
+    Call<ResponseCommon> signOut(@Header("Authorization") String token);
+
     @GET("/api/v1/profile")
     Call<ResponseProfileData> getProfile(@Header("Authorization") String token);
 

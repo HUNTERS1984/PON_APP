@@ -69,6 +69,7 @@
     <string name="sex">性別</string>
     <string name="male">男性</string>
     <string name="female">女性</string>
+    <string name="lgbt">LGBT</string>
     <string name="prefecture">都道府県</string>
     <string name="save">保存</string>
     <string name="select_photo">Select Photo!</string>
@@ -143,6 +144,7 @@
     <string name="password_not_match">パスワードが違います。</string>
     <string name="email_invalid">メールアドレスが違います。</string>
     <string name="load_avatar_larger_10mb">プロファイル写真のサイズは10MB以上です。他の写真を選択してください。</string>
+    <string name="invalid_password">パスワードは６記号以降と特別記号を入力しない。</string>
 
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>
