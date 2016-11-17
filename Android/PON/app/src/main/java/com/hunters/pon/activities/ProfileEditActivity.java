@@ -257,6 +257,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         List<String> sex = new ArrayList<String>();
         sex.add(getString(R.string.male));
         sex.add(getString(R.string.female));
+        sex.add(getString(R.string.lgbt));
 
         ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sex);
         sexAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

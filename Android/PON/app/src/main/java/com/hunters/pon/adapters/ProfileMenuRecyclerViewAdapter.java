@@ -3,6 +3,8 @@ package com.hunters.pon.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,10 @@ import com.hunters.pon.R;
 import com.hunters.pon.activities.PrivacyPolicyActivity;
 import com.hunters.pon.activities.SpecificTradeActivity;
 import com.hunters.pon.activities.SplashActivity;
+import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseCommon;
+import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.List;
 
@@ -74,12 +80,31 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                     mContext.startActivity(new Intent(mContext, SpecificTradeActivity.class));
                     break;
                 case 5://Logout
-                    Intent iLogout = new Intent(mContext, SplashActivity.class);
-                    iLogout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    mContext.startActivity(iLogout);
-                    ((Activity)mContext).finish();
+                    new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);
                     break;
             }
         }
+
+        private Handler mHanlderSignOut = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                        ResponseCommon user = (ResponseCommon) msg.obj;
+                        if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
+                            Intent iLogout = new Intent(mContext, SplashActivity.class);
+                            iLogout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            mContext.startActivity(iLogout);
+                            ((Activity)mContext).finish();
+                        } else {
+                            new DialogUtiils().showDialog(mContext, user.message, false);
+                        }
+                        break;
+                    case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                        new DialogUtiils().showDialog(mContext, mContext.getString(R.string.connection_failed), false);
+                        break;
+                }
+            }
+        };
     }
 }
