@@ -50,14 +50,17 @@ public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonC
                 String username = mEdtUsername.getText().toString();
                 String email = mEdtEmail.getText().toString();
                 if(username.equalsIgnoreCase("")){
+                    mEdtUsername.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
                     return;
                 }
                 if(email.equalsIgnoreCase("")){
+                    mEdtEmail.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_email), false);
                     return;
                 }
                 if(!CommonUtils.isEmailValid(email)){
+                    mEdtEmail.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
                     return;
                 }
@@ -65,14 +68,17 @@ public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonC
                 String confirmPass = mEdtPasswordConfirm.getText().toString();
 
                 if(password.equalsIgnoreCase("")){
+                    mEdtPassword.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_password), false);
                     return;
                 }
                 if(password.length() < 6){
+                    mEdtPassword.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.invalid_password), false);
                     return;
                 }
                 if (!password.equalsIgnoreCase(confirmPass)) {
+                    mEdtPasswordConfirm.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.password_not_match), false);
                     return;
                 }

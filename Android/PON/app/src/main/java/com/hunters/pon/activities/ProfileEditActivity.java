@@ -237,14 +237,17 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 String sex = String.valueOf(mSpnSex.getSelectedItemPosition());
                 String address = mSpnPrefecture.getSelectedItem().toString();
                 if(username.equalsIgnoreCase("")){
+                    mEdtUserName.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
                     return;
                 }
                 if(email.equalsIgnoreCase("")){
+                    mEdtEmail.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_email), false);
                     return;
                 }
                 if(!CommonUtils.isEmailValid(email)){
+                    mEdtEmail.requestFocus();
                     new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
                     return;
                 }
