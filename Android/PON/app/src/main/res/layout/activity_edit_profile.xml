@@ -248,7 +248,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/btn_share_instagram"
-            android:id="@+id/rl_instagram_login"/>
+            android:id="@+id/rl_instagram_login"
+            android:visibility="gone"/>
     </LinearLayout>
     </ScrollView>
     <Button

@@ -171,11 +171,14 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
 
     private void popularUI()
     {
-        if (mUser.getmName() != null) {
-            mTvUsername.setText(mUser.getmName());
-        } else if(mUser.getmUsername() != null) {
+        if(mUser.getmUsername() != null) {
             mTvUsername.setText(mUser.getmUsername());
         }
+//        if (mUser.getmName() != null && !mUser.getmName().equalsIgnoreCase("")) {
+//            mTvUsername.setText(mUser.getmName());
+//        } else if(mUser.getmUsername() != null) {
+//            mTvUsername.setText(mUser.getmUsername());
+//        }
         if(mUser.getmAvatarUrl() != null && !mUser.getmAvatarUrl().equalsIgnoreCase("")) {
             Picasso p = Picasso.with(mContext);
             p.invalidate(mUser.getmAvatarUrl());

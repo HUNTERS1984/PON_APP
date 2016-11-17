@@ -439,7 +439,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
     private void popularUI(UserModel user)
     {
-        mEdtUserName.setText(user.getmName());
+        mEdtUserName.setText(user.getmUsername());
         mEdtEmail.setText(user.getmEmail());
 
         if(user.getmAvatarUrl() != null && !user.getmAvatarUrl().equalsIgnoreCase("")) {
