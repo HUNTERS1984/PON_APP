@@ -58,9 +58,9 @@ import br.com.dina.oauth.instagram.InstagramApp;
 public class ProfileEditActivity extends BaseActivity implements OnLoadDataListener,
         ActivityCompat.OnRequestPermissionsResultCallback {
 
-    private static final String INSTAGRAM_CLIENT_ID = "";
-    private static final String INSTAGRAM_CLIENT_SECRET = "";
-    private static final String INSTAGRAM_CALLBACK_URL = "";
+    private static final String INSTAGRAM_CLIENT_ID = "b2d65acf4c62464fad96b53884bb0df7";
+    private static final String INSTAGRAM_CLIENT_SECRET = "8d6591f0375b4ea38d69eec58d7cfc4a";
+    private static final String INSTAGRAM_CALLBACK_URL = "https://mytenant.auth0.com/login/callback";
 
     private static final int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     private static final int TAKE_PHOTO = 0, GALLERY = 1;

@@ -29,7 +29,7 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
 
     private String mCode;
     private Context mContext;
-    private List<String> mLstStaffs;
+//    private List<String> mLstStaffs;
 
     private ImageView mIvQRCode;
     private Handler mHandlerUseCoupon;
@@ -48,7 +48,7 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
         setContentView(R.layout.dialog_use_coupon);
 
         initLayout();
-        initData();
+//        initData();
     }
 
     private void initLayout()
@@ -68,35 +68,36 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
 
     }
 
-    private void initData()
-    {
-        if(mIvQRCode != null) {
-            new QRCodeUtils().genQRCode(mContext, mCode, mIvQRCode);
-        }
+//    private void initData()
+//    {
+//        if(mIvQRCode != null) {
+//            new QRCodeUtils().genQRCode(mContext, mCode, mIvQRCode);
+//        }
+//
+//        mLstStaffs = new ArrayList<>();
+//        mLstStaffs.add("Nagoya");
+//        mLstStaffs.add("Toyohashi");
+//        mLstStaffs.add("Handa");
+//        mLstStaffs.add("Kasugai");
+//        mLstStaffs.add("Touchimn");
+//    }
 
-        mLstStaffs = new ArrayList<>();
-        mLstStaffs.add("Nagoya");
-        mLstStaffs.add("Toyohashi");
-        mLstStaffs.add("Handa");
-        mLstStaffs.add("Kasugai");
-        mLstStaffs.add("Touchimn");
-    }
-
-    private Handler mHandlerChooseStaff = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            Message message = Message.obtain();
-            message.obj = msg.obj;
-            mHandlerUseCoupon.sendMessage(message);
-            dismiss();
-        }
-    };
+//    private Handler mHandlerChooseStaff = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            Message message = Message.obtain();
+//            message.obj = msg.obj;
+//            mHandlerUseCoupon.sendMessage(message);
+//            dismiss();
+//        }
+//    };
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_use_coupon:
-                new DialogUtiils().showStaffDialog(mContext, mLstStaffs, mHandlerChooseStaff);
+                mHandlerUseCoupon.sendEmptyMessage(0);
+//                new DialogUtiils().showStaffDialog(mContext, mLstStaffs, mHandlerChooseStaff);
                 break;
             default:
                 dismiss();

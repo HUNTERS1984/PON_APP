@@ -145,7 +145,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     //                    .setContentTitle(mCoupon.getmTitle())
     //                    .setContentDescription(
     //                           mCoupon.getmDescription())
-                        .setContentUrl(Uri.parse(mCoupon.getmImageUrl()))
+                        .setContentUrl(Uri.parse(mCoupon.getmLinkShare()))
                         .build();
             mShareDialog.show(linkContent);
         }
@@ -157,7 +157,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         TweetComposer.Builder builder = null;
         try {
             builder = new TweetComposer.Builder(this)
-                    .url(new URL(mCoupon.getmImageUrl()));
+                    .url(new URL(mCoupon.getmLinkShare()));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -200,7 +200,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         if(CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_LINE)) {
             Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmImageUrl());
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmLinkShare());
 //            shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
             shareIntent.setPackage(Constants.PACKAGE_LINE);
             startActivity(shareIntent);

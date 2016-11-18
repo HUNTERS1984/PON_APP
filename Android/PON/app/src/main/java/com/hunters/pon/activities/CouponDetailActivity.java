@@ -287,6 +287,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         mCoupon.setmImageUrl(coupon.getmImageUrl());
                         mCoupon.setmCode(coupon.getmCode());
                         mCoupon.setmDescription(coupon.getmDescription());
+                        mCoupon.setmLinkShare(coupon.getmLinkShare());
 
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {
@@ -366,7 +367,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
     private Handler mHandlerUseCouponRequest = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            String staffName = msg.obj.toString();
+//            String staffName = msg.obj.toString();
             if(mCoupon != null) {
                 new CouponAPIHelper().requestUseCoupon(mContext, mCoupon.getmCode(), mHandlerUseCouponResponse);
             }
