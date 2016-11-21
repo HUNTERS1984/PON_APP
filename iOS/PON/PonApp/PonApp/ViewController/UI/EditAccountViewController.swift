@@ -61,10 +61,10 @@ extension EditAccountViewController {
         let gender = self.genderDropdown.text
         let address = self.addressDropdown.text
         let avatar = self.avatarImageView.image
-        self.validInfomation(username, gender: gender, address: address) { (successed: Bool, message: String) in
+        self.validInfomation(username, gender: gender, address: address) { [weak self] (successed: Bool, message: String) in
             if successed {
-                self.showHUD()
-                ApiRequest.updateUserProfile(username, gender:self.getGender(gender), address: address, avatar: avatar, completion: { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                self?.showHUD()
+                ApiRequest.updateUserProfile(username, gender:self?.getGender(gender), address: address, avatar: avatar, completion: { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
                     self?.hideHUD()
                     if let _ = error {
                         
@@ -72,14 +72,14 @@ extension EditAccountViewController {
                         if result?.code == SuccessCode {
                             UserDataManager.setUserData(result?.data)
                             UserDataManager.shared.avatarImage = avatar
-                            self?.navigationController!.popViewController(animated: true)
+                            self?.navigationController?.popViewController(animated: true)
                         }else {
                             self?.presentAlert(message: (result?.message)!)
                         }
                     }
                 })
             }else {
-                
+                self?.presentAlert(message: message)
             }
         }
     }

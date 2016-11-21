@@ -21,7 +21,7 @@ class FavoriteViewController: BaseViewController {
     //paging
     var canLoadMore: Bool = true
     var currentPage: Int = 1
-    var totalPage: Int!
+    var totalPage: Int = 1
     var nextPage: Int = 1
     
     override func viewDidLoad() {

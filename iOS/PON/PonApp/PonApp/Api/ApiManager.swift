@@ -45,6 +45,7 @@ public struct ApiManager {
     static func processRequest(_ endpoint: String, method: ApiMethod, parameters: [String: String?]? = nil, uploadFiles: [ApiFileUpload]? = nil, hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
         if !ReachabilityManager.isReachable() {
             let error = NSError(domain: "PON", code: 1, userInfo: ["error":"\(NotConnectInternet)"])
+            UIAlertController.present(title: Error, message: NotConnectInternet, actionTitles: [OK]);
             completion(nil, nil, error)
         }else {
             // Compose full-path of URL request

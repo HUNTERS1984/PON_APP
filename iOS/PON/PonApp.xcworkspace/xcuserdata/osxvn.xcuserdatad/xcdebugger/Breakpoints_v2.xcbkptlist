@@ -2,4 +2,134 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+            timestampString = "501135763.196669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "editAvatarButtonPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PonApp.EditAccountViewController.editAvatarButtonPressed (Swift.AnyObject) -&gt; ()"
+                  moduleName = "PonApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osxvn/Documents/working/PON_APP/iOS/PON/PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+                  timestampString = "501135765.107583"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PonApp.EditAccountViewController.(editAvatarButtonPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "PonApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osxvn/Documents/working/PON_APP/iOS/PON/PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+                  timestampString = "501135765.110255"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+            timestampString = "501135905.094848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "saveButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+            timestampString = "501135911.00676"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "saveButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+            timestampString = "501135930.975103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "saveButtonPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PonApp.EditAccountViewController.saveButtonPressed (Swift.AnyObject) -&gt; ()"
+                  moduleName = "PonApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osxvn/Documents/working/PON_APP/iOS/PON/PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+                  timestampString = "501136098.232056"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1424">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PonApp.EditAccountViewController.(saveButtonPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "PonApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osxvn/Documents/working/PON_APP/iOS/PON/PonApp/PonApp/ViewController/UI/EditAccountViewController.swift"
+                  timestampString = "501136098.23446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
