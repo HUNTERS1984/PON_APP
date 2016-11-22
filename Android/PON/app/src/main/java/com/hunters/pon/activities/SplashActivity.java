@@ -40,6 +40,11 @@ public class SplashActivity extends AppCompatActivity {
         mExtraData = (ExtraDataModel)getIntent().getSerializableExtra(Constants.EXTRA_DATA);
         initLayout();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         CommonUtils.saveToken(SplashActivity.this, "");
         LoginManager.getInstance().logOut();
     }
@@ -94,6 +99,9 @@ public class SplashActivity extends AppCompatActivity {
                     iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(iMainScreen);
 
+                } else {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
                 }
             }
         });

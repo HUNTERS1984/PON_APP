@@ -9,7 +9,9 @@ import android.os.Message;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -78,16 +80,22 @@ public class ShopCouponByCategoryActivity extends Activity {
         });
 
         mEdtSearch = (EditText)findViewById(R.id.edt_search);
+        mEdtSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    performSearch();
+                    return true;
+                }
+                return false;
+            }
+        });
 
-        TextView tvSearch = (TextView)findViewById(R.id.tv_search);
-        tvSearch.setOnClickListener(new View.OnClickListener() {
+        TextView tvCancel = (TextView)findViewById(R.id.tv_cancel);
+        tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new KeyboardUtils().hideKeyboard(mContext);
-                String query = mEdtSearch.getText().toString();
-                Intent iSearch = new Intent(ShopCouponByCategoryActivity.this, SearchActivity.class);
-                iSearch.putExtra(Constants.EXTRA_DATA, query);
-                startActivity(iSearch);
+            finish();
             }
         });
 
@@ -98,6 +106,15 @@ public class ShopCouponByCategoryActivity extends Activity {
         mLstCategories = new ArrayList<>();
         new CouponAPIHelper().getCategory(mContext, "1", mHanlderGetCategory, true);
 
+    }
+
+    private void performSearch()
+    {
+        new KeyboardUtils().hideKeyboard(mContext);
+        String query = mEdtSearch.getText().toString();
+        Intent iSearch = new Intent(ShopCouponByCategoryActivity.this, SearchActivity.class);
+        iSearch.putExtra(Constants.EXTRA_DATA, query);
+        startActivity(iSearch);
     }
 
     private Handler mHanlderGetCategory = new Handler(){

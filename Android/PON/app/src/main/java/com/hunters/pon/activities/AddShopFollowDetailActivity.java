@@ -20,6 +20,7 @@ import com.hunters.pon.fragments.AddShopFollowNewestFragment;
 import com.hunters.pon.fragments.AddShopFollowPopularityFragment;
 import com.hunters.pon.fragments.BaseShopFollowFragment;
 import com.hunters.pon.models.ExtraDataModel;
+import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
@@ -88,9 +89,15 @@ public class AddShopFollowDetailActivity extends BaseActivity {
         if(requestCode == Constants.REQUEST_CODE_FOLLOW_SHOP) {
             if (resultCode == Activity.RESULT_OK) {
                 ExtraDataModel extra =  (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
-                long shopId = extra.getmId();
+                final long shopId = extra.getmId();
                 mArg = extra.getmArg();
-                new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                    @Override
+                    public void onDialogButtonConfirm() {
+                        new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                    }
+                });
             }
         }
 

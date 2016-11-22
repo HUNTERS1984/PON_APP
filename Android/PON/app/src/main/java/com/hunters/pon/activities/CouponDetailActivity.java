@@ -38,6 +38,7 @@ import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.customs.UseCouponDialog;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
+import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
@@ -236,7 +237,14 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             if (resultCode == Activity.RESULT_OK) {
                 ExtraDataModel extra = (ExtraDataModel)data.getSerializableExtra(Constants.EXTRA_DATA);
                 mCouponId = extra.getmId();
-                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+                new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                    @Override
+                    public void onDialogButtonConfirm() {
+                        new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+                    }
+                });
+
             }
         } else if(requestCode == Constants.REQUEST_CODE_USE_COUPON) {
             if (resultCode == Activity.RESULT_OK) {
@@ -351,7 +359,13 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                                 dialog.show();
                                 break;
                             case ADD_FAVOURITE:
-                                new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+                                new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                                    @Override
+                                    public void onDialogButtonConfirm() {
+                                        new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+                                    }
+                                });
                                 break;
                         }
 

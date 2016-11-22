@@ -22,6 +22,7 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.models.ShopModel;
+import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -141,7 +142,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         public void onClick(View view) {
             mPosSelection = Integer.parseInt(view.getTag().toString());
             ShopModel shop = mLstShopFollows.get(mPosSelection);
-            long shopId = shop.getmId();
+            final long shopId = shop.getmId();
             switch (view.getId()){
                 case R.id.rl_back_ground_shop_select_status:
                     String token = CommonUtils.getToken(mContext);
@@ -152,7 +153,14 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
                         extra.setmArg(mPosSelection);
                         new DialogUtiils().showDialogLogin((Activity)mContext, mContext.getString(R.string.need_login), extra );
                     } else {
-                        new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                        new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                            @Override
+                            public void onDialogButtonConfirm() {
+                                new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
+                            }
+                        });
+
                     }
 //                    boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
 //                    mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));

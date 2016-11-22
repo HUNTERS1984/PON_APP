@@ -130,6 +130,9 @@
     <string name="permission_title">Permission necessary</string>
     <string name="permission_external">External storage permission is necessary</string>
     <string name="network_not_avaiable">ネットワークがなくてチェックしてください。</string>
+    <string name="confirm_like_coupon">このクーポンを”like”にしますか。</string>
+    <string name="confirm_follow_shop"> このショップをフォローにしますか。</string>
+    <string name="ok">OK</string>
 
     <!-- Error Message -->
     <string name="token_expried">Access Token 制限時間になります。再度ログインしてください。</string>
@@ -145,6 +148,7 @@
     <string name="email_invalid">メールアドレスが違います。</string>
     <string name="load_avatar_larger_10mb">プロファイル写真のサイズは10MB以上です。他の写真を選択してください。</string>
     <string name="invalid_password">パスワードは６記号以降と特別記号を入力しない。</string>
+
 
     <!--Shop Detail -->
     <string name="shop_bill">～%s円</string>

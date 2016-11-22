@@ -188,6 +188,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
                                 Intent intent = new Intent();
                                 intent.putExtra(Constants.EXTRA_DATA, mDataExtra);
                                 setResult(Activity.RESULT_OK, intent);
+                                finish();
                             }
                         } else {
                             new DialogUtiils().showDialog(mContext, user.message, false);
