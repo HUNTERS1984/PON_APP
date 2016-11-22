@@ -74,7 +74,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
     private InstagramApp mApp;
 
     private EditText mEdtUserName, mEdtEmail;
-    private Button mBtnUpdateProfile;
+    private Button mBtnUpdateProfile, mBtnSnsFacebook, mBtnSnsTwitter, mBtnSnsInstagram;
 
     private UserModel mUser;
     private String mFilePath;
@@ -279,27 +279,27 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 
         //Social SignIn
 
-        View vFacebookSignIn = findViewById(R.id.rl_facebook_login);
-        View vTwitterSignIn = findViewById(R.id.rl_twitter_login);
-        View vInstagramSignIn = findViewById(R.id.rl_instagram_login);
+        mBtnSnsFacebook = (Button)findViewById(R.id.btn_sns_facebook);
+        mBtnSnsTwitter = (Button)findViewById(R.id.btn_sns_twitter);
+        mBtnSnsInstagram = (Button)findViewById(R.id.btn_sns_instagram);
 
-        vFacebookSignIn.setOnClickListener(new View.OnClickListener() {
+        mBtnSnsFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 mFacebookSignInButton.performClick();
             }
         });
 
-        vTwitterSignIn.setOnClickListener(new View.OnClickListener() {
+        mBtnSnsTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 mTwitterSignInButton.performClick();
             }
         });
 
-        vInstagramSignIn.setOnClickListener(new View.OnClickListener() {
+        mBtnSnsInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if (mApp.hasAccessToken()) {
                     final AlertDialog.Builder builder = new AlertDialog.Builder(
                             mContext);
@@ -328,6 +328,55 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
             }
         });
 
+//        View vFacebookSignIn = findViewById(R.id.rl_facebook_login);
+//        View vTwitterSignIn = findViewById(R.id.rl_twitter_login);
+//        View vInstagramSignIn = findViewById(R.id.rl_instagram_login);
+//
+//        vFacebookSignIn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mFacebookSignInButton.performClick();
+//            }
+//        });
+//
+//        vTwitterSignIn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mTwitterSignInButton.performClick();
+//            }
+//        });
+//
+//        vInstagramSignIn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mApp.hasAccessToken()) {
+//                    final AlertDialog.Builder builder = new AlertDialog.Builder(
+//                            mContext);
+//                    builder.setMessage("Disconnect from Instagram?")
+//                            .setCancelable(false)
+//                            .setPositiveButton("Yes",
+//                                    new DialogInterface.OnClickListener() {
+//                                        public void onClick(
+//                                                DialogInterface dialog, int id) {
+//                                            mApp.resetAccessToken();
+//
+//                                        }
+//                                    })
+//                            .setNegativeButton("No",
+//                                    new DialogInterface.OnClickListener() {
+//                                        public void onClick(
+//                                                DialogInterface dialog, int id) {
+//                                            dialog.cancel();
+//                                        }
+//                                    });
+//                    final AlertDialog alert = builder.create();
+//                    alert.show();
+//                } else {
+//                    mApp.authorize();
+//                }
+//            }
+//        });
+
         mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
         mFacebookSignInButton.setReadPermissions("email");
         mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
@@ -335,6 +384,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                     @Override
                     public void onSuccess(final LoginResult loginResult) {
                         String token = loginResult.getAccessToken().getToken();
+                        mBtnSnsFacebook.setText(getString(R.string.sns_disconnect));
 
                     }
 
@@ -360,6 +410,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
                 String accessToken = session.getAuthToken().token;
                 String secrectToken = session.getAuthToken().secret;
 
+                mBtnSnsTwitter.setText(getString(R.string.sns_disconnect));
                 //new UserProfileAPIHelper().signInTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
             }
             @Override
@@ -379,6 +430,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         @Override
         public void onSuccess() {
             mApp.getmAccessToken();
+            mBtnSnsInstagram.setText(getString(R.string.sns_disconnect));
 
         }
 

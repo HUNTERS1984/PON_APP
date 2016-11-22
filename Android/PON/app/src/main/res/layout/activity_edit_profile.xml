@@ -189,54 +189,83 @@
                 android:layout_height="1dp"
                 android:background="@color/light_grey_stroke_icon"/>
         </LinearLayout>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/light_grey_stroke_icon"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/background_rectangle_facebook"
+            android:layout_height="70dp"
+            android:background="@color/white"
             android:id="@+id/rl_facebook_login">
             <ImageView
                 android:layout_width="@dimen/icon_size_info"
                 android:layout_height="@dimen/icon_size_info"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_facebook"/>
+                android:src="@drawable/ic_sns_facebook"
+                android:id="@+id/iv_sns_facebook"/>
             <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_sns_facebook"
                 android:paddingLeft="40dp"
-                android:text="@string/login_facebook"
+                android:text="Facebook"
                 android:textSize="16sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
+            <com.hunters.pon.customs.CustomButton
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/sns_connect"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/background_rectangle_non_highlight"
+                android:id="@+id/btn_sns_facebook"/>
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/facebook_sign_in_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"/>
         </RelativeLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey_stroke_icon"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/background_rectangle_twitter"
+            android:layout_height="70dp"
+            android:background="@color/white"
             android:id="@+id/rl_twitter_login">
             <ImageView
                 android:layout_width="@dimen/icon_size_info"
                 android:layout_height="@dimen/icon_size_info"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_twitter"/>
+                android:src="@drawable/ic_sns_twitter"
+                android:id="@+id/iv_sns_twitter"/>
             <com.hunters.pon.customs.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_sns_twitter"
                 android:layout_centerInParent="true"
-                android:paddingLeft="10dp"
-                android:text="@string/login_twitter"
+                android:paddingLeft="40dp"
+                android:text="Twitter"
                 android:textSize="16sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
+            <com.hunters.pon.customs.CustomButton
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/sns_connect"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/background_rectangle_non_highlight"
+                android:id="@+id/btn_sns_twitter"/>
             <com.twitter.sdk.android.core.identity.TwitterLoginButton
                 android:id="@+id/twitter_sign_in_button"
                 android:layout_width="match_parent"
@@ -244,14 +273,45 @@
                 android:layout_marginBottom="5dp"
                 android:visibility="gone"/>
         </RelativeLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey_stroke_icon"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/btn_share_instagram"
-            android:id="@+id/rl_instagram_login"
-            android:visibility="gone"/>
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:id="@+id/rl_instagram_login">
+            <ImageView
+                android:layout_width="@dimen/icon_size_info"
+                android:layout_height="@dimen/icon_size_info"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_sns_instagram"
+                android:id="@+id/iv_sns_instagram"/>
+            <com.hunters.pon.customs.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_sns_instagram"
+                android:layout_centerInParent="true"
+                android:paddingLeft="40dp"
+                android:text="Instagram"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+            <com.hunters.pon.customs.CustomButton
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/sns_connect"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/background_rectangle_non_highlight"
+                android:id="@+id/btn_sns_instagram"/>
+        </RelativeLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey_stroke_icon"/>
     </LinearLayout>
     </ScrollView>
     <Button

@@ -54,7 +54,12 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
 
         initLayout();
         if(mCoupon != null) {
-            new QRCodeUtils().genQRCode(mContext, mCoupon.getmCode(), mIvQRCode);
+            if(mCoupon.getmCode() != null) {
+                new QRCodeUtils().genQRCode(mContext, mCoupon.getmCode(), mIvQRCode);
+                mBtnQRCodeShare.setVisibility(View.VISIBLE);
+            } else {
+                mBtnQRCodeShare.setVisibility(View.GONE);
+            }
         }
     }
 

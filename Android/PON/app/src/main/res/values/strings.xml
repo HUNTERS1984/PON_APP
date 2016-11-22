@@ -76,6 +76,8 @@
     <string name="take_photo">Take Photo</string>
     <string name="photo_from_gallery">Choose from Gallery</string>
     <string name="select_file">Select File</string>
+    <string name="sns_connect">連携</string>
+    <string name="sns_disconnect">非接続</string>
 
     <!--Shop following screen -->
     <string name="following">フォロー中</string>
