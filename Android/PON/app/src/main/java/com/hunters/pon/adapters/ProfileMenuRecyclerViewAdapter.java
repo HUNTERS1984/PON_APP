@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.PrivacyPolicyActivity;
 import com.hunters.pon.activities.SpecificTradeActivity;
@@ -18,6 +19,7 @@ import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.List;
@@ -93,8 +95,10 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                         ResponseCommon user = (ResponseCommon) msg.obj;
                         if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                             Intent iLogout = new Intent(mContext, SplashActivity.class);
-                            iLogout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            iLogout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             mContext.startActivity(iLogout);
+                            CommonUtils.saveToken(mContext, "");
+                            LoginManager.getInstance().logOut();
                             ((Activity)mContext).finish();
                         } else {
                             new DialogUtiils().showDialog(mContext, user.message, false);

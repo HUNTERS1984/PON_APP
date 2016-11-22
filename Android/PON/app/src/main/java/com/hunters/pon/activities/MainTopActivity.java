@@ -3,11 +3,17 @@ package com.hunters.pon.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.PagerAdapter;
@@ -18,14 +24,16 @@ import com.hunters.pon.fragments.TopPopularCouponFragment;
 import com.hunters.pon.fragments.TopUsedCouponFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.KeyboardUtils;
 
 public class MainTopActivity extends BaseActivity {
 
     private ImageView mBtnShopSubscribe, mBtnShopLocation;
-
+    private EditText mEdtSearch;
     public Fragment mFragmentActive;
-
     private PagerAdapter mPagerAdapter;
+
+    private boolean mDoubleBackToExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +73,18 @@ public class MainTopActivity extends BaseActivity {
             }
         });
 
+        mEdtSearch = (EditText) findViewById(R.id.edt_search);
+        mEdtSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    performSearch();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         mBtnShopLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +98,15 @@ public class MainTopActivity extends BaseActivity {
                 startActivity(MainTopActivity.this, AddShopFollowActivity.class, false);
             }
         });
+    }
+
+    private void performSearch()
+    {
+        new KeyboardUtils().hideKeyboard(mContext);
+        String query = mEdtSearch.getText().toString();
+        Intent iSearch = new Intent(MainTopActivity.this, SearchActivity.class);
+        iSearch.putExtra(Constants.EXTRA_DATA, query);
+        startActivity(iSearch);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -105,5 +134,24 @@ public class MainTopActivity extends BaseActivity {
                 mContext.startActivity(iCouponDetail);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDoubleBackToExit) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.mDoubleBackToExit = true;
+        Toast.makeText(this, mContext.getString(R.string.back_to_exit), Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                mDoubleBackToExit = false;
+            }
+        }, 2000);
     }
 }

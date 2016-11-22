@@ -182,14 +182,14 @@ public class SplashSelectLoginActivity extends BaseActivity {
                             CommonUtils.saveToken(mContext, user.data.token);
                             if(mDataExtra == null) {
                                 Intent iMainScreen = new Intent(SplashSelectLoginActivity.this, MainTopActivity.class);
-                                iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(iMainScreen);
                             } else {
                                 Intent intent = new Intent();
                                 intent.putExtra(Constants.EXTRA_DATA, mDataExtra);
                                 setResult(Activity.RESULT_OK, intent);
-                                finish();
                             }
+                            finish();
                         } else {
                             new DialogUtiils().showDialog(mContext, user.message, false);
                         }

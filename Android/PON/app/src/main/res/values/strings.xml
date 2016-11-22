@@ -134,7 +134,7 @@
     <string name="confirm_follow_shop"> このショップをフォローにしますか。</string>
     <string name="ok">OK</string>
 
-    <!-- Error Message -->
+    <!-- Message -->
     <string name="token_expried">Access Token 制限時間になります。再度ログインしてください。</string>
     <string name="server_error">Got error. Please try again!</string>
     <string name="need_login">貴方はログインしていない。続けるようにログインしてください。</string>
@@ -148,6 +148,7 @@
     <string name="email_invalid">メールアドレスが違います。</string>
     <string name="load_avatar_larger_10mb">プロファイル写真のサイズは10MB以上です。他の写真を選択してください。</string>
     <string name="invalid_password">パスワードは６記号以降と特別記号を入力しない。</string>
+    <string name="back_to_exit">Please click BACK again to exit</string>
 
 
     <!--Shop Detail -->

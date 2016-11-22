@@ -3,6 +3,8 @@ package com.hunters.pon.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +14,13 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.hunters.pon.R;
+import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseCommon;
+import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.DialogUtiils;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
@@ -39,14 +45,14 @@ public class SplashActivity extends AppCompatActivity {
 
         mExtraData = (ExtraDataModel)getIntent().getSerializableExtra(Constants.EXTRA_DATA);
         initLayout();
+        if(mExtraData == null){
+            String token = CommonUtils.getToken(this);
 
-    }
+            if(!token.equalsIgnoreCase("")) {
+                new UserProfileAPIHelper().checkValidToken(this, token, mHanlderCheckValidToken);
+            }
+        }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        CommonUtils.saveToken(SplashActivity.this, "");
-        LoginManager.getInstance().logOut();
     }
 
     @Override
@@ -98,12 +104,34 @@ public class SplashActivity extends AppCompatActivity {
                     Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
                     iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(iMainScreen);
-
                 } else {
                     setResult(Activity.RESULT_CANCELED);
-                    finish();
                 }
+                finish();
             }
         });
     }
+
+    private Handler mHanlderCheckValidToken = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon res = (ResponseCommon) msg.obj;
+                    if (res.httpCode == APIConstants.HTTP_OK && res.code == APIConstants.REQUEST_OK) {
+                        Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
+                        iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(iMainScreen);
+//                        finish();
+                    } else if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        LoginManager.getInstance().logOut();
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    LoginManager.getInstance().logOut();
+                    new DialogUtiils().showDialog(SplashActivity.this, getString(R.string.connection_failed), true);
+                    break;
+            }
+        }
+    };
 }

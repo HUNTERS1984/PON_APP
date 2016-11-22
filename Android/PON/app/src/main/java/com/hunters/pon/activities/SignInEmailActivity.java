@@ -91,7 +91,7 @@ public class SignInEmailActivity extends BaseActivity {
                         CommonUtils.saveToken(mContext, user.data.token);
                         if(mDataExtra == null) {
                             Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
-                            iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(iMainScreen);
                         } else {
                             setResult(Activity.RESULT_OK);
