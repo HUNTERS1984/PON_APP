@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.hunters.pon.activities.ProfileEditActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,305 +13,314 @@
 
         <include layout="@layout/include_header_layout"/>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical">
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="80dp"
-                          android:orientation="horizontal">
-                <FrameLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="60dp"
+            android:layout_marginBottom="50dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="80dp"
+                                  android:orientation="horizontal">
+                        <FrameLayout android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/ic_avarta_user"
+                                android:id="@+id/iv_user_pic"
+                                app:civ_border_width="2dp"
+                                app:civ_border_color="@color/white"
+                                android:layout_gravity="center_vertical" />
+                        </FrameLayout>
+
+                        <com.hunters.pon.customs.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/change_profile_photo"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/edit_profile_value_font_size"
+                            />
+
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                          android:layout_height="1dp"
+                          android:background="@color/light_grey_stroke_icon"/>
+                    <LinearLayout android:layout_width="match_parent"
                         android:layout_height="60dp"
+                        android:orientation="horizontal">
+                        <com.hunters.pon.customs.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/user_name"
+                            android:textColor="@color/grey"
+                            android:textSize="@dimen/edit_profile_caption_font_size" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <com.hunters.pon.customs.CustomEditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_weight="2"
+                                android:text="@string/user_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edit_profile_value_font_size"
+                                android:background="@color/transparent"
+                                android:id="@+id/edt_username"/>
+                            <FrameLayout android:layout_width="0dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="1">
+                                <ImageView android:layout_width="@dimen/icon_size"
+                                           android:layout_height="@dimen/icon_size"
+                                           android:src="@drawable/ic_delete"
+                                           android:scaleType="fitXY"
+                                           android:layout_gravity="center"
+                                           android:id="@+id/iv_delete_username"/>
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_grey_stroke_icon"/>
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+                        <com.hunters.pon.customs.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/email_address"
+                            android:textColor="@color/grey"
+                            android:textSize="@dimen/edit_profile_caption_font_size" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <com.hunters.pon.customs.CustomEditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_weight="2"
+                                android:text="example@ex.com"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edit_profile_value_font_size"
+                                android:background="@color/transparent"
+                                android:id="@+id/edt_email"/>
+                            <FrameLayout android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <ImageView android:layout_width="@dimen/icon_size"
+                                    android:layout_height="@dimen/icon_size"
+                                    android:src="@drawable/ic_delete"
+                                    android:scaleType="fitXY"
+                                    android:layout_gravity="center"
+                                    android:id="@+id/iv_delete_email"/>
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_grey_stroke_icon"/>
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+                        <com.hunters.pon.customs.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/sex"
+                            android:textColor="@color/grey"
+                            android:textSize="@dimen/edit_profile_caption_font_size" />
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/edit_profile_value_font_size"
+                            android:id="@+id/spn_sex"/>
+
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_grey_stroke_icon"/>
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+                        <com.hunters.pon.customs.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/prefecture"
+                            android:textColor="@color/grey"
+                            android:textSize="@dimen/edit_profile_caption_font_size"/>
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/edit_profile_value_font_size"
+                            android:id="@+id/spn_prefecture"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_grey_stroke_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/light_grey_stroke_icon"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/white"
+                    android:id="@+id/rl_facebook_login">
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_sns"
+                        android:layout_height="@dimen/icon_size_sns"
                         android:layout_marginLeft="20dp"
-                        android:src="@drawable/ic_avarta_user"
-                        android:id="@+id/iv_user_pic"
-                        app:civ_border_width="2dp"
-                        app:civ_border_color="@color/white"
-                        android:layout_gravity="center_vertical" />
-                </FrameLayout>
-
-                <com.hunters.pon.customs.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:gravity="center_vertical"
-                    android:text="@string/change_profile_photo"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/edit_profile_value_font_size"
-                    />
-
-            </LinearLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="1dp"
-                  android:background="@color/light_grey_stroke_icon"/>
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-                <com.hunters.pon.customs.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:layout_weight="1"
-                    android:text="@string/user_name"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_caption_font_size" />
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <com.hunters.pon.customs.CustomEditText
-                        android:layout_width="0dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_sns_facebook"
+                        android:id="@+id/iv_sns_facebook"/>
+                    <com.hunters.pon.customs.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_sns_facebook"
+                        android:paddingLeft="40dp"
+                        android:text="Facebook"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+                    <com.hunters.pon.customs.CustomButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/sns_connect"
+                        android:textColor="@color/colorPrimary"
+                        android:background="@drawable/background_rectangle_non_highlight"
+                        android:id="@+id/btn_sns_facebook"/>
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/facebook_sign_in_button"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:layout_weight="2"
-                        android:text="@string/user_name"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/edit_profile_value_font_size"
-                        android:background="@color/transparent"
-                        android:id="@+id/edt_username"/>
-                    <FrameLayout android:layout_width="0dp"
-                                 android:layout_height="match_parent"
-                                 android:layout_weight="1">
-                        <ImageView android:layout_width="@dimen/icon_size"
-                                   android:layout_height="@dimen/icon_size"
-                                   android:src="@drawable/ic_delete"
-                                   android:scaleType="fitXY"
-                                   android:layout_gravity="center"
-                                   android:id="@+id/iv_delete_username"/>
-                    </FrameLayout>
-                </LinearLayout>
+                        android:visibility="gone"/>
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/light_grey_stroke_icon"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/white"
+                    android:id="@+id/rl_twitter_login">
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_sns"
+                        android:layout_height="@dimen/icon_size_sns"
+                        android:layout_marginLeft="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_sns_twitter"
+                        android:id="@+id/iv_sns_twitter"/>
+                    <com.hunters.pon.customs.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_sns_twitter"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="40dp"
+                        android:text="Twitter"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+                    <com.hunters.pon.customs.CustomButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/sns_connect"
+                        android:textColor="@color/colorPrimary"
+                        android:background="@drawable/background_rectangle_non_highlight"
+                        android:id="@+id/btn_sns_twitter"/>
+                    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+                        android:id="@+id/twitter_sign_in_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/light_grey_stroke_icon"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/white"
+                    android:id="@+id/rl_instagram_login">
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_sns"
+                        android:layout_height="@dimen/icon_size_sns"
+                        android:layout_marginLeft="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_sns_instagram"
+                        android:id="@+id/iv_sns_instagram"/>
+                    <com.hunters.pon.customs.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_sns_instagram"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="40dp"
+                        android:text="Instagram"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+                    <com.hunters.pon.customs.CustomButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/sns_connect"
+                        android:textColor="@color/colorPrimary"
+                        android:background="@drawable/background_rectangle_non_highlight"
+                        android:id="@+id/btn_sns_instagram"/>
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/light_grey_stroke_icon"/>
             </LinearLayout>
-            <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_grey_stroke_icon"/>
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-                <com.hunters.pon.customs.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:layout_weight="1"
-                    android:text="@string/email_address"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_caption_font_size" />
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <com.hunters.pon.customs.CustomEditText
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:layout_weight="2"
-                        android:text="example@ex.com"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/edit_profile_value_font_size"
-                        android:background="@color/transparent"
-                        android:id="@+id/edt_email"/>
-                    <FrameLayout android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-                        <ImageView android:layout_width="@dimen/icon_size"
-                            android:layout_height="@dimen/icon_size"
-                            android:src="@drawable/ic_delete"
-                            android:scaleType="fitXY"
-                            android:layout_gravity="center"
-                            android:id="@+id/iv_delete_email"/>
-                    </FrameLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_grey_stroke_icon"/>
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-                <com.hunters.pon.customs.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:layout_weight="1"
-                    android:text="@string/sex"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_caption_font_size" />
-
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/edit_profile_value_font_size"
-                    android:id="@+id/spn_sex"/>
-
-            </LinearLayout>
-            <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_grey_stroke_icon"/>
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-                <com.hunters.pon.customs.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:layout_weight="1"
-                    android:text="@string/prefecture"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/edit_profile_caption_font_size"/>
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/edit_profile_value_font_size"
-                    android:id="@+id/spn_prefecture"/>
-            </LinearLayout>
-            <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_grey_stroke_icon"/>
-        </LinearLayout>
-
-        <View android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/light_grey_stroke_icon"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:id="@+id/rl_facebook_login">
-            <ImageView
-                android:layout_width="@dimen/icon_size_info"
-                android:layout_height="@dimen/icon_size_info"
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_sns_facebook"
-                android:id="@+id/iv_sns_facebook"/>
-            <com.hunters.pon.customs.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_sns_facebook"
-                android:paddingLeft="40dp"
-                android:text="Facebook"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <com.hunters.pon.customs.CustomButton
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="@string/sns_connect"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/background_rectangle_non_highlight"
-                android:id="@+id/btn_sns_facebook"/>
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/facebook_sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"/>
-        </RelativeLayout>
-        <View android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_grey_stroke_icon"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:id="@+id/rl_twitter_login">
-            <ImageView
-                android:layout_width="@dimen/icon_size_info"
-                android:layout_height="@dimen/icon_size_info"
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_sns_twitter"
-                android:id="@+id/iv_sns_twitter"/>
-            <com.hunters.pon.customs.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_sns_twitter"
-                android:layout_centerInParent="true"
-                android:paddingLeft="40dp"
-                android:text="Twitter"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <com.hunters.pon.customs.CustomButton
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="@string/sns_connect"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/background_rectangle_non_highlight"
-                android:id="@+id/btn_sns_twitter"/>
-            <com.twitter.sdk.android.core.identity.TwitterLoginButton
-                android:id="@+id/twitter_sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:visibility="gone"/>
-        </RelativeLayout>
-        <View android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_grey_stroke_icon"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:id="@+id/rl_instagram_login">
-            <ImageView
-                android:layout_width="@dimen/icon_size_info"
-                android:layout_height="@dimen/icon_size_info"
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_sns_instagram"
-                android:id="@+id/iv_sns_instagram"/>
-            <com.hunters.pon.customs.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_sns_instagram"
-                android:layout_centerInParent="true"
-                android:paddingLeft="40dp"
-                android:text="Instagram"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
-            <com.hunters.pon.customs.CustomButton
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="@string/sns_connect"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/background_rectangle_non_highlight"
-                android:id="@+id/btn_sns_instagram"/>
-        </RelativeLayout>
-        <View android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_grey_stroke_icon"/>
+        </ScrollView>
     </LinearLayout>
-    </ScrollView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"

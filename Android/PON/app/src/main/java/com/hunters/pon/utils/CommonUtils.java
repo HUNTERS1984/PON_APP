@@ -85,7 +85,6 @@ public class CommonUtils {
         if (Environment.getExternalStorageState() != null) {
             dir = Environment.getExternalStorageDirectory();
         }
-        Log.d("PON",dir.getAbsolutePath() + "/" + fileName);
         return dir.getAbsolutePath() + "/" + fileName;
     }
 

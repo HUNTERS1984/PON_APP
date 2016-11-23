@@ -146,6 +146,13 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void setOnClickIconBack(View.OnClickListener onClick)
+    {
+        if(mIvBack != null){
+            mIvBack.setOnClickListener(onClick);
+        }
+    }
+
     public void checkToUpdateButtonLogin()
     {
         if(mIvProfile != null && mIvMyFavourite != null) {

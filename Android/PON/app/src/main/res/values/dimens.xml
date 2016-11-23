@@ -6,6 +6,7 @@
     <dimen name="icon_size">40dp</dimen>
     <dimen name="icon_size_menu">50dp</dimen>
     <dimen name="icon_size_info">20dp</dimen>
+    <dimen name="icon_size_sns">30dp</dimen>
     <dimen name="textbox_search_height">20dp</dimen>
     <dimen name="layout_margin">10dp</dimen>
     <dimen name="icon_size_more_detail">20dp</dimen>

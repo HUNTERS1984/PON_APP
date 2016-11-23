@@ -101,8 +101,10 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mExtraData == null) {
+                    CommonUtils.saveToken(SplashActivity.this, "");
+                    LoginManager.getInstance().logOut();
                     Intent iMainScreen = new Intent(SplashActivity.this, MainTopActivity.class);
-                    iMainScreen.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(iMainScreen);
                 } else {
                     setResult(Activity.RESULT_CANCELED);
@@ -124,6 +126,7 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(iMainScreen);
 //                        finish();
                     } else if(res.httpCode == APIConstants.HTTP_UN_AUTHORIZATION) {
+                        CommonUtils.saveToken(SplashActivity.this, "");
                         LoginManager.getInstance().logOut();
                     }
                     break;

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
@@ -54,7 +55,13 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
     private void initLayout()
     {
         setTitle(getString(R.string.favourite));
-//        setIconBack(R.drawable.ic_add);
+        setIconBack(R.drawable.ic_add);
+        setOnClickIconBack(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         activeMyFavourite();
 
