@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.hunters.pon.R;
+import com.hunters.pon.qrcode.QRCodeUtils;
 
 /**
  * Created by hle59 on 10/20/2016.
@@ -42,7 +43,7 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
         setContentView(R.layout.dialog_use_coupon);
 
         initLayout();
-//        initData();
+        initData();
     }
 
     private void initLayout()
@@ -62,19 +63,19 @@ public class UseCouponDialog extends Dialog implements View.OnClickListener{
 
     }
 
-//    private void initData()
-//    {
-//        if(mIvQRCode != null) {
-//            new QRCodeUtils().genQRCode(mContext, mCode, mIvQRCode);
-//        }
-//
+    private void initData()
+    {
+        if(mIvQRCode != null) {
+            new QRCodeUtils().genQRCode(mContext, mCode, mIvQRCode);
+        }
+
 //        mLstStaffs = new ArrayList<>();
 //        mLstStaffs.add("Nagoya");
 //        mLstStaffs.add("Toyohashi");
 //        mLstStaffs.add("Handa");
 //        mLstStaffs.add("Kasugai");
 //        mLstStaffs.add("Touchimn");
-//    }
+    }
 
 //    private Handler mHandlerChooseStaff = new Handler() {
 //        @Override
