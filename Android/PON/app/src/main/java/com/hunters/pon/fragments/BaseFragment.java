@@ -200,37 +200,39 @@ public abstract  class BaseFragment extends Fragment {
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
                         List<ResponseCouponMainTop> lstCouponCats = couponData.data;
                         for (ResponseCouponMainTop couponCat : lstCouponCats) {
-                            View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
-                            RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
-                            TextView tvCatName = (TextView) vCatCoupons.findViewById(R.id.tv_coupon_category_name);
-                            ImageView ivIconType = (ImageView) vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
-                            TextView tvViewMore = (TextView) vCatCoupons.findViewById(R.id.tv_view_more);
+                            if(couponCat.getmLstCoupons() != null && couponCat.getmLstCoupons().size() > 0) {
+                                View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
+                                RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
+                                TextView tvCatName = (TextView) vCatCoupons.findViewById(R.id.tv_coupon_category_name);
+                                ImageView ivIconType = (ImageView) vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
+                                TextView tvViewMore = (TextView) vCatCoupons.findViewById(R.id.tv_view_more);
 
-                            tvCatName.setText(couponCat.getmName());
-                            Picasso.with(getActivity()).load(couponCat.getmIcon()).
-                                    fit().into(ivIconType);
+                                tvCatName.setText(couponCat.getmName());
+                                Picasso.with(getActivity()).load(couponCat.getmIcon()).
+                                        fit().into(ivIconType);
 
-                            ExtraDataModel extra = new ExtraDataModel();
-                            extra.setmId(couponCat.getmId());
-                            extra.setmTitle(couponCat.getmName());
-                            tvViewMore.setTag(extra);
-                            tvViewMore.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    ExtraDataModel data = (ExtraDataModel)v.getTag();
-                                    Intent iCouponByCategory = new Intent(getActivity(), CouponByCategoryDetailActivity.class);
-                                    iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, data.getmId());
-                                    iCouponByCategory.putExtra(Constants.EXTRA_TITLE, data.getmTitle());
-                                    startActivity(iCouponByCategory);
-                                }
-                            });
+                                ExtraDataModel extra = new ExtraDataModel();
+                                extra.setmId(couponCat.getmId());
+                                extra.setmTitle(couponCat.getmName());
+                                tvViewMore.setTag(extra);
+                                tvViewMore.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        ExtraDataModel data = (ExtraDataModel) v.getTag();
+                                        Intent iCouponByCategory = new Intent(getActivity(), CouponByCategoryDetailActivity.class);
+                                        iCouponByCategory.putExtra(Constants.EXTRA_COUPON_TYPE_ID, data.getmId());
+                                        iCouponByCategory.putExtra(Constants.EXTRA_TITLE, data.getmTitle());
+                                        startActivity(iCouponByCategory);
+                                    }
+                                });
 
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-                            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                            rvCoupons.setLayoutManager(layoutManager);
-                            CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
-                            rvCoupons.setAdapter(adapter);
-                            mLnShopCatCoupons.addView(vCatCoupons);
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                                rvCoupons.setLayoutManager(layoutManager);
+                                CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
+                                rvCoupons.setAdapter(adapter);
+                                mLnShopCatCoupons.addView(vCatCoupons);
+                            }
                         }
                         mTotalPage = couponData.pagination.getmPageTotal();
                     } else {
