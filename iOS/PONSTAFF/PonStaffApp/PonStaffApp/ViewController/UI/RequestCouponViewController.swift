@@ -36,7 +36,7 @@ class RequestCouponViewController: BaseViewController {
         super.setUpUserInterface()
         self.showMenuButton()
         self.showQRButton()
-        self.title = "COUPON REQUEST"
+        self.title = "クーポンんリクエスト"
         couponListView.estimatedRowHeight = 75
         couponListView.tableFooterView = UIView()
         self.setupConfirmPopupView()

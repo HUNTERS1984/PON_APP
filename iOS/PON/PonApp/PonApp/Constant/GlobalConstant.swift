@@ -18,8 +18,6 @@ let DefaultBlueTextColor                        = 0x18c0d4
 let DefaultPlaceHolderColor                     = 0xd2dade
 let DefaultDarkTextColor                        = 0x626D71
 
-let BaseURL                                     = "http://pon.cm/api"
-
 //let GoogleMapAPIKey                             = "AIzaSyBPVkG6R4eBAD7XJV09z7ig3QC0zU8D2ns"
 let GoogleMapAPIKey                             = "AIzaSyCWPCOVykZmln4xRd94C7-GeTLpGFGsMvU"//Test
 
@@ -46,6 +44,13 @@ public enum GetType {
 public enum LoginState {
     case normal
     case qick
+}
+
+public enum CouponFeature: Int {
+    case popularity = 1
+    case new = 2
+    case near = 3
+    case deal = 4
 }
 
 //MARK: - Notification

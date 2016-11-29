@@ -156,6 +156,7 @@
 		FA405C851D9228BC00D56602 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C841D9228BC00D56602 /* CoreTelephony.framework */; };
 		FA405C871D9228C700D56602 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C861D9228C700D56602 /* CoreGraphics.framework */; };
 		FA405C891D9228CC00D56602 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C881D9228CC00D56602 /* CoreText.framework */; };
+		FA43DF1E1DED0F7C00481472 /* SonLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA43DF1D1DED0F7C00481472 /* SonLocation.gpx */; };
 		FA46C4281DB08CDB004E0A81 /* ShareCouponManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46C4271DB08CDB004E0A81 /* ShareCouponManager.swift */; };
 		FA46C42A1DB08D8F004E0A81 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46C4291DB08D8F004E0A81 /* Social.framework */; };
 		FA46C44F1DB0B4DD004E0A81 /* HiraginoSans-W4.ttc in Resources */ = {isa = PBXBuildFile; fileRef = FA46C4451DB0B4DD004E0A81 /* HiraginoSans-W4.ttc */; };
@@ -511,6 +512,7 @@
 		FA405C841D9228BC00D56602 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FA405C861D9228C700D56602 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA405C881D9228CC00D56602 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FA43DF1D1DED0F7C00481472 /* SonLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SonLocation.gpx; sourceTree = "<group>"; };
 		FA46C4271DB08CDB004E0A81 /* ShareCouponManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCouponManager.swift; sourceTree = "<group>"; };
 		FA46C4291DB08D8F004E0A81 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FA46C4451DB0B4DD004E0A81 /* HiraginoSans-W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HiraginoSans-W4.ttc"; sourceTree = "<group>"; };
@@ -1250,6 +1252,7 @@
 		FA37611F1DD564A7008EF623 /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				FA43DF1D1DED0F7C00481472 /* SonLocation.gpx */,
 				FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */,
 				FA3761211DD564A7008EF623 /* MyHouse.gpx */,
 				FA3761221DD564A7008EF623 /* MyOffice.gpx */,
@@ -1719,6 +1722,7 @@
 				FACF58A71DB8C6D0000FB266 /* shop_detail_button_location@3x.png in Resources */,
 				FACF58CC1DB8C6D0000FB266 /* tabbar_favorite_selected@3x.png in Resources */,
 				FACF58D01DB8C6D0000FB266 /* top_button_add@3x.png in Resources */,
+				FA43DF1E1DED0F7C00481472 /* SonLocation.gpx in Resources */,
 				FACF58AE1DB8C6D0000FB266 /* shop_detail_header_name_background@2x.png in Resources */,
 				FACF58911DB8C6D0000FB266 /* map_icon_location@3x.png in Resources */,
 				FACF589E1DB8C6D0000FB266 /* nav_search@2x.png in Resources */,
