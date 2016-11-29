@@ -237,5 +237,19 @@ public struct ApiRequest {
         ]
         ApiManager.processRequest(UpdateTwitterToken, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }
+    
+    static func signInInstagram(_ accessToken: String, completion: @escaping(ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "instagram_access_token": accessToken
+        ]
+        ApiManager.processRequest(SignInInstagram, method: .POST, parameters: parameters, completion: completion)
+    }
+    
+    static func updateInstagramAccessToken(_ accessToken: String, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "instagram_access_token": accessToken
+        ]
+        ApiManager.processRequest(UpdateTokenInstagram, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    }
 
 }
