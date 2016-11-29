@@ -222,5 +222,20 @@ public struct ApiRequest {
         let endpoint = String(format:GetNewsDetails, Int(newsId))
         ApiManager.processRequest(endpoint, method: .GET, hasAuth:true, completion: completion)
     }
+    
+    static func updateFacebookAccessToken(_ accessToken: String, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "facebook_access_token": accessToken
+        ]
+        ApiManager.processRequest(UpdateFacebookToken, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    }
+    
+    static func updateTwitterToken(_ accessToken: String, accessTokenSecret: String, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "twitter_access_token": accessToken,
+            "twitter_access_token_secret": accessTokenSecret
+        ]
+        ApiManager.processRequest(UpdateTwitterToken, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
+    }
 
 }
