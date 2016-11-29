@@ -6,6 +6,11 @@ package com.hunters.pon.utils;
 
 public class Constants {
 
+    //SNS
+    public static final String INSTAGRAM_CLIENT_ID = "cd9f614f85f44238ace18045a51c44d1";// "b2d65acf4c62464fad96b53884bb0df7";
+    public static final String INSTAGRAM_CLIENT_SECRET = "d839149848c04447bd379ce8bff4d890";//"8d6591f0375b4ea38d69eec58d7cfc4a";
+    public static final String INSTAGRAM_CALLBACK_URL = "https://mytenant.auth0.com/login/callback";
+
     public static final String PREF_NAME = "PREF_PON";
     public static final String PREF_TOKEN = "token";
     public static final String PREF_PROFILE_USERNAME = "profile_username";

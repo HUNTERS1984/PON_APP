@@ -27,7 +27,7 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
-import com.hunters.pon.api.ResponseUserData;
+import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseUserProfileData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.UserModel;
@@ -444,13 +444,9 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
-                    ResponseUserData user = (ResponseUserData) msg.obj;
+                    ResponseCommon user = (ResponseCommon) msg.obj;
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
-                        if(user.data != null) {
 
-                        } else {
-                            new DialogUtiils().showDialog(mContext, user.message, false);
-                        }
                     } else {
                         new DialogUtiils().showDialog(mContext, user.message, false);
                     }

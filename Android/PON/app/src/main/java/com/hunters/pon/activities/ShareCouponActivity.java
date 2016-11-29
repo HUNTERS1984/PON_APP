@@ -15,7 +15,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookSdk;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.hunters.pon.R;
@@ -28,11 +31,19 @@ import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.ImageUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Picasso;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import br.com.dina.oauth.instagram.InstagramApp;
 
 public class ShareCouponActivity extends BaseActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -45,12 +56,18 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     private View mShareFacebook, mShareInstagram, mShareTwitter, mShareLine;
     private CouponModel mCoupon;
 
+    private CallbackManager mFacebookCallbackManager;
+    private LoginButton mFacebookSignInButton;
+    private InstagramApp mApp;
+    private TwitterLoginButton mTwitterSignInButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_share_coupon);
         mContext = this;
         super.onCreate(savedInstanceState);
         mCoupon = (CouponModel) getIntent().getSerializableExtra(Constants.EXTRA_DATA);
+        mFacebookCallbackManager = CallbackManager.Factory.create();
 
         initLayout();
         if(mCoupon != null) {
@@ -61,6 +78,10 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
                 mBtnQRCodeShare.setVisibility(View.GONE);
             }
         }
+
+        initFacebook();
+        initTwitter();
+        initInstagram();
     }
 
     private void initLayout()
@@ -89,21 +110,24 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shareFacebook();
+                loginFacebook();
+                //shareFacebook();
             }
         });
 
         mShareTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shareTwitter();
+                loginTwitter();
+//                shareTwitter();
             }
         });
 
         mShareInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shareInstagram();
+                loginInstagram();
+//                shareInstagram();
             }
         });
 
@@ -120,6 +144,12 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+        mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+        if(TwitterAuthConfig.DEFAULT_AUTH_REQUEST_CODE == requestCode) {
+            mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void showSNSShare()
@@ -138,11 +168,99 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mBtnSNSShare.setBackgroundColor(ContextCompat.getColor(mContext, R.color.transparent));
     }
 
+    private void initFacebook()
+    {
+        mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
+        mFacebookSignInButton.setReadPermissions("email");
+        mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(final LoginResult loginResult) {
+                        String token = loginResult.getAccessToken().getToken();
+//                        new UserProfileAPIHelper().signInFacebook(mContext, token, mHanlderSignIn);
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                        new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    }
+                }
+        );
+        mCallbackManager = CallbackManager.Factory.create();
+        //End of Facebook
+    }
+
+    private void loginFacebook()
+    {
+        mFacebookSignInButton.performClick();
+    }
+
+    private void initTwitter()
+    {
+        mTwitterSignInButton = (TwitterLoginButton) findViewById(R.id.twitter_sign_in_button);
+        mTwitterSignInButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                // The TwitterSession is also available through:
+                // Twitter.getInstance().core.getSessionManager().getActiveSession()
+                TwitterSession session = result.data;
+                String accessToken = session.getAuthToken().token;
+                String secrectToken = session.getAuthToken().secret;
+
+//                new UserProfileAPIHelper().signInTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
+            }
+            @Override
+            public void failure(TwitterException exception) {
+                new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    private void loginTwitter()
+    {
+        mTwitterSignInButton.performClick();
+    }
+
+    private void initInstagram()
+    {
+        mApp = new InstagramApp(this, Constants.INSTAGRAM_CLIENT_ID,
+                Constants.INSTAGRAM_CLIENT_SECRET, Constants.INSTAGRAM_CALLBACK_URL);
+        mApp.setListener(listener);
+    }
+
+    private InstagramApp.OAuthAuthenticationListener listener = new InstagramApp.OAuthAuthenticationListener() {
+
+        @Override
+        public void onSuccess() {
+            String token = mApp.getmAccessToken();
+
+
+        }
+
+        @Override
+        public void onFail(String error) {
+
+        }
+    };
+
+    private void loginInstagram()
+    {
+        if(mApp != null) {
+            mApp.resetAccessToken();
+            mApp.authorize();
+        }
+    }
+
     private void shareFacebook()
     {
         showProgressDialog(mContext);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        mCallbackManager = CallbackManager.Factory.create();
+
         mShareDialog = new ShareDialog(this);
 
         if (ShareDialog.canShow(ShareLinkContent.class) && mCoupon != null) {

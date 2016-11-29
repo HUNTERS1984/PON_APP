@@ -45,9 +45,20 @@ public interface ICallServices {
     Call<ResponseUserData> signInFacebook(@Field("facebook_access_token") String token);
 
     @FormUrlEncoded
+    @POST("/api/v1/facebook/token")
+    Call<ResponseCommon> signInShareFacebook(@Header("Authorization") String token, @Field("facebook_access_token") String fbToken);
+
+    @FormUrlEncoded
     @POST("/api/v1/twitter/signin")
     Call<ResponseUserData> signInTwitter(@Field("twitter_access_token") String accessToken, @Field("twitter_access_token_secret") String secrectToken);
 
+    @FormUrlEncoded
+    @POST("/api/v1/twitter/token")
+    Call<ResponseCommon> signInShareTwitter(@Header("Authorization") String token, @Field("twitter_access_token") String accessToken, @Field("twitter_access_token_secret") String secrectToken);
+
+    @FormUrlEncoded
+    @POST("/api/v1/instagram/token")
+    Call<ResponseCommon> signInShareInstagram(@Header("Authorization") String token, @Field("instagram_access_token") String instagramToken);
 
     //Coupons
     @GET("/api/v1/coupons/{id}")
