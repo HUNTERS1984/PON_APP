@@ -10,12 +10,7 @@ import UIKit
 
 let SuccessCode                                 = 1000
 
-public enum CouponFeature: Int {
-    case popularity = 1
-    case new = 2
-    case near = 3
-    case deal = 4
-}
+let BaseURL                                     = "http://pon.cm/api"
 
 let Authorized                                  = "/v1/authorized"
 let SignUp                                      = "/v1/signup"
