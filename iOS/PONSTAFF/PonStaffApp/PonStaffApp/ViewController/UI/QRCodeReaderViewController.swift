@@ -36,7 +36,7 @@ class QRCodeReaderViewController: BaseViewController {
     override func setUpUserInterface() {
         super.setUpUserInterface()
         self.showBackButton()
-        self.title = "QR READER"
+        self.title = "QRリーダー"
         self.setupQRCodeReaser()
         self.setupConfirmPopupView()
         self.setupRejectPopupView()

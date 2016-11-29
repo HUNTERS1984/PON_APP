@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,10 +16,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8x-Wb-peE" customClass="PopupBackgroundView" customModule="PonStaffApp" customModuleProvider="target">
+                    <rect key="frame" x="42.5" y="196" width="290" height="275"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qf2-xQ-cqZ" customClass="DesignableView" customModule="PonStaffApp" customModuleProvider="target">
+                            <rect key="frame" x="100" y="15" width="90" height="90"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCh-S9-8mZ" customClass="DesignableView" customModule="PonStaffApp" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="8" width="74" height="74"/>
                                     <color key="backgroundColor" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="74" id="BwB-to-YTc"/>
@@ -38,6 +44,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_plane_paper.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cgf-if-b0s">
+                                    <rect key="frame" x="31" y="31" width="28" height="28"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="28" id="IXX-ZC-5nI"/>
                                         <constraint firstAttribute="width" constant="28" id="nou-BK-ARu"/>
@@ -69,11 +76,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKf-Xo-x8a">
+                            <rect key="frame" x="15" y="216" width="260" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cED-wa-474" customClass="DesignableButton" customModule="PonStaffApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="ACCEPT"/>
+                                    <state key="normal" title="OK"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
                                             <real key="value" value="4"/>
@@ -84,9 +93,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-Km-GpP" customClass="DesignableButton" customModule="PonStaffApp" customModuleProvider="target">
+                                    <rect key="frame" x="135" y="0.0" width="125" height="44"/>
                                     <color key="backgroundColor" red="0.88627450980392153" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="REJECT">
+                                    <state key="normal" title="キャンセル">
                                         <color key="titleColor" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -112,7 +122,8 @@
                                 <constraint firstItem="D7g-Km-GpP" firstAttribute="width" secondItem="cED-wa-474" secondAttribute="width" id="vHb-AH-qXD"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request use coupon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-hz-wnb">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クーポン利用をリクエストする" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-hz-wnb">
+                            <rect key="frame" x="15" y="120" width="260" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="2cF-zY-pdz"/>
                             </constraints>
@@ -121,6 +132,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vinyl Banners With It Different Types Kinds And Applications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSH-Km-Xmu">
+                            <rect key="frame" x="15" y="146" width="260" height="62"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.72549019609999998" green="0.74117647060000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
