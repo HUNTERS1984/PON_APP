@@ -17,12 +17,15 @@ import android.widget.ImageView;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseCommon;
+import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.qrcode.QRCodeUtils;
 import com.hunters.pon.utils.CommonUtils;
@@ -44,6 +47,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import br.com.dina.oauth.instagram.InstagramApp;
+import jp.line.android.sdk.LineSdkContextManager;
+import jp.line.android.sdk.login.LineAuthManager;
+import jp.line.android.sdk.login.LineLoginFuture;
+import jp.line.android.sdk.login.LineLoginFutureListener;
 
 public class ShareCouponActivity extends BaseActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -60,6 +67,15 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     private LoginButton mFacebookSignInButton;
     private InstagramApp mApp;
     private TwitterLoginButton mTwitterSignInButton;
+
+    private enum SignInType {
+        Facebook,
+        Twitter,
+        Instagram,
+        Line
+    }
+
+    private SignInType mSignInType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +98,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         initFacebook();
         initTwitter();
         initInstagram();
+        initLine();
     }
 
     private void initLayout()
@@ -110,6 +127,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mSignInType = SignInType.Facebook;
                 loginFacebook();
                 //shareFacebook();
             }
@@ -118,6 +136,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mSignInType = SignInType.Twitter;
                 loginTwitter();
 //                shareTwitter();
             }
@@ -126,6 +145,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mSignInType = SignInType.Instagram;
                 loginInstagram();
 //                shareInstagram();
             }
@@ -134,7 +154,9 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shareLine();
+                mSignInType = SignInType.Line;
+                loginLine();
+//                shareLine();
             }
         });
         showSNSShare();
@@ -177,7 +199,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
                     @Override
                     public void onSuccess(final LoginResult loginResult) {
                         String token = loginResult.getAccessToken().getToken();
-//                        new UserProfileAPIHelper().signInFacebook(mContext, token, mHanlderSignIn);
+                        new UserProfileAPIHelper().signInShareFacebook(mContext, token, mHanlderSignIn);
                     }
 
                     @Override
@@ -197,6 +219,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
 
     private void loginFacebook()
     {
+        LoginManager.getInstance().logOut();
         mFacebookSignInButton.performClick();
     }
 
@@ -212,7 +235,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
                 String accessToken = session.getAuthToken().token;
                 String secrectToken = session.getAuthToken().secret;
 
-//                new UserProfileAPIHelper().signInTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
+                new UserProfileAPIHelper().signInShareTwitter(mContext, accessToken, secrectToken, mHanlderSignIn);
             }
             @Override
             public void failure(TwitterException exception) {
@@ -239,7 +262,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         @Override
         public void onSuccess() {
             String token = mApp.getmAccessToken();
-
+            new UserProfileAPIHelper().signInShareInstagram(mContext, token, mHanlderSignIn);
 
         }
 
@@ -256,6 +279,64 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
             mApp.authorize();
         }
     }
+
+    private void initLine()
+    {
+        LineSdkContextManager.initialize(this);
+    }
+
+    private void loginLine()
+    {
+        LineAuthManager authManager = LineSdkContextManager.getSdkContext().getAuthManager();
+        authManager.logout();
+        authManager.login(this).addFutureListener(
+                new LineLoginFutureListener() {
+                    @Override
+                    public void loginComplete(LineLoginFuture future) {
+                        switch (future.getProgress()) {
+                            case SUCCESS:
+                                if(future != null) {
+                                    String token = future.getAccessToken().accessToken;
+//                                    new UserProfileAPIHelper().signInShareLine(mContext, token, mHanlderSignIn);
+                                }
+                                break;
+                            case CANCELED:
+
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }
+                });
+    }
+
+    private Handler mHanlderSignIn = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon user = (ResponseCommon) msg.obj;
+                    if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
+                        if(mSignInType == SignInType.Facebook) {
+                            shareFacebook();
+                        } else if (mSignInType == SignInType.Twitter) {
+                            shareTwitter();
+                        } else if (mSignInType == SignInType.Instagram){
+                            shareInstagram();
+                        } else if (mSignInType == SignInType.Line){
+                            shareLine();
+                        }
+                    } else {
+                        new DialogUtiils().showDialog(mContext, user.message, false);
+                    }
+                    break;
+                case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
+                    break;
+            }
+        }
+    };
 
     private void shareFacebook()
     {

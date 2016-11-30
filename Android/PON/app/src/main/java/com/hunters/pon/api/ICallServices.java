@@ -60,6 +60,11 @@ public interface ICallServices {
     @POST("/api/v1/instagram/token")
     Call<ResponseCommon> signInShareInstagram(@Header("Authorization") String token, @Field("instagram_access_token") String instagramToken);
 
+    @FormUrlEncoded
+    @POST("/api/v1/line/token")
+    Call<ResponseCommon> signInShareLine(@Header("Authorization") String token, @Field("line_access_token") String lineToken);
+
+
     //Coupons
     @GET("/api/v1/coupons/{id}")
     Call<ResponseCouponDetailData> getCouponDetail(@Header("Authorization") String token, @Path("id") long id);

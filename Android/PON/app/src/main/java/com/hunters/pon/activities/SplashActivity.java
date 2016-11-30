@@ -132,7 +132,7 @@ public class SplashActivity extends AppCompatActivity {
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
                     LoginManager.getInstance().logOut();
-                    new DialogUtiils().showDialog(SplashActivity.this, getString(R.string.connection_failed), true);
+                    new DialogUtiils().showDialog(SplashActivity.this, getString(R.string.connection_failed), false);
                     break;
             }
         }
