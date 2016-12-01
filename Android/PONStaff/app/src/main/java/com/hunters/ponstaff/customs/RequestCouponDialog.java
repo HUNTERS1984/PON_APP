@@ -31,7 +31,7 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
 
     private ImageView mIvRequestIcon;
     private Button mBtnAccept, mBtnReject, mBtnDone;
-    private TextView mTvMessage;
+    private TextView mTvMessage, mTvMessageDes1, mTvMessageDes2;
 
     private String mCouponCode;
     private Handler mHandler;
@@ -65,6 +65,8 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
 
         mIvRequestIcon = (ImageView)findViewById(R.id.iv_request_icon);
         mTvMessage = (TextView)findViewById(R.id.tv_message);
+        mTvMessageDes1 = (TextView)findViewById(R.id.tv_coupon_message_1);
+        mTvMessageDes2 = (TextView)findViewById(R.id.tv_coupon_message_2);
 
         mBtnAccept = (Button)findViewById(R.id.btn_accept);
         mBtnAccept.setOnClickListener(this);
@@ -100,6 +102,8 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                     ResponseCommon data = (ResponseCommon) msg.obj;
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
                         mTvMessage.setText(mContext.getString(R.string.thank_you_my_love));
+                        mTvMessageDes1.setText(mContext.getString(R.string.use_coupon_success));
+                        mTvMessageDes2.setVisibility(View.GONE);
                         mIvRequestIcon.setImageResource(R.drawable.ic_heart);
                         mBtnAccept.setVisibility(View.GONE);
                         mBtnReject.setVisibility(View.GONE);
@@ -124,6 +128,8 @@ public class RequestCouponDialog extends Dialog implements View.OnClickListener{
                     ResponseCommon data = (ResponseCommon) msg.obj;
                     if (data.code == APIConstants.REQUEST_OK && data.httpCode == APIConstants.HTTP_OK) {
                         mTvMessage.setText(mContext.getString(R.string.sorry_my_partner));
+                        mTvMessageDes1.setText(mContext.getString(R.string.use_coupon_unsuccess));
+                        mTvMessageDes2.setVisibility(View.GONE);
                         mIvRequestIcon.setImageResource(R.drawable.ic_sad);
                         mIvRequestIcon.setBackgroundResource(R.drawable.circle_stroke_pink_border);
                         mBtnAccept.setVisibility(View.GONE);

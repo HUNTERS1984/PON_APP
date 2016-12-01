@@ -2,32 +2,29 @@
     <string name="app_name">PON STAFF</string>
 
     <!-- Sign In screen -->
-    <string name="sign_in">SIGN IN</string>
+    <string name="sign_in">サインイン</string>
 
-    <string name="permision_available_camera">Camera Permission has been granted. Preview can now be opened.</string>
-    <string name="permision_available_contacts">Contacts Permissions have been granted. Contacts screen can now be opened.</string>
-    <string name="camera_permissions_not_granted">Camera Permissions were not granted.</string>
-    <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
+    <string name="camera_permissions_not_granted">この機能を使用できるようにストレージ・カメラの権限でアクセスが拒否されました。付与してもう一度お試しください</string>
+    <string name="permission_camera_rationale">この機能を使用できるようにストレージ・カメラの権限を付与してください。</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="drawer_open">Open navigation drawer</string>
+     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="coupon_request">COUPON REQUEST</string>
-    <string name="qr_reader">QR READER</string>
+    <string name="coupon_request">クーポンんリクエスト</string>
+    <string name="qr_reader">QRリーダー</string>
     <string name="coupon_request_text_1">Vinyl Banners With Its Different Types</string>
     <string name="coupon_request_text_2">Kinds And Applications</string>
-    <string name="request_use_coupon">Request use coupon</string>
-    <string name="accept">ACCEPT</string>
-    <string name="reject">REJECT</string>
-    <string name="thank_you_my_love">Thank you my love</string>
-    <string name="sorry_my_partner">Sorry my partner</string>
-    <string name="done">DONE</string>
+    <string name="request_use_coupon">クーポン利用をリクエストする</string>
+    <string name="accept">OK</string>
+    <string name="reject">キャンセル</string>
+    <string name="thank_you_my_love">ありがとうございます！</string>
+    <string name="sorry_my_partner">申し訳ございません。</string>
+    <string name="done">完了</string>
 
     <!-- Dialog -->
     <string name="connecting">ローディング...</string>
     <string name="title_alert_dialog">アラート</string>
-    <string name="connection_failed">Server failed to request</string>
+    <string name="connection_failed">サーバーがリクエストに失敗しました</string>
+    <string name="use_coupon_success">成功にこのクーポンを使用しました</string>
+    <string name="use_coupon_unsuccess">このクーポンを使用できません</string>
 
 </resources>

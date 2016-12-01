@@ -29,14 +29,16 @@
         android:gravity="center"
         android:text="@string/coupon_request_text_1"
         android:textColor="@color/grey"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:id="@+id/tv_coupon_message_1"/>
     <com.hunters.ponstaff.customs.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/coupon_request_text_2"
         android:textColor="@color/grey"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:id="@+id/tv_coupon_message_2"/>
 
     <FrameLayout
         android:layout_width="match_parent"
