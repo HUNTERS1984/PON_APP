@@ -125,6 +125,7 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
                         for(ResponseHistoryCoupon coupon : couponData.data) {
                             CouponModel model = new CouponModel();
+                            model.setmId(coupon.getmId());
                             model.setmIsFavourite(coupon.getmIsFavourite());
                             model.setmTitle(coupon.getmTitle());
                             model.setmImageUrl(coupon.getmImageUrl());
