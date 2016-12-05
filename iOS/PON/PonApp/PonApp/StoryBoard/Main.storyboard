@@ -313,7 +313,7 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXM-d5-fcW" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="158" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Fdd-7c-sqk"/>
                                             <constraint firstAttribute="height" constant="60" id="NxU-E1-RVz"/>
@@ -404,10 +404,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-EZ-Ojo">
-                                        <rect key="frame" x="147.5" y="60" width="80" height="80"/>
+                                        <rect key="frame" x="148" y="60" width="80" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_avatar_placehoder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ob5-JN-xwg" userLabel="Avatar Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-3" width="80" height="80"/>
+                                                <rect key="frame" x="1" y="-3" width="80" height="80"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="imageBorderColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -543,7 +543,7 @@
                                         <rect key="frame" x="250" y="0.0" width="125" height="100"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_icon_list.png" translatesAutoresizingMaskIntoConstraints="NO" id="kdR-VO-nHD">
-                                                <rect key="frame" x="46.5" y="17" width="32" height="33"/>
+                                                <rect key="frame" x="47" y="17" width="32" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="MlR-1a-qmU"/>
                                                     <constraint firstAttribute="width" constant="32" id="p55-ZH-UVy"/>
@@ -620,7 +620,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利用規約" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-2K-MFB" userLabel="Title Label">
-                                                    <rect key="frame" x="25" y="0.0" width="317" height="59.5"/>
+                                                    <rect key="frame" x="25" y="0.0" width="317" height="60"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -649,7 +649,7 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-FN-Vjh" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="158" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Nno-Qn-YPT"/>
                                             <constraint firstAttribute="height" constant="60" id="eSA-m5-WaU"/>
@@ -758,7 +758,7 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyf-UM-GZo" customClass="PonButton" customModule="PonApp" customModuleProvider="target">
-                                        <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="158" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="PNJ-GG-x6Z"/>
                                             <constraint firstAttribute="width" constant="60" id="jFz-Su-P7a"/>

@@ -31,3 +31,4 @@ let FBAcountNotAvailable                        = "貴方のデバイスには F
 let TwitterAccountNotAvailable                  = "貴方のデバイスには Twitter が適用していない。"//Twitter Account is not available on your device
 let InstallInstagram                            = "続けるように Instagram をインストールしてください。"//Vui lòng cài ứng dụng instagram để tiếp tục
 let InstallLine                                 = "続けるように Line をインストールしてください。"//Vui lòng cài ứng dụng Line để tiếp tục
+let QRCodeUnavailable                           = "QR code is not available at this time"
