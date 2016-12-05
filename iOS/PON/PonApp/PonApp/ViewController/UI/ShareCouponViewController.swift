@@ -53,9 +53,13 @@ class ShareCouponViewController: BaseViewController {
 extension ShareCouponViewController {
     
     @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
-        self.actionViewBackgroundImageView.image = UIImage(named: "qr_code_button")
-        self.shareActionContainView.fadeOut(0.5)
-        self.qrCodeContainView.fadeIn(0.5)
+        if let _ = code {
+            self.actionViewBackgroundImageView.image = UIImage(named: "qr_code_button")
+            self.shareActionContainView.fadeOut(0.5)
+            self.qrCodeContainView.fadeIn(0.5)
+        }else {
+            self.presentAlert(message: QRCodeUnavailable)
+        }
     }
     
     @IBAction func snsButtonPressed(_ sender: AnyObject) {

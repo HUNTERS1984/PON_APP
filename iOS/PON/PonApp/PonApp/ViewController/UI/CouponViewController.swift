@@ -131,7 +131,11 @@ extension CouponViewController {
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
         if UserDataManager.isLoggedIn() {
-            self.requestUseCoupon()
+            if let _ = self.coupon?.code {
+                let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
+                vc.code = coupon?.code
+                self.navigationController?.present(vc, animated: true)
+            }
         }else {
             self.presentAlert(message: UserNotLoggedIn)
         }
@@ -143,6 +147,8 @@ extension CouponViewController {
                 let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
                 vc.code = coupon?.code
                 self.navigationController?.present(vc, animated: true)
+            }else {
+                self.presentAlert(message: QRCodeUnavailable)
             }
         }else {
             self.presentAlert(message: UserNotLoggedIn)
@@ -225,7 +231,7 @@ extension CouponViewController {
         self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
         self.couponInfoLabel.setLineHeight(lineHeight: 1.75)
-        self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.couponID!)"
+        self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(Int(coupon.couponID!))"
         if coupon.isLike! {
             self.likeButton.isUserInteractionEnabled = false
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())

@@ -72,7 +72,7 @@ extension EditAccountViewController {
                         if result?.code == SuccessCode {
                             UserDataManager.setUserData(result?.data)
                             UserDataManager.shared.avatarImage = avatar
-                            self?.navigationController?.popViewController(animated: true)
+                            _ = self?.navigationController?.popViewController(animated: true)
                         }else {
                             self?.presentAlert(message: (result?.message)!)
                         }
@@ -251,8 +251,8 @@ extension EditAccountViewController {
     }
     
     fileprivate func displayUserInfo() {
-        if let _ = UserDataManager.shared.name {
-            self.nameTextField.text = UserDataManager.shared.name!
+        if let _ = UserDataManager.shared.username {
+            self.nameTextField.text = UserDataManager.shared.username!
         }else {
             self.nameTextField.text = ""
         }
