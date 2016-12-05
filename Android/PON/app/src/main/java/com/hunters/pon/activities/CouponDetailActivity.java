@@ -452,7 +452,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                 .noFade()
                 .fit().into(mIvShopCatIcon);
         mTvCouponTitle.setText(coupon.getmTitle());
-        mTvCouponTypeid.setText(coupon.getmCouponType().getmName() + "・" + coupon.getmId());
+        mTvCouponTypeid.setText(coupon.getmCouponType().getmName() + "・" + coupon.getmCouponId());
         mTvCouponExpireDate.setText(getString(R.string.deadline) + CommonUtils.convertDateFormat(coupon.getmExpireDate()));
         mTvCouponDescription.setText(coupon.getmDescription());
         mTvCouponAddress.setText(coupon.getmShop().getmAddress());

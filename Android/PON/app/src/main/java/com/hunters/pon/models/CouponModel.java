@@ -42,6 +42,9 @@ public class CouponModel implements Serializable {
     @SerializedName("link")
     private String mLinkShare;
 
+    @SerializedName("coupon_id")
+    private String mCouponId;
+
     private boolean mIsUsed = false;
 
     public String getmImageUrl() {
@@ -139,5 +142,13 @@ public class CouponModel implements Serializable {
 
     public void setmLinkShare(String mLinkShare) {
         this.mLinkShare = mLinkShare;
+    }
+
+    public String getmCouponId() {
+        return mCouponId;
+    }
+
+    public void setmCouponId(String mCouponId) {
+        this.mCouponId = mCouponId;
     }
 }
