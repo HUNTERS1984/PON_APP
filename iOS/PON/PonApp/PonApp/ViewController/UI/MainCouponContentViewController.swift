@@ -247,7 +247,7 @@ extension MainCouponContentViewController: UIScrollViewDelegate {
 //MARK: - CouponViewControllerDelegate
 extension MainCouponContentViewController: CouponViewControllerDelegate {
     
-    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+    func couponViewController(_ viewController: CouponViewController, didUpdateLikeCouponStatusAtIndex index: Int?, rowIndex: Int?, couponId: Float?, status: Bool) {
         guard let rowIndex = rowIndex,
             let couponIndex = index,
             let couponId = couponId else {
@@ -260,7 +260,8 @@ extension MainCouponContentViewController: CouponViewControllerDelegate {
         if coupon.couponID != couponId {
             return
         }
-        self.couponListData[rowIndex].coupons[couponIndex].isLike = true
+        self.couponListData[rowIndex].coupons[couponIndex].isLike = status
         self.contentTableView.reloadRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
     }
+    
 }

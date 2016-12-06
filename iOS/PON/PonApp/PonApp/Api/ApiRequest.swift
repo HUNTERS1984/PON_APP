@@ -251,5 +251,15 @@ public struct ApiRequest {
         ]
         ApiManager.processRequest(UpdateTokenInstagram, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }
+    
+    static func unLikeCoupon(_ couponId: Float, completion: @escaping (ApiCompletion)) {
+        let endpoint = String(format:UnLikeCoupon, Int(couponId))
+        ApiManager.processRequest(endpoint, method: .POST, hasAuth:true, completion: completion)
+    }
+    
+    static func unFollowShop(_ shopId: Float, completion: @escaping (ApiCompletion)) {
+        let endpoint = String(format:UnFollowShop, Int(shopId))
+        ApiManager.processRequest(endpoint, method: .POST, hasAuth:true, completion: completion)
+    }
 
 }

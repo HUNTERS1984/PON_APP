@@ -166,6 +166,27 @@ extension ListShopContentViewController {
         }
     }
     
+    fileprivate func unFollowShop(_ shopId: Float, index: Int) {
+        UIAlertController.present(title: "", message: UnFollowShopConfirmation, actionTitles: [OK, Cancel]) { (action) -> () in
+            if action.title == "OK" {
+                self.showHUD()
+                ApiRequest.unFollowShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
+                    if let _ = error {
+                        
+                    }else {
+                        if result?.code == SuccessCode {
+                            self.shops[index].isFollow = false
+                            self.collectionView.reloadData()
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -183,7 +204,13 @@ extension ListShopContentViewController: UICollectionViewDataSource {
         cell.completionHandler = { [weak self] (shopID: Float?, index: Int) in
             if let _ = shopID {
                 if UserDataManager.isLoggedIn() {
-                    self?.followShop(shopID!, index: index)
+                    let shop = self?.shops[index]
+                    if shop!.isFollow! {
+                        self?.unFollowShop(shopID!, index: index)
+                    }else {
+                        self?.followShop(shopID!, index: index)
+                    }
+                    
                 }else {
                     self?.presentAlert(message: UserNotLoggedIn)
                 }

@@ -239,15 +239,16 @@ extension ListCouponContentViewController: UIScrollViewDelegate {
 //MARK: - CouponViewControllerDelegate
 extension ListCouponContentViewController: CouponViewControllerDelegate {
     
-    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?) {
+    internal func couponViewController(_ viewController: CouponViewController, didUpdateLikeCouponStatusAtIndex index: Int?, rowIndex: Int?, couponId: Float?, status: Bool) {
         guard let couponId = couponId,
             let index = index else {
                 return
         }
         if self.coupons[index].couponID == couponId {
-            self.coupons[index].isLike = true
+            self.coupons[index].isLike = status
             self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
         }
+
     }
     
 }

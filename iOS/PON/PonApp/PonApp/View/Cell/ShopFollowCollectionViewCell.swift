@@ -26,11 +26,7 @@ class ShopFollowCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func followButtonPressed(_ sender: AnyObject) {
-        if let _ = shop.isFollow {
-            if !shop.isFollow! {
-                self.completionHandler?(self.shop.shopID, self.index)
-            }
-        }
+        self.completionHandler?(self.shop.shopID, self.index)
     }
     
     func setDataForCell(_ shop: Shop) {

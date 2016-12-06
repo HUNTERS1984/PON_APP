@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CouponViewControllerDelegate: class {
-    func couponViewController(_ viewController: CouponViewController, didLikeCouponAtIndex index: Int?, rowIndex: Int?, couponId: Float?)
+    func couponViewController(_ viewController: CouponViewController, didUpdateLikeCouponStatusAtIndex index: Int?, rowIndex: Int?, couponId: Float?, status: Bool)
 }
 
 class CouponViewController: BaseViewController {
@@ -119,7 +119,12 @@ extension CouponViewController {
     
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
         if UserDataManager.isLoggedIn() {
-            self.likeCoupon()
+            if self.coupon!.isLike! {
+                self.unLikeCoupon()
+                
+            }else {
+                self.likeCoupon()
+            }
         }else {
             self.presentAlert(message: UserNotLoggedIn)
         }
@@ -170,9 +175,30 @@ extension CouponViewController {
                         
                     }else {
                         if result!.code == SuccessCode {
-                            self.likeButton.isUserInteractionEnabled = false
                             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
-                            self.updateLikeCouponStatus()
+                            self.updateLikeCouponStatus(true)
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func unLikeCoupon() {
+        UIAlertController.present(title: "", message: UnLikeCouponConfirmation, actionTitles: [OK, Cancel]) { (action) -> () in
+            if action.title == "OK" {
+                self.showHUD()
+                ApiRequest.unLikeCoupon(self.coupon!.couponID) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
+                    if let _ = error {
+                        
+                    }else {
+                        if result!.code == SuccessCode {
+                            self.likeButton.isUserInteractionEnabled = true
+                            self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
+                            self.updateLikeCouponStatus(false)
                         }else {
                             self.presentAlert(message: (result?.message)!)
                         }
@@ -233,10 +259,8 @@ extension CouponViewController {
         self.couponInfoLabel.setLineHeight(lineHeight: 1.75)
         self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(Int(coupon.couponID!))"
         if coupon.isLike! {
-            self.likeButton.isUserInteractionEnabled = false
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
         }else {
-            self.likeButton.isUserInteractionEnabled = true
             self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
         }
         self.detailMapView.createShopMarker(coupon.shopCoordinate)
@@ -254,8 +278,8 @@ extension CouponViewController {
         }
     }
     
-    fileprivate func updateLikeCouponStatus() {
-        self.handler?.couponViewController(self, didLikeCouponAtIndex: self.selectedCouponIndex, rowIndex: self.selectedRowIndex, couponId: self.coupon!.couponID)
+    fileprivate func updateLikeCouponStatus(_ isLiked: Bool) {
+        self.handler?.couponViewController(self, didUpdateLikeCouponStatusAtIndex: self.selectedCouponIndex, rowIndex: self.selectedRowIndex, couponId: self.coupon!.couponID, status: isLiked)
         
         var userInfo = [String: Any]()
         userInfo["coupon_id"] = self.coupon!.couponID
@@ -265,6 +289,8 @@ extension CouponViewController {
         if  let _ = self.selectedRowIndex {
             userInfo["row_index"] = self.selectedRowIndex!
         }
+        
+        userInfo["is_liked"] = isLiked
         NotificationCenter.default.post(name:Notification.Name(LikeCouponNotification),
                                         object: nil,
                                         userInfo:userInfo)
