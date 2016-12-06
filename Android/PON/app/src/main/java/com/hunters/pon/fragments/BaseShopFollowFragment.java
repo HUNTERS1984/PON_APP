@@ -15,9 +15,12 @@ import android.view.ViewGroup;
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.AddShopFollowRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseShopFollowCategoryData;
+import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.ShopModel;
+import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
@@ -59,6 +62,8 @@ public abstract class BaseShopFollowFragment extends Fragment {
 
     protected List<ShopModel> mLstShopFollows;
     protected ProgressDialogUtils mProgressDialogUtils;
+    protected ShopModel mShopSelected;
+    protected int mShopSelectedPos;
 
     public BaseShopFollowFragment() {
         // Required empty public constructor
@@ -103,7 +108,7 @@ public abstract class BaseShopFollowFragment extends Fragment {
         };
 
         mLstShopFollows = new ArrayList<>();
-        mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(view.getContext(), mLstShopFollows);
+        mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(view.getContext(), mLstShopFollows, null);
         rv.setAdapter(mAdapterShopFollow);
 
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -220,5 +225,58 @@ public abstract class BaseShopFollowFragment extends Fragment {
         }
     }
 
-    public abstract void updateStatusFollowShop(int position);
+//    public abstract void updateStatusFollowShop(int position);
+
+    public void updateStatusFollowShop(int position)
+    {
+        if(mLstShopFollows != null) {
+            final ShopModel shop = mLstShopFollows.get(position);
+            mShopSelected = shop;
+            mShopSelectedPos = position;
+            boolean isShopFollow = shop.getmIsShopFollow();
+            if(isShopFollow) {
+                new DialogUtiils().showOptionDialog(getActivity(), getActivity().getString(R.string.confirm_follow_shop), getActivity().getString(R.string.ok), getActivity().getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                    @Override
+                    public void onDialogButtonConfirm() {
+                        new ShopAPIHelper().removeShopFollow(getActivity(), shop.getmId(), mHandlerAddAndRemoveShopFollow);
+                    }
+                });
+            } else {
+                new DialogUtiils().showOptionDialog(getActivity(), getActivity().getString(R.string.confirm_follow_shop), getActivity().getString(R.string.ok), getActivity().getString(R.string.cancel), new OnDialogButtonConfirm(){
+
+                    @Override
+                    public void onDialogButtonConfirm() {
+                        new ShopAPIHelper().addShopFollow(getActivity(), shop.getmId(), mHandlerAddAndRemoveShopFollow);
+                    }
+                });
+            }
+//            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
+//            mAdapterShopFollow.notifyDataSetChanged();
+        }
+    }
+
+    protected Handler mHandlerAddAndRemoveShopFollow = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
+                    ResponseCommon shopFollow = (ResponseCommon) msg.obj;
+                    if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK){
+                        if(mShopSelected != null) {
+                            boolean isShopFollow = mShopSelected.getmIsShopFollow();
+                            mLstShopFollows.get(mShopSelectedPos).setmIsShopFollow(!isShopFollow);
+                            mAdapterShopFollow.notifyDataSetChanged();
+                        }
+                    } else {
+                        new DialogUtiils().showDialog(getActivity(), getActivity().getString(R.string.token_expried), false);
+                    }
+                    break;
+                default:
+                    new DialogUtiils().showDialog(getActivity(), getActivity().getString(R.string.connection_failed), false);
+                    break;
+            }
+
+        }
+    };
 }

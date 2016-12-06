@@ -3,7 +3,6 @@ package com.hunters.pon.fragments;
 import android.os.Bundle;
 
 import com.hunters.pon.api.ShopAPIHelper;
-import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
@@ -63,16 +62,16 @@ public class AddShopFollowPopularityFragment extends BaseShopFollowFragment impl
         new ShopAPIHelper().getShopFollowCategory(getActivity(), Constants.TYPE_POPULARITY_COUPON, mCatId, "", "", "1", mHanlderShopFollow, true);
     }
 
-    @Override
-    public void updateStatusFollowShop(int position)
-    {
-        if(mLstShopFollows != null) {
-            ShopModel shop = mLstShopFollows.get(position);
-            boolean isShopFollow = shop.getmIsShopFollow();
-            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
-            mAdapterShopFollow.notifyDataSetChanged();
-        }
-    }
+//    @Override
+//    public void updateStatusFollowShop(int position)
+//    {
+//        if(mLstShopFollows != null) {
+//            ShopModel shop = mLstShopFollows.get(position);
+//            boolean isShopFollow = shop.getmIsShopFollow();
+//            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
+//            mAdapterShopFollow.notifyDataSetChanged();
+//        }
+//    }
 
     @Override
     public void onLoadMoreData(int page) {

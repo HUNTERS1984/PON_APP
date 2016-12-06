@@ -30,6 +30,15 @@ public class UserModel implements Serializable {
     @SerializedName("avatar_url")
     private String mAvatarUrl;
 
+    @SerializedName("follow_number")
+    private String mFollowShopNumber;
+
+    @SerializedName("used_number")
+    private String mCouponUsedNumber;
+
+    @SerializedName("news_number")
+    private String mNewsNumber;
+
     public int getmId() {
         return mId;
     }
@@ -84,5 +93,29 @@ public class UserModel implements Serializable {
 
     public void setmEmail(String mEmail) {
         this.mEmail = mEmail;
+    }
+
+    public String getmFollowShopNumber() {
+        return mFollowShopNumber;
+    }
+
+    public void setmFollowShopNumber(String mFollowShopNumber) {
+        this.mFollowShopNumber = mFollowShopNumber;
+    }
+
+    public String getmCouponUsedNumber() {
+        return mCouponUsedNumber;
+    }
+
+    public void setmCouponUsedNumber(String mCouponUsedNumber) {
+        this.mCouponUsedNumber = mCouponUsedNumber;
+    }
+
+    public String getmNewsNumber() {
+        return mNewsNumber;
+    }
+
+    public void setmNewsNumber(String mNewsNumber) {
+        this.mNewsNumber = mNewsNumber;
     }
 }

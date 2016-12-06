@@ -39,10 +39,12 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
     private List<ShopModel> mLstShopFollows;
     private Context mContext;
+    private Handler mHanlderRefreshShopFollow;
 
-    public AddShopFollowRecyclerViewAdapter(Context context, List<ShopModel> lstShopFollows) {
+    public AddShopFollowRecyclerViewAdapter(Context context, List<ShopModel> lstShopFollows, Handler handlerRefreshFollowShop) {
         this.mLstShopFollows = lstShopFollows;
         this.mContext = context;
+        mHanlderRefreshShopFollow = handlerRefreshFollowShop;
     }
 
     @Override
@@ -153,13 +155,23 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
                         extra.setmArg(mPosSelection);
                         new DialogUtiils().showDialogLogin((Activity)mContext, mContext.getString(R.string.need_login), extra );
                     } else {
-                        new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+                        if(shop.getmIsShopFollow()) {
+                            new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
 
-                            @Override
-                            public void onDialogButtonConfirm() {
-                                new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddShopFollow);
-                            }
-                        });
+                                @Override
+                                public void onDialogButtonConfirm() {
+                                    new ShopAPIHelper().removeShopFollow(mContext, shopId, mHanlderAddAndRemoveShopFollow);
+                                }
+                            });
+                        } else {
+                            new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
+
+                                @Override
+                                public void onDialogButtonConfirm() {
+                                    new ShopAPIHelper().addShopFollow(mContext, shopId, mHanlderAddAndRemoveShopFollow);
+                                }
+                            });
+                        }
 
                     }
 //                    boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
@@ -175,17 +187,21 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
         }
 
-        protected Handler mHanlderAddShopFollow = new Handler(){
+        protected Handler mHanlderAddAndRemoveShopFollow = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                         ResponseCommon shopFollow = (ResponseCommon) msg.obj;
                         if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK){
-                            ShopModel shop = mLstShopFollows.get(mPosSelection);
-                            boolean isShopFollow = shop.getmIsShopFollow();
-                            mLstShopFollows.get(mPosSelection).setmIsShopFollow(!isShopFollow);
-                            notifyDataSetChanged();
+                            if(mHanlderRefreshShopFollow != null) {
+                                mHanlderRefreshShopFollow.sendEmptyMessage(0);
+                            } else {
+                                ShopModel shop = mLstShopFollows.get(mPosSelection);
+                                boolean isShopFollow = shop.getmIsShopFollow();
+                                mLstShopFollows.get(mPosSelection).setmIsShopFollow(!isShopFollow);
+                                notifyDataSetChanged();
+                            }
                         } else {
                             new DialogUtiils().showDialog(mContext, mContext.getString(R.string.token_expried), false);
                         }

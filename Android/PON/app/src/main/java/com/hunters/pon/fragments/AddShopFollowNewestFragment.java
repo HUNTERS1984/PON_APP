@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.hunters.pon.api.ShopAPIHelper;
-import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
@@ -88,16 +87,35 @@ public class AddShopFollowNewestFragment extends BaseShopFollowFragment implemen
 //        }
     }
 
-    @Override
-    public void updateStatusFollowShop(int position)
-    {
-        if(mLstShopFollows != null) {
-            ShopModel shop = mLstShopFollows.get(position);
-            boolean isShopFollow = shop.getmIsShopFollow();
-            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
-            mAdapterShopFollow.notifyDataSetChanged();
-        }
-    }
+//    @Override
+//    public void updateStatusFollowShop(int position)
+//    {
+//        if(mLstShopFollows != null) {
+//            final ShopModel shop = mLstShopFollows.get(position);
+//            mShopSelected = shop;
+//            mShopSelectedPos = position;
+//            boolean isShopFollow = shop.getmIsShopFollow();
+//            if(isShopFollow) {
+//                new DialogUtiils().showOptionDialog(getActivity(), getActivity().getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+//
+//                    @Override
+//                    public void onDialogButtonConfirm() {
+//                        new ShopAPIHelper().addShopFollow(getActivity(), shop.getmId(), mHanlderAddAndRemoveShopFollow);
+//                    }
+//                });
+//            } else {
+//                new DialogUtiils().showOptionDialog(getActivity(), getActivity().getString(R.string.confirm_follow_shop), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+//
+//                    @Override
+//                    public void onDialogButtonConfirm() {
+//                        new ShopAPIHelper().addShopFollow(getActivity(), shop.getmId(), mHanlderAddAndRemoveShopFollow);
+//                    }
+//                });
+//            }
+////            mLstShopFollows.get(position).setmIsShopFollow(!isShopFollow);
+////            mAdapterShopFollow.notifyDataSetChanged();
+//        }
+//    }
 
     @Override
     public void onLoadMoreData(int page) {

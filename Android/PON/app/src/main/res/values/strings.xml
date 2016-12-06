@@ -53,8 +53,9 @@
 
     <!--Profile screen -->
     <string name="follow">フォロー</string>
-    <string name="history">履歴</string>
-    <string name="news">お知らせ</string>
+    <string name="follow_shop">フォロー %s</string>
+    <string name="history">履歴 %s</string>
+    <string name="news">お知らせ %s</string>
     <string name="term_of_service">利用規約</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="specific_trade">特定商取引</string>
@@ -151,6 +152,7 @@
     <string name="load_avatar_larger_10mb">プロファイル写真のサイズは10MB以上です。他の写真を選択してください。</string>
     <string name="invalid_password">パスワードは６記号以降と特別記号を入力しない。</string>
     <string name="back_to_exit">exitできるようにBACKボタンをクリックしてください。</string>
+    <string name="cannot_use_coupon">このクーポンは使用できません</string>
 
 
     <!--Shop Detail -->

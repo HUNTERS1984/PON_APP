@@ -241,7 +241,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 
                     @Override
                     public void onDialogButtonConfirm() {
-                        new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
+                        new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddAndRemoveFavouriteCoupon);
                     }
                 });
 
@@ -359,13 +359,23 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                                 dialog.show();
                                 break;
                             case ADD_FAVOURITE:
-                                new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm(){
+                                if(isFavourite) {
+                                    new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
 
-                                    @Override
-                                    public void onDialogButtonConfirm() {
-                                        new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddFavouriteCoupon);
-                                    }
-                                });
+                                        @Override
+                                        public void onDialogButtonConfirm() {
+                                            new CouponAPIHelper().removeFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddAndRemoveFavouriteCoupon);
+                                        }
+                                    });
+                                } else {
+                                    new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
+
+                                        @Override
+                                        public void onDialogButtonConfirm() {
+                                            new CouponAPIHelper().addFavouriteCoupon(mContext, String.valueOf(mCouponId), mHanlderAddAndRemoveFavouriteCoupon);
+                                        }
+                                    });
+                                }
                                 break;
                         }
 
@@ -410,7 +420,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         }
     };
 
-    private Handler mHanlderAddFavouriteCoupon = new Handler(){
+    private Handler mHanlderAddAndRemoveFavouriteCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

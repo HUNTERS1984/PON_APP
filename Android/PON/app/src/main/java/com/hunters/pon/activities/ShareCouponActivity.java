@@ -89,10 +89,11 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         if(mCoupon != null) {
             if(mCoupon.getmCode() != null) {
                 new QRCodeUtils().genQRCode(mContext, mCoupon.getmCode(), mIvQRCode);
-                mBtnQRCodeShare.setVisibility(View.VISIBLE);
-            } else {
-                mBtnQRCodeShare.setVisibility(View.GONE);
+//                mBtnQRCodeShare.setVisibility(View.VISIBLE);
             }
+//            else {
+//                mBtnQRCodeShare.setVisibility(View.GONE);
+//            }
         }
 
         initFacebook();
@@ -188,6 +189,10 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mViewSNSShare.setVisibility(View.GONE);
         mBtnQRCodeShare.setBackgroundColor(ContextCompat.getColor(mContext, R.color.white));
         mBtnSNSShare.setBackgroundColor(ContextCompat.getColor(mContext, R.color.transparent));
+
+        if(mCoupon.getmCode() == null) {
+            new DialogUtiils().showDialog(mContext, getString(R.string.cannot_use_coupon), false);
+        }
     }
 
     private void initFacebook()

@@ -68,7 +68,7 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
         });
         rv.addOnScrollListener(mScrollLoadMoreData);
 
-        mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(this, mListShops);
+        mAdapterShopFollow = new AddShopFollowRecyclerViewAdapter(this, mListShops, mHandlerRefreshShopFollow);
         rv.setAdapter(mAdapterShopFollow);
     }
 
@@ -110,6 +110,13 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
                     break;
             }
             mScrollLoadMoreData.setLoaded();
+        }
+    };
+
+    protected Handler mHandlerRefreshShopFollow = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            onLoadData();
         }
     };
 }

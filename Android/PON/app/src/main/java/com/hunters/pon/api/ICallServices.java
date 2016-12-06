@@ -90,13 +90,15 @@ public interface ICallServices {
     @POST("/api/v1/like/coupons/{id}")
     Call<ResponseCommon> addFavouriteCoupon(@Header("Authorization") String token, @Path("id") String id);
 
+    @POST("/api/v1/unlike/coupons/{id}")
+    Call<ResponseCommon> removeFavouriteCoupon(@Header("Authorization") String token, @Path("id") String id);
+
     @GET("/api/v1/search/coupons")
     Call<ResponseSearchCouponData> searchCoupon(@Header("Authorization") String token, @Query("query") String query, @Query("page_size") String size, @Query("page_index") String index);
 
     //Shop
     @GET("/api/v1/categories/shop")
     Call<ResponseCategoryShopFollowData> getCatShopFollow(@Query("page_size") String size, @Query("page_index") String index);
-
 
     @GET("/api/v1/featured/{type}/shops/{category}")
     Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Path("type") String featureType, @Path("category") long typeId, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
@@ -119,4 +121,6 @@ public interface ICallServices {
     @GET("/api/v1/news/{id}")
     Call<ResponseNewsDetailData> getNewsDetail(@Path("id") long id);
 
+    @POST("/api/v1/unfollow/shops/{id}")
+    Call<ResponseCommon> removeShopFollow(@Header("Authorization") String token, @Path("id") long shopId);
 }

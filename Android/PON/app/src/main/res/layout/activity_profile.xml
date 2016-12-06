@@ -78,7 +78,8 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/follow"/>
+                        android:text="@string/follow_shop"
+                        android:id="@+id/tv_follow_shop_number"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"
@@ -110,7 +111,8 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/history"/>
+                        android:text="@string/history"
+                        android:id="@+id/tv_history_number"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"
@@ -142,7 +144,8 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/news"/>
+                        android:text="@string/news"
+                        android:id="@+id/tv_news_number"/>
                 </LinearLayout>
                 <View
                     android:layout_width="1dp"

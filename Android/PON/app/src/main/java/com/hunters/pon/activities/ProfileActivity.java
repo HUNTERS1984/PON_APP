@@ -34,7 +34,7 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
     private List<String> mListMenuNames;
     private UserModel mUser;
 
-    private TextView mTvUsername;
+    private TextView mTvUsername, mTvFollowShopNumber, mTvHistoryNumber, mTvNewsNumber;
     private ImageView mIvUserPhoto;
 
     @Override
@@ -80,6 +80,9 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
 
         mTvUsername = (TextView)findViewById(R.id.tv_user_name);
         mIvUserPhoto = (ImageView)findViewById(R.id.iv_user_pic);
+        mTvFollowShopNumber = (TextView)findViewById(R.id.tv_follow_shop_number);
+        mTvHistoryNumber = (TextView)findViewById(R.id.tv_history_number);
+        mTvNewsNumber = (TextView)findViewById(R.id.tv_news_number);
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.rv_profile_menu_list);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -174,6 +177,25 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         if(mUser.getmUsername() != null) {
             mTvUsername.setText(mUser.getmUsername());
         }
+
+        String followShopNumber = "0";
+        if(mUser.getmFollowShopNumber() != null) {
+            followShopNumber = mUser.getmFollowShopNumber();
+        }
+        mTvFollowShopNumber.setText(getString(R.string.follow_shop).replace("%s", followShopNumber));
+
+        String historyNumber = "0";
+        if(mUser.getmCouponUsedNumber() != null) {
+            historyNumber = mUser.getmCouponUsedNumber();
+        }
+        mTvHistoryNumber.setText(getString(R.string.history).replace("%s", historyNumber));
+
+        String newsNumber = "0";
+        if(mUser.getmNewsNumber() != null){
+            newsNumber = mUser.getmNewsNumber();
+        }
+        mTvNewsNumber.setText(getString(R.string.news).replace("%s", newsNumber));
+
 //        if (mUser.getmName() != null && !mUser.getmName().equalsIgnoreCase("")) {
 //            mTvUsername.setText(mUser.getmName());
 //        } else if(mUser.getmUsername() != null) {
