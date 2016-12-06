@@ -140,6 +140,8 @@ extension CouponViewController {
                 let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
                 vc.code = coupon?.code
                 self.navigationController?.present(vc, animated: true)
+            }else {
+                self.presentAlert(message: QRCodeUnavailable)
             }
         }else {
             self.presentAlert(message: UserNotLoggedIn)
