@@ -31,7 +31,12 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
         mDataListener = this;
         setContentView(R.layout.activity_profile_shop_following);
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.follow));
+        String followShopNumber = getIntent().getStringExtra(Constants.EXTRA_DATA);
+        if(followShopNumber != null) {
+            setTitle(getString(R.string.follow_shop).replace("%s", followShopNumber));
+        } else {
+            setTitle(getString(R.string.follow_shop).replace("%s", "0"));
+        }
 
         initLayout();
     }

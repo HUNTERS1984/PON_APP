@@ -35,7 +35,8 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
         mDataListener = this;
         setContentView(R.layout.activity_history);
         super.onCreate(savedInstanceState);
-        setTitle(getResources().getString(R.string.history));
+        String historyNumber = getIntent().getStringExtra(Constants.EXTRA_DATA);
+        setTitle(getResources().getString(R.string.history).replace("%s", historyNumber));
 
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycler_view_history);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);

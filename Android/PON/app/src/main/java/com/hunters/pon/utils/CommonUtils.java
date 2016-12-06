@@ -97,6 +97,9 @@ public class CommonUtils {
         user.setmName(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_FULLNAME));
         user.setmUsername(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_USERNAME));
         user.setmId(SharedPreferenceUtils.getInt(context, Constants.PREF_PROFILE_ID));
+        user.setmFollowShopNumber(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_FOLLOW_NUMBER));
+        user.setmCouponUsedNumber(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_HISTORY_NUMBER));
+        user.setmNewsNumber(SharedPreferenceUtils.getString(context, Constants.PREF_PROFILE_NEWS_NUMBER));
         return user;
     }
 
@@ -109,6 +112,9 @@ public class CommonUtils {
         SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_FULLNAME, user.getmName());
         SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_USERNAME, user.getmUsername());
         SharedPreferenceUtils.saveInt(context, Constants.PREF_PROFILE_ID, user.getmId());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_FOLLOW_NUMBER, user.getmFollowShopNumber());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_HISTORY_NUMBER, user.getmCouponUsedNumber());
+        SharedPreferenceUtils.saveString(context, Constants.PREF_PROFILE_NEWS_NUMBER, user.getmNewsNumber());
     }
 
     public static boolean isEmailValid(CharSequence email) {

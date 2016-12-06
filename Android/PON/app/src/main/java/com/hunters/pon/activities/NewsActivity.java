@@ -14,6 +14,7 @@ import com.hunters.pon.api.ResponseNewsData;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.ArrayList;
@@ -40,7 +41,8 @@ public class NewsActivity extends BaseActivity implements OnLoadDataListener {
 
     private void initLayout()
     {
-        setTitle(getString(R.string.news));
+        String newsNumber = getIntent().getStringExtra(Constants.EXTRA_DATA);
+        setTitle(getString(R.string.news).replace("%s", newsNumber));
 
         RecyclerView rvNews = (RecyclerView) findViewById(R.id.rv_news);
 
@@ -92,7 +94,6 @@ public class NewsActivity extends BaseActivity implements OnLoadDataListener {
                         mPageTotal = news.pagination.getmPageTotal();
                         mLstNews.addAll(news.data);
                         mAdapterNews.updateData(mLstNews);
-                        setTitle(getString(R.string.news) + " " + String.valueOf(20*mPageTotal));
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), false);
                     }

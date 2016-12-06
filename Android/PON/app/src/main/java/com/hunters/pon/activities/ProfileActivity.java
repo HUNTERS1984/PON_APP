@@ -106,7 +106,9 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         rlShopFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(mContext, ProfileShopFollowingActivity.class, false);
+                Intent iShopFollow = new Intent(mContext, ProfileShopFollowingActivity.class);
+                iShopFollow.putExtra(Constants.EXTRA_DATA, mUser.getmFollowShopNumber());
+                mContext.startActivity(iShopFollow);
             }
         });
 
@@ -114,7 +116,9 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         rlHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(mContext, ProfileHistoryActivity.class, false);
+                Intent iHistory= new Intent(mContext, ProfileHistoryActivity.class);
+                iHistory.putExtra(Constants.EXTRA_DATA, mUser.getmCouponUsedNumber());
+                mContext.startActivity(iHistory);
             }
         });
 
@@ -122,7 +126,9 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         rlCouponsUsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(mContext, NewsActivity.class, false);
+                Intent iNews = new Intent(mContext, NewsActivity.class);
+                iNews.putExtra(Constants.EXTRA_DATA, mUser.getmNewsNumber());
+                mContext.startActivity(iNews);
             }
         });
     }
