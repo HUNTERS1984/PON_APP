@@ -259,7 +259,7 @@ extension CouponViewController {
         self.categoryIcon.af_setImage(withURL: URL(string: coupon.categoryIcon)!)
         self.couponInfoLabel.text = coupon.description!
         self.couponInfoLabel.setLineHeight(lineHeight: 1.75)
-        self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(Int(coupon.couponID!))"
+        self.couponTypeLabel.text = "\(coupon.couponType!)・ID \(coupon.maskCouponId!)"
         if coupon.isLike! {
             self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
         }else {
