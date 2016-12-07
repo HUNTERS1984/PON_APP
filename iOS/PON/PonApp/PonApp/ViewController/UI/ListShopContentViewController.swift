@@ -157,6 +157,7 @@ extension ListShopContentViewController {
                         if result?.code == SuccessCode {
                             self.shops[index].isFollow = true
                             self.collectionView.reloadData()
+                            UserDataManager.getUserProfile()
                         }else {
                             self.presentAlert(message: (result?.message)!)
                         }
@@ -178,6 +179,7 @@ extension ListShopContentViewController {
                         if result?.code == SuccessCode {
                             self.shops[index].isFollow = false
                             self.collectionView.reloadData()
+                            UserDataManager.getUserProfile()
                         }else {
                             self.presentAlert(message: (result?.message)!)
                         }

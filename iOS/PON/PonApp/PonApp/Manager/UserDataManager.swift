@@ -25,6 +25,9 @@ class UserDataManager {
     var avatarImage: UIImage?
     var loggedIn: Bool = false
     var gender: Int?
+    var usedCouponNumber: Int = 0
+    var newsNumber: Int = 0
+    var shopFollowNumber: Int = 0
     
     fileprivate func getUserProfile() {
         ApiRequest.getUserProfile { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
@@ -62,6 +65,18 @@ class UserDataManager {
         if let gender = data!["gender"].int {
             self.gender = gender
         }
+        
+        if let usedCouponNumber = data!["used_number"].int {
+            self.usedCouponNumber = usedCouponNumber
+        }
+        
+        if let newsNumber = data!["news_number"].int {
+            self.newsNumber = newsNumber
+        }
+        
+        if let shopFollowNumber = data!["follow_number"].int {
+            self.shopFollowNumber = shopFollowNumber
+        }
     }
     
     func getAvatarImage() -> UIImage? {
@@ -95,7 +110,9 @@ class UserDataManager {
         UserDataManager.shared.avatarImage = nil
         UserDataManager.shared.loggedIn = false
         UserDataManager.shared.gender = nil
-        
+        UserDataManager.shared.usedCouponNumber = 0
+        UserDataManager.shared.newsNumber = 0
+        UserDataManager.shared.shopFollowNumber = 0
     }
     
 }

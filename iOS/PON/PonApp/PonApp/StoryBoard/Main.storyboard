@@ -407,7 +407,7 @@
                                         <rect key="frame" x="148" y="60" width="80" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_avatar_placehoder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ob5-JN-xwg" userLabel="Avatar Image View" customClass="CircleImageView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="1" y="-3" width="80" height="80"/>
+                                                <rect key="frame" x="0.0" y="-3" width="80" height="80"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="imageBorderColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -475,7 +475,7 @@
                                                     <constraint firstAttribute="width" constant="33" id="7p1-te-WSP"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フォロー 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8S-2W-ARZ" userLabel="Title Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フォロー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8S-2W-ARZ" userLabel="Title Label">
                                                 <rect key="frame" x="8" y="61" width="109" height="21"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -512,7 +512,7 @@
                                                     <constraint firstAttribute="width" constant="33" id="iA8-IL-hXf"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fl-CL-NUr" userLabel="Title Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fl-CL-NUr" userLabel="Title Label">
                                                 <rect key="frame" x="8" y="61" width="109" height="21"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -549,7 +549,7 @@
                                                     <constraint firstAttribute="width" constant="32" id="p55-ZH-UVy"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お知らせ 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6i-6U-GTh" userLabel="Title Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お知らせ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6i-6U-GTh" userLabel="Title Label">
                                                 <rect key="frame" x="8" y="60" width="109" height="21"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -620,7 +620,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利用規約" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-2K-MFB" userLabel="Title Label">
-                                                    <rect key="frame" x="25" y="0.0" width="317" height="60"/>
+                                                    <rect key="frame" x="25" y="0.0" width="317" height="59"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.3529411764705882" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -715,11 +715,14 @@
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="Ob5-JN-xwg" id="0Me-1k-76S"/>
+                        <outlet property="newsLabel" destination="I6i-6U-GTh" id="alc-W6-ei1"/>
                         <outlet property="recentTableView" destination="n63-JL-axY" id="r8o-zg-Mnh"/>
                         <outlet property="settingButton" destination="Ya3-1v-1KA" id="JBQ-MZ-7WA"/>
+                        <outlet property="shopFollowLabel" destination="k8S-2W-ARZ" id="DYo-st-ggN"/>
                         <outlet property="tabAccountButton" destination="7hh-QC-gJy" id="wpq-hp-ncw"/>
                         <outlet property="tabFavoriteButton" destination="7Ya-oy-qay" id="6lQ-MH-Jlz"/>
                         <outlet property="tabPonButton" destination="kIc-FN-Vjh" id="iJB-6z-04F"/>
+                        <outlet property="usedCouponLabel" destination="1fl-CL-NUr" id="sZp-as-Xkt"/>
                         <outlet property="usernamLabel" destination="5pt-Nn-PZH" id="jrs-aC-jyG"/>
                     </connections>
                 </viewController>

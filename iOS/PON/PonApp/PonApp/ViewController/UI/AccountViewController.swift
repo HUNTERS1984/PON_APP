@@ -18,6 +18,9 @@ class AccountViewController: BaseViewController {
     @IBOutlet weak var tabAccountButton: UIButton!
     @IBOutlet weak var avatarImageView: CircleImageView!
     @IBOutlet weak var usernamLabel: UILabel!
+    @IBOutlet weak var shopFollowLabel: UILabel!
+    @IBOutlet weak var usedCouponLabel: UILabel!
+    @IBOutlet weak var newsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +125,9 @@ extension AccountViewController {
                 self.avatarImageView.image = UIImage(named: "account_avatar_placehoder")
             }
         }
+        self.shopFollowLabel.text = "フォロー \(UserDataManager.shared.shopFollowNumber)"
+        self.usedCouponLabel.text = "履歴 \(UserDataManager.shared.usedCouponNumber)"
+        self.newsLabel.text = "お知らせ \(UserDataManager.shared.newsNumber)"
     }
     
     fileprivate func logout() {
