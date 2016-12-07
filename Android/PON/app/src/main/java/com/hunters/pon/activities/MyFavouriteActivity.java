@@ -55,13 +55,7 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
     private void initLayout()
     {
         setTitle(getString(R.string.favourite));
-        setIconBack(R.drawable.ic_add);
-        setOnClickIconBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        hideIconBack();
 
         activeMyFavourite();
 

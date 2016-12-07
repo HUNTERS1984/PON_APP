@@ -146,6 +146,13 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void hideIconBack()
+    {
+        if(mIvBack != null) {
+            mIvBack.setVisibility(View.GONE);
+        }
+    }
+
     protected void setOnClickIconBack(View.OnClickListener onClick)
     {
         if(mIvBack != null){
