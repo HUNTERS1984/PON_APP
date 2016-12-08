@@ -95,6 +95,22 @@ extension EditAccountViewController {
         }
     }
     
+    @IBAction func connectInstagramButtonPressed(_ sender: AnyObject) {
+
+    }
+    
+    @IBAction func connectFacebookButtonPressed(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func connectTwitterButtonPressed(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func connectLineButtonPressed(_ sender: AnyObject) {
+        
+    }
+    
 }
 
 //MARK: - Private

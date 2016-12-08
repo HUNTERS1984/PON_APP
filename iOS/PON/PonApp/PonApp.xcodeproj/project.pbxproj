@@ -328,6 +328,14 @@
 		FACF58D41DB8C6D0000FB266 /* top_button_location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACF585A1DB8C6D0000FB266 /* top_button_location@3x.png */; };
 		FACF58D51DB8C6D0000FB266 /* used_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACF585B1DB8C6D0000FB266 /* used_coupon@2x.png */; };
 		FACF58D61DB8C6D0000FB266 /* used_coupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACF585C1DB8C6D0000FB266 /* used_coupon@3x.png */; };
+		FAD1D1751DF8F7B200CD3473 /* profile_icon_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D16D1DF8F7B200CD3473 /* profile_icon_facebook@2x.png */; };
+		FAD1D1761DF8F7B200CD3473 /* profile_icon_facebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D16E1DF8F7B200CD3473 /* profile_icon_facebook@3x.png */; };
+		FAD1D1771DF8F7B200CD3473 /* profile_icon_instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D16F1DF8F7B200CD3473 /* profile_icon_instagram@2x.png */; };
+		FAD1D1781DF8F7B200CD3473 /* profile_icon_instagram@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1701DF8F7B200CD3473 /* profile_icon_instagram@3x.png */; };
+		FAD1D1791DF8F7B200CD3473 /* profile_icon_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1711DF8F7B200CD3473 /* profile_icon_line@2x.png */; };
+		FAD1D17A1DF8F7B200CD3473 /* profile_icon_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1721DF8F7B200CD3473 /* profile_icon_line@3x.png */; };
+		FAD1D17B1DF8F7B200CD3473 /* profile_icon_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1731DF8F7B200CD3473 /* profile_icon_twitter@2x.png */; };
+		FAD1D17C1DF8F7B200CD3473 /* profile_icon_twitter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1741DF8F7B200CD3473 /* profile_icon_twitter@3x.png */; };
 		FAFE74E71DB5F7B30047AD04 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFE74E61DB5F7B30047AD04 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -685,6 +693,14 @@
 		FACF585A1DB8C6D0000FB266 /* top_button_location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_button_location@3x.png"; sourceTree = "<group>"; };
 		FACF585B1DB8C6D0000FB266 /* used_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@2x.png"; sourceTree = "<group>"; };
 		FACF585C1DB8C6D0000FB266 /* used_coupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "used_coupon@3x.png"; sourceTree = "<group>"; };
+		FAD1D16D1DF8F7B200CD3473 /* profile_icon_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_facebook@2x.png"; sourceTree = "<group>"; };
+		FAD1D16E1DF8F7B200CD3473 /* profile_icon_facebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_facebook@3x.png"; sourceTree = "<group>"; };
+		FAD1D16F1DF8F7B200CD3473 /* profile_icon_instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_instagram@2x.png"; sourceTree = "<group>"; };
+		FAD1D1701DF8F7B200CD3473 /* profile_icon_instagram@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_instagram@3x.png"; sourceTree = "<group>"; };
+		FAD1D1711DF8F7B200CD3473 /* profile_icon_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_line@2x.png"; sourceTree = "<group>"; };
+		FAD1D1721DF8F7B200CD3473 /* profile_icon_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_line@3x.png"; sourceTree = "<group>"; };
+		FAD1D1731DF8F7B200CD3473 /* profile_icon_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_twitter@2x.png"; sourceTree = "<group>"; };
+		FAD1D1741DF8F7B200CD3473 /* profile_icon_twitter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_twitter@3x.png"; sourceTree = "<group>"; };
 		FAFE74E61DB5F7B30047AD04 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -1428,6 +1444,14 @@
 		FACF57E21DB8C6CF000FB266 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FAD1D16D1DF8F7B200CD3473 /* profile_icon_facebook@2x.png */,
+				FAD1D16E1DF8F7B200CD3473 /* profile_icon_facebook@3x.png */,
+				FAD1D16F1DF8F7B200CD3473 /* profile_icon_instagram@2x.png */,
+				FAD1D1701DF8F7B200CD3473 /* profile_icon_instagram@3x.png */,
+				FAD1D1711DF8F7B200CD3473 /* profile_icon_line@2x.png */,
+				FAD1D1721DF8F7B200CD3473 /* profile_icon_line@3x.png */,
+				FAD1D1731DF8F7B200CD3473 /* profile_icon_twitter@2x.png */,
+				FAD1D1741DF8F7B200CD3473 /* profile_icon_twitter@3x.png */,
 				FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */,
 				FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */,
 				FACF57E31DB8C6CF000FB266 /* account_avatar_placehoder@2x.png */,
@@ -1653,6 +1677,7 @@
 				FACF58611DB8C6D0000FB266 /* account_icon_history@2x.png in Resources */,
 				FACF585F1DB8C6D0000FB266 /* account_header_background@2x.png in Resources */,
 				FACF587A1DB8C6D0000FB266 /* coupon_liked@3x.png in Resources */,
+				FAD1D1791DF8F7B200CD3473 /* profile_icon_line@2x.png in Resources */,
 				FACF58BF1DB8C6D0000FB266 /* splash_button_skip@2x.png in Resources */,
 				FACF58A11DB8C6D0000FB266 /* qr_code_button@3x.png in Resources */,
 				FACF58B31DB8C6D0000FB266 /* signup_button@2x.png in Resources */,
@@ -1662,6 +1687,7 @@
 				FACF58C41DB8C6D0000FB266 /* splash_icon_pon@3x.png in Resources */,
 				FA46C4501DB0B4DD004E0A81 /* HiraginoSans-W5.ttc in Resources */,
 				4A85F3A21D9ABCDD00733161 /* LineAdapter.plist in Resources */,
+				FAD1D1761DF8F7B200CD3473 /* profile_icon_facebook@3x.png in Resources */,
 				FACF58D21DB8C6D0000FB266 /* top_button_direction@3x.png in Resources */,
 				FACF588B1DB8C6D0000FB266 /* icon_location@3x.png in Resources */,
 				FACF58B91DB8C6D0000FB266 /* splash_button_email@2x.png in Resources */,
@@ -1683,6 +1709,7 @@
 				FACF58C61DB8C6D0000FB266 /* tabbar_account_normal@3x.png in Resources */,
 				FA76A9CF1DA3460000893584 /* DKImagePickerController.bundle in Resources */,
 				FACF58851DB8C6D0000FB266 /* coupon_time@3x.png in Resources */,
+				FAD1D1751DF8F7B200CD3473 /* profile_icon_facebook@2x.png in Resources */,
 				FACF58721DB8C6D0000FB266 /* coupon_button_share@3x.png in Resources */,
 				FACF58C11DB8C6D0000FB266 /* splash_button_twitter@2x.png in Resources */,
 				FACF58AC1DB8C6D0000FB266 /* shop_detail_header_background@2x.png in Resources */,
@@ -1699,6 +1726,7 @@
 				FACF58D61DB8C6D0000FB266 /* used_coupon@3x.png in Resources */,
 				FA46C44F1DB0B4DD004E0A81 /* HiraginoSans-W4.ttc in Resources */,
 				FACF58681DB8C6D0000FB266 /* account_setting_button@3x.png in Resources */,
+				FAD1D1781DF8F7B200CD3473 /* profile_icon_instagram@3x.png in Resources */,
 				FACF588E1DB8C6D0000FB266 /* map_icon_down@2x.png in Resources */,
 				4A85F3811D9ABCDD00733161 /* Assets.xcassets in Resources */,
 				FACF58971DB8C6D0000FB266 /* nav_add@3x.png in Resources */,
@@ -1738,12 +1766,15 @@
 				FACF586D1DB8C6D0000FB266 /* coupon_button_like@2x.png in Resources */,
 				FACF587E1DB8C6D0000FB266 /* coupon_location@3x.png in Resources */,
 				FACF58C31DB8C6D0000FB266 /* splash_icon_pon@2x.png in Resources */,
+				FAD1D1771DF8F7B200CD3473 /* profile_icon_instagram@2x.png in Resources */,
 				FACF58951DB8C6D0000FB266 /* map_icon_menu@3x.png in Resources */,
 				FACF58761DB8C6D0000FB266 /* coupon_facebook_button@3x.png in Resources */,
 				FACF58921DB8C6D0000FB266 /* map_icon_marker@2x.png in Resources */,
 				FA0C23521DBDBC9D00F9D988 /* coupon_qr_code@3x.png in Resources */,
+				FAD1D17C1DF8F7B200CD3473 /* profile_icon_twitter@3x.png in Resources */,
 				FACF58AA1DB8C6D0000FB266 /* shop_detail_button_share@2x.png in Resources */,
 				FACF58B81DB8C6D0000FB266 /* splash_background@3x.png in Resources */,
+				FAD1D17B1DF8F7B200CD3473 /* profile_icon_twitter@2x.png in Resources */,
 				FACF58A31DB8C6D0000FB266 /* shop_button_follow@3x.png in Resources */,
 				4A85F3ED1D9ABCDD00733161 /* Login.storyboard in Resources */,
 				4A85F3F11D9ABCDD00733161 /* Shop.storyboard in Resources */,
@@ -1784,6 +1815,7 @@
 				4A85F4181D9ABCDD00733161 /* ShopFollowCollectionViewCell.xib in Resources */,
 				FACF58A81DB8C6D0000FB266 /* shop_detail_button_phone@2x.png in Resources */,
 				FACF58811DB8C6D0000FB266 /* coupon_normal@3x.png in Resources */,
+				FAD1D17A1DF8F7B200CD3473 /* profile_icon_line@3x.png in Resources */,
 				FACF58C01DB8C6D0000FB266 /* splash_button_skip@3x.png in Resources */,
 				FACF587D1DB8C6D0000FB266 /* coupon_location@2x.png in Resources */,
 				FACF58B71DB8C6D0000FB266 /* splash_background@2x.png in Resources */,

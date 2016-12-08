@@ -58,3 +58,6 @@ public enum CouponFeature: Int {
 let TokenInvalidNotification                    = "TokenInvalidNotification"
 let NewCouponPushNotification                   = "NewCouponPushNotification"
 let LikeCouponNotification                      = "LikeCouponNotification"
+
+//<string name="sns_connect">連携</string>
+//<string name="sns_disconnect">非接続</string>
