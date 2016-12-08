@@ -26,6 +26,7 @@ class FavoriteViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerNotification()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,7 +36,6 @@ class FavoriteViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.registerNotification()
     }
     
     override func setUpUserInterface() {
@@ -47,7 +47,6 @@ class FavoriteViewController: BaseViewController {
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         collectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
-        
         
         self.loadFavoriteCoupon(self.currentPage)
     }
@@ -80,8 +79,8 @@ extension FavoriteViewController {
     fileprivate func loadFavoriteCoupon(_ pageIndex: Int) {
         self.showHUD()
         ApiRequest.getFavoriteCoupon(pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            print("FAVORITE HIDE HUD")
             self.hideHUD()
-            print(result?.originalResponse.dictionaryValue)
             if let _ = error {
                 
             }else {
@@ -157,7 +156,7 @@ extension FavoriteViewController {
     }
     
     @objc fileprivate func processLikeCouponNotification() {
-        delay(by: .milliseconds(500)) {
+        delay(by: .milliseconds(1000)) {
             self.loadFavoriteCoupon(1)
         }
     }

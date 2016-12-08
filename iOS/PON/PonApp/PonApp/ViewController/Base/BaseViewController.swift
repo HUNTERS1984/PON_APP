@@ -62,6 +62,7 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     func showHUD() {
+        MBProgressHUD.hide(for: self.view, animated: true)
         DispatchQueue.main.async(execute: {
             self.view.endEditing(true)
             MBProgressHUD.showAdded(to: self.view, animated: true)
