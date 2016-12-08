@@ -101,7 +101,11 @@ extension ShareCouponViewController {
             self.qrCodeDisplayImageView.image = QRCode.generateImage(code!, avatarImage: nil, avatarScale: 0.3)
         }
     }
-    
+}
+
+//MARK: - SNS
+extension ShareCouponViewController {
+
     fileprivate func shareLINE() {
         self.view.endEditing(true)
         if SNSShare.isLineInstalled() {
@@ -123,6 +127,27 @@ extension ShareCouponViewController {
             UIAlertController.present(title: "", message: InstallLine, actionTitles: [OK])
         }
         
+    }
+    
+     fileprivate func shareTwitter() {
+        self.view.endEditing(true)
+        let urls = [
+            URL(string: self.coupon!.link)!
+        ]
+        
+        let data = SNSShareData(
+            text: "",
+            images: [UIImage](),
+            urls: urls
+        )
+        SNSShare.post(type: .twitter, data: data, controller: self, completion: { result in
+            switch result {
+            case .success:
+                print("Posted!!")
+            case .failure(let et):
+                print(et)
+            }
+        })
     }
     
 }
