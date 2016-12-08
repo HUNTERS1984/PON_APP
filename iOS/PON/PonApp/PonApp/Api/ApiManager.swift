@@ -160,7 +160,7 @@ public struct ApiManager {
         let urlRequest = response.request
         let resultString = response.result.value
         let json = JSON(data: (resultString?.data(using: String.Encoding.utf8))!)
-        print("RESPONSE JSON: \(json)")
+//        print("RESPONSE JSON: \(json)")
         
         let response = ApiResponse(response: json)
         completion(urlRequest, response, nil)
