@@ -145,6 +145,7 @@
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
 		FA0C23511DBDBC9D00F9D988 /* coupon_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */; };
 		FA0C23521DBDBC9D00F9D988 /* coupon_qr_code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */; };
+		FA29C2A81DF95EE50012A773 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29C2A71DF95EE50012A773 /* Delay.swift */; };
 		FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */; };
 		FA2BA6C61DC9E8AE0016FF91 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */; };
 		FA3761231DD564A7008EF623 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */; };
@@ -508,6 +509,7 @@
 		FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonApp.entitlements; sourceTree = "<group>"; };
 		FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@2x.png"; sourceTree = "<group>"; };
 		FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@3x.png"; sourceTree = "<group>"; };
+		FA29C2A71DF95EE50012A773 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		FA2BA6C51DC9E8AE0016FF91 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		FA33FCE81D77BFDA0048EF73 /* PonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -894,6 +896,7 @@
 				4A935F5B1DA3FF090086FD74 /* UIAlertControllerExtension.swift */,
 				4A8935D11DB118C80066FE6A /* UILabelExtension.swift */,
 				FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */,
+				FA29C2A71DF95EE50012A773 /* Delay.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1941,6 +1944,7 @@
 				4A0759441D9F3BBE00E9D6DC /* Reachability.m in Sources */,
 				4A85F3931D9ABCDD00733161 /* HLKDropDownTextField.swift in Sources */,
 				4A649A921D9C16500080E976 /* ListShopViewController.swift in Sources */,
+				FA29C2A81DF95EE50012A773 /* Delay.swift in Sources */,
 				4A85F4101D9ABCDD00733161 /* AlbumCollectionViewCell.swift in Sources */,
 				FA76A9AA1DA3453600893584 /* UIImage+AspectFit.swift in Sources */,
 				FA76A9CC1DA3460000893584 /* DKAsset.swift in Sources */,

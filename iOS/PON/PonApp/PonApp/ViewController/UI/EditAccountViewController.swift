@@ -98,7 +98,9 @@ extension EditAccountViewController {
     }
     
     @IBAction func connectInstagramButtonPressed(_ sender: AnyObject) {
-
+        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
+        let nav = UINavigationController.init(rootViewController: vc!)
+        self.navigationController!.present(nav, animated: true)
     }
     
     @IBAction func connectFacebookButtonPressed(_ sender: AnyObject) {

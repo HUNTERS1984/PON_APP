@@ -44,6 +44,14 @@
 				<string>line3rdp.com.msoft.pon</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>https://mytenant.auth0.com/login/callback</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1022</string>
@@ -69,9 +77,9 @@
 	<key>FacebookAppID</key>
 	<string>324209427951910</string>
 	<key>InstagramAppClientId</key>
-	<string>34c23b9d88674b3bafe40ceaffd46f9d</string>
+	<string>cd9f614f85f44238ace18045a51c44d1</string>
 	<key>InstagramAppRedirectURL</key>
-	<string>http://mecorp.vn</string>
+	<string>https://mytenant.auth0.com/login/callback</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbauth2</string>

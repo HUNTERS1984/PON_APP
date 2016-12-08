@@ -35,6 +35,7 @@ class AccountViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        UserDataManager.getUserProfile()
     }
     
     override func setUpUserInterface() {

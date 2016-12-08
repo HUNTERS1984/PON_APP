@@ -86,7 +86,9 @@ class UserDataManager {
     //MARK: - Static Method
     
     static func getUserProfile() {
-        UserDataManager.shared.getUserProfile()
+        delay(by: .seconds(1)){
+            UserDataManager.shared.getUserProfile()
+        }
     }
     
     static func isLoggedIn() -> Bool {
