@@ -21,7 +21,7 @@ class ShareCouponManager: NSObject {
     }
     
     //MARK: - Facebook
-    func presentShareCouponToFacebook(_ viewControllerToPresent: UIViewController, initialText: String = "Test post from my iPhone", url: String = "http://pon.cm/", image: UIImage? = nil) {
+    func presentShareCouponToFacebook(_ viewControllerToPresent: UIViewController, initialText: String = "Post from my iPhone", url: String = "http://pon.cm/", image: UIImage? = nil) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
             let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             controller?.setInitialText(initialText)
@@ -36,7 +36,7 @@ class ShareCouponManager: NSObject {
     }
     
     //MARK: - Twitter
-    func presentShareCouponToTwitter(_ viewControllerToPresent: UIViewController, initialText: String = "Test post from my iPhone", url: String = "http://pon.cm/", image: UIImage? = nil) {
+    func presentShareCouponToTwitter(_ viewControllerToPresent: UIViewController, initialText: String = "Post from my iPhone", url: String = "http://pon.cm/", image: UIImage? = nil) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
             let controller = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             controller?.setInitialText(initialText)

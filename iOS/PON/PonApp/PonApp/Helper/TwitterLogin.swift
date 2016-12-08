@@ -63,6 +63,31 @@ class TwitterLogin {
         }
     }
     
+    func share(_ aViewController: UIViewController, aCallback: @escaping TwitterLoginCallback) {
+        self.callback = aCallback
+        Twitter.sharedInstance().logIn(with: aViewController, methods: .webBased) { (session, error) in
+            if let _ = error {
+                self.callback?(false, error)
+            }else {
+                let session = Twitter.sharedInstance().sessionStore.session()
+                print(Twitter.sharedInstance().sessionStore.session()!.userID)
+                
+                let composer = TWTRComposer()
+                composer.setText("HAO")
+                composer.setURL(URL(string: "pon.com"))
+                composer.show(from: aViewController, completion: { result in
+                    if result == TWTRComposerResult.cancelled {
+                        print("Tweet composition cancelled")
+                    }else {
+                        print("Sending Tweet!")
+                    }
+                    
+                })
+                self.callback?(true, session)
+            }
+        }
+    }
+    
     fileprivate func logoutCallback(_ aCallback: TwitterLoginCallback) {
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
         Twitter.sharedInstance().sessionStore.logOutUserID(userID!)

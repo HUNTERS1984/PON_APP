@@ -9,6 +9,8 @@
 import UIKit
 import Photos
 import AVKit
+import FBSDKLoginKit
+import TwitterKit
 
 class EditAccountViewController: BaseViewController {
     
@@ -100,11 +102,33 @@ extension EditAccountViewController {
     }
     
     @IBAction func connectFacebookButtonPressed(_ sender: AnyObject) {
-        
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
+            if let _ = error {
+                
+            }else {
+                loggingPrint(result)
+                let accessToken = result!["token"]
+                self.updateFacebookToken(accessToken!)
+            }
+        }
     }
     
     @IBAction func connectTwitterButtonPressed(_ sender: AnyObject) {
-        
+        TwitterLogin.loginViewControler(self) { (success: Bool, result: Any?) in
+            if success {
+                if let _ = result {
+                    let session = result as! TWTRSession
+                    let token = session.authToken
+                    let tokenSecret = session.authTokenSecret
+                    self.updateTwitterToken(token, tokenSecret: tokenSecret)
+                } else {
+                    let error = result as! NSError
+                    loggingPrint("Login error: %@", error.localizedDescription);
+                }
+            }else {
+                
+            }
+        }
     }
     
     @IBAction func connectLineButtonPressed(_ sender: AnyObject) {
@@ -308,4 +332,39 @@ extension EditAccountViewController: IQDropDownTextFieldDelegate {
         
     }
     
+}
+
+//MARK: - SNS Connect 
+extension EditAccountViewController {
+    fileprivate func updateFacebookToken(_ accessToken: String) {
+        self.showHUD()
+        ApiRequest.updateFacebookAccessToken(accessToken) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.presentAlert(with: "", message: (result?.message)!)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
+    fileprivate func updateTwitterToken(_ token: String, tokenSecret: String) {
+        self.showHUD()
+        ApiRequest.updateTwitterToken(token, accessTokenSecret: tokenSecret) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.presentAlert(with: "", message: (result?.message)!)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
 }

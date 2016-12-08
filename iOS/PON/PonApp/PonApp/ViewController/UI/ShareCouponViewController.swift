@@ -9,9 +9,6 @@
 import UIKit
 
 class ShareCouponViewController: BaseViewController {
-
-    public var code: String?
-    
     @IBOutlet weak var actionViewBackgroundImageView: UIImageView!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
@@ -20,6 +17,9 @@ class ShareCouponViewController: BaseViewController {
     @IBOutlet weak var qrCodeDisplayImageView: UIImageView!
     @IBOutlet weak var shareActionContainView: UIView!
     @IBOutlet weak var qrCodeContainView: UIView!
+    
+    public var code: String?
+    var coupon: Coupon? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,15 +73,18 @@ extension ShareCouponViewController {
     }
     
     @IBAction func instagramButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "account_header_background")!, instagramCaption: "PON Test", view: self.view)
+        ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "sns_button")!, instagramCaption: "PON", view: self.view)
     }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.presentShareCouponToFacebook(self)
+        ShareCouponManager.shared.presentShareCouponToFacebook(self, initialText: "", url: self.coupon!.link, image: nil)
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.presentShareCouponToTwitter(self)
+        ShareCouponManager.shared.presentShareCouponToTwitter(self, initialText: "", url: self.coupon!.link, image: nil)
+//        TwitterLogin.sharedInstance.share(self) { (success: Bool, _ result: Any?) in
+//            
+//        }
     }
     
     @IBAction func lineButtonPressed(_ sender: AnyObject) {
@@ -104,10 +107,9 @@ extension ShareCouponViewController {
         if SNSShare.isLineInstalled() {
             let images = [UIImage]()
             let urls = [
-                URL(string: "http://pon.cm/")!,
+                URL(string: self.coupon!.link)!,
                 ]
-            let shareText = "Giảm giá 20% cho tất cả các sản phẩm tại PON trong hai ngày cuối tuần"
-            
+            let shareText = ""
             let data = SNSShareData(text: shareText, images: images, urls: urls)
             SNSShare.post(type: .line, data: data, controller: self, completion: { result in
                 switch result {

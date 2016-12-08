@@ -114,6 +114,7 @@ extension CouponViewController {
     @IBAction func shareButtonPressed(_ sender: AnyObject) {
         let vc = ShareCouponViewController.instanceFromStoryBoard("Coupon") as! ShareCouponViewController
         vc.code = coupon?.code
+        vc.coupon = self.coupon
         self.navigationController?.present(vc, animated: true)
     }
     

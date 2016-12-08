@@ -110,12 +110,7 @@ open class SNSShare {
         return SNSType.list.filter { available($0) }
     }
     
-    open class func post(
-        type: SNSType,
-        data: SNSShareData,
-        controller: UIViewController,
-        completion: @escaping SNSSharePostCompletion = { _ in })
-    {
+    open class func post(type: SNSType, data: SNSShareData, controller: UIViewController, completion: @escaping SNSSharePostCompletion = { _ in }) {
         guard available(type) else {
             completion(.failure(.notAvailable(type)))
             return
@@ -137,12 +132,7 @@ open class SNSShare {
         }
     }
     
-    fileprivate class func postToSocial(
-        _ serviceType: String,
-        data: SNSShareData,
-        controller: UIViewController,
-        completion: @escaping SNSSharePostCompletion)
-    {
+    fileprivate class func postToSocial(_ serviceType: String, data: SNSShareData, controller: UIViewController, completion: @escaping SNSSharePostCompletion) {
         let sheet = SLComposeViewController(forServiceType: serviceType)
         sheet?.completionHandler = { result in
             switch result {

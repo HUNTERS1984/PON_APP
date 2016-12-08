@@ -35,6 +35,7 @@ struct Coupon {
     var categoryIcon: String!
     var code: String!
     var maskCouponId: String!
+    var link: String!
     
     var shopCoordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
@@ -184,6 +185,12 @@ struct Coupon {
             self.maskCouponId = maskCouponId
         }else {
             self.maskCouponId = ""
+        }
+        
+        if let link = response!["link"].string {
+            self.link = link
+        }else {
+            self.link = ""
         }
     }
     
