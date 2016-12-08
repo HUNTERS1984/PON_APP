@@ -19,6 +19,10 @@
 		4A649A941D9C16690080E976 /* ListShopContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A931D9C16690080E976 /* ListShopContentViewController.swift */; };
 		4A649A961D9C167E0080E976 /* ListShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A649A951D9C167E0080E976 /* ListShop.storyboard */; };
 		4A649A981D9C1B410080E976 /* MainCouponContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A649A971D9C1B410080E976 /* MainCouponContentViewController.swift */; };
+		4A84962F1DF996D5004A4A61 /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84962D1DF996D5004A4A61 /* PopupBackgroundView.swift */; };
+		4A8496301DF996D5004A4A61 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84962E1DF996D5004A4A61 /* PopupView.swift */; };
+		4A8496341DF99739004A4A61 /* RequestCouponPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8496321DF99739004A4A61 /* RequestCouponPopupView.swift */; };
+		4A8496351DF99739004A4A61 /* RequestCouponPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8496331DF99739004A4A61 /* RequestCouponPopupView.xib */; };
 		4A85F37B1D9ABCDD00733161 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F26C1D9ABCDD00733161 /* ApiEndpoint.swift */; };
 		4A85F37C1D9ABCDD00733161 /* ApiFileUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F26D1D9ABCDD00733161 /* ApiFileUpload.swift */; };
 		4A85F37D1D9ABCDD00733161 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85F26E1D9ABCDD00733161 /* ApiManager.swift */; };
@@ -356,6 +360,10 @@
 		4A649A931D9C16690080E976 /* ListShopContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListShopContentViewController.swift; sourceTree = "<group>"; };
 		4A649A951D9C167E0080E976 /* ListShop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListShop.storyboard; sourceTree = "<group>"; };
 		4A649A971D9C1B410080E976 /* MainCouponContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCouponContentViewController.swift; sourceTree = "<group>"; };
+		4A84962D1DF996D5004A4A61 /* PopupBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
+		4A84962E1DF996D5004A4A61 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		4A8496321DF99739004A4A61 /* RequestCouponPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCouponPopupView.swift; sourceTree = "<group>"; };
+		4A8496331DF99739004A4A61 /* RequestCouponPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestCouponPopupView.xib; sourceTree = "<group>"; };
 		4A85F26C1D9ABCDD00733161 /* ApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		4A85F26D1D9ABCDD00733161 /* ApiFileUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFileUpload.swift; sourceTree = "<group>"; };
 		4A85F26E1D9ABCDD00733161 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -743,6 +751,24 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		4A84962C1DF996D5004A4A61 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				4A84962D1DF996D5004A4A61 /* PopupBackgroundView.swift */,
+				4A84962E1DF996D5004A4A61 /* PopupView.swift */,
+			);
+			path = PopupView;
+			sourceTree = "<group>";
+		};
+		4A8496311DF99739004A4A61 /* RequestCouponPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				4A8496321DF99739004A4A61 /* RequestCouponPopupView.swift */,
+				4A8496331DF99739004A4A61 /* RequestCouponPopupView.xib */,
+			);
+			path = RequestCouponPopupView;
+			sourceTree = "<group>";
+		};
 		4A85F26A1D9ABCDD00733161 /* PonApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1101,6 +1127,8 @@
 		4A85F33A1D9ABCDD00733161 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A8496311DF99739004A4A61 /* RequestCouponPopupView */,
+				4A84962C1DF996D5004A4A61 /* PopupView */,
 				4A85F33B1D9ABCDD00733161 /* Button */,
 				4A85F33E1D9ABCDD00733161 /* Cell */,
 				4A85F3491D9ABCDD00733161 /* View */,
@@ -1730,6 +1758,7 @@
 				FA46C44F1DB0B4DD004E0A81 /* HiraginoSans-W4.ttc in Resources */,
 				FACF58681DB8C6D0000FB266 /* account_setting_button@3x.png in Resources */,
 				FAD1D1781DF8F7B200CD3473 /* profile_icon_instagram@3x.png in Resources */,
+				4A8496351DF99739004A4A61 /* RequestCouponPopupView.xib in Resources */,
 				FACF588E1DB8C6D0000FB266 /* map_icon_down@2x.png in Resources */,
 				4A85F3811D9ABCDD00733161 /* Assets.xcassets in Resources */,
 				FACF58971DB8C6D0000FB266 /* nav_add@3x.png in Resources */,
@@ -1921,6 +1950,7 @@
 				4A85F4221D9ABCDD00733161 /* MapView.swift in Sources */,
 				FAC2D2021DA65273006C5722 /* NewsTableViewCell.swift in Sources */,
 				4A85F41A1D9ABCDD00733161 /* BottomBorderView.swift in Sources */,
+				4A8496301DF996D5004A4A61 /* PopupView.swift in Sources */,
 				FA55FDD01DAF312D006219D6 /* NewsDetailViewController.swift in Sources */,
 				4A85F4211D9ABCDD00733161 /* MapMarker.swift in Sources */,
 				4A85F43C1D9ABCDD00733161 /* NewsViewController.swift in Sources */,
@@ -1961,6 +1991,7 @@
 				4A649A981D9C1B410080E976 /* MainCouponContentViewController.swift in Sources */,
 				4AA865641DA0F47B00A09831 /* Category.swift in Sources */,
 				4A85F42F1D9ABCDD00733161 /* EditAccountViewController.swift in Sources */,
+				4A84962F1DF996D5004A4A61 /* PopupBackgroundView.swift in Sources */,
 				4A85F37B1D9ABCDD00733161 /* ApiEndpoint.swift in Sources */,
 				FA2BA6C31DC9CC140016FF91 /* PhotoViewerViewController.swift in Sources */,
 				4A85F40B1D9ABCDD00733161 /* DefaultsKeysExtension.swift in Sources */,
@@ -1979,6 +2010,7 @@
 				4A85F39E1D9ABCDD00733161 /* UITableViewExtension.swift in Sources */,
 				4A85F3FB1D9ABCDD00733161 /* IQUIViewController+Additions.m in Sources */,
 				4A85F4241D9ABCDD00733161 /* ShadowView.swift in Sources */,
+				4A8496341DF99739004A4A61 /* RequestCouponPopupView.swift in Sources */,
 				4A85F40D1D9ABCDD00733161 /* DesignableButton.swift in Sources */,
 				4A85F3FC1D9ABCDD00733161 /* IQUIWindow+Hierarchy.m in Sources */,
 				4A85F3831D9ABCDD00733161 /* GlobalConstant.swift in Sources */,
