@@ -174,9 +174,13 @@ public class ShopAPIHelper extends APIHelper {
 
             ICallServices service = retrofit.create(ICallServices.class);
 
-//        String token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+            String token = "";
 
-            Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(featureType, catId, lat, lng, "20", pageIndex);
+            if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+                token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+            }
+
+            Call<ResponseShopFollowCategoryData> response = service.getShopFollowCategory(token, featureType, catId, lat, lng, "20", pageIndex);
 
             response.enqueue(new Callback<ResponseShopFollowCategoryData>() {
                 @Override

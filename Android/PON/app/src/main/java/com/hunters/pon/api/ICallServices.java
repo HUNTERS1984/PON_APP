@@ -101,7 +101,7 @@ public interface ICallServices {
     Call<ResponseCategoryShopFollowData> getCatShopFollow(@Query("page_size") String size, @Query("page_index") String index);
 
     @GET("/api/v1/featured/{type}/shops/{category}")
-    Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Path("type") String featureType, @Path("category") long typeId, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
+    Call<ResponseShopFollowCategoryData> getShopFollowCategory(@Header("Authorization") String token, @Path("type") String featureType, @Path("category") long typeId, @Query("latitude") String lat, @Query("longitude") String lng, @Query("page_size") String size, @Query("page_index") String index);
 
     @POST("/api/v1/follow/shops/{id}")
     Call<ResponseCommon> addShopFollow(@Header("Authorization") String token, @Path("id") long shopId);

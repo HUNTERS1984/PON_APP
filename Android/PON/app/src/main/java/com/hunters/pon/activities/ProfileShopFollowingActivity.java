@@ -12,7 +12,9 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseShopFollowData;
 import com.hunters.pon.api.ShopAPIHelper;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
+import com.hunters.pon.models.UserModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
+import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
@@ -100,6 +102,11 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseShopFollowData shopFollow = (ResponseShopFollowData) msg.obj;
                     if (shopFollow.code == APIConstants.REQUEST_OK && shopFollow.httpCode == APIConstants.HTTP_OK) {
+                        String shopFollowTotal = String.valueOf(shopFollow.pagination.getmItemTotal());
+                        UserModel user = CommonUtils.getProfile(mContext);
+                        user.setmFollowShopNumber(shopFollowTotal);
+                        CommonUtils.saveProfile(mContext, user);
+                        setTitle(getString(R.string.follow_shop).replace("%s", shopFollowTotal));
                         mPageTotal = shopFollow.pagination.getmPageTotal();
                         mListShops.addAll(shopFollow.data);
                         mAdapterShopFollow.updateData(mListShops);
