@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RequestCouponPopupView" customModule="PonApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nuy-HL-DWp" customClass="PopupBackgroundView" customModule="PonApp" customModuleProvider="target">
+                    <rect key="frame" x="43" y="158.5" width="290" height="350"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-TA-kcM" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                            <rect key="frame" x="15" y="291" width="260" height="44"/>
+                            <color key="backgroundColor" red="0.078431372550000003" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="BMX-pn-BET"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="完了"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                    <color key="value" red="0.094117647058823528" green="0.75294117647058822" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                    <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                    <color key="value" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="donetButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="EgL-4K-fqg"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lbi-Fa-HTi" userLabel="QR View" customClass="DesignableView" customModule="PonApp" customModuleProvider="target">
+                            <rect key="frame" x="15" y="15" width="260" height="260"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hay-Rc-Hca">
+                                    <rect key="frame" x="63.5" y="63.5" width="133" height="133"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Hay-Rc-Hca" secondAttribute="height" multiplier="1:1" id="BVd-Ww-5I0"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Hay-Rc-Hca" firstAttribute="centerX" secondItem="Lbi-Fa-HTi" secondAttribute="centerX" id="5M6-99-B6F"/>
+                                <constraint firstItem="Hay-Rc-Hca" firstAttribute="centerY" secondItem="Lbi-Fa-HTi" secondAttribute="centerY" id="XCO-NQ-y6i"/>
+                                <constraint firstItem="Hay-Rc-Hca" firstAttribute="width" secondItem="Lbi-Fa-HTi" secondAttribute="width" multiplier="164/320" id="ZMq-UD-wFa"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                    <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                    <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                    <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Lbi-Fa-HTi" secondAttribute="trailing" constant="15" id="1OO-In-t15"/>
+                        <constraint firstItem="Lbi-Fa-HTi" firstAttribute="leading" secondItem="Nuy-HL-DWp" secondAttribute="leading" constant="15" id="BWR-o8-zKn"/>
+                        <constraint firstAttribute="bottom" secondItem="GVE-TA-kcM" secondAttribute="bottom" constant="15" id="LX3-hE-3cb"/>
+                        <constraint firstItem="GVE-TA-kcM" firstAttribute="leading" secondItem="Nuy-HL-DWp" secondAttribute="leading" constant="15" id="U9C-Wy-WgC"/>
+                        <constraint firstItem="Lbi-Fa-HTi" firstAttribute="width" secondItem="Lbi-Fa-HTi" secondAttribute="height" multiplier="1:1" id="Zed-aS-OaS"/>
+                        <constraint firstAttribute="height" constant="350" id="g3z-Ku-GJL"/>
+                        <constraint firstAttribute="trailing" secondItem="GVE-TA-kcM" secondAttribute="trailing" constant="15" id="gpB-GN-cp3"/>
+                        <constraint firstAttribute="width" constant="290" id="jWp-33-iFb"/>
+                        <constraint firstItem="Lbi-Fa-HTi" firstAttribute="top" secondItem="Nuy-HL-DWp" secondAttribute="top" constant="15" id="rwY-aW-UWX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Nuy-HL-DWp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dpY-Za-6o9"/>
+                <constraint firstItem="Nuy-HL-DWp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rxS-mF-GWk"/>
+            </constraints>
+            <connections>
+                <outlet property="qrcodeImage" destination="Hay-Rc-Hca" id="dG1-14-ctK"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="90.5"/>
+        </view>
+    </objects>
+</document>

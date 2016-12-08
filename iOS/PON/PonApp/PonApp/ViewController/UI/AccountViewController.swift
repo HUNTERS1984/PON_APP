@@ -110,8 +110,8 @@ extension AccountViewController {
     }
     
     fileprivate func displayUserInfo() {
-        if let _ = UserDataManager.shared.name {
-            self.usernamLabel.text = UserDataManager.shared.name!
+        if let _ = UserDataManager.shared.username {
+            self.usernamLabel.text = UserDataManager.shared.username!
         }else {
             self.usernamLabel.text = "ユーザーネーム"
         }

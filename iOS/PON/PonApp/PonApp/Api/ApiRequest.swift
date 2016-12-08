@@ -202,11 +202,11 @@ public struct ApiRequest {
         ApiManager.processRequest(SignInTwitter, method: .POST, parameters: parameters, completion: completion)
     }
     
-    static func requestUseCoupon(_ couponId: String, completion: @escaping(ApiCompletion)) {
+    static func requestUseCoupon(_ code: String, completion: @escaping(ApiCompletion)) {
         let parameters: [String: String?] = [
-            "id": "\(couponId)"
+            "code": "\(code)"
         ]
-        let endpoint = RequestUseCoupon + couponId
+        let endpoint = RequestUseCoupon + "\(code)"
         ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth: true, completion: completion)
     }
     

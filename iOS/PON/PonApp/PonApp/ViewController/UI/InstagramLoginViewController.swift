@@ -42,7 +42,7 @@ extension InstagramLoginViewController: UIWebViewDelegate {
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         do {
             try InstagramEngine.shared().receivedValidAccessToken(from: request.url!)
-            print(InstagramEngine.shared().accessToken)
+            print(InstagramEngine.shared().accessToken!)
         }catch {
             
         }

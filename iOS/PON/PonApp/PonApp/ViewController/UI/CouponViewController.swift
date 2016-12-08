@@ -57,6 +57,7 @@ class CouponViewController: BaseViewController {
     var coupon: Coupon? = nil
     var selectedCouponIndex: Int?
     var selectedRowIndex: Int?
+    var confirmPopup: RequestCouponPopupView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,7 @@ class CouponViewController: BaseViewController {
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)
         similarCouponCollectionView.register(myCellNib, forCellWithReuseIdentifier: "CouponCollectionViewCell")
         self.requestUseCouponButtonConstrait.constant = 0
+        self.setupConfirmPopupView()
         if let _ = self.coupon {
             self.displayCouponDetail(self.coupon!)
         }
@@ -136,6 +138,7 @@ extension CouponViewController {
     }
     
     @IBAction func useCouponButtonPressed(_ sender: AnyObject) {
+        /*
         if UserDataManager.isLoggedIn() {
             if let _ = self.coupon?.code {
                 let vc = ShowQRCodeViewController.instanceFromStoryBoard("Coupon") as! ShowQRCodeViewController
@@ -147,6 +150,8 @@ extension CouponViewController {
         }else {
             self.presentAlert(message: UserNotLoggedIn)
         }
+         */
+        self.confirmPopup.showPopup(inView: self.view, animated: true)
     }
     
     @IBAction func qrCodeButtonPressed(_ sender: AnyObject) {
@@ -311,6 +316,15 @@ extension CouponViewController {
                     self.presentAlert(message: result!.message)
                 }
             }
+        }
+    }
+    
+    func setupConfirmPopupView() {
+        confirmPopup = RequestCouponPopupView.create()
+        confirmPopup.coupon = self.coupon
+        confirmPopup.doneButtonPressed = { [weak self] in
+            self?.confirmPopup.hidePopup()
+            self?.requestUseCoupon()
         }
     }
     
