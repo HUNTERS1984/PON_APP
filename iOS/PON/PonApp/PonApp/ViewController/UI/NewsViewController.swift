@@ -43,7 +43,7 @@ class NewsViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "お知らせ 12"
+        self.title = "お知らせ \(UserDataManager.shared.newsNumber)"
         self.showBackButton()
     }
     
@@ -114,7 +114,9 @@ extension NewsViewController {
                 
             }else {
                 if result?.code == SuccessCode {
+                    let news = News(response: result?.data)
                     let vc = NewsDetailViewController.instanceFromStoryBoard("Account") as! NewsDetailViewController
+                    vc.news = news
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else {
                     self.presentAlert(message: (result?.message)!)

@@ -20,12 +20,21 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var tabFavoriteButton: UIButton!
     @IBOutlet weak var tabPonButton: UIButton!
     @IBOutlet weak var tabAccountButton: UIButton!
+    @IBOutlet weak var buildLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerProcessNotification()
         self.processRemoteNewsNotificationLauchApp()
         self.processRemoteNotificationLauchApp()
+        self.buildLabel.text = self.getBuildInfo()
+    }
+    
+    func getBuildInfo() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "\(version) build \(build)"
     }
     
     override func didReceiveMemoryWarning() {

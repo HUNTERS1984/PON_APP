@@ -33,6 +33,7 @@ class NewsTableViewCell: UITableViewCell {
     func setDataForCell(_ news: News) {
         iconImageView.af_setImage(withURL: URL(string: news.imageUrl)!)
         titleLabel.text = news.title
+        typeLabel.text = news.type
         descriptionLabel.text = news.introduction
     }
 

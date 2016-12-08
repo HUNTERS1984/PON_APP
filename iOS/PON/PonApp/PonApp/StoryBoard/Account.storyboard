@@ -305,7 +305,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon_instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="H3o-6W-M0s" customClass="DesignableImageView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="7.5" width="35" height="35"/>
+                                                <rect key="frame" x="20" y="8" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="Mt0-iR-MzJ"/>
                                                     <constraint firstAttribute="height" constant="35" id="sKv-Zt-Uhr"/>
@@ -317,7 +317,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsG-FZ-92u" userLabel="Save Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="225" y="7.5" width="130" height="35"/>
+                                                <rect key="frame" x="225" y="8" width="130" height="35"/>
                                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="e4v-Vj-TKI"/>
@@ -369,7 +369,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Q-1B-Toa" userLabel="Save Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="225" y="7.5" width="130" height="35"/>
+                                                <rect key="frame" x="225" y="8" width="130" height="35"/>
                                                 <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="3hp-Yg-rTx"/>
@@ -459,7 +459,7 @@
                                         <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="JLD-JT-93l" customClass="DesignableImageView" customModule="PonApp" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="7.5" width="35" height="35"/>
+                                                <rect key="frame" x="20" y="8" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="Se9-H0-jpJ"/>
                                                     <constraint firstAttribute="height" constant="35" id="mVe-6V-WBD"/>
@@ -659,7 +659,7 @@
                                                     <color key="textColor" red="0.38431372549019605" green="0.42745098039215684" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-W2-X90" customClass="ReadMoreTextView" customModule="PonApp" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOb-W2-X90" customClass="ReadMoreTextView" customModule="PonApp" customModuleProvider="target">
                                                     <rect key="frame" x="75" y="56" width="285" height="61"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が.</string>
@@ -732,9 +732,82 @@
                     <view key="view" contentMode="scaleToFill" id="3se-ly-rJy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzE-0N-ang" userLabel="Slide View" customClass="ImageSlideshow" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZL1-FC-sfu" userLabel="Info View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="200" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5s-Iw-YHp" userLabel="Name Label">
+                                        <rect key="frame" x="20" y="18" width="108" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="rxo-8j-9KB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.07.31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a74-ie-sS6" userLabel="Expiry Data Label">
+                                        <rect key="frame" x="280" y="40" width="75" height="12"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.31372549020000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイプが入ります・IDが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCB-u1-bOt" userLabel="Name Label">
+                                        <rect key="frame" x="20" y="36" width="182" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="Ym3-fG-Xm3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                        <color key="textColor" red="0.50980392159999999" green="0.53725490200000003" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="AnM-hX-VLd"/>
+                                    <constraint firstAttribute="height" constant="70" id="DnK-oT-iCr"/>
+                                    <constraint firstItem="aCB-u1-bOt" firstAttribute="leading" secondItem="ZL1-FC-sfu" secondAttribute="leading" constant="20" id="HkD-Dd-PIq"/>
+                                    <constraint firstAttribute="bottom" secondItem="a74-ie-sS6" secondAttribute="bottom" constant="18" id="ORC-l0-yS4"/>
+                                    <constraint firstAttribute="trailing" secondItem="a74-ie-sS6" secondAttribute="trailing" constant="20" id="OjM-07-qn8"/>
+                                    <constraint firstItem="N5s-Iw-YHp" firstAttribute="top" secondItem="ZL1-FC-sfu" secondAttribute="top" constant="18" id="egU-49-wS8"/>
+                                    <constraint firstItem="N5s-Iw-YHp" firstAttribute="leading" secondItem="ZL1-FC-sfu" secondAttribute="leading" constant="20" id="t70-6l-MCo"/>
+                                    <constraint firstAttribute="bottom" secondItem="aCB-u1-bOt" secondAttribute="bottom" constant="18" id="ykM-U1-ML5"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mWc-6B-0qs">
+                                <rect key="frame" x="20" y="290" width="335" height="357"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.50980392156862742" green="0.53725490196078429" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZL1-FC-sfu" firstAttribute="leading" secondItem="3se-ly-rJy" secondAttribute="leading" id="2Vd-e3-shh"/>
+                            <constraint firstItem="mWc-6B-0qs" firstAttribute="top" secondItem="ZL1-FC-sfu" secondAttribute="bottom" constant="20" id="5w6-db-HVx"/>
+                            <constraint firstAttribute="trailing" secondItem="mWc-6B-0qs" secondAttribute="trailing" constant="20" id="Cv1-TW-ZFJ"/>
+                            <constraint firstItem="mWc-6B-0qs" firstAttribute="leading" secondItem="3se-ly-rJy" secondAttribute="leading" constant="20" id="G4Q-33-Ljz"/>
+                            <constraint firstAttribute="trailing" secondItem="ZL1-FC-sfu" secondAttribute="trailing" id="TzB-S2-X3d"/>
+                            <constraint firstItem="GzE-0N-ang" firstAttribute="height" secondItem="3se-ly-rJy" secondAttribute="height" multiplier="200/667" id="fV7-Vs-E01"/>
+                            <constraint firstItem="GzE-0N-ang" firstAttribute="top" secondItem="3se-ly-rJy" secondAttribute="top" id="g7o-EA-rfh"/>
+                            <constraint firstItem="ZL1-FC-sfu" firstAttribute="top" secondItem="GzE-0N-ang" secondAttribute="bottom" id="iLJ-xp-APb"/>
+                            <constraint firstItem="2jb-dT-Z2Z" firstAttribute="top" secondItem="mWc-6B-0qs" secondAttribute="bottom" constant="20" id="iOi-jA-WZX"/>
+                            <constraint firstAttribute="trailing" secondItem="GzE-0N-ang" secondAttribute="trailing" id="jHw-5H-JE0"/>
+                            <constraint firstItem="GzE-0N-ang" firstAttribute="leading" secondItem="3se-ly-rJy" secondAttribute="leading" id="nY1-Z6-LQQ"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="a74-ie-sS6" id="cj6-rA-Cah"/>
+                        <outlet property="descriptionTextView" destination="mWc-6B-0qs" id="D1t-65-UTv"/>
+                        <outlet property="imageSlideshow" destination="GzE-0N-ang" id="N1C-0s-hEE"/>
+                        <outlet property="titleLabel" destination="aCB-u1-bOt" id="J9s-Qf-jdZ"/>
+                        <outlet property="typeLabel" destination="N5s-Iw-YHp" id="fLl-FZ-4xc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAr-Wl-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -29,7 +29,7 @@ class HistoryViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "履歴 12"
+        self.title = "履歴 \(UserDataManager.shared.usedCouponNumber)"
         self.showBackButton()
         
         let myCellNib = UINib(nibName: "CouponCollectionViewCell", bundle: nil)

@@ -177,7 +177,8 @@ extension CouponViewController {
                         
                     }else {
                         if result!.code == SuccessCode {
-                            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: UIControlState())
+                            self.coupon!.isLike = true
+                            self.likeButton.setImage(UIImage(named: "coupon_button_liked"), for: .normal)
                             self.updateLikeCouponStatus(true)
                         }else {
                             self.presentAlert(message: (result?.message)!)
@@ -198,8 +199,8 @@ extension CouponViewController {
                         
                     }else {
                         if result!.code == SuccessCode {
-                            self.likeButton.isUserInteractionEnabled = true
-                            self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: UIControlState())
+                            self.coupon!.isLike = false
+                            self.likeButton.setImage(UIImage(named: "coupon_button_like"), for: .normal)
                             self.updateLikeCouponStatus(false)
                         }else {
                             self.presentAlert(message: (result?.message)!)

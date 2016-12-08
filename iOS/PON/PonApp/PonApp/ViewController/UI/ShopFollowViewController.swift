@@ -35,7 +35,7 @@ class ShopFollowViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "フォロー 12"
+        self.title = "フォロー \(UserDataManager.shared.shopFollowNumber)"
         self.showBackButton()
         
         let myCellNib = UINib(nibName: "ShopFollowCollectionViewCell", bundle: nil)
@@ -114,6 +114,28 @@ extension ShopFollowViewController {
         }
     }
     
+    fileprivate func unFollowShop(_ shopId: Float, index: Int) {
+        UIAlertController.present(title: "", message: UnFollowShopConfirmation, actionTitles: [OK, Cancel]) { (action) -> () in
+            if action.title == "OK" {
+                self.showHUD()
+                ApiRequest.unFollowShop(shopId) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+                    self.hideHUD()
+                    if let _ = error {
+                        
+                    }else {
+                        if result?.code == SuccessCode {
+                            self.shops.remove(at: index)
+                            self.collectionView.reloadData()
+                            UserDataManager.getUserProfile()
+                        }else {
+                            self.presentAlert(message: (result?.message)!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -127,6 +149,19 @@ extension ShopFollowViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopFollowCollectionViewCell", for: indexPath) as! ShopFollowCollectionViewCell
         cell.shop = self.shops[(indexPath as NSIndexPath).item]
+        cell.index = indexPath.item
+        cell.completionHandler = { [weak self] (shopID: Float?, index: Int) in
+            if let _ = shopID {
+                if UserDataManager.isLoggedIn() {
+                    let shop = self?.shops[index]
+                    if shop!.isFollow! {
+                        self?.unFollowShop(shopID!, index: index)
+                    }
+                }else {
+                    self?.presentAlert(message: UserNotLoggedIn)
+                }
+            }
+        }
         return cell
         
     }

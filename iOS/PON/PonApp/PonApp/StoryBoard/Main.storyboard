@@ -290,6 +290,12 @@
                                             <constraint firstAttribute="trailing" secondItem="UXc-yl-NfS" secondAttribute="trailing" id="w1D-8G-KFU"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1s-IG-A2h">
+                                        <rect key="frame" x="348.5" y="148" width="26.5" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -298,11 +304,13 @@
                                     <constraint firstAttribute="trailing" secondItem="TDL-u6-fjC" secondAttribute="trailing" id="OCE-x8-9dh"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="top" secondItem="FrO-hJ-9o4" secondAttribute="top" constant="27" id="QYh-Uy-a1A"/>
                                     <constraint firstAttribute="trailing" secondItem="De1-JU-Woe" secondAttribute="trailing" constant="10" id="Qz5-rd-VbT"/>
+                                    <constraint firstAttribute="trailing" secondItem="x1s-IG-A2h" secondAttribute="trailing" id="VxS-ev-Qes"/>
                                     <constraint firstItem="TDL-u6-fjC" firstAttribute="top" secondItem="FrO-hJ-9o4" secondAttribute="top" id="cJV-2l-GNc"/>
                                     <constraint firstAttribute="bottom" secondItem="TDL-u6-fjC" secondAttribute="bottom" id="deR-oL-oKp"/>
                                     <constraint firstItem="iFE-aN-bBo" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" id="lAp-e3-b5d"/>
                                     <constraint firstItem="TDL-u6-fjC" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" id="qdX-tD-fg1"/>
                                     <constraint firstItem="De1-JU-Woe" firstAttribute="leading" secondItem="FrO-hJ-9o4" secondAttribute="leading" constant="10" id="z8J-Vn-WcZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="x1s-IG-A2h" secondAttribute="bottom" id="zDm-BX-0OU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAa-fQ-CFM">
@@ -372,6 +380,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="thF-6O-5I4" id="OFT-hQ-b7h"/>
+                        <outlet property="buildLabel" destination="x1s-IG-A2h" id="Fd7-0Z-re6"/>
                         <outlet property="locationButton" destination="r4p-jC-5Z2" id="hi3-My-TUT"/>
                         <outlet property="scrollMenuView" destination="XAa-fQ-CFM" id="OQP-QI-kg7"/>
                         <outlet property="seachContainerView" destination="mkF-lA-PaK" id="wHg-Y2-rEP"/>
