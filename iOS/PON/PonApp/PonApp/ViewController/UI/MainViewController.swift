@@ -180,7 +180,7 @@ extension MainViewController {
                         vc.coupons = responseCoupon
                         self.navigationController?.pushViewController(vc, animated: true)
                     }else {
-                        self.presentAlert(with: "", message: "No result")
+                        self.presentAlert(with: "", message: NoResult)
                     }
                 }
             }
