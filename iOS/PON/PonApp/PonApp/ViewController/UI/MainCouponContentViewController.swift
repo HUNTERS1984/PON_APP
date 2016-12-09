@@ -39,6 +39,11 @@ class MainCouponContentViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let _ = self.couponFeature {
+            if self.couponFeature == .deal {
+                self.getCoupon(self.couponFeature!, pageIndex: 1)
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +57,11 @@ class MainCouponContentViewController: BaseViewController {
         self.contentTableView.isScrollEnabled = false
         self.contentTableView.allowsSelection = false
         self.contentTableView.separatorStyle = .none
-        self.getCoupon(self.couponFeature!, pageIndex: currentPage)
+        if let _ = self.couponFeature {
+            if self.couponFeature != .deal {
+                self.getCoupon(self.couponFeature!, pageIndex: currentPage)
+            }
+        }
     }
     
 }
