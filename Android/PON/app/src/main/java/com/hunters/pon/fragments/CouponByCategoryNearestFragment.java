@@ -100,7 +100,8 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
         mLocationUtils.disconnect();
     }
 
-    public void loadData() {
+    @Override
+    public void onLoadData() {
         if(mUserLocation != null) {
             mListCoupons = new ArrayList<>();
 
@@ -125,7 +126,7 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
 
     @Override
     public void refreshData(){
-        loadData();
+        onLoadData();
     }
 
     private void checkPermission(){
@@ -149,7 +150,7 @@ public class CouponByCategoryNearestFragment extends BaseCouponByCategoryFragmen
     public void onConnected(@Nullable Bundle bundle) {
         mUserLocation = mLocationUtils.getUserLocation(getContext());
         closeDialog();
-        loadData();
+        onLoadData();
 
     }
 

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.hunters.pon.api.CouponAPIHelper;
-import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.protocols.OnLoadMoreListener;
 import com.hunters.pon.utils.Constants;
 
@@ -18,7 +17,7 @@ import java.util.ArrayList;
  * Use the {@link CouponByCategoryPopularityFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CouponByCategoryPopularityFragment extends BaseCouponByCategoryFragment implements OnLoadDataListener, OnLoadMoreListener {
+public class CouponByCategoryPopularityFragment extends BaseCouponByCategoryFragment implements OnLoadMoreListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String CAT_ID = "CatId";
@@ -55,7 +54,7 @@ public class CouponByCategoryPopularityFragment extends BaseCouponByCategoryFrag
             mCatId = getArguments().getLong(CAT_ID);
         }
 
-        mDataListener = this;
+//        mDataListener = this;
         mLoadMoreData = this;
     }
 

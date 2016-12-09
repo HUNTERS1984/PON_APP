@@ -39,7 +39,7 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
-        mDataListener = this;
+//        mDataListener = this;
         setContentView(R.layout.activity_search);
         mQuery = getIntent().getStringExtra(Constants.EXTRA_DATA);
         super.onCreate(savedInstanceState);
@@ -116,7 +116,17 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        onLoadData();
+    }
+
+    @Override
     public void onLoadData() {
+        if(mLstSearchCoupons == null) {
+            mLstSearchCoupons = new ArrayList<>();
+        }
+        mLstSearchCoupons.clear();
         new CouponAPIHelper().searchCoupon(mContext, mQuery, "1", mHanlderSearchCoupon, true);
     }
 

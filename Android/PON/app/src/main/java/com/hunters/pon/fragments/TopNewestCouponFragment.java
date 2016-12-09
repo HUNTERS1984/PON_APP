@@ -12,7 +12,6 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
-import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -29,7 +28,7 @@ import java.util.ArrayList;
  * Use the {@link TopNewestCouponFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TopNewestCouponFragment extends BaseFragment implements OnLoadDataListener {
+public class TopNewestCouponFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,13 +70,20 @@ public class TopNewestCouponFragment extends BaseFragment implements OnLoadDataL
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 //        ((MainTopActivity)getActivity()).mFragmentActive = this;
-        mDataListener = this;
+//        mDataListener = this;
     }
 
     @Override
     public void refreshData() {
         onLoadData();
     }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        mLnShopCatCoupons.removeAllViews();
+//        onLoadData();
+//    }
 
     @Override
     public void onLoadData() {

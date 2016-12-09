@@ -204,6 +204,10 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     private void loadData()
     {
         if(mUserLocation != null) {
+            if(mListCoupons == null) {
+                mListCoupons = new ArrayList<>();
+            }
+            mListCoupons.clear();
 //            double lat = 10.839812;
 //            double lng = 106.780339;
 //            new ShopAPIHelper().getMapShopCoupon(mContext, lat, lng, "1", mHanlderGetMapShopCoupon, true);
@@ -233,7 +237,11 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         }
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
+    }
 
     @Override
     public boolean onMyLocationButtonClick() {

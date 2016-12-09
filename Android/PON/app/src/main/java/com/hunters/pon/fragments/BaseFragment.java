@@ -43,7 +43,7 @@ import java.util.List;
  * Use the {@link BaseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public abstract  class BaseFragment extends Fragment {
+public abstract  class BaseFragment extends Fragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,7 +55,7 @@ public abstract  class BaseFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    protected OnLoadDataListener mDataListener;
+//    protected OnLoadDataListener mDataListener;
 
     protected List<CouponModel> mListCoupons;
 
@@ -109,14 +109,14 @@ public abstract  class BaseFragment extends Fragment {
         mLnShopCatCoupons = (LinearLayout) mainView.findViewById(R.id.ln_list_shop_category_coupon);
 
         mSvMain = (CustomScrollView)mainView.findViewById(R.id.sv_main);
-        if(mDataListener != null) {
-            mDataListener.onLoadData();
-        }
+//        if(mDataListener != null) {
+//            mDataListener.onLoadData();
+//        }
 
         mSvMain.setScrollViewListener(new ScrollViewListener() {
             @Override
             public void onScrollChanged(final ScrollView scrollView, int x, int y, int oldx, int oldy) {
-                View view = (View) scrollView.getChildAt(scrollView.getChildCount() - 1);
+                View view = scrollView.getChildAt(scrollView.getChildCount() - 1);
                 int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
 
                 if (diff == 0) {
@@ -135,10 +135,12 @@ public abstract  class BaseFragment extends Fragment {
                                     scrollView.fullScroll(ScrollView.FOCUS_DOWN);
                                 }
                             });
-                            if (mDataListener != null) {
-                                mNextPage++;
-                                mDataListener.onLoadData();
-                            }
+                            mNextPage++;
+                            onLoadData();
+//                            if (mDataListener != null) {
+//                                mNextPage++;
+//                                mDataListener.onLoadData();
+//                            }
                         }
                     }
                 }
@@ -147,6 +149,9 @@ public abstract  class BaseFragment extends Fragment {
         });
         return mainView;
     }
+
+    @Override
+    public void onLoadData() {}
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -158,6 +163,10 @@ public abstract  class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        if(mLnShopCatCoupons != null) {
+            mLnShopCatCoupons.removeAllViews();
+        }
+        onLoadData();
     }
 
     @Override

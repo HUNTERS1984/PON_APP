@@ -158,7 +158,8 @@ public class SearchCouponRecyclerViewAdapter extends RecyclerView.Adapter<Recycl
             int pos = Integer.parseInt(view.getTag().toString());
             CouponModel coupon = mListCoupons.get(pos);
             boolean isLoginRequired = coupon.getmIsLoginRequired();
-            if(isLoginRequired) {
+            String token = CommonUtils.getToken(mContext);
+            if(isLoginRequired && token.equalsIgnoreCase("")) {
                 mLinearLoginRequired.setVisibility(View.VISIBLE);
             } else {
                 mLinearLoginRequired.setVisibility(View.GONE);

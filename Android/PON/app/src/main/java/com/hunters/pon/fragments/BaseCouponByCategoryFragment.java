@@ -34,7 +34,7 @@ import java.util.List;
  * Use the {@link BaseCouponByCategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public abstract class BaseCouponByCategoryFragment extends Fragment {
+public abstract class BaseCouponByCategoryFragment extends Fragment implements OnLoadDataListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -45,7 +45,7 @@ public abstract class BaseCouponByCategoryFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    protected OnLoadDataListener mDataListener;
+//    protected OnLoadDataListener mDataListener;
     private CouponRecyclerViewAdapter mAdapterCouponByCategory;
 
     protected List<CouponModel> mListCoupons;
@@ -88,9 +88,9 @@ public abstract class BaseCouponByCategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if(mDataListener != null) {
-            mDataListener.onLoadData();
-        }
+//        if(mDataListener != null) {
+//            mDataListener.onLoadData();
+//        }
 
         View view = inflater.inflate(R.layout.fragment_shop_coupons_grid_view, container, false);
         RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view_shop_coupon_filter);
@@ -138,6 +138,12 @@ public abstract class BaseCouponByCategoryFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        onLoadData();
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -150,6 +156,9 @@ public abstract class BaseCouponByCategoryFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    @Override
+    public void onLoadData() {}
 
     /**
      * This interface must be implemented by activities that contain this

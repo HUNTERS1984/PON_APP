@@ -113,7 +113,7 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
-                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), true);
+                    new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
         }

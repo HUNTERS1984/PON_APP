@@ -22,7 +22,6 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
-import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
@@ -40,7 +39,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class TopNearestCouponFragment extends BaseFragment implements
-        OnLoadDataListener,
+        //OnLoadDataListener,
         ActivityCompat.OnRequestPermissionsResultCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
     // TODO: Rename parameter arguments, choose names that match
@@ -86,7 +85,7 @@ public class TopNearestCouponFragment extends BaseFragment implements
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        mDataListener = this;
+//        mDataListener = this;
     }
 
     @Override
@@ -105,6 +104,13 @@ public class TopNearestCouponFragment extends BaseFragment implements
         super.onStart();
         mLocationUtils.connect();
     }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        mLnShopCatCoupons.removeAllViews();
+//        onLoadData();
+//    }
 
     @Override
     public void onStop() {
