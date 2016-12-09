@@ -181,6 +181,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         mRvSimilarCoupons = (RecyclerView)findViewById(R.id.rv_list_coupons_other_shops);
         mRvSimilarCoupons.setLayoutManager(new GridLayoutManager(this, 2));
         mAdapterSimilarCoupon = new CouponRecyclerViewAdapter(this, mLstCoupons);
+        mAdapterSimilarCoupon.enableFinishCurrentScreen();
         mRvSimilarCoupons.setAdapter(mAdapterSimilarCoupon);
 
         Button btnUseCoupons = (Button)findViewById(R.id.btn_qr_code_coupon);
@@ -360,7 +361,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                                 break;
                             case ADD_FAVOURITE:
                                 if(isFavourite) {
-                                    new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_like_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
+                                    new DialogUtiils().showOptionDialog(mContext, mContext.getString(R.string.confirm_unlike_coupon), mContext.getString(R.string.ok), mContext.getString(R.string.cancel), new OnDialogButtonConfirm() {
 
                                         @Override
                                         public void onDialogButtonConfirm() {

@@ -17,7 +17,6 @@ import com.hunters.pon.activities.CouponDetailActivity;
 import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
-import com.hunters.pon.protocols.OnLoginClickListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.viewholders.LoadingViewHolder;
@@ -33,8 +32,9 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
     private List<CouponModel> mListCoupons;
     private Activity mContext;
-    private OnLoginClickListener mLoginClick;
-    private boolean mIsToMainTop;
+    private boolean mIsFinishCurrentScreen = false;
+//    private OnLoginClickListener mLoginClick;
+//    private boolean mIsToMainTop;
 
 //    public CouponRecyclerViewAdapter(Context context, List<CouponModel> lstCoupons, OnLoginClickListener loginClick) {
 //        this.mListCoupons = lstCoupons;
@@ -121,6 +121,10 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         notifyDataSetChanged();
     }
 
+    public void enableFinishCurrentScreen() {
+        mIsFinishCurrentScreen = true;
+    }
+
     public class CouponRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView mCouponTitle;
@@ -177,6 +181,9 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
                 Intent iCouponDetail = new Intent(mContext, CouponDetailActivity.class);
                 iCouponDetail.putExtra(Constants.EXTRA_COUPON_ID, coupon.getmId());
                 mContext.startActivity(iCouponDetail);
+                if(mIsFinishCurrentScreen) {
+                    mContext.finish();
+                }
             }
         }
     }

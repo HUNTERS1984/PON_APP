@@ -229,7 +229,7 @@ public class ShopAPIHelper extends APIHelper {
                 token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
             }
 
-            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(token, lat, lng, "20", pageIndex);
+            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(token, lat, lng, "40", pageIndex);
 
             response.enqueue(new Callback<ResponseMapShopCouponData>() {
                 @Override

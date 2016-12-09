@@ -134,6 +134,7 @@
     <string name="permission_external">External storage permission is necessary</string>
     <string name="network_not_avaiable">ネットワークがなくてチェックしてください。</string>
     <string name="confirm_like_coupon">このクーポンを”like”にしますか。</string>
+    <string name="confirm_unlike_coupon">このクーポンを”unlike”にしますか。</string>
     <string name="confirm_follow_shop"> このショップをフォローにしますか。</string>
     <string name="ok">OK</string>
 
