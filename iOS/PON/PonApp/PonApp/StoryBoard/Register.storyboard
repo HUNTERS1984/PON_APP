@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,16 +26,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztg-TW-g7W" userLabel="Login View" customClass="IQPreviousNextView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3i-UK-B0f" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="GP1-yn-ANJ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdB-dq-gd5" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DD9-40-XP7" userLabel="UserName TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -53,8 +60,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-h3-hRS" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXV-oJ-yEY" userLabel="Password TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -70,6 +79,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAu-9c-lC1" userLabel="Login Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="199" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="lbI-IR-6la"/>
@@ -95,6 +105,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-kz-Zcl" userLabel="SignUp Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="269" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rPz-RM-wek"/>
@@ -141,16 +152,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-0s-c9o" userLabel="Register View" customClass="IQPreviousNextView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="436"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3l-Ql-ZBd" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="8MM-Ox-g3P"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0C-T5-QzF" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザーネーム" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-3p-lwy" userLabel="UserName TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -171,8 +186,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-Tv-3iG" userLabel="Email View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Sz-Kw-lN5" userLabel="Email TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -193,8 +210,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-Rz-Bbd" userLabel="Password View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJc-su-deF" userLabel="Password TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -215,8 +234,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-S3-nlb" userLabel="Password Confirmation View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="234" width="375" height="58"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワード（確認）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-0P-M0d" userLabel="Password Confirmation TextField">
+                                                <rect key="frame" x="28" y="0.0" width="337" height="58"/>
                                                 <color key="textColor" red="0.3921568627" green="0.43137254899999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -232,6 +253,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEg-Md-t5p" userLabel="Signup Button" customClass="DesignableButton" customModule="PonApp" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="315" width="343" height="50"/>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="575-4d-6Tg"/>
@@ -257,6 +279,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrH-4j-fcD">
+                                        <rect key="frame" x="18" y="385" width="339" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="uPz-uo-Ixa"/>
                                         </constraints>
@@ -321,7 +344,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="signup_already_button.png" width="339" height="51"/>
+        <image name="signup_already_button.png" width="333" height="19"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

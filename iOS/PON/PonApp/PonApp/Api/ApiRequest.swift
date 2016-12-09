@@ -267,5 +267,15 @@ public struct ApiRequest {
         let endpoint = String(format:UnFollowShop, Int(shopId))
         ApiManager.processRequest(endpoint, method: .POST, parameters: parameters, hasAuth:true, completion: completion)
     }
+    
+    static func searchCoupon(_ searchText: String, pageSize:Int = DefaultPageSize, pageIndex: Int, hasAuth: Bool, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "query": "\(searchText)",
+            "page_size": "\(pageSize)",
+            "page_index": "\(pageIndex)"
+        ]
+        ApiManager.processRequest(SearchCoupon, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
+    }
+
 
 }

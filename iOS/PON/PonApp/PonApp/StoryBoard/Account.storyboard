@@ -867,6 +867,87 @@
             </objects>
             <point key="canvasLocation" x="1753" y="310"/>
         </scene>
+        <!--Change Pass View Controller-->
+        <scene sceneID="ZHZ-Sa-Bc5">
+            <objects>
+                <viewController storyboardIdentifier="ChangePassViewController" id="Y7w-Nh-fpy" customClass="ChangePassViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m08-Qm-ydb"/>
+                        <viewControllerLayoutGuide type="bottom" id="yNU-Pd-v5a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l34-dz-Nyx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGY-lF-tKB" userLabel="Save Button">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.75294117650000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hra-cn-eru"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                <state key="normal" title="送信"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voH-td-j5o" userLabel="Margin View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お客様の登録メールアドレスを入力してください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsk-VG-3ai" userLabel="Name Label">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="90"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W4" family="Hiragino Sans" pointSize="12"/>
+                                        <color key="textColor" red="0.38431372549999998" green="0.42745098040000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hsk-VG-3ai" firstAttribute="leading" secondItem="voH-td-j5o" secondAttribute="leading" constant="20" id="EZr-2G-VEV"/>
+                                    <constraint firstAttribute="bottom" secondItem="hsk-VG-3ai" secondAttribute="bottom" id="VD8-QS-6LS"/>
+                                    <constraint firstAttribute="height" constant="90" id="clk-FX-SzK"/>
+                                    <constraint firstAttribute="trailing" secondItem="hsk-VG-3ai" secondAttribute="trailing" constant="20" id="dGO-87-2mQ"/>
+                                    <constraint firstItem="hsk-VG-3ai" firstAttribute="top" secondItem="voH-td-j5o" secondAttribute="top" id="gdg-mA-PBK"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoR-2V-izH" userLabel="UserName View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="90" width="375" height="58"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2X-6g-JEl" userLabel="UserName TextField">
+                                        <rect key="frame" x="28" y="0.0" width="337" height="58"/>
+                                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="H2X-6g-JEl" firstAttribute="leading" secondItem="SoR-2V-izH" secondAttribute="leading" constant="28" id="2M6-lP-Sns"/>
+                                    <constraint firstAttribute="bottom" secondItem="H2X-6g-JEl" secondAttribute="bottom" id="5NO-j8-5pI"/>
+                                    <constraint firstItem="H2X-6g-JEl" firstAttribute="top" secondItem="SoR-2V-izH" secondAttribute="top" id="96G-8x-rjp"/>
+                                    <constraint firstAttribute="height" constant="58" id="b7x-hA-KWu"/>
+                                    <constraint firstAttribute="trailing" secondItem="H2X-6g-JEl" secondAttribute="trailing" constant="10" id="qbX-rl-lNz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="wDa-0Z-0Aq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SoR-2V-izH" secondAttribute="trailing" id="Daw-aj-s37"/>
+                            <constraint firstAttribute="trailing" secondItem="voH-td-j5o" secondAttribute="trailing" id="GNj-KR-D9E"/>
+                            <constraint firstItem="AGY-lF-tKB" firstAttribute="leading" secondItem="l34-dz-Nyx" secondAttribute="leading" id="Oui-5A-f4T"/>
+                            <constraint firstItem="voH-td-j5o" firstAttribute="top" secondItem="l34-dz-Nyx" secondAttribute="top" id="PUd-83-a8J"/>
+                            <constraint firstItem="SoR-2V-izH" firstAttribute="top" secondItem="voH-td-j5o" secondAttribute="bottom" id="UYy-ve-fOM"/>
+                            <constraint firstItem="SoR-2V-izH" firstAttribute="leading" secondItem="l34-dz-Nyx" secondAttribute="leading" id="Z8Z-l9-eNa"/>
+                            <constraint firstItem="voH-td-j5o" firstAttribute="leading" secondItem="l34-dz-Nyx" secondAttribute="leading" id="ZpI-UF-p30"/>
+                            <constraint firstAttribute="trailing" secondItem="AGY-lF-tKB" secondAttribute="trailing" id="lbX-v6-rgG"/>
+                            <constraint firstItem="yNU-Pd-v5a" firstAttribute="top" secondItem="AGY-lF-tKB" secondAttribute="bottom" id="q7n-iX-9ob"/>
+                            <constraint firstItem="SoR-2V-izH" firstAttribute="top" secondItem="voH-td-j5o" secondAttribute="bottom" id="tRH-GC-MLm"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AmQ-nv-LVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="1048"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow_down.png" width="11" height="7"/>

@@ -161,6 +161,32 @@ extension MainViewController {
         }
     }
     
+    fileprivate func seachCoupon(_ searchText: String) {
+        self.showHUD()
+        ApiRequest.searchCoupon(searchText, pageIndex: 0, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                var responseCoupon = [Coupon]()
+                let couponsArray = result?.data?.array
+                if let _ = couponsArray {
+                    if couponsArray!.count > 0 {
+                        for couponData in couponsArray! {
+                            let coupon = Coupon(response: couponData)
+                            responseCoupon.append(coupon)
+                        }
+                        let vc = SearchResultViewController.instanceFromStoryBoard("Search") as! SearchResultViewController
+                        vc.coupons = responseCoupon
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else {
+                        self.presentAlert(with: "", message: "No result")
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 extension MainViewController: CAPSPageMenuDelegate {
@@ -173,4 +199,19 @@ extension MainViewController: CAPSPageMenuDelegate {
         
     }
     
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .search {
+            textField.resignFirstResponder()
+            let seachText = textField.text//山岸舞
+            if let _ = seachText {
+                if seachText!.characters.count > 0 {
+                    self.seachCoupon(seachText!)
+                }
+            }
+        }
+        return true
+    }
 }

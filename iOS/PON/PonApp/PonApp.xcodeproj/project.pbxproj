@@ -155,6 +155,9 @@
 		FA3761231DD564A7008EF623 /* MrQuanOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */; };
 		FA3761241DD564A7008EF623 /* MyHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761211DD564A7008EF623 /* MyHouse.gpx */; };
 		FA3761251DD564A7008EF623 /* MyOffice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA3761221DD564A7008EF623 /* MyOffice.gpx */; };
+		FA39A90B1DFA681A00E4EB58 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA39A90A1DFA681A00E4EB58 /* Search.storyboard */; };
+		FA39A9121DFA696900E4EB58 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */; };
+		FA39A9141DFA8B9D00E4EB58 /* ChangePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */; };
 		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C801D9228AE00D56602 /* Foundation.framework */; };
 		FA405C831D9228B500D56602 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C821D9228B500D56602 /* Security.framework */; };
@@ -524,6 +527,9 @@
 		FA3761201DD564A7008EF623 /* MrQuanOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MrQuanOffice.gpx; sourceTree = "<group>"; };
 		FA3761211DD564A7008EF623 /* MyHouse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyHouse.gpx; sourceTree = "<group>"; };
 		FA3761221DD564A7008EF623 /* MyOffice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MyOffice.gpx; sourceTree = "<group>"; };
+		FA39A90A1DFA681A00E4EB58 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassViewController.swift; sourceTree = "<group>"; };
 		FA405C7E1D9228A700D56602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA405C801D9228AE00D56602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA405C821D9228B500D56602 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -981,6 +987,7 @@
 				4A85F2F51D9ABCDD00733161 /* Register.storyboard */,
 				4A85F2F61D9ABCDD00733161 /* Shop.storyboard */,
 				4A649A951D9C167E0080E976 /* ListShop.storyboard */,
+				FA39A90A1DFA681A00E4EB58 /* Search.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -1237,6 +1244,8 @@
 				4A85F3701D9ABCDD00733161 /* NewsViewController.swift */,
 				FA55FDCF1DAF312D006219D6 /* NewsDetailViewController.swift */,
 				FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */,
+				FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */,
+				FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1826,6 +1835,7 @@
 				4A649A961D9C167E0080E976 /* ListShop.storyboard in Resources */,
 				FACF58991DB8C6D0000FB266 /* nav_back@3x.png in Resources */,
 				4A85F3EF1D9ABCDD00733161 /* MainMenu.storyboard in Resources */,
+				FA39A90B1DFA681A00E4EB58 /* Search.storyboard in Resources */,
 				FACF58A41DB8C6D0000FB266 /* shop_button_followed@2x.png in Resources */,
 				FACF58711DB8C6D0000FB266 /* coupon_button_share@2x.png in Resources */,
 				FACF58801DB8C6D0000FB266 /* coupon_normal@2x.png in Resources */,
@@ -1932,6 +1942,7 @@
 				4A85F3991D9ABCDD00733161 /* TypeConversionHelper.swift in Sources */,
 				FA76A9CE1DA3460000893584 /* DKImageManager.swift in Sources */,
 				FA76A9D81DA3460000893584 /* DKPermissionView.swift in Sources */,
+				FA39A9141DFA8B9D00E4EB58 /* ChangePassViewController.swift in Sources */,
 				4A85F4141D9ABCDD00733161 /* CouponCollectionViewCell.swift in Sources */,
 				FAC2D2001DA65199006C5722 /* ReadMoreTextView.swift in Sources */,
 				4A85F4081D9ABCDD00733161 /* SPGooglePlacesAutocompleteQuery.m in Sources */,
@@ -1960,6 +1971,7 @@
 				4A85F4161D9ABCDD00733161 /* ListCouponCollectionViewCell.swift in Sources */,
 				4A649A8E1D9BFEC80080E976 /* ListCouponContentViewController.swift in Sources */,
 				4A85F40C1D9ABCDD00733161 /* SwiftyUserDefaults.swift in Sources */,
+				FA39A9121DFA696900E4EB58 /* SearchResultViewController.swift in Sources */,
 				4A85F4291D9ABCDD00733161 /* BaseViewController.swift in Sources */,
 				4A85F39C1D9ABCDD00733161 /* UIImageExtension.swift in Sources */,
 				4A85F4311D9ABCDD00733161 /* HistoryViewController.swift in Sources */,

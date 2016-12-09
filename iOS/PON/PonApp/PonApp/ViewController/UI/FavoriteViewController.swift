@@ -79,7 +79,6 @@ extension FavoriteViewController {
     fileprivate func loadFavoriteCoupon(_ pageIndex: Int) {
         self.showHUD()
         ApiRequest.getFavoriteCoupon(pageIndex: pageIndex) {(request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            print("FAVORITE HIDE HUD")
             self.hideHUD()
             if let _ = error {
                 
