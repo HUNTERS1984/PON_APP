@@ -26,9 +26,7 @@ public class SignInEmailActivity extends BaseActivity {
 
     private Button mBtnLogin;
     private EditText mEdtUsername, mEdtPassword;
-    private TextView mTvNewMemberRegistration;
-
-    private boolean isToMainTop = true;
+    private TextView mTvNewMemberRegistration, mTvResetPassword;
 
     private ExtraDataModel mDataExtra;
 
@@ -78,6 +76,15 @@ public class SignInEmailActivity extends BaseActivity {
                 startActivityForResult(SignInEmailActivity.this, SignUpEmailActivity.class, REQUEST_CODE);
             }
         });
+
+        mTvResetPassword = (TextView)findViewById(R.id.tv_reset_password);
+        mTvResetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(mContext, ResetPasswordActivity.class, false);
+            }
+        });
+
     }
 
     private Handler mHanlderSignIn = new Handler(){

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.hunters.pon.R;
+import com.hunters.pon.activities.ChangePasswordActivity;
 import com.hunters.pon.activities.PrivacyPolicyActivity;
 import com.hunters.pon.activities.SpecificTradeActivity;
 import com.hunters.pon.activities.SplashActivity;
@@ -81,7 +82,10 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                 case 2:
                     mContext.startActivity(new Intent(mContext, SpecificTradeActivity.class));
                     break;
-                case 5://Logout
+                case 5://Change password:
+                    mContext.startActivity(new Intent(mContext, ChangePasswordActivity.class));
+                    break;
+                case 6://Logout
                     new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);
                     break;
             }

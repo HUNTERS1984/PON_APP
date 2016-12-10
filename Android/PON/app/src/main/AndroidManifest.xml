@@ -48,8 +48,8 @@
         </activity>
         <activity
             android:name=".activities.MainTopActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.ShopCouponByCategoryActivity"
             android:screenOrientation="portrait" />
@@ -145,17 +145,19 @@
         <activity
             android:name=".activities.NewsDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.SearchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.PhotoActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PhotoActivity"
+            android:screenOrientation="portrait" />
 
         <!-- LINE SDK Settings -->
         <activity
             android:name="jp.line.android.sdk.activity.LineAuthCompleteActivity"
             android:configChanges="keyboard|orientation"
             android:exported="true"
-            android:screenOrientation="sensor" >
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -169,8 +171,7 @@
             android:name="jp.line.android.sdk.activity.WebLoginActivity"
             android:configChanges="keyboard|orientation"
             android:exported="false"
-            android:screenOrientation="sensor" >
-        </activity>
+            android:screenOrientation="sensor" />
 
         <meta-data
             android:name="jp.line.sdk.ChannelId"
@@ -178,6 +179,13 @@
         <meta-data
             android:name="jp.line.sdk.AuthScheme"
             android:value="line.1481988261" />
+
+        <activity
+            android:name=".activities.ResetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChangePasswordActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

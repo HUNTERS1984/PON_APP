@@ -35,6 +35,10 @@
     <string name="already_member">すでに会員の方は、</string>
     <string name="click_here"><u>こちらへ</u></string>
     <string name="click_new_member_registration"><u>新規会員登録</u></string>
+    <string name="click_reset_password">パスワードを忘れたの場合は</string>
+    <string name="enter_your_register_email">お客様の登録メールアドレスを入力してください</string>
+    <string name="reset_password">パスワードを再設定する</string>
+    <string name="send">送信</string>
 
     <string name="navigation">渋谷区</string>
     <string name="search_place_shop_name">地名/ショップ名を入力</string>
@@ -61,6 +65,7 @@
     <string name="specific_trade">特定商取引</string>
     <string name="contact_us">お問い合わせ</string>
     <string name="post_hope_of_shop_like">掲載希望のショップ様</string>
+    <string name="change_password">パスワード変更</string>
 
     <!-- Edit Profile screen -->
     <string name="edit_profile">プロフィール編集</string>
@@ -79,6 +84,11 @@
     <string name="select_file">Select File</string>
     <string name="sns_connect">連携</string>
     <string name="sns_disconnect">非接続</string>
+
+    <!-- Change password screen -->
+    <string name="current_password">現在パスワード</string>
+    <string name="new_password">新しいパスワード</string>
+    <string name="new_password_confirmation">新しいパスワード(確認)</string>
 
     <!--Shop following screen -->
     <string name="following">フォロー中</string>
