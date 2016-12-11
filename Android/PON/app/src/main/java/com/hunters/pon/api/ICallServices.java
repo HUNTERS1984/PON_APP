@@ -9,6 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -63,6 +64,10 @@ public interface ICallServices {
     @FormUrlEncoded
     @POST("/api/v1/line/token")
     Call<ResponseCommon> signInShareLine(@Header("Authorization") String token, @Field("line_access_token") String lineToken);
+
+    @FormUrlEncoded
+    @PUT("/api/v1/password")
+    Call<ResponseCommon> changePassword(@Header("Authorization") String token, @Field("old_password") String oldPass, @Field("new_password") String newPass, @Field("confirm_password") String newPassConfirm);
 
 
     //Coupons

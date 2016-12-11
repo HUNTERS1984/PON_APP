@@ -180,6 +180,7 @@ public class SplashSelectLoginActivity extends BaseActivity {
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                         if(user.data != null) {
                             CommonUtils.saveToken(mContext, user.data.token);
+                            CommonUtils.setLoginType(mContext, Constants.LOGIN_SNS);
                             if(mDataExtra == null) {
                                 Intent iMainScreen = new Intent(SplashSelectLoginActivity.this, MainTopActivity.class);
                                 iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

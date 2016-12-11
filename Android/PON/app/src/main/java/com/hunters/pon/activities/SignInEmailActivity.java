@@ -96,6 +96,7 @@ public class SignInEmailActivity extends BaseActivity {
                     ResponseUserData user = (ResponseUserData) msg.obj;
                     if (user.code == APIConstants.REQUEST_OK && user.httpCode == APIConstants.HTTP_OK) {
                         CommonUtils.saveToken(mContext, user.data.token);
+                        CommonUtils.setLoginType(mContext, Constants.LOGIN_EMAIL);
                         if(mDataExtra == null) {
                             Intent iMainScreen = new Intent(SignInEmailActivity.this, MainTopActivity.class);
                             iMainScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

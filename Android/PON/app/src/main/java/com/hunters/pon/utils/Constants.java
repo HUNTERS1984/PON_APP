@@ -23,6 +23,9 @@ public class Constants {
     public static final String PREF_PROFILE_FOLLOW_NUMBER = "profile_follow_number";
     public static final String PREF_PROFILE_HISTORY_NUMBER = "profile_history_number";
     public static final String PREF_PROFILE_NEWS_NUMBER = "profile_news_number";
+    public static final String PREF_LOGIN_TYPE = "login_type";
+    public static final int LOGIN_EMAIL = 1;
+    public static final int LOGIN_SNS = 2;
 
     public static final String EXTRA_USER_NAME = "EXTRA_USER_NAME";
     public static final String EXTRA_COUPON_ID = "EXTRA_COUPON_ID";

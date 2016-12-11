@@ -56,7 +56,10 @@ public class ProfileActivity extends BaseActivity implements OnLoadDataListener 
         mListMenuNames.add(getString(R.string.specific_trade));
         mListMenuNames.add(getString(R.string.contact_us));
         mListMenuNames.add(getString(R.string.post_hope_of_shop_like));
-        mListMenuNames.add(getString(R.string.change_password));
+        int loginType = CommonUtils.getLogintype(mContext);
+        if(loginType == Constants.LOGIN_EMAIL) {
+            mListMenuNames.add(getString(R.string.change_password));
+        }
         mListMenuNames.add(getString(R.string.logout));
 
         String token = CommonUtils.getToken(mContext);

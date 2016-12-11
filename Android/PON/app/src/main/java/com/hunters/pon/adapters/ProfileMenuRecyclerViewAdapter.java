@@ -21,6 +21,7 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
 import com.hunters.pon.utils.CommonUtils;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
 
 import java.util.List;
@@ -82,8 +83,13 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                 case 2:
                     mContext.startActivity(new Intent(mContext, SpecificTradeActivity.class));
                     break;
-                case 5://Change password:
-                    mContext.startActivity(new Intent(mContext, ChangePasswordActivity.class));
+                case 5://Change password if login type is email or Logout:
+                    int loginType = CommonUtils.getLogintype(mContext);
+                    if(loginType == Constants.LOGIN_EMAIL) {
+                        mContext.startActivity(new Intent(mContext, ChangePasswordActivity.class));
+                    } else {
+                        new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);
+                    }
                     break;
                 case 6://Logout
                     new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);

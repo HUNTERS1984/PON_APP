@@ -121,6 +121,15 @@ public class CommonUtils {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    public static void setLoginType(Context context, int type)
+    {
+        SharedPreferenceUtils.saveInt(context, Constants.PREF_LOGIN_TYPE, type);
+    }
+
+    public static int getLogintype(Context context)
+    {
+        return SharedPreferenceUtils.getInt(context, Constants.PREF_LOGIN_TYPE);
+    }
 //    public static long getFileSize(String path)
 //    {
 //        File file = new File(path);
