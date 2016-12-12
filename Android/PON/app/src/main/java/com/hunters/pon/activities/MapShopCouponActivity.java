@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,9 +30,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
+import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseMapShopCoupon;
 import com.hunters.pon.api.ResponseMapShopCouponData;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
@@ -59,6 +62,8 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     private RelativeLayout mRlListCoupons;
     private ImageView mIvShowMyLocation1, mIvShowMyLocation2;
 
+    private EndlessRecyclerViewScrollListener mScrollLoadMoreData;
+    private int mPageTotal;
 
     /**
      * Flag indicating whether a requested permission has been denied after returning in
@@ -146,6 +151,19 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         rvCoupons.setLayoutManager(layoutManager);
         mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
         rvCoupons.setAdapter(mAdapterCoupon);
+
+        mScrollLoadMoreData = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                if(page < mPageTotal) {
+                    mListCoupons.add(null);
+                    mAdapterCoupon.notifyItemInserted(mListCoupons.size() - 1);
+                    new ShopAPIHelper().getMapShopCoupon(mContext, mUserLocation.latitude, mUserLocation.longitude, String.valueOf(page + 1), mHanlderGetMapShopCoupon, false);
+                }
+            }
+        };
+
+        rvCoupons.addOnScrollListener(mScrollLoadMoreData);
 
         mIvShowMyLocation1 = (ImageView)findViewById(R.id.iv_my_location_1);
         mIvShowMyLocation2 = (ImageView)findViewById(R.id.iv_my_location_2);
@@ -279,6 +297,7 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                             }
 
 //                            mAdapterCoupon.updateData(res.data.get(0).getmLstCoupons());
+                            mPageTotal = res.pagination.getmPageTotal();
                             mAdapterCoupon.updateData(mListCoupons);
                         }
                         if(mGoogleMap != null) {
