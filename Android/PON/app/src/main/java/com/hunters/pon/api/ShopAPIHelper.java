@@ -125,13 +125,13 @@ public class ShopAPIHelper extends APIHelper {
 
             ICallServices service = retrofit.create(ICallServices.class);
 
-//        String token = "";
-//
-//        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
-//            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
-//        }
+        String token = "";
 
-            Call<ResponseShopDetailData> response = service.getShopDetail(shopId);
+        if (!CommonUtils.getToken(context).equalsIgnoreCase("")) {
+            token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
+        }
+
+            Call<ResponseShopDetailData> response = service.getShopDetail(token, shopId);
 
             response.enqueue(new Callback<ResponseShopDetailData>() {
                 @Override
@@ -229,7 +229,7 @@ public class ShopAPIHelper extends APIHelper {
                 token = Constants.HEADER_AUTHORIZATION.replace("%s", CommonUtils.getToken(context));
             }
 
-            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(token, lat, lng, "40", pageIndex);
+            Call<ResponseMapShopCouponData> response = service.getMapShopCoupon(token, lat, lng, "20", pageIndex);
 
             response.enqueue(new Callback<ResponseMapShopCouponData>() {
                 @Override

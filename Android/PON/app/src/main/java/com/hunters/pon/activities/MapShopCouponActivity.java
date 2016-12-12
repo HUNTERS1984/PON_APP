@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -30,7 +29,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.CouponRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
-import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseMapShopCoupon;
 import com.hunters.pon.api.ResponseMapShopCouponData;
 import com.hunters.pon.api.ShopAPIHelper;
@@ -284,6 +282,10 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
     private Handler mHanlderGetMapShopCoupon = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            if(mListCoupons.size() > 0 && mListCoupons.get(mListCoupons.size() - 1) == null) {
+                mListCoupons.remove(mListCoupons.size() - 1);
+                mAdapterCoupon.notifyItemRemoved(mListCoupons.size());
+            }
             switch (msg.what) {
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     ResponseMapShopCouponData res = (ResponseMapShopCouponData) msg.obj;
@@ -311,9 +313,11 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
                     }
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
+                    mScrollLoadMoreData.adjustCurrentPage();
                     new DialogUtiils().showDialog(mContext, getString(R.string.connection_failed), false);
                     break;
             }
+            mScrollLoadMoreData.setLoaded();
         }
     };
 

@@ -76,10 +76,15 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mContext = this;
 
         mShopId = getIntent().getLongExtra(Constants.EXTRA_SHOP_ID, 0);
-        onLoadData();
 
         initLayout();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onLoadData();
     }
 
     private void initLayout()
@@ -130,6 +135,9 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         mTvShopCloseDate = (TextView) findViewById(R.id.tv_shop_close_date);
         mTvShopAvgBudget = (TextView)findViewById(R.id.tv_shop_avg_budget);
         mTvShopPhone = (TextView)findViewById(R.id.tv_shop_phone);
+
+        mLstCoupons = new ArrayList<>();
+        mLstPhotos = new ArrayList<>();
 
         RecyclerView rvCoupons = (RecyclerView) findViewById(R.id.recycler_view_coupons_of_shop);
         LinearLayoutManager lmCoupons = new LinearLayoutManager(this);
