@@ -12,15 +12,23 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class FirebaseAnalyticUtils {
 
-    private static FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private static FirebaseAnalyticUtils mFirebaseAnalyticsUtils;
 
-    public static FirebaseAnalytics getInstance(Context context)
+    public FirebaseAnalyticUtils(Context context)
     {
         if(mFirebaseAnalytics == null){
             mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
         }
+    }
 
-        return mFirebaseAnalytics;
+    public static FirebaseAnalyticUtils getInstance(Context context)
+    {
+        if(mFirebaseAnalyticsUtils == null){
+            mFirebaseAnalyticsUtils = new FirebaseAnalyticUtils(context);
+        }
+
+        return mFirebaseAnalyticsUtils;
     }
 
     public void logEventShareCoupon(String name, String type)
