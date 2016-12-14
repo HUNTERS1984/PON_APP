@@ -98,6 +98,7 @@ extension AccountViewController {
             "特定商取引",//specified trade
             "お問い合わせ",//contact us
             "掲載希望のショップ様",//news
+            "パスワード変更",
             "ログアウト"//logout
         ]
     }
@@ -182,6 +183,10 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         case 4:
             break;
         case 5:
+            let vc = ChangePassViewController.instanceFromStoryBoard("Account")
+            self.navigationController?.pushViewController(vc!, animated: true)
+            break;
+        case 6:
             self.logout()
             break;
         default:

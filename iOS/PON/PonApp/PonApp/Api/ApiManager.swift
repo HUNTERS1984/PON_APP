@@ -13,7 +13,7 @@ import Alamofire
 typealias ApiCompletion = (_ request: URLRequest?, _ result: ApiResponse?, _ error: NSError?) -> Void
 
 public enum ApiMethod: String {
-    case GET, POST
+    case GET, POST, PUT
 }
 
 public struct ApiManager {
@@ -65,7 +65,10 @@ public struct ApiManager {
                 }else {
                     ApiManager.processPostRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
                 }
+            case .PUT:
+                ApiManager.processPutRequest(url, parameters: standardParams, hasAuth: hasAuth, completion: completion)
             }
+            
         }
     }
     
@@ -152,6 +155,25 @@ public struct ApiManager {
             Alamofire.upload(multipartFormData: multipartFormData, to: urlString, method: .post, headers: headers, encodingCompletion: encodingCompletion)
         }else {
             Alamofire.upload(multipartFormData: multipartFormData, to: urlString, method: .post, encodingCompletion: encodingCompletion)
+        }
+    }
+    
+    //MARK: - PUT
+    fileprivate static func processPutRequest(_ urlString: String, parameters: [String: String], hasAuth: Bool = false, completion: @escaping (ApiCompletion) ) {
+        let completionHandler = {(response: DataResponse<String>) -> Void in
+            if response.result.isSuccess {
+                ApiManager.processSuccessResponese(response, completion: completion)
+            }else {
+                ApiManager.processFailureResponese(response, completion: completion)
+            }
+        }
+        let headers = [
+            "Authorization": "Bearer \(self.getToken())"
+        ]
+        if hasAuth {
+            Alamofire.request(urlString, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseString(completionHandler: completionHandler)
+        }else {
+            Alamofire.request(urlString, method: .put, parameters: parameters, encoding: JSONEncoding.default).validate().responseString(completionHandler: completionHandler)
         }
     }
     

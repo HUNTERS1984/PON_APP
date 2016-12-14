@@ -344,6 +344,9 @@
 		FAD1D17A1DF8F7B200CD3473 /* profile_icon_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1721DF8F7B200CD3473 /* profile_icon_line@3x.png */; };
 		FAD1D17B1DF8F7B200CD3473 /* profile_icon_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1731DF8F7B200CD3473 /* profile_icon_twitter@2x.png */; };
 		FAD1D17C1DF8F7B200CD3473 /* profile_icon_twitter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD1D1741DF8F7B200CD3473 /* profile_icon_twitter@3x.png */; };
+		FAF602DE1E00F241000C11E6 /* signin_forgotpass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF602DC1E00F241000C11E6 /* signin_forgotpass@2x.png */; };
+		FAF602DF1E00F241000C11E6 /* signin_forgotpass@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF602DD1E00F241000C11E6 /* signin_forgotpass@3x.png */; };
+		FAF602E11E00F450000C11E6 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */; };
 		FAFE74E71DB5F7B30047AD04 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFE74E61DB5F7B30047AD04 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -717,6 +720,9 @@
 		FAD1D1721DF8F7B200CD3473 /* profile_icon_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_line@3x.png"; sourceTree = "<group>"; };
 		FAD1D1731DF8F7B200CD3473 /* profile_icon_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_twitter@2x.png"; sourceTree = "<group>"; };
 		FAD1D1741DF8F7B200CD3473 /* profile_icon_twitter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_icon_twitter@3x.png"; sourceTree = "<group>"; };
+		FAF602DC1E00F241000C11E6 /* signin_forgotpass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin_forgotpass@2x.png"; sourceTree = "<group>"; };
+		FAF602DD1E00F241000C11E6 /* signin_forgotpass@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin_forgotpass@3x.png"; sourceTree = "<group>"; };
+		FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		FAFE74E61DB5F7B30047AD04 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -1246,6 +1252,7 @@
 				FA2BA6C21DC9CC140016FF91 /* PhotoViewerViewController.swift */,
 				FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */,
 				FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */,
+				FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1539,6 +1546,8 @@
 				FACF580D1DB8C6D0000FB266 /* coupon_twitter_button@3x.png */,
 				FACF580E1DB8C6D0000FB266 /* edit_profile_avatar_placeholder@2x.png */,
 				FACF580F1DB8C6D0000FB266 /* edit_profile_avatar_placeholder@3x.png */,
+				FAF602DC1E00F241000C11E6 /* signin_forgotpass@2x.png */,
+				FAF602DD1E00F241000C11E6 /* signin_forgotpass@3x.png */,
 				FACF58101DB8C6D0000FB266 /* icon_location@2x.png */,
 				FACF58111DB8C6D0000FB266 /* icon_location@3x.png */,
 				FACF58121DB8C6D0000FB266 /* main_header_background@2x.png */,
@@ -1728,6 +1737,7 @@
 				FA46C4501DB0B4DD004E0A81 /* HiraginoSans-W5.ttc in Resources */,
 				4A85F3A21D9ABCDD00733161 /* LineAdapter.plist in Resources */,
 				FAD1D1761DF8F7B200CD3473 /* profile_icon_facebook@3x.png in Resources */,
+				FAF602DE1E00F241000C11E6 /* signin_forgotpass@2x.png in Resources */,
 				FACF58D21DB8C6D0000FB266 /* top_button_direction@3x.png in Resources */,
 				FACF588B1DB8C6D0000FB266 /* icon_location@3x.png in Resources */,
 				FACF58B91DB8C6D0000FB266 /* splash_button_email@2x.png in Resources */,
@@ -1819,6 +1829,7 @@
 				FACF58A31DB8C6D0000FB266 /* shop_button_follow@3x.png in Resources */,
 				4A85F3ED1D9ABCDD00733161 /* Login.storyboard in Resources */,
 				4A85F3F11D9ABCDD00733161 /* Shop.storyboard in Resources */,
+				FAF602DF1E00F241000C11E6 /* signin_forgotpass@3x.png in Resources */,
 				FACF588C1DB8C6D0000FB266 /* main_header_background@2x.png in Resources */,
 				FA0C23511DBDBC9D00F9D988 /* coupon_qr_code@2x.png in Resources */,
 				FACF58CB1DB8C6D0000FB266 /* tabbar_favorite_selected@2x.png in Resources */,
@@ -2039,6 +2050,7 @@
 				FA0450B71DB466BC00C41EC4 /* UIScrollViewExtension.swift in Sources */,
 				4A85F3F91D9ABCDD00733161 /* IQUITextFieldView+Additions.m in Sources */,
 				FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */,
+				FAF602E11E00F450000C11E6 /* ForgotPassViewController.swift in Sources */,
 				4A85F3911D9ABCDD00733161 /* HLKSharedResources.swift in Sources */,
 				4A85F4031D9ABCDD00733161 /* IQToolbar.m in Sources */,
 				4A85F3F61D9ABCDD00733161 /* IQDropDownTextField.m in Sources */,
@@ -2219,6 +2231,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -2247,6 +2260,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};

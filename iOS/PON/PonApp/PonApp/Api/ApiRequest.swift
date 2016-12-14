@@ -276,6 +276,14 @@ public struct ApiRequest {
         ]
         ApiManager.processRequest(SearchCoupon, method: .GET, parameters: parameters, hasAuth: hasAuth, completion: completion)
     }
-
+    
+    static func changePassword(_ oldPass: String, newPass: String , confirmPass: String, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "old_password": "\(oldPass)",
+            "new_password": "\(newPass)",
+            "confirm_password": "\(confirmPass)"
+        ]
+        ApiManager.processRequest(ChangePass, method: .PUT, parameters: parameters, hasAuth: true, completion: completion)
+    }
 
 }

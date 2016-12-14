@@ -103,7 +103,12 @@ extension SignInViewController {
     @IBAction func accountAlreadyButtonPressed(_ sender: AnyObject) {
         self.showLoginForm()
     }
-
+    
+    @IBAction func forgotPassButtonPressed(_ sender: AnyObject) {
+        let vc = ForgotPassViewController.instanceFromStoryBoard("Register")
+        let nav = UINavigationController.init(rootViewController: vc!)
+        self.navigationController!.present(nav, animated: true)
+    }
 }
 
 extension SignInViewController {
