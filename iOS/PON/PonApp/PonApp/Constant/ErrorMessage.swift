@@ -35,3 +35,4 @@ let InstallInstagram                            = "続けるように Instagram 
 let InstallLine                                 = "続けるように Line をインストールしてください。"//Vui lòng cài ứng dụng Line để tiếp tục
 let QRCodeUnavailable                           = "このクーポンは使用できません"//Coupon này không thể sử dụng
 let NoResult                                    = "レコードがない"
+let ChangePassSuccesed                          = "Change password sucessed"
