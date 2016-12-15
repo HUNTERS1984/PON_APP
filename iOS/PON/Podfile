@@ -13,4 +13,5 @@ target 'PonApp' do
     pod 'Fabric'
     pod 'TwitterKit'
     pod 'SnapKit', '~> 3.0'
+    pod 'Google/Analytics'
 end

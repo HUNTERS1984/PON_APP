@@ -41,7 +41,75 @@ class ChangePassViewController: BaseViewController {
 extension ChangePassViewController {
     
     @IBAction func changePassButtonPressed(_ sender: AnyObject) {
-   
+        let oldPass = self.currentPassTextField.text
+        let newPass = self.passwordTextField.text
+        let confimPassowrd = self.passConfirmationTextField.text
+        
+        self.validInfomation(oldPass, newPass: newPass, confirmPass: confimPassowrd) { (successed: Bool, message: String) in
+            if successed {
+                self.changePassword(oldPass, newPass: newPass, confirmPass: confimPassowrd)
+            }else {
+                self.presentAlert(message: message)
+            }
+        }
+    }
+    
+}
+
+extension ChangePassViewController {
+    
+    fileprivate func validInfomation(_ oldPass: String?, newPass: String?, confirmPass: String?, completion:(_ successed: Bool, _ message: String) -> Void) {
+        if let _ = oldPass {
+            if oldPass!.characters.count == 0 {
+                completion(false, PasswordBlank)
+                return
+            }
+        }else {
+            completion(false, PasswordBlank)
+            return
+        }
+        
+        if let _ = newPass {
+            if newPass!.characters.count < 6 {
+                completion(false, PasswordRange)
+                return
+            }
+        }else {
+            completion(false, PasswordBlank)
+            return
+        }
+        
+        if let _ = confirmPass {
+            if newPass! != confirmPass! {
+                completion(false, PasswordNotMatch)
+                return
+            }
+        }else {
+            completion(false, PasswordNotMatch)
+            return
+        }
+        
+        completion(true, "")
+    }
+    
+    fileprivate func changePassword(_ oldPass: String?, newPass: String?, confirmPass: String?) {
+        self.showHUD()
+        ApiRequest.changePassword(oldPass!, newPass: newPass!, confirmPass: confirmPass!) { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self?.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    UIAlertController.present(title: "", message: ChangePassSuccesed, actionTitles: [OK]) { (action) -> () in
+                        if action.title == "OK" {
+                            _ = self?.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }else {
+                    self?.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
     }
     
 }

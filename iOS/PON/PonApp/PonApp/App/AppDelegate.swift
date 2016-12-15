@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FacebookLogin.application(application, didFinishLaunchingWithOptions: launchOptions)
         TwitterLogin.setupTwitterLogin()
         LineLogin.shared.handleLaunchOptions(launchOptions)
+        self.setupGoogleAnalytics()
         self.setupApplicationData()
         self.setUpApplicationTheme()
         self.setupApplication(with: launchOptions)
@@ -78,6 +79,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = SplashViewController.instanceFromStoryBoard("Main")
         let nav = BaseNavigationController(rootViewController: vc!)
         self.window?.rootViewController = nav
+    }
+    
+    func setupGoogleAnalytics() {
+        // [START tracker_swift]
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        guard let gai = GAI.sharedInstance() else {
+            assert(false, "Google Analytics not configured correctly")
+        }
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.verbose  // remove before app release
+        // [END tracker_swift]
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {

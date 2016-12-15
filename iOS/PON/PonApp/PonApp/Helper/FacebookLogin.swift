@@ -59,11 +59,7 @@ class FacebookLogin {
     }
     
     class func application(_ app: UIApplication, openURL url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) {
-        if #available(iOS 9.0, *) {
-            FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        } else {
-            // Fallback on earlier versions
-        }
+        FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
     
     class func application(_ application: UIApplication, openURL url: URL, sourceApplication: String?, annotation: AnyObject) {

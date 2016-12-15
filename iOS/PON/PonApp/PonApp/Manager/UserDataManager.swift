@@ -24,6 +24,7 @@ class UserDataManager {
     var avatarUrl: String?
     var avatarImage: UIImage?
     var loggedIn: Bool = false
+    var isSocialLogin: Bool = false
     var gender: Int?
     var usedCouponNumber: Int = 0
     var newsNumber: Int = 0
