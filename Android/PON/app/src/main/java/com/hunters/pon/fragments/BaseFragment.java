@@ -209,12 +209,13 @@ public abstract  class BaseFragment extends Fragment implements OnLoadDataListen
                     if (couponData.code == APIConstants.REQUEST_OK && couponData.httpCode == APIConstants.HTTP_OK) {
                         List<ResponseCouponMainTop> lstCouponCats = couponData.data;
                         for (ResponseCouponMainTop couponCat : lstCouponCats) {
-                            if(couponCat.getmLstCoupons() != null && couponCat.getmLstCoupons().size() > 0) {
+                            if(couponCat.getmLstCoupons() != null) {
                                 View vCatCoupons = LayoutInflater.from(getActivity()).inflate(R.layout.list_coupons_of_category_layout, null, false);
                                 RecyclerView rvCoupons = (RecyclerView) vCatCoupons.findViewById(R.id.rv_list_coupons);
                                 TextView tvCatName = (TextView) vCatCoupons.findViewById(R.id.tv_coupon_category_name);
                                 ImageView ivIconType = (ImageView) vCatCoupons.findViewById(R.id.iv_coupon_category_icon);
                                 TextView tvViewMore = (TextView) vCatCoupons.findViewById(R.id.tv_view_more);
+                                TextView tvNoData = (TextView) vCatCoupons.findViewById(R.id.tv_no_data);
 
                                 tvCatName.setText(couponCat.getmName());
                                 Picasso.with(getActivity()).load(couponCat.getmIcon()).
@@ -238,8 +239,15 @@ public abstract  class BaseFragment extends Fragment implements OnLoadDataListen
                                 LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                                 layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                                 rvCoupons.setLayoutManager(layoutManager);
-                                CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
-                                rvCoupons.setAdapter(adapter);
+                                if(couponCat.getmLstCoupons().size() > 0) {
+                                    CouponRecyclerViewAdapter adapter = new CouponRecyclerViewAdapter(getActivity(), couponCat.getmLstCoupons());
+                                    rvCoupons.setAdapter(adapter);
+                                    tvNoData.setVisibility(View.GONE);
+                                    rvCoupons.setVisibility(View.VISIBLE);
+                                } else {
+                                    tvNoData.setVisibility(View.VISIBLE);
+                                    rvCoupons.setVisibility(View.GONE);
+                                }
                                 mLnShopCatCoupons.addView(vCatCoupons);
                             }
                         }

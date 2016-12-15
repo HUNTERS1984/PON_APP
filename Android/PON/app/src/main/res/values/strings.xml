@@ -164,6 +164,7 @@
     <string name="invalid_password">パスワードは６記号以降と特別記号を入力しない。</string>
     <string name="back_to_exit">exitできるようにBACKボタンをクリックしてください。</string>
     <string name="cannot_use_coupon">このクーポンは使用できません</string>
+    <string name="no_data">データなし</string>
 
 
     <!--Shop Detail -->

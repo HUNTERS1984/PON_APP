@@ -41,8 +41,21 @@
             android:id="@+id/tv_view_more"/>
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rv_list_coupons"/>
+        android:layout_height="wrap_content">
+        <com.hunters.pon.customs.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="@string/no_data"
+            android:visibility="gone"
+            android:id="@+id/tv_no_data"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_list_coupons"/>
+    </FrameLayout>
 </LinearLayout>

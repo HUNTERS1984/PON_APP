@@ -1,52 +1,40 @@
 {
   "project_info": {
-    "project_number": "418159024531",
-    "firebase_url": "https://pon-app-39116.firebaseio.com",
-    "project_id": "pon-app-39116",
-    "storage_bucket": "pon-app-39116.appspot.com"
+    "project_number": "464116332140",
+    "project_id": "pon-ap"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:418159024531:android:b84d6d4771a7f56f",
+        "mobilesdk_app_id": "1:464116332140:android:b84d6d4771a7f56f",
         "android_client_info": {
           "package_name": "com.hunters.pon"
         }
       },
       "oauth_client": [
         {
-          "client_id": "418159024531-23hqka3hsrgv72t9o9qtedsotul8hbqm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hunters.pon",
-            "certificate_hash": "5AEEA179E663EA0581E37C77D7AC334F4FA32FF0"
-          }
-        },
-        {
-          "client_id": "418159024531-5id78n3oo76ccvt2ot6cv0843mee5opl.apps.googleusercontent.com",
+          "client_id": "464116332140-63vej3mmq2cs04lqsd1sbsnrivmakbd1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAJtmW9srWqE7Cj_Ka63cK8VX_l0xzNPhA"
+          "current_key": "AIzaSyDEV0bleH2AMlCAp3XCPoBhmHGiPh1AIJU"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 1
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-89024636-1"
+          }
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "418159024531-5id78n3oo76ccvt2ot6cv0843mee5opl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }
