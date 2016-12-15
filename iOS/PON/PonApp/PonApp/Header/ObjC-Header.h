@@ -34,4 +34,6 @@
 
 #import "Reachability.h"
 
+#import <Google/Analytics.h>
+
 #endif /* ObjC_Header_h */

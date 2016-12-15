@@ -214,10 +214,14 @@ extension MainCouponContentViewController {
                     let couponsArray = result?.data?.array
                     if let _ = couponsArray {
                         for couponData in couponsArray! {
+                            /*
                             if couponData["coupons"].array!.count > 0 {
                                 let data = CouponListData(response: couponData)
                                 responseData.append(data)
                             }
+                            */
+                            let data = CouponListData(response: couponData)
+                            responseData.append(data)
                         }
                         if pageIndex == 1 {
                             self.displayData(responseData, type: .new)

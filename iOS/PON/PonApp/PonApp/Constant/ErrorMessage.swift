@@ -36,3 +36,4 @@ let InstallLine                                 = "続けるように Line を�
 let QRCodeUnavailable                           = "このクーポンは使用できません"//Coupon này không thể sử dụng
 let NoResult                                    = "レコードがない"
 let ChangePassSuccesed                          = "Change password sucessed"
+let NoDataMessage                               = "データなし"
