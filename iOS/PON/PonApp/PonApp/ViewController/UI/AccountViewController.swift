@@ -92,15 +92,18 @@ extension AccountViewController {
 extension AccountViewController {
     
     fileprivate func getListFunction() -> [String] {
-        return [
+        var functionList =  [
             "利用規約",//terms of service
             "プライバシーポリシー",//privacy policy
             "特定商取引",//specified trade
             "お問い合わせ",//contact us
-            "掲載希望のショップ様",//news
-            "パスワード変更",
-            "ログアウト"//logout
+            "掲載希望のショップ様"//news
         ]
+        if !UserDataManager.shared.isSocialLogin {
+            functionList.append("パスワード変更")//change pass
+        }
+        functionList.append("ログアウト")//logout
+        return functionList
     }
     
     fileprivate func getUserProfile() {
@@ -183,8 +186,12 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         case 4:
             break;
         case 5:
-            let vc = ChangePassViewController.instanceFromStoryBoard("Account")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if !UserDataManager.shared.isSocialLogin {
+                let vc = ChangePassViewController.instanceFromStoryBoard("Account")
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }else {
+                self.logout()
+            }
             break;
         case 6:
             self.logout()

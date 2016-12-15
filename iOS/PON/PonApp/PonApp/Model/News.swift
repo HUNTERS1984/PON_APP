@@ -13,7 +13,7 @@ struct News {
     var newsID: Float!
     var title: String!
     var type: String!
-    var imageUrl: String!
+    var imageUrl: String?
     var introduction: String!
     var description: String!
     var createdAt: String!
@@ -42,8 +42,6 @@ struct News {
         
         if let imageUrl = response!["image_url"].string {
             self.imageUrl = imageUrl
-        }else {
-            self.imageUrl = ""
         }
         
         if let introduction = response!["introduction"].string {

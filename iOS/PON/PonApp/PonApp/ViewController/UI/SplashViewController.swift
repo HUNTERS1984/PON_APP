@@ -67,7 +67,7 @@ extension SplashViewController {
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
         FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
             if let _ = error {
-                
+                print(error!)
             }else {
                 loggingPrint(result)
                 let accessToken = result!["token"]
@@ -158,6 +158,7 @@ extension SplashViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    UserDataManager.shared.isSocialLogin = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
@@ -179,6 +180,7 @@ extension SplashViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    UserDataManager.shared.isSocialLogin = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
                 }else {
