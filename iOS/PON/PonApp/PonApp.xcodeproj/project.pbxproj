@@ -158,6 +158,7 @@
 		FA39A90B1DFA681A00E4EB58 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA39A90A1DFA681A00E4EB58 /* Search.storyboard */; };
 		FA39A9121DFA696900E4EB58 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */; };
 		FA39A9141DFA8B9D00E4EB58 /* ChangePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */; };
+		FA39EEA21E02418700F654A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA39EEA11E02418700F654A2 /* GoogleService-Info.plist */; };
 		FA405C7F1D9228A700D56602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C7E1D9228A700D56602 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA405C811D9228AE00D56602 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C801D9228AE00D56602 /* Foundation.framework */; };
 		FA405C831D9228B500D56602 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA405C821D9228B500D56602 /* Security.framework */; };
@@ -533,6 +534,7 @@
 		FA39A90A1DFA681A00E4EB58 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassViewController.swift; sourceTree = "<group>"; };
+		FA39EEA11E02418700F654A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA405C7E1D9228A700D56602 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA405C801D9228AE00D56602 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA405C821D9228B500D56602 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -801,6 +803,7 @@
 				4A85F33A1D9ABCDD00733161 /* View */,
 				4A85F3581D9ABCDD00733161 /* ViewController */,
 				4A85F2A11D9ABCDD00733161 /* LineAdapter.plist */,
+				FA39EEA11E02418700F654A2 /* GoogleService-Info.plist */,
 				4A85F2881D9ABCDD00733161 /* Info.plist */,
 				4A85F2731D9ABCDD00733161 /* Assets.xcassets */,
 				4A85F2741D9ABCDD00733161 /* LaunchScreen.storyboard */,
@@ -1746,6 +1749,7 @@
 				FACF58A51DB8C6D0000FB266 /* shop_button_followed@3x.png in Resources */,
 				FACF58B01DB8C6D0000FB266 /* shop_detail_more_image_button@3x.png in Resources */,
 				4A85F3EA1D9ABCDD00733161 /* CouponList.storyboard in Resources */,
+				FA39EEA21E02418700F654A2 /* GoogleService-Info.plist in Resources */,
 				FACF58731DB8C6D0000FB266 /* coupon_category_background@2x.png in Resources */,
 				FACF58671DB8C6D0000FB266 /* account_setting_button@2x.png in Resources */,
 				FACF58CE1DB8C6D0000FB266 /* tabbar_pon@3x.png in Resources */,
