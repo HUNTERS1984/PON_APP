@@ -12,10 +12,12 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseNews;
 import com.hunters.pon.api.ResponseNewsData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,8 @@ public class NewsActivity extends BaseActivity implements OnLoadDataListener {
 
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_NEWS_SCREEN);
     }
 
     private void initLayout()

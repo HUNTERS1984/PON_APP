@@ -35,6 +35,7 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.api.ResponseCouponDetailData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.UseCouponDialog;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
@@ -43,6 +44,7 @@ import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -100,6 +102,8 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
         initLayout();
 
         onLoadData();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.COUPON_DETAIL_SCREEN);
     }
 
     private void initLayout()
@@ -163,6 +167,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
 
+                GoogleAnalyticUtils.getInstance(mContext).logEventLikeCoupon((PonApplication)((Activity)mContext).getApplication());
                 mCurrentSelection = ADD_FAVOURITE;
                 String token = CommonUtils.getToken(mContext);
 
@@ -203,6 +208,7 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
 //                Intent iUseCoupon = new Intent(mContext, UseCouponActivity.class);
 //                iUseCoupon.putExtra(Constants.EXTRA_DATA, mCoupon.getmCode());
 //                startActivity(iUseCoupon);
+                GoogleAnalyticUtils.getInstance(mContext).logEventUseCoupon((PonApplication)((Activity)mContext).getApplication());
                 mCurrentSelection = USE_COUPON;
                 String token = CommonUtils.getToken(mContext);
 

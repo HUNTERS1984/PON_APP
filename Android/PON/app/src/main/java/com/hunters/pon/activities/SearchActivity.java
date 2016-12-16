@@ -14,11 +14,13 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCouponDetail;
 import com.hunters.pon.api.ResponseSearchCouponData;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,6 +115,7 @@ public class SearchActivity extends BaseActivity implements OnLoadDataListener {
         });
 
 
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.SEARCH_SCREEN);
     }
 
     @Override

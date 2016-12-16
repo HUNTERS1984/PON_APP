@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.PagerAdapter;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.fragments.BaseCouponByCategoryFragment;
 import com.hunters.pon.fragments.CouponByCategoryNearestFragment;
 import com.hunters.pon.fragments.CouponByCategoryNewestFragment;
@@ -16,6 +17,7 @@ import com.hunters.pon.fragments.CouponByCategoryPopularityFragment;
 import com.hunters.pon.fragments.CouponByCategoryUsedFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 public class CouponByCategoryDetailActivity extends BaseActivity {
 
@@ -36,6 +38,8 @@ public class CouponByCategoryDetailActivity extends BaseActivity {
         mCatId = getIntent().getLongExtra(Constants.EXTRA_COUPON_TYPE_ID, 0);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.COUPON_CATEGORY_DETAIL_SCREEN);
     }
 
     private void initLayout()

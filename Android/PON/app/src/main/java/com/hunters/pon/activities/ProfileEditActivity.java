@@ -30,10 +30,12 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseUserProfileData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.models.UserModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.ImageUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Picasso;
@@ -96,6 +98,8 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
         mFacebookCallbackManager = CallbackManager.Factory.create();
         mUser = CommonUtils.getProfile(mContext);//UserModel) getIntent().getSerializableExtra(Constants.EXTRA_USER);
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_EDIT_SCREEN);
     }
 
     @Override

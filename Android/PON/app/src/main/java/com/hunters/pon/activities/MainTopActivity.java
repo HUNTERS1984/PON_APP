@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.PagerAdapter;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.fragments.BaseFragment;
 import com.hunters.pon.fragments.TopNearestCouponFragment;
 import com.hunters.pon.fragments.TopNewestCouponFragment;
@@ -24,6 +25,7 @@ import com.hunters.pon.fragments.TopPopularCouponFragment;
 import com.hunters.pon.fragments.TopUsedCouponFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.KeyboardUtils;
 
 public class MainTopActivity extends BaseActivity {
@@ -42,6 +44,8 @@ public class MainTopActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.MAIN_TOP_SCREEN);
     }
 
     private void initLayout()

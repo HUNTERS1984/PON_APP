@@ -14,12 +14,14 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseHistoryCoupon;
 import com.hunters.pon.api.ResponseHistoryCouponData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 import java.util.ArrayList;
 
@@ -70,6 +72,8 @@ public class ProfileHistoryActivity extends BaseActivity implements OnLoadDataLi
 
         mAdapterCoupon = new CouponRecyclerViewAdapter(this, mListCoupons);
         rv.setAdapter(mAdapterCoupon);
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_USED_COUPON_SCREEN);
     }
 
     @Override

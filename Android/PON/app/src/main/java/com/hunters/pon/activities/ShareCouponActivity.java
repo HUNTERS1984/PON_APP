@@ -1,5 +1,6 @@
 package com.hunters.pon.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,11 +27,13 @@ import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.qrcode.QRCodeUtils;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.ImageUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Picasso;
@@ -100,6 +103,8 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         initTwitter();
         initInstagram();
         initLine();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.SHARE_COUPON_SCREEN);
     }
 
     private void initLayout()
@@ -128,6 +133,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Facebook;
                 loginFacebook();
                 //shareFacebook();
@@ -137,6 +143,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Twitter;
                 loginTwitter();
 //                shareTwitter();
@@ -146,6 +153,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Instagram;
                 loginInstagram();
 //                shareInstagram();
@@ -155,6 +163,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Line;
                 loginLine();
 //                shareLine();

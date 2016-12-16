@@ -12,10 +12,12 @@ import com.hunters.pon.adapters.PhotoCouponPagerAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseNewsDetailData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -40,6 +42,8 @@ public class NewsDetailActivity extends BaseActivity implements OnLoadDataListen
         super.onCreate(savedInstanceState);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_NEWS_DETAIL_SCREEN);
     }
 
 

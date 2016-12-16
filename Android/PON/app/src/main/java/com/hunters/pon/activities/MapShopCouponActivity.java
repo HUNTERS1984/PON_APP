@@ -32,12 +32,14 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseMapShopCoupon;
 import com.hunters.pon.api.ResponseMapShopCouponData;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.LocationUtils;
 import com.hunters.pon.utils.PermissionUtils;
 
@@ -89,6 +91,8 @@ public class MapShopCouponActivity extends BaseActivity implements GoogleMap.OnM
         }
         initData();
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.MAP_SCREEN);
     }
 
     @Override

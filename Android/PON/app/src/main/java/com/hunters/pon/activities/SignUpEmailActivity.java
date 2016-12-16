@@ -15,10 +15,12 @@ import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonConfirm {
 
@@ -35,6 +37,8 @@ public class SignUpEmailActivity extends BaseActivity implements OnDialogButtonC
         mContext = this;
         mDialogConfirm = this;
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.SIGN_UP_SCREEN);
     }
 
     private void initLayout()

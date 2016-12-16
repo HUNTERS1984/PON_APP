@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.hunters.pon.R;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.CustomEditText;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 public class ResetPasswordActivity extends BaseActivity {
 
@@ -21,6 +23,8 @@ public class ResetPasswordActivity extends BaseActivity {
         setContentView(R.layout.activity_reset_password);
         super.onCreate(savedInstanceState);
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.FORGOT_PASS_SCREEN);
     }
 
     private void initLayout()

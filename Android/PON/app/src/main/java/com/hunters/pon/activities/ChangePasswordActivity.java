@@ -12,8 +12,10 @@ import com.hunters.pon.R;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.KeyboardUtils;
 
 public class ChangePasswordActivity extends BaseActivity {
@@ -29,6 +31,8 @@ public class ChangePasswordActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_CHANGE_PASSWORD_SCREEN);
     }
 
 

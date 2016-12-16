@@ -10,12 +10,14 @@ import android.view.View;
 
 import com.hunters.pon.R;
 import com.hunters.pon.adapters.PagerAdapter;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.fragments.AddShopFollowNearestFragment;
 import com.hunters.pon.fragments.AddShopFollowNewestFragment;
 import com.hunters.pon.fragments.AddShopFollowPopularityFragment;
 import com.hunters.pon.fragments.BaseShopFollowFragment;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.utils.Constants;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 public class AddShopFollowDetailActivity extends BaseActivity {
 
@@ -64,6 +66,7 @@ public class AddShopFollowDetailActivity extends BaseActivity {
 
             }
         });
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.ADD_FOLLOW_SHOPP_SCREEN);
     }
     //.newInstance(mTypeId)
 

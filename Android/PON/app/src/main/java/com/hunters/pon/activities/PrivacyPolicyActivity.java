@@ -9,6 +9,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.hunters.pon.R;
+import com.hunters.pon.application.PonApplication;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 public class PrivacyPolicyActivity extends BaseActivity {
 
@@ -19,6 +21,8 @@ public class PrivacyPolicyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PRIVACY_POLICY_SCREEN);
     }
 
     private void initLayout()

@@ -22,10 +22,12 @@ import com.hunters.pon.adapters.DividerItemDecoration;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.CouponAPIHelper;
 import com.hunters.pon.api.ResponseCategoryData;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CategoryModel;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.KeyboardUtils;
 
 import java.util.ArrayList;
@@ -99,6 +101,7 @@ public class ShopCouponByCategoryActivity extends Activity {
             }
         });
 
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.COUPON_CATEGORY_SCREEN);
     }
 
     private void initData()

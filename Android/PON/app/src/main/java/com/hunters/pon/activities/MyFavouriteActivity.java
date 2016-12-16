@@ -14,12 +14,14 @@ import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ResponseMyFavourite;
 import com.hunters.pon.api.ResponseMyFavouriteData;
 import com.hunters.pon.api.UserProfileAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 import java.util.ArrayList;
 
@@ -38,6 +40,8 @@ public class MyFavouriteActivity extends BaseActivity implements OnLoadDataListe
         super.onCreate(savedInstanceState);
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.MY_FAVOURITE_SCREEN);
     }
 
     @Override

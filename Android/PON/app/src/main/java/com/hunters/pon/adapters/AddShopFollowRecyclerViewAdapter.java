@@ -20,12 +20,14 @@ import com.hunters.pon.activities.ShopDetailActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.models.ExtraDataModel;
 import com.hunters.pon.models.ShopModel;
 import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.viewholders.LoadingViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -177,6 +179,7 @@ public class AddShopFollowRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 //                    boolean isShopSubscribe = CommonUtils.convertBoolean(shop.getmIsShopFollow());
 //                    mLstShopFollows.get(mPosSelection).setmIsShopFollow(CommonUtils.convertInt(!isShopSubscribe));
 //                    notifyDataSetChanged();
+                    GoogleAnalyticUtils.getInstance(mContext).logEventFollowShop((PonApplication)((Activity)mContext).getApplication());
                     break;
                 default:
                     Intent shopDetail = new Intent(mContext, ShopDetailActivity.class);

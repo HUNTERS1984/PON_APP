@@ -36,10 +36,12 @@ import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseShopDetail;
 import com.hunters.pon.api.ResponseShopDetailData;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.models.CouponModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 import com.hunters.pon.utils.PermissionUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -79,6 +81,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
 
         initLayout();
 
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.SHOP_DETAIL_SCREEN);
     }
 
     @Override
@@ -187,6 +190,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         shareShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(Intent.EXTRA_SUBJECT, mShopName);

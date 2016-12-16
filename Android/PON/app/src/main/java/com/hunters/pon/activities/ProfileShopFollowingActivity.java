@@ -11,12 +11,14 @@ import com.hunters.pon.adapters.AddShopFollowRecyclerViewAdapter;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseShopFollowData;
 import com.hunters.pon.api.ShopAPIHelper;
+import com.hunters.pon.application.PonApplication;
 import com.hunters.pon.customs.EndlessRecyclerViewScrollListener;
 import com.hunters.pon.models.UserModel;
 import com.hunters.pon.protocols.OnLoadDataListener;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.DialogUtiils;
+import com.hunters.pon.utils.GoogleAnalyticUtils;
 
 import java.util.ArrayList;
 
@@ -41,6 +43,8 @@ public class ProfileShopFollowingActivity extends BaseActivity implements OnLoad
         }
 
         initLayout();
+
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PROFILE_FOLLOW_SHOP_SCREEN);
     }
 
     private void initLayout()
