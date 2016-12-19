@@ -61,5 +61,6 @@ extension UIViewController {
     func setUpNavigationBar(){}
     func setUpUserInterface(){}
     func configUserInterface(){}
+    func startGoogleAnalytics(){}
     
 }

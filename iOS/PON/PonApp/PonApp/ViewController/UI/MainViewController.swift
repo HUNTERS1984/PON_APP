@@ -41,6 +41,15 @@ class MainViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func startGoogleAnalytics() {
+        super.startGoogleAnalytics()
+        guard let tracker = GAI.sharedInstance().defaultTracker else { return }
+        tracker.set(kGAIScreenName, value: GAScreen_Main)
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
