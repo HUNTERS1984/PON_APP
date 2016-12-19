@@ -12,5 +12,5 @@ import UIKit
 extension DefaultsKeys {
     
     static let token = DefaultsKey<String?>("token")
-    
+    static let snsLogin = DefaultsKey<Bool?>("sns_login")
 }
