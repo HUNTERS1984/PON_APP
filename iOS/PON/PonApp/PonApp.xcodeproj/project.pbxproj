@@ -208,6 +208,7 @@
 		FA8A83FA1DA3982E0035E48D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */; };
 		FA9570F11DACA2C700C20301 /* MainVCNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F01DACA2C700C20301 /* MainVCNotification.swift */; };
 		FA9570F31DACBE8D00C20301 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */; };
+		FA9C26B51E07BF29003740A3 /* GAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C26B41E07BF29003740A3 /* GAKey.swift */; };
 		FAA43A701D9D04370013BCE3 /* ShowQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */; };
 		FAA43A7D1D9D1AEE0013BCE3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */; };
 		FAAB82BF1DC042230060E859 /* LineAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAB82BD1DC042230060E859 /* LineAdapter.framework */; };
@@ -585,6 +586,7 @@
 		FA8A83F91DA3982E0035E48D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FA9570F01DACA2C700C20301 /* MainVCNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCNotification.swift; sourceTree = "<group>"; };
 		FA9570F21DACBE8D00C20301 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		FA9C26B41E07BF29003740A3 /* GAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAKey.swift; sourceTree = "<group>"; };
 		FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowQRCodeViewController.swift; sourceTree = "<group>"; };
 		FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		FAAB82BD1DC042230060E859 /* LineAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineAdapter.framework; sourceTree = "<group>"; };
@@ -836,6 +838,7 @@
 			children = (
 				4A85F2771D9ABCDD00733161 /* GlobalConstant.swift */,
 				FAA43A7C1D9D1AEE0013BCE3 /* ErrorMessage.swift */,
+				FA9C26B41E07BF29003740A3 /* GAKey.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1953,6 +1956,7 @@
 				FA46C4281DB08CDB004E0A81 /* ShareCouponManager.swift in Sources */,
 				4AB360BD1D9F5C1500DE3C8A /* ReachabilityManager.swift in Sources */,
 				4A85F4411D9ABCDD00733161 /* ShopViewController.swift in Sources */,
+				FA9C26B51E07BF29003740A3 /* GAKey.swift in Sources */,
 				4A3452DA1DB324B500377EA9 /* PaddingLabel.swift in Sources */,
 				4A85F3991D9ABCDD00733161 /* TypeConversionHelper.swift in Sources */,
 				FA76A9CE1DA3460000893584 /* DKImageManager.swift in Sources */,
