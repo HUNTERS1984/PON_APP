@@ -45,7 +45,8 @@ public class GoogleAnalyticUtils {
     public static final String EVENT_FOLLOW_SHOP = "Follow Shop";
     public static final String EVENT_USE_COUPON = "Use Coupon";
     public static final String EVENT_LIKE_COUPON = "Like Coupon";
-    public static final String EVENT_SHARE = "Share";
+    public static final String EVENT_SHARE_COUPON = "Share Coupon";
+    public static final String EVENT_SHARE_SHOP = "Share Shop";
 
 
     private static GoogleAnalyticUtils mFirebaseAnalyticsUtils;
@@ -90,12 +91,22 @@ public class GoogleAnalyticUtils {
 
     }
 
-    public void logEventShare(PonApplication application)
+    public void logEventShareCoupon(PonApplication application)
     {
         Tracker tracker = application.getDefaultTracker();
         tracker.send(new HitBuilders.EventBuilder()
                 .setCategory(ACTION_NAME)
-                .setAction(EVENT_SHARE)
+                .setAction(EVENT_SHARE_COUPON)
+                .build());
+
+    }
+
+    public void logEventShareShop(PonApplication application)
+    {
+        Tracker tracker = application.getDefaultTracker();
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory(ACTION_NAME)
+                .setAction(EVENT_SHARE_SHOP)
                 .build());
 
     }

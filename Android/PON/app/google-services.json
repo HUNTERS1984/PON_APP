@@ -1,32 +1,27 @@
 {
   "project_info": {
-    "project_number": "464116332140",
-    "project_id": "pon-ap"
+    "project_number": "67703293304",
+    "project_id": "firebase-pon-app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:464116332140:android:b84d6d4771a7f56f",
+        "mobilesdk_app_id": "1:67703293304:android:b84d6d4771a7f56f",
         "android_client_info": {
           "package_name": "com.hunters.pon"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "464116332140-63vej3mmq2cs04lqsd1sbsnrivmakbd1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDEV0bleH2AMlCAp3XCPoBhmHGiPh1AIJU"
+          "current_key": "AIzaSyCioHTd3ekBDdKq-2kEJnxPg3hPhOSZL5A"
         }
       ],
       "services": {
         "analytics_service": {
           "status": 2,
           "analytics_property": {
-            "tracking_id": "UA-89024636-1"
+            "tracking_id": "UA-49813860-2"
           }
         },
         "appinvite_service": {

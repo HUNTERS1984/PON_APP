@@ -133,7 +133,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
+                GoogleAnalyticUtils.getInstance(mContext).logEventShareCoupon((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Facebook;
                 loginFacebook();
                 //shareFacebook();
@@ -143,7 +143,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
+                GoogleAnalyticUtils.getInstance(mContext).logEventShareCoupon((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Twitter;
                 loginTwitter();
 //                shareTwitter();
@@ -153,7 +153,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
+                GoogleAnalyticUtils.getInstance(mContext).logEventShareCoupon((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Instagram;
                 loginInstagram();
 //                shareInstagram();
@@ -163,7 +163,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         mShareLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
+                GoogleAnalyticUtils.getInstance(mContext).logEventShareCoupon((PonApplication)((Activity)mContext).getApplication());
                 mSignInType = SignInType.Line;
                 loginLine();
 //                shareLine();

@@ -190,7 +190,7 @@ public class ShopDetailActivity extends AppCompatActivity implements OnLoadDataL
         shareShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleAnalyticUtils.getInstance(mContext).logEventShare((PonApplication)((Activity)mContext).getApplication());
+                GoogleAnalyticUtils.getInstance(mContext).logEventShareShop((PonApplication)((Activity)mContext).getApplication());
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(Intent.EXTRA_SUBJECT, mShopName);
