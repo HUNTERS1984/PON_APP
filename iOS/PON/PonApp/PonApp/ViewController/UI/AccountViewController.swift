@@ -108,8 +108,11 @@ extension AccountViewController {
             "お問い合わせ",//contact us
             "掲載希望のショップ様"//news
         ]
-        if !UserDataManager.shared.isSocialLogin {
-            functionList.append("パスワード変更")//change pass
+        
+        if let _ = Defaults[.snsLogin] {
+            if !Defaults[.snsLogin]! {
+                functionList.append("パスワード変更")//change pass
+            }
         }
         functionList.append("ログアウト")//logout
         return functionList
@@ -195,9 +198,13 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         case 4:
             break;
         case 5:
-            if !UserDataManager.shared.isSocialLogin {
-                let vc = ChangePassViewController.instanceFromStoryBoard("Account")
-                self.navigationController?.pushViewController(vc!, animated: true)
+            if let _ = Defaults[.snsLogin] {
+                if !Defaults[.snsLogin]! {
+                    let vc = ChangePassViewController.instanceFromStoryBoard("Account")
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }else {
+                    self.logout()
+                }
             }else {
                 self.logout()
             }

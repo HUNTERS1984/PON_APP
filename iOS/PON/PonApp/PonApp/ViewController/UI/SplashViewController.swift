@@ -167,6 +167,7 @@ extension SplashViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    Defaults[.snsLogin] = true
                     UserDataManager.shared.isSocialLogin = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()
@@ -189,6 +190,7 @@ extension SplashViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    Defaults[.snsLogin] = true
                     UserDataManager.shared.isSocialLogin = true
                     UserDataManager.getUserProfile()
                     self.setupTabbarViewController()

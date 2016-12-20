@@ -180,6 +180,7 @@ extension SignInViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    Defaults[.snsLogin] = false
                     UserDataManager.shared.setUserData(result?.data)
                     UserDataManager.getUserProfile()
                     if self?.loginState == .normal {
@@ -249,6 +250,7 @@ extension SignInViewController {
                         Defaults[.token] = token
                     }
                     UserDataManager.shared.loggedIn = true
+                    Defaults[.snsLogin] = true
                     UserDataManager.shared.setUserData(result?.data)
                     UserDataManager.getUserProfile()
                     if self?.loginState == .normal {
