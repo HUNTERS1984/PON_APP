@@ -113,7 +113,7 @@ extension EditAccountViewController {
     }
     
     @IBAction func connectFacebookButtonPressed(_ sender: AnyObject) {
-        FacebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self) { (result: [String: String]?, error: Error?) in
+        FacebookLogin.logInWithReadPermissions(["public_profile", "email", "user_photos", "user_about_me", "user_posts"], fromViewController: self) { (result: [String: String]?, error: Error?) in
             if let _ = error {
                 
             }else {
