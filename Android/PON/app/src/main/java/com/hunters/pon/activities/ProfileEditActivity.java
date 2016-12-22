@@ -382,7 +382,7 @@ public class ProfileEditActivity extends BaseActivity implements OnLoadDataListe
 //        });
 
         mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
-        mFacebookSignInButton.setReadPermissions("email");
+        mFacebookSignInButton.setReadPermissions("email", "user_posts", "user_photos");
         mFacebookSignInButton.registerCallback(mFacebookCallbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
