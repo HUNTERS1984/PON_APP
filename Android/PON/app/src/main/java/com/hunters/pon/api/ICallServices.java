@@ -69,6 +69,9 @@ public interface ICallServices {
     @PUT("/api/v1/password")
     Call<ResponseCommon> changePassword(@Header("Authorization") String token, @Field("old_password") String oldPass, @Field("new_password") String newPass, @Field("confirm_password") String newPassConfirm);
 
+    @FormUrlEncoded
+    @PUT("/api/v1/forgot/password")
+    Call<ResponseCommon> forgotPassword(@Field("email") String email);
 
     //Coupons
     @GET("/api/v1/coupons/{id}")
