@@ -49,6 +49,7 @@ class CouponCollectionTableViewCell: UITableViewCell {
     func setCollectionViewDelegate(delegate: HorizontalCollectionViewDelegate, index: NSInteger, couponListData: CouponListData) {
         if couponListData.coupons.count > 0 {
             self.couponCollectionView.isHidden = false
+            self.nodataLabel.isHidden = true
             self.categoryId = couponListData.categoryId
             self.categoryName = couponListData.categoryName
             self.headerLabel.text = couponListData.categoryName
@@ -57,11 +58,11 @@ class CouponCollectionTableViewCell: UITableViewCell {
             self.thumbImageView.af_setImage(withURL: URL(string: couponListData.categoryIconUrl)!)
         }else {
             self.couponCollectionView.isHidden = true
+            self.nodataLabel.isHidden = false
             self.categoryId = couponListData.categoryId
             self.categoryName = couponListData.categoryName
             self.headerLabel.text = couponListData.categoryName
             self.thumbImageView.af_setImage(withURL: URL(string: couponListData.categoryIconUrl)!)
-            self.nodataLabel.isHidden = false
             self.nodataLabel.text = NoDataMessage
         }
     }
