@@ -17,6 +17,7 @@ import com.hunters.pon.protocols.OnDialogButtonConfirm;
 import com.hunters.pon.utils.CommonUtils;
 import com.hunters.pon.utils.DialogUtiils;
 import com.hunters.pon.utils.GoogleAnalyticUtils;
+import com.hunters.pon.utils.KeyboardUtils;
 
 public class ResetPasswordActivity extends BaseActivity implements OnDialogButtonConfirm {
 
@@ -57,6 +58,7 @@ public class ResetPasswordActivity extends BaseActivity implements OnDialogButto
                     new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
                     return;
                 }
+                new KeyboardUtils().hideKeyboard(mContext);
                 new UserProfileAPIHelper().forgotPassword(mContext, email, mHanlderForgotPass);
             }
         });
