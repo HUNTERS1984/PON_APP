@@ -285,5 +285,11 @@ public struct ApiRequest {
         ]
         ApiManager.processRequest(ChangePass, method: .PUT, parameters: parameters, hasAuth: true, completion: completion)
     }
-
+    
+    static func forgotPassword(_ email: String, completion: @escaping (ApiCompletion)) {
+        let parameters: [String: String?] = [
+            "email": email
+        ]
+        ApiManager.processRequest(ForgotPassword, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
+    }
 }

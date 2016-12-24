@@ -111,8 +111,9 @@ extension SignInViewController {
     }
     
     @IBAction func forgotPassButtonPressed(_ sender: AnyObject) {
-        let vc = ForgotPassViewController.instanceFromStoryBoard("Register")
-        let nav = UINavigationController.init(rootViewController: vc!)
+        let vc = ForgotPassViewController.instanceFromStoryBoard("Register") as! ForgotPassViewController
+        vc.handler = self
+        let nav = UINavigationController.init(rootViewController: vc)
         self.navigationController!.present(nav, animated: true)
     }
 }
@@ -264,4 +265,15 @@ extension SignInViewController {
         }
     }
 
+}
+
+extension SignInViewController: ForgotPassViewControllerDelegate {
+    
+    func forgotPassViewController(_ viewController: ForgotPassViewController, didSendRequestNewPassword state: Bool) {
+        if state {
+            viewController.dismiss(animated: true, completion: { 
+                self.presentAlert(with: "", message: "Your password reset request successed. Check your email to create new password")
+            })
+        }
+    }
 }
