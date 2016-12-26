@@ -40,10 +40,19 @@ public class CouponModel implements Serializable {
     private String mDescription;
 
     @SerializedName("link")
-    private String mLinkShare;
+    private String mFacebookLinkShare;
 
     @SerializedName("coupon_id")
     private String mCouponId;
+
+    @SerializedName("twitter_sharing")
+    private String mTwitterLinkShare;
+
+    @SerializedName("instagram_sharing")
+    private String mInstagramLinkShare;
+
+    @SerializedName("line_sharing")
+    private String mLineLinkShare;
 
     private boolean mIsUsed = false;
 
@@ -136,12 +145,12 @@ public class CouponModel implements Serializable {
         this.mIsUsed = mIsUsed;
     }
 
-    public String getmLinkShare() {
-        return mLinkShare;
+    public String getmFacebookLinkShare() {
+        return mFacebookLinkShare;
     }
 
-    public void setmLinkShare(String mLinkShare) {
-        this.mLinkShare = mLinkShare;
+    public void setmFacebookLinkShare(String mLinkShare) {
+        this.mFacebookLinkShare = mLinkShare;
     }
 
     public String getmCouponId() {
@@ -150,5 +159,29 @@ public class CouponModel implements Serializable {
 
     public void setmCouponId(String mCouponId) {
         this.mCouponId = mCouponId;
+    }
+
+    public String getmTwitterLinkShare() {
+        return mTwitterLinkShare;
+    }
+
+    public String getmInstagramLinkShare() {
+        return mInstagramLinkShare;
+    }
+
+    public String getmLineLinkShare() {
+        return mLineLinkShare;
+    }
+
+    public void setmTwitterLinkShare(String mTwitterLinkShare) {
+        this.mTwitterLinkShare = mTwitterLinkShare;
+    }
+
+    public void setmInstagramLinkShare(String mInstagramLinkShare) {
+        this.mInstagramLinkShare = mInstagramLinkShare;
+    }
+
+    public void setmLineLinkShare(String mLineLinkShare) {
+        this.mLineLinkShare = mLineLinkShare;
     }
 }

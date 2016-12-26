@@ -46,8 +46,6 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import br.com.dina.oauth.instagram.InstagramApp;
 import jp.line.android.sdk.LineSdkContextManager;
@@ -311,6 +309,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
                             case SUCCESS:
                                 if(future != null) {
                                     String token = future.getAccessToken().accessToken;
+                                    shareLine();
 //                                    new UserProfileAPIHelper().signInShareLine(mContext, token, mHanlderSignIn);
                                 }
                                 break;
@@ -363,7 +362,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     //                    .setContentTitle(mCoupon.getmTitle())
     //                    .setContentDescription(
     //                           mCoupon.getmDescription())
-                        .setContentUrl(Uri.parse(mCoupon.getmLinkShare()))
+                        .setContentUrl(Uri.parse(mCoupon.getmFacebookLinkShare()))
                         .build();
             mShareDialog.show(linkContent);
         }
@@ -373,12 +372,12 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     private void shareTwitter() {
         showProgressDialog(mContext);
         TweetComposer.Builder builder = null;
-        try {
+//        try {
             builder = new TweetComposer.Builder(this)
-                    .url(new URL(mCoupon.getmLinkShare()));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+                    .text(mCoupon.getmTwitterLinkShare());
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
         builder.show();
         closeDialog();
     }
@@ -407,7 +406,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     private void proccessShareInstagram()
     {
         showProgressDialog(mContext);
-        Picasso.with(this).load(mCoupon.getmImageUrl())
+        Picasso.with(this).load(mCoupon.getmInstagramLinkShare())
 //                .resize(CommonUtils.dpToPx(mContext, 120), CommonUtils.dpToPx(mContext, 120))
                 .into(ImageUtils.picassoImageTarget(getApplicationContext(), "share_coupon.jpg", mHanlderCompletionSaveImage));
     }
@@ -418,8 +417,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
         if(CommonUtils.isPackageInstalled(mContext, Constants.PACKAGE_LINE)) {
             Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmLinkShare());
-//            shareIntent.putExtra(Intent.EXTRA_TITLE, mCoupon.getmTitle());
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mCoupon.getmLineLinkShare());
             shareIntent.setPackage(Constants.PACKAGE_LINE);
             startActivity(shareIntent);
         } else {

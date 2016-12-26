@@ -302,7 +302,10 @@ public class CouponDetailActivity extends AppCompatActivity implements OnMapRead
                         mCoupon.setmImageUrl(coupon.getmImageUrl());
                         mCoupon.setmCode(coupon.getmCode());
                         mCoupon.setmDescription(coupon.getmDescription());
-                        mCoupon.setmLinkShare(coupon.getmLinkShare());
+                        mCoupon.setmFacebookLinkShare(coupon.getmFacebookLinkShare());
+                        mCoupon.setmTwitterLinkShare(coupon.getmTwitterLinkShare());
+                        mCoupon.setmInstagramLinkShare(coupon.getmInstagramLinkShare());
+                        mCoupon.setmLineLinkShare(coupon.getmLineLinkShare());
 
                         List<String> lstCouponPhotos = coupon.getmLstPhotoCoupons();
                         if(lstCouponPhotos != null && lstCouponPhotos.size() > 0) {

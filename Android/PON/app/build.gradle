@@ -28,8 +28,8 @@ android {
                                 onesignal_google_project_number: "1057789470807"]
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 15
-        versionName "1.0.13"
+        versionCode 16
+        versionName "1.0.14"
     }
     buildTypes {
         release {
