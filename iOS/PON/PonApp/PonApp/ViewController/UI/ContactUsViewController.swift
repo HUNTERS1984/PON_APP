@@ -1,21 +1,21 @@
 //
-//  TermsOfServiceViewController.swift
+//  ContactUsViewController.swift
 //  PonApp
 //
-//  Created by HaoLe on 9/27/16.
+//  Created by HaoLe on 12/27/16.
 //  Copyright © 2016 HaoLe. All rights reserved.
 //
 
 import UIKit
 
-class TermsOfServiceViewController: BaseViewController {
+class ContactUsViewController: BaseViewController {
 
     @IBOutlet weak var contentWebView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -27,10 +27,11 @@ class TermsOfServiceViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
-        self.title = "利用規約"
+        self.title = "お問い合わせ"
         self.showBackButton()
     }
     
+
     override func setUpComponentsOnLoad() {
         super.setUpComponentsOnLoad()
         self.getURL()
@@ -38,11 +39,11 @@ class TermsOfServiceViewController: BaseViewController {
     
 }
 
-extension TermsOfServiceViewController {
+extension ContactUsViewController {
     
     fileprivate func getURL() {
         self.showHUD()
-        ApiRequest.getSettingUrl("term") { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+        ApiRequest.getSettingUrl("contact") { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
             self?.hideHUD()
             if let _ = error {
                 

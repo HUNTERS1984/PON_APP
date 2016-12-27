@@ -349,6 +349,7 @@
 		FAF602DE1E00F241000C11E6 /* signin_forgotpass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF602DC1E00F241000C11E6 /* signin_forgotpass@2x.png */; };
 		FAF602DF1E00F241000C11E6 /* signin_forgotpass@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF602DD1E00F241000C11E6 /* signin_forgotpass@3x.png */; };
 		FAF602E11E00F450000C11E6 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */; };
+		FAF9AA9C1E11F9CD00D52E28 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9AA9B1E11F9CD00D52E28 /* ContactUsViewController.swift */; };
 		FAFE74E71DB5F7B30047AD04 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFE74E61DB5F7B30047AD04 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -727,6 +728,7 @@
 		FAF602DC1E00F241000C11E6 /* signin_forgotpass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin_forgotpass@2x.png"; sourceTree = "<group>"; };
 		FAF602DD1E00F241000C11E6 /* signin_forgotpass@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin_forgotpass@3x.png"; sourceTree = "<group>"; };
 		FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
+		FAF9AA9B1E11F9CD00D52E28 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		FAFE74E61DB5F7B30047AD04 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -1242,14 +1244,11 @@
 				4A649A8D1D9BFEC80080E976 /* ListCouponContentViewController.swift */,
 				4A85F36F1D9ABCDD00733161 /* MainViewController.swift */,
 				4A649A971D9C1B410080E976 /* MainCouponContentViewController.swift */,
-				4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */,
 				4A85F3731D9ABCDD00733161 /* ShareCouponViewController.swift */,
 				4A85F3741D9ABCDD00733161 /* ShopFollowViewController.swift */,
 				4A85F3751D9ABCDD00733161 /* ShopViewController.swift */,
 				4A85F3761D9ABCDD00733161 /* SignInViewController.swift */,
-				4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */,
 				4A85F3791D9ABCDD00733161 /* SplashViewController.swift */,
-				4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */,
 				4A649A911D9C16500080E976 /* ListShopViewController.swift */,
 				4A649A931D9C16690080E976 /* ListShopContentViewController.swift */,
 				FAA43A6F1D9D04370013BCE3 /* ShowQRCodeViewController.swift */,
@@ -1259,6 +1258,10 @@
 				FA39A9111DFA696900E4EB58 /* SearchResultViewController.swift */,
 				FA39A9131DFA8B9D00E4EB58 /* ChangePassViewController.swift */,
 				FAF602E01E00F450000C11E6 /* ForgotPassViewController.swift */,
+				4A85F3711D9ABCDD00733161 /* PrivacyPolicyViewController.swift */,
+				4A85F37A1D9ABCDD00733161 /* TermsOfServiceViewController.swift */,
+				4A85F3781D9ABCDD00733161 /* SpecifiedTradeViewController.swift */,
+				FAF9AA9B1E11F9CD00D52E28 /* ContactUsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2043,6 +2046,7 @@
 				4A85F4241D9ABCDD00733161 /* ShadowView.swift in Sources */,
 				4A8496341DF99739004A4A61 /* RequestCouponPopupView.swift in Sources */,
 				4A85F40D1D9ABCDD00733161 /* DesignableButton.swift in Sources */,
+				FAF9AA9C1E11F9CD00D52E28 /* ContactUsViewController.swift in Sources */,
 				4A85F3FC1D9ABCDD00733161 /* IQUIWindow+Hierarchy.m in Sources */,
 				4A85F3831D9ABCDD00733161 /* GlobalConstant.swift in Sources */,
 				4A85F41D1D9ABCDD00733161 /* DesignableImageView.swift in Sources */,
