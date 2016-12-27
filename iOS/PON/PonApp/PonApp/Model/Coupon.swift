@@ -198,7 +198,6 @@ struct Coupon {
         }
         
         
-        
         if let twitterSharing = response!["twitter_sharing"].string {
             let data: [String] = twitterSharing.components(separatedBy: "\n")
             self.twitterSharing = data[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -214,6 +213,7 @@ struct Coupon {
         
         if let lineSharing = response!["line_sharing"].string {
             let data: [String] = lineSharing.components(separatedBy: "\n")
+            self.lineHashTag = data[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.lineSharing = data[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }else {
             self.lineSharing = ""
