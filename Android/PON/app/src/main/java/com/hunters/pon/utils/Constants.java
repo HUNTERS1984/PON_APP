@@ -63,4 +63,20 @@ public class Constants {
     public static final int REQUEST_CODE_FOLLOW_SHOP = 1003;
     public static final int REQUEST_CODE_USE_COUPON = 1004;
 
+    //Profile
+    public static final String EXTRA_TYPE_INFO_PROFILE = "EXTRA_TYPE_INFO_PROFILE";
+    public static final int TYPE_TERM = 0;
+    public static final int TYPE_PRIVACY = 1;
+    public static final int TYPE_TRADE = 2;
+    public static final int TYPE_CONTACT = 3;
+    public static final int TYPE_HOPE_LIKE_SHOP = 4;
+    public static final int TYPE_CHANGE_PASSWORD = 5;
+    public static final int TYPE_LOGOUT = 6;
+
+    public static final String URL_TERM_OF_SERVICE = "http://pon.cm/setting/term";
+    public static final String URL_PRIVACY_POLICY = "http://pon.cm/setting/privacy";
+    public static final String URL_SPECIFIC_TRADE = "http://pon.cm/setting/trade";
+    public static final String URL_CONTACT_US = "http://pon.cm/setting/contact";
+    public static final String URL_HOPE_LIKE_SHOP = "http://pon.cm/setting/contact";
+
 }

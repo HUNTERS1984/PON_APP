@@ -14,8 +14,7 @@ import android.widget.TextView;
 import com.facebook.login.LoginManager;
 import com.hunters.pon.R;
 import com.hunters.pon.activities.ChangePasswordActivity;
-import com.hunters.pon.activities.PrivacyPolicyActivity;
-import com.hunters.pon.activities.SpecificTradeActivity;
+import com.hunters.pon.activities.ProfileTypeInfoActivity;
 import com.hunters.pon.activities.SplashActivity;
 import com.hunters.pon.api.APIConstants;
 import com.hunters.pon.api.ResponseCommon;
@@ -73,17 +72,19 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
         @Override
         public void onClick(View view) {
             int pos = Integer.parseInt(view.getTag().toString());
+
             switch (pos)
             {
-                case 0:
+                case Constants.TYPE_TERM:
+                case Constants.TYPE_TRADE:
+                case Constants.TYPE_CONTACT:
+                case Constants.TYPE_PRIVACY:
+                case Constants.TYPE_HOPE_LIKE_SHOP:
+                    Intent iType = new Intent(mContext, ProfileTypeInfoActivity.class);
+                    iType.putExtra(Constants.EXTRA_TYPE_INFO_PROFILE, pos);
+                    mContext.startActivity(iType);
                     break;
-                case 1:
-                    mContext.startActivity(new Intent(mContext, PrivacyPolicyActivity.class));
-                    break;
-                case 2:
-                    mContext.startActivity(new Intent(mContext, SpecificTradeActivity.class));
-                    break;
-                case 5://Change password if login type is email or Logout:
+                case Constants.TYPE_CHANGE_PASSWORD://Change password if login type is email or Logout:
                     int loginType = CommonUtils.getLogintype(mContext);
                     if(loginType == Constants.LOGIN_EMAIL) {
                         mContext.startActivity(new Intent(mContext, ChangePasswordActivity.class));
@@ -91,7 +92,7 @@ public class ProfileMenuRecyclerViewAdapter extends RecyclerView.Adapter<Profile
                         new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);
                     }
                     break;
-                case 6://Logout
+                case Constants.TYPE_LOGOUT://Logout
                     new UserProfileAPIHelper().signOut(mContext, mHanlderSignOut);
                     break;
             }

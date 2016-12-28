@@ -10,26 +10,29 @@ import android.webkit.WebViewClient;
 
 import com.hunters.pon.R;
 import com.hunters.pon.application.PonApplication;
+import com.hunters.pon.utils.Constants;
 import com.hunters.pon.utils.GoogleAnalyticUtils;
 
-public class SpecificTradeActivity extends BaseActivity {
+public class ProfileTypeInfoActivity extends BaseActivity {
+
+    private int mTypeInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
-        setContentView(R.layout.activity_specific_trade);
+        setContentView(R.layout.activity_profile_type_info);
         super.onCreate(savedInstanceState);
+
+        mTypeInfo = getIntent().getIntExtra(Constants.EXTRA_TYPE_INFO_PROFILE, 0);
 
         initLayout();
 
-        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.SPECIFIC_TRADE_SCREEN);
+        GoogleAnalyticUtils.getInstance(mContext).logScreenAccess((PonApplication)getApplication(), GoogleAnalyticUtils.PRIVACY_POLICY_SCREEN);
     }
 
     private void initLayout()
     {
-        setTitle(getString(R.string.specific_trade));
-
-        WebView web = (WebView)findViewById(R.id.wv_specific_trade);
+        WebView web = (WebView)findViewById(R.id.wv_privacy);
 
         WebSettings settings = web.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -37,7 +40,7 @@ public class SpecificTradeActivity extends BaseActivity {
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.specific_trade), getString(R.string.connecting));
+        final ProgressDialog progressBar = ProgressDialog.show(this, getString(R.string.privacy_policy), getString(R.string.connecting));
 
         web.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -62,6 +65,29 @@ public class SpecificTradeActivity extends BaseActivity {
                 alertDialog.show();
             }
         });
-        web.loadUrl("http://www.google.com");
+
+        switch (mTypeInfo){
+            case Constants.TYPE_TERM:
+                setTitle(getString(R.string.term_of_service));
+                web.loadUrl(Constants.URL_TERM_OF_SERVICE);
+                break;
+            case Constants.TYPE_PRIVACY:
+                setTitle(getString(R.string.privacy_policy));
+                web.loadUrl(Constants.URL_PRIVACY_POLICY);
+                break;
+            case Constants.TYPE_TRADE:
+                setTitle(getString(R.string.specific_trade));
+                web.loadUrl(Constants.URL_SPECIFIC_TRADE);
+                break;
+            case Constants.TYPE_CONTACT:
+                setTitle(getString(R.string.contact_us));
+                web.loadUrl(Constants.URL_CONTACT_US);
+                break;
+            case Constants.TYPE_HOPE_LIKE_SHOP:
+                setTitle(getString(R.string.post_hope_of_shop_like));
+                web.loadUrl(Constants.URL_HOPE_LIKE_SHOP);
+                break;
+        }
+
     }
 }

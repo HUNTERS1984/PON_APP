@@ -58,18 +58,25 @@ public class SignInEmailActivity extends BaseActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = mEdtUsername.getText().toString();
+                String email = mEdtUsername.getText().toString();
                 String password = mEdtPassword.getText().toString();
-                if(username.equalsIgnoreCase("")){
-                    new DialogUtiils().showDialog(mContext, getString(R.string.input_username), false);
+                if(email.equalsIgnoreCase("")){
+                    mEdtUsername.requestFocus();
+                    new DialogUtiils().showDialog(mContext, getString(R.string.input_email), false);
                     return;
                 }
+                if(!CommonUtils.isEmailValid(email)){
+                    mEdtUsername.requestFocus();
+                    new DialogUtiils().showDialog(mContext, getString(R.string.email_invalid), false);
+                    return;
+                }
+
                 if(password.equalsIgnoreCase("")){
                     new DialogUtiils().showDialog(mContext, getString(R.string.input_password), false);
                     return;
                 }
 
-                new UserProfileAPIHelper().signIn(mContext, username, password, mHanlderSignIn);
+                new UserProfileAPIHelper().signIn(mContext, email, password, mHanlderSignIn);
             }
         });
 

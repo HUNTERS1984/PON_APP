@@ -131,10 +131,7 @@
             android:name=".activities.NewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.PrivacyPolicyActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.SpecificTradeActivity"
+            android:name=".activities.ProfileTypeInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ShareCouponActivity"
