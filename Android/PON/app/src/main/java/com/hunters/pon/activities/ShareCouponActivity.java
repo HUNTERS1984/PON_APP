@@ -359,9 +359,8 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
 
         if (ShareDialog.canShow(ShareLinkContent.class) && mCoupon != null) {
             ShareLinkContent linkContent = new ShareLinkContent.Builder()
-    //                    .setContentTitle(mCoupon.getmTitle())
-    //                    .setContentDescription(
-    //                           mCoupon.getmDescription())
+                        .setContentTitle(mCoupon.getmTwitterLinkShare())
+//                        .setContentDescription(mCoupon.getmTwitterLinkShare())
                         .setContentUrl(Uri.parse(mCoupon.getmFacebookLinkShare()))
                         .build();
             mShareDialog.show(linkContent);
@@ -370,16 +369,11 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
     }
 
     private void shareTwitter() {
-        showProgressDialog(mContext);
-        TweetComposer.Builder builder = null;
-//        try {
-            builder = new TweetComposer.Builder(this)
-                    .text(mCoupon.getmTwitterLinkShare());
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-        builder.show();
-        closeDialog();
+        if (!PermissionUtils.newInstance().isGrantStoragePermission(this)) {
+            PermissionUtils.newInstance().requestStoragePermission(this);
+        } else {
+            proccessDownloadAndCachePhoto();
+        }
     }
 
     private void shareInstagram()
@@ -388,7 +382,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
             if (!PermissionUtils.newInstance().isGrantStoragePermission(this)) {
                 PermissionUtils.newInstance().requestStoragePermission(this);
             } else {
-                proccessShareInstagram();
+                proccessDownloadAndCachePhoto();
             }
         } else {
             try {
@@ -403,11 +397,10 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
 
     }
 
-    private void proccessShareInstagram()
+    private void proccessDownloadAndCachePhoto()
     {
         showProgressDialog(mContext);
         Picasso.with(this).load(mCoupon.getmInstagramLinkShare())
-//                .resize(CommonUtils.dpToPx(mContext, 120), CommonUtils.dpToPx(mContext, 120))
                 .into(ImageUtils.picassoImageTarget(getApplicationContext(), "share_coupon.jpg", mHanlderCompletionSaveImage));
     }
 
@@ -440,14 +433,21 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
             switch (msg.what){
                 case APIConstants.HANDLER_REQUEST_SERVER_SUCCESS:
                     File cacheFile = new File(CommonUtils.getFileCache("share_coupon.jpg"));
-
                     Uri file = Uri.fromFile(cacheFile);
 
-                    Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-                    shareIntent.setType("image/*");
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, file);
-                    shareIntent.setPackage(Constants.PACKAGE_INSTAGRAM);
-                    startActivity(shareIntent);
+                    if (mSignInType == SignInType.Instagram) {
+                        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        shareIntent.setType("image/*");
+                        shareIntent.putExtra(Intent.EXTRA_STREAM, file);
+                        shareIntent.setPackage(Constants.PACKAGE_INSTAGRAM);
+                        startActivity(shareIntent);
+                    } else if (mSignInType == SignInType.Twitter) {
+                        TweetComposer.Builder builder = new TweetComposer.Builder(mContext)
+                                .image(file)
+                                .text(mCoupon.getmTwitterLinkShare());
+                        builder.show();
+                        closeDialog();
+                    }
 
                     break;
                 case APIConstants.HANDLER_REQUEST_SERVER_FAILED:
@@ -465,7 +465,7 @@ public class ShareCouponActivity extends BaseActivity implements ActivityCompat.
             if(grantResults[0] == PackageManager.PERMISSION_DENIED ) {
                 new DialogUtiils().showDialog(this, getString(R.string.storage_denie), false);
             } else {
-                proccessShareInstagram();
+                proccessDownloadAndCachePhoto();
             }
         }
     }
