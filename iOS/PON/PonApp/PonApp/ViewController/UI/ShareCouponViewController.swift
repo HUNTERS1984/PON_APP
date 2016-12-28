@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class ShareCouponViewController: BaseViewController {
     @IBOutlet weak var actionViewBackgroundImageView: UIImageView!
@@ -73,7 +75,14 @@ extension ShareCouponViewController {
     }
     
     @IBAction func instagramButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "sns_button")!, instagramCaption: "PON", view: self.view)
+        PonImageDownloader.shared.downloadImage(self.coupon!.imageURL!, completion: { (_ result: UIImage?, _ error: NSError?) in
+            self.hideHUD()
+            if let _ = result {
+                ShareCouponManager.shared.postImageToInstagramWithCaption(imageInstagram: result!, instagramCaption: "PON", view: self.view)
+            } else {
+                
+            }
+        })
     }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
@@ -83,10 +92,6 @@ extension ShareCouponViewController {
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
-//        ShareCouponManager.shared.presentShareCouponToTwitter(self, initialText: "", url: self.coupon!.link, image: nil)
-//        TwitterLogin.sharedInstance.share(self) { (success: Bool, _ result: Any?) in
-//            
-//        }
         self.shareTwitter()
     }
     
@@ -112,19 +117,26 @@ extension ShareCouponViewController {
     fileprivate func shareLINE() {
         self.view.endEditing(true)
         if SNSShare.isLineInstalled() {
-            let images = [UIImage]()
-            let urls = [
-                URL(string: self.coupon!.lineSharing!)!,
-                ]
-            let shareText = "PON"
-            let data = SNSShareData(text: shareText, images: images, urls: urls)
-            SNSShare.post(type: .line, data: data, controller: self, completion: { result in
-                switch result {
-                case .success:
-                    print("Posted!!")
-                case .failure(let error):
-                    print(error)
+            self.showHUD()
+            var images = [UIImage]()
+            PonImageDownloader.shared.downloadImage(self.coupon!.imageURL!, completion: { (_ result: UIImage?, _ error: NSError?) in
+                self.hideHUD()
+                if let _ = result {
+                    images.append(result!)
+                } else {
+                    
                 }
+                let urls = [URL(string: self.coupon!.lineSharing!)!]
+                let shareText = self.coupon!.lineHashTag!
+                let data = SNSShareData(text: shareText, images: images, urls: urls)
+                SNSShare.post(type: .line, data: data, controller: self, completion: { result in
+                    switch result {
+                    case .success:
+                        print("Posted!!")
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
             })
         }else {
             UIAlertController.present(title: "", message: InstallLine, actionTitles: [OK])
@@ -134,22 +146,26 @@ extension ShareCouponViewController {
     
      fileprivate func shareTwitter() {
         self.view.endEditing(true)
-        let urls = [
-            URL(string: self.coupon!.twitterSharing!)!
-        ]
-        
-        let data = SNSShareData(
-            text: "",
-            images: [UIImage](),
-            urls: urls
-        )
-        SNSShare.post(type: .twitter, data: data, controller: self, completion: { result in
-            switch result {
-            case .success:
-                print("Posted!!")
-            case .failure(let et):
-                print(et)
+        self.showHUD()
+        var images = [UIImage]()
+        PonImageDownloader.shared.downloadImage(self.coupon!.imageURL!, completion: { (_ result: UIImage?, _ error: NSError?) in
+            self.hideHUD()
+            if let _ = result {
+                images.append(result!)
+            } else {
+                
             }
+            let urls = [URL(string: self.coupon!.twitterSharing!)!]
+            let shareText = self.coupon!.twitterHashtag!
+            let data = SNSShareData(text: shareText, images: images, urls: urls)
+            SNSShare.post(type: .twitter, data: data, controller: self, completion: { result in
+                switch result {
+                case .success:
+                    print("Posted!!")
+                case .failure(let et):
+                    print(et)
+                }
+            })
         })
     }
     

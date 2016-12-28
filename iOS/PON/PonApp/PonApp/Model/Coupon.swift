@@ -200,6 +200,7 @@ struct Coupon {
         
         if let twitterSharing = response!["twitter_sharing"].string {
             let data: [String] = twitterSharing.components(separatedBy: "\n")
+            self.twitterHashtag = data[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.twitterSharing = data[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }else {
             self.twitterSharing = ""

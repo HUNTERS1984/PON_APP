@@ -147,6 +147,7 @@
 		4ADEE8B21DB1CCCB0049BA24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADEE8B11DB1CCCB0049BA24 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA0450B71DB466BC00C41EC4 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */; };
 		FA04F0E61DAB8A2E0010F3B0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */; };
+		FA09A9831E1386CA00F7A7A3 /* PonImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09A9821E1386CA00F7A7A3 /* PonImageDownloader.swift */; };
 		FA0C23511DBDBC9D00F9D988 /* coupon_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */; };
 		FA0C23521DBDBC9D00F9D988 /* coupon_qr_code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */; };
 		FA29C2A81DF95EE50012A773 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29C2A71DF95EE50012A773 /* Delay.swift */; };
@@ -524,6 +525,7 @@
 		FA0450B61DB466BC00C41EC4 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		FA04F0E51DAB8A2E0010F3B0 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		FA07EFB21DA7A75F00438C9D /* PonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonApp.entitlements; sourceTree = "<group>"; };
+		FA09A9821E1386CA00F7A7A3 /* PonImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PonImageDownloader.swift; sourceTree = "<group>"; };
 		FA0C234F1DBDBC9D00F9D988 /* coupon_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@2x.png"; sourceTree = "<group>"; };
 		FA0C23501DBDBC9D00F9D988 /* coupon_qr_code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_qr_code@3x.png"; sourceTree = "<group>"; };
 		FA29C2A71DF95EE50012A773 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		4A85F2A21D9ABCDD00733161 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				FA09A9821E1386CA00F7A7A3 /* PonImageDownloader.swift */,
 				4A85F2A41D9ABCDD00733161 /* LocationManager.swift */,
 				FA7A7DE31D9B5F20008A817B /* UserDataManager.swift */,
 				4AB360BC1D9F5C1500DE3C8A /* ReachabilityManager.swift */,
@@ -2023,6 +2026,7 @@
 				4A85F3A81D9ABCDD00733161 /* Shop.swift in Sources */,
 				4A85F4021D9ABCDD00733161 /* IQTitleBarButtonItem.m in Sources */,
 				4A649A981D9C1B410080E976 /* MainCouponContentViewController.swift in Sources */,
+				FA09A9831E1386CA00F7A7A3 /* PonImageDownloader.swift in Sources */,
 				4AA865641DA0F47B00A09831 /* Category.swift in Sources */,
 				4A85F42F1D9ABCDD00733161 /* EditAccountViewController.swift in Sources */,
 				4A84962F1DF996D5004A4A61 /* PopupBackgroundView.swift in Sources */,
