@@ -292,4 +292,10 @@ public struct ApiRequest {
         ]
         ApiManager.processRequest(ForgotPassword, method: .POST, parameters: parameters, hasAuth: false, completion: completion)
     }
+    
+    static func getSettingUrl(_ type: String, completion: @escaping (ApiCompletion)) {
+        //contact, term, privacy, trade
+        let url = SettingUrl + type
+        ApiManager.processRequest(url, method: .GET, hasAuth: false, completion: completion)
+    }
 }

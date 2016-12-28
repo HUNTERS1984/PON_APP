@@ -184,17 +184,19 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let vc = TermsOfServiceViewController.instanceFromStoryBoard("Account")
             self.navigationController?.pushViewController(vc!, animated: true)
-            break;
+            break
         case 1:
             let vc = PrivacyPolicyViewController.instanceFromStoryBoard("Account")
             self.navigationController?.pushViewController(vc!, animated: true)
-            break;
+            break
         case 2:
             let vc = SpecifiedTradeViewController.instanceFromStoryBoard("Account")
             self.navigationController?.pushViewController(vc!, animated: true)
-            break;
+            break
         case 3:
-            break;
+            let vc = ContactUsViewController.instanceFromStoryBoard("Account")
+            self.navigationController?.pushViewController(vc!, animated: true)
+            break
         case 4:
             break;
         case 5:
@@ -208,12 +210,12 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
             }else {
                 self.logout()
             }
-            break;
+            break
         case 6:
             self.logout()
-            break;
+            break
         default:
-            break;
+            break
         }
     }
 }

@@ -35,7 +35,13 @@ struct Coupon {
     var categoryIcon: String!
     var code: String!
     var maskCouponId: String!
-    var link: String!
+    var link: String?
+    var twitterSharing: String?
+    var twitterHashtag: String?
+    var instagramSharing: String?
+    var instagramHashtag: String?
+    var lineSharing: String?
+    var lineHashTag: String?
     
     var shopCoordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: Double(shopLatitude), longitude: Double(shopLongitude))
@@ -189,8 +195,28 @@ struct Coupon {
         
         if let link = response!["link"].string {
             self.link = link
+        }
+        
+        
+        if let twitterSharing = response!["twitter_sharing"].string {
+            let data: [String] = twitterSharing.components(separatedBy: "\n")
+            self.twitterSharing = data[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }else {
-            self.link = ""
+            self.twitterSharing = ""
+        }
+        
+        if let instagramSharing = response!["instagram_sharing"].string {
+            self.instagramSharing = instagramSharing
+        }else {
+            self.instagramSharing = ""
+        }
+        
+        if let lineSharing = response!["line_sharing"].string {
+            let data: [String] = lineSharing.components(separatedBy: "\n")
+            self.lineHashTag = data[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.lineSharing = data[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }else {
+            self.lineSharing = ""
         }
     }
     

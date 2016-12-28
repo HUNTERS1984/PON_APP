@@ -77,14 +77,17 @@ extension ShareCouponViewController {
     }
     
     @IBAction func facebookButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.presentShareCouponToFacebook(self, initialText: "", url: self.coupon!.link, image: nil)
+        if let _ = self.coupon!.link {
+            ShareCouponManager.shared.presentShareCouponToFacebook(self, initialText: "", url: self.coupon!.link!, image: nil)
+        }
     }
     
     @IBAction func twitterButtonPressed(_ sender: AnyObject) {
-        ShareCouponManager.shared.presentShareCouponToTwitter(self, initialText: "", url: self.coupon!.link, image: nil)
+//        ShareCouponManager.shared.presentShareCouponToTwitter(self, initialText: "", url: self.coupon!.link, image: nil)
 //        TwitterLogin.sharedInstance.share(self) { (success: Bool, _ result: Any?) in
 //            
 //        }
+        self.shareTwitter()
     }
     
     @IBAction func lineButtonPressed(_ sender: AnyObject) {
@@ -111,16 +114,16 @@ extension ShareCouponViewController {
         if SNSShare.isLineInstalled() {
             let images = [UIImage]()
             let urls = [
-                URL(string: self.coupon!.link)!,
+                URL(string: self.coupon!.lineSharing!)!,
                 ]
-            let shareText = ""
+            let shareText = "PON"
             let data = SNSShareData(text: shareText, images: images, urls: urls)
             SNSShare.post(type: .line, data: data, controller: self, completion: { result in
                 switch result {
                 case .success:
                     print("Posted!!")
-                case .failure(let et):
-                    print(et)
+                case .failure(let error):
+                    print(error)
                 }
             })
         }else {
@@ -132,7 +135,7 @@ extension ShareCouponViewController {
      fileprivate func shareTwitter() {
         self.view.endEditing(true)
         let urls = [
-            URL(string: self.coupon!.link)!
+            URL(string: self.coupon!.twitterSharing!)!
         ]
         
         let data = SNSShareData(
