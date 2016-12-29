@@ -107,8 +107,9 @@ extension EditAccountViewController {
     }
     
     @IBAction func connectInstagramButtonPressed(_ sender: AnyObject) {
-        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login")
-        let nav = UINavigationController.init(rootViewController: vc!)
+        let vc = InstagramLoginViewController.instanceFromStoryBoard("Login") as! InstagramLoginViewController
+        vc.handler = self
+        let nav = UINavigationController.init(rootViewController: vc)
         self.navigationController!.present(nav, animated: true)
     }
     
@@ -347,6 +348,7 @@ extension EditAccountViewController: IQDropDownTextFieldDelegate {
 
 //MARK: - SNS Connect 
 extension EditAccountViewController {
+    
     fileprivate func updateFacebookToken(_ accessToken: String) {
         self.showHUD()
         ApiRequest.updateFacebookAccessToken(accessToken) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
@@ -378,4 +380,30 @@ extension EditAccountViewController {
             }
         }
     }
+    
+    fileprivate func updateInstagramToken(_ accessToken: String) {
+        self.showHUD()
+        ApiRequest.signInInstagram(accessToken) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                if result?.code == SuccessCode {
+                    self.presentAlert(with: "", message: (result?.message)!)
+                }else {
+                    self.presentAlert(message: (result?.message)!)
+                }
+            }
+        }
+    }
+    
+}
+
+extension EditAccountViewController: InstagramLoginViewControllerDelegate {
+    
+    func instagramLoginViewController(_ viewController: InstagramLoginViewController, didLoginWith accessToken: String) {
+        viewController.dismiss(animated: true)
+        self.updateInstagramToken(accessToken)
+    }
+    
 }

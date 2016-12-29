@@ -9,9 +9,16 @@
 import UIKit
 import InstagramKit
 
+protocol InstagramLoginViewControllerDelegate: class {
+    
+    func instagramLoginViewController(_ viewController: InstagramLoginViewController, didLoginWith accessToken: String)
+    
+}
+
 class InstagramLoginViewController: BaseViewController {
 
     @IBOutlet weak var webView: UIWebView!
+    weak var handler: InstagramLoginViewControllerDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,7 @@ class InstagramLoginViewController: BaseViewController {
     
     override func setUpUserInterface() {
         super.setUpUserInterface()
+        InstagramEngine.shared().logout()
         let authURL = InstagramEngine.shared().authorizationURL()
         self.webView.loadRequest(URLRequest(url: authURL))
         
@@ -42,7 +50,9 @@ extension InstagramLoginViewController: UIWebViewDelegate {
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         do {
             try InstagramEngine.shared().receivedValidAccessToken(from: request.url!)
-            print(InstagramEngine.shared().accessToken!)
+            let accessToken = InstagramEngine.shared().accessToken!
+            print("Instagram Access Token: " + accessToken)
+            self.handler?.instagramLoginViewController(self, didLoginWith: accessToken)
         }catch {
             
         }

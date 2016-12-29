@@ -1677,7 +1677,7 @@
 				TargetAttributes = {
 					FA33FCE71D77BFDA0048EF73 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = M8AF2Y2268;
+						DevelopmentTeam = JQ8B5GA2WL;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -2231,7 +2231,7 @@
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = M8AF2Y2268;
+				DEVELOPMENT_TEAM = JQ8B5GA2WL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2240,10 +2240,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hunters.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ee029b8-6ff7-422f-adb9-25f932e9e2bd";
-				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				PROVISIONING_PROFILE = "588e9549-fa2b-4a42-bb5e-3d8ea0ac2c39";
+				PROVISIONING_PROFILE_SPECIFIER = Pon_Dev;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -2260,7 +2260,7 @@
 				CODE_SIGN_ENTITLEMENTS = PonApp/PonApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Le (GX55Z9383C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = M8AF2Y2268;
+				DEVELOPMENT_TEAM = JQ8B5GA2WL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PonApp/Frameworks",
@@ -2269,10 +2269,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msoft.pon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hunters.pon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ee029b8-6ff7-422f-adb9-25f932e9e2bd";
-				PROVISIONING_PROFILE_SPECIFIER = PON_Dev;
+				PROVISIONING_PROFILE = "588e9549-fa2b-4a42-bb5e-3d8ea0ac2c39";
+				PROVISIONING_PROFILE_SPECIFIER = Pon_Dev;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./PonApp/Header/ObjC-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -28,10 +28,8 @@ let ClientId                                    = "1_3bcbxd9e24g0gk4swg0kwgcwg4o
 let ClientSecret                                = "4ok2x70rlfokc8g0wws8c8kwcokw80k44sg48goc0ok4w0so0k"
 
 let FacebookAppID                               = "324209427951910"
-let OneSignalAppID                              = "8bd3dabf-927b-4e27-8568-cf22d7a586bd"
-
-//let OneSignalAppID                              = "b3805ab7-b174-40d0-9d1c-ae30f4519316"
-//let OneSignalAppKey                             = "YWY1NDA0YmUtNjFhMS00MWZlLTgzNjUtMmY2OThjODdmODZj"
+let OneSignalAppID                              = "42110bfd-23fb-4e29-bd2a-549778e069d6"
+let OneSignalAppKey                             = "NjFjMWJhYTYtMjBlZi00OTU4LWFhZTctZTM4MWQyNmU2ODVl"
 
 let DefaultPageSize                             = 10
 
@@ -61,3 +59,10 @@ let LikeCouponNotification                      = "LikeCouponNotification"
 
 //<string name="sns_connect">連携</string>
 //<string name="sns_disconnect">非接続</string>
+
+//public static final String INSTAGRAM_CLIENT_ID = "cd9f614f85f44238ace18045a51c44d1";
+//public static final String INSTAGRAM_CLIENT_SECRET = "d839149848c04447bd379ce8bff4d890";
+//public static final String INSTAGRAM_CALLBACK_URL = "https://mytenant.auth0.com/login/callback";
+
+//private static final String TWITTER_KEY = "002neLhPbyLMt6rBP68wVVstN";
+//private static final String TWITTER_SECRET = "u2Cp1LFDin1zeQXxqXdgQEddZP06wsEPMxotStnThe7OsBVK43";

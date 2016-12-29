@@ -74,7 +74,7 @@ class TwitterLogin {
                 
                 let composer = TWTRComposer()
                 composer.setText("HAO")
-                composer.setURL(URL(string: "pon.com"))
+                composer.setURL(URL(string: "pon.cm"))
                 composer.show(from: aViewController, completion: { result in
                     if result == TWTRComposerResult.cancelled {
                         print("Tweet composition cancelled")
