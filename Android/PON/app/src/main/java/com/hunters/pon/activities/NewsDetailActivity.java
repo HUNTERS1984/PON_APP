@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hunters.pon.R;
@@ -32,6 +34,7 @@ public class NewsDetailActivity extends BaseActivity implements OnLoadDataListen
     private ViewPager mPagerNewsPhotos;
     private CirclePageIndicator mPageIndicatorNews;
     private PhotoCouponPagerAdapter mNewsPhotoPagerAdapter;
+    private RelativeLayout mRlPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class NewsDetailActivity extends BaseActivity implements OnLoadDataListen
         mTvNewsDate = (TextView)findViewById(R.id.tv_news_date);
         mTvNewsDescription = (TextView)findViewById(R.id.tv_news_description);
 
+        mRlPhotos = (RelativeLayout)findViewById(R.id.rl_news_photo);
         mPagerNewsPhotos = (ViewPager)findViewById(R.id.pager_news_photo);
         mNewsPhotoPagerAdapter = new PhotoCouponPagerAdapter(this, mLstNewsPhotos);
         mPagerNewsPhotos.setAdapter(mNewsPhotoPagerAdapter);
@@ -86,8 +90,13 @@ public class NewsDetailActivity extends BaseActivity implements OnLoadDataListen
                         mTvNewsDate.setText(CommonUtils.convertDateFormat(news.data.getmTime()));
                         mTvNewsDescription.setText(news.data.getmDescription());
 
-                        mLstNewsPhotos = news.data.getmLstNewPhotos();
-                        mNewsPhotoPagerAdapter.updatePhotos(mLstNewsPhotos);
+                        if(news.data.getmLstNewPhotos() != null) {
+                            mLstNewsPhotos = news.data.getmLstNewPhotos();
+                            mNewsPhotoPagerAdapter.updatePhotos(mLstNewsPhotos);
+                            mRlPhotos.setVisibility(View.VISIBLE);
+                        } else {
+                            mRlPhotos.setVisibility(View.GONE);
+                        }
                     } else {
                         new DialogUtiils().showDialog(mContext, getString(R.string.server_error), true);
                     }
