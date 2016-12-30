@@ -723,12 +723,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzE-0N-ang" userLabel="Slide View" customClass="ImageSlideshow" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZL1-FC-sfu" userLabel="Info View" customClass="BottomBorderView" customModule="PonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="200" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリが入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5s-Iw-YHp" userLabel="Name Label">
                                         <rect key="frame" x="20" y="18" width="108" height="16"/>
@@ -768,7 +764,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mWc-6B-0qs">
-                                <rect key="frame" x="20" y="290" width="335" height="357"/>
+                                <rect key="frame" x="20" y="90" width="335" height="557"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.50980392156862742" green="0.53725490196078429" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
@@ -781,20 +777,15 @@
                             <constraint firstItem="mWc-6B-0qs" firstAttribute="top" secondItem="ZL1-FC-sfu" secondAttribute="bottom" constant="20" id="5w6-db-HVx"/>
                             <constraint firstAttribute="trailing" secondItem="mWc-6B-0qs" secondAttribute="trailing" constant="20" id="Cv1-TW-ZFJ"/>
                             <constraint firstItem="mWc-6B-0qs" firstAttribute="leading" secondItem="3se-ly-rJy" secondAttribute="leading" constant="20" id="G4Q-33-Ljz"/>
+                            <constraint firstItem="ZL1-FC-sfu" firstAttribute="top" secondItem="3se-ly-rJy" secondAttribute="top" id="RVg-RV-yDU"/>
                             <constraint firstAttribute="trailing" secondItem="ZL1-FC-sfu" secondAttribute="trailing" id="TzB-S2-X3d"/>
-                            <constraint firstItem="GzE-0N-ang" firstAttribute="height" secondItem="3se-ly-rJy" secondAttribute="height" multiplier="200/667" id="fV7-Vs-E01"/>
-                            <constraint firstItem="GzE-0N-ang" firstAttribute="top" secondItem="3se-ly-rJy" secondAttribute="top" id="g7o-EA-rfh"/>
-                            <constraint firstItem="ZL1-FC-sfu" firstAttribute="top" secondItem="GzE-0N-ang" secondAttribute="bottom" id="iLJ-xp-APb"/>
                             <constraint firstItem="2jb-dT-Z2Z" firstAttribute="top" secondItem="mWc-6B-0qs" secondAttribute="bottom" constant="20" id="iOi-jA-WZX"/>
-                            <constraint firstAttribute="trailing" secondItem="GzE-0N-ang" secondAttribute="trailing" id="jHw-5H-JE0"/>
-                            <constraint firstItem="GzE-0N-ang" firstAttribute="leading" secondItem="3se-ly-rJy" secondAttribute="leading" id="nY1-Z6-LQQ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="dateLabel" destination="a74-ie-sS6" id="cj6-rA-Cah"/>
                         <outlet property="descriptionTextView" destination="mWc-6B-0qs" id="D1t-65-UTv"/>
-                        <outlet property="imageSlideshow" destination="GzE-0N-ang" id="N1C-0s-hEE"/>
                         <outlet property="titleLabel" destination="aCB-u1-bOt" id="J9s-Qf-jdZ"/>
                         <outlet property="typeLabel" destination="N5s-Iw-YHp" id="fLl-FZ-4xc"/>
                     </connections>
