@@ -24,7 +24,7 @@ android {
         //Project Number : Customer : 1057789470807. App Id: 09e18dda-fe75-4186-ad95-d977ab6b4a54
         //Mine : 700347755871 . App Id : d9c23c43-18e7-412d-bbb0-7908698fe271
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                                onesignal_app_id: "8bd3dabf-927b-4e27-8568-cf22d7a586bd",
+                                onesignal_app_id: "42110bfd-23fb-4e29-bd2a-549778e069d6",
                                 onesignal_google_project_number: "1057789470807"]
         minSdkVersion 16
         targetSdkVersion 23
