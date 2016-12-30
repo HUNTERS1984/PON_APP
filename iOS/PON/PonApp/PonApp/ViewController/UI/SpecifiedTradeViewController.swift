@@ -33,30 +33,24 @@ class SpecifiedTradeViewController: BaseViewController {
     
     override func setUpComponentsOnLoad() {
         super.setUpComponentsOnLoad()
-        self.getURL()
+        self.contentWebView.delegate = self
+        self.contentWebView.loadRequest(URLRequest(url: URL(string: SpecificTradeUrl)!))
     }
     
 }
 
-extension SpecifiedTradeViewController {
+extension SpecifiedTradeViewController: UIWebViewDelegate {
     
-    fileprivate func getURL() {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         self.showHUD()
-        ApiRequest.getSettingUrl("trade") { [weak self] (request: URLRequest?, result: ApiResponse?, error: NSError?) in
-            self?.hideHUD()
-            if let _ = error {
-                
-            }else {
-                if result?.code == SuccessCode {
-                    if let _ = result?.data!["value"].string {
-                        let url = result?.data!["value"].string
-                        self?.contentWebView.loadRequest(URLRequest(url: URL(string: url!)!))
-                    }
-                }else {
-                    self?.presentAlert(message: (result?.message)!)
-                }
-            }
-        }
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.hideHUD()
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        self.hideHUD()
     }
     
 }

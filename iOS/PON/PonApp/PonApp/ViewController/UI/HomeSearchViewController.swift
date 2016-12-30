@@ -42,6 +42,15 @@ class HomeSearchViewController: BaseViewController {
         self.categoryTableView.tableFooterView = UIView()
         self.getCouponCategory(currentPage)
     }
+    
+    override func startGoogleAnalytics() {
+        super.startGoogleAnalytics()
+        guard let tracker = GAI.sharedInstance().defaultTracker else { return }
+        tracker.set(kGAIScreenName, value: GAScreen_Search)
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
 
 }
 
@@ -75,6 +84,8 @@ extension HomeSearchViewController {
         searchBox.attributedPlaceholder = NSAttributedString(string:"地名/ショップ名を入力", attributes:[NSForegroundColorAttributeName: UIColor(hex: 0xd1f2f6)])
         searchBox.borderStyle = .none
         searchBox.autoresizingMask = .flexibleWidth
+        searchBox.returnKeyType = .search
+        searchBox.delegate = self
 
         
         let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
@@ -131,6 +142,32 @@ extension HomeSearchViewController {
         }
     }
     
+    fileprivate func seachCoupon(_ searchText: String) {
+        self.showHUD()
+        ApiRequest.searchCoupon(searchText, pageIndex: 0, hasAuth: UserDataManager.isLoggedIn()) { (request: URLRequest?, result: ApiResponse?, error: NSError?) in
+            self.hideHUD()
+            if let _ = error {
+                
+            }else {
+                var responseCoupon = [Coupon]()
+                let couponsArray = result?.data?.array
+                if let _ = couponsArray {
+                    if couponsArray!.count > 0 {
+                        for couponData in couponsArray! {
+                            let coupon = Coupon(response: couponData)
+                            responseCoupon.append(coupon)
+                        }
+                        let vc = SearchResultViewController.instanceFromStoryBoard("Search") as! SearchResultViewController
+                        vc.coupons = responseCoupon
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else {
+                        self.presentAlert(with: "", message: NoResult)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
@@ -174,6 +211,24 @@ extension HomeSearchViewController: UIScrollViewDelegate {
             canLoadMore = false
             self.getCouponCategory(self.nextPage)
         }
+    }
+    
+}
+
+extension HomeSearchViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .search {
+            textField.resignFirstResponder()
+            let seachText = textField.text//山岸舞
+//            let seachText: String? = "山岸舞"
+            if let _ = seachText {
+                if seachText!.characters.count > 0 {
+                    self.seachCoupon(seachText!)
+                }
+            }
+        }
+        return true
     }
     
 }

@@ -536,7 +536,7 @@
         <!--Specified Trade View Controller-->
         <scene sceneID="CIq-4e-Me7">
             <objects>
-                <viewController storyboardIdentifier="SpecifiedTradeViewController" id="U8Y-ln-oVh" customClass="SpecifiedTradeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpecifiedTradeViewController" automaticallyAdjustsScrollViewInsets="NO" id="U8Y-ln-oVh" customClass="SpecifiedTradeViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WfL-hU-VrD"/>
                         <viewControllerLayoutGuide type="bottom" id="4WV-Dh-r87"/>
@@ -570,7 +570,7 @@
         <!--Privacy Policy View Controller-->
         <scene sceneID="GFd-rV-iU7">
             <objects>
-                <viewController storyboardIdentifier="PrivacyPolicyViewController" id="1AP-jF-OSW" customClass="PrivacyPolicyViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyPolicyViewController" automaticallyAdjustsScrollViewInsets="NO" id="1AP-jF-OSW" customClass="PrivacyPolicyViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jLx-hg-LTS"/>
                         <viewControllerLayoutGuide type="bottom" id="a0C-9P-lT1"/>
@@ -1015,7 +1015,7 @@
         <!--Contact Us View Controller-->
         <scene sceneID="ouo-Pw-M1e">
             <objects>
-                <viewController storyboardIdentifier="ContactUsViewController" id="EvD-gc-bzt" customClass="ContactUsViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsViewController" automaticallyAdjustsScrollViewInsets="NO" id="EvD-gc-bzt" customClass="ContactUsViewController" customModule="PonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dSP-QU-MYs"/>
                         <viewControllerLayoutGuide type="bottom" id="flg-w1-djJ"/>

@@ -66,3 +66,8 @@ let LikeCouponNotification                      = "LikeCouponNotification"
 
 //private static final String TWITTER_KEY = "002neLhPbyLMt6rBP68wVVstN";
 //private static final String TWITTER_SECRET = "u2Cp1LFDin1zeQXxqXdgQEddZP06wsEPMxotStnThe7OsBVK43";
+
+let TermOfServiceUrl                            = "http://pon.cm/setting/term"
+let PrivatyUrl                                  = "http://pon.cm/setting/privacy"
+let SpecificTradeUrl                            = "http://pon.cm/setting/trade"
+let ContactUsUrl                                = "http://pon.cm/setting/contact"
