@@ -77,6 +77,6 @@ public class Constants {
     public static final String URL_PRIVACY_POLICY = "http://pon.cm/setting/privacy";
     public static final String URL_SPECIFIC_TRADE = "http://pon.cm/setting/trade";
     public static final String URL_CONTACT_US = "http://pon.cm/setting/contact";
-    public static final String URL_HOPE_LIKE_SHOP = "http://pon.cm/setting/contact";
+    public static final String URL_HOPE_LIKE_SHOP = "http://pon.cm/setting/hoping";
 
 }
